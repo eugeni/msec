@@ -20,22 +20,33 @@ AddRules "tty4" /etc/securetty quiet
 AddRules "tty5" /etc/securetty quiet
 AddRules "tty6" /etc/securetty
 
-# Suid Check
-echo "Updating file check variable :"
+# Security check
+echo "Updating file check variable : "
 echo -e "\t- Check suid root file : no."
-AddRules "CHECK_SUID_ROOT=no" /etc/security/msec/security.conf quiet
-echo -e "\t- Check suid goup file : no."
-AddRules "CHECK_SUID_GROUP=no" /etc/security/msec/security.conf quiet
+    AddRules "CHECK_SUID_ROOT=no" /etc/security/msec/security.conf 	quiet
+echo -e "\t- Check suid root file integrity (backdoor check) : no."
+    AddRules "CHECK_SUID_MD5=no" /etc/security/msec/security.conf 	quiet
+echo -e "\t- Check suid group file : no."
+    AddRules "CHECK_SUID_GROUP=no" /etc/security/msec/security.conf	quiet
 echo -e "\t- Check world writable file : no."
-AddRules "CHECK_WRITABLE=no" /etc/security/msec/security.conf quiet
+    AddRules "CHECK_WRITABLE=no" /etc/security/msec/security.conf	quiet
 echo -e "\t- Check unowned file : no."
-AddRules "CHECK_UNOWNED=no" /etc/security/msec/security.conf quiet
+    AddRules "CHECK_UNOWNED=no" /etc/security/msec/security.conf	quiet
 echo -e "\t- Check promiscuous mode : no."
-AddRules "CHECK_PROMISC=no" /etc/security/msec/security.conf quiet
-echo -e "\t- Security warning on tty : no."
-AddRules "TTY_WARN=no" /etc/security/msec/security.conf quiet
-echo -e "\t- Security warning in syslog : yes."
-AddRules "SYSLOG_WARN=yes" /etc/security/msec/security.conf
+    AddRules "CHECK_PROMISC=no" /etc/security/msec/security.conf        quiet
+echo -e "\t- Check listening port : no."                               
+    AddRules "CHECK_OPEN_PORT=no" /etc/security/msec/security.conf	quiet
+echo -e "\t- Check for dangerous .[sr]hosts file : no."                               
+    AddRules "CHECK_RHOST=no" /etc/security/msec/security.conf	        quiet
+echo -e "\t- Check passwd file integrity : no."
+    AddRules "CHECK_PASSWD=no" /etc/security/msec/security.conf	        quiet
+echo -e "\t- Check shadow file integrity : no."
+    AddRules "CHECK_SHADOW=no" /etc/security/msec/security.conf	        quiet
+echo -e "\t- Security warning on tty : \"no\" :"
+    AddRules "TTY_WARN=no" /etc/security/msec/security.conf	        quiet
+echo -e "\t- Security warning in syslog : \"no\" :"			
+    AddRules "SYSLOG_WARN=no" /etc/security/msec/security.conf		
+# end security check
 
 # lilo update
 echo -n "Running lilo to record new config : "

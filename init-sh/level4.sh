@@ -34,22 +34,33 @@ AddRules "tty4" /etc/securetty quiet
 AddRules "tty5" /etc/securetty quiet
 AddRules "tty6" /etc/securetty 
 
-# Suid check
+# Security check
 echo "Updating file check variable : "
 echo -e "\t- Check suid root file : yes."
-AddRules "CHECK_SUID_ROOT=yes" /etc/security/msec/security.conf quiet
-echo -e "\t- Check suid goup file : yes."
-AddRules "CHECK_SUID_GROUP=yes" /etc/security/msec/security.conf quiet
+    AddRules "CHECK_SUID_ROOT=yes" /etc/security/msec/security.conf 	quiet
+echo -e "\t- Check suid root file integrity (backdoor check) : yes."
+    AddRules "CHECK_SUID_MD5=yes" /etc/security/msec/security.conf 	quiet
+echo -e "\t- Check suid group file : yes."
+    AddRules "CHECK_SUID_GROUP=yes" /etc/security/msec/security.conf	quiet
 echo -e "\t- Check world writable file : yes."
-AddRules "CHECK_WRITABLE=yes" /etc/security/msec/security.conf quiet
+    AddRules "CHECK_WRITABLE=yes" /etc/security/msec/security.conf	quiet
 echo -e "\t- Check unowned file : yes."
-AddRules "CHECK_UNOWNED=yes" /etc/security/msec/security.conf quiet
+    AddRules "CHECK_UNOWNED=yes" /etc/security/msec/security.conf	quiet
 echo -e "\t- Check promiscuous mode : yes."
-AddRules "CHECK_PROMISC=yes" /etc/security/msec/security.conf quiet
+    AddRules "CHECK_PROMISC=yes" /etc/security/msec/security.conf       quiet
+echo -e "\t- Check listening port : yes."                               
+    AddRules "CHECK_OPEN_PORT=yes" /etc/security/msec/security.conf	quiet
+echo -e "\t- Check for dangerous .[sr]hosts file : yes."                               
+    AddRules "CHECK_RHOST=yes" /etc/security/msec/security.conf	        quiet
+echo -e "\t- Check passwd file integrity : yes."
+    AddRules "CHECK_PASSWD=yes" /etc/security/msec/security.conf	quiet
+echo -e "\t- Check shadow file integrity : yes."
+    AddRules "CHECK_SHADOW=yes" /etc/security/msec/security.conf	quiet
 echo -e "\t- Security warning on tty : \"yes\" :"
-AddRules "TTY_WARN=yes" /etc/security/msec/security.conf quiet
-echo -e "\t- Security warning in syslog : \"yes\" :"
-AddRules "SYSLOG_WARN=yes" /etc/security/msec/security.conf
+    AddRules "TTY_WARN=yes" /etc/security/msec/security.conf	        quiet
+echo -e "\t- Security warning in syslog : \"yes\" :"			
+    AddRules "SYSLOG_WARN=yes" /etc/security/msec/security.conf		
+# end security check
 
 # Check every 1 minutes for promisc problem
 echo "Adding promisc check in crontab (scheduled every minutes) :"

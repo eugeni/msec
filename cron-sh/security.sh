@@ -69,6 +69,7 @@ RPM_QA_YESTERDAY="/var/log/security/rpm-qa.yesterday"
 RPM_QA_DIFF="/var/log/security/rpm-qa.diff"
 export CHKROOTKIT_TODAY="/var/log/security/chkrootkit.today"
 CHKROOTKIT_YESTERDAY="/var/log/security/chkrootkit.yesterday"
+export EXCLUDE_REGEXP
 
 # Modified filters coming from debian security scripts.
 CS_NFSAFS='(nfs|afs|coda)'
@@ -78,6 +79,8 @@ CS_DIRS='on /mnt'
 FILTERS="$CS_TYPES|$CS_DEVS|$CS_DIRS"
 DIR=`mount | grep -vE "$FILTERS" | cut -d ' ' -f3`
 PRINT="%h/%f\n"
+EXCLUDEDIR=`mount | grep -E "$FILTERS" | cut -d ' ' -f3`
+export EXCLUDEDIR
 
 if [[ ! -d /var/log/security ]]; then
     mkdir /var/log/security

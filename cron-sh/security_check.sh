@@ -23,6 +23,7 @@ INFOS=`mktemp /tmp/secure.XXXXXX`
 SECURITY=`mktemp /tmp/secure.XXXXXX`
 SECURITY_LOG="/var/log/security.log"
 TMP=`mktemp /tmp/secure.XXXXXX`
+FILTER="\(`echo $EXCLUDEDIR | sed -e 's/ /\\\|/g'`\)"
 
 if [[ ! -d /var/log/security ]]; then
     mkdir /var/log/security
@@ -63,12 +64,14 @@ list=".netrc .rhosts .shosts .Xauthority .gnupg/secring.gpg \
 .pgp/secring.pgp .ssh/identity .ssh/id_dsa .ssh/id_rsa .ssh/random_seed"
 getent passwd | awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' | 
 while read username uid homedir; do
-    for f in ${list} ; do
-	file="${homedir}/${f}"
-	if [[ -f ${file} ]] ; then
-	    printf "${uid} ${username} ${file} `ls -LldcGn ${file}`\n"
-	fi
-    done
+    if ! expr $homedir : $FILTER  > /dev/null; then
+	for f in ${list} ; do
+	    file="${homedir}/${f}"
+	    if [[ -f ${file} ]] ; then
+		printf "${uid} ${username} ${file} `ls -LldcGn ${file}`\n"
+	    fi
+	done
+    fi
 done | awk '$1 != $6 && $6 != "0" \
         { print "\t\t- " $3 " : file is owned by uid " $6 "." }
 	$4 ~ /^-...r/ \
@@ -92,12 +95,14 @@ list=".bashrc .bash_profile .bash_login .bash_logout .cshrc .emacs .exrc \
 .ssh/known_hosts .ssh/rc .twmrc .xsession .xinitrc .Xdefaults"
 getent passwd | awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' | \
 while read username uid homedir; do
+    if ! expr $homedir : $FILTER  > /dev/null; then
         for f in ${list} ; do
                 file=${homedir}/${f}
                 if [[ -f ${file} ]] ; then
                         printf "${uid} ${username} ${file} `ls -LldcGn ${file}`\n"
                 fi
         done
+    fi
 done | awk '$1 != $6 && $6 != "0" \
         { print "\t\t- " $3 " : file is owned by uid " $6 "." }
      $4 ~ /^.....w/ \
@@ -113,12 +118,14 @@ fi
 ### Check home directories.  Directories should not be owned by someone else or writable.
 getent passwd | awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' | \
 while read username uid homedir; do
+    if ! expr $homedir : $FILTER  > /dev/null; then
         if [[ -d ${homedir} ]] ; then
                 realuid=`ls -LldGn ${homedir}| awk '{ print $3 }'`
                 realuser=`ls -LldG ${homedir}| awk '{ print $3 }'`
                 permissions=`ls -LldG ${homedir}| awk '{ print $1 }'`
                 printf "${permissions} ${username} (${uid}) ${realuser} (${realuid})\n"
         fi
+    fi
 done | awk '$3 != $5 && $5 != "(0)" \
         { print "user=" $2 $3 " : home directory is owned by " $4 $5 "." }
      $1 ~ /^d....w/ && $2 != "lp" && $2 != "mail" \
@@ -206,16 +213,18 @@ done > ${TMP}
 
 getent passwd | awk -F: '{print $1" "$6}' |
     while read username homedir; do
-	for file in .rhosts .shosts; do
-	    if [[ -s ${homedir}/${file} ]] ; then
-		awk '{
-			if ($0 ~ /^\+@.*$/)
-			    next;
-			if ($0 ~ /^\+.*$/)
-			    printf("\t\t- %s: %s\n", FILENAME, $0);
-		}' ${homedir}/${file}
-	    fi
-	done >> ${TMP}
+	if ! expr $homedir : $FILTER  > /dev/null; then
+	    for file in .rhosts .shosts; do
+		if [[ -s ${homedir}/${file} ]] ; then
+		    awk '{
+			    if ($0 ~ /^\+@.*$/)
+				next;
+			    if ($0 ~ /^\+.*$/)
+				printf("\t\t- %s: %s\n", FILENAME, $0);
+		    }' ${homedir}/${file}
+		fi
+	    done >> ${TMP}
+	fi
     done
 	
 if [[ -s ${TMP} ]]; then

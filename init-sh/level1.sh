@@ -56,11 +56,19 @@ echo -e "done.\n"
 # /etc/profile
 echo "Setting secure level variable to 1 :"
 AddRules "SECURE_LEVEL=1" /etc/profile
-echo "Setting umask to 002 (user = rw, group = rw, o = r) :"
+echo "Setting umask to 002 (u=rw,g=rw,o=r) :"
 AddRules "umask 002" /etc/profile
 echo "Adding \"non secure\" PATH variable :"
-AddRules "PATH=\$PATH:/usr/X11R6/bin:." /etc/profile
+AddRules "PATH=\$PATH:/usr/X11R6/bin:." /etc/profile quiet
+AddRules "export PATH SECURE_LEVEL" /etc/profile
 
 # Group
 echo "Adding \"${USERNAME} to audio group :"
 usermod -G audio "${USERNAME}"
+
+
+
+
+
+
+

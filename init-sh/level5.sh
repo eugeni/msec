@@ -93,10 +93,11 @@ done
 echo -e "done.\n";
 
 # /etc/profile
-echo "Setting umask to 077 (user = rw) :"
+echo "Setting umask to 077 (u=rw) :"
 AddRules "umask 077" /etc/profile 
 echo "Adding \"normal\" PATH variable :"
-AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile
+AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile quiet
+AddRules "export PATH SECURE_LEVEL" /etc/profile
 
 echo
 echo "You are now running your system in security level 5,"

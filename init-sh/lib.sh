@@ -47,7 +47,7 @@ AddRules () {
 		echo "Modifying config in ${file}..."
 	fi	
 	
-	if ! grep -qx "${string}" ${file}; then
+	if ! grep -Eqx "^${string}" ${file}; then
 		echo "${COMMENT}" >> ${file};
 		echo "${string}" >> ${file};
 	fi
@@ -60,7 +60,7 @@ CleanRules() {
     file=$1
     ctrl=0
 
-	echo -en "\t- Cleaning msec appended line in ${file} : "
+    echo -en "\t- Cleaning msec appended line in ${file} : "
     mv -f ${file} /tmp/secure.tmp
     touch ${file}
 

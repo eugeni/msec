@@ -1,3 +1,51 @@
+2003-10-30 16:00  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: handle
+	/var/lib/rpm/Packages
+
+2003-10-15 22:38  Thierry Vignaud <tvignaud@mandrakesoft.com>
+
+	* AUTHORS: list tv too
+
+2003-10-15 22:36  Thierry Vignaud <tvignaud@mandrakesoft.com>
+
+	* AUTHORS, README, TODO: fix #6145 (list current maintainer instead
+	of old one)
+
+2003-10-15 22:36  Thierry Vignaud <tvignaud@mandrakesoft.com>
+
+	* Makefile: enable to build srpm only
+
+2003-10-09 07:59  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: document same_level
+
+2003-10-08 23:15  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: use local_config
+
+2003-10-08 23:15  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/shadow.py: Added local_config to say that the calls are now
+	coming from the config file.  Call force_val in indirect to store
+	that the arguments of the function need to be used even if the
+	security is lowered.
+
+2003-10-08 23:10  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: Rework same_level to be able to put the
+	priority on the config file.  This is realized by inspecting the
+	stack trace and using a global associative array.
+
+2003-10-08 21:33  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* man/: fr/msec.8, cs/msec.8, et/msec.8, ru/msec.8: Linux-Mandrake
+	=> Mandrake Linux
+
+2003-09-08 15:09  Pablo Saratxaga <pablo@mandrakesoft.com>
+
+	* man/cs/msec.8: updated Czech man page
+
 2003-09-03 17:45  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.40-1mdk

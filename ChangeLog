@@ -1,22 +1,16 @@
-2001-09-19    <yoann@no.mandrakesoft.com>
+2001-09-19 13:30  yoann
 
-	* msec.spec:
-	Install the manpages and the logrotate config.
+	* msec.spec: [no log message]
 
-	* init-sh/level0.sh:	
-	* init-sh/level1.sh: 
-	* init-sh/level2.sh:
-	* init-sh/level3.sh:
-	* init-sh/level4.sh:
-	* init-sh/level5.sh:
-	* init-sh/lib.sh:
+2001-09-19 13:18  yoann
 
-	Export the SECURE_LEVEL environment variable in 
-	/etc/profile.d/msec. This should fix the problem with 
-	certain terminal not reading /etc/profile, because each
-	~/.bashrc file source /etc/profile.d files automatically.
+	* msec.spec: [no log message]
 
-	
+2001-09-19 11:37  yoann
+
+	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
+	level5.sh, lib.sh: [no log message]
+
 2001-09-17 19:14  Daouda Lo <daouda@mandrakesoft.com>
 
 	* msec.logrotate: logrotate file

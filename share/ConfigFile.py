@@ -325,6 +325,27 @@ class ConfigFile:
             matches = matches + 1
         return matches
 
+    def insert_before(self, regex, value, at_top_if_not_found=0, all=0):
+        matches = 0
+        r=re.compile(regex)
+        lines = self.get_lines()
+        for idx in range(0, len(lines)):
+            res = r.search(lines[idx])
+            if res:
+                s = substitute_re_result(res, value)
+                log(_("inserted in %s before the line %d:\n%s\nthe line:\n%s") % (self.path, idx, lines[idx], s))
+                lines.insert(idx, s)
+                self.modified()
+                matches = matches + 1
+                if not all:
+                    return matches
+        if matches == 0 and at_top_if_not_found:
+            log(_("inserted at the top of %s the line:\n%s") % (self.path, value))
+            lines.insert(0, value)
+            self.modified()
+            matches = matches + 1
+        return matches
+
     def insert_at(self, idx, value):
         lines = self.get_lines()
         try:

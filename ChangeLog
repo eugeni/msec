@@ -1,3 +1,6 @@
+1999-12-19  Pixel  <pixel@mandrakesoft.com>
+	* Makefile (VERSION): make it the same as the .spec
+
 1999-12-18  Pixel  <pixel@mandrakesoft.com>
 	* init-sh/lib.sh: added failsafe for not a tty stdin
 

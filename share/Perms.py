@@ -135,7 +135,7 @@ def get_sylink_name(path):
 # content of the path file.
 assoc = {}
 
-def fix_perms(path, _interactive):
+def fix_perms(path, _interactive, force):
     try:
         file = open(path, 'r')
     except IOError:
@@ -215,7 +215,7 @@ def fix_perms(path, _interactive):
                     f = f[:-1]
                 if f[-2:] == '/.':
                     f = f[:-2]
-                assoc[f] = (mode, uid, gid, newperm, user, group, user_str, group_str, mandatory)
+                assoc[f] = (mode, uid, gid, newperm, user, group, user_str, group_str, mandatory or force)
         else:
             error(_('invalid syntax in %s line %d') % (path, lineno))
     file.close()
@@ -305,9 +305,10 @@ if __name__ == '__main__':
     _interactive and log(_('Fixing owners and permissions of files and directories'))
     
     # process the files
-    for p in args:
+    fix_perms(args[0], _interactive, 0)
+    for p in args[1:]:
         _interactive and log(_('Reading data from %s') % p)
-        fix_perms(p, _interactive)
+        fix_perms(p, _interactive, 1)
 
     # do the modifications
     act(change)

@@ -1,3 +1,12 @@
+2002-01-21 11:23  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.17-14mdk
+
+2002-01-21 11:19  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.3, perm.4, perm.5, perm.snf: make mandrake_consmap
+	755 because we it needs to be readable by everyone
+
 2002-01-20 23:18  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.17-13mdk

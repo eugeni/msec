@@ -1,3 +1,24 @@
+2004-07-07 10:34  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/perm.3: fixed mailman permissions on files
+
+2004-06-22 11:11  Pixel <pixel@mandrakesoft.com>
+
+	* msec.csh: you can't do   if ( ${?SECURE_LEVEL} && ${SECURE_LEVEL}
+	  <= 1 ) then in csh
+
+2004-06-18 01:52  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/security_check.sh: use getent
+
+2004-06-08 18:33  Florin Grad <florin@mandrakesoft.com>
+
+	* conf/server.4: add ospfd
+
+2004-06-08 18:31  Florin Grad <florin@mandrakesoft.com>
+
+	* conf/server.4: add some version
+
 2004-04-23 12:00  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.42.2-1mdk

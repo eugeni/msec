@@ -1,3 +1,23 @@
+2002-05-29 16:35  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: added no_password_aging_for
+
+2002-05-14 13:04  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: server.4, server.5: added shorewall
+
+2002-04-29 13:52  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/security_check.sh: corrected alias files loop (Jérôme
+	UZEL).	CVS:
+	-------------------------------------------------------------------
+	--- CVS: Enter Log.  Lines beginning with `CVS: ' are removed
+	automatically CVS: committing files: CVS:
+	/home/flepied/work/msec/cron-sh/security_check.sh CVS: CVS: Type
+	C-c C-c when done or C-c C-d to abort.	CVS:
+	-------------------------------------------------------------------
+	---
+
 2002-04-19 14:17  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.21-1mdk
@@ -1295,11 +1315,11 @@
 	* msec.spec, cron-sh/security.sh, init-sh/level3.sh,
 	init-sh/level4.sh, init-sh/level5.sh: [no log message]
 
-2000-01-06 08:35  camille
+2000-01-06 08:35  Camille Bégnis <camille@mandrakesoft.com>
 
 	* doc/: msec.lyx, msec.ps: re-mistake...
 
-2000-01-06 08:24  camille
+2000-01-06 08:24  Camille Bégnis <camille@mandrakesoft.com>
 
 	* doc/: msec.lyx, msec.ps: Added friendly level names Corrected a
 	mistake
@@ -1308,7 +1328,7 @@
 
 	* init-sh/level0.sh, msec.spec: [no log message]
 
-2000-01-04 08:10  camille
+2000-01-04 08:10  Camille Bégnis <camille@mandrakesoft.com>
 
 	* doc/: msec.lyx, msec.ps: Added "root shutdown" feature.
 
@@ -1347,11 +1367,11 @@
 	* doc/: grpuser.8, grpuser.8.bz2, init.sh.8, init.sh.8.bz2, msec.8,
 	msec.8.bz2: "Seethechangelog"
 
-1999-12-28 11:13  camille
+1999-12-28 11:13  Camille Bégnis <camille@mandrakesoft.com>
 
 	* doc/: grpuser.8.bz2, init.sh.8.bz2, msec.8.bz2: Added man pages
 
-1999-12-28 10:32  camille
+1999-12-28 10:32  Camille Bégnis <camille@mandrakesoft.com>
 
 	* doc/msec.lyx: Added latest enhancement: mail warning
 
@@ -1393,7 +1413,7 @@
 	* init-sh/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: [no log
 	message]
 
-1999-12-21 21:41  camille
+1999-12-21 21:41  Camille Bégnis <camille@mandrakesoft.com>
 
 	* doc/msec.lyx: Added comprehensive level descriptions
 
@@ -1510,7 +1530,7 @@
 
 	* cron-sh/security_check.sh: [no log message]
 
-1999-12-16 17:21  camille
+1999-12-16 17:21  Camille Bégnis <camille@mandrakesoft.com>
 
 	* doc/msec.lyx: Added level 0 minor changes
 

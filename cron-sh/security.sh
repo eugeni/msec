@@ -1,5 +1,23 @@
 #!/bin/bash
 
+LCK=/var/run/msec-security.pid
+
+function cleanup() {
+    rm -f $LCK
+}
+
+if [ -f $LCK ]; then
+    if [ -d /proc/`cat $LCK` ]; then
+    	exit 0
+    else
+    	rm -f $LCK
+    fi
+fi
+
+echo -n $$ > $LCK
+
+trap cleanup 0
+
 if [[ ! -f /var/lib/msec/security.conf ]]; then
     echo "Can't access /var/lib/msec/security.conf."
     exit 1
@@ -148,11 +166,6 @@ fi
 ### rpm database check
 
 if [[ ${RPM_CHECK} == yes ]]; then
-    if [ -f /var/lib/rpm/__db.001 -o -f /var/lib/rpm/__db.002 ]; then
-	rm -f /var/lib/rpm/__db.00*
-	rpm --rebuilddb
-    fi
-    
     rpm -qa --qf "%{NAME}-%{VERSION}-%{RELEASE}\t%{INSTALLTIME}\n" | sort > ${RPM_QA_TODAY}
 
     rm -f ${RPM_VA_TODAY}.tmp

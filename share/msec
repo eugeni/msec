@@ -6,7 +6,27 @@
 # Version         : $Id$
 # Author          : Frederic Lepied
 # Created On      : Thu Dec 13 11:36:50 2001
+# Purpose         : entry script to run hardness script or change
+#                  the security level.
 #---------------------------------------------------------------
+
+LCK=/var/run/msec.pid
+
+function cleanup() {
+    rm -f $LCK
+}
+
+if [ -f $LCK ]; then
+    if [ -d /proc/`cat $LCK` ]; then
+    	exit 0
+    else
+    	rm -f $LCK
+    fi
+fi
+
+echo -n $$ > $LCK
+
+trap cleanup 0
 
 MSEC=/usr/share/msec/msec.py
 OPT=""

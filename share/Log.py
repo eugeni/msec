@@ -49,5 +49,6 @@ def error(s):
     global _name
     
     sys.stderr.write(_name + ': ' + s + '\n')
+    log(s)
     
 # Log.py ends here

@@ -28,14 +28,15 @@ mseclib
 .B mseclib
 is a python library to access the function used by the msec program. This functions can be used
 in /etc/security/msec/level.local to override the behaviour of the msec program or in standalone
-scripts.
+scripts. The argument of the functions takes a value of 1 or 0 (or yes/no) except when specified
+otherwise.
 '''
 
 footer = '''.RE
 .SH "SEE ALSO"
 msec(8)
 .SH AUTHORS
-Frederic Lepied <flepied@mandrakesoft.com>>
+Frederic Lepied <flepied@mandrakesoft.com>
 '''
 
 ### strings used in the rewritting

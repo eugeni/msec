@@ -139,9 +139,9 @@ __inline__ static void init()
                 exit(1);
         }
         
-        sgid_fd = fopen(getenv("SUID_GROUP_TODAY"), mode);
+        sgid_fd = fopen(getenv("SGID_TODAY"), mode);
         if ( ! sgid_fd ) {
-                perror("fopen (suid_group_today)");
+                perror("fopen (sgid_today)");
                 exit(1);
         }
 

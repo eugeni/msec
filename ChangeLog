@@ -1,3 +1,12 @@
+2002-09-05 14:14  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.34.5-1mdk
+
+2002-09-05 14:12  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: allow_user_list: lookup ShowUsers in the
+	X-*-Greeter section of kdmrc.
+
 2002-09-05 10:50  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.34.4-2mdk

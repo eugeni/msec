@@ -10,6 +10,11 @@
 #                  the security level.
 #---------------------------------------------------------------
 
+if [ "`whoami`" != "root" ]; then
+    echo 'msec: sorry, you must be root !'
+    exit 1
+fi
+
 LCK=/var/run/msec.pid
 
 function cleanup() {

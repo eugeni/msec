@@ -37,6 +37,7 @@ LOCAL=2
 
 yes=1
 no=0
+without_password=2
 ignore=-1
 
 FAKE = {}

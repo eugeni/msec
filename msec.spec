@@ -45,8 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 /var/log/security
 /usr/man/*/*
 
-%config
-/etc/security/msec/
+%config /etc/security/msec
 
 %changelog
 * Tue Mar 07 Yoann Vandoorselaere <yoann@mandrakesoft.com>

@@ -525,11 +525,12 @@ def enable_at_crontab(arg):
         atallow.replace_line_matching('root', 'root', 1)
 
 maximum_regex = re.compile('^Maximum:\s*([0-9]+)', re.MULTILINE)
+inactive_regex = re.compile('^Inactive:\s*(-?[0-9]+)', re.MULTILINE)
 
 # TODO FL Sat Dec 29 20:18:20 2001
 # replace chage calls and /etc/shadow parsing by a python API to the shadow functions.
-def password_aging(max):
-    '''   Set password aging to \\fImax\\fP days.'''
+def password_aging(max, inactive=-1):
+    '''   Set password aging to \\fImax\\fP days and delay to change to \\fIinactive\\fP.'''
     uid_min = 500
     _interactive and log(_('Setting password maximum aging for new user to %d') % max)
     logindefs = ConfigFile.get_config_file(LOGINDEFS)
@@ -540,7 +541,7 @@ def password_aging(max):
             uid_min = int(uid_min)
     shadow = ConfigFile.get_config_file(SHADOW)
     if shadow.exists():
-        _interactive and log(_('Setting password maximum aging for root and users with id greater than %d to %d') % (uid_min, max))
+        _interactive and log(_('Setting password maximum aging for root and users with id greater than %d to %d and delay to %d days') % (uid_min, max, inactive))
         for line in shadow.get_lines():
             field = string.split(line, ':')
             if len(field) < 2:
@@ -554,10 +555,12 @@ def password_aging(max):
                 _interactive and log(_('got current maximum password aging for user %s with command \'%s\'') % (entry[0], cmd))
                 if ret[0] == 0:
                     res = maximum_regex.search(ret[1])
-                    if res:
+                    res2 = inactive_regex.search(ret[1])
+                    if res and res2:
                         current_max = int(res.group(1))
-                        if max != current_max:
-                            cmd = '/usr/bin/chage -M %d %s' % (max, entry[0])
+                        current_inactive = int(res2.group(1))
+                        if max != current_max or current_inactive != inactive:
+                            cmd = '/usr/bin/chage -M %d -I %d %s' % (max, inactive, entry[0])
                             ret = commands.getstatusoutput(cmd)
                             log(_('changed maximum password aging for user %s with command %s') % (entry[0], cmd))
                             if ret[0] != 0:

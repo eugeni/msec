@@ -1,4 +1,4 @@
-#This file was created by <camille> Tue Dec 21 23:01:04 1999
+#This file was created by <camille> Mon Dec 27 23:34:10 1999
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass article
@@ -37,7 +37,7 @@ msec
 Camille Bégnis <camille@mandrakesoft.com>
 \layout Date
 
-21/12/1999
+22/12/1999
 \layout Standard
 
 
@@ -173,7 +173,7 @@ The main security improvement compared with level 0 is that now, the access
  to one user's stuff is granted via user-name and password.
  So it may be used by various people, and it is less sensitive to bad maneuvers.
  However it shouldn't be used for a connected computer whether by modem
- or in a LAN (Local Area Network).
+ or to a LAN (Local Area Network).
 \layout Subsection
 
 Level 2
@@ -189,8 +189,8 @@ Level 3
 
 This is the standard security recommended for a computer that will be used
  to connect to the Internet as a client.
- All security checks are periodically run, specifically one that check for
- open ports on the system.
+ Most of security checks are periodically run, specifically one that check
+ for open ports on the system.
  However, these open ports are kept opened and access to them is granted
  to everyone.
  So this security level is not really suited for a system permanently connected
@@ -200,13 +200,8 @@ This is the standard security recommended for a computer that will be used
 From the user's point of view, the system is now a little bit more closed,
  so it'll need some basic knowledges of the Linux system to achieve some
  special operations.
-\layout Standard
-
-Note 1: The security here offered is comparable with the one of a standard
- RedHat or previous Mandrake distribution.
-\layout Standard
-
-Note 2: All possible security checks are not run in this runlevel.
+ The security here offered is comparable with the one of a standard RedHat
+ or previous Mandrake distribution.
 \layout Subsection
 
 Level 4
@@ -277,9 +272,10 @@ authorized clients.
 \layout Standard
 \LyXTable
 multicol5
-26 7 0 0 -1 -1 -1 -1
+27 7 0 0 -1 -1 -1 -1
 1 1 0 0
 1 1 0 0
+0 1 0 0
 0 1 0 0
 0 1 0 0
 0 1 0 0
@@ -348,6 +344,13 @@ multicol5
 0 8 0 1 0 0 0 "" ""
 0 2 0 1 0 0 0 "" ""
 0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
@@ -657,6 +660,20 @@ Warning in syslog
 \newline 
 *
 \newline 
+Warning sent by mail to root
+\newline 
+
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
 Suid root file check
 \newline 
 
@@ -929,7 +946,7 @@ Host trusting files contains
 \begin_inset Quotes erd
 \end_inset 
 
-sign.
+ sign.
  That means that one of the files 
 \begin_inset Quotes eld
 \end_inset 
@@ -982,7 +999,7 @@ local : Only people connected at localhost may open an X window on your
  screen.
 \layout Itemize
 
-none : Nobodi can do that.
+none : Nobody can do that.
 \layout Subsection
 
 User in audio group
@@ -1034,13 +1051,19 @@ Each warning issued by msec is logged into
 Warning directly on tty 
 \layout Standard
 
-Each warning issued by msec is directly printed on currentconsole.
+Each warning issued by msec is directly printed on current console.
 \layout Subsection
 
 Warning in syslog
 \layout Standard
 
 Warnings of msec are directed to syslog service.
+\layout Subsection
+
+Warning sent by mail to root
+\layout Standard
+
+Warnings issued by msec are also sent by mail to root.
 \layout Subsection
 
 Suid root file check
@@ -1149,11 +1172,19 @@ All services not contained into
 \begin_inset Quotes eld
 \end_inset 
 
-/etc/security/msec/init-sh/server.4/5
+/etc/security/msec/init-sh/server.4
 \begin_inset Quotes erd
 \end_inset 
 
- will be disabled.
+ for level 4 or 
+\begin_inset Quotes eld
+\end_inset 
+
+server.5
+\begin_inset Quotes erd
+\end_inset 
+
+ for level 5 will be disabled.
  They are not removed, but simply not started when loading a runlevel.
  If you need some of them, just add them again with the 
 \begin_inset Quotes eld
@@ -1171,8 +1202,8 @@ Boot password
 \layout Standard
 
 Allows you to setup a password for Lilo.
- Prevents people for rebooting the machine, but in the other hand, the machine
- won't be able to reboot by itself.
+ Prevents (unexperienced) people from rebooting the machine, but in the
+ other hand, the machine won't be able to reboot by itself.
 \layout Subsection
 
 Grant connection to

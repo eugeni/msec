@@ -110,10 +110,12 @@ AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile
 
 # Do not boot on a shell
-echo -n "Setting up inittab to ask a passwd on boot : "
+echo -n "Setting up inittab to deny any user to issue ctrl-alt-del : "
 tmpfile=`mktemp /tmp/secure.XXXXXX`
 cp /etc/inittab ${tmpfile}
-cat ${tmpfile} | sed s'/\/bin\/bash --login/\/sbin\/mingetty tty1/' > /etc/inittab
+cat ${tmpfile} | \
+    sed s'/\/bin\/bash --login/\/sbin\/mingetty tty1/' | \
+    sed s'/ca::ctrlaltdel:\/sbin\/shutdown -t3 -r now/ca::ctrlaltdel:\/sbin\/shutdown -a -t3 -r now/' > /etc/inittab
 rm -f ${tmpfile}
 echo "done."
 

@@ -1,3 +1,17 @@
+2005-02-21 14:34  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/: security.sh, security_check.sh: filter home dir too
+	  (Guillaume Rousse, bug #12335)
+
+2005-02-21 14:25  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: fixed
+	  sendmail perms (bug #13515).
+
+2005-02-21 11:44  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/perm.4: fix ld.so.conf perm wrt compilation (bug #13718).
+
 2004-09-30 07:09  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.44.2-1mdk

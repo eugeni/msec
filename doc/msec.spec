@@ -49,6 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Wed Dec  1 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- We now preserve config file implementation.
 - Minor fix to lib.sh
 - export profile variable...
 

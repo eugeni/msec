@@ -202,7 +202,6 @@ if __name__ == '__main__':
                 error(_('Invalid option format %s %s: use -o var=<val>') % (o[0], o[1]))
                 sys.exit(1)
             else:
-                print 'setting', pair[0], pair[1]
                 Config.set_config(pair[0], pair[1])
 
     # initlog must be done after processing the option because we can change

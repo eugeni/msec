@@ -1,4 +1,4 @@
-#This file was created by <camille> Wed Dec 15 19:34:13 1999
+#This file was created by <camille> Thu Dec 16 18:08:20 1999
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass article
@@ -56,10 +56,10 @@ It is in that aim that were designed the msec package.
  It is made of two parts:
 \layout Enumerate
 
-Scripts that modify the whole system to lead it to one of the five security
+Scripts that modify the whole system to lead it to one of the six security
  levels provided with msec.
- These levels range from poor security and ease of use, to paranoid config,
- suitable for very sensitive applications, managed by experts.
+ These levels range from very poor security and ease of use, to paranoid
+ config, suitable for very sensitive applications, managed by experts.
 \layout Enumerate
 
 Cron jobs, that will periodically check the integrity of the system upon
@@ -73,6 +73,11 @@ Note that the user may also define his own security level, adjusting parameters
 \layout Section
 
 Installation
+\layout Standard
+
+msec is a base rpm.
+ That means that if you previously installed Linux-Mandrake, msec is already
+ installed on your system.
 \layout Standard
 
 Installing the rpm will create a msec directory into /etc/security, containing
@@ -165,7 +170,7 @@ authorized clients.
 \layout Standard
 \LyXTable
 multicol5
-26 6 0 0 -1 -1 -1 -1
+26 7 0 0 -1 -1 -1 -1
 1 1 0 0
 1 1 0 0
 0 1 0 0
@@ -192,6 +197,7 @@ multicol5
 0 1 0 0
 0 1 0 0
 0 1 0 0
+2 1 0 "80mm" ""
 2 1 0 "80mm" ""
 8 1 0 "" ""
 8 1 0 "" ""
@@ -222,6 +228,18 @@ multicol5
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
 0 2 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
@@ -330,11 +348,25 @@ multicol5
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
 0 2 0 1 0 0 0 "" ""
-0 8 0 1 0 0 0 "" ""
-0 8 0 1 0 0 0 "" ""
-0 8 0 1 0 0 0 "" ""
-0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
@@ -362,6 +394,8 @@ Feature
 \backslash 
  Security level
 \newline 
+0
+\newline 
 1
 \newline 
 2
@@ -377,6 +411,8 @@ Feature
 \newline 
 Global security check
 \newline 
+
+\newline 
 *
 \newline 
 *
@@ -388,6 +424,8 @@ Global security check
 *
 \newline 
 umask users
+\newline 
+002
 \newline 
 002
 \newline 
@@ -403,6 +441,8 @@ umask root
 \newline 
 002
 \newline 
+002
+\newline 
 022
 \newline 
 022
@@ -411,19 +451,37 @@ umask root
 \newline 
 077
 \newline 
-localhost authorized to connect to X display
+shell without password
 \newline 
 *
 \newline 
-*
-\newline 
 
 \newline 
 
 \newline 
 
+\newline 
+
+\newline 
+
+\newline 
+authorized to connect to X display
+\newline 
+all
+\newline 
+local
+\newline 
+local
+\newline 
+none
+\newline 
+none
+\newline 
+none
 \newline 
 User in audio group
+\newline 
+
 \newline 
 *
 \newline 
@@ -438,6 +496,8 @@ User in audio group
 .
  in $PATH
 \newline 
+
+\newline 
 *
 \newline 
 
@@ -449,6 +509,8 @@ User in audio group
 
 \newline 
 Warning in /var/log/security.log
+\newline 
+
 \newline 
 *
 \newline 
@@ -464,6 +526,8 @@ Warning directly on tty
 \newline 
 
 \newline 
+
+\newline 
 *
 \newline 
 *
@@ -473,6 +537,8 @@ Warning directly on tty
 *
 \newline 
 Warning in syslog
+\newline 
+
 \newline 
 
 \newline 
@@ -488,6 +554,8 @@ Suid root file check
 \newline 
 
 \newline 
+
+\newline 
 *
 \newline 
 *
@@ -500,6 +568,8 @@ Suid root file md5sum check
 \newline 
 
 \newline 
+
+\newline 
 *
 \newline 
 *
@@ -509,6 +579,8 @@ Suid root file md5sum check
 *
 \newline 
 Writeable file check
+\newline 
+
 \newline 
 
 \newline 
@@ -526,6 +598,8 @@ Permissions check
 \newline 
 
 \newline 
+
+\newline 
 *
 \newline 
 *
@@ -533,6 +607,8 @@ Permissions check
 *
 \newline 
 Suid group file check 
+\newline 
+
 \newline 
 
 \newline 
@@ -550,6 +626,8 @@ Unowned file check
 \newline 
 
 \newline 
+
+\newline 
 *
 \newline 
 *
@@ -557,6 +635,8 @@ Unowned file check
 *
 \newline 
 Promiscuous check
+\newline 
+
 \newline 
 
 \newline 
@@ -574,6 +654,8 @@ Listening port check
 \newline 
 
 \newline 
+
+\newline 
 *
 \newline 
 *
@@ -581,6 +663,8 @@ Listening port check
 *
 \newline 
 Passwd file integrity check
+\newline 
+
 \newline 
 
 \newline 
@@ -598,6 +682,8 @@ Shadow file integrity check
 \newline 
 
 \newline 
+
+\newline 
 *
 \newline 
 *
@@ -610,6 +696,8 @@ System security check every midnight
 \newline 
 
 \newline 
+
+\newline 
 *
 \newline 
 *
@@ -617,6 +705,8 @@ System security check every midnight
 *
 \newline 
 All system events additionally logged to /dev/tty12
+\newline 
+
 \newline 
 
 \newline 
@@ -636,6 +726,8 @@ Services not known disabled
 \newline 
 
 \newline 
+
+\newline 
 *
 \newline 
 *
@@ -648,33 +740,25 @@ Boot password
 \newline 
 
 \newline 
-*
-\newline 
-*
-\newline 
-Disable connections from all but localhost
-\newline 
-
-\newline 
-
-\newline 
 
 \newline 
 *
 \newline 
-
-\newline 
-Disable connections from all
-\newline 
-
-\newline 
-
-\newline 
-
-\newline 
-
-\newline 
 *
+\newline 
+Grant connection to
+\newline 
+all
+\newline 
+all
+\newline 
+all
+\newline 
+all
+\newline 
+local
+\newline 
+none
 \layout Standard
 
 Note that six out of the ten periodical checks can detect changes on the
@@ -775,18 +859,23 @@ umask root
 The same but for the root.
 \layout Subsection
 
-localhost authorized to connect to X display 
+shell without password
 \layout Standard
 
-Runs 
-\begin_inset Quotes eld
-\end_inset 
+Access to the consoles is granted without asking for a password.
+\layout Subsection
 
-xhost + localhost
-\begin_inset Quotes erd
-\end_inset 
+authorized to connect to X display
+\layout Itemize
 
- on every boot.
+all : Everybody from everywhere can open an X window on your screen.
+\layout Itemize
+
+local : Only people connected at localhost may open an X window on your
+ screen.
+\layout Itemize
+
+none : Nobodi can do that.
 \layout Subsection
 
 User in audio group
@@ -971,41 +1060,24 @@ chkconfig
 d/ ).
 \layout Subsection
 
-Disable connections from all but localhost
+Boot password 
 \layout Standard
 
-Adds the rule "ALL:ALL EXCEPT localhost:DENY" into 
-\begin_inset Quotes eld
-\end_inset 
-
-/etc/hosts.deny
-\begin_inset Quotes erd
-\end_inset 
-
- file.
- 
-\layout Standard
-
-This prevents all clients but localhost to connect to open ports.
+Allows you to setup a password for Lilo.
+ Prevents people for rebooting the machine, but in the other hand, the machine
+ won't be able to reboot by itself.
 \layout Subsection
 
-Disable connections from all
-\layout Standard
+Grant connection to
+\layout Itemize
 
-Adds the rule "ALL:ALL:DENY" into 
-\begin_inset Quotes eld
-\end_inset 
+all : All computers are allowed to connect to open ports.
+\layout Itemize
 
-/etc/hosts.deny
-\begin_inset Quotes erd
-\end_inset 
+local : Only the localhost is allowed to connect to open ports.
+\layout Itemize
 
- file.
- 
-\layout Standard
-
-This prevents all clients (even localhost) to connect to open ports.
- 
+none : No computers are allowed to connect to open ports.
 \layout Section
 
 ToDo

@@ -112,6 +112,14 @@ rm -rf $RPM_BUILD_ROOT
 - add the %{_sysconfdir}/%{name} file
 - allow the ssh connexions in the snf security level
 - sort of update the ChangeLog
+- updated msec.csh to read %{_sysconfdir}/%{name} with sed black magic (Fred)
+- added console timeout support (Fred)
+- added command history disabling (Fred)
+- added sysctl settings (Fred)
+- changed perms of rpm progs in high security levels to prevent
+exposing what is installed (and access to /usr/share/doc too). (Fred)
+- spoof protection for name resoluton (Fred)
+- remove /etc/issue and /etc/issue.net according to level (Fred)
 
 * Thu Nov 08 2001 Florin <florin@mandrakesoft.com> 0.16-2mdk
 - oups forgot to create the needed links in post:

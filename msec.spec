@@ -36,7 +36,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Mon Dec 13 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
-- diff_check.sh : fix a typo
+- diff_check.sh : fix a typo.
 
 * Thu Dec 10 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - custom.sh : Fix a typo & forgot to export path & secure level

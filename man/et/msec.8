@@ -1,0 +1,44 @@
+.\" .IX msec
+.TH "msec" "8" "17. aprill 2000" "Mandrakesoft" "Linux-Mandrake"
+.SH "NIMI"
+msec \- Mandrake turvavahendid
+.SH "KOKKUVÕTE"
+.B msec
+[0\-5 | custom]
+.SH "DESCRIPTION"
+\fPmsec\fP on paketi msec põhiskript. See võimaldab administraatoril muuta süsteemi turvataset.
+msec pakub kuut eelnevalt määratud turvataset. Need ulatuvad kehvast turvalisusest ja hõlpsast kasutamisest paranoilise seadistuseni, mis sobib ekspertide hallatavatele väga tundlikele serverirakendustele.
+.PP 
+Et käivitada \fPmsec\fP, peab olema administraator.
+.br 
+Käivitades "msec x" saab määrata turvataseme x (x=[0\-5]). Seejärel muudetakse süsteemi seadistusi vastavalt turvataseme x vajadustele.
+.br 
+Turvatasemete täpse kirjelduse leiab dokumentidest, mille asukoht on /usr/doc/msec\-*/.
+.PP 
+Kui soovite turvataset ise häälestada, käivitage "msec custom". Seejärel päritakse Teilt iga võimaluse kohta, kas ja kuidas seda rakendada.
+.SH "FAILID"
+/usr/sbin/msec
+.br 
+Käivitusfail \fPmsec\fP (shelliskript)
+.PP 
+/etc/security/msec/security.conf
+.br 
+Parajasti aktiivse turvataseme sätted.
+.SH "AUTOR"
+Vandoorselaere Yoann, Mandrakesoft
+.br 
+yoann@mandrakesoft.com
+.br 
+
+.br 
+Tõlge eesti keelde 2002: Marek Laane
+.br 
+bald@online.ee
+
+
+
+
+
+
+
+

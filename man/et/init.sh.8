@@ -1,0 +1,44 @@
+.\" .IX msec
+.TH "init.sh" "8" "15. dets. 1999" "Mandrakesoft" "Linux-Mandrake"
+.SH "NIMI"
+msec \- Mandrake turvavahendid
+.SH "KOKKUVÕTE"
+.B init.sh
+[0\-5 | custom]
+.SH "KIRJELDUS"
+\fPinit.sh\fP on paketi msec põhiskript. See võimaldab administraatoril muuta süsteemi turvataset.
+msec pakub kuut eelnevalt määratud turvataset. Need ulatuvad kehvast turvalisusest ja hõlpsast kasutamisest paranoilise seadistuseni, mis sobib ekspertide hallatavatele väga tundlikele serveerirakendustele.
+.PP 
+Et käivitada \fPinit.sh\fP, peab olema administraator.
+.br 
+Käivitades "init.sh x" saab määrata turvataseme x (x=[0\-5]). See muudab seejärel süsteemi seadistusi vastavalt turvataseme vajadustele.
+.br 
+Turvatasemete täpse kirjelduse leiab dokumentidest, mille asukht on /usr/doc/msec\-*/.
+.PP 
+Kui soovite turvataseme ise häälestada, käivitage "init.sh custom". Seejärel päritakse Teilt iga võimaluse kohta, kas ja kuidas seda rakendada.
+.SH "FAILID"
+/etc/security/msec/init.sh
+.br 
+Käivitusfail \fPinit.sh\fP (shelliskript)
+.PP 
+/etc/security/msec/security.conf
+.br 
+Parajasti aktiivse turvataseme sätted.
+.SH "AUTOR"
+Vandoorselaere Yoann, Mandrakesoft
+.br 
+yoann@mandrakesoft.com
+.br 
+
+.br 
+Tõlge eesti keelde 2002: Marek Laane
+.br 
+bald@online.ee
+
+
+
+
+
+
+
+

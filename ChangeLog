@@ -1,3 +1,15 @@
+2004-02-12 17:13  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: make it lib64 aware wrt pam files rewriting
+
+2004-02-12 17:12  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.41-1mdk
+
+2004-02-12 17:08  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* man/C/msec.8: add pointers to perm files and draksec/drakperm
+
 2004-01-29 14:00  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* share/README: fixed location of perm files

@@ -114,6 +114,8 @@ CommentUserRules() {
     while read line; do
 	if ! echo "${line}" | grep -qE "^#"; then
 	    echo "# ${line}"
+    else
+		echo "${line}"
 	fi
     done < ${tmpfile} > ${file}
   
@@ -262,6 +264,10 @@ groupadd audio >& /dev/null
 groupadd xgrp >& /dev/null
 groupadd ntools >& /dev/null
 groupadd ctools >& /dev/null
+
+#Fix the big security hole introduced in cooker
+userdel mandrake >& /dev/null
+groupdel mandrake >& /dev/null
 
 usermod -G xgrp xfs
 

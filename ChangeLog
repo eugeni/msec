@@ -1,3 +1,6 @@
+2000-04-25 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Fix a bug with comment removed pointed out by Konrad Bernloehr.
+
 2000-04-24  Pixel  <pixel@mandrakesoft.com>
 
 	* conf/perm.[0-4]: fix ugly disgusting fucking bloody buggy bug!

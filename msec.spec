@@ -1,5 +1,5 @@
-%define version 0.14
-%define release 2mdk
+%define version 0.15
+%define release 1mdk
 
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
@@ -46,6 +46,9 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/security/msec
 
 %changelog
+* Fri Apr 25 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-2mdk
+- Fix a bug with comment removed pointed out by Konrad Bernloehr.
+
 * Mon Apr 24 2000 Pixel <pixel@mandrakesoft.com> 0.14-2mdk
 - conf/perm.[0-4]: fix ugly disgusting fucking bloody buggy bug!
 (remove bloody /usr/{bin,sbin}/* entries)

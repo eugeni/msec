@@ -185,12 +185,10 @@ usermod -G xgrp xfs
 
 if [ ! -f /tmp/secure.DrakX ]; then
     for user in ${DRAKX_USERS}; do
-	if ! /etc/security/msec/init-sh/grpuser --del audio "${user}"; then
-	    echo "Problem removing user \"${user}\" from group audio."
-	fi
+		/etc/security/msec/init-sh/grpuser --del audio "${user}"; then
     done
 else
-		AddRules "${DRAKX_USERS}" /etc/security/msec/security.conf
+	AddRules "${DRAKX_USERS}" /etc/security/msec/security.conf
 fi
 
 

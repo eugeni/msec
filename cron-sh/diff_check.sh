@@ -7,6 +7,7 @@
 if [ -f /etc/security/msec/security.conf ]; then
     . /etc/security/msec/security.conf
 else
+	echo "/etc/security/msec/security.conf don't exist."
     exit 1
 fi
 

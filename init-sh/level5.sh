@@ -61,7 +61,7 @@ echo "Adding promisc check in crontab (scheduled every minutes) :"
 AddRules "*/1 * * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/promisc_check.sh" /etc/crontab
 
 echo "Adding \"diff\" security check in crontab (scheduled every midnight) :"
-AddRules "0 0 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/file_check.sh" /etc/crontab
+AddRules "0 0 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/diff_check.sh" /etc/crontab
 
 echo "Adding \"global\" security check in crontab (scheduled every midnight) :"
 AddRules "0 0 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/security_check.sh" /etc/crontab

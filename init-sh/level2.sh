@@ -68,14 +68,21 @@ AddRules "export SECURE_LEVEL=2" /etc/profile.d/msec.sh
 AddRules "setenv SECURE_LEVEL 2" /etc/profile.d/msec.csh
 
 echo "Setting umask to 022 (u=rw,g=r,o=r) :"
-AddRules "umask 022" /etc/profile
-AddRules "umask 022" /etc/zprofile
+AddRules "umask 022" /etc/profile.d/msec.sh
+AddRules "umask 022" /etc/profile.d/msec.csh
 
-echo "Adding \"normal\" PATH variable :"
-AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
-AddRules "export PATH" /etc/profile
-AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/zprofile quiet
-AddRules "export PATH" /etc/zprofile
+echo "Adding \"non secure\" PATH variable :"
+if ! echo ${PATH} |grep -q /usr/X11R6/bin ; then
+	AddRules "export PATH=\$PATH:/usr/X11R6/bin" /etc/profile.d/msec.sh quiet
+	AddRules "setenv PATH \"\${PATH}:/usr/X11R6/bin\"" /etc/profile.d/msec.csh quiet
+fi      
+if ! echo ${PATH} |grep -q /usr/games ; then
+	AddRules "export PATH=\$PATH:/usr/X11R6/bin:/usr/games:." /etc/profile.d/msec.sh quiet
+	AddRules "setenv PATH \"\${PATH}:/usr/games\"" /etc/profile.d/msec.csh quiet
+fi      
+
+AddRules "export PATH=\$PATH:." /etc/profile.d/msec.sh quiet
+AddRules "setenv PATH \"\${PATH}:.\"" /etc/profile.d/msec.csh quiet
 
 # Xserver
 echo "Allowing users to connect X server from localhost :"

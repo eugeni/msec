@@ -107,14 +107,23 @@ echo -e "done.\n";
 
 # /etc/profile
 echo "Setting umask to 022 (u=rw,g=rx) for root, 077 (u=rw) for user :"
-AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/profile
-AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/zprofile
+AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/profile.d/msec.sh
+AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/profile.d/msec.csh
 
-echo "Adding \"normal\" PATH variable :"
-AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
-AddRules "export PATH" /etc/profile 
-AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/zprofile quiet
-AddRules "export PATH" /etc/zprofile 
+echo "Adding \"non secure\" PATH variable :"
+if ! echo ${PATH} |grep -q /usr/X11R6/bin ; then
+	AddRules "export SECURE_LEVEL=4" /etc/profile.d/msec.sh quiet
+	AddRules "export PATH=\$PATH:/usr/X11R6/bin" /etc/profile.d/msec.sh quiet
+	AddRules "setenv SECURE_LEVEL 4" /etc/profile.d/msec.csh quiet
+	AddRules "setenv PATH \"\${PATH}:/usr/X11R6/bin\"" /etc/profile.d/msec.csh quiet
+fi      
+if ! echo ${PATH} |grep -q /usr/games ; then
+	AddRules "export PATH=\$PATH:/usr/X11R6/bin:/usr/games:." /etc/profile.d/msec.sh quiet
+	AddRules "setenv PATH \"\${PATH}:/usr/games\"" /etc/profile.d/msec.csh quiet
+fi      
+
+AddRules "export PATH=\$PATH:." /etc/profile.d/msec.sh quiet
+AddRules "setenv PATH \"\${PATH}:.\"" /etc/profile.d/msec.csh quiet
 
 if [[ -f /lib/libsafe.so.1.3 ]]; then
     echo "Enabling stack overflow protection :"

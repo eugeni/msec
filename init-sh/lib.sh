@@ -134,7 +134,8 @@ Ttylog() {
 
 
 LoaderUpdate() {
-    loader=/usr/sbin/detectloader
+    loader=`/usr/sbin/detectloader`
+	
     case "${loader}" in
 	"LILO")
 		file="/etc/lilo.conf"
@@ -175,8 +176,9 @@ LoaderUpdate() {
     ${at_exit};
 }
 
-CleanLoaderRule() {
-	loader=/usr/sbin/detectloader
+CleanLoaderRules() {
+	loader=`/usr/sbin/detectloader`
+	file=""
 	case "${loader}" in
 		"LILO")
 			file="/etc/lilo.conf"

@@ -1,3 +1,30 @@
+2003-03-07 15:27  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.38-3mdk
+
+2003-03-07 15:25  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: corrected inverted descriptions
+
+2003-02-17 18:36  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: put description on one line not to modify
+	draksec_help.py
+
+2003-02-17 15:37  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: reworded CHECK_PASSWD description
+
+2003-02-03 16:22  Thierry Vignaud <tvignaud@mandrakesoft.com>
+
+	* share/draksec_help.py: help
+	draksec::set_default_tip->formatAlaTeX() to have nicer tooltips
+
+2003-02-03 15:48  Thierry Vignaud <tvignaud@mandrakesoft.com>
+
+	* share/draksec_help.py: enforce gi policy for modules (it's the
+	standalone tools job to provide a good @INC)
+
 2003-02-03 09:17  Thierry Vignaud <tvignaud@mandrakesoft.com>
 
 	* share/draksec_help.py: let this statement be more precise

@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.18
-Release:	6mdk
+Version:	0.19
+Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -41,13 +41,15 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/security/msec
 install -d $RPM_BUILD_ROOT/etc/sysconfig
 install -d $RPM_BUILD_ROOT/usr/share/msec
+install -d $RPM_BUILD_ROOT/var/lib/msec
 install -d $RPM_BUILD_ROOT/usr/sbin $RPM_BUILD_ROOT/usr/bin
 install -d $RPM_BUILD_ROOT/var/log/security
 install -d $RPM_BUILD_ROOT%{_mandir}/man{3,8}
 
 cp -p init-sh/cleanold.sh share/*.py share/*.pyo cron-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
 install -m 755 share/msec $RPM_BUILD_ROOT/usr/sbin
-install -m 644 conf/perm.* conf/server.* $RPM_BUILD_ROOT/etc/security/msec
+install -m 644 conf/server.* $RPM_BUILD_ROOT/etc/security/msec
+install -m 644 conf/perm.* $RPM_BUILD_ROOT/usr/share/msec
 install -m 755 src/promisc_check/promisc_check src/msec_find/msec_find $RPM_BUILD_ROOT/usr/bin
 
 install -m644 man/C/*8 $RPM_BUILD_ROOT%{_mandir}/man8/
@@ -61,7 +63,7 @@ install -m644 share/mseclib.man $RPM_BUILD_ROOT%{_mandir}/man3/mseclib.3
 # done;
 
 
-touch $RPM_BUILD_ROOT/etc/security/msec/security.conf $RPM_BUILD_ROOT/var/log/security.log $RPM_BUILD_ROOT/%{_sysconfdir}/sysconfig/%{name}
+touch $RPM_BUILD_ROOT/var/log/security.log $RPM_BUILD_ROOT/%{_sysconfdir}/sysconfig/%{name}
 
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/{logrotate.d,profile.d}
 install -m 644 %{SOURCE1} $RPM_BUILD_ROOT/etc/logrotate.d/msec
@@ -72,10 +74,10 @@ touch $RPM_BUILD_ROOT/var/log/security.log
 %post
 touch /var/log/security.log
 
-if [ $1 != 1 -a -f /etc/security/msec/security.conf ]; then
+if [ $1 != 1 ]; then
 	SL=$SECURE_LEVEL
  	[ ! -r /etc/sysconfig/msec ] || SL=`sed -n 's/SECURE_LEVEL=//p' < /etc/sysconfig/msec` || :
-	if grep -q "# Mandrake-Security : if you remove this comment" /etc/security/msec/security.conf; then
+	if grep -q "# Mandrake-Security : if you remove this comment" /etc/profile; then
 		[ -z "$SL" -a -r /etc/profile.d/msec.sh ] && SL=`sed -n 's/.*SECURE_LEVEL=//p' <  /etc/profile.d/msec.sh` || :
 		/usr/share/msec/cleanold.sh || :
  		[ -n "$SL" ] && msec $SL < /dev/null || :
@@ -98,8 +100,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS COPYING Makefile share/README share/CHANGES
-%doc doc/*txt ChangeLog doc/*ps
+%doc AUTHORS COPYING share/README share/CHANGES
+%doc ChangeLog doc/*.txt
 %_bindir/promisc_check
 %_bindir/msec_find
 %_sbindir/msec
@@ -108,6 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir /var/log/security
 %dir /etc/security/msec
+%dir /var/lib/msec
 
 %config(noreplace) /etc/security/msec/*
 %config(noreplace) /etc/logrotate.d/msec
@@ -119,6 +122,14 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Tue Feb 19 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-1mdk
+- corrected msec.sh and msec.csh problems.
+- security.conf is now read from /var/lib/msec and can be overridden
+from /etc/security/msec/security.conf.
+- enhanced mseclib man page.
+- perm files are now in /usr/share/msec but the custom file stays in
+/etc/security/msec/perm.local.
+
 * Fri Feb 15 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.18-6mdk
 - promisc_check.sh: use complete path to the ip command
 - correct upgrade when secure level isn't set

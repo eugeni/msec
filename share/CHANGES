@@ -1,0 +1,40 @@
+changes between version 0.16 and 0.17
+=====================================
+
+msec utility changes:
+
+ * handle shell timeout (level 4 and 5)
+ * limit shell history (level 4 and 5)
+ * su only for wheel group (level 5)
+ * sulogin for single user mode (level 4 and 5)
+ * various sysctl.conf settings for icmp and network parameters
+ * password aging (level 4 and 5)
+ * suppress /etc/issue.net (level 4 and 5) and /etc/issue (level 5)
+ * removed manipulation of the groups of users
+ * removed removal of services
+ * logging in syslog according to the guideline for explanations in tools
+ * rewritten in python
+
+msec can be used to change level and it's also run hourly by cron to
+maintain the security level on the system. Only the minimum of changes
+on the filesystem are applied and the minimum of programs started.
+
+Periodic security checks changes:
+
+ * added an rpm database check (rpm -va and rpm -qa)
+ * report when a user other than root is at uid 0
+
+Permissions settings changes:
+
+ * /
+ * removed audio group handling because it has always conflicted with pam_console
+ * handle /var/log sub-directories in a generic manner
+ * /etc/rc.d/init.d/*
+ * corrected ssh related paths
+ * /etc/sysconfig
+ * /proc
+ * corrected gcc files
+ * rpm related files to avoid exposing what is installed
+ * /var/lock/subsys
+ * added a local.perm to allow modifications without modifying level perms
+ * rewritten in python

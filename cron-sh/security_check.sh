@@ -36,7 +36,7 @@ fi
 if [[ ${CHECK_UNOWNED} == yes ]]; then
     if [[ -s ${UNOWNED_USER_TODAY} ]]; then
 	printf "\nSecurity Warning : User Unowned files found :\n" >> ${SECURITY}
-	printf "\t( theses files now have user \"nobody\" as their owner. )\n" >> ${SECURITY_LOG}
+	printf "\t( theses files now have user \"nobody\" as their owner. )\n" >> ${SECURITY}
 	cat ${UNOWNED_USER_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
         cat ${UNOWNED_USER_TODAY} | while read line; do
 	    chown nobody "${line}"; # Use quote if filename contain space. 
@@ -135,6 +135,8 @@ if [[ ${CHECK_PASSWD} == yes ]]; then
 	    printf("\t\t- /etc/passwd:%d: User \"%s\" has no password !\n", FNR, $1);
 	else if ($2 !~ /^[x*!]+$/)
 	    printf("\t\t- /etc/passwd:%d: User \"%s\" has a real password (it is not shadowed).\n", FNR, $1);
+        else if ( $3 == 0 && $1 != "root" )
+	    printf("\t\t- /etc/passwd:%d: User \"%s\" has id 0 !\n", FNR, $1);
     }' < /etc/passwd > ${TMP}
     
     if [[ -s ${TMP} ]]; then
@@ -245,17 +247,29 @@ if [[ ${CHECK_OPEN_PORT} == yes ]]; then
 fi
 
 
+### rpm database checks
+if [[ ${RPM_CHECK} == yes ]]; then
+
+    if [[ -s ${RPM_VA_TODAY} ]]; then
+	printf "\nSecurity Warning: These files belonging to packages are modified on the system :\n" >> ${SECURITY}
+	cat ${RPM_VA_TODAY} | while read f; do
+	    printf "\t\t- $f\n"
+        done >> ${SECURITY}
+    fi
+fi
+
 ### Report
 if [[ -s ${SECURITY} ]]; then
     Syslog ${SECURITY}
     Ttylog ${SECURITY}
     date=`date`
-
+    hostname=`hostname`
+    
     echo -e "\n\n*** Security Check, ${date} ***\n" >> ${SECURITY_LOG}
     cat ${SECURITY} >> ${SECURITY_LOG}
     cat ${INFOS} >> ${SECURITY_LOG}
 
-	Maillog "*** Security Check, ${date} ***" "${SECURITY} ${INFOS}"
+    Maillog "*** Security Check on ${hostname}, ${date} ***" "${SECURITY} ${INFOS}"
 fi
 
 if [[ -f ${SECURITY} ]]; then
@@ -269,7 +283,3 @@ fi
 if [[ -f ${INFOS} ]]; then
     rm -f ${INFOS};
 fi
-
-
-
-

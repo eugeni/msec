@@ -1,0 +1,48 @@
+#!/bin/sh
+#---------------------------------------------------------------
+# Project         : Mandrake Linux
+# Module          : share
+# File            : msec
+# Version         : $Id$
+# Author          : Frederic Lepied
+# Created On      : Thu Dec 13 11:36:50 2001
+#---------------------------------------------------------------
+
+MSEC=/usr/share/msec/msec.py
+
+for a in "$@"; do
+    last="$a"
+done
+
+if [ -n "$last" ]; then
+    case $last in
+	[0-5]) ;;
+	*) [ -x /usr/share/msec/$last.py ] && MSEC=/usr/share/msec/$last.py;;
+    esac
+else
+    # no args so try to guess if a custom msec is needed
+    . /etc/sysconfig/msec
+    
+    case "$SECURE_LEVEL" in
+	[0-5]) ;;
+	*) MSEC=/usr/share/msec/$SECURE_LEVEL.py;;
+    esac
+fi
+
+if [ ! -x $MSEC ]; then
+    echo "/usr/share/msec/$last.py not found or not executable. Aborting" 1>&2
+    exit 1
+fi
+
+if $MSEC "$@"; then
+    . /etc/sysconfig/msec
+
+    [ -z "$PERM_LEVEL" ] && PERM_LEVEL=$SECURE_LEVEL
+
+    LOCAL=
+    [ -f /etc/security/msec/perm.local ] && LOCAL=/etc/security/msec/perm.local
+    
+    /usr/share/msec/Perms.py /etc/security/msec/perm.$PERM_LEVEL $LOCAL
+fi
+
+# msec.sh ends here

@@ -30,6 +30,12 @@ UNOWNED_USER_DIFF="/var/log/security/unowned_user.diff"
 export UNOWNED_GROUP_TODAY="/var/log/security/unowned_group.today"
 UNOWNED_GROUP_YESTERDAY="/var/log/security/unowned_group.yesterday"
 UNOWNED_GROUP_DIFF="/var/log/security/unowned_group.diff"
+export RPM_VA_TODAY="/var/log/security/rpm-va.today"
+RPM_VA_YESTERDAY="/var/log/security/rpm-va.yesterday"
+RPM_VA_DIFF="/var/log/security/rpm-va.diff"
+export RPM_QA_TODAY="/var/log/security/rpm-qa.today"
+RPM_QA_YESTERDAY="/var/log/security/rpm-qa.yesterday"
+RPM_QA_DIFF="/var/log/security/rpm-qa.diff"
 
 # Modified filters coming from debian security scripts.
 CS_NFSAFS='(nfs|afs|xfs|coda)'
@@ -72,6 +78,13 @@ if [[ -f ${SUID_MD5_TODAY} ]]; then
     mv ${SUID_MD5_TODAY} ${SUID_MD5_YESTERDAY};
 fi
 
+if [[ -f ${RPM_VA_TODAY} ]]; then
+    mv -f ${RPM_VA_TODAY} ${RPM_VA_YESTERDAY}
+fi
+
+if [[ -f ${RPM_QA_TODAY} ]]; then
+    mv -f ${RPM_QA_TODAY} ${RPM_QA_YESTERDAY}
+fi
 
 netstat -pvlA inet 2> /dev/null > ${OPEN_PORT_TODAY};
 
@@ -109,6 +122,19 @@ if [[ -f ${SUID_ROOT_TODAY} ]]; then
     done < ${SUID_ROOT_TODAY} > ${SUID_MD5_TODAY}
 fi
 
+### rpm database check
+
+if [[ ${RPM_CHECK} == yes ]]; then
+    if [ -f /var/lib/rpm/__db.001 -o -f /var/lib/rpm/__db.002 ]; then
+	rm -f /var/lib/rpm/__db.00*
+	rpm --rebuilddb
+    fi
+    
+    rpm -qa --qf "%{NAME}-%{VERSION}-%{RELEASE}\t%{INSTALLTIME}\n" | sort > ${RPM_QA_TODAY}
+    
+    nice --adjustment=+19 rpm -V `cut -f 1  < ${RPM_QA_TODAY} | grep -v '^dev-[0-9]'` | grep '^..5' | sed 's/...........//' | sort > ${RPM_VA_TODAY}
+fi
+
 ### Functions ###
 
 Syslog() {
@@ -121,7 +147,7 @@ Syslog() {
 
 Ttylog() {
     if [[ ${TTY_WARN} == yes ]]; then
-    for i in `w | grep -v "load\|TTY" | awk '{print $2}'` ; do
+    for i in `w | grep -v "load\|TTY" | grep '^root' | awk '{print $2}'` ; do
         cat ${1} > /dev/$i
     done
     fi
@@ -145,12 +171,4 @@ Maillog() {
 
 . /usr/share/msec/diff_check.sh
 . /usr/share/msec/security_check.sh
-
-
-
-
-
-
-
-
 

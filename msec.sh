@@ -11,3 +11,5 @@ if ! echo ${PATH} |grep -q /usr/games ; then
 fi
 
 export SECURE_LEVEL=${SECURE_LEVEL}
+
+[ -n "$TMOUT" ] && typeset -r TMOUT

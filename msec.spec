@@ -1,9 +1,9 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.16
-Release:	4mdk
+Version:	0.17
+Release:	12mdk
 Url:		http://www.linux-mandrake.com
-Source0:		%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
 Source2:    	msec.sh
 Source3:    	msec.csh
@@ -11,7 +11,8 @@ Source3:    	msec.csh
 License:	GPL
 Group:		System/Base
 BuildRoot:	%_tmppath/%name-%version-%release-root
-Requires:	/bin/bash /bin/touch setup chkconfig >= 0.9-6
+Requires:	/bin/bash /bin/touch perl diffutils textutils /usr/bin/python /usr/bin/chage gawk
+Requires:	setup >= 2.2.0-19mdk
 Requires:	chkconfig >= 1.2.24-3mdk
 
 %description
@@ -29,6 +30,9 @@ in order to test the security of your system and alert you if needed.
 %build
 make CFLAGS="$RPM_OPT_FLAGS"
 
+cd share; ./compile.py '/usr/share/msec/' *.py
+rm -f msec.pyo
+
 %install
 #make install RPM_BUILD_ROOT=$RPM_BUILD_ROOT
 
@@ -39,8 +43,8 @@ install -d $RPM_BUILD_ROOT/usr/sbin $RPM_BUILD_ROOT/usr/bin
 install -d $RPM_BUILD_ROOT/var/log/security
 install -d $RPM_BUILD_ROOT%{_mandir}/man8
 
-install -m 755 init-sh/*.sh cron-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
-install -m 755 init-sh/msec $RPM_BUILD_ROOT/usr/sbin
+cp -p init-sh/cleanold.sh share/*.py share/*.pyo cron-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
+install -m 755 share/msec $RPM_BUILD_ROOT/usr/sbin
 install -m 644 conf/perm.* conf/server.* $RPM_BUILD_ROOT/etc/security/msec
 install -m 755 src/promisc_check/promisc_check src/msec_find/msec_find $RPM_BUILD_ROOT/usr/bin
 
@@ -62,26 +66,17 @@ install -m 755 %{SOURCE2} $RPM_BUILD_ROOT/etc/profile.d
 install -m 755 %{SOURCE3} $RPM_BUILD_ROOT/etc/profile.d
 touch $RPM_BUILD_ROOT/var/log/security.log
 
-%post 
+%post -p /bin/sh
 touch /var/log/security.log
-# create the /etc/security/msec/server
-# the /usr/share/msec/current-level.sh and
-# /etc/security/msec/current.perm files
-if [[ ${SECURE_LEVEL} == 4 || ${SECURE_LEVEL} == 5 || ${SECURE_LEVEL} == snf ]]; then
-	ln -sf /etc/security/msec/server.${SECURE_LEVEL} /etc/security/msec/server
-        else
-        	rm -rf /etc/security/msec/server
-                chkconfig --list |awk ' {print $1}' | grep -v ":" | sort -u > /etc/security/msec/server
-fi
 
-ln -sf /usr/share/msec/level${SECURE_LEVEL}.sh /usr/share/msec/current-level.sh
-echo
-echo "You might need to logout of your terminal session in order to update your environment variables."
-echo
-
-if [[ -f /etc/security/msec/perm.${SECURE_LEVEL} ]]; then
-	ln -sf /etc/security/msec/perm.${SECURE_LEVEL} /etc/security/msec/current.perm
-	/usr/share/msec/file_perm.sh /etc/security/msec/current.perm
+if [ $1 != 1 -a -f /etc/security/msec/security.conf ]; then
+	if grep -q "# Mandrake-Security : if you remove this comment" /etc/security/msec/security.conf; then
+		SL=`sed -n 's/SECURE_LEVEL=//p' < /etc/sysconfig/msec` || :
+		/usr/share/msec/cleanold.sh || :
+		msec $SL < /dev/null || :
+	else
+		msec < /dev/null || :
+	fi
 fi
 
 %clean
@@ -89,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS COPYING Makefile README 
+%doc AUTHORS COPYING Makefile share/README share/CHANGES
 %doc doc/*txt ChangeLog doc/*ps
 %_bindir/promisc_check
 %_bindir/msec_find
@@ -108,6 +103,66 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Thu Jan 17 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-12mdk
+- report cron log to tty only on root ttys.
+- better layout of rpm modified files report.
+
+* Wed Jan  9 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-11mdk
+- added hostname to the subject of the mail report for better information
+when you receive multiple reports
+
+- really added rpm-va check to the mail report
+
+- fix handling of the owner/group of subdirectories of /var/log in a
+generic manner.
+
+- oops put back periodic filesystems check
+
+* Mon Jan  7 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-10mdk
+- corrected first invocation.
+
+* Sun Jan  6 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-9mdk
+- oops: corrected broken security.sh script
+
+* Fri Jan  4 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-8mdk
+- TMOUT is now a read only variable
+- allow/forbid reboot/shutdown by [kg]dm
+
+* Thu Jan  3 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-7mdk
+- rpm -qa check now logs install time too
+- corrected the way we install the byte compiled python files to avoid
+false rpm -V warnings.
+- added a CHANGES file to document what has changed between 0.16 and 0.17
+- send complete rpm -va check to the main mail
+- perm.*: added handling of /etc/rc.d/init.d/*
+- changed the way /etc/security/msec/perm.local is used to avoid flip/flap changes
+- reworked output in diff rpm check to be more coherent
+
+* Sat Dec 29 2001 Frederic Lepied <flepied@mandrakesoft.com> 0.17-6mdk
+- added doc of the features of the msec utility
+- corrected enable_at_crontab
+- password_aging only takes care of /etc/shadow users and avoid the users
+with a deactivated password.
+
+* Fri Dec 28 2001 Frederic Lepied <flepied@mandrakesoft.com> 0.17-5mdk
+- added rpm database checks
+- added check of accounts with the 0 id that aren't root.
+
+* Thu Dec 27 2001 Frederic Lepied <flepied@mandrakesoft.com> 0.17-4mdk
+- disable root login in xdm,kdm,gdm the same way as in Bastille (via pam).
+- manage password aging.
+- manage crontab and at authorization.
+
+* Thu Dec 27 2001 Frederic Lepied <flepied@mandrakesoft.com> 0.17-3mdk
+- avoid changing permissions twice in the same run (to avoid unneeded logging).
+- when run in non-interactive mode, the output goes to the auth facility.
+
+* Fri Dec 14 2001 Frederic Lepied <flepied@mandrakesoft.com> 0.17-2mdk
+- fixed sysctl.conf handling
+
+* Thu Dec 13 2001 Frederic Lepied <flepied@mandrakesoft.com> 0.17-1mdk
+- rewritten file modifications part in python
+
 * Wed Dec 05 2001 Florin <florin@mandrakesoft.com> 0.16-4mdk
 - oups, use %{_sysconfdir}/sysconfig/%{name} instead of %{_sysconfdir}/%{name}
 - fix the msec.csh file (thks again to Konrad Bernlohr)

@@ -3,11 +3,10 @@ VERSION := $(shell grep 'Version:' $(PACKAGE).spec| cut -f 2)
 RELEASE := $(shell grep 'Release:' $(PACKAGE).spec| cut -f 2)
 TAG := $(shell echo "V$(VERSION)_$(RELEASE)" | tr -- '-.' '__')
 
-all: promisc_check msec_find
+all: promisc_check msec_find python
 
 clean:
-	-find . -name '*.o' -exec rm -f {} \;
-	-find . -name '*~' -exec rm -f {} \;
+	-find . -name '*.o' -o -name '*.pyc' -o -name '*~' -exec rm -f {} \;
 	rm -f src/promisc_check/promisc_check
 	rm -f src/msec_find/msec_find
 
@@ -17,29 +16,30 @@ promisc_check:
 msec_find:
 	(cd src/msec_find && make)
 
-install:
-	(mkdir -p $(RPM_BUILD_ROOT)/etc/security/msec)
-	(mkdir -p $(RPM_BUILD_ROOT)/usr/share/msec)
-	(mkdir -p $(RPM_BUILD_ROOT)/usr/sbin)
-	(cp init-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec)
-	(cp cron-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec)
-	(cp init-sh/msec $(RPM_BUILD_ROOT)/usr/sbin)
-	(cp conf/perm.* conf/server.* $(RPM_BUILD_ROOT)/etc/security/msec)
+python:
+	-cd share; ./msec.py -h
 
-	(mkdir -p $(RPM_BUILD_ROOT)/var/log)
-	(mkdir -p $(RPM_BUILD_ROOT)/var/log/security)
-	(touch $(RPM_BUILD_ROOT)/etc/security/msec/security.conf)
-	(touch $(RPM_BUILD_ROOT)/var/log/security.log)
-	(cd src/promisc_check && make install)
-	(cd src/msec_find && make install)
-	(mkdir -p $(RPM_BUILD_ROOT)/usr/man/man8/)
-	install -d $(RPM_BUILD_ROOT)/usr/man/man8/
-	install -m644 man/C/*8 $(RPM_BUILD_ROOT)/usr/man/man8/
-	bzip2 -9f $(RPM_BUILD_ROOT)/usr/man/man8/*8
+install:
+	mkdir -p $RPM_BUILD_ROOT/etc/security/msec
+	mkdir -p $RPM_BUILD_ROOT/usr/share/msec
+	mkdir -p $RPM_BUILD_ROOT/usr/sbin
+	cp init-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
+	cp cron-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
+	cp init-sh/msec $RPM_BUILD_ROOT/usr/sbin
+	cp conf/perm.* conf/server.* $RPM_BUILD_ROOT/etc/security/msec
+
+	mkdir -p $RPM_BUILD_ROOT/var/log
+	mkdir -p $RPM_BUILD_ROOT/var/log/security
+	touch $RPM_BUILD_ROOT/etc/security/msec/security.conf
+	touch $RPM_BUILD_ROOT/var/log/security.log
+	cd src/promisc_check && make install
+	cd src/msec_find && make install
+	mkdir -p $RPM_BUILD_ROOT/usr/share/man/man8/
+	install -d $(RPM_BUILD_ROOT)/usr/share/man/man8/
+	install -m644 man/C/*8 $(RPM_BUILD_ROOT)/usr/share/man/man8/
 	for i in man/??* ; do \
-	    install -d $(RPM_BUILD_ROOT)/usr/man/`basename $$i`/man8 ; \
-	    install -m 644 $$i/*.8 $(RPM_BUILD_ROOT)/usr/man/`basename $$i`/man8 ; \
-	    bzip2 -9f $(RPM_BUILD_ROOT)/usr/man/`basename $$i`/man8/*8 ; \
+	    install -d $(RPM_BUILD_ROOT)/usr/share/man/`basename $$i`/man8 ; \
+	    install -m 644 $$i/*.8 $(RPM_BUILD_ROOT)/usr/share/man/`basename $$i`/man8 ; \
 	done	
 
 version:
@@ -47,7 +47,7 @@ version:
 
 # rules to build a test rpm
 
-localrpm: localdist buildrpm
+localrpm: clean localdist buildrpm
 
 localdist: cleandist dir localcopy tar
 

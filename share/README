@@ -1,0 +1,66 @@
+******************
+Configurations files in /etc/security/msec/
+Shell scripts in /usr/share/msec.
+******************
+
+Suggest & Comment :
+yoann@mandrakesoft.com
+
+******************
+Doc of the rewritting in python:
+
+                        	0	1	2	3	4	5
+root umask			022	022	022	022	022	077
+shell timeout			0	0	0	0	3600	900
+deny services			none	none	none	none	local	all
+su only for wheel grp		no	no	no	no	no	yes
+user umask			022	022	022	022	077	077
+shell history size		default	default	default	default	0	0
+direct root login		yes	yes	yes	yes	no	no
+sulogin for single user		no	no	no	no	yes	yes
+user list in [kg]dm		yes	yes	yes	yes	no	no
+promisc check			no	no	no	no	yes	yes
+ignore icmp echo		no	no	no	no	yes	yes
+ignore bogus error responses	no	no	no	no	yes	yes
+enable libasfe			no	no	no	no	yes	yes
+allow reboot by user		yes	yes	yes	yes	no	no
+allow crontab/at		yes	yes	yes	yes	no	no
+password aging			no	no	no	no	60	30
+allow autologin			yes	yes	yes	no	no	no
+console log			no	no	no	yes	yes	yes
+issues				yes	yes	yes	local	local	no
+ip spoofing protection		no	no	no	yes	yes	yes
+log stange ip packets		no	no	no	yes	yes	yes
+periodic security check		no	yes	yes	yes	yes	yes
+allow X connections		yes	local	local	no	no	no
+run msec by cron		yes	yes	yes	yes	yes	yes
+
+Periodic security checks by level:
+
+                  0   1   2   3    4    5
+CHECK_SECURITY    no  yes yes yes  yes  yes  
+CHECK_PERMS       no  no  no  yes  yes  yes  
+CHECK_SUID_ROOT   no  no  yes yes  yes  yes  
+CHECK_SUID_MD5    no  no  yes yes  yes  yes  
+CHECK_SUID_GROUP  no  no  yes yes  yes  yes  
+CHECK_WRITEABLE   no  no  yes yes  yes  yes  
+CHECK_UNOWNED     no  no  no  no   yes  yes  
+CHECK_PROMISC     no  no  no  no   yes  yes  
+CHECK_OPEN_PORT   no  no  no  yes  yes  yes  
+CHECK_PASSWD      no  no  no  yes  yes  yes  
+CHECK_SHADOW      no  no  no  yes  yes  yes  
+TTY_WARN          no  no  no  no   yes  yes  
+MAIL_WARN         no  no  no  yes  yes  yes  
+SYSLOG_WARN       no  no  yes yes  yes  yes  
+RPM_CHECK         no  no  no  yes  yes  yes
+
+These variables are configured by the user:
+
+MAIL_USER the user to send the dayly reports. If not set, the email is
+sent to root.
+
+PERM_LEVEL is used to determine which file to use to fix
+permissions/owners/groups (in /etc/security/msec/perm.$PERM_LEVEL). If
+not set, the SECURE_LEVEL is used instead. If the file
+/etc/security/msec/perm.local exists, it's used too.
+

@@ -55,7 +55,8 @@ fi
 if [[ ${CHECK_WRITEABLE} == yes ]]; then
 
     if [[ -f ${WRITEABLE_YESTERDAY} ]]; then
-	if ! diff -u ${WRITEABLE_YESTERDAY} ${WRITEABLE_TODAY} > ${WRITEABLE_DIFF}; then
+	diff -u ${WRITEABLE_YESTERDAY} ${WRITEABLE_TODAY} > ${WRITEABLE_DIFF}
+	if [ -s ${WRITEABLE_DIFF} ]; then
 	    printf "\nSecurity Warning: Change in World Writeable Files found :\n" >> ${TMP}
 	    grep '^+' ${WRITEABLE_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
 		printf "\t\t- Added writables files : ${file}\n"
@@ -72,7 +73,8 @@ fi
 if [[ ${CHECK_UNOWNED} == yes ]]; then
 
     if [[ -f ${UNOWNED_USER_YESTERDAY} ]]; then
-	if ! diff -u ${UNOWNED_USER_YESTERDAY} ${UNOWNED_USER_TODAY} > ${UNOWNED_USER_DIFF}; then
+	diff -u ${UNOWNED_USER_YESTERDAY} ${UNOWNED_USER_TODAY} > ${UNOWNED_USER_DIFF}
+	if [ -s ${UNOWNED_USER_DIFF} ]; then
 	    printf "\nSecurity Warning: the following files aren't owned by an user :\n" >> ${TMP}
 	    grep '^+' ${UNOWNED_USER_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
 		printf "\t\t- Added un-owned files : ${file}\n"
@@ -84,7 +86,8 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
     fi
 
     if [[ -f ${UNOWNED_GROUP_YESTERDAY} ]]; then
-	if ! diff -u ${UNOWNED_GROUP_YESTERDAY} ${UNOWNED_GROUP_TODAY} > ${UNOWNED_GROUP_DIFF}; then
+	diff -u ${UNOWNED_GROUP_YESTERDAY} ${UNOWNED_GROUP_TODAY} > ${UNOWNED_GROUP_DIFF}
+	if [ -s ${UNOWNED_GROUP_DIFF} ]; then
 	    printf "\nSecurity Warning: the following files aren't owned by a group :\n" >> ${TMP}
 	    grep '^+' ${UNOWNED_GROUP_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
 		printf "\t\t- Added un-owned files : ${file}\n"
@@ -102,7 +105,8 @@ if [[ ${CHECK_SUID_MD5} == yes  ]]; then
     ctrl_md5=0;
 	
     if [[ -f ${SUID_MD5_YESTERDAY} ]]; then
-	if ! diff -u ${SUID_MD5_YESTERDAY} ${SUID_MD5_TODAY} > ${SUID_MD5_DIFF}; then
+	diff -u ${SUID_MD5_YESTERDAY} ${SUID_MD5_TODAY} > ${SUID_MD5_DIFF}
+	if [ -s ${SUID_MD5_DIFF} ]; then
 	    grep '^+' ${SUID_MD5_DIFF} | grep -vw "^+++ " | sed 's|^.||' | awk '{print $2}' | while read file; do
 		if cat ${SUID_MD5_YESTERDAY} | awk '{print $2}' | grep -qw ${file}; then
 		    if [[ ${ctrl_md5} == 0 ]]; then
@@ -122,8 +126,9 @@ fi
 if [[ ${CHECK_OPEN_PORT} == yes ]]; then
     
     if [[ -f ${OPEN_PORT_YESTERDAY} ]]; then
-	if ! diff -u ${OPEN_PORT_YESTERDAY} ${OPEN_PORT_TODAY} 1> ${OPEN_PORT_DIFF}; then
-	    printf "\nSecurity Warning: There is modifications for port listening on your machine :\n" >> ${TMP}
+	diff -u ${OPEN_PORT_YESTERDAY} ${OPEN_PORT_TODAY} 1> ${OPEN_PORT_DIFF}
+	if [ -s ${OPEN_PORT_DIFF} ]; then
+	    printf "\nSecurity Warning: There are modifications for port listening on your machine :\n" >> ${TMP}
 	    grep '^+' ${OPEN_PORT_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
 		printf "\t\t-  Opened ports : ${file}\n"
 	    done >> ${TMP}
@@ -135,26 +140,47 @@ if [[ ${CHECK_OPEN_PORT} == yes ]]; then
 
 fi
 
+### rpm database
+if [[ ${RPM_CHECK} == yes ]]; then
+    if [[ -f ${RPM_VA_YESTERDAY} ]]; then
+	diff -u ${RPM_VA_YESTERDAY} ${RPM_VA_TODAY} > ${RPM_VA_DIFF}
+	if [ -s ${RPM_VA_DIFF} ]; then
+	    printf "\nSecurity Warning: These files have been modified on the system :\n" >> ${TMP}
+	    grep '^+' ${RPM_VA_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
+		printf "\t\t-   newly modified : ${file}\n"
+	    done >> ${TMP}
+	    grep '^-' ${RPM_VA_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
+		printf "\t\t- no more modified : ${file}\n"
+	    done >> ${TMP}
+	fi
+    fi
+    if [[ -f ${RPM_QA_YESTERDAY} ]]; then
+	diff -u ${RPM_QA_YESTERDAY} ${RPM_QA_TODAY} > ${RPM_QA_DIFF}
+	if [ -s ${RPM_QA_DIFF} ]; then
+	    printf "\nSecurity Warning: These packages have changed on the system :\n" >> ${TMP}
+	    grep '^+' ${RPM_QA_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
+		printf "\t\t-   added package : ${file}\n"
+	    done >> ${TMP}
+	    grep '^-' ${RPM_QA_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
+		printf "\t\t- removed package : ${file}\n"
+	    done >> ${TMP}
+	fi
+    fi
+fi
+
 ######## Report ######
 if [[ -s ${TMP} ]]; then
     Syslog ${TMP}
     Ttylog ${TMP}
     date=`date`
+    hostname=`hostname`
 
     echo -e "\n\n*** Diff Check, ${date} ***\n" >> ${SECURITY_LOG}
     cat ${TMP} >> ${SECURITY_LOG}
-	Maillog "*** Diff Check, ${date} ***" "${TMP}"
+    Maillog "*** Diff Check on ${hostname}, ${date} ***" "${TMP}"
 fi
 
 if [[ -f ${TMP} ]]; then
 	rm -f ${TMP}
 fi
-
-
-
-
-
-
-
-
 

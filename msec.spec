@@ -53,7 +53,7 @@ for i in man/??* ; do \
 done;
 
 
-touch $RPM_BUILD_ROOT/etc/security/msec/security.conf $RPM_BUILD_ROOT/var/log/security.log $RPM_BUILD_ROOT/%{_sysconfdir}/%{name}
+touch $RPM_BUILD_ROOT/etc/security/msec/security.conf $RPM_BUILD_ROOT/var/log/security.log $RPM_BUILD_ROOT/%{_sysconfdir}/sysconfig/%{name}
 
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/{logrotate.d,profile.d}
 install -m 644 %{SOURCE1} $RPM_BUILD_ROOT/etc/logrotate.d/msec
@@ -100,13 +100,17 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) /etc/security/msec
 %config(noreplace) /etc/logrotate.d/msec
 %config(noreplace) /etc/profile.d/msec*
-%config(noreplace) %{_sysconfdir}/%{name}
+%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 
 %ghost /var/log/security.log
 
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Wed Dec 05 2001 Florin <florin@mandrakesoft.com> 0.16-4mdk
+- oups, use %{_sysconfdir}/sysconfig/%{name} instead of %{_sysconfdir}/%{name}
+- fix the msec.csh file (thks again to Konrad Bernlohr)
+
 * Thu Nov 29 2001 Florin <florin@mandrakesoft.com> 0.16-3mdk
 - remove the redundance related to umask and /etc/bashrc
 - add the %{_sysconfdir}/%{name} file

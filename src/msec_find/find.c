@@ -45,6 +45,7 @@
 #include <pwd.h>
 #include <grp.h>
 #include <sys/types.h>
+#include <regex.h>
 
 #include <string.h>
 
@@ -63,6 +64,8 @@ static FILE *sgid_fd;
 static FILE *unowned_user_fd;
 static FILE *unowned_group_fd;
 static FILE *writable_fd;
+static regex_t exclude_regexp;
+static int use_regexp = 0;
 
 static int traverse(const char *file, const struct stat *sb, int flag, struct FTW *s)
 {
@@ -81,7 +84,11 @@ static int traverse(const char *file, const struct stat *sb, int flag, struct FT
          */
         if ( (strncmp("/proc", file, 5) == 0) || (strncmp("/dev", file, 4) == 0) )
                 return 0;
-        
+
+        if (use_regexp && regexec(&exclude_regexp, file, 0, NULL, 0) == 0) {
+		return 0;
+	}
+	
 	switch (flag) {
                 /*
                  * Regular file handling.
@@ -132,6 +139,7 @@ static int traverse(const char *file, const struct stat *sb, int flag, struct FT
 __inline__ static void init()
 {
 	static const char *mode = "w+";
+	char *env;
 
         suid_fd = fopen(getenv("SUID_ROOT_TODAY"), mode);
         if ( ! suid_fd ) {
@@ -162,6 +170,16 @@ __inline__ static void init()
                 perror("fopen (unowned_group_today)");
                 exit(1);
         }
+	
+	env = getenv("EXCLUDE_REGEXP");
+	if (env) {
+		if (regcomp(&exclude_regexp, env, 0) == 0) {
+			use_regexp = 1;
+		} else {
+			fprintf(stderr, "Unable to compile EXCLUDE_REGEXP '%s'\n", env);
+			exit(1);
+		}
+	}
 }
 
 int main(int argc, char **argv)

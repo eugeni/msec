@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.17
-Release:	12mdk
+Release:	13mdk
 Url:		http://www.linux-mandrake.com
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -103,6 +103,13 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Sun Jan 20 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-13mdk
+- diff_check.sh: mail even if the report is empty to show that the check
+was fine.
+- the string "current" signifies to not change the permissions.
+- perm.*: corrected mandrake_consmap permissions and ping path/permissions.
+- /home is 711 in level 3.
+
 * Thu Jan 17 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-12mdk
 - report cron log to tty only on root ttys.
 - better layout of rpm modified files report.
@@ -110,12 +117,9 @@ rm -rf $RPM_BUILD_ROOT
 * Wed Jan  9 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-11mdk
 - added hostname to the subject of the mail report for better information
 when you receive multiple reports
-
 - really added rpm-va check to the mail report
-
 - fix handling of the owner/group of subdirectories of /var/log in a
 generic manner.
-
 - oops put back periodic filesystems check
 
 * Mon Jan  7 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-10mdk

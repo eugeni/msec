@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.40
+Version:	0.39
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -152,7 +152,7 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
-* Fri Aug 22 2003 Frederic Lepied <flepied@mandrakesoft.com> 0.40-1mdk
+* Fri Aug 22 2003 Frederic Lepied <flepied@mandrakesoft.com> 0.39-1mdk
 - don't write True or False in sysctl.conf (bug #4629)
 - don't use apply anymore (Olivier Blin) (bug #4632)
 - better documentation for no_password_aging_for (bug #1629)

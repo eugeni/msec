@@ -1,3 +1,8 @@
+1999-12-16 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* Indentation problem should be corrected
+	* All debug finished, changing secure.tmp to a mktemp
+      allocated tmpfile for symlink security.
+
 1999-12-16 Chmouel Boudjnah <chmouel@mandrakesoft.com>
 
 	* msec.lyx: add new file from camille.

@@ -155,6 +155,8 @@ rm -rf $RPM_BUILD_ROOT
 * Wed Jul  7 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.43-1mdk
 - fixed again mailman permissions for mailman in level 3 (bug #9319)
 - use getent to parse the passwd database (bug #9904)
+- fix msec.csh (Pixel)
+- more servers in level 4 (Florin)
 
 * Fri Apr 23 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.42.2-1mdk
 - corrected mailman log permissions (Guillaume Rousse bug #9319)

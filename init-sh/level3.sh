@@ -58,7 +58,7 @@ echo -e "\t- Security warning in syslog : \"yes\" :"
 
 # Crontab
 echo "Adding permission check in crontab (scheduled every midnight) :"
-AddRules "0 0-23 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/file_check.sh" /etc/crontab
+AddRules "0 0 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/file_check.sh" /etc/crontab
 
 echo -n "Running lilo to record new config : "
 /sbin/lilo >& /dev/null

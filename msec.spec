@@ -39,11 +39,6 @@ rm -rf $RPM_BUILD_ROOT
 - Various (Makefile|specfiles) clean-up.
 - insert doc.
 
-* Wed Dec  8 1999 Pixel <pixel@linux-mandrake.com>
-- fixed a yoyosuk in promisc_check cron (have to teach him how to use an editor!)
-- source in .bz2 (yoyosuk2)
-- strip binary (yoyosuk3)
-
 * Mon Dec  6 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - Released 0.5
 - Divided security check into 2 files :

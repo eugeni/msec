@@ -1,3 +1,7 @@
+2002-05-29 16:39  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: corrected typo
+
 2002-05-29 16:38  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.22-1mdk

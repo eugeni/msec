@@ -155,9 +155,9 @@ def fix_perms(path, _interactive):
         mode_str = fields[2]
         
         if mode_str == 'current':
-            newperm = -1
+            perm = -1
         else:
-            newperm = int(mode_str, 8)
+            perm = int(mode_str, 8)
 
         if fields[1] == 'current':
             user = group = -1
@@ -169,6 +169,7 @@ def fix_perms(path, _interactive):
         
         if len(fields) == 4:
             for f in glob.glob(fields[0]):
+                newperm = perm
                 if fs_regexp and fs_regexp.search(f):
                     _interactive and log(_('Non local file: "%s". Nothing changed.') % fields[0])
                     continue
@@ -186,7 +187,7 @@ def fix_perms(path, _interactive):
 
                 mode = stat.S_IMODE(full[stat.ST_MODE])
 
-                if stat.S_ISDIR(full[stat.ST_MODE]):
+                if newperm != -1 and stat.S_ISDIR(full[stat.ST_MODE]):
                     if newperm & 0400:
                         newperm = newperm | 0100
                     if newperm & 0040:

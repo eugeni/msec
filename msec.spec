@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.16
-Release:	3mdk
+Release:	4mdk
 Url:		http://www.linux-mandrake.com
 Source0:		%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -33,6 +33,7 @@ make CFLAGS="$RPM_OPT_FLAGS"
 #make install RPM_BUILD_ROOT=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/etc/security/msec
+install -d $RPM_BUILD_ROOT/etc/sysconfig/msec
 install -d $RPM_BUILD_ROOT/usr/share/msec
 install -d $RPM_BUILD_ROOT/usr/sbin $RPM_BUILD_ROOT/usr/bin
 install -d $RPM_BUILD_ROOT/var/log/security

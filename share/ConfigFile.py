@@ -253,7 +253,6 @@ class ConfigFile:
     def get_match(self, regex, replace=None):
         r=re.compile(regex)
         lines = self.get_lines()
-        matches = 0
         for idx in range(0, len(lines)):
             res = r.search(lines[idx])
             if res:

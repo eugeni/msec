@@ -30,54 +30,54 @@ except IOError:
 
 comment_regex = re.compile('^\s*#|^\s*$')
 
-user = {}
-group = {}
-userid = {}
-groupid = {}
+USER = {}
+GROUP = {}
+USERID = {}
+GROUPID = {}
 
 def get_user_id(name):
     try:
-        return user[name]
+        return USER[name]
     except KeyError:
         try:
-            user[name] = pwd.getpwnam(name)[2]
+            USER[name] = pwd.getpwnam(name)[2]
         except KeyError:
             error(_('user name %s not found') % name)
-            user[name] = -1
-    return user[name]
+            USER[name] = -1
+    return USER[name]
 
 def get_user_name(id):
     try:
-        return userid[id]
+        return USERID[id]
     except KeyError:
         try:
-            userid[id] = pwd.getpwuid(id)[0]
+            USERID[id] = pwd.getpwuid(id)[0]
         except KeyError:
             error(_('user name not found for id %d') % id)
-            userid[id] = str(id)
-    return userid[id]
+            USERID[id] = str(id)
+    return USERID[id]
 
 def get_group_id(name):
     try:
-        return group[name]
+        return GROUP[name]
     except KeyError:
         try:
-            group[name] = grp.getgrnam(name)[2]
+            GROUP[name] = grp.getgrnam(name)[2]
         except KeyError:
             error(_('group name %s not found') % name)
-            group[name] = -1
-    return group[name]
+            GROUP[name] = -1
+    return GROUP[name]
 
 def get_group_name(id):
     try:
-        return groupid[id]
+        return GROUPID[id]
     except KeyError:
         try:
-            groupid[id] = grp.getgrgid(id)[0]
+            GROUPID[id] = grp.getgrgid(id)[0]
         except KeyError:
             error(_('group name not found for id %d') % id)
-            groupid[id] = str(id)
-    return groupid[id]
+            GROUPID[id] = str(id)
+    return GROUPID[id]
 
 assoc = {}
 
@@ -181,8 +181,6 @@ def chmod(f, newperm):
     return 1
 
 if __name__ == '__main__':
-    import sys
-    import Config
     import getopt
     
     _interactive = sys.stdin.isatty()

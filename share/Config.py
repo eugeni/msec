@@ -8,8 +8,6 @@
 # Purpose         : configuration settings
 #---------------------------------------------------------------
 
-import sys
-
 CONFIG='/etc/security/msec2.conf'
 
 _config={ 'root' : '',
@@ -31,16 +29,16 @@ def get_config(name, default=None):
 def set_config(name, value):
     _config[name] = value
     
-def converthexa(array):
-    result=""
-    for c in array:
-        o=ord(c)
-        d=o/16
-        u=o-(d*16)
-        result=result + "%x%x" % (d, u)
-    return result
-
-def hashstring(str):
-    return converthexa(md5.new(str).digest())
+# def converthexa(array):
+#     result=""
+#     for c in array:
+#         o=ord(c)
+#         d=int(o/16)
+#         u=o-(d*16)
+#         result=result + "%x%x" % (d, u)
+#     return result
+# 
+# def hashstring(str):
+#     return converthexa(md5.new(str).digest())
 
 # Config.py ends here

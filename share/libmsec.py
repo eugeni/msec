@@ -81,6 +81,9 @@ NONE=0
 ALL=1
 LOCAL=2
 
+ALL_LOCAL_NONE_TRANS = {ALL : 'ALL', NONE: 'NONE', LOCAL : 'LOCAL'}
+YES_NO_TRANS = {1 : 'yes', 0 : 'no'}
+
 # config files => actions
 
 ConfigFile.add_config_assoc(INITTAB, '/sbin/telinit q')
@@ -91,7 +94,7 @@ ConfigFile.add_config_assoc(LILOCONF, '[ `/usr/sbin/detectloader` = LILO ] && /s
 ConfigFile.add_config_assoc(SYSLOGCONF, '[ -f /var/lock/subsys/syslog ] && service syslog reload')
 ConfigFile.add_config_assoc('^/etc/issue$', '/usr/bin/killall mingetty')
 
-#
+# rules
 
 def changing_level():
     'D'
@@ -141,6 +144,8 @@ during the installation of packages.'''
     else:
         _interactive and log(_('Restricting chkconfig --add from rpm'))
         server.symlink(SERVER + '.' + str(level))
+
+create_server_link.arg_trans = YES_NO_TRANS
 
 # helper function for set_root_umask and set_user_umask
 def set_umask(variable, umask, msg):
@@ -214,6 +219,9 @@ local connection) and NONE (no connection).'''
         error(_('invalid allow_x_connections arg: %s') % arg)
         return
 
+allow_x_connections.arg_trans=ALL_LOCAL_NONE_TRANS
+allow_x_connections.one_arg = 1
+
 STARTX_REGEXP = '(\s*clientargs=".*) -nolisten tcp(.*")'
 XSERVERS_REGEXP = '(\s*[^#]+/usr/X11R6/bin/X .*) -nolisten tcp(.*)'
 GDMCONF_REGEXP = '(\s*command=.*/X.*?) -nolisten tcp(.*)$'
@@ -249,6 +257,8 @@ to the X server on the tcp port 6000 or not.'''
             startx.exists() and startx.replace_line_matching('clientargs="(.*?)( -nolisten tcp)?"', 'clientargs="@1 -nolisten tcp"')
             xservers.exists() and xservers.replace_line_matching('(\s*[^#]+/usr/X11R6/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
             gdmconf.exists() and gdmconf. replace_line_matching('(\s*command=.*/X.*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
+
+allow_xserver_to_listen.arg_trans = YES_NO_TRANS
 
 def set_shell_timeout(val):
     '''  Set the shell timeout. A value of zero means no timeout.'''
@@ -341,7 +351,9 @@ def allow_reboot(arg):
         sysctlconf.set_shell_variable('kernel.sysrq', 0)
         kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', 'None', 'X-:\*-Greeter', '^\s*$')
         gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'false', '\[greeter\]', '^\s*$')
-    
+
+allow_reboot.arg_trans = YES_NO_TRANS
+
 def allow_user_list(arg):
     '''  Allow/Forbid the list of users on the system on display managers (kdm and gdm).'''
     kdmrc = ConfigFile.get_config_file(KDMRC)
@@ -372,6 +384,8 @@ def allow_user_list(arg):
         _interactive and log(_(msg))
         oldval_kdmrc != val_gdmconf and kdmrc.exists() and kdmrc.set_shell_variable('ShowUsers', val_kdmrc)
         oldval_gdmconf != val_gdmconf and gdmconf.exists() and gdmconf.set_shell_variable('Browser', val_gdmconf)
+
+allow_user_list.arg_trans = YES_NO_TRANS
 
 def allow_root_login(arg):
     '''  Allow/Forbid direct root login.'''
@@ -432,6 +446,8 @@ def allow_root_login(arg):
         
             securetty.remove_line_matching('.+', 1)
 
+allow_root_login.arg_trans = YES_NO_TRANS
+
 def allow_remote_root_login(arg):
     '''  Allow/Forbid remote root login.'''
     sshd_config = ConfigFile.get_config_file(SSHDCONFIG)
@@ -458,6 +474,8 @@ def allow_remote_root_login(arg):
             _interactive and log(_('Forbidding remote root login'))
             sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+(no|yes)',
                                                                        'PermitRootLogin no', 1)
+
+allow_remote_root_login.arg_trans = YES_NO_TRANS
 
 def enable_pam_wheel_for_su(arg):
     '''   Enabling su only from members of the wheel group or allow su from any user.'''
@@ -490,7 +508,9 @@ def enable_pam_wheel_for_su(arg):
         if val:
             _interactive and log(_('Allowing su for all'))
             su.exists() and su.remove_line_matching('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$')
-    
+
+enable_pam_wheel_for_su.arg_trans = YES_NO_TRANS
+
 def allow_issues(arg):
     '''  If \\fIarg\\fP = ALL allow /etc/issue and /etc/issue.net to exist. If \\fIarg\\fP = NONE no issues are
 allowed else only /etc/issue is allowed.'''
@@ -525,6 +545,8 @@ allowed else only /etc/issue is allowed.'''
             _interactive and log(_('Disabling network pre-login message'))
             issuenet.exists(1) and issuenet.move(SUFFIX)
 
+allow_issues.arg_trans = YES_NO_TRANS
+
 def allow_autologin(arg):
     '''  Allow/Forbid autologin.'''
     autologin = ConfigFile.get_config_file(AUTOLOGIN)
@@ -547,6 +569,8 @@ def allow_autologin(arg):
         if val != 'no':
             _interactive and log(_('Forbidding autologin'))
             autologin.exists() and autologin.set_shell_variable('AUTOLOGIN', 'no')
+
+allow_autologin.arg_trans = YES_NO_TRANS
 
 def password_loader(value):
     'D'
@@ -596,6 +620,8 @@ dev the device to report the log.'''
             _interactive and log(_('Disabling log on console'))
             syslogconf.exists() and syslogconf.remove_line_matching('\s*[^#]+/dev/')
 
+enable_console_log.arg_trans = YES_NO_TRANS
+
 CRON_ENTRY = '*/1 * * * *    root    /usr/share/msec/promisc_check.sh'
 CRON_REGEX = '[^#]+/usr/share/msec/promisc_check.sh'
 
@@ -619,6 +645,8 @@ def enable_promisc_check(arg):
             _interactive and log(_('Disabling periodic promiscuity check'))
             cron.remove_line_matching('[^#]+/usr/share/msec/promisc_check.sh')
 
+enable_promisc_check.arg_trans = YES_NO_TRANS
+
 def enable_security_check(arg):
     '''   Activate/Disable daily security check.'''
     cron = ConfigFile.get_config_file(CRON)
@@ -641,6 +669,8 @@ def enable_security_check(arg):
         if val:
             _interactive and log(_('Disabling daily security check'))
             securitycron.unlink()
+
+enable_security_check.arg_trans = YES_NO_TRANS
 
 ALL_REGEXP = '^ALL:ALL:DENY'
 ALL_LOCAL_REGEXP = '^ALL:ALL EXCEPT 127\.0\.0\.1:DENY'
@@ -683,6 +713,8 @@ if \\fIarg\\fP = LOCAL and none if \\fIarg\\fP = NONE. To authorize the services
     else:
         error(_('authorize_services invalid argument: %s') % arg)
 
+authorize_services.arg_trans = ALL_LOCAL_NONE_TRANS
+
 # helper function for enable_ip_spoofing_protection, accept_icmp_echo, accept_broadcasted_icmp_echo,
 # accept_bogus_error_responses and enable_log_strange_packets.
 def set_zero_one_variable(file, variable, value, secure_value, one_msg, zero_msg):
@@ -715,6 +747,9 @@ def enable_ip_spoofing_protection(arg, alert=1):
     '''  Enable/Disable IP spoofing protection.'''
     set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.rp_filter', arg, 1, 'Enabling ip spoofing protection', 'Disabling ip spoofing protection')
 
+enable_ip_spoofing_protection.arg_trans = YES_NO_TRANS
+enable_ip_spoofing_protection.one_arg = 1
+
 def enable_dns_spoofing_protection(arg, alert=1):
     ''' Enable/Disable name resolution spoofing protection.  If
 \\fIalert\\fP is true, also reports to syslog.'''
@@ -738,21 +773,31 @@ def enable_dns_spoofing_protection(arg, alert=1):
             hostconf.remove_line_matching('nospoof')
             hostconf.remove_line_matching('spoofalert')
 
+enable_dns_spoofing_protection.arg_trans = YES_NO_TRANS
+
 def accept_icmp_echo(arg):
     '''   Accept/Refuse icmp echo.'''
     set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_all', not arg, 1, 'Accepting icmp echo', 'Ignoring icmp echo')
-    
+
+accept_icmp_echo.arg_trans = YES_NO_TRANS
+
 def accept_broadcasted_icmp_echo(arg):
     '''   Accept/Refuse broadcasted icmp echo.'''
     set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_broadcasts', not arg, 1, 'Accepting broadcasted icmp echo', 'Ignoring broadcasted icmp echo')
-    
+
+accept_broadcasted_icmp_echo.arg_trans = YES_NO_TRANS
+
 def accept_bogus_error_responses(arg):
     '''  Accept/Refuse bogus IPv4 error messages.'''
     set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_ignore_bogus_error_responses', not arg, 1, 'Accepting bogus icmp error responses', 'Ignoring bogus icmp error responses')
-    
+
+accept_bogus_error_responses.arg_trans = YES_NO_TRANS
+
 def enable_log_strange_packets(arg):
     '''  Enable/Disable the logging of IPv4 strange packets.'''
     set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.log_martians', arg, 1, 'Enabling logging of strange packets', 'Disabling logging of strange packets')
+
+enable_log_strange_packets.arg_trans = YES_NO_TRANS
 
 def enable_libsafe(arg):
     '''  Enable/Disable libsafe if libsafe is found on the system.'''
@@ -775,6 +820,8 @@ def enable_libsafe(arg):
         if val:
             _interactive and log(_('Disabling libsafe'))
             ldsopreload.remove_line_matching('[^#]*libsafe')        
+
+enable_libsafe.arg_trans = YES_NO_TRANS
 
 LENGTH_REGEXP = '^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sminlen=([0-9]+)\s(.*)'
 NDIGITS_REGEXP = '^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sdcredit=([0-9]+)\s(.*)'
@@ -851,6 +898,8 @@ def enable_password(arg):
             system_auth.replace_line_matching(PASSWORD_REGEXP, 'auth        sufficient    /lib/security/pam_permit.so') or \
             system_auth.insert_before('auth\s+sufficient', 'auth        sufficient    /lib/security/pam_permit.so')
 
+enable_password.arg_trans = YES_NO_TRANS
+
 SULOGIN_REGEXP = '~~:S:wait:/sbin/sulogin'
 def enable_sulogin(arg):
     '''   Enable/Disable sulogin(8) in single user level.'''
@@ -872,6 +921,8 @@ def enable_sulogin(arg):
             _interactive and log(_('Disabling sulogin in single user runlevel'))
             inittab.remove_line_matching('~~:S:wait:/sbin/sulogin')
 
+enable_sulogin.arg_trans = YES_NO_TRANS
+
 def enable_msec_cron(arg):
     '''  Enable/Disable msec hourly security check.'''
     mseccron = ConfigFile.get_config_file(MSECCRON)
@@ -891,6 +942,8 @@ def enable_msec_cron(arg):
         if arg != val:
             _interactive and log(_('Disabling msec periodic runs'))
             mseccron.unlink()
+
+enable_msec_cron.arg_trans = YES_NO_TRANS
 
 def enable_at_crontab(arg):
     '''  Enable/Disable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow
@@ -918,6 +971,8 @@ def enable_at_crontab(arg):
             _interactive and log(_('Disabling crontab and at'))
             cronallow.replace_line_matching('root', 'root', 1)
             atallow.replace_line_matching('root', 'root', 1)
+
+enable_at_crontab.arg_trans = YES_NO_TRANS
 
 maximum_regex = re.compile('^Maximum:\s*([0-9]+|-1)', re.MULTILINE)
 inactive_regex = re.compile('^Inactive:\s*(-?[0-9]+)', re.MULTILINE)

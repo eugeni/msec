@@ -36,6 +36,8 @@ RPM_VA_DIFF="/var/log/security/rpm-va.diff"
 export RPM_QA_TODAY="/var/log/security/rpm-qa.today"
 RPM_QA_YESTERDAY="/var/log/security/rpm-qa.yesterday"
 RPM_QA_DIFF="/var/log/security/rpm-qa.diff"
+export CHKROOTKIT_TODAY="/var/log/security/chkrootkit.today"
+CHKROOTKIT_YESTERDAY="/var/log/security/chkrootkit.yesterday"
 
 # Modified filters coming from debian security scripts.
 CS_NFSAFS='(nfs|afs|xfs|coda)'
@@ -86,6 +88,10 @@ if [[ -f ${RPM_QA_TODAY} ]]; then
     mv -f ${RPM_QA_TODAY} ${RPM_QA_YESTERDAY}
 fi
 
+if [[ -f ${CHKROOTKIT_TODAY} ]]; then
+    mv -f ${CHKROOTKIT_TODAY} ${CHKROOTKIT_YESTERDAY}
+fi
+
 netstat -pvlA inet 2> /dev/null > ${OPEN_PORT_TODAY};
 
 # Hard disk related file check; the less priority the better...
@@ -133,6 +139,13 @@ if [[ ${RPM_CHECK} == yes ]]; then
     rpm -qa --qf "%{NAME}-%{VERSION}-%{RELEASE}\t%{INSTALLTIME}\n" | sort > ${RPM_QA_TODAY}
     
     nice --adjustment=+19 rpm -V `cut -f 1  < ${RPM_QA_TODAY} | grep -v '^dev-[0-9]'` | grep '^..5' | sed 's/...........//' | sort > ${RPM_VA_TODAY}
+fi
+
+### chkrootkit checks
+if [[ ${CHKROOTKIT_CHECK} == yes ]]; then
+    if [ -x /usr/sbin/chkrootkit ]; then
+	/usr/sbin/chkrootkit > ${CHKROOTKIT_TODAY}
+    fi
 fi
 
 ### Functions ###

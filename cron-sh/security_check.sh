@@ -258,6 +258,15 @@ if [[ ${RPM_CHECK} == yes ]]; then
     fi
 fi
 
+### chkrootkit checks
+if [[ ${CHKROOTKIT_CHECK} == yes ]]; then
+
+    if [[ -s ${CHKROOTKIT_TODAY} ]]; then
+	printf "\nChkrootkit report:\n" >> ${SECURITY}
+	cat ${CHKROOTKIT_TODAY} >> ${SECURITY}
+    fi
+fi
+
 ### Report
 if [[ -s ${SECURITY} ]]; then
     Syslog ${SECURITY}

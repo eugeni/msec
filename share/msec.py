@@ -182,6 +182,7 @@ FILE_CHECKS = {'CHECK_SECURITY' :   ('no',  'yes', 'yes', 'yes',  'yes',  'yes',
                'MAIL_WARN' :        ('no',  'no',  'no',  'yes',  'yes',  'yes',  ),
                'SYSLOG_WARN' :      ('no',  'no',  'yes', 'yes',  'yes',  'yes',  ),
                'RPM_CHECK' :        ('no',  'no',  'no',  'yes',  'yes',  'yes',  ),
+               'CHKROOTKIT_CHECK' : ('no',  'no',  'no',  'yes',  'yes',  'yes',  ),
                }
 
 interactive and log(_('Configuring periodic files checks'))

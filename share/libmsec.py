@@ -151,7 +151,7 @@ def set_umask(variable, umask, msg):
     # don't lower security when not changing security level
     if _same_level:
         if val:
-            octal = string.atoi(umask, 8) | string.atoi(val, 8)
+            octal = int(umask, 8) | int(val, 8)
             umask = '0%o' % octal
                 
     if val != umask:
@@ -173,58 +173,121 @@ on the client side: ALL (all connections are allowed), LOCAL (only
 local connection) and NONE (no connection).'''
     
     msec = ConfigFile.get_config_file(MSEC_XINIT)
-    
+
+    val = msec.exists() and msec.get_match('/usr/X11R6/bin/xhost\s*\+\s*([^#]*)')
+
+    if val:
+        if val == '':
+            val = ALL
+        elif val == 'localhost':
+            val = LOCAL
+        else:
+            val = NONE
+    else:
+        val = NONE
+        
+    # don't lower security when not changing security level
+    if _same_level:
+        if val == NONE or (val == LOCAL and arg == ALL):
+            return
+        
     if arg == ALL:
-        _interactive and log(_('Allowing users to connect X server from everywhere'))
-        msec.exists() and msec.replace_line_matching('/usr/X11R6/bin/xhost', '/usr/X11R6/bin/xhost +', 1)
+        if val != arg:
+            _interactive and log(_('Allowing users to connect X server from everywhere'))
+            msec.exists() and msec.replace_line_matching('/usr/X11R6/bin/xhost', '/usr/X11R6/bin/xhost +', 1)
 
     elif arg == LOCAL:
-        _interactive and log(_('Allowing users to connect X server from localhost'))
-        msec.exists() and msec.replace_line_matching('/usr/X11R6/bin/xhost', '/usr/X11R6/bin/xhost + localhost', 1)
+        if val != arg:
+            _interactive and log(_('Allowing users to connect X server from localhost'))
+            msec.exists() and msec.replace_line_matching('/usr/X11R6/bin/xhost', '/usr/X11R6/bin/xhost + localhost', 1)
         
     elif arg == NONE:
-        _interactive and log(_('Restricting X server connection to the console user'))
-        msec.exists() and msec.remove_line_matching('/usr/X11R6/bin/xhost', 1)
+        if val != arg:
+            _interactive and log(_('Restricting X server connection to the console user'))
+            msec.exists() and msec.remove_line_matching('/usr/X11R6/bin/xhost', 1)
         
     else:
         error(_('invalid allow_x_connections arg: %s') % arg)
         return
 
+STARTX_REGEXP = '(\s*clientargs=".*) -nolisten tcp(.*")'
+XSERVERS_REGEXP = '(\s*[^#]+/usr/X11R6/bin/X .*) -nolisten tcp(.*)'
+GDMCONF_REGEXP = '(\s*command=.*/X.*?) -nolisten tcp(.*)$'
 def allow_xserver_to_listen(arg):
     ''' The argument specifies if clients are authorized to connect
 to the X server on the tcp port 6000 or not.'''
-     
+    
     startx = ConfigFile.get_config_file(STARTX)
     xservers = ConfigFile.get_config_file(XSERVERS)
     gdmconf = ConfigFile.get_config_file(GDMCONF)
+
+    val_startx = startx.exists() and startx.get_match(STARTX_REGEXP)
+    val_xservers = xservers.exists() and xservers.get_match(XSERVERS_REGEXP)
+    val_gdmconf = gdmconf.exists() and gdmconf.get_match(GDMCONF_REGEXP)
     
+    # don't lower security when not changing security level
+    if _same_level:
+        if val_startx and val_xservers and val_gdmconf:
+            return
+        
     if arg:
-        _interactive and log(_('Allowing the X server to listen to tcp connections'))
-        startx.exists() and startx.replace_line_matching('(\s*clientargs=".*) -nolisten tcp(.*")', '@1@2')
-        xservers.exists() and xservers.replace_line_matching('(\s*[^#]+/usr/X11R6/bin/X .*) -nolisten tcp(.*)', '@1@2', 0, 1)
-        gdmconf.exists() and gdmconf. replace_line_matching('(\s*command=.*/X.*?) -nolisten tcp(.*)$', '@1@2', 0, 1)
+        if val_startx or val_xservers or val_gdmconf:
+            _interactive and log(_('Allowing the X server to listen to tcp connections'))
+            startx.exists() and startx.replace_line_matching(STARTX_REGEXP, '@1@2')
+            xservers.exists() and xservers.replace_line_matching(XSERVERS_REGEXP, '@1@2', 0, 1)
+            gdmconf.exists() and gdmconf. replace_line_matching(GDMCONF_REGEXP, '@1@2', 0, 1)
     else:
-        _interactive and log(_('Forbidding the X server to listen to tcp connection'))
-        startx.exists() and startx.replace_line_matching('clientargs="(.*?)( -nolisten tcp)?"', 'clientargs="@1 -nolisten tcp"')
-        xservers.exists() and xservers.replace_line_matching('(\s*[^#]+/usr/X11R6/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
-        gdmconf.exists() and gdmconf. replace_line_matching('(\s*command=.*/X.*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
+        if not val_startx or not val_xservers or not val_gdmconf:
+            _interactive and log(_('Forbidding the X server to listen to tcp connection'))
+            startx.exists() and startx.replace_line_matching('clientargs="(.*?)( -nolisten tcp)?"', 'clientargs="@1 -nolisten tcp"')
+            xservers.exists() and xservers.replace_line_matching('(\s*[^#]+/usr/X11R6/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
+            gdmconf.exists() and gdmconf. replace_line_matching('(\s*command=.*/X.*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
 
 def set_shell_timeout(val):
     '''  Set the shell timeout. A value of zero means no timeout.'''
-    _interactive and log(_('Setting shell timeout to %s') % val)
+
     msec = ConfigFile.get_config_file(MSEC)
-    msec.set_shell_variable('TMOUT', val)
+
+    if msec.exists():
+        old = msec.get_shell_variable('TMOUT')
+        if old != None:
+            old = int(old)
+    else:
+        old = None
+        
+    # don't lower security when not changing security level
+    if _same_level:
+        if old != None and old > val:
+            return
+
+    if old != val:
+        _interactive and log(_('Setting shell timeout to %s') % val)
+        msec.set_shell_variable('TMOUT', val)
 
 def set_shell_history_size(size):
     '''  Set shell commands history size. A value of -1 means unlimited.'''
     msec = ConfigFile.get_config_file(MSEC)
 
-    if size >= 0:
-        _interactive and log(_('Setting shell history size to %s') % size)
-        msec.set_shell_variable('HISTFILESIZE', size)
+    if msec.exists():
+        old = msec.get_shell_variable('HISTFILESIZE')
     else:
-        _interactive and log(_('Removing limit on shell history size'))
-        msec. remove_line_matching('^HISTFILESIZE=')
+        old = None
+        
+    # don't lower security when not changing security level
+    if _same_level:
+        if old != None:
+            old = int(old)
+            if size == -1 or old < size:
+                return
+            
+    if size >= 0:
+        if old != size:
+            _interactive and log(_('Setting shell history size to %s') % size)
+            msec.set_shell_variable('HISTFILESIZE', size)
+    else:
+        if old != None:
+            _interactive and log(_('Removing limit on shell history size'))
+            msec.remove_line_matching('^HISTFILESIZE=')
         
 def allow_reboot(arg):
     '''  Allow/Forbid reboot by the console user.'''
@@ -255,50 +318,81 @@ def allow_user_list(arg):
     '''  Allow/Forbid the list of users on the system on display managers (kdm and gdm).'''
     kdmrc = ConfigFile.get_config_file(KDMRC)
     gdmconf = ConfigFile.get_config_file(GDMCONF)
-
+    
+    oldval_kdmrc = kdmrc.exists() and kdmrc.get_shell_variable('ShowUsers')
+    oldval_gdmconf = gdmconf.exists() and gdmconf.get_shell_variable('Browser')
+    
     if arg:
-        _interactive and log(_('Allowing the listing of users in display managers'))
-        kdmrc.exists() and kdmrc.set_shell_variable('ShowUsers', 'All')
-        gdmconf.exists() and gdmconf.set_shell_variable('Browser', 'true')
+        msg = 'Allowing the listing of users in display managers'
+        val_kdmrc = 'All'
+        val_gdmconf = 'true'
     else:
-        _interactive and log(_('Disabling the listing of users in display managers'))
-        kdmrc.exists() and kdmrc.set_shell_variable('ShowUsers', 'None')
-        gdmconf.exists() and gdmconf.set_shell_variable('Browser', 'false')
+        msg = 'Disabling the listing of users in display managers'
+        val_kdmrc = 'None'
+        val_gdmconf = 'false'
+
+    # don't lower security when not changing security level
+    if _same_level:
+        if oldval_kdmrc == 'None' and oldval_gdmconf == 'false':
+            return
+        if oldval_kdmrc == 'None':
+            val_kdmrc = 'None'
+        if oldval_gdmconf == 'false':
+            val_gdmconf = 'false'
+    
+    if (gdmconf.exists() and oldval_gdmconf != val_gdmconf) or (kdmrc.exists() and oldval_kdmrc != val_kdmrc):
+        _interactive and log(_(msg))
+        oldval_kdmrc != val_gdmconf and kdmrc.exists() and kdmrc.set_shell_variable('ShowUsers', val_kdmrc)
+        oldval_gdmconf != val_gdmconf and gdmconf.exists() and gdmconf.set_shell_variable('Browser', val_gdmconf)
 
 def allow_root_login(arg):
     '''  Allow/Forbid direct root login.'''
     securetty = ConfigFile.get_config_file(SECURETTY)
-    
+    kde = ConfigFile.get_config_file(KDE)
+    gdm = ConfigFile.get_config_file(GDM)
+    xdm = ConfigFile.get_config_file(XDM)
+
+    val_kde = kde.exists() and kde.get_match('auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+    val_gdm = gdm.exists() and gdm.get_match('auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+    val_xdm = xdm.exists() and xdm.get_match('auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+    num = 0
+    for n in range(1, 7):
+        s = 'tty' + str(n)
+        if securetty.get_match(s):
+            num = num + 1
+        s = 'vc/' + str(n)
+        if securetty.get_match(s):
+            num = num + 1
+
+    # don't lower security when not changing security level
+    if _same_level:
+        if (not kde.exists() or val_kde) and (not gdm.exists() or val_gdm) and (not xdm.exists() or val_xdm) and num == 12:
+            return
+
     if arg:
-        _interactive and log(_('Allowing direct root login'))
+        if val_kde or val_gdm or val_xdm or num != 12:
+            _interactive and log(_('Allowing direct root login'))
         
-        kde = ConfigFile.get_config_file(KDE)
-        gdm = ConfigFile.get_config_file(GDM)
-        xdm = ConfigFile.get_config_file(XDM)
+            for cnf in (kde, gdm, xdm):
+                cnf.exists() and cnf.remove_line_matching('^auth\s*required\s*/lib/security/pam_listfile.so.*bastille-no-login', 1)
         
-        for cnf in (kde, gdm, xdm):
-            cnf.exists() and cnf.remove_line_matching('^auth\s*required\s*/lib/security/pam_listfile.so.*bastille-no-login', 1)
-        
-        for n in range(1, 7):
-            s = 'tty' + str(n)
-            securetty.replace_line_matching(s, s, 1)
-            s = 'vc/' + str(n)
-            securetty.replace_line_matching(s, s, 1)
+            for n in range(1, 7):
+                s = 'tty' + str(n)
+                securetty.replace_line_matching(s, s, 1)
+                s = 'vc/' + str(n)
+                securetty.replace_line_matching(s, s, 1)
     else:
-        _interactive and log(_('Forbidding direct root login'))
+        if (kde.exists() and not val_kde) or (gdm.exists() and not val_gdm) or (xdm.exists() and not val_xdm) or num > 0:
+            _interactive and log(_('Forbidding direct root login'))
         
-        bastillenologin = ConfigFile.get_config_file(BASTILLENOLOGIN)
-        bastillenologin.replace_line_matching('^\s*root', 'root', 1)
+            bastillenologin = ConfigFile.get_config_file(BASTILLENOLOGIN)
+            bastillenologin.replace_line_matching('^\s*root', 'root', 1)
         
-        kde = ConfigFile.get_config_file(KDE)
-        gdm = ConfigFile.get_config_file(GDM)
-        xdm = ConfigFile.get_config_file(XDM)
+            for cnf in (kde, gdm, xdm):
+                cnf.exists() and (cnf.replace_line_matching('^auth\s*required\s*/lib/security/pam_listfile.so.*bastille-no-login', 'auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login') or \
+                                  cnf.insert_at(0, 'auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login'))
         
-        for cnf in (kde, gdm, xdm):
-            cnf.exists() and (cnf.replace_line_matching('^auth\s*required\s*/lib/security/pam_listfile.so.*bastille-no-login', 'auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login') or \
-                              cnf.insert_at(0, 'auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login'))
-        
-        securetty.remove_line_matching('.+', 1)
+            securetty.remove_line_matching('.+', 1)
 
 def allow_remote_root_login(arg):
     '''  Allow/Forbid remote root login.'''
@@ -331,29 +425,33 @@ def enable_pam_wheel_for_su(arg):
     '''   Enabling su only from members of the wheel group or allow su from any user.'''
     su = ConfigFile.get_config_file(SU)
 
+    val = su.exists() and su.get_match('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$')
+    
     # don't lower security when not changing security level
     if _same_level:
-        if su.exists() and su.get_match('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$'):
+        if val:
             return
 
     if arg:
-        _interactive and log(_('Allowing su only from wheel group members'))
-        try:
-            ent = grp.getgrnam('wheel')
-        except KeyError:
-            error(_('no wheel group'))
-            return
-        members = ent[3]
-        if members == [] or members == ['root']:
-            _interactive and error(_('wheel group is empty'))
-            return
-        su.exists() and (su.replace_line_matching('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$',
-                                                  'auth       required     /lib/security/pam_wheel.so use_uid') or \
-                         su.insert_after('^auth\s+required',
-                                         'auth       required     /lib/security/pam_wheel.so use_uid'))
+        if not val:
+            _interactive and log(_('Allowing su only from wheel group members'))
+            try:
+                ent = grp.getgrnam('wheel')
+            except KeyError:
+                error(_('no wheel group'))
+                return
+            members = ent[3]
+            if members == [] or members == ['root']:
+                _interactive and error(_('wheel group is empty'))
+                return
+            su.exists() and (su.replace_line_matching('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$',
+                                                      'auth       required     /lib/security/pam_wheel.so use_uid') or \
+                             su.insert_after('^auth\s+required',
+                                             'auth       required     /lib/security/pam_wheel.so use_uid'))
     else:
-        _interactive and log(_('Allowing su for all'))
-        su.exists() and su.remove_line_matching('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$')
+        if val:
+            _interactive and log(_('Allowing su for all'))
+            su.exists() and su.remove_line_matching('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$')
     
 def allow_issues(arg):
     '''  If \\fIarg\\fP = ALL allow /etc/issue and /etc/issue.net to exist. If \\fIarg\\fP = NONE no issues are
@@ -361,19 +459,33 @@ allowed else only /etc/issue is allowed.'''
     issue = ConfigFile.get_config_file(ISSUE, SUFFIX)
     issuenet = ConfigFile.get_config_file(ISSUENET, SUFFIX)
 
+    val = issue.exists(1)
+    valnet = issuenet.exists(1)
+
+    # don't lower security when not changing security level
+    if _same_level:
+        if not val and not valnet:
+            return
+        if arg == ALL and not valnet:
+            return
+
     if arg == ALL:
-        _interactive and log(_('Allowing RemoteRoot pre-login messages'))    
-        issue.exists() and issue.get_lines()
-        issuenet.exists() and issuenet.get_lines()
+        if not (val and valnet):
+            _interactive and log(_('Allowing network pre-login messages'))    
+            issue.exists() and issue.get_lines()
+            issuenet.exists() and issuenet.get_lines()
     else:
         if arg == NONE:
-            _interactive and log(_('Disabling pre-login message'))
-            issue.exists(1) and issue.move(SUFFIX) and issue.modified()
+            if val:
+                _interactive and log(_('Disabling pre-login message'))
+                issue.exists(1) and issue.move(SUFFIX) and issue.modified()
         else:
-            _interactive and log(_('Allowing pre-login message'))
-            issue.exists() and issue.get_lines()
-        _interactive and log(_('Disabling network pre-login message'))
-        issuenet.exists(1) and issuenet.move(SUFFIX)
+            if not val:
+                _interactive and log(_('Allowing pre-login message'))
+                issue.exists() and issue.get_lines()
+        if valnet:
+            _interactive and log(_('Disabling network pre-login message'))
+            issuenet.exists(1) and issuenet.move(SUFFIX)
 
 def allow_autologin(arg):
     '''  Allow/Forbid autologin.'''
@@ -420,28 +532,54 @@ def nopassword_loader():
     menulst = ConfigFile.get_config_file(MENULST)
     menulst.exists() and menulst.remove_line_matching('^password\s')
 
-def enable_console_log(arg, expr='*.*'):
+def enable_console_log(arg, expr='*.*', dev='tty12'):
     '''  Enable/Disable syslog reports to console 12. \\fIexpr\\fP is the
-expression describing what to log (see syslog.conf(5) for more details).'''
+expression describing what to log (see syslog.conf(5) for more details) and
+dev the device to report the log.'''
+    
     syslogconf = ConfigFile.get_config_file(SYSLOGCONF)
 
-    if arg:
-        _interactive and log(_('Enabling log on console 12'))
-        syslogconf.exists() and syslogconf.replace_line_matching('\s*[^#]+/dev/tty12', expr + ' /dev/tty12', 1)
+    if syslogconf.exists():
+        val = syslogconf.get_match('\s*[^#]+/dev/([^ ]+)', '@1')
     else:
-        _interactive and log(_('Disabling log on console 12'))
-        syslogconf.exists() and syslogconf.remove_line_matching('\s*[^#]+/dev/tty12')
+        val = None
+
+    # don't lower security when not changing security level
+    if _same_level:
+        if val:
+            return
+        
+    if arg:
+        if dev != val:
+            _interactive and log(_('Enabling log on console'))
+            syslogconf.exists() and syslogconf.replace_line_matching('\s*[^#]+/dev/', expr + ' /dev/' + dev, 1)
+    else:
+        if val != None:
+            _interactive and log(_('Disabling log on console'))
+            syslogconf.exists() and syslogconf.remove_line_matching('\s*[^#]+/dev/')
+
+CRON_ENTRY = '*/1 * * * *    root    /usr/share/msec/promisc_check.sh'
+CRON_REGEX = '[^#]+/usr/share/msec/promisc_check.sh'
 
 def enable_promisc_check(arg):
     '''  Activate/Disable ethernet cards promiscuity check.'''
     cron = ConfigFile.get_config_file(CRON)
-
+    
+    val = cron.exists() and cron.get_match(CRON_REGEX)
+    
+    # don't lower security when not changing security level
+    if _same_level:
+        if val == CRON_ENTRY:
+            return
+        
     if arg:
-        _interactive and log(_('Activating periodic promiscuity check'))
-        cron.replace_line_matching('[^#]+/usr/share/msec/promisc_check.sh', '*/1 * * * *    root    /usr/share/msec/promisc_check.sh', 1)
+        if val != CRON_ENTRY:
+            _interactive and log(_('Activating periodic promiscuity check'))
+            cron.replace_line_matching(CRON_REGEX, CRON_ENTRY, 1)
     else:
-        _interactive and log(_('Disabling periodic promiscuity check'))
-        cron.remove_line_matching('[^#]+/usr/share/msec/promisc_check.sh')
+        if val:
+            _interactive and log(_('Disabling periodic promiscuity check'))
+            cron.remove_line_matching('[^#]+/usr/share/msec/promisc_check.sh')
 
 def enable_security_check(arg):
     '''   Activate/Disable daily security check.'''
@@ -449,32 +587,61 @@ def enable_security_check(arg):
     cron.remove_line_matching('[^#]+/usr/share/msec/security.sh')
 
     securitycron = ConfigFile.get_config_file(SECURITYCRON)
+
+    val = securitycron.exists()
     
-    if arg:
-        _interactive and log(_('Activating daily security check'))
-        securitycron.symlink(SECURITYSH)
-    else:
-        _interactive and log(_('Disabling daily security check'))
-        securitycron.unlink()
+    # don't lower security when not changing security level
+    if _same_level:
+        if val:
+            return
         
+    if arg:
+        if not val:
+            _interactive and log(_('Activating daily security check'))
+            securitycron.symlink(SECURITYSH)
+    else:
+        if val:
+            _interactive and log(_('Disabling daily security check'))
+            securitycron.unlink()
+
+ALL_REGEXP = '^ALL:ALL:DENY'
+ALL_LOCAL_REGEXP = '^ALL:ALL EXCEPT 127\.0\.0\.1:DENY'
 def authorize_services(arg):
     '''  Authorize all services controlled by tcp_wrappers (see hosts.deny(5)) if \\fIarg\\fP = ALL. Only local ones
 if \\fIarg\\fP = LOCAL and none if \\fIarg\\fP = NONE. To authorize the services you need, use /etc/hosts.allow
 (see hosts.allow(5)).'''
     hostsdeny = ConfigFile.get_config_file(HOSTSDENY)
-
+    
+    if hostsdeny.exists():
+        if hostsdeny.get_match(ALL_REGEXP):
+            val = NONE
+        elif hostsdeny.get_match(ALL_LOCAL_REGEXP):
+            val = LOCAL
+        else:
+            val = ALL
+    else:
+        val = ALL
+        
+    # don't lower security when not changing security level
+    if _same_level:
+        if val == NONE or (val == LOCAL and arg == ALL):
+            return
+        
     if arg == ALL:
-        _interactive and log(_('Authorizing all services'))
-        hostsdeny.remove_line_matching('^ALL:ALL:DENY', 1)
-        hostsdeny.remove_line_matching('^ALL:ALL EXCEPT 127\.0\.0\.1:DENY', 1)
+        if arg != val:
+            _interactive and log(_('Authorizing all services'))
+            hostsdeny.remove_line_matching(ALL_REGEXP, 1)
+            hostsdeny.remove_line_matching(ALL_LOCAL_REGEXP, 1)
     elif arg == NONE:
-        _interactive and log(_('Disabling all services'))
-        hostsdeny.remove_line_matching('^ALL:ALL EXCEPT 127\.0\.0\.1:DENY', 1)
-        hostsdeny.replace_line_matching('^ALL:ALL:DENY$', 'ALL:ALL:DENY', 1)
+        if arg != val:
+            _interactive and log(_('Disabling all services'))
+            hostsdeny.remove_line_matching('^ALL:ALL EXCEPT 127\.0\.0\.1:DENY', 1)
+            hostsdeny.replace_line_matching('^ALL:ALL:DENY', 'ALL:ALL:DENY', 1)
     elif arg == LOCAL:
-        _interactive and log(_('Disabling non local services'))
-        hostsdeny.remove_line_matching('^ALL:ALL:DENY', 1)
-        hostsdeny.replace_line_matching('^ALL:ALL EXCEPT 127\.0\.0\.1:DENY$', 'ALL:ALL EXCEPT 127.0.0.1:DENY', 1)
+        if arg != val:
+            _interactive and log(_('Disabling non local services'))
+            hostsdeny.remove_line_matching(ALL_REGEXP, 1)
+            hostsdeny.replace_line_matching(ALL_LOCAL_REGEXP, 'ALL:ALL EXCEPT 127.0.0.1:DENY', 1)
     else:
         error(_('authorize_services invalid argument: %s') % arg)
 
@@ -485,7 +652,7 @@ def set_zero_one_variable(file, variable, value, secure_value, one_msg, zero_msg
     f = ConfigFile.get_config_file(file)
 
     if f.exists():
-        val = string.atoi(f.get_shell_variable(variable))
+        val = int(f.get_shell_variable(variable))
     else:
         val = None
         
@@ -513,14 +680,23 @@ def enable_dns_spoofing_protection(arg, alert=1):
 \\fIalert\\fP is true, also reports to syslog.'''
     hostconf = ConfigFile.get_config_file(HOSTCONF)
 
+    val = hostconf.exists() and hostconf.get_match('nospoof\s+on')
+    
+    # don't lower security when not changing security level
+    if _same_level:
+        if val:
+            return
+        
     if arg:
-        _interactive and log(_('Enabling name resolution spoofing protection'))
-        hostconf.replace_line_matching('nospoof', 'nospoof on', 1)
-        hostconf.replace_line_matching('spoofalert', 'spoofalert on', (alert != 0))
+        if not val:
+            _interactive and log(_('Enabling name resolution spoofing protection'))
+            hostconf.replace_line_matching('nospoof', 'nospoof on', 1)
+            hostconf.replace_line_matching('spoofalert', 'spoofalert on', (alert != 0))
     else:
-        _interactive and log(_('Disabling name resolution spoofing protection'))
-        hostconf.remove_line_matching('nospoof')
-        hostconf.remove_line_matching('spoofalert')
+        if val:
+            _interactive and log(_('Disabling name resolution spoofing protection'))
+            hostconf.remove_line_matching('nospoof')
+            hostconf.remove_line_matching('spoofalert')
 
 def accept_icmp_echo(arg):
     '''   Accept/Refuse icmp echo.'''
@@ -540,68 +716,141 @@ def enable_log_strange_packets(arg):
 
 def enable_libsafe(arg):
     '''  Enable/Disable libsafe if libsafe is found on the system.'''
+
+    ldsopreload = ConfigFile.get_config_file(LDSOPRELOAD)
+
+    val = ldsopreload.exists() and ldsopreload.get_match('/lib/libsafe.so.2')
+
+    # don't lower security when not changing security level
+    if _same_level:
+        if val:
+            return
+    
     if arg:
-        if os.path.exists(Config.get_config('root', '') + '/lib/libsafe.so.2'):
-            _interactive and log(_('Enabling libsafe'))
-            ldsopreload = ConfigFile.get_config_file(LDSOPRELOAD)
-            ldsopreload.replace_line_matching('[^#]*libsafe', '/lib/libsafe.so.2', 1)
+        if not val:
+            if os.path.exists(Config.get_config('root', '') + '/lib/libsafe.so.2'):
+                _interactive and log(_('Enabling libsafe'))
+                ldsopreload.replace_line_matching('[^#]*libsafe', '/lib/libsafe.so.2', 1)
     else:
-        _interactive and log(_('Disabling libsafe'))
-        ldsopreload = ConfigFile.get_config_file(LDSOPRELOAD)
-        ldsopreload.remove_line_matching('[^#]*libsafe')        
+        if val:
+            _interactive and log(_('Disabling libsafe'))
+            ldsopreload.remove_line_matching('[^#]*libsafe')        
+
+LENGTH_REGEXP = '^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sminlen=([0-9]+)\s(.*)'
+NDIGITS_REGEXP = '^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sdcredit=([0-9]+)\s(.*)'
+UCREDIT_REGEXP = '^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sucredit=([0-9]+)\s(.*)'
 
 def password_length(length, ndigits=0, nupper=0):
     '''  Set the password minimum length and minimum number of digit and minimum number of capitalized letters.'''
-    _interactive and log(_('Setting minimum password length %d') % length)
+    
     passwd = ConfigFile.get_config_file(PASSWD)
-    passwd.exists() and (passwd.replace_line_matching('^(password\s+required\s+/lib/security/pam_cracklib.so.*?)(\sminlen=[0-9]+\s)(.*)',
-                                                      '@1 minlen=%s @3' % length) or \
-                         passwd.replace_line_matching('^password\s+required\s+/lib/security/pam_cracklib.so.*',
-                                                      '@0 minlen=%s ' % length))
-    
-    passwd.exists() and (passwd.replace_line_matching('^(password\s+required\s+/lib/security/pam_cracklib.so.*?)(\sdcredit=[0-9]+\s)(.*)',
-                                                     '@1 dcredit=%s @3' % ndigits) or \
-                         passwd.replace_line_matching('^password\s+required\s+/lib/security/pam_cracklib.so.*',
-                                                      '@0 dcredit=%s ' % ndigits))
-    
-    passwd.exists() and (passwd.replace_line_matching('^(password\s+required\s+/lib/security/pam_cracklib.so.*?)(\sucredit=[0-9]+\s)(.*)',
-                                                     '@1 ucredit=%s @3' % nupper) or \
-                         passwd.replace_line_matching('^password\s+required\s+/lib/security/pam_cracklib.so.*',
-                                                      '@0 ucredit=%s ' % nupper))
 
+    if passwd.exists():
+        val_length  = passwd.get_match(LENGTH_REGEXP, '@2')
+        if val_length:
+            val_length = int(val_length)
+
+        val_ndigits = passwd.get_match(NDIGITS_REGEXP, '@2')
+        if val_ndigits:
+            val_ndigits = int(val_ndigits)
+
+        val_ucredit = passwd.get_match(UCREDIT_REGEXP, '@2')
+        if val_ucredit:
+            val_ucredit = int(val_ucredit)
+            
+    # don't lower security when not changing security level
+    if _same_level:
+        if val_length > length and val_ndigits > ndigits and val_ucredit > nupper:
+            return
+        
+        if val_length > length:
+            length = val_length
+            
+        if val_ndigits > ndigits:
+            ndigits = val_ndigits
+
+        if val_ucredit > nupper:
+            nupper = val_ucredit
+
+    if passwd.exists() and (val_length != length or val_ndigits != ndigits or val_ucredit != nupper):
+        _interactive and log(_('Setting minimum password length %d') % length)
+        (passwd.replace_line_matching(LENGTH_REGEXP,
+                                      '@1 minlen=%s @3' % length) or \
+         passwd.replace_line_matching('^password\s+required\s+/lib/security/pam_cracklib.so.*',
+                                      '@0 minlen=%s ' % length))
+    
+        (passwd.replace_line_matching(NDIGITS_REGEXP,
+                                      '@1 dcredit=%s @3' % ndigits) or \
+         passwd.replace_line_matching('^password\s+required\s+/lib/security/pam_cracklib.so.*',
+                                      '@0 dcredit=%s ' % ndigits))
+    
+        (passwd.replace_line_matching(UCREDIT_REGEXP,
+                                      '@1 ucredit=%s @3' % nupper) or \
+         passwd.replace_line_matching('^password\s+required\s+/lib/security/pam_cracklib.so.*',
+                                      '@0 ucredit=%s ' % nupper))
+
+PASSWORD_REGEXP = '^\s*auth\s+sufficient\s+/lib/security/pam_permit.so'
 def enable_password(arg):
     '''  Use password to authenticate users.'''
     system_auth = ConfigFile.get_config_file(SYSTEM_AUTH)
 
+    val = system_auth.exists() and system_auth.get_match(PASSWORD_REGEXP)
+    
+    # don't lower security when not changing security level
+    if _same_level:
+        if not val:
+            return
+        
     if arg:
-        _interactive and log(_('Using password to authenticate users'))
-        system_auth.remove_line_matching('^\s*auth\s+sufficient\s+/lib/security/pam_permit.so')
+        if val:
+            _interactive and log(_('Using password to authenticate users'))
+            system_auth.remove_line_matching(PASSWORD_REGEXP)
     else:
-        _interactive and log(_('Don\'t use password to authenticate users'))
-        system_auth.replace_line_matching('^\s*auth\s+sufficient\s+/lib/security/pam_permit.so', 'auth        sufficient    /lib/security/pam_permit.so') or \
-        system_auth.insert_before('auth\s+sufficient', 'auth        sufficient    /lib/security/pam_permit.so')
+        if not val:
+            _interactive and log(_('Don\'t use password to authenticate users'))
+            system_auth.replace_line_matching(PASSWORD_REGEXP, 'auth        sufficient    /lib/security/pam_permit.so') or \
+            system_auth.insert_before('auth\s+sufficient', 'auth        sufficient    /lib/security/pam_permit.so')
 
+SULOGIN_REGEXP = '~~:S:wait:/sbin/sulogin'
 def enable_sulogin(arg):
     '''   Enable/Disable sulogin(8) in single user level.'''
     inittab = ConfigFile.get_config_file(INITTAB)
 
+    val = inittab.exists() and inittab.get_match(SULOGIN_REGEXP)
+    
+    # don't lower security when not changing security level
+    if _same_level:
+        if val:
+            return
+        
     if arg:
-        _interactive and log(_('Enabling sulogin in single user runlevel'))
-        inittab.replace_line_matching('[^#]+:S:', '~~:S:wait:/sbin/sulogin', 1)
+        if not val:
+            _interactive and log(_('Enabling sulogin in single user runlevel'))
+            inittab.replace_line_matching('[^#]+:S:', '~~:S:wait:/sbin/sulogin', 1)
     else:
-        _interactive and log(_('Disabling sulogin in single user runlevel'))
-        inittab.remove_line_matching('~~:S:wait:/sbin/sulogin')
+        if val:
+            _interactive and log(_('Disabling sulogin in single user runlevel'))
+            inittab.remove_line_matching('~~:S:wait:/sbin/sulogin')
 
 def enable_msec_cron(arg):
     '''  Enable/Disable msec hourly security check.'''
     mseccron = ConfigFile.get_config_file(MSECCRON)
 
+    val = mseccron.exists()
+    
+    # don't lower security when not changing security level
+    if _same_level:
+        if val:
+            return
+        
     if arg:
-        _interactive and log(_('Enabling msec periodic runs'))
-        mseccron.symlink(MSECBIN)
+        if arg != val:
+            _interactive and log(_('Enabling msec periodic runs'))
+            mseccron.symlink(MSECBIN)
     else:
-        _interactive and log(_('Disabling msec periodic runs'))
-        mseccron.unlink()
+        if arg != val:
+            _interactive and log(_('Disabling msec periodic runs'))
+            mseccron.unlink()
 
 def enable_at_crontab(arg):
     '''  Enable/Disable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow
@@ -609,14 +858,24 @@ def enable_at_crontab(arg):
     cronallow = ConfigFile.get_config_file(CRONALLOW)
     atallow = ConfigFile.get_config_file(ATALLOW)
 
+    val_cronallow = cronallow.exists() and cronallow.get_match('root')
+    val_atallow = atallow.exists() and atallow.get_match('root')
+    
+    # don't lower security when not changing security level
+    if _same_level:
+        if val_cronallow and val_atallow:
+            return
+
     if arg:
-        _interactive and log(_('Enabling crontab and at'))
-        cronallow.exists() and cronallow.move(SUFFIX)
-        atallow.exists() and atallow.move(SUFFIX)
+        if val_cronallow or val_atallow:
+            _interactive and log(_('Enabling crontab and at'))
+            cronallow.exists() and cronallow.move(SUFFIX)
+            atallow.exists() and atallow.move(SUFFIX)
     else:
-        _interactive and log(_('Disabling crontab and at'))
-        cronallow.replace_line_matching('root', 'root', 1)
-        atallow.replace_line_matching('root', 'root', 1)
+        if not val_cronallow or not val_atallow:
+            _interactive and log(_('Disabling crontab and at'))
+            cronallow.replace_line_matching('root', 'root', 1)
+            atallow.replace_line_matching('root', 'root', 1)
 
 maximum_regex = re.compile('^Maximum:\s*([0-9]+|-1)', re.MULTILINE)
 inactive_regex = re.compile('^Inactive:\s*(-?[0-9]+)', re.MULTILINE)
@@ -665,8 +924,18 @@ def password_aging(max, inactive=-1):
                     if res and res2:
                         current_max = int(res.group(1))
                         current_inactive = int(res2.group(1))
-                        if max != current_max or current_inactive != inactive:
-                            cmd = '/usr/bin/chage -M %d -I %d %s' % (max, inactive, entry[0])
+                        new_max = max
+                        new_inactive = inactive
+                        # don't lower security when not changing security level
+                        if _same_level:
+                            if current_max < max and current_inactive < inactive:
+                                continue
+                            if current_max < max:
+                                new_max = current_max
+                            if current_inactive < inactive:
+                                new_inactive = current_inactive
+                        if new_max != current_max or current_inactive != new_inactive:
+                            cmd = '/usr/bin/chage -M %d -I %d %s' % (new_max, new_inactive, entry[0])
                             ret = commands.getstatusoutput(cmd)
                             log(_('changed maximum password aging for user %s with command %s') % (entry[0], cmd))
                             if ret[0] != 0:
@@ -730,3 +999,4 @@ def set_interactive(v):
     _interactive = v
 
 # libmsec.py ends here
+

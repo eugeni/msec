@@ -7,6 +7,12 @@ fi
 
 . /etc/security/msec/security.conf
 
+if [ -r /etc/sysconfig/msec ]; then
+    . /etc/sysconfig/msec
+fi
+
+umask ${UMASK_ROOT=077}
+
 [[ ${MAIL_WARN} == yes ]] && [ -z ${MAIL_USER} ] && MAIL_USER="root"
 
 export SUID_ROOT_TODAY="/var/log/security/suid_root.today"

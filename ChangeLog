@@ -1,3 +1,53 @@
+2002-01-20 23:18  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.17-13mdk
+
+2002-01-20 23:16  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5, perm.snf:
+	corrected mandrake_consmap permissions and ping path/permissions.
+
+2002-01-20 23:14  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/CHANGES: document 0.17-13mdk changes
+
+2002-01-20 23:11  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/diff_check.sh: mail even when the log is empty to signify
+	that the check is fine.
+
+2002-01-20 23:07  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: log the start of the program in interactive mode.
+
+2002-01-20 23:06  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/Perms.py: allow current to be specified for permissions
+	too.
+	
+	protect and log errors in os calls.
+
+2002-01-20 23:05  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/Log.py: log errors.
+
+2002-01-20 23:04  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/ConfigFile.py: protect and log errors on os calls.
+
+2002-01-20 23:03  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* Makefile: corrected clean rule
+
+2002-01-20 23:03  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* init-sh/cleanold.sh: don't create groups (rely on setup).
+
+2002-01-17 18:33  Stefan Siegel <siegel@linux-mandrake.com>
+
+	* init-sh/cleanold.sh: use "groupadd -g" to ensure the groupid
+	provided by latest setup package
+
 2002-01-17 16:21  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* share/msec.py: corrected password_length mismatch.

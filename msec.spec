@@ -4,7 +4,7 @@
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
 Version: %{version}
-Release: 8mdk
+Release: 10mdk
 Source: %{name}-%{version}.tar.bz2
 Copyright: GPL
 Group: System Environment/Base
@@ -41,6 +41,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Fri Dec 24 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Use the mail user variable.
+- level[35]: also do a mail report.
+- moved Syslog(), Ttylog(), Maillog() to security.sh
+- security_check.sh & diff_check.sh now sourced from security.sh
 - Typo / bug fix
 - init-sh/perm[15]: files should be constant in their content.
   all entry should be in each perm file

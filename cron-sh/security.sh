@@ -42,31 +42,31 @@ if [[ ! -d /var/log/security ]]; then
     mkdir /var/log/security
 fi
 
-if [[ -s ${SUID_ROOT_TODAY} ]]; then
+if [[ -f ${SUID_ROOT_TODAY} ]]; then
     mv ${SUID_ROOT_TODAY} ${SUID_ROOT_YESTERDAY};
 fi
 
-if [[ -s ${SUID_GROUP_TODAY} ]]; then
+if [[ -f ${SUID_GROUP_TODAY} ]]; then
     mv ${SUID_GROUP_TODAY} ${SUID_GROUP_YESTERDAY};
 fi
 
-if [[ -s ${WRITEABLE_TODAY} ]]; then
+if [[ -f ${WRITEABLE_TODAY} ]]; then
     mv ${WRITEABLE_TODAY} ${WRITEABLE_YESTERDAY};
 fi
 
-if [[ -s ${UNOWNED_USER_TODAY} ]]; then
+if [[ -f ${UNOWNED_USER_TODAY} ]]; then
     mv ${UNOWNED_USER_TODAY} ${UNOWNED_USER_YESTERDAY};
 fi
 
-if [[ -s ${UNOWNED_GROUP_TODAY} ]]; then
+if [[ -f ${UNOWNED_GROUP_TODAY} ]]; then
     mv ${UNOWNED_GROUP_TODAY} ${UNOWNED_GROUP_YESTERDAY};
 fi
 
-if [[ -s ${OPEN_PORT_TODAY} ]]; then
+if [[ -f ${OPEN_PORT_TODAY} ]]; then
     mv -f ${OPEN_PORT_TODAY} ${OPEN_PORT_YESTERDAY}
 fi
 
-if [[ -s ${SUID_MD5_TODAY} ]]; then
+if [[ -f ${SUID_MD5_TODAY} ]]; then
     mv ${SUID_MD5_TODAY} ${SUID_MD5_YESTERDAY};
 fi
 
@@ -82,15 +82,43 @@ cat ${SUID_ROOT_TODAY} | while read line; do
     md5sum ${line}
 done > ${SUID_MD5_TODAY}
 
+### Functions ###
+
+Syslog() {
+    if [[ ${SYSLOG_WARN} == yes ]]; then
+    cat ${1} | while read line; do
+        /sbin/initlog --string="${line}"
+    done
+    fi
+}
+
+Ttylog() {
+    if [[ ${TTY_WARN} == yes ]]; then
+    for i in `w | grep -v "load\|TTY" | awk '{print $2}'` ; do
+        cat ${1} > /dev/$i
+    done
+    fi
+}
+
+Maillog() {
+    subject=${1}
+    text=${2}
+
+    if [[ ${MAIL_WARN} != yes ]]; then
+		return;
+	fi
+
+	if [[ -z ${MAIL_USER} ]]; then
+		return;
+	fi
+
+    if [[ -x /bin/mail ]]; then
+    	cat ${text} | /bin/mail -s "${subject}" "${MAIL_USER}"
+    fi
+}
+
+##################
 
 . /etc/security/msec/cron-sh/diff_check.sh
 . /etc/security/msec/cron-sh/security_check.sh
-
-
-
-
-
-
-
-
 

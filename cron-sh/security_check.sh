@@ -24,24 +24,6 @@ if [[ ! -d /var/log/security ]]; then
     mkdir /var/log/security
 fi
 
-### Functions ###
-
-Syslog() {
-    if [[ ${SYSLOG_WARN} == yes ]]; then
-	cat ${1} | while read line; do
-	    /sbin/initlog --string="${line}"
-	done
-    fi
-}
-
-Ttylog() {
-    if [[ ${TTY_WARN} == yes ]]; then
-	for i in `w | grep -v "load\|TTY" | awk '{print $2}'` ; do
-	cat ${1} > /dev/${i}   
-	done
-    fi
-}
-
 ### Writeable file detection
 if [[ ${CHECK_WRITEABLE} == yes ]]; then
     if [[ -s ${WRITEABLE_TODAY} ]]; then
@@ -265,9 +247,12 @@ if [[ -s ${SECURITY} ]]; then
     Syslog ${SECURITY}
     Ttylog ${SECURITY}
     date=`date`
+
     echo -e "\n\n*** Security Check, ${date} ***\n" >> ${SECURITY_LOG}
     cat ${SECURITY} >> ${SECURITY_LOG}
     cat ${INFOS} >> ${SECURITY_LOG}
+
+	Maillog "*** Security Check, ${date} ***" "${SECURITY} ${INFOS}"
 fi
 
 if [[ -f ${SECURITY} ]]; then

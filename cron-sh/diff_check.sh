@@ -17,27 +17,6 @@ fi
 SECURITY_LOG="/var/log/security.log"
 TMP=`mktemp /tmp/secure.XXXXXX`
 
-### Functions ###
-
-Syslog() {
-    if [[ ${SYSLOG_WARN} == yes ]]; then
-	cat ${1} | while read line; do
-	    /sbin/initlog --string="${line}"
-	done
-    fi
-}
-
-Ttylog() {
-    if [[ ${TTY_WARN} == yes ]]; then
-	for i in `w | grep -v "load\|TTY" | awk '{print $2}'` ; do
-	    cat ${1} > /dev/$i
-	done
-    fi
-}
-
-##################
-
-
 ### New Suid root files detection
 if [[ ${CHECK_SUID_ROOT} == yes ]]; then
 
@@ -95,10 +74,10 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
     if [[ -f ${UNOWNED_USER_YESTERDAY} ]]; then
 	if ! diff -u ${UNOWNED_USER_YESTERDAY} ${UNOWNED_USER_TODAY} > ${UNOWNED_USER_DIFF}; then
 	    printf "\nSecurity Warning: the following files aren't owned by an user :\n" >> ${TMP}
-	    grep '^+' ${UNOWNED_USER_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
+	    grep '^+' ${UNOWNED_USER_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
 		printf "\t\t- Added un-owned files : ${file}\n"
-	    done > ${TMP}
-	    grep '^-' ${UNOWNED_USER_DIFF} | grep -vw "^+++ " | sed 's|^.||' | awk '{print $12}' | while read file; do
+	    done >> ${TMP}
+	    grep '^-' ${UNOWNED_USER_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
 		printf "\t\t- Removed un-owned files : ${file}\n"
 	    done >> ${TMP}
 	fi
@@ -110,7 +89,7 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
 	    grep '^+' ${UNOWNED_GROUP_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
 		printf "\t\t- Added un-owned files : ${file}\n"
 	    done >> ${TMP}
-	    grep '^-' ${UNOWNED_GROUP_DIFF} | grep -vw "^--- " | sed 's|^.||' | awk '{print $12}' | while read file; do
+	    grep '^-' ${UNOWNED_GROUP_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
 		printf "\t\t- Removed un-owned files : ${file}\n"
 	    done >> ${TMP}
 	fi
@@ -161,8 +140,12 @@ if [[ -s ${TMP} ]]; then
     Syslog ${TMP}
     Ttylog ${TMP}
     date=`date`
+
     echo -e "\n\n*** Diff Check, ${date} ***\n" >> ${SECURITY_LOG}
     cat ${TMP} >> ${SECURITY_LOG}
+
+	Maillog "*** Diff Check, ${date} ***" "${TMP}"
+	
 fi
 
 if [[ -f ${TMP} ]]; then

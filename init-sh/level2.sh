@@ -46,6 +46,8 @@ echo -e "\t- Check shadow file integrity : no."
     AddRules "CHECK_SHADOW=no" /etc/security/msec/security.conf	        quiet
 echo -e "\t- Security warning on tty : no."
     AddRules "TTY_WARN=no" /etc/security/msec/security.conf	        quiet
+echo -e "\t- Security warning by mail : no."
+    AddRules "MAIL_WARN=no" /etc/security/msec/security.conf       quiet
 echo -e "\t- Security warning in syslog : yes."			
     AddRules "SYSLOG_WARN=yes" /etc/security/msec/security.conf		
 # end security check

@@ -229,11 +229,11 @@ def allow_user_list(arg):
     if arg:
         _interactive and log(_('Allowing the listing of users in display managers'))
         kdmrc.exists() and kdmrc.set_shell_variable('ShowUsers', 'All')
-        gdmconf.exists() and gdmconf.set_shell_variable('Browser', '1')
+        gdmconf.exists() and gdmconf.set_shell_variable('Browser', 'true')
     else:
         _interactive and log(_('Disabling the listing of users in display managers'))
         kdmrc.exists() and kdmrc.set_shell_variable('ShowUsers', 'None')
-        gdmconf.exists() and gdmconf.set_shell_variable('Browser', '0')
+        gdmconf.exists() and gdmconf.set_shell_variable('Browser', 'false')
 
 def allow_root_login(arg):
     '''  Allow/Forbid direct root login.'''

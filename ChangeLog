@@ -1,4 +1,5 @@
 2000-02-17 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* level 4 - 5 /var/log in mode 711 for daemon spawned as non root user.
 	* /etc/printcap is 644 in mode 4 & 5
 
 2000-01-13 Yoann Vandoorselaere <yoann@mandrakesoft.com>

@@ -1,3 +1,11 @@
+2002-09-17 16:12  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: X-\*-Core => X-:\*-Core
+
+2002-09-17 16:12  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: allow_reboot: X-\*-Core => X-:\*-Core
+
 2002-09-17 15:38  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: better wording

@@ -1,3 +1,9 @@
+changes in version 0.30
+=======================
+
+ * don't lower security if the admin has already augmented it (when called without argument).
+ * splitted functions that worked on multiple levels.
+
 changes between version 0.18 and 0.19
 =====================================
 

@@ -1,3 +1,20 @@
+2002-08-30 14:20  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec, cron-sh/diff_check.sh, cron-sh/security.sh,
+	cron-sh/security_check.sh, doc/msec.lyx, doc/security.txt,
+	init-sh/custom.sh, init-sh/level1.sh, share/README,
+	share/libmsec.py, share/msec.py, src/msec_find/find.c: writeable =>
+	writable
+
+2002-08-30 14:18  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/Makefile: clean generated files
+
+2002-08-29 20:53  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/shadow.py: call function with no argument in
+	commit_changes.
+
 2002-08-27 22:26  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.34.2-1mdk

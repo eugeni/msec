@@ -20,7 +20,6 @@ header = '''package security::help;
 # !! DO NOT MODIFY HERE, MODIFY IN THE *MSEC* CVS !!
 
 use strict;
-use lib qw(/usr/lib/libDrakX);
 use common;
 
 our %help = (

@@ -46,12 +46,13 @@ CleanRules() {
     file=$1
     ctrl=0
 
+    if [ ! -f ${file} ]; then
+	return;
+    fi
     echo -en "\t- Cleaning msec appended line in ${file} : "
     mv -f ${file} /tmp/secure.tmp
     touch ${file}
 
-    IFS="
-"
     while read line; do
 	if [ ${ctrl} == 1 ]; then
 	    ctrl=0
@@ -66,7 +67,6 @@ CleanRules() {
 	    echo "${line}" >> ${file}
 	fi
     done < /tmp/secure.tmp
-    IFS=" "
 
     rm -f /tmp/secure.tmp
 
@@ -75,6 +75,10 @@ CleanRules() {
 
 CommentUserRules() {
     file=$1
+
+    if [ ! -f ${file} ]; then
+	return;
+    fi
 
     echo -en "\t- Cleaning user appended line in ${file} : "
 
@@ -184,11 +188,15 @@ usermod -G xgrp xfs
 # so we delete ( temporarily ) audio user.
 
 if [ ! -f /tmp/secure.DrakX ]; then
-    for user in ${DRAKX_USERS}; do
-		/etc/security/msec/init-sh/grpuser --del audio "${user}"; then
-    done
+    if [ ! -z ${DRAKX_USERS} ]; then
+	for user in ${DRAKX_USERS}; do
+	    /etc/security/msec/init-sh/grpuser --del audio "${user}"
+	done
+    fi
 else
+    if [ ! -z ${DRAKX_USERS} ]; then
 	AddRules "${DRAKX_USERS}" /etc/security/msec/security.conf
+    fi
 fi
 
 

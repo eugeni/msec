@@ -15,14 +15,16 @@ shell timeout			0	0	0	0	3600	900
 deny services			none	none	none	none	local	all
 su only for wheel grp		no	no	no	no	no	yes
 user umask			022	022	022	022	077	077
-shell history size		default	default	default	default	0	0
+shell history size		default	default	default	default	10	10
 direct root login		yes	yes	yes	yes	no	no
+remote root login		yes	yes	yes	yes	no	no
 sulogin for single user		no	no	no	no	yes	yes
 user list in [kg]dm		yes	yes	yes	yes	no	no
 promisc check			no	no	no	no	yes	yes
 ignore icmp echo		no	no	no	no	yes	yes
+ignore broadcasted icmp echo	no	no	no	no	yes	yes
 ignore bogus error responses	no	no	no	no	yes	yes
-enable libasfe			no	no	no	no	yes	yes
+enable libsafe			no	no	no	no	yes	yes
 allow reboot by user		yes	yes	yes	yes	no	no
 allow crontab/at		yes	yes	yes	yes	no	no
 password aging			no	no	no	no	60	30
@@ -30,9 +32,11 @@ allow autologin			yes	yes	yes	no	no	no
 console log			no	no	no	yes	yes	yes
 issues				yes	yes	yes	local	local	no
 ip spoofing protection		no	no	no	yes	yes	yes
+dns spoofing protection		no	no	no	yes	yes	yes
 log stange ip packets		no	no	no	yes	yes	yes
 periodic security check		no	yes	yes	yes	yes	yes
 allow X connections		yes	local	local	no	no	no
+X server listen to		tcp	tcp	tcp	tcp	local	local
 run msec by cron		yes	yes	yes	yes	yes	yes
 
 Periodic security checks by level:
@@ -53,6 +57,7 @@ TTY_WARN          no  no  no  no   yes  yes
 MAIL_WARN         no  no  no  yes  yes  yes  
 SYSLOG_WARN       no  no  yes yes  yes  yes  
 RPM_CHECK         no  no  no  yes  yes  yes
+CHKROOTKIT_CHECK  no  no  no  yes  yes  yes
 
 These variables are configured by the user:
 

@@ -244,7 +244,7 @@ def allow_root_login(arg):
     
     if arg:
         _interactive and log(_('Allowing direct root login'))
-        sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+no',
+        sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+(no|yes)',
                                                                    'PermitRootLogin yes', 1)
         
         kde = ConfigFile.get_config_file(KDE)
@@ -261,7 +261,7 @@ def allow_root_login(arg):
             securetty.replace_line_matching(s, s, 1)
     else:
         _interactive and log(_('Forbidding direct root login'))
-        sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+yes',
+        sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+(no|yes)',
                                                                    'PermitRootLogin no', 1)
         
         bastillenologin = ConfigFile.get_config_file(BASTILLENOLOGIN)

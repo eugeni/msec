@@ -48,8 +48,8 @@ AddRules () {
 	fi	
 	
 	if ! grep -Eqx "^${string}" ${file}; then
-		echo "${COMMENT}" >> ${file};
-		echo "${string}" >> ${file};
+		echo -e "${COMMENT}" >> ${file};
+		echo -e "${string}" >> ${file};
 	fi
 	if [ -z ${3} ]; then
 		echo -e "done.\n"
@@ -64,6 +64,8 @@ CleanRules() {
     mv -f ${file} /tmp/secure.tmp
     touch ${file}
 
+    IFS="
+"
     while read line; do
 	if [ ${ctrl} == 1 ]; then
 	    ctrl=0
@@ -78,7 +80,8 @@ CleanRules() {
 	    echo "${line}" >> ${file}
 	fi
     done < /tmp/secure.tmp
-    
+    IFS=" "
+
     rm -f /tmp/secure.tmp
 
     echo "done."
@@ -122,7 +125,7 @@ LiloUpdate() {
     	echo "Do you want a password authentication at boot time ?"
     	echo "Be very carefull,"
     	echo "this will prevent your server to reboot without an operator to enter password".
-		WaitAnswer
+	WaitAnswer;
     	if [ "${answer}" == "yes" ]; then
         	echo -n "Please enter the password which will be used at boot time : "
         	read password

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 
 #
@@ -80,6 +80,8 @@ echo "Setting secure level variable to 4 :"
 AddRules "SECURE_LEVEL=4" /etc/profile
 export SECURE_LEVEL=4
 
+IFS="
+"
 echo -n "Disabling all service, except : {"
 for service in `chkconfig --list | awk '{print $1}'`; do
     if grep -qx ${service} /etc/security/msec/init-sh/server.4; then
@@ -98,7 +100,8 @@ echo -e "done.\n";
 
 # /etc/profile
 echo "Setting umask to 022 (u=rw,g=rx) for root, 077 (u=rw) for user :"
-AddRules "if [ ${UID} == 0 ]; then umask 022; else umask 077; fi" /etc/profile
+AddRules "if [ \${UID} == 0 ]; then umask 022; else umask 077; fi" /etc/profile
 echo "Adding \"normal\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile
+

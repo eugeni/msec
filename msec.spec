@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.33
+Version:	0.34
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -135,6 +135,14 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Sun Aug 25 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34-1mdk
+- let hosts.{allow,deny} be readable by everyone (to allow all the
+daemons to access them).
+- doc/security.txt: documented daily mailing of security checks
+- allow_reboot: used section X-:0-Core instead of X-:*-Greeter for
+kdmrc.
+- password_history: create /etc/security/opasswd if it doesn't exist.
+
 * Mon Aug 19 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.33-1mdk
 - reworked wording of mails
 

@@ -1,10 +1,10 @@
 # do not modify Version below, modify it in Makefile (see CVS)
-%define version 0.8
+%define version 0.9
 
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
 Version: %{version}
-Release: 4mdk
+Release: 3mdk
 Source: %{name}-%{version}.tar.bz2
 Copyright: GPL
 Group: System Environment/Base
@@ -36,8 +36,25 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING Makefile README doc/*txt ChangeLog
 /etc/security/msec
 /usr/bin/promisc_check
+/var/log/security.log
+/var/log/security
 
 %changelog
+* Mon Dec 20 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- fixed a typo / variable pb.
+
+* Mon Dec 20 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- init-sh/perm.[05]: Oops, /var/spool/mail is 771 not 755.
+- init-sh/lib.sh: removed the failsafe for not a tty stdin (not efficient)
+- init-sh/lib.sh: rewrote the perl script (now a one-liner :)
+- Big cleanup.
+- All work properly now.
+- msec.spec: modify to take into account the Makefile modifying the .spec
+- Makefile (VERSION): make it the same as the .spec
+
+* Sat Dec 18 1999 Pixel  <pixel@mandrakesoft.com>
+- init-sh/lib.sh: added failsafe for not a tty stdin
+
 * Sat Dec 18 1999 Pixel <pixel@mandrakesoft.com>
 - no interactive questions if not a tty
 

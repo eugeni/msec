@@ -197,7 +197,7 @@ fi
 /bin/mount | /bin/grep -v nosuid | /bin/grep ' nfs ' > ${TMP}
 if [[ -s ${TMP} ]] ; then
     printf "\nSecurity Warning: The following NFS mounts haven't got the nosuid option set :\n" >> ${SECURITY}
-    cat ${TMP} >> ${SECURITY}
+    cat ${TMP} | awk '{ print "\t\t- "$0 }' >> ${SECURITY}
 fi
 
 ### Files that should not have + signs.

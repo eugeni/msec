@@ -4,19 +4,33 @@
 msec \- Mandrake security tools
 .SH SYNOPSIS
 .B msec
-[0-5]
+([0-5])
 .SH DESCRIPTION
-\fPmsec\fP is the main script of msec package. It enables the system administrator to change the security level for that system.
-msec is provided with six preconfigured security levels. These levels range from poor security and ease of use, to paranoid config, suitable for very sensitive server applications, managed by experts.
+\fPmsec\fP is the main script of the msec package. It enables the
+system administrator to change the security level for that system.
+msec is provided with six preconfigured security levels. These levels
+range from poor security and ease of use, to paranoid config, suitable
+for very sensitive server applications.
 .PP
-You must be root to run \fPmsec\fP .
+You must be root to run \fPmsec\fP.
 .br
-Launch "msec x" to set you security level to x (x=[0-5]). It'll modify your system according to security level x features.
+Launch "msec x" to set you security level to x (x=[0-5]). It'll modify
+your system according to security level x features. Called without
+argument, it will enforce the current security level without lowering
+security.
 .br
-For a fine description of each security level, consult the documentation under /usr/share/doc/msec-*/security.txt.
+All the changes are logged to syslog at the AUTH facility when called
+non interactivelly (by cron for example) or at the LOCAL1 facility
+when called interactivelly (on the command line or from Mandrake
+Control Center for example).
+.br
+For a fine description of each security level, consult the
+documentation under /usr/share/doc/msec-*/security.txt.
 .PP
-If you want to make changes to the current level, use /etc/security/msec/perm.local to override the
-permissions/owners/groups and /etc/security/msec/level.local to override the rules (see mseclib(3) for details).
+If you want to make changes to the current level, use
+/etc/security/msec/perm.local to override the
+permissions/owners/groups and /etc/security/msec/level.local to
+override the rules (see mseclib(3) for details).
 .SH FILES
 /usr/sbin/msec
 .br
@@ -24,7 +38,8 @@ The \fPmsec\fP executable (sh script)
 .PP
 /var/lib/msec/security.conf
 .br
-Contains the configuration of the current active security level. These settings can be overridden in /etc/security/msec/security.conf.
+Contains the configuration of the current active security level. These
+settings can be overridden in /etc/security/msec/security.conf.
 
 .SH AUTHOR
 Vandoorselaere Yoann, Mandrakesoft

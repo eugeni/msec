@@ -15,7 +15,7 @@ PROMISC_CHECK="/usr/bin/promisc_check -q"
 LogPromisc() {
 	Syslog "Security warning : $1 is in promiscuous mode. (sniffer running ?)"
 	Ttylog "\\033[1;31mSecurity warning : $1 is in promiscuous mode.\\033[0;39m"
-	Ttylog "\\033[1;31mA sniffer is probably running on your system.\\033[0;39m
+	Ttylog "\\033[1;31mA sniffer is probably running on your system.\\033[0;39m"
 }
 
 if [ -f /etc/security/msec/security.conf ]; then

@@ -1,5 +1,8 @@
 1999-12-20 Yoann Vandoorselaere <yoann@mandrakesoft.com>
-	*init-sh/perm.[15]: /var/spool/mail is 755
+	* init-sh/perm.[05]: Oops, /var/spool/mail is 771 not 755.
+
+1999-12-20 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* init-sh/perm.[15]: /var/spool/mail is 755
 
 1999-12-19  Pixel  <pixel@mandrakesoft.com>
 	* init-sh/lib.sh: removed the failsafe for not a tty stdin (not

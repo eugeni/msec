@@ -10,3 +10,10 @@
 	* cron-sh/promisc_check.sh (LogPromisc): add a missing quote.
 
 	* ChangeLog: first entry.
+
+1999-12-07  Axalon Bloodstone  <axalon@linux-mandrake.com>
+
+	* Fix call to security_check.sh
+
+	* Handle usernames longer than 8 chars in file_check
+

@@ -1,0 +1,1025 @@
+#This file was created by <camille> Wed Dec 15 19:34:13 1999
+#LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
+\lyxformat 2.15
+\textclass article
+\language american
+\inputencoding latin1
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+
+\layout Title
+
+
+\size huge 
+msec
+\size default 
+ 
+\noun on 
+[Mandrake SECurity tools]
+\layout Author
+
+Camille Begnis <camille@mandrakesoft.com>
+\layout Date
+
+15/12/1999
+\layout Section
+
+Introducing msec
+\layout Standard
+
+While Linux is being used for a very wide range of applications, from basic
+ office work to high availability servers, came the need for different security
+ levels.
+ It is obvious that constraints inherent to highly secured servers do not
+ match the needs of a secretary.
+ In the other hand a big public server is more sensitive to malicious people
+ than my isolated Linux box.
+\layout Standard
+
+It is in that aim that were designed the msec package.
+ It is made of two parts:
+\layout Enumerate
+
+Scripts that modify the whole system to lead it to one of the five security
+ levels provided with msec.
+ These levels range from poor security and ease of use, to paranoid config,
+ suitable for very sensitive applications, managed by experts.
+\layout Enumerate
+
+Cron jobs, that will periodically check the integrity of the system upon
+ security level configuration, and eventually detect and warn you of possible
+ intrusion of the system or security leak.
+\layout Standard
+
+Note that the user may also define his own security level, adjusting parameters
+ to his own needs.
+ 
+\layout Section
+
+Installation
+\layout Standard
+
+Installing the rpm will create a msec directory into /etc/security, containing
+ all is needed to secure your system.
+\layout Standard
+
+Then just login as root and type 
+\begin_inset Quotes erd
+\end_inset 
+
+/etc/security/msec/init.sh x
+\begin_inset Quotes erd
+\end_inset 
+
+, x being the security level you want or 
+\begin_inset Quotes eld
+\end_inset 
+
+custom
+\begin_inset Quotes erd
+\end_inset 
+
+ to create your own security level.
+ The script will begin to remove all modifications made by a previous runlevel
+ change, and apply the features of the chosen security level to your system.
+ If you choose 
+\begin_inset Quotes eld
+\end_inset 
+
+custom
+\begin_inset Quotes erd
+\end_inset 
+
+, then you will be asked a series of questions for each security feature
+ msec propose.
+ At the end, these features will be applied to your system.
+\layout Standard
+
+Note that whatever the level you chose, your configuration will be stored
+ into 
+\begin_inset Quotes eld
+\end_inset 
+
+/etc/security/msec/security.conf
+\begin_inset Quotes erd
+\end_inset 
+
+.
+\layout Section
+
+Security levels features
+\layout Standard
+
+Follows the description of the different security features each level brings
+ to the system.
+ These features are of various types:
+\layout Itemize
+
+file permissions,
+\layout Itemize
+
+warnings dispatching,
+\layout Itemize
+
+periodicall security checks:
+\layout Quotation
+
+- on files: suid root, writeable, unowned;
+\layout Quotation
+
+- listening ports: active, promiscuous;
+\layout Quotation
+
+- passwords files.
+\layout Itemize
+
+X display connections,
+\layout Itemize
+
+listening port check,
+\layout Itemize
+
+services available,
+\layout Itemize
+
+boot password,
+\layout Itemize
+
+authorized clients.
+\layout Standard
+\LyXTable
+multicol5
+26 6 0 0 -1 -1 -1 -1
+1 1 0 0
+1 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+2 1 0 "80mm" ""
+8 1 0 "" ""
+8 1 0 "" ""
+8 1 0 "" ""
+8 1 0 "" ""
+8 1 1 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+
+
+\series bold 
+\emph on 
+Feature 
+\backslash 
+ Security level
+\newline 
+1
+\newline 
+2
+\newline 
+3
+\newline 
+4
+\newline 
+5
+\series default 
+\emph toggle 
+
+\newline 
+Global security check
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+umask users
+\newline 
+002
+\newline 
+022
+\newline 
+022
+\newline 
+077
+\newline 
+077
+\newline 
+umask root
+\newline 
+002
+\newline 
+022
+\newline 
+022
+\newline 
+022
+\newline 
+077
+\newline 
+localhost authorized to connect to X display
+\newline 
+*
+\newline 
+*
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+User in audio group
+\newline 
+*
+\newline 
+*
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+.
+ in $PATH
+\newline 
+*
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+Warning in /var/log/security.log
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+Warning directly on tty 
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+Warning in syslog
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+Suid root file check
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+Suid root file md5sum check
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+Writeable file check
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+Permissions check
+\newline 
+
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+Suid group file check 
+\newline 
+
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+Unowned file check
+\newline 
+
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+Promiscuous check
+\newline 
+
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+Listening port check
+\newline 
+
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+Passwd file integrity check
+\newline 
+
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+Shadow file integrity check
+\newline 
+
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+System security check every midnight
+\newline 
+
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+All system events additionally logged to /dev/tty12
+\newline 
+
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+*
+\newline 
+Services not known disabled
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+Boot password 
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
+Disable connections from all but localhost
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+*
+\newline 
+
+\newline 
+Disable connections from all
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+*
+\layout Standard
+
+Note that six out of the ten periodical checks can detect changes on the
+ system.
+ They store into files located in 
+\begin_inset Quotes eld
+\end_inset 
+
+/var/log/security/
+\begin_inset Quotes erd
+\end_inset 
+
+ the configuration of the system during the last check (one day ago), and
+ warn you of any changes occurred meanwhile.
+ These checks are:
+\layout Itemize
+
+Suid root file check
+\layout Itemize
+
+Suid root file md5sum check
+\layout Itemize
+
+Writeable file check
+\layout Itemize
+
+Suid group file check 
+\layout Itemize
+
+Unowned file check 
+\layout Itemize
+
+Listening port check
+\layout Subsection
+
+Global security check 
+\layout Itemize
+
+NFS filesystems globally exported.
+ This is regarded as insecure, as there is no restriction for who may mount
+ these filesystems
+\layout Itemize
+
+NFS mounts with missing nosuid.
+ These filesystems are exported without the 
+\begin_inset Quotes eld
+\end_inset 
+
+nosuid
+\begin_inset Quotes erd
+\end_inset 
+
+ option.
+\layout Itemize
+
+Host trusting files contains 
+\begin_inset Quotes eld
+\end_inset 
+
++
+\begin_inset Quotes erd
+\end_inset 
+
+sign.
+ That means that one of the files 
+\begin_inset Quotes eld
+\end_inset 
+
+/etc/hosts.equiv /etc/shosts.equiv /etc/hosts.lpd
+\begin_inset Quotes erd
+\end_inset 
+
+ is containing hosts which are allowed to connect without proper authentication.
+\layout Itemize
+
+Executables found in the aliases file.
+ It issues a warning naming the executables run through files "/etc/aliases
+\begin_inset Quotes erd
+\end_inset 
+
+ and 
+\begin_inset Quotes eld
+\end_inset 
+
+/etc/postfix/aliases".
+\layout Subsection
+
+umask users 
+\layout Standard
+
+Simply sets the umask for normal users to the value corresponding to the
+ security level.
+\layout Subsection
+
+umask root 
+\layout Standard
+
+The same but for the root.
+\layout Subsection
+
+localhost authorized to connect to X display 
+\layout Standard
+
+Runs 
+\begin_inset Quotes eld
+\end_inset 
+
+xhost + localhost
+\begin_inset Quotes erd
+\end_inset 
+
+ on every boot.
+\layout Subsection
+
+User in audio group
+\layout Standard
+
+Each user is a member of the 
+\begin_inset Quotes eld
+\end_inset 
+
+audio
+\begin_inset Quotes erd
+\end_inset 
+
+ group.
+ That means that every user connected to the system is given access to sound
+ card.
+\layout Subsection
+
+.
+ in $PATH
+\layout Standard
+
+the 
+\begin_inset Quotes eld
+\end_inset 
+
+.
+\begin_inset Quotes erd
+\end_inset 
+
+ entry is added to $PATH environment variable, allowing execution of programs
+ within the current working directory.
+\layout Subsection
+
+Warning in /var/log/security.log 
+\layout Standard
+
+Each warning issued by msec is logged into 
+\begin_inset Quotes eld
+\end_inset 
+
+/var/log/security.log
+\begin_inset Quotes erd
+\end_inset 
+
+.
+\layout Subsection
+
+Warning directly on tty 
+\layout Standard
+
+Each warning issued by msec is directly printed on currentconsole.
+\layout Subsection
+
+Warning in syslog
+\layout Standard
+
+Warnings of msec are directed to syslog service.
+\layout Subsection
+
+Suid root file check
+\layout Standard
+
+Check for new or removed suid root files on the system.
+ If such files are encountered a list of these files is issued as a warning.
+\layout Subsection
+
+Suid root file md5sum check
+\layout Standard
+
+Checks the md5sum signature of each suid root file that is on the system.
+ If the signature has changed, it means that a modification has been made
+ to this program, probably a backdoor.
+ A warning is then issued.
+\layout Subsection
+
+Writeable file check
+\layout Standard
+
+Check wether files are world writable on the system.
+ If so, issues a warning containing the list of these naughty files.
+\layout Subsection
+
+Permissions check
+\layout Standard
+
+This one checks permissions for some special files such as .netrc or user's
+ config files.
+ It also checks permissions of users home dir.
+ If their permissions are too loose or owners unusual, it issues a warning.
+\layout Subsection
+
+Suid group file check 
+\layout Standard
+
+Check for new or removed suid group files on the system.
+ If such files are encountered, a list of these files is issued as a warning.
+\layout Subsection
+
+Unowned file check
+\layout Standard
+
+This check searches for files owned by users/groups(or more accurately by
+ uids/gids) not known into /etc/password, If such files are found, the owner
+ is automatically changed to user/group 
+\begin_inset Quotes eld
+\end_inset 
+
+nobody
+\begin_inset Quotes erd
+\end_inset 
+
+.
+\layout Subsection
+
+Promiscuous check
+\layout Standard
+
+This test checks every ethernet card to determine wether they are in promiscuous
+ mode.
+ This mode allows the card to intercept every packet received by the card,
+ even those that are not directed to it.
+ It may mean that a sniffer is running on your machine.
+\layout Standard
+
+Note that this check is setted up to be run every minute.
+\layout Subsection
+
+Listening port check
+\layout Standard
+
+Issues a warning with all listening ports.
+\layout Subsection
+
+Passwd file integrity check
+\layout Standard
+
+Verify that each user has a password ( no blank password) and if it is shadowed.
+\layout Subsection
+
+Shadow file integrity check
+\layout Standard
+
+Verify that each user into the shadow file has a password ( no blank password).
+\layout Subsection
+
+System security check every midnight
+\layout Standard
+
+All previous checks will be performed everyday at midnight.
+ This relies on the addition of cron scripts in crontab file.
+\layout Subsection
+
+All system events additionally logged to /dev/tty12
+\layout Standard
+
+*All* system messages directed to syslog are copied to tty12 console.
+\layout Subsection
+
+Services not known disabled 
+\layout Standard
+
+All services not contained into 
+\begin_inset Quotes eld
+\end_inset 
+
+/etc/security/msec/init-sh/server.4/5
+\begin_inset Quotes erd
+\end_inset 
+
+ will be disabled.
+ They are not removed, but simply not started when loading a runlevel.
+ If you need some of them, just add them again with the 
+\begin_inset Quotes eld
+\end_inset 
+
+chkconfig
+\begin_inset Quotes erd
+\end_inset 
+
+ utility (you might also need to restart them with init scripts in /etc/rc.d/init.
+d/ ).
+\layout Subsection
+
+Disable connections from all but localhost
+\layout Standard
+
+Adds the rule "ALL:ALL EXCEPT localhost:DENY" into 
+\begin_inset Quotes eld
+\end_inset 
+
+/etc/hosts.deny
+\begin_inset Quotes erd
+\end_inset 
+
+ file.
+ 
+\layout Standard
+
+This prevents all clients but localhost to connect to open ports.
+\layout Subsection
+
+Disable connections from all
+\layout Standard
+
+Adds the rule "ALL:ALL:DENY" into 
+\begin_inset Quotes eld
+\end_inset 
+
+/etc/hosts.deny
+\begin_inset Quotes erd
+\end_inset 
+
+ file.
+ 
+\layout Standard
+
+This prevents all clients (even localhost) to connect to open ports.
+ 
+\layout Section
+
+ToDo
+\layout Standard
+
+- Automatic tty locking ( unlock by passwd ) after X time of inactivity.
+\layout Standard
+
+- In high security level, only user having access to group "sugrp" can use
+ the su command.
+\layout Section
+
+Author
+\layout Standard
+
+Vandoorselaere Yoann <yoann@mandrakesoft.com>
+\the_end

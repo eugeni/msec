@@ -10,7 +10,7 @@ else
     exit 1
 fi
 
-if [[ ${CHECK_SECURITY} == no ]; then
+if [[ ${CHECK_SECURITY} == no ]]; then
     exit 0
 fi
 

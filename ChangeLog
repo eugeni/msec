@@ -1,3 +1,4 @@
-1999-12-08 Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-08  Chmouel Boudjnah  <chmouel@mandrakesoft.com>
 
+	* cron-sh/promisc_check.sh (LogPromisc): add a missing quote.
 	* ChangeLog: first entry.

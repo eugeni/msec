@@ -1,3 +1,19 @@
+2002-08-19 23:09  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.33-1mdk
+
+2002-08-19 23:09  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* Makefile: use $(RPM_BUILD_ROOT) instead of $RPM_BUILD_ROOT
+
+2002-08-19 23:08  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/: diff_check.sh, security_check.sh: corrected wording
+
+2002-08-19 23:07  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec: added missing "not"
+
 2002-08-11 20:49  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.32-1mdk

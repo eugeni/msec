@@ -338,6 +338,9 @@ CleanRules /etc/logrotate.conf
 CleanRules /etc/rc.d/rc.local
 CleanRules /etc/rc.d/rc.firewall
 CleanRules /etc/crontab
+CleanRules /etc/profile
+CleanRules /etc/zprofile
+
 
 if [[ -f /etc/X11/xinit.d/msec ]]; then
 	CleanRules /etc/X11/xinit.d/msec
@@ -349,6 +352,14 @@ fi
 if [[ -f /etc/sysconfig/msec ]]; then
 	        CleanRules /etc/sysconfig/msec
 fi
+
+if [[ -f /etc/profile.d/msec.sh && -f /etc/profile.d/msec.csh ]]; then
+        CleanRules /etc/profile.d/msec.sh
+        CleanRules /etc/profile.d/msec.csh
+else
+        chmod 755 /etc/profile.d/msec.sh
+        chmod 755 /etc/profile.d/msec.csh
+fi  
 
 echo -e "\nStarting to reconfigure the system : "
 # For all secure level

@@ -1,7 +1,7 @@
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
 Version: 0.8
-Release: 2mdk
+Release: 3mdk
 Source: msec-0.8.tar.bz2
 Copyright: GPL
 Group: System Environment/Base
@@ -35,6 +35,9 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/promisc_check
 
 %changelog
+* Sat Dec 18 1999 Pixel <pixel@mandrakesoft.com>
+- no interactive questions if not a tty
+
 * Thu Dec 16 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - Don't use msec parsing routine to hack inittab
 

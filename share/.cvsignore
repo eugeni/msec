@@ -1,4 +1,5 @@
 *.pyo
 *.pyc
+*.flog
 mseclib.man
 mseclib.py

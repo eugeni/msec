@@ -478,9 +478,9 @@ def allow_root_login(arg):
     xdm = ConfigFile.get_config_file(XDM)
 
     val = {}
-    val[kde] = kde.exists() and kde.get_match('auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
-    val[gdm] = gdm.exists() and gdm.get_match('auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
-    val[xdm] = xdm.exists() and xdm.get_match('auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+    val[kde] = kde.exists() and kde.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+    val[gdm] = gdm.exists() and gdm.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+    val[xdm] = xdm.exists() and xdm.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
     num = 0
     for n in range(1, 7):
         s = 'tty' + str(n)
@@ -507,7 +507,7 @@ def allow_root_login(arg):
         
             for cnf in (kde, gdm, xdm):
                 if not (same_level() and val[cnf]):
-                    cnf.exists() and cnf.remove_line_matching('^auth\s*required\s*/lib/security/pam_listfile.so.*bastille-no-login', 1)
+                    cnf.exists() and cnf.remove_line_matching('^auth\s*required\s*(?:/lib/security/)?pam_listfile.so.*bastille-no-login', 1)
         
             for n in range(1, 7):
                 s = 'tty' + str(n)
@@ -524,8 +524,8 @@ def allow_root_login(arg):
             bastillenologin.replace_line_matching('^\s*root', 'root', 1)
         
             for cnf in (kde, gdm, xdm):
-                cnf.exists() and (cnf.replace_line_matching('^auth\s*required\s*/lib/security/pam_listfile.so.*bastille-no-login', 'auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login') or \
-                                  cnf.insert_at(0, 'auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login'))
+                cnf.exists() and (cnf.replace_line_matching('^auth\s*required\s*(?:/lib/security/)?pam_listfile.so.*bastille-no-login', 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login') or \
+                                  cnf.insert_at(0, 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login'))
         
             securetty.remove_line_matching('.+', 1)
 
@@ -582,7 +582,7 @@ def enable_pam_wheel_for_su(arg):
     '''   Enabling su only from members of the wheel group or allow su from any user.'''
     su = ConfigFile.get_config_file(SU)
 
-    val = su.exists() and su.get_match('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$')
+    val = su.exists() and su.get_match('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$')
     
     # don't lower security when not changing security level
     if same_level():
@@ -601,14 +601,14 @@ def enable_pam_wheel_for_su(arg):
             if members == [] or members == ['root']:
                 _interactive and error(_('wheel group is empty'))
                 return
-            su.exists() and (su.replace_line_matching('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$',
-                                                      'auth       required     /lib/security/pam_wheel.so use_uid') or \
+            su.exists() and (su.replace_line_matching('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$',
+                                                      'auth       required     pam_wheel.so use_uid') or \
                              su.insert_after('^auth\s+required',
-                                             'auth       required     /lib/security/pam_wheel.so use_uid'))
+                                             'auth       required     pam_wheel.so use_uid'))
     else:
         if val:
             _interactive and log(_('Allowing su for all'))
-            su.exists() and su.remove_line_matching('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$')
+            su.exists() and su.remove_line_matching('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$')
 
 enable_pam_wheel_for_su.arg_trans = YES_NO_TRANS
 
@@ -965,8 +965,8 @@ enable_libsafe.arg_trans = YES_NO_TRANS
 ################################################################################
 
 LENGTH_REGEXP = re.compile('^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sminlen=([0-9]+)\s(.*)')
-NDIGITS_REGEXP = re.compile('^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sdcredit=([0-9]+)\s(.*)')
-UCREDIT_REGEXP = re.compile('^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sucredit=([0-9]+)\s(.*)')
+NDIGITS_REGEXP = re.compile('^(password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*?)\sdcredit=([0-9]+)\s(.*)')
+UCREDIT_REGEXP = re.compile('^(password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*?)\sucredit=([0-9]+)\s(.*)')
 
 def password_length(length, ndigits=0, nupper=0):
     '''  Set the password minimum length and minimum number of digit and minimum number of capitalized letters.'''
@@ -1006,22 +1006,22 @@ def password_length(length, ndigits=0, nupper=0):
         _interactive and log(_('Setting minimum password length %d') % length)
         (passwd.replace_line_matching(LENGTH_REGEXP,
                                       '@1 minlen=%s @3' % length) or \
-         passwd.replace_line_matching('^password\s+required\s+/lib/security/pam_cracklib.so.*',
+         passwd.replace_line_matching('^password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*',
                                       '@0 minlen=%s ' % length))
     
         (passwd.replace_line_matching(NDIGITS_REGEXP,
                                       '@1 dcredit=%s @3' % ndigits) or \
-         passwd.replace_line_matching('^password\s+required\s+/lib/security/pam_cracklib.so.*',
+         passwd.replace_line_matching('^password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*',
                                       '@0 dcredit=%s ' % ndigits))
     
         (passwd.replace_line_matching(UCREDIT_REGEXP,
                                       '@1 ucredit=%s @3' % nupper) or \
-         passwd.replace_line_matching('^password\s+required\s+/lib/security/pam_cracklib.so.*',
+         passwd.replace_line_matching('^password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*',
                                       '@0 ucredit=%s ' % nupper))
 
 ################################################################################
 
-PASSWORD_REGEXP = '^\s*auth\s+sufficient\s+/lib/security/pam_permit.so'
+PASSWORD_REGEXP = '^\s*auth\s+sufficient\s+(?:/lib/security/)?pam_permit.so'
 def enable_password(arg):
     '''  Use password to authenticate users.'''
     system_auth = ConfigFile.get_config_file(SYSTEM_AUTH)
@@ -1040,14 +1040,14 @@ def enable_password(arg):
     else:
         if not val:
             _interactive and log(_('Don\'t use password to authenticate users'))
-            system_auth.replace_line_matching(PASSWORD_REGEXP, 'auth        sufficient    /lib/security/pam_permit.so') or \
-            system_auth.insert_before('auth\s+sufficient', 'auth        sufficient    /lib/security/pam_permit.so')
+            system_auth.replace_line_matching(PASSWORD_REGEXP, 'auth        sufficient    pam_permit.so') or \
+            system_auth.insert_before('auth\s+sufficient', 'auth        sufficient    pam_permit.so')
 
 enable_password.arg_trans = YES_NO_TRANS
 
 ################################################################################
 
-UNIX_REGEXP = re.compile('(^\s*password\s+sufficient\s+/lib/security/pam_unix.so.*)\sremember=([0-9]+)(.*)')
+UNIX_REGEXP = re.compile('(^\s*password\s+sufficient\s+(?:/lib/security/)?pam_unix.so.*)\sremember=([0-9]+)(.*)')
 
 def password_history(arg):
     '''  Set the password history length to prevent password reuse.'''
@@ -1072,7 +1072,7 @@ def password_history(arg):
         if arg > 0:
             _interactive and log(_('Setting password history to %d.') % arg)
             system_auth.replace_line_matching(UNIX_REGEXP, '@1 remember=%d@3' % arg) or \
-            system_auth.replace_line_matching('(^\s*password\s+sufficient\s+/lib/security/pam_unix.so.*)', '@1 remember=%d' % arg)
+            system_auth.replace_line_matching('(^\s*password\s+sufficient\s+(?:/lib/security/)?pam_unix.so.*)', '@1 remember=%d' % arg)
         else:
             _interactive and log(_('Disabling password history'))
             system_auth.replace_line_matching(UNIX_REGEXP, '@1@3')

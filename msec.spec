@@ -152,6 +152,8 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+- more csh-ish msec.csh
+
 * Wed Sep  3 2003 Frederic Lepied <flepied@mandrakesoft.com> 0.40-1mdk
 - corrected strange permission settings in /var/log (bug #4854)
 - allow set_shell_history_size(-1) in level.local (bug #4392)

@@ -289,7 +289,7 @@ if [[ -s ${SECURITY} ]]; then
     cat ${SECURITY} >> ${SECURITY_LOG}
     cat ${INFOS} >> ${SECURITY_LOG}
 
-    Maillog "*** Security Check on ${hostname}, ${date} ***" "${SECURITY} ${INFOS}"
+    Maillog "[msec] *** Security Check on ${hostname}, ${date} ***" "${SECURITY} ${INFOS}"
 fi
 
 if [[ -f ${SECURITY} ]]; then

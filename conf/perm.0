@@ -60,8 +60,8 @@
 /var/tmp					root.root		1777
 /var/log/					root.root		755
 /var/log/*					root.adm		644
-/var/log/squidGuard				nobody.nobody		755
-/var/log/squid					nobody.nobody		755
+/var/log/squidGuard				squid.squid		755
+/var/log/squid					squid.squid		755
 /var/log/security/				root.root		700
 /var/log/security/*				root.root		600
 /var/spool/mail/				root.mail		771

@@ -56,6 +56,7 @@ MSEC = '/etc/sysconfig/msec'
 MSECBIN = '/usr/sbin/msec'
 MSECCRON = '/etc/cron.hourly/msec'
 MSEC_XINIT = '/etc/X11/xinit.d/msec'
+OPASSWD = '/etc/security/opasswd'
 PASSWD = '/etc/pam.d/passwd'
 POWEROFF = '/etc/security/console.apps/poweroff'
 REBOOT = '/etc/security/console.apps/reboot'
@@ -328,6 +329,8 @@ def set_shell_history_size(size):
         if val != size:
             _interactive and log(_('Setting shell history size to %s') % size)
             msec.set_shell_variable('HISTFILESIZE', size)
+        opasswd = ConfigFile.get_config_file(OPASSWD)
+        opasswd.exists() or opasswd.touch()
     else:
         if val != None:
             _interactive and log(_('Removing limit on shell history size'))
@@ -350,7 +353,7 @@ def allow_reboot(arg):
         val[f] = ConfigFile.get_config_file(f).exists()
         if val[f]:
             num = num + 1
-    val_kdmrc = kdmrc.exists() and kdmrc.get_shell_variable('AllowShutdown')
+    val_kdmrc = kdmrc.exists() and kdmrc.get_shell_variable('AllowShutdown', 'X-:0-Core', '^\s*$')
     val_gdmconf = gdmconf.exists() and gdmconf.get_shell_variable('SystemMenu')
 
     # don't lower security when not changing security level
@@ -369,7 +372,7 @@ def allow_reboot(arg):
         if not (_same_level and val_sysctlconf == '0'):
             sysctlconf.set_shell_variable('kernel.sysrq', 1)
         if not (_same_level and val_kdmrc == 'None'):
-            kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', 'All', 'X-:\*-Greeter', '^\s*$')
+            kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', 'All', 'X-:0-Core', '^\s*$')
         if not (_same_level and val_gdmconf == 'false'):
             gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'true', '\[greeter\]', '^\s*$')
     else:
@@ -378,7 +381,7 @@ def allow_reboot(arg):
         for f in [SHUTDOWN, POWEROFF, REBOOT, HALT]:
             ConfigFile.get_config_file(f).unlink()
         sysctlconf.set_shell_variable('kernel.sysrq', 0)
-        kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', 'None', 'X-:\*-Greeter', '^\s*$')
+        kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', 'None', 'X-:0-Core', '^\s*$')
         gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'false', '\[greeter\]', '^\s*$')
 
 allow_reboot.arg_trans = YES_NO_TRANS

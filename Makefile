@@ -4,6 +4,7 @@ RELEASE := $(shell grep 'Release:' $(PACKAGE).spec| cut -f 2)
 TAG := $(shell echo "V$(VERSION)_$(RELEASE)" | tr -- '-.' '__')
 
 all: promisc_check msec_find python
+	make -C cron-sh
 
 clean:
 	-find . -name '*.o' -o -name '*.py[oc]' -o -name '*~' | xargs rm -f

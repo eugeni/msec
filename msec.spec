@@ -106,7 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
-* Thu Nov 29 2001 Florin <florin@mandrakesoft.com> 0.16-2mdk
+* Thu Nov 29 2001 Florin <florin@mandrakesoft.com> 0.16-3mdk
 - remove the redundance related to umask and /etc/bashrc
 - add the %{_sysconfdir}/%{name} file
 

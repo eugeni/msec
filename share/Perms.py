@@ -136,9 +136,13 @@ def fix_perms(path):
             error(_('invalid syntax in %s line %d') % (path, lineno))
     file.close()
 
-def act():
+def act(change):
     for f in assoc.keys():
         (mode, uid, gid, newperm, user, group, user_str, group_str) = assoc[f]
+        # if we don't change the security level, try not to lower the security
+        # if the user has changed it manually
+        if not change:
+            newperm = newperm & mode
         #print f, (mode, uid, gid, newperm, user, group)
         if newperm != -1 and mode != newperm:
             log(_('changed mode of %s from %o to %o') % (f, mode, newperm))
@@ -184,11 +188,12 @@ if __name__ == '__main__':
     import getopt
     
     _interactive = sys.stdin.isatty()
-
+    change = 0
+    
     # process the options
     try:
-        (opt, args) = getopt.getopt(sys.argv[1:], 'o:',
-                                    ['option'])
+        (opt, args) = getopt.getopt(sys.argv[1:], 'co:',
+                                    ['change', 'option'])
     except getopt.error:
         error(_('Invalid option. Use %s (-o var=<val>...) ([0-5])') % sys.argv[0])
         sys.exit(1)
@@ -201,7 +206,9 @@ if __name__ == '__main__':
                 sys.exit(1)
             else:
                 Config.set_config(pair[0], pair[1])
-
+        elif o[0] == '-c' or o[0] == '--change':
+            change = 1
+            
     # initlog must be done after processing the option because we can change
     # the way to report log with options...
     if _interactive:
@@ -219,6 +226,6 @@ if __name__ == '__main__':
         fix_perms(p)
 
     # do the modifications
-    act()
+    act(change)
     
 # Perms.py ends here

@@ -1,7 +1,8 @@
 # Welcome in Level 4, aka secure & usable.
 ###
 /						root.adm		751
-/bin/						root.root		711
+/bin/						root.root		4755
+/bin/ping					root.root		755
 /bin/rpm					rpm.rpm			750
 /boot/						root.root		700
 /dev/						root.root		711
@@ -35,6 +36,7 @@
 /etc/rc.d/					root.adm		750
 /etc/rc.d/init.d/				root.adm		750
 /etc/rc.d/init.d/*				root.adm		740
+/etc/rc.d/init.d/mandrake_consmap		root.adm		751
 /etc/securetty					root.root		640
 /etc/sendmail.cf				root.adm		640
 /etc/shutdown.allow				root.root		600

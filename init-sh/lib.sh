@@ -132,7 +132,7 @@ LiloUpdate() {
 	
 	rm -f /tmp/secure.tmp
 	clear
-    	AddRules "password=$PASSWORD" /etc/lilo.conf
+    	AddRules "password=$password" /etc/lilo.conf
     fi
 }
 

@@ -1,3 +1,47 @@
+2004-07-30 01:51  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.44-1mdk
+
+2004-07-30 01:50  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* doc/security.txt: document allow_xauth_from_root levels
+
+2004-07-30 01:48  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: call allow_xauth_from_root
+
+2004-07-30 01:43  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* man/: C/msec.8, cs/msec.8, et/msec.8, eu/msec.8, fi/msec.8,
+	  fr/msec.8, pl/msec.8, ru/msec.8, uk/msec.8: remove
+	  yoann@mandrakesoft.com no more valid address
+
+2004-07-30 01:40  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* man/C/mseclib.3: first version
+
+2004-07-30 01:38  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/Makefile: generate mseclib.3 in man directory
+
+2004-07-30 01:37  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/Perms.py: the config file is now forcing permissions even
+	  if it's lowering the security.
+
+2004-07-30 01:31  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.44-1mdk
+
+2004-07-30 01:28  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.csh, msec.sh, man/C/msec.8, man/cs/msec.8, man/et/msec.8,
+	  man/eu/msec.8, man/fi/msec.8, man/fr/msec.8, man/pl/msec.8,
+	  man/ru/msec.8, share/ConfigFile.py, share/Log.py, share/Makefile,
+	  share/Perms.py, share/draksec_help.py, share/libmsec.py,
+	  share/man.py, share/msec, share/msec.py, share/shadow.py:
+	  Mandrakelinux
+
 2004-07-30 01:16  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* share/ConfigFile.py: mkdir_p: corrected test of existence

@@ -26,6 +26,15 @@ fi
 USERNAME="blah"
 COMMENT="# Mandrake-Security : if you remove this comment, remove the next line too."
 
+WaitAnswer() {
+    answer="nothing"
+
+    while [[ "${answer}" != "yes" && "${answer}" != "no" ]]; do
+	echo -n "yes/no : "
+	read answer
+    done
+}
+
 AddRules () {
 	string=$1
 	file=$2
@@ -113,9 +122,8 @@ LiloUpdate() {
     	echo "Do you want a password authentication at boot time ?"
     	echo "Be very carefull,"
     	echo "this will prevent your server to reboot without an operator to enter password".
-    	echo -n "[yes]/no : "
-    	read answer
-    	if [[ "${answer}" == "yes" || "${answer}" == "" ]]; then
+		WaitAnswer
+    	if [ "${answer}" == "yes" ]; then
         	echo -n "Please enter the password which will be used at boot time : "
         	read password
     	else
@@ -131,9 +139,10 @@ LiloUpdate() {
 	    if ! echo "${line}" | grep -q "password"; then
 		echo "${line}" >> /etc/lilo.conf
 	    fi
-    	done < /etc/secure.tmp
+    	done < /tmp/secure.tmp
 	
-	rm -f /etc/secure.tmp
+	rm -f /tmp/secure.tmp
+	clear
     	AddRules "password=$PASSWORD" /etc/lilo.conf
     fi
 }

@@ -9,6 +9,7 @@ fi
 
 if [ "${1}" == "custom" ]; then
 	/etc/security/msec/init-sh/custom.sh
+	exit 0;
 fi
 
 if [ -f /etc/security/msec/init-sh/level$1.sh ]; then

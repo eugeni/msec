@@ -17,6 +17,7 @@ install:
 	(cp init-sh/grpuser /etc/security/msec/init-sh);
 	(cp init-sh/file_perm.sh /etc/security/msec/init-sh);
 	(cp init-sh/*.[1-5] /etc/security/msec/init-sh/)
+	(cp init-sh/custom.sh /etc/security/msec/init-sh);
 	(cp init-sh/server.* /etc/security/msec/init-sh)
 	(touch /etc/security/msec/security.conf)
 	(cd src/promisc_check; make install)

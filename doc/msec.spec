@@ -1,7 +1,7 @@
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
-Version: 0.3
-Release: 8mdk
+Version: 0.4
+Release: 1mdk
 Source: ftp://mandrakesoft.com/pub/yoann/msec-0.3.tar.gz
 Copyright: GPL
 Group: System Environment/Base
@@ -11,8 +11,8 @@ Requires: /bin/bash setup chkconfig
 %description
 The Mandrake-Security package is designed to provide generic 
 secure level to the Mandrake-Linux users...
-It will permit you to choose between level 1 to 5 for a 
-less -> more secured distribution.
+It will permit you to choose between level 1 to 5 & custom
+for a less -> more secured distribution.
 This packages includes several program that will be run periodically
 in order to test the security of your system and alert you if needed.
 
@@ -34,6 +34,7 @@ cp init-sh/file_perm.sh $RPM_BUILD_ROOT/etc/security/msec/init-sh
 cp init-sh/perm.[1-5] $RPM_BUILD_ROOT/etc/security/msec/init-sh
 cp init-sh/server.* $RPM_BUILD_ROOT/etc/security/msec/init-sh
 cp init-sh/grpuser $RPM_BUILD_ROOT/etc/security/msec/init-sh
+cp init-sh/custom.sh $RPM_BUILD_ROOT/etc/security/msec/init-sh
 cp cron-sh/*.sh $RPM_BUILD_ROOT/etc/security/msec/cron-sh
 touch $RPM_BUILD_ROOT/etc/security/msec/security.conf
 cp src/promisc_check/promisc_check $RPM_BUILD_ROOT/usr/bin
@@ -47,6 +48,15 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/promisc_check
 
 %changelog
+* Mon Nov 29 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Released 0.4 :
+- Now have a custom mode, just answer the question.
+- Msec print what it does.
+- Bug fix in LiloUpdate().
+
+* Mon Nov 29 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Fixed a few bugs in msec.
+
 * Fri Nov 26 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - grpuser was not installed.
 

@@ -36,7 +36,7 @@
 /etc/rc.d/					root.adm		750
 /etc/rc.d/init.d/				root.adm		750
 /etc/rc.d/init.d/*				root.adm		740
-/etc/rc.d/init.d/mandrake_consmap		root.adm		755
+/etc/rc.d/init.d/mandrake_consmap		root.adm		644
 /etc/securetty					root.root		640
 /etc/sendmail.cf				root.mail		640
 /etc/shutdown.allow				root.adm		640
@@ -75,6 +75,8 @@
 /usr/share/man					rpm.rpm			750
 /usr/tmp					root.adm		1773
 /var/						root.root		755
+/var/lib/monitoring				root.root 		751
+/var/lib/naat  					root.admin 		2770
 /var/lock/subsys				root.adm		750
 /var/log/					root.adm		751
 /var/log/*					root.root		600
@@ -83,3 +85,4 @@
 /var/log/*/.					current			700
 /var/spool/mail/				root.mail		771
 /var/tmp					root.adm		1773
+/var/www-naat  					httpd-naat.admin 	750

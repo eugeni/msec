@@ -87,7 +87,7 @@ without_password=2
 
 ALL_LOCAL_NONE_TRANS = {ALL : 'ALL', NONE: 'NONE', LOCAL : 'LOCAL'}
 YES_NO_TRANS = {yes : 'yes', no : 'no'}
-ALLOW_ROOT_LOGIN_TRANS = {no : 'no', yes : 'yes', without_password : 'without-password'}
+ALLOW_ROOT_LOGIN_TRANS = {no : 'no', yes : 'yes', without_password : 'without_password'}
 
 # config files => actions
 

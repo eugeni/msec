@@ -1,3 +1,19 @@
+2001-09-19    <yoann@no.mandrakesoft.com>
+
+	* init-sh/level0.sh:	
+	* init-sh/level1.sh: 
+	* init-sh/level2.sh:
+	* init-sh/level3.sh:
+	* init-sh/level4.sh:
+	* init-sh/level5.sh:
+	* init-sh/lib.sh:
+
+	Export the SECURE_LEVEL environment variable in 
+	/etc/profile.d/msec. This should fix the problem with 
+	certain terminal not reading /etc/profile, because each
+	~/.bashrc file source /etc/profile.d files automatically.
+
+	
 2001-09-17 19:14  Daouda Lo <daouda@mandrakesoft.com>
 
 	* msec.logrotate: logrotate file

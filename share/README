@@ -67,5 +67,19 @@ sent to root.
 PERM_LEVEL is used to determine which file to use to fix
 permissions/owners/groups (from /usr/share/msec/perm.$PERM_LEVEL). If
 not set, the SECURE_LEVEL is used instead. If the file
-/etc/security/msec/perm.local exists, it's used too.
+/etc/security/msec/perm.local exists, it's used too. The syntax for
+each line if the following:
 
+<file specification>	<owner>	<permission>	[force]
+
+<file specification> can be any glob to specify one or multiple
+files/diretories.
+
+<owner> must be in the form <user>.<group> or <user>. (force only
+user) or .<group> (force only group) or current (keep current user and
+group).
+
+<permission> is an octal number representing the access rights.
+
+If force is present as a 4th argument, it means that msec will enforce
+the permission even if the previous permission was lower.

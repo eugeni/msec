@@ -33,7 +33,7 @@ AddRules() {
 		echo "Modifying config in ${file}..."
 	fi	
 	
-	if ! grep -qx "^${string}" ${file}; then
+	if ! grep -qEx "^${string}" ${file}; then
 		echo -e "${COMMENT}" >> ${file};
 		echo -e "${string}" >> ${file};
 	fi

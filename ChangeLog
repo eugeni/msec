@@ -1,5 +1,9 @@
 1999-12-08  Chmouel Boudjnah  <chmouel@mandrakesoft.com>
 
-	* doc/msec.spec: use bzip2 sources.
+	* Makefile (rpm): target for rpm.
+
+	* doc/msec.spec: use bzip2 sources, clean up %install to use Makefile.
+
 	* cron-sh/promisc_check.sh (LogPromisc): add a missing quote.
+
 	* ChangeLog: first entry.

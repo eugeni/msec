@@ -12,42 +12,45 @@ else
 fi
 
 # login as root on console granted...
-AddRules "tty1" /etc/securetty
-AddRules "tty2" /etc/securetty
-AddRules "tty3" /etc/securetty
-AddRules "tty4" /etc/securetty
-AddRules "tty5" /etc/securetty
-AddRules "tty6" /etc/securetty
+echo "Login as root is granted :"
+AddRules "tty1" /etc/securetty quiet
+AddRules "tty2" /etc/securetty quiet
+AddRules "tty3" /etc/securetty quiet
+AddRules "tty4" /etc/securetty quiet
+AddRules "tty5" /etc/securetty quiet
+AddRules "tty6" /etc/securetty 
 
-# Suid Check
-AddRules "CHECK_SUID=yes" /etc/security/msec/security.conf
-AddRules "CHECK_PROMISC=no" /etc/security/msec/security.conf
-AddRules "TTY_WARN=no" /etc/security/msec/security.conf
+# security.conf
+echo "Updating file check variable :"
+echo -e "\t- Check suid root file : yes."
+AddRules "CHECK_SUID_ROOT=yes" /etc/security/msec/security.conf quiet
+echo -e "\t- Check suid goup file : no."
+AddRules "CHECK_SUID_GROUP=no" /etc/security/msec/security.conf quiet
+echo -e "\t- Check world writable file : no."
+AddRules "CHECK_WRITABLE=no" /etc/security/msec/security.conf quiet
+echo -e "\t- Check unowned file : no."
+AddRules "CHECK_UNOWNED=no" /etc/security/msec/security.conf quiet
+echo -e "\t- Check promiscuous mode : no."
+AddRules "CHECK_PROMISC=no" /etc/security/msec/security.conf quiet
+echo -e "\t- Security warning on tty : no."
+AddRules "TTY_WARN=no" /etc/security/msec/security.conf quiet
+echo -e "\t- Security warning in syslog : yes."
 AddRules "SYSLOG_WARN=yes" /etc/security/msec/security.conf
 
-# Permissions
-AddRules "umask 002" /etc/profile
-AddRules "SECURE_LEVEL=2" /etc/profile
-# Group
-usermod -G audio ${USERNAME} >& /dev/null
-
-# For X auth :
-xhost + localhost 2>&1 >& /dev/null
-
 # lilo update
+echo -n "Running lilo to record new config : "
 /sbin/lilo
+echo -e "done.\n"
 
-# Path
+# /etc/profile
+echo "Setting secure level variable to 2 :"
+AddRules "SECURE_LEVEL=2" /etc/profile
+echo "Setting umask to 022 (user = rw, group = r, o = r) :"
+AddRules "umask 022" /etc/profile
+echo "Adding \"normal\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile
 
-
-
-
-
-
-
-
-
-
-
+# Group
+echo "Adding \"${USERNAME} to audio group :"
+usermod -G audio "${USERNAME}"
 

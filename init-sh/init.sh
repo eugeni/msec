@@ -2,9 +2,14 @@
 
 if [ -z $1 ]; then
 	echo "Usage : $0 [0-5]"
+	echo "Usage : $0 \"custom\""
 	exit 1
 fi
 
+
+if [ "${1}" == "custom" ]; then
+	/etc/security/msec/init-sh/custom.sh
+fi
 
 if [ -f /etc/security/msec/init-sh/level$1.sh ]; then
     /etc/security/msec/init-sh/level$1.sh

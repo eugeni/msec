@@ -34,9 +34,16 @@ AddRules () {
 		return;
 	fi
 
+	if [ -z ${3} ]; then
+		echo "Modifying config in ${file}..."
+	fi	
+	
 	if ! grep -qx "${string}" ${file}; then
 		echo "${COMMENT}" >> ${file};
 		echo "${string}" >> ${file};
+	fi
+	if [ -z ${3} ]; then
+		echo -e "done.\n"
 	fi
 }
 
@@ -44,6 +51,7 @@ CleanRules() {
     file=$1
     ctrl=0
 
+	echo -en "\t- Cleaning msec appended line in ${file} : "
     mv -f ${file} /tmp/secure.tmp
     touch ${file}
 
@@ -64,10 +72,13 @@ CleanRules() {
     
     rm -f /tmp/secure.tmp
 
+	echo "done."
 }
 
 CommentUserRules() {
     file=$1
+
+    echo -en "\t- Cleaning user appended line in ${file} : "
 
     mv -f ${file} /tmp/secure.tmp
     touch ${file}
@@ -79,6 +90,7 @@ CommentUserRules() {
     done < /tmp/secure.tmp
   
     rm -f /tmp/secure.tmp
+	echo "done."
 }
 
 Syslog() {
@@ -126,29 +138,28 @@ LiloUpdate() {
     fi
 }
 
-
+clear
+echo "Preparing to run security script : "
 CleanRules /etc/syslog.conf
-
 CleanRules /etc/hosts.deny
 CommentUserRules /etc/hosts.deny
-
 CleanRules /etc/hosts.allow
 CommentUserRules /etc/hosts.allow
-
 CleanRules /etc/securetty
 CommentUserRules /etc/securetty
-
 CleanRules /etc/security/msec/security.conf
 CommentUserRules /etc/security/msec/security.conf
-
 CleanRules /etc/profile
 CleanRules /etc/lilo.conf
 CleanRules /etc/rc.d/rc.firewall
 CleanRules /etc/crontab
 
+echo -e "\nStarting to reconfigure the system : "
 
 # For all secure level
+echo "Setting spoofing protection : "
 AddRules "echo 1 > /proc/sys/net/ipv4/conf/all/rp_filter" /etc/rc.d/rc.firewall
+
 # default group which must exist on the system
 groupadd audio >& /dev/null
 groupadd xgrp >& /dev/null

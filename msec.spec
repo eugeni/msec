@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Linux Mandrake distribution
 Name:		msec
 Version:	0.15
-Release:	27mdk
+Release:	28mdk
 
 Source:		%{name}-%{version}.tar.bz2
 Source2:    	msec.logrotate
@@ -81,6 +81,9 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Thu Sep 20 2001 Florin <florin@mandrakesoft.com> 0.15-28mdk
+- authorize the usb service in the 4/5 levels of security
+
 * Wed Sep 19 2001 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-27mdk
 
 - Require /bin/touch.

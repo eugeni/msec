@@ -108,7 +108,7 @@ if [[ -f ${SUID_GROUP_TODAY} ]]; then
 fi
 
 if [[ -f ${WRITEABLE_TODAY} ]]; then
-    sort < ${WRITEABLE_TODAY} > ${WRITEABLE_TODAY}.tmp
+    sort < ${WRITEABLE_TODAY} | egrep -v '^(/var)?/tmp$' > ${WRITEABLE_TODAY}.tmp
     mv -f ${WRITEABLE_TODAY}.tmp ${WRITEABLE_TODAY}    
 fi
 

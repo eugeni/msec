@@ -1,3 +1,25 @@
+changes between version 0.18 and 0.19
+=====================================
+
+msec utility changes:
+
+ * no password in level 0
+
+Periodic security checks changes:
+
+ * config file is now in /var/lib/msec/security.conf and can
+be overriden by /etc/security/msec/security.conf.
+
+changes between version 0.17 and 0.18
+=====================================
+
+msec utility changes:
+
+ * allow /etc/security/msec/level.local to override the default
+setting of the level.
+ * promisc_check.sh works now.
+ * added mseclib man page.
+
 changes between version 0.16 and 0.17
 =====================================
 

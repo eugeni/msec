@@ -65,7 +65,7 @@ MAIL_USER the user to send the dayly reports. If not set, the email is
 sent to root.
 
 PERM_LEVEL is used to determine which file to use to fix
-permissions/owners/groups (in /etc/security/msec/perm.$PERM_LEVEL). If
+permissions/owners/groups (from /usr/share/msec/perm.$PERM_LEVEL). If
 not set, the SECURE_LEVEL is used instead. If the file
 /etc/security/msec/perm.local exists, it's used too.
 

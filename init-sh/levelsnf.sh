@@ -24,6 +24,10 @@ AddRules "*.* /dev/tty12" /etc/syslog.conf
 echo "Denying all kind of connection except localhost : "
 AddRules "ALL:ALL EXCEPT localhost:DENY" /etc/hosts.deny
 
+# Allow all the ssh connexions from anywhere
+echo "Allowing the ssh connexions from everywhere : "
+AddRules "ALL:sshd ALL" /etc/hosts.allow
+
 # Login as root on the console allowed :
 echo "Denying login as root (except on the console) :"
 AddRules "tty1" /etc/securetty quiet

@@ -1,7 +1,7 @@
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
 Version: 0.7
-Release: 2mdk
+Release: 3mdk
 Source: msec-0.7.tar.bz2
 Copyright: GPL
 Group: System Environment/Base
@@ -35,6 +35,9 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/promisc_check
 
 %changelog
+* Thu Dec 10 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- custom.sh : Fix a typo & forgot to export path & secure level
+
 * Thu Dec  9 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - More bugfix.
 - Many bugfix, always trying to get a bugfree release :).

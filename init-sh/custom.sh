@@ -155,7 +155,7 @@ echo "Do you want to disallow rpm to automatically enable a new installed server
 echo "yes = you will need to chkconfig (--add ) servername for the server to run on boot."
 echo "no  = rpm will do it for you, but you have less control of what is running on your machine."
 WaitAnswer; clear
-if [[ ${answer} == yes ]; then
+if [[ ${answer} == yes ]]; then
 	export SECURE_LEVEL="4"
 	AddRules "SECURE_LEVEL=\"4\"" /etc/profile
 else
@@ -195,10 +195,12 @@ echo "This permit you to not use ./progname & to just type progname"
 echo "However this is a *high* security risk."
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
-    AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games:." /etc/profile
+    AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games:." /etc/profile quiet
 else
-    AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile
+    AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
 fi
+
+AddRules "export PATH SECURE_LEVEL" /etc/profile
 
 
 

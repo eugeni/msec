@@ -1,3 +1,6 @@
+1999-12-10	Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* custom.sh : Fix a typo & forgot to export path & secure level 
+
 1999-12-09  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* More bug fix.
 	* xhost + localhost for lower level, xhost + for level0.

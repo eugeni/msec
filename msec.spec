@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.15
-Release:	32mdk
+Version:	0.16
+Release:	1mdk
 Url:		http://www.linux-mandrake.com
 Source0:		%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -12,6 +12,7 @@ License:	GPL
 Group:		System/Base
 BuildRoot:	%_tmppath/%name-%version-%release-root
 Requires:	/bin/bash /bin/touch setup chkconfig >= 0.9-6
+Requires:	chkconfig >= 1.2.24-3mdk
 
 %description
 The Mandrake-Security package is designed to provide generic 
@@ -86,8 +87,10 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
-* Thu Nov 08 2001 Florin <florin@mandrakesoft.com> 0.15-32mdk
-- fix a typo in snf security level
+* Thu Nov 08 2001 Florin <florin@mandrakesoft.com> 0.16-1mdk
+- 0.16
+- add requires on chkconfig >= 1.2.24-3mdk
+- add the new link /etc/security/msec/server 
 - fix permissions for monitoring in snf level
 - deny root ssh access in snf level
 

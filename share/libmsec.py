@@ -544,7 +544,9 @@ PERMIT_ROOT_LOGIN_REGEXP = '^\s*PermitRootLogin\s+(no|yes|without-password|force
 ################################################################################
 
 def allow_remote_root_login(arg):
-    '''  Allow/Forbid remote root login.'''
+    '''  Allow/Forbid remote root login via sshd. You can specify
+yes, no and without-password. See sshd_config(5) man page for more
+information.'''
     sshd_config = ConfigFile.get_config_file(SSHDCONFIG)
 
     if sshd_config.exists():

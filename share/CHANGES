@@ -23,6 +23,7 @@ Periodic security checks changes:
 
  * added an rpm database check (rpm -va and rpm -qa)
  * report when a user other than root is at uid 0
+ * diff_check reports even when the log is empty
 
 Permissions settings changes:
 
@@ -30,7 +31,7 @@ Permissions settings changes:
  * removed audio group handling because it has always conflicted with pam_console
  * handle /var/log sub-directories in a generic manner
  * /etc/rc.d/init.d/*
- * corrected ssh related paths
+ * corrected ssh and ping related paths
  * /etc/sysconfig
  * /proc
  * corrected gcc files

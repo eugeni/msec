@@ -231,7 +231,6 @@ echo "yes = you will need to chkconfig (--add ) servername for the server to run
 echo "no  = rpm will do it for you, but you have less control of what is running on your machine."
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
-    # /etc/profile.d/msec.{sh,csh}
         export SECURE_LEVEL=4
         echo "Setting secure level variable to 4 :"
 	AddRules "SECURE_LEVEL=4" /etc/sysconfig/msec

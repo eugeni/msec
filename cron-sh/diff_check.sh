@@ -194,10 +194,6 @@ if [[ -s ${TMP} ]]; then
 
     echo -e "\n\n*** Diff Check, ${date} ***\n" >> ${SECURITY_LOG}
     cat ${TMP} >> ${SECURITY_LOG}
-else
-    cat > ${TMP} <<EOF
-Nothing has changed since the last run.
-EOF
 fi
 
 Maillog "[msec] *** Diff Check on ${hostname}, ${date} ***" "${TMP}"

@@ -11,12 +11,17 @@ if ! { (echo "${PATH}" | grep -q /usr/games) } then
 endif
 
 # translate sh variables from /etc/sysconfig/msec to their equivalent in csh
-if ( -n "$TMOUT" ) then
+if ( ${?TMOUT} ) then
+    if ( "$TMOUT" != "" ) then
 	set autologout=`expr $TMOUT / 60`
+    endif
+	
 endif
 
-if ( -n "$HISTFILESIZE" ) then
+if ( ${?HISTFILESIZE} ) then
+    if ( "$HISTFILESIZE" != "" ) then
 	set history=$HISTFILESIZE
+    endif
 endif
 
 setenv SECURE_LEVEL ${SECURE_LEVEL}

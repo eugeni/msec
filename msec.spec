@@ -1,10 +1,13 @@
 # do not modify Version below, modify it in Makefile (see CVS)
 %define version 0.9
+%define release 12mdk
 
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
 Version: %{version}
-Release: 11mdk
+Release: %{release}
+# get the source from our cvs repository (see
+# http://www.linuxmandrake.com/en/cvs.php3)
 Source: %{name}-%{version}.tar.bz2
 Copyright: GPL
 Group: System Environment/Base
@@ -33,13 +36,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS COPYING Makefile README doc/*txt ChangeLog
+%doc AUTHORS COPYING Makefile README 
+%doc doc/*txt ChangeLog doc/*ps
 /etc/security/msec
 /usr/bin/promisc_check
 /var/log/security.log
 /var/log/security
+/usr/man/*/*
 
 %changelog
+* Tue Dec 28 1999 Chmouel Boudjnah <chmouel@mandrakesoft.com>
+- add man-pages from camille.
+
 * Fri Dec 24 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - Use the mail user variable.
 - level[35]: also do a mail report.

@@ -3,6 +3,9 @@
 		1 - grpuser is not to be used by user, ( and should not have a manpage ).
 		2 - manpage is obsolete
 
+1999-12-28  Chmouel Boudjnah  <chmouel@mandrakesoft.com>
+	* doc/*8: add man-pages from camille.
+
 1999-12-24 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* level[35]: also do a mail report.
 	* moved Syslog(), Ttylog(), Maillog() to security.sh

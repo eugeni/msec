@@ -1,4 +1,5 @@
 VERSION = 0.9
+NAME = msec
 
 all: promisc_check
 
@@ -14,6 +15,7 @@ rpm_install: all
 	rm -rf $(RPM_BUILD_ROOT)
 	mkdir -p $(RPM_BUILD_ROOT)/etc/security/msec/{init-sh,cron-sh}/
 	mkdir -p $(RPM_BUILD_ROOT)/usr/bin
+	mkdir -p $(RPM_BUILD_ROOT)/usr/man/man8/
 	cp init-sh/level*.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
 	cp init-sh/lib.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
 	cp init-sh/init.sh $(RPM_BUILD_ROOT)/etc/security/msec
@@ -27,7 +29,10 @@ rpm_install: all
 	touch $(RPM_BUILD_ROOT)/etc/security/msec/security.conf
 	touch $(RPM_BUILD_ROOT)/var/log/security.log
 	install -s src/promisc_check/promisc_check $(RPM_BUILD_ROOT)/usr/bin
-	echo "Install complete"
+	install -d $(RPM_BUILD_ROOT)/usr/man/man8/
+	install -m644 doc/*8 $(RPM_BUILD_ROOT)/usr/man/man8/
+	bzip2 -9f $(RPM_BUILD_ROOT)/usr/man/man8/*8
+	@echo "Install complete"
 
 dis: clean
 	rm -rf msec-$(VERSION) ../msec-$(VERSION).tar*
@@ -38,6 +43,12 @@ dis: clean
 	tar cf ../msec-$(VERSION).tar msec-$(VERSION)
 	bzip2 -9f ../msec-$(VERSION).tar
 	rm -rf msec-$(VERSION)
+
+rpm: dis ../$(NAME)-$(VERSION).tar.bz2 $(RPM)
+	cp -f ../$(NAME)-$(VERSION).tar.bz2 $(RPM)/SOURCES
+	cp -f $(NAME).spec $(RPM)/SPECS/
+	-rpm -ba --clean --rmsource $(NAME).spec
+	rm -f ../$(NAME)-$(VERSION).tar.bz2
 
 install:
 	(rm -rf /etc/security/msec)

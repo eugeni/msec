@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.31
+Version:	0.31.1
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -134,6 +134,9 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Wed Jul 31 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.31.1-1mdk
+- handle again level.local
+
 * Tue Jul 30 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.31-1mdk
 - added level.* for draksec
 - add needed groups in %%pre

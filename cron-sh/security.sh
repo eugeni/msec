@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if [[ ! -f /var/lib/msec/msec/security.conf ]]; then
-    echo "Can't access /var/lib/msec/msec/security.conf."
+if [[ ! -f /var/lib/msec/security.conf ]]; then
+    echo "Can't access /var/lib/msec/security.conf."
     exit 1
 fi
 
-. /var/lib/msec/msec/security.conf
+. /var/lib/msec/security.conf
 
 if [ -r /etc/security/msec/security.conf ]; then
     . /etc/security/msec/security.conf

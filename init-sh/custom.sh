@@ -134,15 +134,14 @@ echo "This is only valuable for server installed with rpm."
 WaitAnswer; clear
 if [ ${answer} == "yes" ]; then
 	echo -n "Disabling all service, except : {"
-	for service in `chkconfig --list | awk '{print $1}'`; do
-   		if grep -qx ${service} /etc/security/msec/init-sh/server.5 | grep -v "^#";
-		then
+	chkconfig --list | awk '{print $1}' | while read service; do
+   		if grep -qx ${service} /etc/security/msec/init-sh/server.4; then
        		echo -n " ${service}"
    		fi
 	done
 	echo " } : "
 
-	for service in `chkconfig --list | awk '{print $1}'`; do
+	chkconfig --list | awk '{print $1}' | while read service; do
     	chkconfig --del "${service}"
     	if ! chkconfig --msec --add "${service}"; then
        	 	echo -e "\t- Services ${service} is now disabled."
@@ -156,7 +155,7 @@ echo "Do you want to disallow rpm to automatically enable a new installed server
 echo "yes = you will need to chkconfig (--add ) servername for the server to run on boot."
 echo "no  = rpm will do it for you, but you have less control of what is running on your machine."
 WaitAnswer; clear
-if [ ${answer} == "yes" ]; then
+if [ "${answer}" == "yes" ]; then
 	export SECURE_LEVEL="4"
 	AddRules "SECURE_LEVEL=\"4\"" /etc/profile
 else
@@ -171,7 +170,7 @@ echo "restricted ( for users ) ( 077 ) = user = rwx, group =, other ="
 echo "restricted ( for root ) ( 022 ) = user = rwx, = group = rx, other = rx" 
 echo "paranoid ( 077 ) = user = rwx, group = , other ="
 answer="nothing"
-while [[ "${answer}" != "easy" && "${answer}" != "normal" && "${answer} != "restricted" && "${answer}" != "paranoid"  ]]; do
+while [[ "${answer}" != "easy" && "${answer}" != "normal" && "${answer}" != "restricted" && "${answer}" != "paranoid"  ]]; do
 	echo -n "easy/normal/restricted/paranoid : "
     read answer
 done
@@ -188,6 +187,7 @@ case "${answer}" in
 	"paranoid")
 	AddRules "umask 077" /etc/profile
 	;;
+esac
 
 ###
 echo "Do you want a "." in your PATH variable ?"

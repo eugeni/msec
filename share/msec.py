@@ -143,7 +143,8 @@ if level == 5:
     set_root_umask('077')
     set_shell_timeout(900)
     authorize_services(NONE)
-    enable_pam_wheel_for_su(1)
+    enable_pam_wheel_for_su(yes)
+    password_history(5)
 else:
     set_root_umask('022')
     if level == 4:
@@ -152,73 +153,75 @@ else:
     else:
         set_shell_timeout(0)
         authorize_services(ALL)
-    enable_pam_wheel_for_su(0)
+    enable_pam_wheel_for_su(no)
+    password_history(0)
     
 # differences between level 4,5 and others
 if level >= 4:
     set_user_umask('077')
     set_shell_history_size(10)
-    allow_root_login(0)
-    allow_remote_root_login(0)
-    enable_sulogin(1)
-    allow_user_list(0)
-    enable_promisc_check(1)
-    accept_icmp_echo(0)
-    accept_broadcasted_icmp_echo(0)
-    accept_bogus_error_responses(0)
-    allow_reboot(0)
-    enable_at_crontab(0)
+    allow_root_login(no)
+    enable_sulogin(yes)
+    allow_user_list(no)
+    enable_promisc_check(yes)
+    accept_icmp_echo(no)
+    accept_broadcasted_icmp_echo(no)
+    accept_bogus_error_responses(no)
+    allow_reboot(no)
+    enable_at_crontab(no)
     if level == 4:
         password_aging(60, 30)
+        allow_remote_root_login(without_password)
     else:
         password_aging(30, 15)
+        allow_remote_root_login(no)
 else:
     set_user_umask('022')
     set_shell_history_size(-1)
-    allow_root_login(1)
-    allow_remote_root_login(1)
-    enable_sulogin(0)
-    allow_user_list(1)
-    enable_promisc_check(0)
-    accept_icmp_echo(1)
-    accept_broadcasted_icmp_echo(1)
-    accept_bogus_error_responses(1)
-    allow_reboot(1)
-    enable_at_crontab(1)
+    allow_root_login(yes)
+    allow_remote_root_login(yes)
+    enable_sulogin(no)
+    allow_user_list(yes)
+    enable_promisc_check(no)
+    accept_icmp_echo(yes)
+    accept_broadcasted_icmp_echo(yes)
+    accept_bogus_error_responses(yes)
+    allow_reboot(yes)
+    enable_at_crontab(yes)
     password_aging(99999)
     
 # differences between level 3,4,5 and others
 if server:
-    allow_autologin(0)
-    enable_console_log(1)
+    allow_autologin(no)
+    enable_console_log(yes)
     if level == 5:
         allow_issues(NONE)
     else:
         allow_issues(LOCAL)
-    enable_log_strange_packets(1)
+    enable_log_strange_packets(yes)
 else:
-    allow_autologin(1)
-    enable_console_log(0)
+    allow_autologin(yes)
+    enable_console_log(no)
     allow_issues(ALL)
-    enable_log_strange_packets(0)
+    enable_log_strange_packets(no)
 
 # differences between level 0 and others
 if level != 0:
-    enable_security_check(1)
-    enable_password(1)
+    enable_security_check(yes)
+    enable_password(yes)
     if level < 3:
         allow_x_connections(LOCAL)
-        allow_xserver_to_listen(1)
+        allow_xserver_to_listen(yes)
     else:
         if level == 3:
             allow_x_connections(NONE)
-            allow_xserver_to_listen(1)
+            allow_xserver_to_listen(yes)
         else:
             allow_x_connections(NONE)
-            allow_xserver_to_listen(0)            
+            allow_xserver_to_listen(no)            
 else:
-    enable_security_check(0)
-    enable_password(0)
+    enable_security_check(no)
+    enable_password(no)
     allow_x_connections(ALL, 1)
 
 # msec cron

@@ -198,10 +198,13 @@ int main(int argc, char **argv)
                         
                         strcpy(directory, argv[i]);
                         strcat(directory, "/");
-                } else directory = argv[i];
-                
-				res = nftw(directory, traverse, 200, FTW_PHYS | FTW_MOUNT | FTW_CHDIR);
-                if ( ctrl ) {
+                } else {
+		        directory = argv[i];
+		}
+
+		res = nftw(directory, traverse, 200, FTW_PHYS | FTW_MOUNT);
+		
+		if ( ctrl ) {
                         free(directory);
                         ctrl = 0;
                 }

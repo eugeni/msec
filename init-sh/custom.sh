@@ -231,12 +231,14 @@ echo "yes = you will need to chkconfig (--add ) servername for the server to run
 echo "no  = rpm will do it for you, but you have less control of what is running on your machine."
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
-	export SECURE_LEVEL="4"
-	AddRules "SECURE_LEVEL=\"4\"" /etc/profile
-	AddRules "SECURE_LEVEL=\"4\"" /etc/zprofile
+    # /etc/profile.d/msec.{sh,csh}
+        export SECURE_LEVEL=4
+        echo "Setting secure level variable to 4 :"
+        AddRules "export SECURE_LEVEL=4" /etc/profile.d/msec.sh
+        AddRules "setenv SECURE_LEVEL 4" /etc/profile.d/msec.csh
 else
-	AddRules "SECURE_LEVEL=\"3\"" /etc/profile
-	AddRules "SECURE_LEVEL=\"3\"" /etc/zprofile
+        AddRules "export SECURE_LEVEL=3" /etc/profile.d/msec.sh
+        AddRules "setenv SECURE_LEVEL 3" /etc/profile.d/msec.csh
 fi
 
 ###
@@ -253,20 +255,23 @@ while [[ "${answer}" != "easy" && "${answer}" != "normal" && "${answer}" != "res
 done
 case "${answer}" in
 	"easy")
-	AddRules "umask 002" /etc/profile
-	AddRules "umask 002" /etc/zprofile
+	echo "Setting umask to 022 (u=rw,g=r,o=r) :"
+	AddRules "umask 022" /etc/profile.d/msec.sh
+	AddRules "umask 022" /etc/profile.d/msec.csh
+	
 	;;
 	"normal")
-	AddRules "umask 022" /etc/profile
-	AddRules "umask 022" /etc/zprofile
+	echo "Setting umask to 022 (u=rw,g=r,o=r) :"
+	AddRules "umask 022" /etc/profile.d/msec.sh
+	AddRules "umask 022" /etc/profile.d/msec.csh
 	;;
 	"restricted")
-	AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/profile
-	AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/zprofile
+	AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi"  /etc/profile.d/msec.sh
+	AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi"  /etc/profile.d/msec.csh
 	;;
 	"paranoid")
-	AddRules "umask 077" /etc/profile
-	AddRules "umask 077" /etc/zprofile
+	AddRules "umask 077"  /etc/profile.d/msec.sh
+	AddRules "umask 077"  /etc/profile.d/msec.csh
 	;;
 esac
 
@@ -390,46 +395,3 @@ if [[ ${answer} == yes ]]; then
 	fi
     fi
 fi
-
-
-
-###
-echo "Do you want a "." in your PATH variable ?"
-echo "This permit you to not use ./progname & to just type progname"
-echo "However this is a *high* security risk."
-WaitAnswer; clear
-if [[ ${answer} == yes ]]; then
-    AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games:." /etc/profile quiet
-    AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games:." /etc/zprofile quiet
-else
-    AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
-    AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/zprofile quiet
-fi
-
-AddRules "export PATH SECURE_LEVEL" /etc/profile
-AddRules "export PATH SECURE_LEVEL" /etc/zprofile
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -81,7 +81,7 @@ AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 
 # Server update
 echo "Setting secure level variable to snf :"
-AddRules "SECURE_LEVEL=4" /etc/sysconfig/msec
+AddRules "SECURE_LEVEL=snf" /etc/sysconfig/msec
 
 export SECURE_LEVEL=snf
 

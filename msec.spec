@@ -4,7 +4,7 @@
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
 Version: %{version}
-Release: 10mdk
+Release: 11mdk
 Source: %{name}-%{version}.tar.bz2
 Copyright: GPL
 Group: System Environment/Base

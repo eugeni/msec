@@ -22,7 +22,7 @@ fi
 echo "Do you want to only allow ctrl-alt-del if root is logged locally ?"
 echo "( or if an user present in /etc/shutdown.allow is logged locally )"
 WaitAnswer; clear
-tmpfile=`mktemp tmp/secure.XXXXXX`
+tmpfile=`mktemp /tmp/secure.XXXXXX`
 cp /etc/inittab ${tmpfile}
 if [[ ${answer} == yes ]]; then
     cat ${tmpfile} | \
@@ -50,7 +50,7 @@ fi
 echo "Do you want root console login to be allowed ?" 
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
-g    AddRules "tty1" /etc/securetty quiet
+    AddRules "tty1" /etc/securetty quiet
     AddRules "tty2" /etc/securetty quiet
     AddRules "tty3" /etc/securetty quiet
     AddRules "tty4" /etc/securetty quiet
@@ -74,7 +74,7 @@ if [[ ${answer} == yes ]]; then
 fi
 
 ###
-echo "Do you want your system to check for grave permission problem on senssibles files ?"
+echo "Do you want your system to check for grave permission problem on sensibles files ?"
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
 	AddRules "CHECK_PERMS=yes" /etc/security/msec/security.conf

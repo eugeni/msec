@@ -55,14 +55,15 @@ install -m 644 conf/perm.* $RPM_BUILD_ROOT/usr/share/msec
 install -m 755 src/promisc_check/promisc_check src/msec_find/msec_find $RPM_BUILD_ROOT/usr/bin
 
 install -m644 man/C/*8 $RPM_BUILD_ROOT%{_mandir}/man8/
-install -m644 share/mseclib.man $RPM_BUILD_ROOT%{_mandir}/man3/mseclib.3
+install -m644 man/C/*3 $RPM_BUILD_ROOT%{_mandir}/man3/
 
-#
-# for i in man/??* ; do \
-# 	install -d $RPM_BUILD_ROOT%{_mandir}/`basename $i`/man8; \
-#     install -m 644 $i/*.8 $RPM_BUILD_ROOT%{_mandir}/`basename $i`/man8; \
-#     bzip2 -9f $RPM_BUILD_ROOT%{_mandir}/`basename $i`/man8/*8 ; \
-# done;
+
+for i in man/??* ; do
+    install -d $RPM_BUILD_ROOT%{_mandir}/`basename $i`/man8
+    install -m 644 $i/*.8 $RPM_BUILD_ROOT%{_mandir}/`basename $i`/man8/
+    install -d $RPM_BUILD_ROOT%{_mandir}/`basename $i`/man3
+    install -m 644 $i/*.3 $RPM_BUILD_ROOT%{_mandir}/`basename $i`/man3/ || :
+done;
 
 
 touch $RPM_BUILD_ROOT/var/log/security.log $RPM_BUILD_ROOT/%{_sysconfdir}/sysconfig/%{name}
@@ -136,7 +137,8 @@ rm -rf $RPM_BUILD_ROOT
 %_bindir/msec_find
 %_sbindir/msec
 %_datadir/msec
-%_mandir/*/*
+%_mandir/*/*.*
+%_mandir/*/*/*.*
 
 %dir /var/log/security
 %dir /etc/security/msec
@@ -153,8 +155,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Fri Jul 30 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.44-1mdk
-- Mandrakelinux/Mandrakesoft
 - new function allow_xauth_from_root
+- the perm.local config file is now forcing permissions even if it's lowering the security.
+- install translated man pages
+- Mandrakelinux/Mandrakesoft
 
 * Wed Jul  7 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.43-1mdk
 - fixed again mailman permissions for mailman in level 3 (bug #9319)

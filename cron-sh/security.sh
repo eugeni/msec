@@ -221,6 +221,7 @@ Maillog() {
 		    /bin/mail -s "${subject}" "${MAIL_USER}" <<EOF
 Nothing has changed since the last run.
 EOF
+                fi
             else
 		cat ${text} | /bin/mail -s "${subject}" "${MAIL_USER}"
 	    fi

@@ -364,7 +364,7 @@ def allow_reboot(arg):
         if val[f]:
             num = num + 1
     val_gdmconf = gdmconf.exists() and gdmconf.get_shell_variable('SystemMenu')
-    oldval_kdmrc = kdmrc.exists() and kdmrc.get_shell_variable('AllowShutdown', 'X-\*-Core', '^\s*$')
+    oldval_kdmrc = kdmrc.exists() and kdmrc.get_shell_variable('AllowShutdown', 'X-:\*-Core', '^\s*$')
     if oldval_kdmrc:
         oldval_kdmrc = get_index(oldval_kdmrc, ALLOW_SHUTDOWN_VALUES)
     if arg:
@@ -399,7 +399,7 @@ def allow_reboot(arg):
         sysctlconf.set_shell_variable('kernel.sysrq', 0)
         gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'false', '\[greeter\]', '^\s*$')
 
-    kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', ALLOW_SHUTDOWN_VALUES[val_kdmrc], 'X-\*-Core', '^\s*$')
+    kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', ALLOW_SHUTDOWN_VALUES[val_kdmrc], 'X-:\*-Core', '^\s*$')
 
 allow_reboot.arg_trans = YES_NO_TRANS
 

@@ -82,7 +82,7 @@ AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 # Server update
 echo "Setting secure level variable to 4 :"
 AddRules "export SECURE_LEVEL=4" /etc/profile.d/msec.sh
-AddRules "setenv SECURE_LEVEL=4" /etc/profile.d/msec.csh
+AddRules "setenv SECURE_LEVEL 4" /etc/profile.d/msec.csh
 
 
 export SECURE_LEVEL=4

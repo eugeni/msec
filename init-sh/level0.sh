@@ -64,7 +64,7 @@ echo -e "\t- Security warning in syslog : no."
 export SECURE_LEVEL=0
 echo "Setting secure level variable to 0 :"
 AddRules "export SECURE_LEVEL=0" /etc/profile.d/msec.sh
-AddRules "setenv SECURE_LEVEL=0" /etc/profile.d/msec.csh
+AddRules "setenv SECURE_LEVEL 0" /etc/profile.d/msec.csh
 
 echo "Setting umask to 022 (u=rw,g=r,o=r) :"
 AddRules "umask 022" /etc/profile

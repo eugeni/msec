@@ -92,7 +92,7 @@ LoaderUpdate;
 # Disable all server :
 echo "Setting secure level variable to 5 :"
 AddRules "export SECURE_LEVEL=5" /etc/profile.d/msec.sh
-AddRules "setenv SECURE_LEVEL=5" /etc/profile.d/msec.csh
+AddRules "setenv SECURE_LEVEL 5" /etc/profile.d/msec.csh
 
 
 IFS="

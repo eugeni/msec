@@ -72,7 +72,7 @@ AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 export SECURE_LEVEL=3
 echo "Setting secure level variable to 3 :"
 AddRules "export SECURE_LEVEL=3" /etc/profile.d/msec.sh
-AddRules "setenv SECURE_LEVEL=3" /etc/profile.d/msec.csh
+AddRules "setenv SECURE_LEVEL 3" /etc/profile.d/msec.csh
 
 echo "Setting umask to 022 (u=rw,g=r,o=r) :"
 AddRules "umask 022" /etc/profile

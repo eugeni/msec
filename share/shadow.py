@@ -37,6 +37,7 @@ LOCAL=2
 
 yes=1
 no=0
+ignore=-1
 
 FAKE = {}
 
@@ -49,7 +50,8 @@ def indirect(name, func, type, args):
 
 def commit_changes():
     for f in FAKE.values():
-        apply(f[0], f[1])
+        if len(f[1]) >= 1 and f[1][0] != -1:
+            apply(f[0], f[1])
 
 """
 

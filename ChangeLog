@@ -1,3 +1,11 @@
+2002-09-06 15:37  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.34.5-2mdk
+
+2002-09-06 14:51  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* src/msec_find/find.c: SUID_GROUP_TODAY => SGID_TODAY
+
 2002-09-05 14:14  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.34.5-1mdk

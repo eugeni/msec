@@ -118,7 +118,7 @@ echo "Setting umask to 077 (u=rw) :"
 AddRules "UMASK_ROOT=077" /etc/sysconfig/msec
 AddRules "UMASK_USER=077" /etc/sysconfig/msec
 
-if [[ -f /lib/libsafe.so.2]]; then
+if [[ -f /lib/libsafe.so.2 ]]; then
     echo "Enabling stack overflow protection :"
     AddRules "/lib/libsafe.so.2" /etc/ld.so.preload
 fi

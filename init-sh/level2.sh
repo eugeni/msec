@@ -63,6 +63,8 @@ echo "Adding \"normal\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile
 # Group
-echo "Adding \"${USERNAME} to audio group :"
-usermod -G audio "${USERNAME}"
-
+echo -n "Adding \"${USERS_DRAKX}\" to audio group :"
+for user in ${USERS_DRAKX}; do
+    usermod -G audio "${user}"
+done
+echo "done."

@@ -23,7 +23,6 @@ if [ -f /etc/security/msec/security.conf ]; then
     . /etc/security/msec/security.conf
 fi
 
-USERNAME="blah"
 COMMENT="# Mandrake-Security : if you remove this comment, remove the next line too."
 
 WaitAnswer() {
@@ -177,8 +176,15 @@ groupadd audio >& /dev/null
 groupadd xgrp >& /dev/null
 usermod -G xgrp xfs
 
-if ! /etc/security/msec/init-sh/grpuser --del audio "${USERNAME}"; then
-    echo "Problem removing user \"${USERNAME}\" from group audio."
+# We aren't at install time, 
+# so we delete ( temporarily ) audio user.
+
+if [ ! -f /tmp/secure.DrakX ]; then
+    for user in ${USERS_DRAKX}; do
+	if ! /etc/security/msec/init-sh/grpuser --del audio "${user}"; then
+	    echo "Problem removing user \"${user}\" from group audio."
+	fi
+    done
 fi
 
 

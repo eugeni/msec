@@ -3,6 +3,8 @@
 IFS="
 "
 
+echo -n "Setting files permissions : "
+
 for line in `cat /$1`; do
 	file=`echo ${line} | awk '{print $1}'`
 	owner=`echo ${line} | awk '{print $2}'`
@@ -15,5 +17,7 @@ for line in `cat /$1`; do
 		chmod ${perm} ${file}
 	fi
 done
+
+echo "done."
 		
 	

@@ -1,4 +1,4 @@
-#This file was created by <chmou> Tue Dec 28 20:30:12 1999
+#This file was created by <camille> Tue Jan  4 10:45:05 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass article
@@ -272,9 +272,10 @@ authorized clients.
 \layout Standard
 \LyXTable
 multicol5
-27 7 0 0 -1 -1 -1 -1
+28 7 0 0 -1 -1 -1 -1
 1 1 0 0
 1 1 0 0
+0 1 0 0
 0 1 0 0
 0 1 0 0
 0 1 0 0
@@ -344,6 +345,13 @@ multicol5
 0 8 0 1 0 0 0 "" ""
 0 2 0 1 0 0 0 "" ""
 0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
@@ -842,6 +850,20 @@ All system events additionally logged to /dev/tty12
 \newline 
 *
 \newline 
+Only root can shutdown
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+*
+\newline 
+*
+\newline 
 Services not known disabled
 \newline 
 
@@ -1163,6 +1185,13 @@ All system events additionally logged to /dev/tty12
 \layout Standard
 
 *All* system messages directed to syslog are copied to tty12 console.
+\layout Subsection
+
+Only root can shutdown
+\layout Standard
+
+You must be root (or referenced into /etc/shutdown.allow) and logged into
+ a console to be able to shutdown or reboot the machine.
 \layout Subsection
 
 Services not known disabled 

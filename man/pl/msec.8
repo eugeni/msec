@@ -1,0 +1,71 @@
+.TH msec 8 "29 Sep 2001" "Mandrakesoft" "Mandrake Linux"
+.IX msec
+.SH NAME
+msec \- Narzêdzia bezpieczeñstwa Mandrake
+.SH SYNOPSIS
+.B msec
+([-o <option>=<value>...]) ([0-5])
+.SH DESCRIPTION
+\fPmsec\fP jest g³ównym skryptem pakietu msec. Umo¿liwia on
+administratorowi systemu zmianê poziomu bezpieczeñstwa dla systemu.
+msec jest dostarczony z sze¶cioma wstêpnie skonfigurowanymi poziomami
+bezpieczeñstwa. Od najs³abszego bezpieczeñstwa, ³atwego w u¿yciu do
+paranoidalnej konfiguracji odpowiedniej dla bardzo wra¿liwych
+aplikacji serwerowych.
+.PP
+Skrypt \fPmsec\fP mo¿na uruchamiaæ tylko z poziomu administratora.
+.br
+Uruchom "msec x" aby ustawiæ poziom bezpieczeñstwa na x (x=[0-5]).
+Wywo³anie to zmodyfikuje system w zale¿no¶ci od funkcji poziomu
+bezpieczeñstwa. Skrypt wywo³ywany bez argumentów wymusi bie¿±cy
+poziom bezpieczeñstwa bez jego zmiejszania.
+.br
+Wszystkie zmiany s± zapisywane do dziennika systemowego z funkcj±
+AUTH przy wywo³aniu nie interaktywnym (na przyk³ad za po¶rednictwem
+mechanizmu cron) lub z funkcj± LOCAL1 przy wywo³ywaniu interaktywnym
+(z wiersza poleceñ lub na przyk³ad z Centrum Sterowania Mandrake).
+.br
+Aby uzyskaæ pe³ny opis ka¿dego poziomu bezpieczeñstwa, skonsultuj
+siê z dokumentacj± w pliku /usr/share/doc/msec-*/security.txt.
+.PP
+Je¶li chcesz uczyniæ zmiany w bie¿±cym poziomie bezpieczeñstwa,
+u¿yj pliku /etc/security/msec/perm.local aby nadpisaæ 
+uprawnienia/w³a¶cicieli/grupy oraz /etc/security/msec/level.local
+aby nadpisaæ zasady (zajrzyj do manuala mseclib(3) aby uzyskaæ
+wiêcej szczegó³ów).
+.PP
+Dostêpne opcje:
+.TP
+\fB\-o all-local-files=<warto¶æ>\fR
+je¶li <warto¶æ> wynosi 1, zak³ada siê, ¿e wszystkie pliki s± lokalne.
+.TP
+\fB\-o log=<warto¶æ>\fR
+je¶li <warto¶æ> jest ró¿na ni¿ syslog komunikaty nie s± wysy³ane do
+dziennika tylko na wyj¶cie standardowe
+.TP
+\fB\-o nolocal=<¶cie¿ka>\fR
+bez wczytywania zasad /etc/security/msec/level.local.
+.TP
+\fB\-o non-local-fstypes=<warto¶æ>\fR
+<warto¶æ> jest list± nielokalnych systemowych typów plików rozdzielonych
+spacjami.
+.TP
+\fB\-o print=<warto¶æ>\fR
+je¶li <warto¶æ> jest równa 1, wypisuje domy¶lne warto¶ci zasad.
+.TP
+\fB\-o root=<¶cie¿ka>\fR
+u¿ywanie parametru <¶cie¿ka> jako g³ównego systemu plików. 
+.SH FILES
+/usr/sbin/msec
+.br
+Wykonywalny plik \fPmsec\fP (skrypt sh)
+.PP
+/var/lib/msec/security.conf
+.br
+Zawiera konfiguracjê bie¿±cego aktywnego poziomu bezpieczeñstwa. Te
+ustawienia mog± byæ nadpisane w pliku /etc/security/msec/security.conf.
+
+.SH AUTHOR
+Vandoorselaere Yoann, Mandrakesoft
+.br
+yoann@mandrakesoft.com

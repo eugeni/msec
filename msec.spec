@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.19
-Release:	6mdk
+Release:	7mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -123,6 +123,11 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Fri Mar  8 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-7mdk
+- fix permissions of /var/log/lp-errs for LPRng (Till)
+- add yes and no as good values for mseclib
+- some doc updates
+
 * Tue Mar  5 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-6mdk
 - protect scripts from beeing run twice
 

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 #
 # Security level implementation...
 # Writen by Vandoorselaere Yoann <yoann@mandrakesoft.com>

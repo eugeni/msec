@@ -1,6 +1,5 @@
-# do not modify Version below, modify it in Makefile (see CVS)
-%define version 0.10
-%define release 4mdk
+%define version 0.11
+%define release 1mdk
 
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec

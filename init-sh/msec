@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Trap the sigint signal
+# so the msec process / subprocess can not be aborted by the user...
+# This will avoid trashing of config file while they are modified 
+# if msec is interupted. ( thanks fg ).
+
+trap "" sigint
+
 if [[ -z $1 ]]; then
 	echo "Usage : $0 [0-5]"
 	echo "Usage : $0 \"custom\""

@@ -1,4 +1,5 @@
 2000-03-07 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* trap the sigint signal
 	* use /etc/security/msec for config file only.
 	* Renamed init.sh to msec, and install it in /usr/sbin.
 	* The other shell scripts are located in /usr/share/msec

@@ -49,6 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Tue Mar 07 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- trap the sigint signal.
 - use %config for config file ( thanks to Frederic Lepied ).
 - use /etc/security/msec for config file only.
 - Renamed init.sh to msec, and install it in /usr/sbin.

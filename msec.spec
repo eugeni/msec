@@ -1,6 +1,6 @@
 # do not modify Version below, modify it in Makefile (see CVS)
 %define version 0.9
-%define release 12mdk
+%define release 13mdk
 
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
@@ -45,6 +45,11 @@ rm -rf $RPM_BUILD_ROOT
 /usr/man/*/*
 
 %changelog
+* Wed Dec 29 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Removing grpuser manpage, because : 
+  1 - grpuser is not to be used by any user, ( and should not have a manpage so ).
+  2 - manpage is obsolete
+
 * Tue Dec 28 1999 Chmouel Boudjnah <chmouel@mandrakesoft.com>
 - add man-pages from camille.
 

@@ -1,3 +1,16 @@
+2004-07-30 01:16  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/ConfigFile.py: mkdir_p: corrected test of existence
+
+2004-07-30 01:11  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: added allow_xauth_from_root
+
+2004-07-30 01:10  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/ConfigFile.py: create the intermediate directories before
+	  writing a file
+
 2004-07-07 10:38  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.43-1mdk
@@ -217,9 +230,18 @@
 
 2003-05-08 11:50  Pablo Saratxaga <pablo@mandrakesoft.com>
 
-	* man/: cs/init.sh.8, et/init.sh.8, eu/init.sh.8, fr/init.sh.8,
-	  fr/msec.8, ru/init.sh.8: Added Finnish and Ukrainian man pages;
-	  removed "init.sh" man page from translations
+	* man/: cs/init.sh.8, et/init.sh.8, eu/init.sh.8, fi/msec.8,
+	  fr/init.sh.8, fr/msec.8, ru/init.sh.8, uk/msec.8: Added Finnish
+	  and Ukrainian man pages; removed "init.sh" man page from
+	  translations
+
+2003-05-06 21:55  Arkadiusz Lipiec <alipiec@elka.pw.edu.pl>
+
+	* man/pl/msec.8: Changes
+
+2003-05-06 21:42  Arkadiusz Lipiec <alipiec@elka.pw.edu.pl>
+
+	* man/pl/msec.8: Polish version of msec manual
 
 2003-03-07 15:27  Frederic Lepied <flepied@mandrakesoft.com>
 

@@ -1,3 +1,13 @@
+2002-09-03 08:57  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec, cron-sh/diff_check.sh, cron-sh/security.sh,
+	share/README, share/libmsec.py, share/msec.py: CHECK_SUID_GROUP =>
+	CHECK_SGID
+
+2002-08-30 14:22  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.34.3-1mdk
+
 2002-08-30 14:20  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec, cron-sh/diff_check.sh, cron-sh/security.sh,

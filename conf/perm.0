@@ -13,7 +13,7 @@
 /etc/cron.weekly/				root.root		755
 /etc/crontab					root.root		644
 /etc/dhcpcd/					root.root		755
-/etc/dhcpcd/*                   root.root       644
+/etc/dhcpcd/*      				root.root		644
 /etc/esd.conf					root.root		644
 /etc/ftpaccess					root.root		644
 /etc/ftpconversions				root.root		644
@@ -56,6 +56,8 @@
 /usr/X11R6/					root.root		755
 /usr/bin/					root.root		755
 /usr/sbin/					root.root		755
+/usr/lib/rpm/rpm?				rpm.rpm			755
+/usr/share/doc					root.root		755
 /var/						root.root		755
 /var/tmp					root.root		1777
 /var/log/					root.root		755

@@ -1,6 +1,7 @@
 # Welcome in Level 4, aka secure & usable.
 ###
 /bin/						root.root		711
+/bin/rpm					rpm.rpm			750
 /boot/						root.root		700
 /dev/						root.root		711
 /dev/audio*					root.audio		600
@@ -56,6 +57,8 @@
 /usr/X11R6/					root.xgrp		751
 /usr/bin/					root.adm		751
 /usr/sbin/					root.adm		751
+/usr/lib/rpm/rpm?				rpm.rpm			750
+/usr/share/doc					rpm.rpm			750
 /var/						root.root		755
 /var/log/					root.root		711
 /var/log/*					root.root		600

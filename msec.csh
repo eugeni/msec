@@ -40,9 +40,11 @@ if ! { (echo "${PATH}" | /bin/grep -q /usr/games) } then
 	setenv PATH "${PATH}:/usr/games"
 endif
 
-if ( ${?SECURE_LEVEL} && ${SECURE_LEVEL} <= 1 ) then
-    if ! { (echo "${PATH}" | /bin/fgrep -q :.) } then
-	setenv PATH "${PATH}:."
+if ( ${?SECURE_LEVEL} ) then
+    if ( ${SECURE_LEVEL} <= 1 ) then
+        if ! { (echo "${PATH}" | /bin/fgrep -q :.) } then
+        	setenv PATH "${PATH}:."
+        endif
     endif
 endif
 

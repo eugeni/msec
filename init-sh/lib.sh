@@ -152,7 +152,7 @@ LiloUpdate() {
     	echo "Do you want a password authentication at boot time ?"
     	echo "Be very carefull,"
     	echo "this will prevent your server to reboot without an operator to enter password".
-	[ -t 0 ] && WaitAnswer;
+	WaitAnswer;
     	if [[ ${answer} == yes ]]; then
         	echo -n "Please enter the password which will be used at boot time : "
         	read password

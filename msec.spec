@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.34.4
-Release:	1mdk
+Release:	2mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -155,8 +155,12 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Thu Sep  5 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34.4-2mdk
+- removed debug message
+- corrected credit in the changelog for sgid to David Walser
+
 * Tue Sep  3 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34.4-1mdk
-- more spelling errors fixes thx to David Relson:
+- more spelling errors fixes thx to David Walser:
 	o CHECK_SUID_GROUP => CHECK_SGID
 
 * Fri Aug 30 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34.3-1mdk

@@ -96,6 +96,8 @@ echo -e "done.\n"
 # Disable all server :
 echo "Setting secure level variable to 5 :"
 AddRules "SECURE_LEVEL=5" /etc/profile
+AddRules "SECURE_LEVEL=5" /etc/zprofile
+
 IFS="
 "
 
@@ -119,14 +121,19 @@ echo -e "done.\n";
 # /etc/profile
 echo "Setting umask to 077 (u=rw) :"
 AddRules "umask 077" /etc/profile 
+AddRules "umask 077" /etc/zprofile
 
 echo "Adding \"normal\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile
+AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/zprofile quiet
+AddRules "export PATH SECURE_LEVEL" /etc/zprofile
+
 
 if [[ -f /usr/lib/libsafe.so.1.2 ]]; then
     echo "Enabling stack overflow protection :"
-    AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.2" /etc/profile
+    AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.3" /etc/profile
+    AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.3" /etc/zprofile
 fi
 
 # Do not boot on a shell

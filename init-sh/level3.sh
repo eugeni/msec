@@ -71,11 +71,17 @@ echo -e "done.\n"
 export SECURE_LEVEL=3
 echo "Setting secure level variable to 3 :"
 AddRules "SECURE_LEVEL=3" /etc/profile
+AddRules "SECURE_LEVEL=3" /etc/zprofile
+
 echo "Setting umask to 022 (u=rw,g=r,o=r) :"
 AddRules "umask 022" /etc/profile
+AddRules "umask 022" /etc/zprofile
+
 echo "Adding a \"normal\" PATH variable : "
 AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile
+AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/zprofile quiet
+AddRules "export PATH SECURE_LEVEL" /etc/zprofile
 
 # Do not boot on a shell
 echo -n "Setting up inittab to authorize any user to issue ctrl-alt-del : "

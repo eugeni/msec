@@ -82,6 +82,8 @@ echo -e "done.\n"
 # Server update
 echo "Setting secure level variable to 4 :"
 AddRules "SECURE_LEVEL=4" /etc/profile
+AddRules "SECURE_LEVEL=4" /etc/zprofile
+
 export SECURE_LEVEL=4
 
 IFS="
@@ -105,14 +107,18 @@ echo -e "done.\n";
 # /etc/profile
 echo "Setting umask to 022 (u=rw,g=rx) for root, 077 (u=rw) for user :"
 AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/profile
+AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/zprofile
 
 echo "Adding \"normal\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile 
+AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/zprofile quiet
+AddRules "export PATH SECURE_LEVEL" /etc/zprofile 
 
 if [[ -f /usr/lib/libsafe.so.1.2 ]]; then
     echo "Enabling stack overflow protection :"
-    AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.2" /etc/profile
+    AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.3" /etc/profile
+    AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.3" /etc/zprofile
 fi
 
 # Do not boot on a shell

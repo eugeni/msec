@@ -84,7 +84,8 @@ echo "this is done by searching in the stack frame the one which contain the"
 echo "destination address, and by substracting the frame address to the destination buffer one" 
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
-	AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.2" /etc/profile
+	AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.3" /etc/profile
+	AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.3" /etc/zprofile
 fi
 fi
 
@@ -227,8 +228,10 @@ WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
 	export SECURE_LEVEL="4"
 	AddRules "SECURE_LEVEL=\"4\"" /etc/profile
+	AddRules "SECURE_LEVEL=\"4\"" /etc/zprofile
 else
 	AddRules "SECURE_LEVEL=\"3\"" /etc/profile
+	AddRules "SECURE_LEVEL=\"3\"" /etc/zprofile
 fi
 
 ###
@@ -246,15 +249,19 @@ done
 case "${answer}" in
 	"easy")
 	AddRules "umask 002" /etc/profile
+	AddRules "umask 002" /etc/zprofile
 	;;
 	"normal")
 	AddRules "umask 022" /etc/profile
+	AddRules "umask 022" /etc/zprofile
 	;;
 	"restricted")
 	AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/profile
+	AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/zprofile
 	;;
 	"paranoid")
 	AddRules "umask 077" /etc/profile
+	AddRules "umask 077" /etc/zprofile
 	;;
 esac
 
@@ -388,11 +395,15 @@ echo "However this is a *high* security risk."
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
     AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games:." /etc/profile quiet
+    AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games:." /etc/zprofile quiet
 else
     AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
+    AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/zprofile quiet
 fi
 
 AddRules "export PATH SECURE_LEVEL" /etc/profile
+AddRules "export PATH SECURE_LEVEL" /etc/zprofile
+
 
 
 

@@ -64,11 +64,17 @@ echo -e "done.\n"
 export SECURE_LEVEL=2
 echo "Setting secure level variable to 2 :"
 AddRules "SECURE_LEVEL=2" /etc/profile
+AddRules "SECURE_LEVEL=2" /etc/zprofile
+
 echo "Setting umask to 022 (u=rw,g=r,o=r) :"
 AddRules "umask 022" /etc/profile
+AddRules "umask 022" /etc/zprofile
+
 echo "Adding \"normal\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile
+AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/zprofile quiet
+AddRules "export PATH SECURE_LEVEL" /etc/zprofile
 
 # Xserver
 echo "Allowing users to connect X server from localhost :"

@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.41.1
+Version:	0.42
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -19,6 +19,7 @@ Requires:	coreutils
 Requires:	iproute2
 PreReq:		rpm-helper >= 0.4
 Conflicts:	passwd < 0.67
+Requires:	python-base >= 2.3.3-2mdk
 
 %description
 The Mandrake-Security package is designed to provide generic 
@@ -152,6 +153,12 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Fri Feb 27 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.42-1mdk
+- fix mailman log perm (Guillaume Rousse) [bug #8158]
+- allow to specify only group or user in perm files (Bill Shirley)
+- allow the force keyword in perm files to be able to lower security (Bill Shirley)
+- document perl files syntax in README
+
 * Sat Feb 14 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.41.1-1mdk
 - allow % in file names [bug #6144] (Sven Hoexter)
 - fixed system-auth growing line forever [bug #7853] (Michael Scherer)

@@ -236,6 +236,6 @@ fi
 
 
 # We launch our other report engine :)
-/etc/security/msec/security_check.sh
+/etc/security/msec/cron-sh/security_check.sh
 
 

@@ -175,18 +175,16 @@ else:
 if level != 0:
     enable_security_check(1)
     if level < 3:
-        allow_x_connections(LOCAL)
+        allow_x_connections(LOCAL, 1)
     else:
-        allow_x_connections(NONE)
+        allow_x_connections(NONE, 0)
 else:
     enable_security_check(0)
-    allow_x_connections(ALL)
+    allow_x_connections(ALL, 1)
 
 # msec cron
 enable_msec_cron(1)
 
-# TODO: need to be rewritten because we need to use fakelibmsec instead
-# of calling directly the low level functions
 #                                     0      1      2      3       4       5
 FILE_CHECKS = {'CHECK_SECURITY' :   ('no',  'yes', 'yes', 'yes',  'yes',  'yes',  ),
                'CHECK_PERMS' :      ('no',  'no',  'no',  'yes',  'yes',  'yes',  ),
@@ -212,6 +210,7 @@ for k in FILE_CHECKS.keys():
 # load local customizations
 CONFIG='/etc/security/msec/level.local'
 if os.path.exists(CONFIG):
+    interactive and log(_('Reading local rules from %s') % CONFIG)
     try:
         eval_file(CONFIG)
     except:

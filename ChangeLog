@@ -1,5 +1,6 @@
 2000-01-04 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* shutdown.allow is 600 in level 4/5; 644 else.
+	* updated doc/security.txt
 
 2000-01-03 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* level 0-3 -> ctrl-alt-del allowed.

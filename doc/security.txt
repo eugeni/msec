@@ -74,6 +74,7 @@ Security level 4 ( Aka Secured system ) :
   chkconfig ).
 - Ask for a boot password ( if the user want ).
 - Connection to the system denyied for all except localhost.
+- ctrl-alt-del only allowed for root ( or user in /etc/shutdown.allow ).
 
 *******************************
 Security level 5 ( Aka Paranoid system ) :
@@ -97,11 +98,12 @@ Security level 5 ( Aka Paranoid system ) :
 - Highly restricted file permission
 - All system events additionally logged to /dev/tty12
 - System security check every midnight ( crontab ).
-* - Services not contained in /etc/security/msec/init-sh/server.5 are disabled (
+- Services not contained in /etc/security/msec/init-sh/server.5 are disabled (
   considered as not really secure ) ( but the user can reenable it with
   chkconfig ).
 - Ask for a boot password ( if the user want ).
 - Connection to the system denyied for all.
+- ctrl-alt-del only allowed for root ( or user in /etc/shutdown.allow ) .
 
 ******************
 

@@ -9,7 +9,6 @@ if [[ -f /etc/security/msec/init-sh/lib.sh ]]; then
     . /etc/security/msec/init-sh/lib.sh
 fi
 
-
 clear
 
 ###
@@ -18,6 +17,21 @@ WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
     AddRules "*.* /dev/tty12" /etc/syslog.conf
 fi
+
+###
+echo "Do you want to only allow ctrl-alt-del if root is logged locally ?"
+echo "( or if an user present in /etc/shutdown.allow is logged locally )"
+WaitAnswer; clear
+tmpfile=`mktemp tmp/secure.XXXXXX`
+cp /etc/inittab ${tmpfile}
+if [[ ${answer} == yes ]]; then
+    cat ${tmpfile} | \
+    sed s'/ca::ctrlaltdel:\/sbin\/shutdown -t3 -r now/ca::ctrlaltdel:\/sbin\/shutdown -a -t3 -r now/' > /etc/inittab
+else
+    cat ${tmpfile} | \
+    sed s'/ca::ctrlaltdel:\/sbin\/shutdown -a -t3 -r now/ca::ctrlaltdel:\/sbin\/shutdown -t3 -r now/' > /etc/inittab
+fi
+rm -f ${tmpfile}
 
 ###
 echo "Do you want to deny any machine to connect to yours ?"
@@ -36,7 +50,7 @@ fi
 echo "Do you want root console login to be allowed ?" 
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
-    AddRules "tty1" /etc/securetty quiet
+g    AddRules "tty1" /etc/securetty quiet
     AddRules "tty2" /etc/securetty quiet
     AddRules "tty3" /etc/securetty quiet
     AddRules "tty4" /etc/securetty quiet
@@ -116,6 +130,34 @@ if [[ ${answer} == yes ]]; then
     AddRules "*/1 * * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/promisc_check.sh" /etc/crontab
 fi
 ###
+
+echo "Do you want security report to be done directly on the console ?"
+WaitAnswer; clear
+if [[ ${answer} == yes ]]; then
+    AddRules "TTY_WARN=yes" /etc/security/msec/security.conf
+else
+    AddRules "TTY_WARN=no" /etc/security/msec/security.conf
+fi
+###
+
+echo "Do you want security report to be done in syslog ?"
+WaitAnswer; clear
+if [[ ${answer} == yes ]]; then
+    AddRules "SYSLOG_WARN=yes" /etc/security/msec/security.conf
+else
+    AddRules "SYSLOG_WARN=no" /etc/security/msec/security.conf
+fi
+###
+
+echo "Do you want security report to be done by mail ?"
+WaitAnswer; clear
+if [[ ${answer} == yes ]]; then
+    AddRules "MAIL_WARN=yes" /etc/security/msec/security.conf
+else
+    AddRules "MAIL_WARN=no" /etc/security/msec/security.conf
+fi
+###
+
 
 LiloUpdate;
 /sbin/lilo >& /dev/null

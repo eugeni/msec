@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.37
+Version:	0.38
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -73,6 +73,10 @@ install -m 755 %{SOURCE2} $RPM_BUILD_ROOT/etc/profile.d
 install -m 755 %{SOURCE3} $RPM_BUILD_ROOT/etc/profile.d
 touch $RPM_BUILD_ROOT/var/log/security.log
 
+SEC_DIR=$RPM_BUILD_ROOT%_libdir/libDrakX/security
+mkdir -p $SEC_DIR
+install -m 644 share/help.pm $SEC_DIR
+
 %pre
 %_pre_groupadd xgrp
 %_pre_groupadd ntools
@@ -138,6 +142,7 @@ rm -rf $RPM_BUILD_ROOT
 %_sbindir/msec
 %_datadir/msec
 %_mandir/*/*
+%_libdir/libDrakX/security/help.pm
 
 %dir /var/log/security
 %dir /etc/security/msec
@@ -153,6 +158,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Mon Jan 20 2003 Thierry Vignaud <tvignaud@mandrakesoft.com> 0.38-1mdk
+- generate help for draksec
+
 * Wed Nov 20 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.37-1mdk
 - chage is l10n now so use LC_ALL=C before calling it
 

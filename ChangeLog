@@ -1,3 +1,30 @@
+2002-01-22 15:14  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.17-15mdk
+
+2002-01-22 15:14  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/CHANGES: more doc
+
+2002-01-22 15:12  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/security.sh, cron-sh/security_check.sh, share/msec.py:
+	experimental chkrootkit check.
+
+2002-01-22 14:23  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5, perm.snf:
+	corrected errors reported by Pierre Fortin's script
+
+2002-01-22 14:21  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* man/: C/init.sh.8, fr/init.sh.8: removed init-sh man page
+
+2002-01-21 21:58  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3: corrected /bin/rpm path &
+	perms
+
 2002-01-21 11:23  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.17-14mdk

@@ -7,6 +7,8 @@
 # Created On      : Sat Jan 26 20:17:55 2002
 #---------------------------------------------------------------
 
+MAN=../man/C/mseclib.3
+
 all: mseclib.py compile man help.pm
 
 compile:
@@ -17,13 +19,13 @@ mseclib.py: libmsec.py shadow.py
 	rm -f $@
 	./shadow.py libmsec > $@
 
-man: mseclib.man levels
+man: $(MAN) levels
 
 help.pm: libmsec.py draksec_help.py
 	rm -f $@
 	./draksec_help.py libmsec > $@
 
-mseclib.man: libmsec.py man.py
+$(MAN): libmsec.py man.py
 	rm -f $@
 	./man.py libmsec > $@
 
@@ -32,7 +34,7 @@ levels:
 	  ./msec.py -o log=stderr -o print=1 -o nolocal=1 $$l < /dev/null | sort > level.$$l; \
 	done
 clean:
-	rm -f *.pyc *.pyo mseclib.py *~ level.[0-5] mseclib.man help.pm
+	rm -f *.pyc *.pyo mseclib.py *~ level.[0-5] help.pm
 
 # Local variables:
 # mode: makefile

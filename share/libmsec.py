@@ -398,15 +398,15 @@ if \\fIarg\\fP = LOCAL and none if \\fIarg\\fP = NONE. To authorize the services
     if arg == ALL:
         _interactive and log(_('Authorizing all services'))
         hostsdeny.remove_line_matching('^ALL:ALL:DENY', 1)
-        hostsdeny.remove_line_matching('^ALL:ALL EXCEPT localhost:DENY', 1)
+        hostsdeny.remove_line_matching('^ALL:ALL EXCEPT 127\.0\.0\.1:DENY', 1)
     elif arg == NONE:
         _interactive and log(_('Disabling all services'))
-        hostsdeny.remove_line_matching('^ALL:ALL EXCEPT localhost:DENY', 1)
+        hostsdeny.remove_line_matching('^ALL:ALL EXCEPT 127\.0\.0\.1:DENY', 1)
         hostsdeny.replace_line_matching('^ALL:ALL:DENY$', 'ALL:ALL:DENY', 1)
     elif arg == LOCAL:
         _interactive and log(_('Disabling non local services'))
         hostsdeny.remove_line_matching('^ALL:ALL:DENY', 1)
-        hostsdeny.replace_line_matching('^ALL:ALL EXCEPT localhost:DENY$', 'ALL:ALL EXCEPT localhost:DENY', 1)
+        hostsdeny.replace_line_matching('^ALL:ALL EXCEPT 127\.0\.0\.1:DENY$', 'ALL:ALL EXCEPT 127.0.0.1:DENY', 1)
     else:
         error(_('authorize_services invalid argument: %s') % arg)
     

@@ -13,7 +13,8 @@ Security level 1 :
 - Global security check.
 - umask is 002 ( user = read,write | greoup = read,write | other = read ) 
 - easy file permission.
-- localhost authorized to connect to X display.
+- localhost authorized to connect to X display and X server listens to
+tcp connections.
 - . in $PATH
 - Warning in /var/log/security.log
 
@@ -29,7 +30,8 @@ Security level 2 ( Aka normal system ) :
 
 - umask is 022 ( user = read,write | group = read | other = read )
 - easy file permission.
-- localhost authorized to connect to X display.
+- localhost authorized to connect to X display and X server listens to
+tcp connections.
 
 ****************************
 Security level 3  ( Aka more secure system ) :
@@ -51,10 +53,12 @@ Security level 3  ( Aka more secure system ) :
 
 - umask is 022 ( user = read,write | group = read | other = read )
 - Normal file permission.
-- localhost authorized to connect to X display.
+- X server listens to tcp connections.
 - All system events additionally logged to /dev/tty12
 - Some system security check launched every midnight from the ( crontab ).
 - no autologin
+
+- home directories are accesible but not readable by others and group members.
 
 ****************************
 Security level 4 ( Aka Secured system ) :
@@ -96,6 +100,13 @@ chkconfig -add ).
 in /etc/hosts.allow).
 - ctrl-alt-del only allowed for root ( or user in /etc/shutdown.allow ).
 
+- most sensible files and directories are restricted to the members of the adm group.
+- home directories are not accesible by others and group members.
+- X commands from /usr/X11R6/bin restricted to the members of the xgrp group.
+- network commands (ssh, scp, rsh, ...) restricted to the members of the ntools group.
+- compilation commands (gcc, g++, ...) restricted to the members of the ctools group.
+- rpm command restricted to the members of the rpm group.
+
 *******************************
 Security level 5 ( Aka Paranoid system ) :
 
@@ -134,6 +145,13 @@ chkconfig -add ).
 - Connection to the system denyied for all (authorized services must be
 in /etc/hosts.allow).
 - ctrl-alt-del only allowed for root ( or user in /etc/shutdown.allow ) .
+
+- most sensible files and directories are restricted to the root account.
+- home directories are not accesible by others and group members.
+- X commands from /usr/X11R6/bin restricted to the members of the xgrp group.
+- network commands (ssh, scp, rsh, ...) restricted to the members of the ntools group.
+- compilation commands (gcc, g++, ...) restricted to the members of the ctools group.
+- rpm command restricted to the members of the rpm group.
 
 ******************
 

@@ -807,6 +807,12 @@ authorize_services.arg_trans = ALL_LOCAL_NONE_TRANS
 
 ################################################################################
 
+def boolean2bit(bool):
+    if bool:
+        return 1
+    else:
+        return 0
+    
 # helper function for enable_ip_spoofing_protection, accept_icmp_echo, accept_broadcasted_icmp_echo,
 # accept_bogus_error_responses and enable_log_strange_packets.
 def set_zero_one_variable(file, variable, value, secure_value, one_msg, zero_msg):
@@ -832,7 +838,7 @@ def set_zero_one_variable(file, variable, value, secure_value, one_msg, zero_msg
             msg = _(zero_msg)
         
         _interactive and log(msg)
-        f.set_shell_variable(variable, value)
+        f.set_shell_variable(variable, boolean2bit(value))
 
 ################################################################################
 

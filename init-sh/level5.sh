@@ -120,8 +120,8 @@ echo "you need to add your user to the \"xgrp\" group..."
 echo "Use : usermod -G xgrp username"
 echo
 
-
-
+# Group were modified in lib.sh...
+grpconv
 
 
 

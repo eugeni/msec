@@ -81,3 +81,5 @@ cat ${tmpfile} | sed s'/\/bin\/bash --login/\/sbin\/mingetty tty1/' > /etc/initt
 rm -f ${tmpfile}
 echo "done."
 
+# Group were modified in lib.sh...
+grpconv

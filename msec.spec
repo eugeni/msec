@@ -4,7 +4,7 @@
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
 Version: %{version}
-Release: 5mdk
+Release: 6mdk
 Source: %{name}-%{version}.tar.bz2
 Copyright: GPL
 Group: System Environment/Base
@@ -46,6 +46,11 @@ ${LILO_PASSWORD+set} != set
 - init-sh/lib.sh (LiloUpdate): replace the call to AddRules to
 AddBegRules (password= must in the beginning of lilo.conf)
 - init-sh/lib.sh (AddBegRules): 1 \n instead of 2
+
+* Mon Dec 20 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Use grpconv after modifying /etc/group.
+- Add a message for level 5 saying that user who want X access
+  should be in the xgrp group.
 
 * Mon Dec 20 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - fixed a typo / variable pb.

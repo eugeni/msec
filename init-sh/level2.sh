@@ -73,6 +73,7 @@ AddBegRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xinit/xinitrc
 # group
 echo "Adding system users to specifics groups :"
 /etc/security/msec/init-sh/grpuser.sh --refresh
+grpconv
 echo -e "done.\n"
 
 # Do not boot on a shell

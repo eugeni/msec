@@ -270,6 +270,8 @@ fi # end of CHECK_SECURITY
 if [ -s ${SECURITY} ]; then
     Syslog ${SECURITY}
     Ttylog ${SECURITY}
+    date=`date`
+    echo -e "\n\n*** Diff Check, ${date} ***\n" >> ${SECURITY_LOG}
     cat ${SECURITY} >> ${SECURITY_LOG}
 fi
 

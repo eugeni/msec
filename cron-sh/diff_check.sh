@@ -229,8 +229,8 @@ fi
 if [ -s ${TMP} ]; then
     Syslog ${TMP}
     Ttylog ${TMP}
-	date=`date`
-	echo -n "\n\n*** ${date} ***\n" >> ${SECURITY_LOG}
+    date=`date`
+    echo -e "\n\n*** Diff Check, ${date} ***\n" >> ${SECURITY_LOG}
     cat ${TMP} >> ${SECURITY_LOG}
 fi
 

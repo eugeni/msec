@@ -1,3 +1,11 @@
+2002-09-05 10:50  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.34.4-2mdk
+
+2002-09-05 10:50  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: removed debug output
+
 2002-09-03 08:57  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec, cron-sh/diff_check.sh, cron-sh/security.sh,

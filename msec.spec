@@ -46,7 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/security/msec
 
 %changelog
-* Wed May 03 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.14-4mdk
+* Wed May 03 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.14-4mdk
 - LoaderUpdate() make a difference between an empty
   variable, and a non existing one.
 

@@ -33,7 +33,7 @@ make CFLAGS="$RPM_OPT_FLAGS"
 #make install RPM_BUILD_ROOT=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/etc/security/msec
-install -d $RPM_BUILD_ROOT/etc/sysconfig/msec
+install -d $RPM_BUILD_ROOT/etc/sysconfig
 install -d $RPM_BUILD_ROOT/usr/share/msec
 install -d $RPM_BUILD_ROOT/usr/sbin $RPM_BUILD_ROOT/usr/bin
 install -d $RPM_BUILD_ROOT/var/log/security

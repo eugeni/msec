@@ -1,3 +1,16 @@
+2005-02-21 18:05  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.45-1mdk
+
+2005-02-21 18:05  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* src/msec_find/find.c: use the EXCLUDE_REGEXP to be able to
+	  exclude files or directory from the reports.
+
+2005-02-21 15:51  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: better doc for allow_remote_root_login.
+
 2005-02-21 14:34  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* cron-sh/: security.sh, security_check.sh: filter home dir too

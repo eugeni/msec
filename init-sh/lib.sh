@@ -181,6 +181,8 @@ CleanRules /etc/security/msec/security.conf
 CommentUserRules /etc/security/msec/security.conf
 CleanRules /etc/profile
 CleanRules /etc/lilo.conf
+CleanRules /etc/logrotate.conf
+CleanRules /etc/rc.d/rc.local
 CleanRules /etc/rc.d/rc.firewall
 CleanRules /etc/crontab
 CleanRules /etc/X11/xdm/Xsession
@@ -192,9 +194,13 @@ echo "Setting spoofing protection : "
 AddRules "echo 1 > /proc/sys/net/ipv4/conf/all/rp_filter" /etc/rc.d/rc.firewall
 
 # default group which must exist on the system
+# groupadd already check for their existance...
 groupadd nogroup >& /dev/null
 groupadd audio >& /dev/null
 groupadd xgrp >& /dev/null
+groupadd ntools >& /dev/null
+groupadd ctools >& /dev/null
+
 usermod -G xgrp xfs
 
 /usr/share/msec/grpuser.sh --clean

@@ -1,3 +1,6 @@
+2000-03-22 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* Added many of the proposed feature from Bryan Paxton.
+
 2000-03-19 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* security.sh : added patch from Thomas Poindessous.
 	* find.c : many modification :)

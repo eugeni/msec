@@ -70,7 +70,23 @@ AddRules "0 0 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 
 ###################################################
 
-# Wanna a password ?
+# setup BSD accounting.
+
+echo "Setting up BSD process accounting..." 
+if [[ -f /sbin/accton ]]; then
+    AddRules "touch /var/log/security/pacct.log" /etc/rc.d/rc.local
+    AddRules "/sbin/accton /var/log/security/pacct.log" /etc/rc.d/rc.local
+    AddRules "/var/log/security/pacct.log {" /etc/logrotate.conf
+    AddRules "    postrotate" /etc/logrotate.conf
+    AddRules "    /sbin/accton /var/log/security/pacct.log" /etc/logrotate.conf
+    AddRules "   }" /etc/logrotate.conf
+    touch /var/log/security/pacct.log
+    chown root.root /var/log/security/pacct.log
+    chmod 600 /var/log/security/pacct.log
+    /sbin/accton /var/log/security/pacct.log
+fi
+
+# Wanna password ?
 LiloUpdate;
 
 echo -n "Running lilo to record new config : "

@@ -1,4 +1,6 @@
-1999-12-08  Yoann Vandoorselaere <yoan@mandrakesoft.com>
+1999-12-08  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* security_check.sh: remove /tmp stuff.
+	* security_check.sh: typo
 	* level[1-3].sh: Changed crontab call to file_check.sh 
 	from every hour to every midnight ( bug reported by axalon ).
     * file_check.sh: clean up.

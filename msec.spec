@@ -35,14 +35,16 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/promisc_check
 
 %changelog
-* Wed Dec  8 1999 Yoann Vandoorselaere <yoan@mandrakesoft.com>
-    - level[1-3].sh: Changed crontab call to file_check.sh
-      from every hour to every midnight ( bug reported by axalon ).
-    - diff_check.sh: clean up.
-    - moved file_check.sh to diff_check.sh and changed
-      what is related to cron call in level[15].sh
-    - Added missing configurations question in level custom.
-    - bug fix.
+* Wed Dec  8 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- security_check.sh: remove /tmp stuff.
+- security_check.sh: typo
+- level[1-3].sh: Changed crontab call to file_check.sh
+  from every hour to every midnight ( bug reported by axalon ).
+- diff_check.sh: clean up.
+- moved file_check.sh to diff_check.sh and changed
+  what is related to cron call in level[15].sh
+- Added missing configurations question in level custom.
+- bug fix.
 
 * Wed Dec  8 1999 Chmouel Boudjnah <chmouel@mandrakesoft.com>
 - Various (Makefile|specfiles) clean-up.

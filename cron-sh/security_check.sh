@@ -15,8 +15,8 @@ if [ SECURITY_CHECK == "no" ]; then
     exit 0
 fi
 
-SECURITY_LOG="/tmp/secure.log"
-SECURITY="/var/log/security.log"
+SECURITY="/tmp/secure.log"
+SECURITY_LOG="/var/log/security.log"
 TMP="/tmp/secure.tmp"
 
 if [ ! -d /var/log/security ]; then
@@ -25,7 +25,7 @@ fi
 
 chattr -a /var/log/security/ >& /dev/null
 chattr -a /var/log/security/* >& /dev/null
-rm -f ${SECURITY_LOG} ${TMP} >& /dev/null
+rm -f ${SECURITY} ${TMP} >& /dev/null
 
 ### Functions ###
 
@@ -50,8 +50,8 @@ if [ ${CHECK_WRITEABLE}=="yes" ]; then
     find ${DIR} -xdev -type f -perm -2 -ls -print | awk '{print $11}' | sort > ${TMP}
 
     if [ -s ${TMP} ]; then
-	printf "\nSecurity Warning: World Writeable Files found :\n" >> ${SECURITY_LOG}
-	cat ${TMP} >> ${SECURITY_LOG}
+	printf "\nSecurity Warning: World Writeable Files found :\n" >> ${SECURITY}
+	cat ${TMP} >> ${SECURITY}
     fi
 fi
 
@@ -59,17 +59,17 @@ fi
 if [ ${CHECK_UNOWNED}=="yes" ]; then
     find ${DIR} -xdev -nouser -print -ls | awk '{print $11}' | sort > ${TMP}
     if [ -s ${TMP} ]; then
-	printf "\nSecurity Warning : the following file aren't owned by any user :\n" >> ${SECURITY_LOG}
+	printf "\nSecurity Warning : the following file aren't owned by any user :\n" >> ${SECURITY}
 	printf "\ttheses files now have user \"nobody\" as their owner." >> ${SECURE_LOG}
-	cat ${TMP} >> ${SECURITY_LOG}
+	cat ${TMP} >> ${SECURITY}
         cat ${TMP} | while read line; do chown nobody ${line}; done	
     fi
 
     find $DIR -xdev -nogroup -print -ls | awk '{print $11}' | sort > ${TMP}
     if [ -s ${TMP} ]; then
-	printf "\nSecurity Warning : the following file aren't owned by any group :\n" >> ${SECURITY_LOG}
-        printf "\ttheses files now have group \"nogroup\" as their group owner." >> ${SECURITY_LOG}
-	cat ${TMP} >> ${SECURITY_LOG}
+	printf "\nSecurity Warning : the following file aren't owned by any group :\n" >> ${SECURITY}
+        printf "\ttheses files now have group \"nogroup\" as their group owner." >> ${SECURITY}
+	cat ${TMP} >> ${SECURITY}
 	cat ${TMP} | while read line; do chgrp nogroup ${line}; done
     fi
 fi
@@ -97,8 +97,8 @@ done | awk '$1 != $5 && $5 != "0" \
         { print "\t\tuser=" $1 ", file=" $2 " : file is other writeable" }' > ${TMP}
 
 if [ -s ${TMP} ]; then
-    printf "\nSecurity Warning: these files shouldn't be owned by someone else or readable :\n" >> ${SECURITY_LOG}
-    cat ${TMP} >> ${SECURITY_LOG}
+    printf "\nSecurity Warning: these files shouldn't be owned by someone else or readable :\n" >> ${SECURITY}
+    cat ${TMP} >> ${SECURITY}
 fi
 
 
@@ -123,8 +123,8 @@ done | awk '$1 != $5 && $5 != "0" \
         { print "\t\t- user=" $1 ", file=" $2 " : file is other writeable" }' > ${TMP}
 
 if [ -s ${TMP} ]; then
-    printf "\nSecurity Warning: theses files should not be owned by someone else or writeable :\n" >> ${SECURITY_LOG}
-    cat ${TMP} >> ${SECURITY_LOG}
+    printf "\nSecurity Warning: theses files should not be owned by someone else or writeable :\n" >> ${SECURITY}
+    cat ${TMP} >> ${SECURITY}
 fi
 
 ### Check home directories.  Directories should not be owned by someone else or writeable.
@@ -142,8 +142,8 @@ done | awk '$1 != $4 && $4 != "root" \
         { print "user=" $1 " : home directory is other writeable" }' > ${TMP}
 
 if [ -s $TMP ] ; then
-        printf "\nSecurity Warning: these home directory should not be owned by someone else or writeable :\n" >> ${SECURITY_LOG}
-        cat ${TMP} >> ${SECURITY_LOG}
+        printf "\nSecurity Warning: these home directory should not be owned by someone else or writeable :\n" >> ${SECURITY}
+        cat ${TMP} >> ${SECURITY}
 fi
 fi
 
@@ -158,8 +158,8 @@ if [ ${CHECK_PASSWD}=="yes" ]; then
     }' < /etc/passwd > ${TMP}
     
     if [ -s ${TMP} ]; then
-	printf "\nSecurity Warning: /etc/passwd check :\n" >> ${SECURITY_LOG}
-	cat ${TMP} >> ${SECURITY_LOG}
+	printf "\nSecurity Warning: /etc/passwd check :\n" >> ${SECURITY}
+	cat ${TMP} >> ${SECURITY}
     fi
 fi
 
@@ -171,8 +171,8 @@ if [ ${CHECK_SHADOW}=="yes" ]; then
     }' < /etc/shadow > ${TMP}
 
     if [ -s ${TMP} ]; then
-	printf "\nSecurity Warning: /etc/shadow check :\n" >> ${SECURITY_LOG}
-	cat ${TMP} >> ${SECURITY_LOG}
+	printf "\nSecurity Warning: /etc/shadow check :\n" >> ${SECURITY}
+	cat ${TMP} >> ${SECURITY}
     fi
 fi
 
@@ -193,16 +193,16 @@ if [ -s /etc/exports ] ; then
         }' < /etc/exports > ${TMP}
         
     if [ -s ${TMP} ] ; then
-	printf "\nSecurity Warning: Some NFS filesystem are exported to globally :\n" >> ${SECURITY_LOG}
-	cat ${TMP} >> ${SECURITY_LOG}
+	printf "\nSecurity Warning: Some NFS filesystem are exported globally :\n" >> ${SECURITY}
+	cat ${TMP} >> ${SECURITY}
     fi
 fi
 
 ### nfs mounts with missing nosuid
 /bin/mount | /bin/grep -v nosuid | /bin/grep ' nfs ' > ${TMP}
 if [ -s ${TMP} ] ; then
-    printf "\nSecurity Warning: The following NFS mounts haven't got the nosuid option set :\n" >> ${SECURITY_LOG}
-    cat ${TMP} >> ${SECURITY_LOG}
+    printf "\nSecurity Warning: The following NFS mounts haven't got the nosuid option set :\n" >> ${SECURITY}
+    cat ${TMP} >> ${SECURITY}
 fi
 
 ### Files that should not have + signs.
@@ -233,10 +233,10 @@ awk -F: '{print $1" "$6}' /etc/passwd |
     done
 	
 if [ -s ${TMP} ]; then
-    printf "\nSecurity Warning: '+' character found in hosts trusting files,\n" >> ${SECURITY_LOG}
-    printf "\tthis probably mean that you trust certains users/domain\n" >> ${SECURITY_LOG}
-    printf "\tto connect on this host without proper authentication :\n" >> ${SECURITY_LOG}
-    cat ${TMP} >> ${SECURITY_LOG}
+    printf "\nSecurity Warning: '+' character found in hosts trusting files,\n" >> ${SECURITY}
+    printf "\tthis probably mean that you trust certains users/domain\n" >> ${SECURITY}
+    printf "\tto connect on this host without proper authentication :\n" >> ${SECURITY}
+    cat ${TMP} >> ${SECURITY}
 fi
 
 ### executables should not be in the aliases file.
@@ -249,9 +249,9 @@ for file in ${list}; do
     fi
 
     if [ -s ${TMP} ]; then
-	printf "\nSecurity Warning: The following programs are executed in your mail\n" >> ${SECURITY_LOG}
-	printf "\tvia ${file} files, this could lead to security problems :\n" >> ${SECURITY_LOG}
-        cat ${TMP} >> ${SECURITY_LOG}
+	printf "\nSecurity Warning: The following programs are executed in your mail\n" >> ${SECURITY}
+	printf "\tvia ${file} files, this could lead to security problems :\n" >> ${SECURITY}
+        cat ${TMP} >> ${SECURITY}
     fi
 done
 
@@ -260,20 +260,25 @@ if [ ${CHECK_OPEN_PORT}=="yes" ]; then
     netstat -pvlA inet > ${TMP};
     
     if [ -s ${TMP} ]; then
-	printf "\nThese are the ports listening on your machine :\n" >> ${SECURITY_LOG}
-	cat ${TMP} >> ${SECURITY_LOG}
+	printf "\nThese are the ports listening on your machine :\n" >> ${SECURITY}
+	cat ${TMP} >> ${SECURITY}
     fi
 fi
 fi # end of CHECK_SECURITY
 
 ### Report
-if [ -s ${SECURITY_LOG} ]; then
-    Syslog ${SECURITY_LOG}
-    Ttylog ${SECURITY_LOG}
-    cat ${SECURITY_LOG} >> ${SECURITY}
+if [ -s ${SECURITY} ]; then
+    Syslog ${SECURITY}
+    Ttylog ${SECURITY}
+    cat ${SECURITY} >> ${SECURITY_LOG}
 fi
 
+if [ -f ${SECURITY} ]; then
+    rm -f ${SECURITY}
+fi
 
-
+if [ -f ${TMP} ]; then
+    rm -f ${TMP}
+fi
 
 

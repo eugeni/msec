@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.19
-Release:	3mdk
+Release:	4mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -123,6 +123,12 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Mon Feb 25 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-4mdk
+- separate config files and other files in the rpmv check (idea
+of Michael Reinsch)
+- don't restart network on sysctl.conf change
+- doc/security.txt: resync with code.
+
 * Fri Feb 22 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-3mdk
 - security_check.sh: check uid and not gid ! (change of meaning of the -g option
 of ls).

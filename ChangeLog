@@ -1,3 +1,25 @@
+2004-09-30 07:09  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.44.2-1mdk
+
+2004-09-30 07:08  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: allow_reboot: remove consolehelper links
+	  instead of files in /etc/security/console.apps.
+
+2004-09-30 04:50  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: control CTRL+ALT-DEL in allow_reboot
+
+2004-09-08 17:24  Reinout van Schouwen <reinout@cs.vu.nl>
+
+	* man/nl/msec.8: Updated Dutch (nl) translation by Reinout van
+	  Schouwen <reinout@cs.vu.nl> * msec manpage
+
+2004-09-07 10:38  Pablo Saratxaga <pablo@mandrakesoft.com>
+
+	* man/it/msec.8: Added Italian man page
+
 2004-07-30 04:03  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.44.1-1mdk
@@ -2118,11 +2140,11 @@
 	* msec.spec, cron-sh/security.sh, init-sh/level3.sh,
 	  init-sh/level4.sh, init-sh/level5.sh: [no log message]
 
-2000-01-06 14:35  Camille Bégnis <camille@mandrakesoft.com>
+2000-01-06 14:35  Camille BÃ©gnis <camille@mandrakesoft.com>
 
 	* doc/: msec.lyx, msec.ps: re-mistake...
 
-2000-01-06 14:24  Camille Bégnis <camille@mandrakesoft.com>
+2000-01-06 14:24  Camille BÃ©gnis <camille@mandrakesoft.com>
 
 	* doc/: msec.lyx, msec.ps: Added friendly level names Corrected a
 	  mistake
@@ -2131,7 +2153,7 @@
 
 	* init-sh/level0.sh, msec.spec: [no log message]
 
-2000-01-04 14:10  Camille Bégnis <camille@mandrakesoft.com>
+2000-01-04 14:10  Camille BÃ©gnis <camille@mandrakesoft.com>
 
 	* doc/: msec.lyx, msec.ps: Added "root shutdown" feature.
 
@@ -2170,11 +2192,11 @@
 	* doc/: grpuser.8, grpuser.8.bz2, init.sh.8, init.sh.8.bz2, msec.8,
 	  msec.8.bz2: "Seethechangelog"
 
-1999-12-28 17:13  Camille Bégnis <camille@mandrakesoft.com>
+1999-12-28 17:13  Camille BÃ©gnis <camille@mandrakesoft.com>
 
 	* doc/: grpuser.8.bz2, init.sh.8.bz2, msec.8.bz2: Added man pages
 
-1999-12-28 16:32  Camille Bégnis <camille@mandrakesoft.com>
+1999-12-28 16:32  Camille BÃ©gnis <camille@mandrakesoft.com>
 
 	* doc/msec.lyx: Added latest enhancement: mail warning
 
@@ -2216,7 +2238,7 @@
 	* init-sh/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: [no log
 	  message]
 
-1999-12-22 03:41  Camille Bégnis <camille@mandrakesoft.com>
+1999-12-22 03:41  Camille BÃ©gnis <camille@mandrakesoft.com>
 
 	* doc/msec.lyx: Added comprehensive level descriptions
 
@@ -2335,7 +2357,7 @@
 
 	* cron-sh/security_check.sh: [no log message]
 
-1999-12-16 23:21  Camille Bégnis <camille@mandrakesoft.com>
+1999-12-16 23:21  Camille BÃ©gnis <camille@mandrakesoft.com>
 
 	* doc/msec.lyx: Added level 0 minor changes
 

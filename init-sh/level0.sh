@@ -72,19 +72,15 @@ AddRules "export PATH SECURE_LEVEL" /etc/zprofile
 
 # Xserver
 echo "Allowing users to connect X server from everywhere :"
-AddBegRules "/usr/X11R6/bin/xhost +" /etc/X11/xdm/Xsession quiet
-AddBegRules "/usr/X11R6/bin/xhost +" /etc/X11/xinit/xinitrc
+AddBegRules "/usr/X11R6/bin/xhost +" /etc/X11/xinit.d/msec quiet
 
 # Group
 echo "Adding system users to specific groups :"
 /usr/share/msec/grpuser.sh --refresh
 echo -e "done.\n"
 
+AllowAutologin
+
 # Boot on a shell / authorize ctrl-alt-del
-echo -n "Setting up inittab to authorize any user to issue ctrl-alt-del : "
-tmpfile=`mktemp /tmp/secure.XXXXXX`
-cp /etc/inittab ${tmpfile}
-cat ${tmpfile} | \
-    sed s'/ca::ctrlaltdel:\/sbin\/shutdown -a -t3 -r now/ca::ctrlaltdel:\/sbin\/shutdown -t3 -r now/' > /etc/inittab
-rm -f ${tmpfile}
-echo "done."
+AllowReboot
+AllowUserList

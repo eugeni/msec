@@ -62,7 +62,7 @@ while read username uid homedir; do
     for f in ${list} ; do
 	file="${homedir}/${f}"
 	if [[ -f ${file} ]] ; then
-	    printf "${uid} ${username} ${file} `ls -ldcgn ${file}`\n"
+	    printf "${uid} ${username} ${file} `ls -Lldcgn ${file}`\n"
 	fi
     done
 done | awk '$1 != $6 && $6 != "0" \
@@ -91,7 +91,7 @@ while read username uid homedir; do
         for f in ${list} ; do
                 file=${homedir}/${f}
                 if [[ -f ${file} ]] ; then
-                        printf "${uid} ${username} ${file} `ls -ldcgn ${file}`\n"
+                        printf "${uid} ${username} ${file} `ls -Lldcgn ${file}`\n"
                 fi
         done
 done | awk '$1 != $6 && $6 != "0" \
@@ -110,9 +110,9 @@ fi
 awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' /etc/passwd | \
 while read username uid homedir; do
         if [[ -d ${homedir} ]] ; then
-                realuid=`ls -ldgn ${homedir}| awk '{ print $3 }'`
-                realuser=`ls -ldg ${homedir}| awk '{ print $3 }'`
-                permissions=`ls -ldg ${homedir}| awk '{ print $1 }'`
+                realuid=`ls -Lldgn ${homedir}| awk '{ print $3 }'`
+                realuser=`ls -Lldg ${homedir}| awk '{ print $3 }'`
+                permissions=`ls -Lldg ${homedir}| awk '{ print $1 }'`
                 printf "${permissions} ${username} (${uid}) ${realuser} (${realuid})\n"
         fi
 done | awk '$3 != $5 && $5 != "(0)" \

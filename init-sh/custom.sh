@@ -184,6 +184,7 @@ echo "Do you want security report to be done by mail ?"
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
     AddRules "MAIL_WARN=yes" /etc/security/msec/security.conf
+    AddRules "MAIL_USER=root" /etc/security/msec/security.conf
 else
     AddRules "MAIL_WARN=no" /etc/security/msec/security.conf
 fi

@@ -1,4 +1,4 @@
-VERSION = 0.14
+VERSION = 0.15
 NAME = msec
 
 all: promisc_check msec_find

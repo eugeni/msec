@@ -132,15 +132,8 @@ if [[ -f /lib/libsafe.so.1.3 ]]; then
 fi
 
 # Do not boot on a shell
-echo -n "Setting up inittab to deny any user to issue ctrl-alt-del : "
-tmpfile=`mktemp /tmp/secure.XXXXXX`
-cp /etc/inittab ${tmpfile}
-cat ${tmpfile} | \
-    sed s'/\/bin\/bash --login/\/sbin\/mingetty tty1/' | \
-    sed s'/ca::ctrlaltdel:\/sbin\/shutdown -t3 -r now/ca::ctrlaltdel:\/sbin\/shutdown -a -t3 -r now/' > /etc/inittab
-rm -f ${tmpfile}
-echo "done."
-
+ForbidReboot
+ForbidAutologin
 
 echo
 echo "You are now running your system in security level 5,"
@@ -171,3 +164,5 @@ grpconv
 
 
 
+
+ForbidUserList

@@ -274,11 +274,6 @@ ForbidReboot() {
 	rm -f ${tmpfile}
 	[ -z "$DURING_INSTALL" ] && telinit u
 	echo "done."
-	echo -n "Forbid console users to reboot/shutdown : "
-        for pamfile in /etc/security/console.apps/{shutdown,poweroff,reboot,halt} ; do
-	  rm -f ${pamfile} 2>&1 > /dev/null
-	done
-	echo "done."
 }
 
 AllowReboot() {
@@ -289,11 +284,6 @@ AllowReboot() {
     	sed s'/ca::ctrlaltdel:\/sbin\/shutdown -a -t3 -r now/ca::ctrlaltdel:\/sbin\/shutdown -t3 -r now/' > /etc/inittab
 	rm -f ${tmpfile}
 	[ -z "$DURING_INSTALL" ] && telinit u
-	echo "done."
-	echo -n "Allow console users to reboot/shutdown : "
-	for pamfile in /etc/security/console.apps/{shutdown,poweroff,reboot,halt} ; do
-	  touch -f ${pamfile}
-        done
 	echo "done."
 }
 

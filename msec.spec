@@ -1,15 +1,15 @@
-%define version 0.14
-%define release 4mdk
+Summary:	Security Level & Program for the Linux Mandrake distribution
+Name:		msec
+Version:	0.15
+Release:	17mdk
 
-Summary: Security Level & Program for the Linux Mandrake distribution
-Name: msec
-Version: %{version}
-Release: %{release}
-Source: %{name}-%{version}.tar.bz2
-Copyright: GPL
-Group: System/Base
-BuildRoot: /var/tmp/msec
-Requires: /bin/bash setup chkconfig >= 0.9-6
+Source:		%{name}-%{version}.tar.bz2
+Patch0:		msec-0.15-usermode.patch.bz2
+
+License:	GPL
+Group:		System/Base
+BuildRoot:	%_tmppath/%name-%version-%release-root
+Requires:	/bin/bash setup chkconfig >= 0.9-6
 
 %description
 The Mandrake-Security package is designed to provide generic 
@@ -20,13 +20,29 @@ This packages includes several program that will be run periodically
 in order to test the security of your system and alert you if needed.
 
 %prep
-%setup 
+
+%setup -q
+%patch0 -p1 -b .usermode
 
 %build
 make CFLAGS="$RPM_OPT_FLAGS"
 
 %install
-make install RPM_BUILD_ROOT=$RPM_BUILD_ROOT
+#make install RPM_BUILD_ROOT=$RPM_BUILD_ROOT
+
+install -d $RPM_BUILD_ROOT/etc/security/msec
+install -d $RPM_BUILD_ROOT/usr/share/msec
+install -d $RPM_BUILD_ROOT/usr/sbin $RPM_BUILD_ROOT/usr/bin
+install -d $RPM_BUILD_ROOT/var/log/security
+install -d $RPM_BUILD_ROOT%{_mandir}/man8
+
+install -m 755 init-sh/*.sh cron-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
+install -m 755 init-sh/msec $RPM_BUILD_ROOT/usr/sbin
+install -m 644 conf/perm.* conf/server.* $RPM_BUILD_ROOT/etc/security/msec
+install -m 755 src/promisc_check/promisc_check src/msec_find/msec_find $RPM_BUILD_ROOT/usr/bin
+install -m 644 doc/*8 $RPM_BUILD_ROOT%{_mandir}/man8/
+
+touch $RPM_BUILD_ROOT/etc/security/msec/security.conf $RPM_BUILD_ROOT/var/log/security.log
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -35,17 +51,88 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc AUTHORS COPYING Makefile README 
 %doc doc/*txt ChangeLog doc/*ps
-/usr/bin/promisc_check
-/usr/bin/msec_find
-/usr/sbin/msec
-/usr/share/msec
-/var/log/security.log
-/var/log/security
-/usr/man/*/*
+%_bindir/promisc_check
+%_bindir/msec_find
+%_sbindir/msec
+%_datadir/msec
+%_mandir/*/*
 
-%config /etc/security/msec
+%config(noreplace) /var/log/security.log
+%config(noreplace) /var/log/security
+%config(noreplace) /etc/security/msec
 
 %changelog
+* Mon Jul  9 2001 Frederic Crozat <fcrozat@mandrakesoft.com> 0.15-17mdk
+- Patch 0: add suppport for usermode halt/reboot
+
+* Thu May 10 2001 Stew Benedict <sbendict@mandrakesoft.com> 0.15-16mdk
+- Check for drakx install environment before running "telinit u" - PPC hang
+
+* Tue May 01 2001 David BAUDENS <baudens@mandrakesoft.com> 0.15-15mdk
+- Use %%_tmppath for BuildRoot
+
+* Tue Oct 10 2000 Yoann Vandoorselaere  <yoann@mandrakesoft.com> 0.15-14mdk
+- call telinit after modifying inittab
+
+* Tue Oct 10 2000 Yoann Vandoorselaere  <yoann@mandrakesoft.com> 0.15-13mdk
+- Applied Warly patch to fix user list problem under kdm.
+- User list option for gdm too.
+
+* Tue Oct 10 2000 Warly <warly@mandrakesoft.com> 0.15-12mdk
+- change the UserList method to not append at the end of kdmrc (in the wrong section)
+
+* Mon Oct  9 2000 Pixel <pixel@mandrakesoft.com> 0.15-11mdk
+- remove the fix for #760 (it needs real fixing!)
+
+* Mon Oct 09 2000 Yoann Vandoorselaere  <yoann@mandrakesoft.com> 0.15-10mdk
+- conf/server.[45]: add pcmcia
+
+* Mon Oct 09 2000 Yoann Vandoorselaere  <yoann@mandrakesoft.com> 0.15-9mdk
+- fix for #760 (kdm should not display the list of users for high security
+  levels)
+
+* Mon Oct 09 2000 Yoann Vandoorselaere  <yoann@mandrakesoft.com> 0.15-8mdk
+- fix a typo in conf/perm.0
+
+* Fri Oct 04 2000 Yoann Vandoorselaere  <yoann@mandrakesoft.com> 0.15-7mdk
+- Autologin allowed in level 0, 1, 2.... I'm against this... but...
+
+* Fri Oct 04 2000 Yoann Vandoorselaere  <yoann@mandrakesoft.com> 0.15-6mdk
+- fix some entry in perm.*
+- Autologin will only work in level 0
+
+* Tue Oct 03 2000 Yoann Vandoorselaere  <yoann@mandrakesoft.com> 0.15-5mdk
+    * init-sh/*.sh : instead of modifying Xsession,
+    create the /etc/X11/xinit.d/msec file which can contain eventual
+    rules appended by msec.
+
+* Mon Oct 02 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-4mdk
+- some fix.
+
+* Mon Oct 02 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-3mdk
+- init-sh/*.sh : modify /etc/X11/Xsession, not /etc/X11/xdm/Xsession
+                 nor /etc/X11/xinit/xinitrc anymore, as they all load
+                 /etc/X11/Xsession.
+
+* Fri Sep 01 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-2mdk
+- install manually
+- use %{_mandir} macros
+- use %config(noreplace) for /etc/msec and for logfile
+
+* Tue Jul 18 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-1mdk
+- cron-sh/security_check.sh : use -L in ls, 
+  to dereference symbolic link  Chris Green <cmg@dok.org>
+- conf/perm.*: /var/log/squid must be owned by squid.squid.
+- cron-sh/security.sh: 
+- init-sh/custom.sh: added patch from AG <darkimage@bigfoot.com>,
+  if no user to mail security report to is availlable, send to root.
+	
+* Wed May 17 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.14-6mdk
+- Handle new libsafe path.
+
+* Wed May 17 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.14-5mdk
+- corrected a wrong path.
+
 * Wed May 03 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.14-4mdk
 - LoaderUpdate() make a difference between an empty
   variable, and a non existing one.

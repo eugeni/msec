@@ -7,6 +7,8 @@ fi
 
 . /etc/security/msec/security.conf
 
+[[ ${MAIL_WARN} == yes ]] && [ -z ${MAIL_USER} ] && MAIL_USER="root"
+
 export SUID_ROOT_TODAY="/var/log/security/suid_root.today"
 SUID_ROOT_YESTERDAY="/var/log/security/suid_root.yesterday"
 SUID_ROOT_DIFF="/var/log/security/suid_root.diff"
@@ -130,12 +132,13 @@ Maillog() {
     text=${2}
 
     if [[ ${MAIL_WARN} == yes ]]; then
-		if [[ ! -z ${MAIL_USER} ]]; then
-			if [[ -x /bin/mail ]]; then
-			    cat ${text} | /bin/mail -s "${subject}" "${MAIL_USER}"
-			fi
-		fi
+	if [[ -z ${MAIL_USER} ]]; then 
+	    MAIL_USER="root"
 	fi
+	if [[ -x /bin/mail ]]; then
+	    cat ${text} | /bin/mail -s "${subject}" "${MAIL_USER}"
+	fi
+    fi
 }
 
 ##################

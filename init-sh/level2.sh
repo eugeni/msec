@@ -73,8 +73,7 @@ AddRules "export PATH SECURE_LEVEL" /etc/zprofile
 
 # Xserver
 echo "Allowing users to connect X server from localhost :"
-AddBegRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xdm/Xsession
-AddBegRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xinit/xinitrc
+AddBegRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xinit.d/msec
 
 # group
 echo "Adding system users to specifics groups :"
@@ -82,14 +81,8 @@ echo "Adding system users to specifics groups :"
 grpconv
 echo -e "done.\n"
 
+AllowAutologin
+
 # Do not boot on a shell
-echo -n "Setting up inittab to authorize any user to issue ctrl-alt-del : "
-tmpfile=`mktemp /tmp/secure.XXXXXX`
-cp /etc/inittab ${tmpfile}
-cat ${tmpfile} | \
-    sed s'/\/bin\/bash --login/\/sbin\/mingetty tty1/' | \
-    sed s'/ca::ctrlaltdel:\/sbin\/shutdown -a -t3 -r now/ca::ctrlaltdel:\/sbin\/shutdown -t3 -r now/' > /etc/inittab
-rm -f ${tmpfile}
-echo "done."
-
-
+AllowReboot
+AllowUserList

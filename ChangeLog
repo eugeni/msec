@@ -1,3 +1,35 @@
+2000-10-10 Yoann Vandoorselaere  <yoann@mandrakesoft.com>
+	* Applied Warly patch to fix user list problem under kdm.
+	* User list option for gdm to.
+	* Restart init after inittab change
+
+2000-10-09 Yoann Vandoorselaere  <yoann@mandrakesoft.com>
+	* conf/perm.0 : fix a typo
+	* fix for #760 (kdm should not display the list of users for high security
+	 levels)
+	* conf/server.[45]: add pcmcia
+
+2000-10-03 Yoann Vandoorselaere  <yoann@mandrakesoft.com>
+	* init-sh/*.sh : instead of modifying Xsession,
+	create the /etc/X11/xinit.d/msec file which can contain eventual
+	rules appended by msec.
+
+2000-10-02 Yoann Vandoorselaere  <yoann@mandrakesoft.com>
+
+	* init-sh/*.sh : modify /etc/X11/Xsession, not /etc/X11/xdm/Xsession
+					 nor /etc/X11/xinit/xinitrc anymore, as they all load 
+					 /etc/X11/Xsession.
+
+2000-07-18  Yoann Vandoorselaere  <yoann@mandrakesoft.com>
+
+	* cron-sh/security_check.sh : use -L in ls, 
+	  to dereference symbolic link  Chris Green <cmg@dok.org>
+	* conf/perm.*: /var/log/squid must be owned by squid.squid.
+	* cron-sh/security.sh: 
+	* init-sh/custom.sh: added patch from AG <darkimage@bigfoot.com>,
+	if no user to mail security report to is availlable, send to root.
+	
+
 2000-05-03 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 LoaderUpdate() make a difference between an empty
 variable, and a non existing one.

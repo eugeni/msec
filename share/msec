@@ -67,7 +67,7 @@ else
 fi
 
 if [ ! -x "$MSEC" ]; then
-    echo "$MSEC found or not executable. Aborting" 1>&2
+    echo "$MSEC not found or not executable. Aborting" 1>&2
     exit 1
 fi
 

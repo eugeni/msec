@@ -58,9 +58,9 @@ echo -e "\t- Check passwd file integrity : yes."
     AddRules "CHECK_PASSWD=yes" /etc/security/msec/security.conf	quiet
 echo -e "\t- Check shadow file integrity : yes."
     AddRules "CHECK_SHADOW=yes" /etc/security/msec/security.conf	quiet
-echo -e "\t- Security warning on tty : \"yes\" :"
+echo -e "\t- Security warning on tty : yes."
     AddRules "TTY_WARN=yes" /etc/security/msec/security.conf	        quiet
-echo -e "\t- Security warning in syslog : \"yes\" :"			
+echo -e "\t- Security warning in syslog : yes."			
     AddRules "SYSLOG_WARN=yes" /etc/security/msec/security.conf		
 # end security check
 

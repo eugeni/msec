@@ -22,8 +22,8 @@ AddRules "tty6" /etc/securetty
 
 # Security check
 echo "Updating file check variable : "
-echo -e "\t- Check security : yes."
-    AddRules "CHECK_SECURITY=yes" /etc/security/msec/security.conf      quiet
+echo -e "\t- Check security : no."
+    AddRules "CHECK_SECURITY=no" /etc/security/msec/security.conf      quiet
 echo -e "\t- Check important permissions : no."
     AddRules "CHECK_PERMS=no" /etc/security/msec/security.conf          quiet             
 echo -e "\t- Check suid root file : no."
@@ -44,9 +44,9 @@ echo -e "\t- Check passwd file integrity : no."
     AddRules "CHECK_PASSWD=no" /etc/security/msec/security.conf	        quiet
 echo -e "\t- Check shadow file integrity : no."
     AddRules "CHECK_SHADOW=no" /etc/security/msec/security.conf	        quiet
-echo -e "\t- Security warning on tty : \"no\" :"
+echo -e "\t- Security warning on tty : no."
     AddRules "TTY_WARN=no" /etc/security/msec/security.conf	        quiet
-echo -e "\t- Security warning in syslog : \"no\" :"			
+echo -e "\t- Security warning in syslog : no."			
     AddRules "SYSLOG_WARN=no" /etc/security/msec/security.conf		
 # end security check
 

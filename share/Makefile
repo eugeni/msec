@@ -17,12 +17,16 @@ mseclib.py: libmsec.py shadow.py
 	rm -f mseclib.py
 	./shadow.py libmsec > mseclib.py
 
-man: mseclib.man
+man: mseclib.man levels
 
 mseclib.man: libmsec.py man.py
 	rm -f mseclib.man
 	./man.py libmsec > mseclib.man
 
+levels:
+	for l in 0 1 2 3 4 5; do rm -f level.$$l; \
+	  ./msec.py -o log=stderr -o print=1 -o nolocal=1 $$l < /dev/null | sort > level.$$l; \
+	done
 clean:
 	rm -f *.pyc *.pyo mseclib.py *~
 

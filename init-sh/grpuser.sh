@@ -104,8 +104,11 @@ RefreshAdd() {
 		else
 		    echo "Adding user \"${user_name}\" to group \"${group_name}\"."
 		    IsGroupExisting;
-		    AppendUserToGroup;
-		    ModifyFile;
+		    IsUserAlreadyInGroup;
+		    if [[ $? == 1 ]]; then
+		    	AppendUserToGroup;
+		    	ModifyFile;
+		    fi
 		fi
 	    done
 	fi

@@ -135,7 +135,6 @@ if level >= 4:
     enable_promisc_check(1)
     accept_icmp_echo(0)
     accept_bogus_error_responses(0)
-    enable_libsafe(1)
     allow_reboot(0)
     enable_at_crontab(0)
     if level == 4:
@@ -151,7 +150,6 @@ else:
     enable_promisc_check(0)
     accept_icmp_echo(1)
     accept_bogus_error_responses(1)
-    enable_libsafe(0)
     allow_reboot(1)
     enable_at_crontab(1)
     password_aging(99999)

@@ -1,4 +1,4 @@
-Summary:	Security Level & Program for the Linux Mandrake distribution
+Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.15
 Release:	31mdk

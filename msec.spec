@@ -4,7 +4,7 @@
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
 Version: %{version}
-Release: 4mdk
+Release: 5mdk
 Source: %{name}-%{version}.tar.bz2
 Copyright: GPL
 Group: System Environment/Base
@@ -40,6 +40,13 @@ rm -rf $RPM_BUILD_ROOT
 /var/log/security
 
 %changelog
+* Tue Dec 21 1999 Pixel <pixel@mandrakesoft.com>
+- init-sh/lib.sh (LiloUpdate): replace the -z ${LILO_PASSWORD} by
+${LILO_PASSWORD+set} != set 
+- init-sh/lib.sh (LiloUpdate): replace the call to AddRules to
+AddBegRules (password= must in the beginning of lilo.conf)
+- init-sh/lib.sh (AddBegRules): 1 \n instead of 2
+
 * Mon Dec 20 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - fixed a typo / variable pb.
 

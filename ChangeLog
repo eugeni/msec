@@ -1,3 +1,10 @@
+1999-12-21  Pixel  <pixel@mandrakesoft.com>
+	* init-sh/lib.sh (LiloUpdate): replace the -z ${LILO_PASSWORD} by
+	${LILO_PASSWORD+set} != set 
+	* init-sh/lib.sh (LiloUpdate): replace the call to AddRules to
+	AddBegRules (password= must in the beginning of lilo.conf)
+	* init-sh/lib.sh (AddBegRules): 1 \n instead of 2
+
 1999-12-20 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* init-sh/perm.[05]: Oops, /var/spool/mail is 771 not 755.
 

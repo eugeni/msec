@@ -47,7 +47,7 @@ AddBegRules() {
     echo "Modifying config in ${2}..."
     
     export VAL=$1
-    perl -pi -e '/^#/ or /^$/ or $m++ or print "$ENV{COMMENT}\n$ENV{VAL}\n\n"' $2
+    perl -pi -e '/^#/ or /^$/ or $m++ or print "$ENV{COMMENT}\n$ENV{VAL}\n"' $2
 
     echo -e "done.\n"
 }
@@ -134,7 +134,7 @@ Ttylog() {
 
 
 LiloUpdate() {
-    if [[ -z ${LILO_PASSWORD} ]]; then
+    if [[ ${LILO_PASSWORD+set} != set ]]; then
     	echo "Do you want a password authentication at boot time ?"
     	echo "Be very carefull,"
     	echo "this will prevent your server to reboot without an operator to enter password".
@@ -157,7 +157,7 @@ LiloUpdate() {
 	
 	rm -f ${tmpfile}
 	clear
-    	AddRules "password=$password" /etc/lilo.conf
+    	AddBegRules "password=$password" /etc/lilo.conf
     fi
 }
 

@@ -53,7 +53,9 @@ def commit_changes():
     for f in FAKE.values():
         if len(f[1]) >= 1 and f[1][0] != -1:
             apply(f[0], f[1])
-
+        elif len(f[1]) == 0:
+            apply(f[0])
+                        
 def print_changes():
     import sys
     for f in FAKE.values():

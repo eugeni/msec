@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.38
-Release:	4mdk
+Release:	5mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -152,8 +152,11 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
-* Thu Jul 24 2003 Thierry Vignaud <tvignaud@mandrakesoft.com> 0.38-4mdk
+* Thu Jul 24 2003 Thierry Vignaud <tvignaud@mandrakesoft.com> 0.38-5mdk
 - fix upgrade
+
+* Fri Jun 06 2003 Per Øyvind Karlsen <peroyvind@sintrax.net> 0.38-4mdk
+- use double %%'s in changelog
 
 * Fri Mar  7 2003 Frederic Lepied <flepied@mandrakesoft.com> 0.38-3mdk
 - report correct message in log (bug #748)
@@ -430,15 +433,15 @@ rm -rf $RPM_BUILD_ROOT
 - rewritten file modifications part in python
 
 * Wed Dec 05 2001 Florin <florin@mandrakesoft.com> 0.16-4mdk
-- oups, use %{_sysconfdir}/sysconfig/%{name} instead of %{_sysconfdir}/%{name}
+- oups, use %%{_sysconfdir}/sysconfig/%%{name} instead of %%{_sysconfdir}/%%{name}
 - fix the msec.csh file (thks again to Konrad Bernlohr)
 
 * Thu Nov 29 2001 Florin <florin@mandrakesoft.com> 0.16-3mdk
 - remove the redundance related to umask and /etc/bashrc
-- add the %{_sysconfdir}/%{name} file
+- add the %%{_sysconfdir}/%%{name} file
 - allow the ssh connexions in the snf security level
 - sort of update the ChangeLog
-- updated msec.csh to read %{_sysconfdir}/%{name} with sed black magic (Fred)
+- updated msec.csh to read %%{_sysconfdir}/%%{name} with sed black magic (Fred)
 - added console timeout support (Fred)
 - added command history disabling (Fred)
 - added sysctl settings (Fred)
@@ -506,10 +509,10 @@ rm -rf $RPM_BUILD_ROOT
 
 * Fri Sep 14 2001 Florin <florin@mandrakesoft.com> 0.15-21mdk
 - conf/perm.*: /var/log/squid must be owned by nobody.nobody.
-- add the %post section for the ghost file
+- add the %%post section for the ghost file
 
 * Mon Sep 03 2001 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-20mdk
-- logrotate entry in %%install, not %post
+- logrotate entry in %%install, not %%post
 
 * Mon Sep 03 2001 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-19mdk
 - add logrotate entry
@@ -572,8 +575,8 @@ rm -rf $RPM_BUILD_ROOT
 
 * Fri Sep 01 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-2mdk
 - install manually
-- use %{_mandir} macros
-- use %config(noreplace) for /etc/msec and for logfile
+- use %%{_mandir} macros
+- use %%config(noreplace) for /etc/msec and for logfile
 
 * Tue Jul 18 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-1mdk
 - cron-sh/security_check.sh : use -L in ls, 
@@ -631,7 +634,7 @@ rm -rf $RPM_BUILD_ROOT
 - Added support for libsafe stack overflow protection in level 4 / 5 /
   custom
 - trap the sigint signal.
-- use %config for config file ( thanks to Frederic Lepied ).
+- use %%config for config file ( thanks to Frederic Lepied ).
 - use /etc/security/msec for config file only.
 - Renamed init.sh to msec, and install it in /usr/sbin.
 - The other shell scripts are located in /usr/share/msec

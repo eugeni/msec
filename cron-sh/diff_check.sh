@@ -143,9 +143,7 @@ if [[ -s ${TMP} ]]; then
 
     echo -e "\n\n*** Diff Check, ${date} ***\n" >> ${SECURITY_LOG}
     cat ${TMP} >> ${SECURITY_LOG}
-
 	Maillog "*** Diff Check, ${date} ***" "${TMP}"
-	
 fi
 
 if [[ -f ${TMP} ]]; then

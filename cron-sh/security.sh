@@ -78,17 +78,17 @@ find ${DIR} -xdev -type f -perm -2 -printf "${PRINT}" 2> /dev/null | sort > ${WR
 find ${DIR} -xdev -nouser -printf "${PRINT}" 2> /dev/null | sort > ${UNOWNED_USER_TODAY}
 find ${DIR} -xdev -nogroup -printf "${PRINT}" 2> /dev/null | sort > ${UNOWNED_GROUP_TODAY}
 
-cat ${SUID_ROOT_TODAY} | while read line; do 
+while read line; do 
     md5sum ${line}
-done > ${SUID_MD5_TODAY}
+done < ${SUID_ROOT_TODAY} > ${SUID_MD5_TODAY}
 
 ### Functions ###
 
 Syslog() {
     if [[ ${SYSLOG_WARN} == yes ]]; then
-    cat ${1} | while read line; do
+    while read line; do
         /sbin/initlog --string="${line}"
-    done
+    done < ${1}
     fi
 }
 
@@ -104,21 +104,25 @@ Maillog() {
     subject=${1}
     text=${2}
 
-    if [[ ${MAIL_WARN} != yes ]]; then
-		return;
+    if [[ ${MAIL_WARN} == yes ]]; then
+		if [[ ! -z ${MAIL_USER} ]]; then
+			if [[ -x /bin/mail ]]; then
+			    cat ${text} | /bin/mail -s "${subject}" "${MAIL_USER}"
+			fi
+		fi
 	fi
-
-	if [[ -z ${MAIL_USER} ]]; then
-		return;
-	fi
-
-    if [[ -x /bin/mail ]]; then
-    	cat ${text} | /bin/mail -s "${subject}" "${MAIL_USER}"
-    fi
 }
 
 ##################
 
 . /etc/security/msec/cron-sh/diff_check.sh
 . /etc/security/msec/cron-sh/security_check.sh
+
+
+
+
+
+
+
+
 

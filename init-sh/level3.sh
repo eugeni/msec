@@ -18,12 +18,18 @@ AddRules "*.* /dev/tty12" /etc/syslog.conf
 
 # login as root from the console allowed
 echo "Login as root is allowed (on the console) : "
-AddRules "tty1" /etc/securetty
+AddRules "tty1" /etc/securetty quiet
 AddRules "tty2" /etc/securetty quiet
 AddRules "tty3" /etc/securetty quiet
 AddRules "tty4" /etc/securetty quiet
 AddRules "tty5" /etc/securetty quiet
-AddRules "tty6" /etc/securetty quiet
+AddRules "tty6" /etc/securetty
+AddRules "vc/1" /etc/securetty quiet
+AddRules "vc/2" /etc/securetty quiet
+AddRules "vc/3" /etc/securetty quiet
+AddRules "vc/4" /etc/securetty quiet
+AddRules "vc/5" /etc/securetty quiet
+AddRules "vc/6" /etc/securetty
 
 # Security check
 echo "Updating file check variable : "

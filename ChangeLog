@@ -7,7 +7,7 @@
 	* init-sh/lib.sh (AddBegRules): 1 \n instead of 2
 
 1999-12-20 Yoann Vandoorselaere <yoann@mandrakesoft.com>
-        * We are ok.
+    * We are ok.
 
 1999-12-20 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* init-sh/perm.[05]: Oops, /var/spool/mail is 771 not 755.

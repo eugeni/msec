@@ -36,10 +36,10 @@ fi
 if [[ ${CHECK_UNOWNED} == yes ]]; then
     if [[ -s ${UNOWNED_USER_TODAY} ]]; then
 	printf "\nSecurity Warning : User Unowned files found :\n" >> ${SECURITY}
-	printf "\t( theses files now have user \"nobody\" as their owner. )\n" >> ${SECURITY}
+	printf "\t( theses files now have user \"nogroup\" as their owner. )\n" >> ${SECURITY}
 	cat ${UNOWNED_USER_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
         cat ${UNOWNED_USER_TODAY} | while read line; do
-	    chown nobody "${line}"; # Use quote if filename contain space. 
+	    chown nogroup "${line}"; # Use quote if filename contain space. 
 	done	
     fi
 

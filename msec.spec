@@ -1,6 +1,6 @@
 # do not modify Version below, modify it in Makefile (see CVS)
 %define version 0.9
-%define release 13mdk
+%define release 14mdk
 
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
@@ -45,6 +45,13 @@ rm -rf $RPM_BUILD_ROOT
 /usr/man/*/*
 
 %changelog
+* Tue Jan 04 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- shutdown.allow is 600 in level 4/5; 644 else.
+- updated doc/security.txt
+- updated init-sh/custom.sh
+- level 0-3 -> ctrl-alt-del allowed for any local user.
+- level 4-5 -> ctrl-alt-del allowed for root.
+
 * Wed Dec 29 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - Removing grpuser manpage, because : 
   1 - grpuser is not to be used by any user, ( and should not have a manpage so ).

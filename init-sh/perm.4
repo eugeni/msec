@@ -1,8 +1,8 @@
 # Welcome in Level 4, aka secure & usable.
 ###
-/bin						root.root		711
-/boot						root.root		700
-/dev						root.root		711
+/bin/						root.root		711
+/boot/						root.root		700
+/dev/						root.root		711
 /dev/audio*					root.audio		600
 /dev/dsp*					root.audio		600
 /etc/						root.adm		711
@@ -25,6 +25,7 @@
 /etc/hosts.deny					root.adm		640
 /etc/hosts.equiv				root.adm		640
 /etc/inetd.conf					root.adm		640
+/etc/init.d/                    root.root       750
 /etc/inittab					root.adm		640
 /etc/ld.so.conf					root.adm		640
 /etc/lilo.conf					root.adm		600
@@ -43,21 +44,21 @@
 /etc/updatedb.conf				root.adm		640
 /home/						root.adm		751
 /home/*						current			700
-/lib						root.adm		751
-/mnt						root.adm		750
-/root						root.root		700
-/sbin						root.adm		751
-/tmp						root.root		1777
-/usr						root.adm		751
+/lib/						root.adm		751
+/mnt/						root.adm		750
+/root/						root.root		700
+/sbin/						root.adm		751
+/tmp/						root.root		1777
+/usr/						root.adm		751
 /usr/*						root.adm		751
 /usr/X11R6/					root.xgrp		751
 /usr/bin/					root.adm		751
 /usr/bin/*					root.root		755
 /usr/sbin/					root.adm		751
 /usr/sbin/*					root.root		755
-/var						root.root		755
-/var/log					root.root		700
+/var/						root.root		755
+/var/log/					root.root		700
 /var/log/*					root.root		600
-/var/log/security				root.root		700
+/var/log/security/				root.root		700
 /var/log/security/*				root.root		600
-/var/spool/mail					root.mail		771
+/var/spool/mail/					root.mail		771

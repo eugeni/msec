@@ -145,19 +145,19 @@ def act():
             try:
                 os.chmod(f, newperm)
             except:
-                error('chmod %s %o: %s' % (f, newperm, sys.exc_value[0]))
+                error('chmod %s %o: %s' % (f, newperm, str(sys.exc_value)))
         if user != -1 and user != uid:
             log(_('changed owner of %s from %s to %s') % (f, get_user_name(uid), user_str))
             try:
                 os.chown(f, user, -1)
             except:
-                error('chown %s %s: %s' % (f, user, sys.exc_value[0]))
+                error('chown %s %s: %s' % (f, user, str(sys.exc_value)))
         if group != -1 and group != gid:
             log(_('changed group of %s from %s to %s') % (f, get_group_name(gid), group_str))
             try:
                 os.chown(f, -1, group)
             except:
-                error('chgrp %s %s: %s' % (f, group, sys.exc_value[0]))
+                error('chgrp %s %s: %s' % (f, group, str(sys.exc_value)))
 
 def chmod(f, newperm):
     try:
@@ -177,7 +177,7 @@ def chmod(f, newperm):
         try:
             os.chmod(f, newperm)
         except:
-            error('chmod %s %o: %s' % (f, newperm, sys.exc_value[0]))
+            error('chmod %s %o: %s' % (f, newperm, str(sys.exc_value)))
     return 1
 
 if __name__ == '__main__':

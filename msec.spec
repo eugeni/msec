@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.22
+Version:	0.23
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -17,6 +17,7 @@ Requires:	setup >= 2.2.0-21mdk
 Requires:	chkconfig >= 1.2.24-3mdk
 Requires:	fileutils >= 4.1.5
 Requires:	iproute2
+Requires:	sh-utils
 
 %description
 The Mandrake-Security package is designed to provide generic 
@@ -123,6 +124,10 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Thu May 30 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.23-1mdk
+- check that only root can run msec
+- added more complete error messages
+
 * Wed May 29 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.22-1mdk
 - corrected alias files loop (Jérôme UZEL).
 - added no_password_aging_for function to mseclib

@@ -5,3 +5,5 @@ fi
 if ! echo ${PATH} |grep -q /usr/games ; then
 	export PATH=$PATH:/usr/games
 fi
+
+export SECURE_LEVEL=${SECURE_LEVEL}

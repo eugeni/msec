@@ -1,3 +1,7 @@
+2001-09-20 17:45  florin
+
+	* init-sh/level*.sh: use /etc/profile.d instead of /etc/profile
+
 2001-09-19 15:37  florin
 
 	* msec.spec: source2 is msec.logrotate and not msec

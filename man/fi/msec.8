@@ -1,0 +1,71 @@
+.TH msec 8 "29 Sep 2001" "Mandrakesoft" "Mandrake Linux"
+.IX msec
+.SH NIMI
+msec \- Mandrake turvallisuustyˆkalut
+.SH YLEISKATSAUS
+.B msec
+([-o <optio>=<arvo>...]) ([0-5])
+.SH KUVAUS
+\fPmsec\fP on msec-paketin p‰‰skripti. Se sallii j‰rjestelm‰n yll‰pit‰j‰‰ muuttaa
+j‰rjestelm‰n turvatasoa. msec tarjoaa kuusi valmiiksi m‰‰ritetty‰ turvatasoa,
+jossa huono turvataso / helposti k‰ytett‰viss‰ vastaa taso 0 ja vainoharhainen / 
+vaikeampi k‰ytt‰‰ taso 5. N‰it‰ eri tasoja sopivat eri k‰yttˆtarkoituksiin, ja 
+ovat vapaasti asiantuntijan valittavissa.
+.PP
+Sinun pit‰‰ olla 'root' suorittaaksesi \fPmsec\fP .
+.br
+Suorita "msec x" asettaaksesi turvatasoa (x=[0-5]). Se muokkaa j‰rjestelm‰si 
+vastaamaan taso x m‰‰rityksi‰ ja ominaisuuksia. Jos suoritat msec ilman
+parametrej‰, se yll‰pit‰‰ nykyisen turvatason iman turvallisuuden alentamista.
+.br
+Kaikki muutokset kirjoitetaan j‰rjestelm‰lokiin AUTH kautta kun sit‰ kutsutaan 
+automaatisesti (esim. k‰ytt‰en cron) tai LOCAL1 kautta kun sit‰ kutsutaan
+interaktiivisesti (esim. komentorivist‰ tai Mandraken Ohjauskeskuksen kautta).
+.br
+Saadaaksesi tarkempi kuvaus eri turvatasosta, lue dokumentaatiota jota lˆyd‰t
+hakemistosta /usr/share/doc/msec-*/security.txt.
+.PP
+Jos haluat m‰‰ritt‰‰ omaa turvatasoa, jossa voit vapaasti hienos‰‰t‰‰ kaikki
+parametrit, suorita "msec custom". Se kysyy sinulta jokaisesta ominaisuudesta
+jos haluat ottaa sit‰ k‰yttˆˆn vai ei. Sitten kun olet vastannut kaikkiin 
+kysymyksiin se s‰‰t‰‰ j‰rjestelm‰si m‰‰rittelysi mukaan.
+.PP
+Jos haluattehd‰ muutoksia nykyiselle tasolle, k‰yt‰
+'/etc/security/msec/perm.local' ohittaaksesi oikeudet/omitajat/ryhm‰t ja
+'/etc/security/msec/level.local' ohittaaksesi s‰‰ntˆj‰ (katso mseclib(3) 
+jos haluat tarkempia tietoja).
+.PP
+K‰ytett‰viss‰ olevia optioita:
+.TP
+\fB\-o all-local-files=<arvo>\fR
+jos <arvo> on 1, huomioi ett‰ kaikki tiedostot ovat paikallisia.
+.TP
+\fB\-o log=<>\fR
+jos <arvo> on eri kuin syslog, kirjoita j‰rjestelm‰lokin sijasta
+oletus virhelokiin, yleens‰ konsoliin.
+.TP
+\fB\-o nolocal=<hakemisto>\fR
+‰l‰ lataa /etc/security/msec/level.local s‰‰ntˆj‰.
+.TP
+\fB\-o non-local-fstypes=<arvo>\fR
+<arvo> on listaus ei-paikallisista tiedostoj‰rjestelm‰-tyypeist‰ 
+pilkulla erotettuna.
+.TP
+\fB\-o print=<arvo>\fR
+jos <arvo> on 1, tulosta s‰‰ntˆjen oletusarvot.
+.TP
+\fB\-o root=<hakemisto>\fR
+k‰yt‰ <hakemisto> tiedostoj‰rjestelm‰n p‰‰hakemistona
+.SH TIEDOSTOT
+/usr/sbin/msec
+.br
+\fPmsec\fP suoritettava ohjelma (sh skripti)
+.PP
+/var/lib/msec/security.conf
+.br
+Sis‰lt‰‰ nykyisen k‰ytˆss‰ olevan turvatason asetuksia. N‰it‰ asetuksia
+voit ohittaa tiedostossa /etc/security/msec/security.conf.
+.SH TEKIJƒ
+Vandoorselaere Yoann, Mandrakesoft
+.br
+yoann@mandrakesoft.com

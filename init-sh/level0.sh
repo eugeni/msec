@@ -58,7 +58,6 @@ echo -e "done.\n"
 # /etc/inittab 
 echo "Enabling direct console access : "
 AddRules "1:2345:respawn:/bin/bash --login tty1" /etc/inittab
-echo "done.\n"
 
 # /etc/profile
 export SECURE_LEVEL=1

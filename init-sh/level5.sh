@@ -76,7 +76,6 @@ echo -e "done.\n"
 # /etc/inittab 
 echo "Disabling direct console access : "
 AddRules "1:2345:respawn:/sbin/mingetty tty1" /etc/inittab
-echo "done.\n"
 
 # Disable all server :
 echo "Setting secure level variable to 5 :"

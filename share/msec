@@ -43,11 +43,11 @@ for a in "$@"; do
     else
 	if [ "$NEXT" = 1 ]; then
 	    OPT="$OPT $a"
+	else
+	    last="$a"
 	fi
 	NEXT=0
     fi
-	
-    last="$a"
 done
 
 if [ -n "$last" ]; then

@@ -241,9 +241,9 @@ ForbidAutologin() {
 }
 
 ForbidUserList() {
-	file=/usr/share/config/kdmrc
+	file=/usr/share/config/kdm/kdmrc
 	if [[ -f ${file} ]]; then
-		perl -pi -e 's/^UserView=.*$/UserView=false/' ${file}		
+		perl -pi -e 's/^ShowUsers=.*$/ShowUsers=None/' ${file}		
 	fi
 
 	file=/etc/X11/gdm/gdm.conf
@@ -253,9 +253,9 @@ ForbidUserList() {
 }
 
 AllowUserList() {
-	file=/usr/share/config/kdmrc
+	file=/usr/share/config/kdm/kdmrc
     if [[ -f ${file} ]]; then
-		perl -pi -e 's/^UserView=.*$/UserView=true/' ${file}		
+		perl -pi -e 's/^ShowUsers=.*$/ShowUsers=All/' ${file}		
     fi
 
 	file=/etc/X11/gdm/gdm.conf

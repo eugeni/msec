@@ -1,3 +1,58 @@
+2002-01-29 00:22  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.18-2mdk
+
+2002-01-29 00:22  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: password aging for root too.
+
+2002-01-28 22:32  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/diff_check.sh: changed the wording for the rpm-va
+	changes.
+
+2002-01-28 21:20  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/perm.4: the snf mod are not needed
+
+2002-01-28 21:19  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: new option: server_level to set a different
+	server_level from the secure_level. For example the snf will be in
+	secure_level 4 and server_level snf.
+
+2002-01-28 21:19  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: handle /etc/security/msec/server symlink
+	through create_server_link().
+	
+	enable_security_check: register daily cron in /etc/cron.daily
+	instead of /etc/cron.d.
+
+2002-01-28 13:41  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: report msec instead of msec.py in the error
+	messages.
+
+2002-01-28 13:09  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.1, perm.2, perm.3, perm.5, perm.snf: made
+	mandrake_consmap 644 (Andrej)
+
+2002-01-28 13:08  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/perm.4: merged diff with snf.
+
+2002-01-28 11:25  Florin Grad <florin@mandrakesoft.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5, perm.snf:
+	change sendmail ownership
+
+2002-01-28 09:52  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/diff_check.sh: report too the date and the hostname when
+	the report is empty.
+
 2002-01-27 02:07  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.18-1mdk

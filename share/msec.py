@@ -91,6 +91,13 @@ set_secure_level(level)
 
 server=(level in range(3, 6))
 
+# process options
+server_level = Config.get_config('server_level')
+if server_level:
+    set_server_level(server_level)
+
+create_server_link()
+
 # for all levels: min length = 2 * (level - 1) and for level 4,5 makes mandatory
 # to have at least one upper case character and one digit.
 if level > 1:

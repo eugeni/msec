@@ -121,19 +121,13 @@ AddRules "umask 077" /etc/profile.d/msec.sh
 AddRules "umask 077" /etc/profile.d/msec.csh
 
 echo "Adding \"normal\" PATH variable :"
-if ! echo ${PATH} |grep -q /usr/X11R6/bin ; then
-	AddRules "export SECURE_LEVEL=5" /etc/profile.d/msec.sh quiet
-	AddRules "export PATH=\$PATH:/usr/X11R6/bin" /etc/profile.d/msec.sh quiet
-	AddRules "setenv SECURE_LEVEL 5" /etc/profile.d/msec.csh quiet
-	AddRules "setenv PATH \"\${PATH}:/usr/X11R6/bin\"" /etc/profile.d/msec.csh quiet
-fi
-if ! echo ${PATH} |grep -q /usr/games ; then
-	AddRules "export PATH=\$PATH:/usr/games" /etc/profile.d/msec.sh quiet
-	AddRules "setenv PATH \"\${PATH}:/usr/games\"" /etc/profile.d/msec.csh quiet
-fi
+AddRules "if ! echo \${PATH} |grep -q /usr/X11R6/bin ; then\n\texport PATH=\$PATH:/usr/X11R6/bin\nfi" /etc/profile.d/msec.sh quiet
+AddRules "if ! { (echo "\${PATH}" | grep -q /usr/X11R6/bin) } then\n\tsetenv PATH \"\${PATH}:/usr/X11R6/bin\"\nendif" /etc/profile.d/msec.csh quiet
+AddRules "if ! echo \${PATH} |grep -q /usr/games ; then\n\texport PATH=\$PATH:/usr/games\nfi" /etc/profile.d/msec.sh quiet
+AddRules "if ! { (echo "\${PATH}" | grep -q /usr/games) } then\n\tsetenv PATH \"\${PATH}:/usr/games\"\nendif" /etc/profile.d/msec.csh quiet
 
-AddRules "export PATH=\$PATH:." /etc/profile.d/msec.sh quiet
-AddRules "setenv PATH \"\${PATH}:.\"" /etc/profile.d/msec.csh quiet
+AddRules "if ! echo \${PATH} |grep -q :. ; then\n\texport PATH=\$PATH:.\nfi" /etc/profile.d/msec.sh quiet
+AddRules "if ! { (echo "\${PATH}" | grep -q :.) } then\n\tsetenv PATH \"\${PATH}:.\"\nendif" /etc/profile.d/msec.csh quiet
 
 if [[ -f /lib/libsafe.so.1.3 ]]; then
     echo "Enabling stack overflow protection :"

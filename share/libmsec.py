@@ -245,7 +245,7 @@ def allow_root_login(arg):
     if arg:
         _interactive and log(_('Allowing direct root login'))
         sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+no',
-                                                                   'PermitRootLogin yes')
+                                                                   'PermitRootLogin yes', 1)
         
         kde = ConfigFile.get_config_file(KDE)
         gdm = ConfigFile.get_config_file(GDM)
@@ -262,7 +262,7 @@ def allow_root_login(arg):
     else:
         _interactive and log(_('Forbidding direct root login'))
         sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+yes',
-                                                                   'PermitRootLogin no')
+                                                                   'PermitRootLogin no', 1)
         
         bastillenologin = ConfigFile.get_config_file(BASTILLENOLOGIN)
         bastillenologin.replace_line_matching('^\s*root', 'root', 1)
@@ -557,7 +557,7 @@ def password_aging(max, inactive=-1):
     _interactive and log(_('Setting password maximum aging for new user to %d') % max)
     logindefs = ConfigFile.get_config_file(LOGINDEFS)
     if logindefs.exists():
-        logindefs.replace_line_matching('^\s*PASS_MAX_DAYS', 'PASS_MAX_DAYS ' + str(max))
+        logindefs.replace_line_matching('^\s*PASS_MAX_DAYS', 'PASS_MAX_DAYS ' + str(max), 1)
         uid_min = logindefs.get_match('^\s*UID_MIN\s+([0-9]+)', '@1')
         if uid_min:
             uid_min = int(uid_min)

@@ -1,16 +1,24 @@
 ****************************
+Security level 0 :
+
+- no password
+- umask is 002 ( user = read,write | greoup = read,write | other = read ) 
+- easy file permission.
+- everybody authorized to connect to X display.
+- . in $PATH
+
+****************************
 Security level 1 :
 
 - Global security check.
 - umask is 002 ( user = read,write | greoup = read,write | other = read ) 
 - easy file permission.
 - localhost authorized to connect to X display.
-- User in audio group. 
 - . in $PATH
 - Warning in /var/log/security.log
 
 ****************************
-Security level 2 :
+Security level 2 ( Aka normal system ) :
 
 - Global security check
 - Suid root file check
@@ -22,10 +30,9 @@ Security level 2 :
 - umask is 022 ( user = read,write | group = read | other = read )
 - easy file permission.
 - localhost authorized to connect to X display.
-- User in audio group.
 
 ****************************
-Security level 3  ( Aka normal system ) :
+Security level 3  ( Aka more secure system ) :
 
 - Global security check 
 - Permissions check
@@ -40,11 +47,14 @@ Security level 3  ( Aka normal system ) :
 - Shadow file integrity check
 - Warning in syslog
 - Warning in /var/log/security.log
+- rpm database checks
 
 - umask is 022 ( user = read,write | group = read | other = read )
 - Normal file permission.
+- localhost authorized to connect to X display.
 - All system events additionally logged to /dev/tty12
 - Some system security check launched every midnight from the ( crontab ).
+- no autologin
 
 ****************************
 Security level 4 ( Aka Secured system ) :
@@ -63,17 +73,27 @@ Security level 4 ( Aka Secured system ) :
 - Warning in syslog
 - Warning in /var/log/security.log
 - Warning directly on tty
+- rpm database checks
 
 - umask 022 ( user = read,write | group = read | other = read ) for root
 - umask 077 ( user = read,write | group =  | other =  ) for normal users
 - restricted file permissions.
 - All system events additionally logged to /dev/tty12
 - System security check every midnight ( crontab ).
-* - Services not contained in /etc/security/msec/server.4 are disabled (
-  considered as not really secure ) ( but the user can reenable it with
-  chkconfig ).
-- Ask for a boot password ( if the user want ).
-- Connection to the system denyied for all except localhost.
+- localhost authorized to connect to X display.
+- X server doesn't listen for tcp connections
+- no autologin
+- sulogin in single user
+- no list of users in kdm and gdm
+- password aging at 60 days
+- shell history limited to 10
+- shell timeout 3600 seconds
+- at and crontab not allowed to users not listd in /etc/at.allow and /etc/cron.allow
+* - Services not contained in /etc/security/msec/server.4 are disabled during
+package installation (  considered as not really secure ) ( but the user can reenable it with
+chkconfig -add ).
+- Connection to the system denyied for all except localhost (authorized services must be
+in /etc/hosts.allow).
 - ctrl-alt-del only allowed for root ( or user in /etc/shutdown.allow ).
 
 *******************************
@@ -93,16 +113,26 @@ Security level 5 ( Aka Paranoid system ) :
 - Warning in syslog
 - Warning in /var/log/security.log
 - Warning directly on tty
+- rpm database checks
 
 - umask 077 ( user = read,write | group =  | other =  )
 - Highly restricted file permission
 - All system events additionally logged to /dev/tty12
 - System security check every midnight ( crontab ).
-- Services not contained in /etc/security/msec/server.5 are disabled (
-  considered as not really secure ) ( but the user can reenable it with
-  chkconfig ).
-- Ask for a boot password ( if the user want ).
-- Connection to the system denyied for all.
+- X server doesn't listen for tcp connections
+- no autologin
+- sulogin in single user
+- no list of users in kdm and gdm
+- password aging at 30 days
+- shell history limited to 10
+- shell timeout 900 seconds
+- su to root only allowed to members of the wheel group (activated only if the wheel group
+isn't empty)
+* - Services not contained in /etc/security/msec/server.5 are disabled during
+package installation (  considered as not really secure ) ( but the user can reenable it with
+chkconfig -add ).
+- Connection to the system denyied for all (authorized services must be
+in /etc/hosts.allow).
 - ctrl-alt-del only allowed for root ( or user in /etc/shutdown.allow ) .
 
 ******************
@@ -110,10 +140,10 @@ Security level 5 ( Aka Paranoid system ) :
 * level4/level5 : "services disabled" explanations :
 
 - Some server aren't really considered as secure,
-  these one, should for exemple be compiled from sources.
+  these one, should for example be compiled from sources.
   server considered as secure are specified in /etc/security/msec/server.4/5
   
-  When enabling level4/5, all server which aren't considered as secure are
+  When enabling level4/5, all servers which aren't considered as secure are
   disabled ( NOT uninstalled, just disabled ) user can reenable them using the
   chkconfig utility ( server will be launched at next boot ).
  
@@ -130,7 +160,6 @@ Security level 5 ( Aka Paranoid system ) :
 
 *** Future Release : ***
 - Automatic tty locking ( unlock by passwd ) after X time of inactivity.
-- In high security level, only user having access to group "sugrp" can use the su command.
 ***
 
 

@@ -246,7 +246,7 @@ FILE_CHECKS = {'CHECK_SECURITY' :   ('no',  'yes', 'yes', 'yes',  'yes',  'yes',
 for k in FILE_CHECKS.keys():
     set_security_conf(k, FILE_CHECKS[k][level])
 
-if Config.get_config('nolocal', '0') == '1':
+if Config.get_config('nolocal', '0') == '0':
     # load local customizations
     CONFIG='/etc/security/msec/level.local'
     if os.path.exists(CONFIG):

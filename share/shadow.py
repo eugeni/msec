@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #---------------------------------------------------------------
 # Project         : Mandrake Linux
-# Module          : share
+# Module          : msec/share
 # File            : shadow.py
 # Version         : $Id$
 # Author          : Frederic Lepied
@@ -53,6 +53,31 @@ def commit_changes():
         if len(f[1]) >= 1 and f[1][0] != -1:
             apply(f[0], f[1])
 
+def print_changes():
+    import sys
+    for f in FAKE.values():
+        l = len(f[1])
+        if l >= 1 and f[1][0] != -1:
+            name = f[0].__name__
+            try:
+                if f[0].one_arg:
+                    l = 1
+            except AttributeError:
+                pass
+            if l == 1:
+                print name, get_translation(f[0], f[1][0])
+            else:
+                sys.stdout.write(name)
+                for a in f[1]:
+                    sys.stdout.write(' ' + str(a))
+                sys.stdout.write('\\n')
+
+def get_translation(func, value):
+    try:
+        return func.arg_trans[value]
+    except (KeyError, AttributeError):
+        return value
+    
 """
 
 ### code

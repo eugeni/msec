@@ -45,10 +45,10 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
 
     if [[ -s ${UNOWNED_GROUP_TODAY} ]]; then
 	printf "\nSecurity Warning : Group Unowned files found :\n" >> ${SECURITY}
-        printf "\t( theses files now have group \"nogroup\" as their group owner. )\n" >> ${SECURITY}
+        printf "\t( theses files now have group \"nobody\" as their group owner. )\n" >> ${SECURITY}
 	cat ${UNOWNED_GROUP_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
 	cat ${UNOWNED_GROUP_TODAY} | while read line; do
-	    chgrp nogroup "${line}"; # Use quote if filename contain space. 
+	    chgrp nobody "${line}"; # Use quote if filename contain space. 
 	done
     fi
 fi

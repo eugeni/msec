@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.17
-Release:	13mdk
+Release:	14mdk
 Url:		http://www.linux-mandrake.com
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -103,6 +103,9 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Mon Jan 21 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-14mdk
+- perm.*: make mandrake_consmap 755 because it needs to be readable by everyone
+
 * Sun Jan 20 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-13mdk
 - diff_check.sh: mail even if the report is empty to show that the check
 was fine.

@@ -51,7 +51,7 @@ def indirect(name, func, type, args):
 
 def commit_changes():
     for f in FAKE.values():
-        if len(f[1]) >= 1 and f[1][0] != -1:
+        if len(f[1]) >= 1 and (f[1][0] != -1 or f[0].__name__ == 'set_shell_history_size'):
             f[0](*f[1])
         elif len(f[1]) == 0:
             f[0]()

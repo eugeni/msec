@@ -174,12 +174,17 @@ else:
 # differences between level 0 and others
 if level != 0:
     enable_security_check(1)
+    enable_password(1)
     if level < 3:
         allow_x_connections(LOCAL, 1)
     else:
-        allow_x_connections(NONE, 0)
+        if level == 3:
+            allow_x_connections(NONE, 1)
+        else:
+            allow_x_connections(NONE, 0)
 else:
     enable_security_check(0)
+    enable_password(0)
     allow_x_connections(ALL, 1)
 
 # msec cron

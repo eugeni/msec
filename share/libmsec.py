@@ -168,11 +168,16 @@ create_server_link.arg_trans = YES_NO_TRANS
 
 ################################################################################
 
+STRING_TYPE = type('')
+
 # helper function for set_root_umask and set_user_umask
 def set_umask(variable, umask, msg):
     'D'
     msec = ConfigFile.get_config_file(MSEC)
-    
+
+    if type(umask) == STRING_TYPE:
+        umask = int(umask, 8)
+
     if msec.exists():
         val = msec.get_shell_variable(variable)
     else:
@@ -181,9 +186,12 @@ def set_umask(variable, umask, msg):
     # don't lower security when not changing security level
     if _same_level:
         if val:
-            octal = int(umask, 8) | int(val, 8)
+            octal = umask | int(val, 8)
             umask = '0%o' % octal
-                
+
+    if type(umask) != STRING_TYPE:
+        umask = '0%o' % umask
+        
     if val != umask:
         _interactive and log(_('Setting %s umask to %s') % (msg, umask))
         msec.set_shell_variable(variable, umask)
@@ -1137,7 +1145,9 @@ inactive_regex = re.compile('^Inactive:\s*(-?[0-9]+)', re.MULTILINE)
 no_aging_list = []
 
 def no_password_aging_for(name):
-    '''D Add the name as an exception to the handling of password aging by msec.'''
+    '''D Add the name as an exception to the handling of password aging by msec.
+Name must be put between '. Msec will then no more manage password aging for
+name so you have to use chage(1) to manage it by hand.'''
     no_aging_list.append(name)
     
 # TODO FL Sat Dec 29 20:18:20 2001
@@ -1205,7 +1215,7 @@ def password_aging(max, inactive=-1):
 def set_security_conf(var, value):
     '''1 Set the variable \\fIvar\\fP to the value \\fIvalue\\fP in /var/lib/msec/security.conf.
 The best way to override the default setting is to use create /etc/security/msec/security.conf
-with the value you want.
+with the value you want. These settings are used to configure the daily check run each night.
 
 The following variables are currentrly recognized by msec:
 

@@ -120,7 +120,7 @@ static int traverse(const char *file, const struct stat *sb, int flag, struct FT
                 /*
                  * Unowned group check.
                  */
-                g_nss_data = getgrgid(sb->st_uid);
+                g_nss_data = getgrgid(sb->st_gid);
 		if (g_nss_data == NULL)
 			fprintf(unowned_group_fd, "%s\n", file);
 		break;
@@ -191,7 +191,7 @@ int main(int argc, char **argv)
                          */
                     
                         ctrl = 1;
-                        directory = ( char * ) malloc((strlen(argv[i]) + 1));
+                        directory = ( char * ) malloc((strlen(argv[i]) + 2));
                         if ( ! directory ) {
                                 perror("malloc");
                                 exit(1);

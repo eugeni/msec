@@ -51,6 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 - updated documentation.
 - file_perm.sh : bug fix + output to /dev/null.
 - include /var/tmp in perm.[0-5].
+- Patch to msec_find from Thomas Poindessous.
 
 * Fri Apr 14 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.12-1mdk
 - Modify zprofile.

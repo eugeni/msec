@@ -43,7 +43,7 @@ CRON = '/etc/cron.d/msec'
 CRONALLOW = '/etc/cron.allow'
 GDM = '/etc/pam.d/gdm'
 GDMCONF = '/etc/X11/gdm/gdm.conf'
-HALT = '/etc/security/console.apps/halt'
+HALT = '/usr/bin/halt'
 HOSTCONF = '/etc/host.conf'
 HOSTSDENY = '/etc/hosts.deny'
 INITTAB = '/etc/inittab'
@@ -61,15 +61,15 @@ MSECCRON = '/etc/cron.hourly/msec'
 MSEC_XINIT = '/etc/X11/xinit.d/msec'
 OPASSWD = '/etc/security/opasswd'
 PASSWD = '/etc/pam.d/passwd'
-POWEROFF = '/etc/security/console.apps/poweroff'
-REBOOT = '/etc/security/console.apps/reboot'
+POWEROFF = '/usr/bin/poweroff'
+REBOOT = '/usr/bin/reboot'
 SECURETTY = '/etc/securetty'
 SECURITYCONF = '/var/lib/msec/security.conf'
 SECURITYCRON = '/etc/cron.daily/msec'
 SECURITYSH = '/usr/share/msec/security.sh'
 SERVER = '/etc/security/msec/server'
 SHADOW = '/etc/shadow'
-SHUTDOWN = '/etc/security/console.apps/shutdown'
+SHUTDOWN = '/usr/bin/shutdown'
 SHUTDOWNALLOW = '/etc/shutdown.allow'
 SSHDCONFIG = '/etc/ssh/sshd_config'
 STARTX = '/usr/X11R6/bin/startx'
@@ -376,6 +376,7 @@ def get_index(val, array):
 ################################################################################
 ALLOW_SHUTDOWN_VALUES = ('All', 'Root', 'None')
 CTRALTDEL_REGEXP = '^ca::ctrlaltdel:/sbin/shutdown.*'
+CONSOLE_HELPER = 'consolehelper'
 
 def allow_reboot(arg):
     '''  Allow/Forbid reboot by the console user.'''
@@ -417,7 +418,7 @@ def allow_reboot(arg):
         for f in [SHUTDOWN, POWEROFF, REBOOT, HALT]:
             cfg = ConfigFile.get_config_file(f)
             if not (same_level() and not val[f]):
-                cfg.exists() or cfg.touch()
+                cfg.exists() or cfg.symlink(CONSOLE_HELPER)
         if not (same_level() and val_sysctlconf == '0'):
             sysctlconf.set_shell_variable('kernel.sysrq', 1)
         if not (same_level() and val_gdmconf == 'false'):

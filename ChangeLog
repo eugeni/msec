@@ -1,3 +1,7 @@
+1999-12-19 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+        * Big cleanup.
+        * All work properly now.
+
 1999-12-19  Pixel  <pixel@mandrakesoft.com>
 	* msec.spec: modify to take into account the Makefile modifying
 	the .spec

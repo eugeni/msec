@@ -43,34 +43,29 @@ Ttylog() {
 
 ### Writeable file detection
 if [[ ${CHECK_WRITEABLE} == yes ]]; then
-    find ${DIR} -xdev -type f -perm -2 -print | sort > ${TMP}
-
-    if [[ -s ${TMP} ]]; then
-	printf "\nSecurity Warning: World Writeable Files found :\n" >> ${SECURITY}
-	cat ${TMP} | awk '{print "\t\t- " $0}' >> ${SECURITY}
+    if [[ -s ${WRITEABLE_TODAY} ]]; then
+	printf "\nSecurity Warning: World Writeable files found :\n" >> ${SECURITY}
+	cat ${WRITEABLE_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
     fi
 fi
 
 ### Search Un Owned file
 if [[ ${CHECK_UNOWNED} == yes ]]; then
-    find ${DIR} -xdev -nouser -print | sort > ${TMP}
-
-    if [[ -s ${TMP} ]]; then
-	printf "\nSecurity Warning : the following file aren't owned by any user :\n" >> ${SECURITY}
-	printf "\ttheses files now have user \"nobody\" as their owner." >> ${SECURITY_LOG}
-	cat ${TMP} | awk '{print "\t\t- " $0}' >> ${SECURITY}
-        cat ${TMP} | while read line; do
-	    chown nobody ${line}; 
+    if [[ -s ${UNOWNED_USER_TODAY} ]]; then
+	printf "\nSecurity Warning : User Unowned files found :\n" >> ${SECURITY}
+	printf "\t( theses files now have user \"nobody\" as their owner. )\n" >> ${SECURITY_LOG}
+	cat ${UNOWNED_USER_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
+        cat ${UNOWNED_USER_TODAY} | while read line; do
+	    chown nobody "${line}"; # Use quote if filename contain space. 
 	done	
     fi
 
-    find $DIR -xdev -nogroup -print | sort > ${TMP}
-    if [[ -s ${TMP} ]]; then
-	printf "\nSecurity Warning : the following file aren't owned by any group :\n" >> ${SECURITY}
-        printf "\ttheses files now have group \"nogroup\" as their group owner." >> ${SECURITY}
-	cat ${TMP} | awk '{print "\t\t- " $0}' >> ${SECURITY}
-	cat ${TMP} | while read line; do
-	    chgrp nogroup ${line}; 
+    if [[ -s ${UNOWNED_GROUP_TODAY} ]]; then
+	printf "\nSecurity Warning : Group Unowned files found :\n" >> ${SECURITY}
+        printf "\t( theses files now have group \"nogroup\" as their group owner. )\n" >> ${SECURITY}
+	cat ${UNOWNED_GROUP_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
+	cat ${UNOWNED_GROUP_TODAY} | while read line; do
+	    chgrp nogroup "${line}"; # Use quote if filename contain space. 
 	done
     fi
 fi

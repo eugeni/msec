@@ -1,5 +1,5 @@
 %define version 0.12
-2%define release mdk
+%define release 3mdk
 
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
@@ -46,8 +46,10 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/security/msec
 
 %changelog
-* Mon Apr 17 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.12-2mdk
+* Mon Apr 17 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.12-3mdk
+- perm.5 : -e s'/ntool/ntools/' -e s'/ctool/ctools/'
 - updated documentation.
+- fixed file_perm.sh
 
 * Fri Apr 14 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.12-1mdk
 - Modify zprofile.

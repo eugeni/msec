@@ -1,4 +1,7 @@
 2000-04-17 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* file_perm.sh : removed a check to see if file exist because it block *
+	 entry.
+	* updated perm.5
 	* Updated the doc.
 
 2000-04-14 Yoann Vandoorselaere <yoann@mandrakesoft.com>

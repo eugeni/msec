@@ -1,6 +1,6 @@
 #!/usr/bin/python -O
 #---------------------------------------------------------------
-# Project         : Mandrake Linux
+# Project         : Mandrakelinux
 # Module          : msec/share
 # File            : msec.py
 # Version         : $Id$

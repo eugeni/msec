@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #---------------------------------------------------------------
-# Project         : Mandrake Linux
+# Project         : Mandrakelinux
 # Module          : share
 # File            : draksec_help.py
 # Version         : $Id$

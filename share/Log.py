@@ -1,12 +1,12 @@
 #---------------------------------------------------------------
-# Project         : Mandrake Linux
+# Project         : Mandrakelinux
 # Module          : msec2
 # File            : Log.py
 # Version         : $Id$
 # Author          : Frederic Lepied
 # Created On      : Wed Dec  5 23:50:29 2001
 # Purpose         : write log through syslog conforming to
-#                   the Mandrake Linux guideline for the explanations
+#                   the Mandrakelinux guideline for the explanations
 #                   in tools. Errors are reported to stderr.
 #---------------------------------------------------------------
 

@@ -1,5 +1,5 @@
 #---------------------------------------------------------------
-# Project         : Mandrake Linux
+# Project         : Mandrakelinux
 # Module          : share
 # File            : Makefile
 # Version         : $Id$

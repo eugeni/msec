@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #---------------------------------------------------------------
-# Project         : Mandrake Linux
+# Project         : Mandrakelinux
 # Module          : msec/share
 # File            : shadow.py
 # Version         : $Id$

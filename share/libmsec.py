@@ -29,6 +29,7 @@ except IOError:
 
 SUFFIX='.msec'
 _interactive=0
+_same_level=1
 
 # list of config files
 
@@ -90,6 +91,13 @@ ConfigFile.add_config_assoc(LILOCONF, '[ `/usr/sbin/detectloader` = LILO ] && /s
 ConfigFile.add_config_assoc(SYSLOGCONF, '[ -f /var/lock/subsys/syslog ] && service syslog reload')
 ConfigFile.add_config_assoc('^/etc/issue$', '/usr/bin/killall mingetty')
 
+#
+
+def changing_level():
+    'D'
+    global _same_level
+    _same_level=0
+    
 # configuration rules
 
 def set_secure_level(level):
@@ -98,7 +106,7 @@ def set_secure_level(level):
     msec.set_shell_variable('SECURE_LEVEL', level)
 
 def get_secure_level():
-    "D"
+    'D'
     msec = ConfigFile.get_config_file(MSEC)
     return msec.get_shell_variable('SECURE_LEVEL')
 
@@ -108,7 +116,7 @@ def set_server_level(level):
     securityconf.set_shell_variable('SERVER_LEVEL', level)
 
 def get_server_level():
-    "D"
+    'D'
     securityconf = ConfigFile.get_config_file(SECURITYCONF)
     level = securityconf.get_shell_variable('SERVER_LEVEL')
     if level: return level
@@ -130,29 +138,41 @@ during the installation of packages.'''
         _interactive and log(_('Restricting chkconfig --add from rpm'))
         server.symlink(SERVER + '.' + str(level))
 
+# helper function for set_root_umask and set_user_umask
+def set_umask(variable, umask, msg):
+    'D'
+    msec = ConfigFile.get_config_file(MSEC)
+    
+    if msec.exists():
+        val = msec.get_shell_variable(variable)
+    else:
+        val = None
+
+    # don't lower security when not changing security level
+    if _same_level:
+        if val:
+            octal = string.atoi(umask, 8) | string.atoi(val, 8)
+            umask = '0%o' % octal
+                
+    if val != umask:
+        _interactive and log(_('Setting %s umask to %s') % (msg, umask))
+        msec.set_shell_variable(variable, umask)
+    
 def set_root_umask(umask):
     '''  Set the root umask.'''
-    _interactive and log(_('Setting root umask to %s') % umask)
-    msec = ConfigFile.get_config_file(MSEC)
-    msec.set_shell_variable('UMASK_ROOT', umask)
+    set_umask('UMASK_ROOT', umask, 'root')
 
 def set_user_umask(umask):
     '''  Set the user umask.'''
-    _interactive and log(_('Setting users umask to %s') % umask)
-    msec = ConfigFile.get_config_file(MSEC)
-    msec.set_shell_variable('UMASK_USER', umask)
+    set_umask('UMASK_USER', umask, 'users')
 
-def allow_x_connections(arg, listen_tcp):
+# the listen_tcp argument is kept for backward compatibility
+def allow_x_connections(arg, listen_tcp=None):
     '''  Allow/Forbid X connections. First arg specifies what is done
 on the client side: ALL (all connections are allowed), LOCAL (only
-local connection) and NONE (no connection). The second argument
-specifies what is authorized on the server side: if clients are
-authorized to connect on the tcp port 6000 or not.'''
+local connection) and NONE (no connection).'''
     
     msec = ConfigFile.get_config_file(MSEC_XINIT)
-    startx = ConfigFile.get_config_file(STARTX)
-    xservers = ConfigFile.get_config_file(XSERVERS)
-    gdmconf = ConfigFile.get_config_file(GDMCONF)
     
     if arg == ALL:
         _interactive and log(_('Allowing users to connect X server from everywhere'))
@@ -169,8 +189,16 @@ authorized to connect on the tcp port 6000 or not.'''
     else:
         error(_('invalid allow_x_connections arg: %s') % arg)
         return
+
+def allow_xserver_to_listen(arg):
+    ''' The argument specifies if clients are authorized to connect
+to the X server on the tcp port 6000 or not.'''
+     
+    startx = ConfigFile.get_config_file(STARTX)
+    xservers = ConfigFile.get_config_file(XSERVERS)
+    gdmconf = ConfigFile.get_config_file(GDMCONF)
     
-    if listen_tcp:
+    if arg:
         _interactive and log(_('Allowing the X server to listen to tcp connections'))
         startx.exists() and startx.replace_line_matching('(\s*clientargs=".*) -nolisten tcp(.*")', '@1@2')
         xservers.exists() and xservers.replace_line_matching('(\s*[^#]+/usr/X11R6/bin/X .*) -nolisten tcp(.*)', '@1@2', 0, 1)
@@ -239,13 +267,10 @@ def allow_user_list(arg):
 
 def allow_root_login(arg):
     '''  Allow/Forbid direct root login.'''
-    sshd_config = ConfigFile.get_config_file(SSHDCONFIG)
     securetty = ConfigFile.get_config_file(SECURETTY)
     
     if arg:
         _interactive and log(_('Allowing direct root login'))
-        sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+(no|yes)',
-                                                                   'PermitRootLogin yes', 1)
         
         kde = ConfigFile.get_config_file(KDE)
         gdm = ConfigFile.get_config_file(GDM)
@@ -261,8 +286,6 @@ def allow_root_login(arg):
             securetty.replace_line_matching(s, s, 1)
     else:
         _interactive and log(_('Forbidding direct root login'))
-        sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+(no|yes)',
-                                                                   'PermitRootLogin no', 1)
         
         bastillenologin = ConfigFile.get_config_file(BASTILLENOLOGIN)
         bastillenologin.replace_line_matching('^\s*root', 'root', 1)
@@ -277,10 +300,42 @@ def allow_root_login(arg):
         
         securetty.remove_line_matching('.+', 1)
 
+def allow_remote_root_login(arg):
+    '''  Allow/Forbid remote root login.'''
+    sshd_config = ConfigFile.get_config_file(SSHDCONFIG)
+
+    if sshd_config.exists():
+        val = sshd_config.get_match('^\s*PermitRootLogin\s+(no|yes)', '@1')
+    else:
+        val = None
+
+    # don't lower security when not changing security level
+    if _same_level:
+        if val == 'no':
+            return
+
+    val = (val == 'yes')
+
+    if arg:
+        if val != arg:
+            _interactive and log(_('Allowing remote root login'))
+            sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+(no|yes)',
+                                                                       'PermitRootLogin yes', 1)
+    else:
+        if val != arg:
+            _interactive and log(_('Forbidding remote root login'))
+            sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+(no|yes)',
+                                                                       'PermitRootLogin no', 1)
+
 def enable_pam_wheel_for_su(arg):
     '''   Enabling su only from members of the wheel group or allow su from any user.'''
     su = ConfigFile.get_config_file(SU)
-    
+
+    # don't lower security when not changing security level
+    if _same_level:
+        if su.exists() and su.get_match('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$'):
+            return
+
     if arg:
         _interactive and log(_('Allowing su only from wheel group members'))
         try:
@@ -323,16 +378,28 @@ allowed else only /etc/issue is allowed.'''
 def allow_autologin(arg):
     '''  Allow/Forbid autologin.'''
     autologin = ConfigFile.get_config_file(AUTOLOGIN)
-    
-    if arg:
-        _interactive and log(_('Allowing autologin'))
-        autologin.exists() and autologin.set_shell_variable('AUTOLOGIN', 'yes')
+
+    if autologin.exists():
+        val = autologin.get_shell_variable('AUTOLOGIN')
     else:
-        _interactive and log(_('Forbidding autologin'))
-        autologin.exists() and autologin.set_shell_variable('AUTOLOGIN', 'no')
+        val = None
+        
+    # don't lower security when not changing security level
+    if _same_level:
+        if val == 'no':
+            return
+
+    if arg:
+        if val != 'yes':
+            _interactive and log(_('Allowing autologin'))
+            autologin.exists() and autologin.set_shell_variable('AUTOLOGIN', 'yes')
+    else:
+        if val != 'no':
+            _interactive and log(_('Forbidding autologin'))
+            autologin.exists() and autologin.set_shell_variable('AUTOLOGIN', 'no')
 
 def password_loader(value):
-    "D"
+    'D'
     _interactive and log(_('Activating password in boot loader'))
     liloconf = ConfigFile.get_config_file(LILOCONF)
     liloconf.exists() and (liloconf.replace_line_matching('^password=', 'password="' + value + '"', 0, 1) or \
@@ -346,7 +413,7 @@ def password_loader(value):
     # TODO add yaboot support
         
 def nopassword_loader():
-    "D"
+    'D'
     _interactive and log(_('Removing password in boot loader'))
     liloconf = ConfigFile.get_config_file(LILOCONF)
     liloconf.exists() and liloconf.remove_line_matching('^password=', 1)
@@ -410,56 +477,66 @@ if \\fIarg\\fP = LOCAL and none if \\fIarg\\fP = NONE. To authorize the services
         hostsdeny.replace_line_matching('^ALL:ALL EXCEPT 127\.0\.0\.1:DENY$', 'ALL:ALL EXCEPT 127.0.0.1:DENY', 1)
     else:
         error(_('authorize_services invalid argument: %s') % arg)
+
+# helper function for enable_ip_spoofing_protection, accept_icmp_echo, accept_broadcasted_icmp_echo,
+# accept_bogus_error_responses and enable_log_strange_packets.
+def set_zero_one_variable(file, variable, value, secure_value, one_msg, zero_msg):
+    'D'
+    f = ConfigFile.get_config_file(file)
+
+    if f.exists():
+        val = string.atoi(f.get_shell_variable(variable))
+    else:
+        val = None
+        
+    # don't lower security when not changing security level
+    if _same_level:
+        if val == secure_value:
+            return
     
+    if value != val:
+        if value:
+            msg = _(one_msg)
+        else:
+            msg = _(zero_msg)
+        
+        _interactive and log(msg)
+        f.set_shell_variable(variable, value)
+
+# the alert argument is kept for backward compatibility
 def enable_ip_spoofing_protection(arg, alert=1):
-    '''  Enable/Disable IP spoofing protection. If \\fIalert\\fP is true, also reports to syslog.'''
+    '''  Enable/Disable IP spoofing protection.'''
+    set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.rp_filter', arg, 1, 'Enabling ip spoofing protection', 'Disabling ip spoofing protection')
+
+def enable_dns_spoofing_protection(arg, alert=1):
+    ''' Enable/Disable name resolution spoofing protection.  If
+\\fIalert\\fP is true, also reports to syslog.'''
     hostconf = ConfigFile.get_config_file(HOSTCONF)
 
     if arg:
-        _interactive and log(_('Enabling ip spoofing protection'))
+        _interactive and log(_('Enabling name resolution spoofing protection'))
         hostconf.replace_line_matching('nospoof', 'nospoof on', 1)
         hostconf.replace_line_matching('spoofalert', 'spoofalert on', (alert != 0))
-        sysctlconf = ConfigFile.get_config_file(SYSCTLCONF)
-        sysctlconf.set_shell_variable('net.ipv4.conf.all.rp_filter', 1)
     else:
-        _interactive and log(_('Disabling ip spoofing protection'))
+        _interactive and log(_('Disabling name resolution spoofing protection'))
         hostconf.remove_line_matching('nospoof')
         hostconf.remove_line_matching('spoofalert')
 
 def accept_icmp_echo(arg):
     '''   Accept/Refuse icmp echo.'''
-    sysctlconf = ConfigFile.get_config_file(SYSCTLCONF)
-
-    if arg:
-        _interactive and log(_('Accepting icmp echo'))
-        sysctlconf.set_shell_variable('net.ipv4.icmp_echo_ignore_all', 0)
-        sysctlconf.set_shell_variable('net.ipv4.icmp_echo_ignore_broadcasts', 0)
-    else:
-        _interactive and log(_('Ignoring icmp echo'))
-        sysctlconf.set_shell_variable('net.ipv4.icmp_echo_ignore_all', 1)
-        sysctlconf.set_shell_variable('net.ipv4.icmp_echo_ignore_broadcasts', 1)
+    set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_all', not arg, 1, 'Accepting icmp echo', 'Ignoring icmp echo')
+    
+def accept_broadcasted_icmp_echo(arg):
+    '''   Accept/Refuse broadcasted icmp echo.'''
+    set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_broadcasts', not arg, 1, 'Accepting broadcasted icmp echo', 'Ignoring broadcasted icmp echo')
     
 def accept_bogus_error_responses(arg):
     '''  Accept/Refuse bogus IPv4 error messages.'''
-    sysctlconf = ConfigFile.get_config_file(SYSCTLCONF)
-
-    if arg:
-        _interactive and log(_('Accepting bogus icmp error responses'))
-        sysctlconf.set_shell_variable('net.ipv4.icmp_ignore_bogus_error_responses', 0)
-    else:
-        _interactive and log(_('Ignoring bogus icmp error responses'))
-        sysctlconf.set_shell_variable('net.ipv4.icmp_ignore_bogus_error_responses', 1)
+    set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_ignore_bogus_error_responses', not arg, 1, 'Accepting bogus icmp error responses', 'Ignoring bogus icmp error responses')
     
 def enable_log_strange_packets(arg):
     '''  Enable/Disable the logging of IPv4 strange packets.'''
-    sysctlconf = ConfigFile.get_config_file(SYSCTLCONF)
-
-    if arg:
-        _interactive and log(_('Enabling logging of strange packets'))
-        sysctlconf.set_shell_variable('net.ipv4.conf.all.log_martians', 1)
-    else:
-        _interactive and log(_('Disabling logging of strange packets'))
-        sysctlconf.set_shell_variable('net.ipv4.conf.all.log_martians', 0)
+    set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.log_martians', arg, 1, 'Enabling logging of strange packets', 'Disabling logging of strange packets')
 
 def enable_libsafe(arg):
     '''  Enable/Disable libsafe if libsafe is found on the system.'''

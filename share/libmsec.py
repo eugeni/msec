@@ -393,7 +393,7 @@ def allow_user_list(arg):
     kdmrc = ConfigFile.get_config_file(KDMRC)
     gdmconf = ConfigFile.get_config_file(GDMCONF)
     
-    oldval_kdmrc = kdmrc.exists() and kdmrc.get_shell_variable('ShowUsers')
+    oldval_kdmrc = kdmrc.exists() and kdmrc.get_shell_variable('ShowUsers', 'X-\*-Greeter', '^\s*$')
     oldval_gdmconf = gdmconf.exists() and gdmconf.get_shell_variable('Browser')
     
     if arg:
@@ -416,7 +416,7 @@ def allow_user_list(arg):
     
     if (gdmconf.exists() and oldval_gdmconf != val_gdmconf) or (kdmrc.exists() and oldval_kdmrc != val_kdmrc):
         _interactive and log(_(msg))
-        oldval_kdmrc != val_gdmconf and kdmrc.exists() and kdmrc.set_shell_variable('ShowUsers', val_kdmrc)
+        oldval_kdmrc != val_gdmconf and kdmrc.exists() and kdmrc.set_shell_variable('ShowUsers', val_kdmrc, 'X-\*-Greeter', '^\s*$')
         oldval_gdmconf != val_gdmconf and gdmconf.exists() and gdmconf.set_shell_variable('Browser', val_gdmconf)
 
 allow_user_list.arg_trans = YES_NO_TRANS

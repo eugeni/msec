@@ -46,30 +46,7 @@ AddRules() {
 AddBegRules() {
     echo "Modifying config in ${2}..."
     
-/usr/bin/perl -e '
-    my $m;
-
-    $file = shift or die;
-    $temp = `mktemp /tmp/secure.XXXXXX`;
-
-    chomp $temp;
-
-    open FH, $file;
-    open FW, ">$temp";
-
-    while (<FH>) {
-	if (!/^\#/ && !/^$/ && !$m) {
-	    print FW $ENV{"COMMENT"};
-	    print FW "\n";
-	    print FW "@ARGV\n\n"; $m++;
-	}
-	print FW;
-    }
-    close FH;
-    close FW;
-
-    `mv -f $temp $file`;
-' $@
+    perl -pe -i '/^#/ or /^$/ or $m++ or print "$ENV{COMMENT}\n@ARGV\n\n"' $@
 
     echo -e "done.\n"
 }

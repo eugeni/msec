@@ -55,6 +55,7 @@ rm -rf $RPM_BUILD_ROOT
   the first do normal security check, the other watch at anormal change
   on the system...
 - Bug fix again & again
+- Updated perm files & fix a security problem ( thanks Axalon ).
 
 * Wed Dec  1 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - DrakX compatibility.

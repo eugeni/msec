@@ -47,7 +47,7 @@ echo -e "\t- Check suid root file integrity (backdoor check) : yes."
 echo -e "\t- Check suid group file : yes."
     AddRules "CHECK_SUID_GROUP=yes" /etc/security/msec/security.conf	quiet
 echo -e "\t- Check world writable file : yes."
-    AddRules "CHECK_WRITABLE=yes" /etc/security/msec/security.conf	quiet
+    AddRules "CHECK_WRITEABLE=yes" /etc/security/msec/security.conf	quiet
 echo -e "\t- Check unowned file : yes."
     AddRules "CHECK_UNOWNED=yes" /etc/security/msec/security.conf	quiet
 echo -e "\t- Check promiscuous mode : yes."

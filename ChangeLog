@@ -1,4 +1,7 @@
 1999-15-10  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* grpuser.sh take only one opt ( --refresh ),
+	  take group name from /etc/security/msec/init-sh/group.conf
+	  and add user from /etc/security/msec/init-sh/user.conf if secure level > 2
 	* level0.sh fixed inittab entry
 	* fix a typo
 	* As requested, direct shell access for level 0

@@ -1,4 +1,4 @@
-VERSION = 0.5
+VERSION = 0.7
 
 all: promisc_check
 
@@ -20,7 +20,8 @@ rpm_install: all
 	cp init-sh/file_perm.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
 	cp init-sh/perm.[0-5] $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
 	cp init-sh/server.* $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
-	cp init-sh/grpuser $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
+	cp init-sh/group.conf $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
+	cp init-sh/grpuser.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
 	cp init-sh/custom.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
 	cp cron-sh/*.sh $(RPM_BUILD_ROOT)/etc/security/msec/cron-sh
 	touch $(RPM_BUILD_ROOT)/etc/security/msec/security.conf
@@ -43,7 +44,8 @@ install:
 	(cp init-sh/level* /etc/security/msec/init-sh)
 	(cp init-sh/init.sh /etc/security/msec/init.sh);
 	(cp init-sh/lib.sh /etc/security/msec/init-sh);
-	(cp init-sh/grpuser /etc/security/msec/init-sh);
+	(cp init-sh/grpuser.sh /etc/security/msec/init-sh);
+	(cp init-sh/group.conf /etc/security/msec/init-sh);
 	(cp init-sh/file_perm.sh /etc/security/msec/init-sh);
 	(cp init-sh/*.[0-5] /etc/security/msec/init-sh/)
 	(cp init-sh/custom.sh /etc/security/msec/init-sh);

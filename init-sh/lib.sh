@@ -57,10 +57,10 @@ AddBegRules() {
 	echo "Modifying config in ${file}..."
     fi
 
-    mv ${file} /tmp/secure.tmp
+    cp -f ${file} /tmp/secure.tmp
 
     if ! grep -Eqx "^${string}" /tmp/secure.tmp; then
-	echo -e "${COMMENT}" >> ${file};
+	echo -e "${COMMENT}" > ${file};
 	echo -e "${string}" >> ${file};
     fi
 
@@ -81,8 +81,7 @@ CleanRules() {
     fi
 
     echo -en "\t- Cleaning msec appended line in ${file} : "
-    mv -f ${file} /tmp/secure.tmp
-    touch ${file}
+    cp -f ${file} /tmp/secure.tmp
 
     while read line; do
 	if [[ ${ctrl} == 1 ]]; then
@@ -95,7 +94,7 @@ CleanRules() {
 	fi
 		
 	if [[ ${ctrl} == 0 ]]; then
-	    echo "${line}" >> ${file}
+	    echo "${line}" > ${file}
 	fi
     done < /tmp/secure.tmp
 
@@ -113,12 +112,11 @@ CommentUserRules() {
 
     echo -en "\t- Cleaning user appended line in ${file} : "
 
-    mv -f ${file} /tmp/secure.tmp
-    touch ${file}
-     
+    cp -f ${file} /tmp/secure.tmp
+         
     while read line; do 
 	if ! echo "${line}" | grep -qE "^#"; then
-	    echo "# ${line}" >> ${file}
+	    echo "# ${line}" > ${file}
 	fi
     done < /tmp/secure.tmp
   
@@ -158,10 +156,10 @@ LiloUpdate() {
     fi
 
     if [[ ! -z "${password}" ]]; then
-    	mv /etc/lilo.conf /tmp/secure.tmp
+    	cp -f /etc/lilo.conf /tmp/secure.tmp
 	while read line; do
 	    if ! echo "${line}" | grep -q "password"; then
-		echo "${line}" >> /etc/lilo.conf
+		echo "${line}" > /etc/lilo.conf
 	    fi
     	done < /tmp/secure.tmp
 	

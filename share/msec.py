@@ -76,6 +76,8 @@ if level < 0 or level > 5:
     error(_('Invalid secure level %s.  Use %s [0-5] to set it.') % (level, sys.argv[0]))
     sys.exit(1)
 
+interactive and log(_('### Program is starting ###'))
+
 set_secure_level(level)
 
 server=(level in range(3, 6))

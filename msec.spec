@@ -90,6 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 - bring back the squid.squid permissions
 - add some permissions for the naat servers
 - add some authorized servers for naat-snf, cooker version
+- add the snf security level
 
 * Wed Oct 03 2001 Florin <florin@mandrakesoft.com> 0.15-30mdk
 - more things from /etc/profile to /etc/profile.d/msec.{sh|csh}

@@ -29,8 +29,9 @@ documentation under /usr/share/doc/msec-*/security.txt.
 .PP
 If you want to make changes to the current level, use
 /etc/security/msec/perm.local to override the
-permissions/owners/groups and /etc/security/msec/level.local to
-override the rules (see mseclib(3) for details).
+permissions/owners/groups (use the same syntax as /usr/share/msec/perm.*
+or use the drakperm graphical utility) and /etc/security/msec/level.local to
+override the rules (see mseclib(3) for details or use the draksec graphical utility).
 .PP
 Available options:
 .TP
@@ -60,6 +61,9 @@ The \fPmsec\fP executable (sh script)
 .br
 Contains the configuration of the current active security level. These
 settings can be overridden in /etc/security/msec/security.conf.
+
+.SH "SEE ALSO"
+mseclib(3), draksec, drakperm
 
 .SH AUTHOR
 Vandoorselaere Yoann, Mandrakesoft

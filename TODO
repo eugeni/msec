@@ -85,7 +85,7 @@ fi
 
 #
 # Security level implementation...
-# Writen by Vandoorselaere Yoann <yoann@mandrakesoft.com>
+# Writen by Vandoorselaere Yoann
 #
 
 if [[ -f /usr/share/lsec/lib.sh ]]; then

@@ -26,19 +26,31 @@ else
     endif
 endif
 
-if ! { (echo "${PATH}" | grep -q /usr/X11R6/bin) } then
+
+# (pixel) tcsh doesn't handle directory in the PATH being non-readable
+# in security high, /usr/bin is 751, aka non-readable
+# using unhash *after modifying PATH* fixes the pb
+# So while modifying the PATH, do not rely on the PATH until unhash is done
+
+if ! { (echo "${PATH}" | /bin/grep -q /usr/X11R6/bin) } then
 	setenv PATH "${PATH}:/usr/X11R6/bin"
 endif
 
-if ! { (echo "${PATH}" | grep -q /usr/games) } then
+if ! { (echo "${PATH}" | /bin/grep -q /usr/games) } then
 	setenv PATH "${PATH}:/usr/games"
 endif
 
 if ( ${?SECURE_LEVEL} && ${SECURE_LEVEL} <= 1 ) then
-    if ! { (echo "${PATH}" | fgrep -q :.) } then
+    if ! { (echo "${PATH}" | /bin/fgrep -q :.) } then
 	setenv PATH "${PATH}:."
     endif
 endif
+
+# using unhash *after modifying PATH* (see above)
+if (! -r /usr/bin) then
+  unhash
+endif
+
 
 # translate sh variables from /etc/sysconfig/msec to their equivalent in csh
 if ( ${?TMOUT} ) then

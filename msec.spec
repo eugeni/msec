@@ -123,6 +123,10 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+
+- msec.csh: "unhash" workaround for /usr/bin non-readable (msec 5) applied
+after modifying PATH (eurk!)
+
 * Mon Feb 25 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-4mdk
 - separate config files and other files in the rpmv check (idea
 of Michael Reinsch)

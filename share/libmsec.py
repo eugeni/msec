@@ -21,6 +21,7 @@ import re
 import string
 import commands
 import time
+import traceback
 
 try:
     cat = gettext.Catalog('msec')
@@ -101,15 +102,30 @@ ConfigFile.add_config_assoc(LILOCONF, '[ `/usr/sbin/detectloader` = LILO ] && /s
 ConfigFile.add_config_assoc(SYSLOGCONF, '[ -f /var/lock/subsys/syslog ] && service syslog reload')
 ConfigFile.add_config_assoc('^/etc/issue$', '/usr/bin/killall mingetty')
 
-# rules
+# functions
 
 ################################################################################
+
+def same_level():
+    'D'
+    tb = traceback.extract_stack()
+    if FORCED.has_key(tb[-2][2]) or FORCED.has_key(tb[-3][2]):
+        return 0
+    else:
+        return _same_level
 
 def changing_level():
     'D'
     global _same_level
     _same_level=0
-    
+
+FORCED = {}
+
+def force_val(name):
+    'D'
+    global FORCED
+    FORCED[name] = 1
+
 # configuration rules
 
 ################################################################################
@@ -184,7 +200,7 @@ def set_umask(variable, umask, msg):
         val = None
 
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val:
             octal = umask | int(val, 8)
             umask = '0%o' % octal
@@ -227,7 +243,7 @@ local connection) and NONE (no connection).'''
         val = NONE
         
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val == NONE or (val == LOCAL and arg == ALL):
             return
         
@@ -271,18 +287,18 @@ to the X server on the tcp port 6000 or not.'''
     val_gdmconf = gdmconf.exists() and gdmconf.get_match(GDMCONF_REGEXP)
     
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val_startx and val_xservers and val_gdmconf:
             return
         
     if arg:
         if val_startx or val_xservers or val_gdmconf:
             _interactive and log(_('Allowing the X server to listen to tcp connections'))
-            if not (_same_level and val_startx):
+            if not (same_level() and val_startx):
                 startx.exists() and startx.replace_line_matching(STARTX_REGEXP, '@1@2')
-            if not (_same_level and val_xservers):
+            if not (same_level() and val_xservers):
                 xservers.exists() and xservers.replace_line_matching(XSERVERS_REGEXP, '@1@2', 0, 1)
-            if not (_same_level and val_gdmconf):
+            if not (same_level() and val_gdmconf):
                 gdmconf.exists() and gdmconf. replace_line_matching(GDMCONF_REGEXP, '@1@2', 0, 1)
     else:
         if not val_startx or not val_xservers or not val_gdmconf:
@@ -308,7 +324,7 @@ def set_shell_timeout(val):
         old = None
         
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if old != None and old > val:
             return
 
@@ -328,7 +344,7 @@ def set_shell_history_size(size):
         val = None
         
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val != None:
             val = int(val)
             if size == -1 or val < size:
@@ -381,7 +397,7 @@ def allow_reboot(arg):
         val_kdmrc = 2
         
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val_shutdownallow and val_sysctlconf == '0' and num == 0 and oldval_kdmrc >= val_kdmrc and val_gdmconf == 'false':
             return
         if oldval_kdmrc > val_kdmrc:
@@ -389,15 +405,15 @@ def allow_reboot(arg):
             
     if arg:
         _interactive and log(_('Allowing reboot to the console user'))
-        if not (_same_level and val_shutdownallow):
+        if not (same_level() and val_shutdownallow):
             shutdownallow.exists() and shutdownallow.move(SUFFIX)
         for f in [SHUTDOWN, POWEROFF, REBOOT, HALT]:
             cfg = ConfigFile.get_config_file(f)
-            if not (_same_level and not val[f]):
+            if not (same_level() and not val[f]):
                 cfg.exists() or cfg.touch()
-        if not (_same_level and val_sysctlconf == '0'):
+        if not (same_level() and val_sysctlconf == '0'):
             sysctlconf.set_shell_variable('kernel.sysrq', 1)
-        if not (_same_level and val_gdmconf == 'false'):
+        if not (same_level() and val_gdmconf == 'false'):
             gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'true', '\[greeter\]', '^\s*$')
     else:
         _interactive and log(_('Forbidding reboot to the console user'))
@@ -434,7 +450,7 @@ def allow_user_list(arg):
         val_gdmconf = 'false'
 
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if oldval_kdmrc >= val_kdmrc  and oldval_gdmconf == 'false':
             return
         if oldval_kdmrc > val_kdmrc:
@@ -478,7 +494,7 @@ def allow_root_login(arg):
             val[s] = 0
     
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if (not kde.exists() or val[kde]) and (not gdm.exists() or val[gdm]) and (not xdm.exists() or val[xdm]) and num == 12:
             return
 
@@ -487,15 +503,15 @@ def allow_root_login(arg):
             _interactive and log(_('Allowing direct root login'))
         
             for cnf in (kde, gdm, xdm):
-                if not (_same_level and val[cnf]):
+                if not (same_level() and val[cnf]):
                     cnf.exists() and cnf.remove_line_matching('^auth\s*required\s*/lib/security/pam_listfile.so.*bastille-no-login', 1)
         
             for n in range(1, 7):
                 s = 'tty' + str(n)
-                if not (_same_level and not val[s]):
+                if not (same_level() and not val[s]):
                     securetty.replace_line_matching(s, s, 1)
                 s = 'vc/' + str(n)
-                if not (_same_level and not val[s]):
+                if not (same_level() and not val[s]):
                     securetty.replace_line_matching(s, s, 1)
     else:
         if (kde.exists() and not val[kde]) or (gdm.exists() and not val[gdm]) or (xdm.exists() and not val[xdm]) or num > 0:
@@ -526,7 +542,7 @@ def allow_remote_root_login(arg):
         val = None
 
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val == 'no':
             return
         if val == 'forced-commands-only':
@@ -566,7 +582,7 @@ def enable_pam_wheel_for_su(arg):
     val = su.exists() and su.get_match('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$')
     
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val:
             return
 
@@ -605,7 +621,7 @@ allowed else only /etc/issue is allowed.'''
     valnet = issuenet.exists(1)
 
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if not val and not valnet:
             return
         if arg == ALL and not valnet:
@@ -643,7 +659,7 @@ def allow_autologin(arg):
         val = None
         
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val == 'no':
             return
 
@@ -699,7 +715,7 @@ dev the device to report the log.'''
         val = None
 
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val:
             return
         
@@ -726,7 +742,7 @@ def enable_promisc_check(arg):
     val = cron.exists() and cron.get_match(CRON_REGEX)
     
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val == CRON_ENTRY:
             return
         
@@ -753,7 +769,7 @@ def enable_security_check(arg):
     val = securitycron.exists()
     
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val:
             return
         
@@ -789,7 +805,7 @@ if \\fIarg\\fP = LOCAL and none if \\fIarg\\fP = NONE. To authorize the services
         val = ALL
         
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val == NONE or (val == LOCAL and arg == ALL):
             return
         
@@ -835,7 +851,7 @@ def set_zero_one_variable(file, variable, value, secure_value, one_msg, zero_msg
         val = None
         
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val == secure_value:
             return
     
@@ -868,7 +884,7 @@ def enable_dns_spoofing_protection(arg, alert=1):
     val = hostconf.exists() and hostconf.get_match('nospoof\s+on')
     
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val:
             return
         
@@ -927,7 +943,7 @@ def enable_libsafe(arg):
     val = ldsopreload.exists() and ldsopreload.get_match('/lib/libsafe.so.2')
 
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val:
             return
     
@@ -970,7 +986,7 @@ def password_length(length, ndigits=0, nupper=0):
             val_ucredit = int(val_ucredit)
             
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val_length > length and val_ndigits > ndigits and val_ucredit > nupper:
             return
         
@@ -1010,7 +1026,7 @@ def enable_password(arg):
     val = system_auth.exists() and system_auth.get_match(PASSWORD_REGEXP)
     
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if not val:
             return
         
@@ -1045,7 +1061,7 @@ def password_history(arg):
         val = 0
 
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val >= arg:
             return
     
@@ -1068,7 +1084,7 @@ def enable_sulogin(arg):
     val = inittab.exists() and inittab.get_match(SULOGIN_REGEXP)
     
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val:
             return
         
@@ -1092,7 +1108,7 @@ def enable_msec_cron(arg):
     val = mseccron.exists()
     
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val:
             return
         
@@ -1119,16 +1135,16 @@ def enable_at_crontab(arg):
     val_atallow = atallow.exists() and atallow.get_match('root')
     
     # don't lower security when not changing security level
-    if _same_level:
+    if same_level():
         if val_cronallow and val_atallow:
             return
 
     if arg:
         if val_cronallow or val_atallow:
             _interactive and log(_('Enabling crontab and at'))
-            if not (_same_level and val_cronallow):
+            if not (same_level() and val_cronallow):
                 cronallow.exists() and cronallow.move(SUFFIX)
-            if not (_same_level and val_atallow):
+            if not (same_level() and val_atallow):
                 atallow.exists() and atallow.move(SUFFIX)
     else:
         if not val_cronallow or not val_atallow:
@@ -1192,7 +1208,7 @@ def password_aging(max, inactive=-1):
                         new_max = max
                         new_inactive = inactive
                         # don't lower security when not changing security level
-                        if _same_level:
+                        if same_level():
                             if current_max < max and current_inactive < inactive:
                                 continue
                             if current_max < max:

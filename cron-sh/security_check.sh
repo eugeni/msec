@@ -15,15 +15,13 @@ if [[ ${CHECK_SECURITY} != yes ]]; then
     exit 0
 fi
 
-SECURITY=`mktemp /tmp/secure.log`
+SECURITY=`mktemp /tmp/secure.XXXXXX`
 SECURITY_LOG="/var/log/security.log"
-TMP=`mktemp /tmp/secure.tmp`
+TMP=`mktemp /tmp/secure.XXXXXX`
 
 if [[ ! -d /var/log/security ]]; then
     mkdir /var/log/security
 fi
-
-rm -f ${SECURITY} ${TMP} >& /dev/null
 
 ### Functions ###
 

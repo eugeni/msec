@@ -34,7 +34,7 @@ if ! echo ${PATH} |grep -q /usr/games ; then
     export PATH=$PATH:/usr/games
 fi
 
-if [ "$SECURE_LEVEL" -le 1 ] && ! echo ${PATH} | fgrep -q :.; then
+if [ -n "$SECURE_LEVEL" -a "$SECURE_LEVEL" -le 1 ] && ! echo ${PATH} | fgrep -q :.; then
     export PATH=$PATH:.
 fi
 

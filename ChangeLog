@@ -1,3 +1,28 @@
+2002-07-30 20:51  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.31-1mdk
+
+2002-07-30 20:50  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/.cvsignore: added level.*
+
+2002-07-30 20:50  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: added fields to describe how arguments are used
+	(to be used by shadow.py)
+
+2002-07-30 20:48  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: added print and nolocal options
+
+2002-07-30 20:47  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/shadow.py: added print_changes and get_translation
+
+2002-07-30 20:46  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/Makefile: added rules for level.*
+
 2002-07-29 09:36  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.30.2-1mdk

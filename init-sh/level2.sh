@@ -60,7 +60,7 @@ AddRules "SECURE_LEVEL=2" /etc/profile
 echo "Setting umask to 022 (u=rw,g=r,o=r) :"
 AddRules "umask 022" /etc/profile
 echo "Adding \"normal\" PATH variable :"
-AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile quiet
+AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile
 # Group
 echo -n "Adding \"${DRAKX_USERS}\" to audio group :"

@@ -67,5 +67,5 @@ AddRules "SECURE_LEVEL=3" /etc/profile
 echo "Setting umask to 022 (u=rw,g=r,o=r) :"
 AddRules "umask 022" /etc/profile
 echo "Adding a \"normal\" PATH variable : "
-AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile quiet
+AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile

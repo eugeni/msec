@@ -94,7 +94,7 @@ echo " } : "
 for service in `chkconfig --list | awk '{print $1}'`; do
     chkconfig --del "${service}"
     if ! chkconfig --msec --add "${service}"; then
-        echo -e "\t- Services ${service} is now disabled."
+        echo -e "\t- Services ${service} scheduled to be disabled at next boot."
     fi
 done
 echo -e "done.\n";

@@ -3,8 +3,8 @@ Configurations files in /etc/security/msec/
 Shell scripts in /usr/share/msec.
 ******************
 
-Suggest & Comment :
-yoann@mandrakesoft.com
+Suggestions & comments:
+flepied@mandrakesoft.com
 
 ******************
 Doc of the rewritting in python:
@@ -36,6 +36,7 @@ dns spoofing protection		no	no	no	yes	yes	yes
 log stange ip packets		no	no	no	yes	yes	yes
 periodic security check		no	yes	yes	yes	yes	yes
 allow X connections		yes	local	local	no	no	no
+allow xauth from root		yes	yes	yes	yes	no	no
 X server listen to		tcp	tcp	tcp	tcp	local	local
 run msec by cron		yes	yes	yes	yes	yes	yes
 
@@ -79,7 +80,8 @@ files/diretories.
 user) or .<group> (force only group) or current (keep current user and
 group).
 
-<permission> is an octal number representing the access rights.
+<permission> is an octal number representing the access rights or
+current to keep the current permissions.
 
 If force is present as a 4th argument, it means that msec will enforce
 the permission even if the previous permission was lower.

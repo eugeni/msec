@@ -853,7 +853,7 @@
 
 2002-04-29 19:52  Frederic Lepied <flepied@mandrakesoft.com>
 
-	* cron-sh/security_check.sh: corrected alias files loop (Jérôme
+	* cron-sh/security_check.sh: corrected alias files loop (JÃ©rÃ´me
 	  UZEL).  CVS:
 	  ----------------------------------------------------------------------
 	  CVS: Enter Log.  Lines beginning with `CVS: ' are removed

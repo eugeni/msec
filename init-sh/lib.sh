@@ -9,19 +9,6 @@ if [ $UID != 0 ]; then
     exit 1
 fi
 
-# To avoid error, while new initscript package isn't released...
-touch /etc/rc.d/rc.firewall
-
-# If we are currently installing our
-# system with DrakX, we don't ask anything to the user...
-# Instead, DrakX do it and give us a file with some variable.
-if [ -f /tmp/secure.DrakX ]; then
-    . /tmp/secure.DrakX
-fi
-
-if [ -f /etc/security/msec/security.conf ]; then
-    . /etc/security/msec/security.conf
-fi
 
 COMMENT="# Mandrake-Security : if you remove this comment, remove the next line too."
 
@@ -149,6 +136,21 @@ LiloUpdate() {
     fi
 }
 
+# If we are currently installing our
+# system with DrakX, we don't ask anything to the user...
+# Instead, DrakX do it and give us a file with some variable.
+if [ -f /tmp/secure.DrakX ]; then
+    . /tmp/secure.DrakX
+    AddRules "${DRAKX_USERS}" /etc/security/msec/security.conf
+fi
+
+if [ -f /etc/security/msec/security.conf ]; then
+    . /etc/security/msec/security.conf
+fi
+
+# To avoid error, while new initscript package isn't released...
+touch /etc/rc.d/rc.firewall
+
 clear
 echo "Preparing to run security script : "
 CleanRules /etc/syslog.conf
@@ -180,7 +182,7 @@ usermod -G xgrp xfs
 # so we delete ( temporarily ) audio user.
 
 if [ ! -f /tmp/secure.DrakX ]; then
-    for user in ${USERS_DRAKX}; do
+    for user in ${DRAKX_USERS}; do
 	if ! /etc/security/msec/init-sh/grpuser --del audio "${user}"; then
 	    echo "Problem removing user \"${user}\" from group audio."
 	fi

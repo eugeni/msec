@@ -68,7 +68,6 @@ echo -e "\t- Security warning in syslog : yes."
 echo "Adding permission check in crontab (scheduled every midnight) :"
 AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 
-# /etc/profile.d/msec.{sh,csh}
 export SECURE_LEVEL=3
 echo "Setting secure level variable to 3 :"
 AddRules "SECURE_LEVEL=3" /etc/sysconfig/msec

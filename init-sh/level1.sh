@@ -60,7 +60,6 @@ echo -e "\t- Security warning in syslog : no."
     AddRules "SYSLOG_WARN=no" /etc/security/msec/security.conf		
 # end security check
 
-# /etc/profile.d/msec.{sh,csh}
 export SECURE_LEVEL=1
 echo "Setting secure level variable to 1 :"
 AddRules "SECURE_LEVEL=1" /etc/sysconfig/msec

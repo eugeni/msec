@@ -102,7 +102,6 @@ for service in `chkconfig --list | awk '{print $1}'`; do
 done
 echo -e "done.\n";
 
-# /etc/profile.d/msec.{sh,csh}
 echo "Setting umask to 022 (u=rw,g=rx) for root, 077 (u=rw) for user :"
 AddRules "UMASK_ROOT=022" /etc/sysconfig/msec
 AddRules "UMASK_USER=077" /etc/sysconfig/msec

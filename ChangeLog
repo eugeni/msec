@@ -1,3 +1,15 @@
+2002-07-27 22:47  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.30
+
+2002-07-27 22:46  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/CHANGES: added 0.30 changes
+
+2002-07-27 22:40  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: finalized no security lowering feature.
+
 2002-07-27 21:26  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* share/msec: corrected last argument processing.
@@ -2019,7 +2031,7 @@
 	init-sh/server.5, init-sh/grpuser, init-sh/perm.1, init-sh/perm.2,
 	init-sh/perm.3, init-sh/perm.4, init-sh/perm.5, init-sh/server.4,
 	src/promisc_check/Makefile, src/promisc_check/promisc_check.c:
-	Initial revision
+	Updated source tree
 
 1999-11-25 20:44  yoann
 
@@ -2031,5 +2043,5 @@
 	init-sh/server.5, init-sh/grpuser, init-sh/perm.1, init-sh/perm.2,
 	init-sh/perm.3, init-sh/perm.4, init-sh/perm.5, init-sh/server.4,
 	src/promisc_check/Makefile, src/promisc_check/promisc_check.c:
-	Updated source tree
+	Initial revision
 

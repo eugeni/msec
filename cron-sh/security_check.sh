@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #
-# Basic security checking for suid files.
 # Written by Vandoorselaere Yoann, <yoann@mandrakesoft.com>
 #
 

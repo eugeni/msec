@@ -1,7 +1,6 @@
 #!/bin/bash
-
 #
-# Basic security checking for suid files.
+# is that the check contained in this one ( file_check ) are  
 # Written by Vandoorselaere Yoann, <yoann@mandrakesoft.com>
 #
 
@@ -230,12 +229,8 @@ fi
 if [ -s ${TMP} ]; then
     Syslog ${TMP}
     Ttylog ${TMP}
+	date=`date`
+	echo -n "\n\n*** ${date} ***\n" >> ${SECURITY_LOG}
     cat ${TMP} >> ${SECURITY_LOG}
     rm -f ${TMP}
 fi
-
-
-# We launch our other report engine :)
-/etc/security/msec/cron-sh/security_check.sh
-
-

@@ -40,8 +40,6 @@ echo -e "\t- Check promiscuous mode : no."
     AddRules "CHECK_PROMISC=no" /etc/security/msec/security.conf        quiet
 echo -e "\t- Check listening port : no."                               
     AddRules "CHECK_OPEN_PORT=no" /etc/security/msec/security.conf	quiet
-echo -e "\t- Check for dangerous .[sr]hosts file : no."                               
-    AddRules "CHECK_RHOST=no" /etc/security/msec/security.conf	        quiet
 echo -e "\t- Check passwd file integrity : no."
     AddRules "CHECK_PASSWD=no" /etc/security/msec/security.conf	        quiet
 echo -e "\t- Check shadow file integrity : no."

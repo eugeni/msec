@@ -41,11 +41,9 @@ echo -e "\t- Check world writable file : yes."
 echo -e "\t- Check unowned file : no."
     AddRules "CHECK_UNOWNED=no" /etc/security/msec/security.conf	quiet
 echo -e "\t- Check promiscuous mode : no."
-    AddRules "CHECK_PROMISC=yes" /etc/security/msec/security.conf       quiet
+    AddRules "CHECK_PROMISC=no" /etc/security/msec/security.conf       quiet
 echo -e "\t- Check listening port : yes."                               
     AddRules "CHECK_OPEN_PORT=yes" /etc/security/msec/security.conf	quiet
-echo -e "\t- Check for dangerous .[sr]hosts file : yes."                               
-    AddRules "CHECK_RHOST=yes" /etc/security/msec/security.conf	        quiet
 echo -e "\t- Check passwd file integrity : yes."
     AddRules "CHECK_PASSWD=yes" /etc/security/msec/security.conf	quiet
 echo -e "\t- Check shadow file integrity : yes."
@@ -58,7 +56,8 @@ echo -e "\t- Security warning in syslog : \"yes\" :"
 
 # Crontab
 echo "Adding permission check in crontab (scheduled every midnight) :"
-AddRules "0 0 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/file_check.sh" /etc/crontab
+AddRules "0 0 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/diff_check.sh" /etc/crontab
+AddRules "0 0 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/security_check.sh" /etc/crontab
 
 echo -n "Running lilo to record new config : "
 /sbin/lilo >& /dev/null

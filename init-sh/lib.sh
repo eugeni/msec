@@ -99,7 +99,7 @@ Syslog() {
 
 Ttylog() {
     if [ "${TTY_LOG}" == "yes" ]; then
-        for i in `w | grep -v "load\|TTY" | awk '{print $2}'` ; do
+		w | grep -v "load\|TTY" | awk '{print $2}' | while read line; do
             echo -e ${1} > /dev/$i
         done
     fi
@@ -166,6 +166,7 @@ CleanRules /etc/profile
 CleanRules /etc/lilo.conf
 CleanRules /etc/rc.d/rc.firewall
 CleanRules /etc/crontab
+CleanRules /etc/security/msec/security.users
 
 echo -e "\nStarting to reconfigure the system : "
 
@@ -188,6 +189,8 @@ if [ ! -f /tmp/secure.DrakX ]; then
 	    echo "Problem removing user \"${user}\" from group audio."
 	fi
     done
+else
+		AddRules "${DRAKX_USERS}" /etc/security/msec/security.conf
 fi
 
 

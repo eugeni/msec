@@ -45,8 +45,6 @@ echo -e "\t- Check promiscuous mode : yes."
     AddRules "CHECK_PROMISC=yes" /etc/security/msec/security.conf       quiet
 echo -e "\t- Check listening port : yes."                               
     AddRules "CHECK_OPEN_PORT=yes" /etc/security/msec/security.conf	quiet
-echo -e "\t- Check for dangerous .[sr]hosts file : yes."                               
-    AddRules "CHECK_RHOST=yes" /etc/security/msec/security.conf	        quiet
 echo -e "\t- Check passwd file integrity : yes."
     AddRules "CHECK_PASSWD=yes" /etc/security/msec/security.conf	quiet
 echo -e "\t- Check shadow file integrity : yes."
@@ -62,8 +60,11 @@ echo -e "\t- Security warning in syslog : \"yes\" :"
 echo "Adding promisc check in crontab (scheduled every minutes) :"
 AddRules "*/1 * * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/promisc_check.sh" /etc/crontab
 
-echo "Adding permission check in crontab (schedued every midnight) :"
+echo "Adding \"diff\" security check in crontab (scheduled every midnight) :"
 AddRules "0 0 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/file_check.sh" /etc/crontab
+
+echo "Adding \"global\" security check in crontab (scheduled every midnight) :"
+AddRules "0 0 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/security_check.sh" /etc/crontab
 ###################################################
 
 # Wanna a password ?

@@ -1,3 +1,12 @@
+2002-03-08 19:24  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.19-8mdk
+
+2002-03-08 19:22  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3: /var/log/lp-errs must be
+	600
+
 2002-03-08 13:56  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.19-7mdk

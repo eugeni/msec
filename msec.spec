@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.36
-Release:	1mdk
+Release:	2mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -12,12 +12,11 @@ License:	GPL
 Group:		System/Base
 BuildRoot:	%_tmppath/%name-%version-%release-root
 BuildRequires:	python
-Requires:	/bin/bash /bin/touch perl-base diffutils textutils /usr/bin/python /usr/bin/chage gawk
+Requires:	/bin/bash /bin/touch perl-base diffutils /usr/bin/python /usr/bin/chage gawk
 Requires:	setup >= 2.2.0-21mdk
 Requires:	chkconfig >= 1.2.24-3mdk
-Requires:	fileutils >= 4.1.5
+Requires:	coreutils
 Requires:	iproute2
-Requires:	sh-utils
 PreReq:		rpm-helper >= 0.4
 Conflicts:	passwd < 0.67
 
@@ -154,6 +153,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Thu Nov 07 2002 Thierry Vignaud <tvignaud@mandrakesoft.com> 0.36-2mdk
+- requires s/(sh-|text|file)utils/coreutils/
+
 * Tue Sep 17 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.36-1mdk
 - allow_user_list handles Selected in X-*-Greeter section of kdmrc
 when not changing security level.

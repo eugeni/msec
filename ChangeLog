@@ -1,3 +1,25 @@
+2002-01-27 02:07  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.18-1mdk
+
+2002-01-27 02:06  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* Makefile: clean in share too
+
+2002-01-26 22:09  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: use mseclib to have a way to process a config file
+	before really doing the changes.
+
+2002-01-26 22:08  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: regroup the on/off funtions in uniq ones with
+	an arg to decide on/off.
+
+2002-01-26 22:05  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/: shadow.py, Makefile: first version
+
 2002-01-22 15:28  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: clean before installing and don't install init.sh man

@@ -1,3 +1,7 @@
+2001-09-17 18:44  Daouda Lo <daouda@mandrakesoft.com>
+
+	* msec.spec: del doc/*
+
 2001-09-17 18:42  Daouda Lo <daouda@mandrakesoft.com>
 
 	* msec.spec: comment doc/*.8

@@ -358,8 +358,6 @@ def set_shell_history_size(size):
         if val != size:
             _interactive and log(_('Setting shell history size to %s') % size)
             msec.set_shell_variable('HISTFILESIZE', size)
-        opasswd = ConfigFile.get_config_file(OPASSWD)
-        opasswd.exists() or opasswd.touch()
     else:
         if val != None:
             _interactive and log(_('Removing limit on shell history size'))
@@ -1083,6 +1081,8 @@ def password_history(arg):
             _interactive and log(_('Setting password history to %d.') % arg)
             system_auth.replace_line_matching(UNIX_REGEXP, '@1 remember=%d@3' % arg) or \
             system_auth.replace_line_matching('(^\s*password\s+sufficient\s+(?:/lib/security/)?pam_unix.so.*)', '@1 remember=%d' % arg)
+            opasswd = ConfigFile.get_config_file(OPASSWD)
+            opasswd.exists() or opasswd.touch()
         else:
             _interactive and log(_('Disabling password history'))
             system_auth.replace_line_matching(UNIX_REGEXP, '@1@3')

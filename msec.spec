@@ -4,7 +4,7 @@
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
 Version: %{version}
-Release: 7mdk
+Release: 8mdk
 Source: %{name}-%{version}.tar.bz2
 Copyright: GPL
 Group: System Environment/Base
@@ -40,6 +40,11 @@ rm -rf $RPM_BUILD_ROOT
 /var/log/security
 
 %changelog
+* Fri Dec 24 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Typo / bug fix
+- init-sh/perm[15]: files should be constant in their content.
+  all entry should be in each perm file
+
 * Tue Dec 21 1999 Pixel <pixel@mandrakesoft.com>
 - init-sh/lib.sh (LiloUpdate): replace the -z ${LILO_PASSWORD} by
 ${LILO_PASSWORD+set} != set 

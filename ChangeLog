@@ -1,3 +1,18 @@
+2003-11-18 10:13  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: fixed typo
+	rpp => rpm
+
+2003-11-18 09:46  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: allow_xserver_to_listen: corrected startx
+	modifications (Gavin Porter)
+
+2003-11-18 09:45  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/security.sh: removed xfs from remote filesystems and
+	added hfs in foreign filesystems (Stefaan Simoens)
+
 2003-10-30 16:00  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: handle

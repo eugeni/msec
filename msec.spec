@@ -1,8 +1,8 @@
-Summary:	Security Level & Program for the Mandrake Linux distribution
+Summary:	Security Level management for the Mandrakelinux distribution
 Name:		msec
 Version:	0.42.1
 Release:	1mdk
-Url:		http://www.linux-mandrake.com/
+Url:		http://www.mandrakelinux.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
 Source2:    	msec.sh
@@ -22,11 +22,10 @@ Conflicts:	passwd < 0.67
 Requires:	python-base >= 2.3.3-2mdk
 
 %description
-The Mandrake-Security package is designed to provide generic 
-secure level to the Mandrake Linux users...
-It will permit you to choose between level 0 to 5
-for a less -> more secured distribution.
-This packages includes several program that will be run periodically
+The Mandrakelinux-Security package is designed to provide generic
+secure level to the Mandrakelinux users...  It will permit you to
+choose between level 0 to 5 for a less -> more secured distribution.
+This packages includes several programs that will be run periodically
 in order to test the security of your system and alert you if needed.
 
 %prep

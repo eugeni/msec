@@ -76,6 +76,21 @@ echo "Setting umask to 022 (u=rw,g=r,o=r) :"
 AddRules "UMASK_ROOT=022" /etc/sysconfig/msec
 AddRules "UMASK_USER=022" /etc/sysconfig/msec
 
+# icmp echo
+echo "Enabling icmp echo :"
+AddRules "net.ipv4.icmp_echo_ignore_all=0" /etc/sysctl.conf
+AddRules "net.ipv4.icmp_echo_ignore_broadcasts=1" /etc/sysctl.conf
+
+# bad error
+echo "Enabling bad error message Protection :"
+AddRules "net.ipv4.icmp_ignore_bogus_error_responses=1" /etc/sysctl.conf
+
+# log strange packets
+echo "Enabling logging Spoofed Packets, Source Routed Packets, Redirect Packets :"
+AddRules "net.ipv4.conf.all.log_martians=1" /etc/sysctl.conf
+
+LoadSysctl
+
 # Do not boot on a shell
 AllowReboot
 

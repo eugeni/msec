@@ -111,6 +111,38 @@ if [[ -f /lib/libsafe.so.2 ]]; then
     AddRules "/lib/libsafe.so.2" /etc/ld.so.preload
 fi
 
+# Console timeout
+echo "Setting console timeout :"
+AddRules "TMOUT=7200" /etc/sysconfig/msec
+
+# No history file
+echo "No history file :"
+AddRules "HISTFILESIZE=0" /etc/sysconfig/msec
+
+# Ip spoofing protection
+echo "IP spoofing protection :"
+AddRules "nospoof on" /etc/host.conf
+AddRules "spoofalert on" /etc/host.conf
+
+# icmp echo
+echo "Ignoring icmp echo :"
+AddRules "net.ipv4.icmp_echo_ignore_all=1" /etc/sysctl.conf
+AddRules "net.ipv4.icmp_echo_ignore_broadcasts=1" /etc/sysctl.conf
+
+# bad error
+echo "Enabling bad error message Protection :"
+AddRules "net.ipv4.icmp_ignore_bogus_error_responses=1" /etc/sysctl.conf
+
+# log strange packets
+echo "Enabling logging Spoofed Packets, Source Routed Packets, Redirect Packets :"
+AddRules "net.ipv4.conf.all.log_martians=1" /etc/sysctl.conf
+
+LoadSysctl
+
+# issues
+echo "Removing /etc/issue.net :"
+RemoveIssueNet
+
 # Do not boot on a shell
 ForbidReboot
 

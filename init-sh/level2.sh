@@ -79,6 +79,21 @@ echo "Adding system users to specifics groups :"
 grpconv
 echo -e "done.\n"
 
+# icmp echo
+echo "Enabling icmp echo :"
+AddRules "net.ipv4.icmp_echo_ignore_all=0" /etc/sysctl.conf
+AddRules "net.ipv4.icmp_echo_ignore_broadcasts=0" /etc/sysctl.conf
+
+# bad error
+echo "Disabling bad error message Protection :"
+AddRules "net.ipv4.icmp_ignore_bogus_error_responses=0" /etc/sysctl.conf
+
+# log strange packets
+echo "Disabling logging Spoofed Packets, Source Routed Packets, Redirect Packets :"
+AddRules "net.ipv4.conf.all.log_martians=0" /etc/sysctl.conf
+
+LoadSysctl
+
 AllowAutologin
 
 # Do not boot on a shell

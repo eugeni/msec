@@ -87,6 +87,38 @@ AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 echo "Setting secure level variable to snf :"
 AddRules "SECURE_LEVEL=snf" /etc/sysconfig/msec
 
+# Console timeout
+echo "Setting console timeout :"
+AddRules "TMOUT=180" /etc/sysconfig/msec
+
+# No history file
+echo "No history file :"
+AddRules "HISTFILESIZE=0" /etc/sysconfig/msec
+
+# Ip spoofing protection
+echo "IP spoofing protection :"
+AddRules "nospoof on" /etc/host.conf
+AddRules "spoofalert on" /etc/host.conf
+
+# icmp echo
+echo "Ignoring icmp echo :"
+AddRules "net.ipv4.icmp_echo_ignore_all=1" /etc/sysctl.conf
+AddRules "net.ipv4.icmp_echo_ignore_broadcasts=1" /etc/sysctl.conf
+
+# bad error
+echo "Enabling bad error message Protection :"
+AddRules "net.ipv4.icmp_ignore_bogus_error_responses=1" /etc/sysctl.conf
+
+# log strange packets
+echo "Enabling logging Spoofed Packets, Source Routed Packets, Redirect Packets :"
+AddRules "net.ipv4.conf.all.log_martians=1" /etc/sysctl.conf
+
+LoadSysctl
+
+# issues
+echo "Removing /etc/issue.net :"
+RemoveIssueNet
+
 export SECURE_LEVEL=snf
 
 IFS="

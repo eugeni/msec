@@ -78,7 +78,7 @@ IsUserExisting() {
 }
 
 RefreshAdd() {
-    if [[ ${SECURE_LEVEL} > 2 ]]; then
+    if [[ ${SECURE_LEVEL} == 3 || ${SECURE_LEVEL} == 4 || ${SECURE_LEVEL} == 5 || ${SECURE_LEVEL} == snf ]]; then
 	echo "You are in a secure level > 2, in this level you need to add group user by yourself."
 	echo "Use the command : usermod -G group_name user_name"
 	exit 1;

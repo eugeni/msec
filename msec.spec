@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.25
+Version:	0.30
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -124,6 +124,16 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Sat Jul 27 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.30-1mdk
+- integrated fixes and requests from David Harris.
+- documentation fixes.
+- don't lower the security when called without argument (by the hourly cron for example).
+- splitted functions that worked at multiple levels:
+  * splitted accept_broadcasted_icmp_echo from from accept_icmp_echo.
+  * splitted enable_dns_spoofing_protection from enable_ip_spoofing_protection.
+  * splitted allow_remote_root_login from allow_root_login.
+  * splitted allow_xserver_to_listen from from allow_x_connections.
+
 * Thu Jul  4 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.25-1mdk
 - insert the change at the end of the file if no match is found for
 PermitRootLogin and logindefs.

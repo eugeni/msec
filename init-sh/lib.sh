@@ -183,9 +183,6 @@ if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
 fi
 
-# To avoid error, while new initscript package isn't released...
-touch /etc/rc.d/rc.firewall
-
 clear
 echo "Preparing to run security script : "
 CleanRules /etc/syslog.conf

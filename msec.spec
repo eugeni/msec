@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.38
-Release:	3mdk
+Release:	4mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -83,12 +83,11 @@ touch /var/log/security.log
 
 if [ $1 != 1 ]; then
 	# manage spelling change
-	if [ -f /etc/security/msec/level.local ]; then
-		perl -pi -e 's/CHECK_WRITEABLE/CHECK_WRITABLE/g;s/CHECK_SUID_GROUP/CHECK_SGID/g' /etc/security/msec/level.local
-	fi
-	if [ -f /etc/security/msec/security.conf ]; then
-		perl -pi -e 's/CHECK_WRITEABLE/CHECK_WRITABLE/g;s/CHECK_SUID_GROUP/CHECK_SGID/g' /etc/security/msec/security.conf
-	fi
+     for i in /etc/security/msec/level.local /etc/security/msec/security.conf /var/lib/msec/security.conf; do
+		if [ -f $i ]; then
+			perl -pi -e 's/CHECK_WRITEABLE/CHECK_WRITABLE/g;s/CHECK_SUID_GROUP/CHECK_SGID/g' $i
+		fi
+	done
 	for ext in today yesterday diff; do
 		if [ -f /var/log/security/writeable.$ext ]; then
 			mv -f /var/log/security/writeable.$ext /var/log/security/writable.$ext
@@ -153,6 +152,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Thu Jul 24 2003 Thierry Vignaud <tvignaud@mandrakesoft.com> 0.38-4mdk
+- fix upgrade
+
 * Fri Mar  7 2003 Frederic Lepied <flepied@mandrakesoft.com> 0.38-3mdk
 - report correct message in log (bug #748)
 
@@ -171,13 +173,13 @@ rm -rf $RPM_BUILD_ROOT
 
 * Tue Sep 17 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.36-1mdk
 - allow_user_list handles Selected in X-*-Greeter section of kdmrc
-when not changing security level.
+  when not changing security level.
 - allow_reboot handles Root in X-:*-Core section of kdmrc when not
-changing security level.
+  changing security level.
 
 * Sun Sep  8 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.35-1mdk
 - when changing the aging expiry, change the date of last password
-change to today to avoid having accounts already expired.
+  change to today to avoid having accounts already expired.
 
 * Fri Sep  6 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34.5-2mdk
 - fixed bad file name in find.c (David Relson)
@@ -206,10 +208,10 @@ change to today to avoid having accounts already expired.
 
 * Sun Aug 25 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34-1mdk
 - let hosts.{allow,deny} be readable by everyone (to allow all the
-daemons to access them).
+  daemons to access them).
 - doc/security.txt: documented daily mailing of security checks
 - allow_reboot: used section X-:0-Core instead of X-:*-Greeter for
-kdmrc.
+  kdmrc.
 - password_history: create /etc/security/opasswd if it doesn't exist.
 
 * Mon Aug 19 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.33-1mdk
@@ -219,8 +221,8 @@ kdmrc.
 - do not change permissions/groups/owners of remote files/directories.
 - documented the command line options in the man page
 - added password_history function (level 5)
-- password_length uses system-auth pam file instead of passwd pam file (added
-Conflicts with the old passwd package)
+- password_length uses system-auth pam file instead of passwd pam file
+  (added Conflicts with the old passwd package)
 - allow_remote_root_login handles the without_password argument (level 4)
 
 * Wed Jul 31 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.31.1-1mdk
@@ -248,7 +250,7 @@ Conflicts with the old passwd package)
 
 * Thu Jul  4 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.25-1mdk
 - insert the change at the end of the file if no match is found for
-PermitRootLogin and logindefs.
+  PermitRootLogin and logindefs.
 - updated server.4 with MNF needs
 
 * Thu Jun 27 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.24-1mdk
@@ -265,17 +267,17 @@ PermitRootLogin and logindefs.
 
 * Tue Apr 16 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.21-1mdk
 - applied patch from John Ehresman to exec the config file in the
-context of mseclib.
+  context of mseclib.
 
 * Wed Mar 27 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.20-2mdk
 - allow_reboot: only touch the shutdown, poweroff, reboot and halt
-files if they don't exist (reported by Jason Baker).
+  files if they don't exist (reported by Jason Baker).
 
 * Mon Mar 25 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.20-1mdk
 - Maximum password aging can be -1 (David Relson)
 - allow to pass ignore in function calls in
-/etc/security/msec/level.local to ask msec to do nothing with this
-feature.
+  /etc/security/msec/level.local to ask msec to do nothing with this
+  feature.
 
 * Fri Mar  8 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-8mdk
 - /var/log/lp-errs must always be 600
@@ -290,21 +292,21 @@ feature.
 
 * Thu Feb 28 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-5mdk
 - use 127.0.0.1 instead of localhost in hosts.deny
-- msec.csh: "unhash" workaround for /usr/bin non-readable (msec 5) applied
-after modifying PATH (eurk!)
+- msec.csh: "unhash" workaround for /usr/bin non-readable (msec 5)
+  applied after modifying PATH (eurk!)
 
 * Mon Feb 25 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-4mdk
-- separate config files and other files in the rpmv check (idea
-of Michael Reinsch)
+- separate config files and other files in the rpmv check (idea of
+  Michael Reinsch)
 - don't restart network on sysctl.conf change
 - doc/security.txt: resync with code.
 
 * Fri Feb 22 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-3mdk
-- security_check.sh: check uid and not gid ! (change of meaning of the -g option
-of ls).
+- security_check.sh: check uid and not gid ! (change of meaning of the
+  -g option of ls).
 - perm.*: do not manage lilo.conf.
 - corrected missing security.conf migration from /etc/security/msec/
-to /var/lib/msec.
+  to /var/lib/msec.
 - don't handle libsafe (let the package do it's job)
 
 * Wed Feb 20 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-2mdk
@@ -314,10 +316,10 @@ to /var/lib/msec.
 * Tue Feb 19 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-1mdk
 - corrected msec.sh and msec.csh problems.
 - security.conf is now read from /var/lib/msec and can be overridden
-from /etc/security/msec/security.conf.
+  from /etc/security/msec/security.conf.
 - enhanced mseclib man page.
 - perm files are now in /usr/share/msec but the custom file stays in
-/etc/security/msec/perm.local.
+  /etc/security/msec/perm.local.
 
 * Fri Feb 15 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.18-6mdk
 - promisc_check.sh: use complete path to the ip command
@@ -347,8 +349,8 @@ from /etc/security/msec/security.conf.
 - clean crontabs when removing the package (Dadou)
 - 644 for /etc/rc.d/init.d/mandrake_consmap (Andrej)
 - fix sendmail perms (Florin)
-- symlink /etc/security/msec/server.<level> to /etc/security/msec/server for
-secure levels > 3 (used by chkconfig).
+- symlink /etc/security/msec/server.<level> to
+  /etc/security/msec/server for secure levels > 3 (used by chkconfig).
 - password aging for the root account too.
 
 * Sat Jan 26 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.18-1mdk
@@ -363,8 +365,8 @@ secure levels > 3 (used by chkconfig).
 - perm.*: make mandrake_consmap 755 because it needs to be readable by everyone
 
 * Sun Jan 20 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-13mdk
-- diff_check.sh: mail even if the report is empty to show that the check
-was fine.
+- diff_check.sh: mail even if the report is empty to show that the
+  check was fine.
 - the string "current" signifies to not change the permissions.
 - perm.*: corrected mandrake_consmap permissions and ping path/permissions.
 - /home is 711 in level 3.
@@ -374,11 +376,11 @@ was fine.
 - better layout of rpm modified files report.
 
 * Wed Jan  9 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-11mdk
-- added hostname to the subject of the mail report for better information
-when you receive multiple reports
+- added hostname to the subject of the mail report for better
+  information when you receive multiple reports
 - really added rpm-va check to the mail report
 - fix handling of the owner/group of subdirectories of /var/log in a
-generic manner.
+  generic manner.
 - oops put back periodic filesystems check
 
 * Mon Jan  7 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-10mdk
@@ -394,7 +396,7 @@ generic manner.
 * Thu Jan  3 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-7mdk
 - rpm -qa check now logs install time too
 - corrected the way we install the byte compiled python files to avoid
-false rpm -V warnings.
+  false rpm -V warnings.
 - added a CHANGES file to document what has changed between 0.16 and 0.17
 - send complete rpm -va check to the main mail
 - perm.*: added handling of /etc/rc.d/init.d/*
@@ -404,8 +406,9 @@ false rpm -V warnings.
 * Sat Dec 29 2001 Frederic Lepied <flepied@mandrakesoft.com> 0.17-6mdk
 - added doc of the features of the msec utility
 - corrected enable_at_crontab
-- password_aging only takes care of /etc/shadow users and avoid the users
-with a deactivated password.
+
+- password_aging only takes care of /etc/shadow users and avoid the
+  users with a deactivated password.
 
 * Fri Dec 28 2001 Frederic Lepied <flepied@mandrakesoft.com> 0.17-5mdk
 - added rpm database checks
@@ -440,7 +443,7 @@ with a deactivated password.
 - added command history disabling (Fred)
 - added sysctl settings (Fred)
 - changed perms of rpm progs in high security levels to prevent
-exposing what is installed (and access to /usr/share/doc too). (Fred)
+  exposing what is installed (and access to /usr/share/doc too). (Fred)
 - spoof protection for name resoluton (Fred)
 - remove /etc/issue and /etc/issue.net according to level (Fred)
 
@@ -506,7 +509,7 @@ exposing what is installed (and access to /usr/share/doc too). (Fred)
 - add the %post section for the ghost file
 
 * Mon Sep 03 2001 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-20mdk
-- logrotate entry in %install, not %post
+- logrotate entry in %%install, not %post
 
 * Mon Sep 03 2001 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-19mdk
 - add logrotate entry

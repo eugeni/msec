@@ -1,3 +1,7 @@
+2005-03-21 17:05  Frederic Lepied <flepied at mandrakesoft.com>
+
+	* msec.spec: 0.45.1-1mdk
+
 2005-03-21 16:00  Frederic Lepied <flepied at mandrakesoft.com>
 
 	* share/libmsec.py: password_history: touch opasswd to have it

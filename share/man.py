@@ -21,15 +21,15 @@ mseclib
 .SH SYNOPSIS
 .nf
 .B from mseclib import *
-.B function1()
-.B function2(arg1)
+.B function1(yes)
+.B function2(ignore)
 .fi
 .SH DESCRIPTION
 .B mseclib
 is a python library to access the function used by the msec program. This functions can be used
 in /etc/security/msec/level.local to override the behaviour of the msec program or in standalone
-scripts. The argument of the functions takes a value of 1 or 0 (or yes/no) except when specified
-otherwise.
+scripts. The first argument of the functions takes a value of 1 or 0 or -1 (or yes/no/ignore)
+except when specified otherwise.
 '''
 
 footer = '''.RE

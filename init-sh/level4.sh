@@ -109,7 +109,7 @@ AddRules "export PATH SECURE_LEVEL" /etc/profile
 AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/zprofile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/zprofile 
 
-if [[ -f /usr/lib/libsafe.so.1.3 ]]; then
+if [[ -f /lib/libsafe.so.1.3 ]]; then
     echo "Enabling stack overflow protection :"
     AddRules "/lib/libsafe.so.1.3" /etc/ld.so.preload
 fi

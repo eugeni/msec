@@ -45,6 +45,9 @@ rm -rf $RPM_BUILD_ROOT
 /usr/man/*/*
 
 %changelog
+* Tue Jan 18 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- custom.sh : fix a nasty typo.
+
 * Tue Jan 06 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - security.sh : find are niced to (+19)
 - Camille updated the documentation.

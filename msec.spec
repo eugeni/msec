@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.30.2
+Version:	0.31
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -18,6 +18,7 @@ Requires:	chkconfig >= 1.2.24-3mdk
 Requires:	fileutils >= 4.1.5
 Requires:	iproute2
 Requires:	sh-utils
+PreReq:		rpm-helper >= 0.4
 
 %description
 The Mandrake-Security package is designed to provide generic 
@@ -48,7 +49,7 @@ install -d $RPM_BUILD_ROOT/usr/sbin $RPM_BUILD_ROOT/usr/bin
 install -d $RPM_BUILD_ROOT/var/log/security
 install -d $RPM_BUILD_ROOT%{_mandir}/man{3,8}
 
-cp -p init-sh/cleanold.sh share/*.py share/*.pyo cron-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
+cp -p init-sh/cleanold.sh share/*.py share/*.pyo share/level.* cron-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
 install -m 755 share/msec $RPM_BUILD_ROOT/usr/sbin
 install -m 644 conf/server.* $RPM_BUILD_ROOT/etc/security/msec
 install -m 644 conf/perm.* $RPM_BUILD_ROOT/usr/share/msec
@@ -73,6 +74,11 @@ install -m 755 %{SOURCE2} $RPM_BUILD_ROOT/etc/profile.d
 install -m 755 %{SOURCE3} $RPM_BUILD_ROOT/etc/profile.d
 touch $RPM_BUILD_ROOT/var/log/security.log
 
+%pre
+%_pre_groupadd xgrp
+%_pre_groupadd ntools
+%_pre_groupadd ctools
+
 %post
 touch /var/log/security.log
 
@@ -96,6 +102,10 @@ if [ $1 = 0 ]; then
 	# cleanup crontabs on package removal
 	rm -f /etc/cron.d/msec /etc/cron.hourly/msec /etc/cron.daily/msec
 fi
+
+%_postun_groupdel xgrp
+%_postun_groupdel ntools
+%_postun_groupdel ctools
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -124,6 +134,10 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Tue Jul 30 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.31-1mdk
+- added level.* for draksec
+- add needed groups in %%pre
+
 * Mon Jul 29 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.30.2-1mdk
 - fixed allow_root_login
 

@@ -9,13 +9,24 @@
 #---------------------------------------------------------------
 
 MSEC=/usr/share/msec/msec.py
+OPT=""
 
 for a in "$@"; do
+    if [ "$a" = '-o' ]; then
+	OPT="$OPT -o"
+	NEXT=1
+    else
+	if [ "$NEXT" = 1 ]; then
+	    OPT="$OPT $a"
+	fi
+	NEXT=0
+    fi
+	
     last="$a"
 done
 
 if [ -n "$last" ]; then
-    case $last in
+    case "$last" in
 	[0-5]) ;;
 	*) [ -x /usr/share/msec/$last.py ] && MSEC=/usr/share/msec/$last.py;;
     esac
@@ -29,8 +40,8 @@ else
     esac
 fi
 
-if [ ! -x $MSEC ]; then
-    echo "/usr/share/msec/$last.py not found or not executable. Aborting" 1>&2
+if [ ! -x "$MSEC" ]; then
+    echo "$MSEC found or not executable. Aborting" 1>&2
     exit 1
 fi
 
@@ -41,8 +52,8 @@ if $MSEC "$@"; then
 
     LOCAL=
     [ -f /etc/security/msec/perm.local ] && LOCAL=/etc/security/msec/perm.local
-    
-    /usr/share/msec/Perms.py /etc/security/msec/perm.$PERM_LEVEL $LOCAL
+
+    /usr/share/msec/Perms.py $OPT /etc/security/msec/perm.$PERM_LEVEL $LOCAL
 fi
 
-# msec.sh ends here
+# msec ends here

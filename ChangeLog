@@ -1,3 +1,25 @@
+2002-07-04 19:02  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.25-1mdk
+
+2002-07-04 18:57  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: allow_root_login: corrected regexp to avoid
+	adding the string at every run.
+
+2002-07-04 18:38  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: server.snf, perm.snf: [no log message]
+
+2002-07-04 18:37  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/server.4: added entry for MNF
+
+2002-07-04 09:30  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: insert changes when no match is found for
+	logindefs and sshd_config.
+
 2002-06-27 09:58  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.24-1mdk

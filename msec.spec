@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.42
+Version:	0.42.1
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -153,6 +153,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Sun Mar 21 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.42.1-1mdk
+- check files on / in the daily check (workaround strange ntfw bug #9121)
+
 * Fri Feb 27 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.42-1mdk
 - fix mailman log perm (Guillaume Rousse) [bug #8158]
 - allow to specify only group or user in perm files (Bill Shirley)

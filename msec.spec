@@ -83,7 +83,6 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Thu Sep 27 2001 Florin <florin@mandrakesoft.com> 0.15-30mdk
 - more things from /etc/profile to /etc/profile.d/msec.{sh|csh}
-- remove the -E option in the AddRules grep function
 - remove the "or print" in the perl line in CleanRules 
 
 * Thu Sep 20 2001 Florin <florin@mandrakesoft.com> 0.15-29mdk

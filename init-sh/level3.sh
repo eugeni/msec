@@ -64,10 +64,6 @@ echo -n "Running lilo to record new config : "
 /sbin/lilo >& /dev/null
 echo -e "done.\n"
 
-# /etc/inittab 
-echo "Disabling direct console access : "
-AddRules "1:2345:respawn:/sbin/mingetty tty1" /etc/inittab
-
 # /etc/profile
 export SECURE_LEVEL=3
 echo "Setting secure level variable to 3 :"
@@ -77,3 +73,12 @@ AddRules "umask 022" /etc/profile
 echo "Adding a \"normal\" PATH variable : "
 AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile
+
+# Do not boot on a shell
+echo -n "Setting up inittab to ask a passwd on boot : "
+tmpfile=`mktemp /tmp/secure.XXXXXX`
+cp /etc/inittab ${tmpfile}
+cat ${tmpfile} | sed s'/\/bin\/bash --login/\/sbin\/mingetty tty1/' > /etc/inittab
+rm -f ${tmpfile}
+echo "done."
+

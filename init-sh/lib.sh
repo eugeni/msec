@@ -188,7 +188,6 @@ fi
 
 clear
 echo "Preparing to run security script : "
-CleanRules /etc/inittab
 CleanRules /etc/syslog.conf
 CleanRules /etc/hosts.deny
 CommentUserRules /etc/hosts.deny

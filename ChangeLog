@@ -1,4 +1,5 @@
 1999-12-16 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* Don't use msec parsing routine to hack inittab.
 	* Indentation problem should be corrected
 	* All debug finished, changing secure.tmp to a mktemp
       allocated tmpfile for symlink security.

@@ -73,10 +73,6 @@ echo -n "Running lilo to record new config : "
 /sbin/lilo >& /dev/null
 echo -e "done.\n"
 
-# /etc/inittab 
-echo "Disabling direct console access : "
-AddRules "1:2345:respawn:/sbin/mingetty tty1" /etc/inittab
-
 # Disable all server :
 echo "Setting secure level variable to 5 :"
 AddRules "SECURE_LEVEL=5" /etc/profile
@@ -107,6 +103,14 @@ echo "Adding \"normal\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile
 
+# Do not boot on a shell
+echo -n "Setting up inittab to ask a passwd on boot : "
+tmpfile=`mktemp /tmp/secure.XXXXXX`
+cp /etc/inittab ${tmpfile}
+cat ${tmpfile} | sed s'/\/bin\/bash --login/\/sbin\/mingetty tty1/' > /etc/inittab
+rm -f ${tmpfile}
+echo "done."
+
 echo
 echo "You are now running your system in security level 5,"
 echo "All services are disabled : try the chkconfig to enable one..."
@@ -115,9 +119,6 @@ echo "you should compile the server from the sources".
 echo
 echo "Good luck. :-)"
 echo
-
-
-
 
 
 

@@ -55,10 +55,6 @@ echo -n "Running lilo to record new config : "
 /sbin/lilo
 echo -e "done.\n"
 
-# /etc/inittab 
-echo "Disabling direct console access : "
-AddRules "1:2345:respawn:/sbin/mingetty tty1" /etc/inittab
-
 # /etc/profile
 export SECURE_LEVEL=2
 echo "Setting secure level variable to 2 :"
@@ -79,3 +75,10 @@ echo "Adding system users to specifics groups :"
 /etc/security/msec/init-sh/grpuser.sh --refresh
 echo -e "done.\n"
 
+# Do not boot on a shell
+echo -n "Setting up inittab to ask a passwd on boot : "
+tmpfile=`mktemp /tmp/secure.XXXXXX`
+cp /etc/inittab ${tmpfile}
+cat ${tmpfile} | sed s'/\/bin\/bash --login/\/sbin\/mingetty tty1/' > /etc/inittab
+rm -f ${tmpfile}
+echo "done."

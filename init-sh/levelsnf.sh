@@ -91,7 +91,7 @@ IFS="
 "
 echo -n "Disabling all service, except : {"
 for service in `chkconfig --list | awk '{print $1}'`; do
-    if grep -qx ${service} /etc/security/msec/server.4; then
+    if grep -qx ${service} /etc/security/msec/server.snf; then
         echo -n " ${service}"
     fi
 done

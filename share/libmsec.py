@@ -84,7 +84,7 @@ LOCAL=2
 
 ConfigFile.add_config_assoc(INITTAB, '/sbin/telinit q')
 ConfigFile.add_config_assoc('/etc(?:/rc.d)?/init.d/(.+)', '[ -f /var/lock/subsys/@1 ] && @0 reload')
-ConfigFile.add_config_assoc(SYSCTLCONF, '/sbin/sysctl -e -p /etc/sysctl.conf; service network restart')
+#ConfigFile.add_config_assoc(SYSCTLCONF, '/sbin/sysctl -e -p /etc/sysctl.conf; service network restart')
 ConfigFile.add_config_assoc(SSHDCONFIG, '[ -f /var/lock/subsys/sshd ] && /etc/rc.d/init.d/sshd restart')
 ConfigFile.add_config_assoc(LILOCONF, '[ `/usr/sbin/detectloader` = LILO ] && /sbin/lilo')
 ConfigFile.add_config_assoc(SYSLOGCONF, '[ -f /var/lock/subsys/syslog ] && service syslog reload')

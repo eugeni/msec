@@ -81,7 +81,7 @@ if [[ ${answer} == yes ]]; then
 fi
 ###
 
-if [[ -f /lib/libsafe.so.1.3 ]]; then
+if [[ -f /lib/libsafe.so.2 ]]; then
 echo "Do you want to enable the libsafe stack overflow protection ?"
 echo "This stack overflow protection work by catching dangerous function call"
 echo "like strcpy, strcat, getwd, gets, [vf]scanf, realpath, [v]sprintf"
@@ -90,7 +90,7 @@ echo "this is done by searching in the stack frame the one which contain the"
 echo "destination address, and by substracting the frame address to the destination buffer one" 
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
-	AddRules "/lib/libsafe.so.1.3" /etc/ld.so.preload
+	AddRules "/lib/libsafe.so.2" /etc/ld.so.preload
 fi
 fi
 

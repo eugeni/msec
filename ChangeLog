@@ -1,3 +1,7 @@
+2004-03-21 16:56  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.42.1-1mdk
+
 2004-03-21 16:45  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* src/msec_find/find.c: workaround bug #9121 by not passing

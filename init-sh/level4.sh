@@ -111,8 +111,7 @@ AddRules "export PATH SECURE_LEVEL" /etc/zprofile
 
 if [[ -f /usr/lib/libsafe.so.1.2 ]]; then
     echo "Enabling stack overflow protection :"
-    AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.3" /etc/profile
-    AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.3" /etc/zprofile
+    AddRules "/lib/libsafe.so.1.3" /etc/ld.so.preload
 fi
 
 # Do not boot on a shell

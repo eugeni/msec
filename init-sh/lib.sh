@@ -142,7 +142,7 @@ Ttylog() {
 LoaderUpdate() {
    
     # Ask only if we're not inside DrakX.
-    if [[ -z ${DRAKX_PASSWORD} ]]; then
+    if [[ ! ${DRAKX_PASSWORD+set} ]]; then
     	echo "Do you want a password authentication at boot time ?"
     	echo "Be very carefull,"
     	echo "this will prevent your server to reboot without an operator to enter password".
@@ -241,6 +241,7 @@ CommentUserRules /etc/securetty
 CleanRules /etc/security/msec/security.conf
 CommentUserRules /etc/security/msec/security.conf
 CleanRules /etc/profile
+CleanRules /etc/ld.so.preload
 
 CleanLoaderRules
 LoaderDrakX

@@ -1,4 +1,4 @@
-%define version 0.15
+%define version 0.14
 %define release 3mdk
 
 Summary: Security Level & Program for the Linux Mandrake distribution

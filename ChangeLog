@@ -1,3 +1,7 @@
+2000-05-03 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+LoaderUpdate() make a difference between an empty
+variable, and a non existing one.
+
 2000-04-25 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - Fix a bug with comment removed pointed out by Konrad Bernloehr.
 

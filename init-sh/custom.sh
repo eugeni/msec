@@ -84,8 +84,7 @@ echo "this is done by searching in the stack frame the one which contain the"
 echo "destination address, and by substracting the frame address to the destination buffer one" 
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
-	AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.3" /etc/profile
-	AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.3" /etc/zprofile
+	AddRules "/lib/libsafe.so.1.3" /etc/ld.so.preload
 fi
 fi
 

@@ -60,6 +60,9 @@ POWEROFF = '/etc/security/console.apps/poweroff'
 REBOOT = '/etc/security/console.apps/reboot'
 SECURETTY = '/etc/securetty'
 SECURITYCONF = '/etc/security/msec/security.conf'
+SECURITYCRON = '/etc/cron.daily/msec'
+SECURITYSH = '/usr/share/msec/security.sh'
+SERVER = '/etc/security/msec/server'
 SHADOW = '/etc/shadow'
 SHUTDOWN = '/etc/security/console.apps/shutdown'
 SHUTDOWNALLOW = '/etc/shutdown.allow'
@@ -95,6 +98,29 @@ def get_secure_level():
     "D"
     msec = ConfigFile.get_config_file(MSEC)
     return msec.get_shell_variable('SECURE_LEVEL')
+
+def set_server_level(level):
+    _interactive and log(_('Setting server level to %s') % level)
+    securityconf = ConfigFile.get_config_file(SECURITYCONF)
+    securityconf.set_shell_variable('SERVER_LEVEL', level)
+
+def get_server_level():
+    "D"
+    securityconf = ConfigFile.get_config_file(SECURITYCONF)
+    level = securityconf.get_shell_variable('SERVER_LEVEL')
+    if level: return level
+    msec = ConfigFile.get_config_file(MSEC)
+    return msec.get_shell_variable('SECURE_LEVEL')
+
+def create_server_link():
+    level = get_server_level()
+    server = ConfigFile.get_config_file(SERVER)
+    if level in ('0', '1', '2', '3'):
+        _interactive and log(_('Allowing chkconfig --add from rpm'))
+        server.exists() and server.unlink()
+    else:
+        _interactive and log(_('Restricting chkconfig --add from rpm'))
+        server.symlink(SERVER + '.' + str(level))
 
 def set_root_umask(umask):
     _interactive and log(_('Setting root umask to %s') % umask)
@@ -308,14 +334,17 @@ def enable_promisc_check(arg):
 
 def enable_security_check(arg):
     cron = ConfigFile.get_config_file(CRON)
+    cron.remove_line_matching('[^#]+/usr/share/msec/security.sh')
 
+    securitycron = ConfigFile.get_config_file(SECURITYCRON)
+    
     if arg:
         _interactive and log(_('Activating daily security check'))
-        cron.replace_line_matching('[^#]+/usr/share/msec/security.sh', '0 4 * * *    root    /usr/share/msec/security.sh', 1)
+        securitycron.symlink(SECURITYSH)
     else:
         _interactive and log(_('Disabling daily security check'))
-        cron.remove_line_matching('[^#]+/usr/share/msec/security.sh')
-
+        securitycron.unlink()
+        
 def authorize_services(arg):
     hostsdeny = ConfigFile.get_config_file(HOSTSDENY)
 

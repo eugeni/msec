@@ -119,8 +119,8 @@ class ConfigFile:
         self.sym_link = link
         return self
     
-    def exists(self):
-        return os.path.exists(self.path) or (self.suffix and os.path.exists(self.path + self.suffix))
+    def exists(self, really=0):
+        return os.path.exists(self.path) or (not really and self.suffix and os.path.exists(self.path + self.suffix))
 
     def move(self, suffix):
         self.suffix = suffix

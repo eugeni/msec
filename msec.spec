@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Linux Mandrake distribution
 Name:		msec
 Version:	0.15
-Release:	24mdk
+Release:	25mdk
 
 Source:		%{name}-%{version}.tar.bz2
 Source2:    	msec
@@ -81,6 +81,10 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Wed Sep 19 2001 florin <florin@mandrakesoft.com> 0.15-25mdk
+- RootSshLogin in levels 4/5
+- squidGuard entries
+
 * Wed Sep 19 2001 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-24mdk
 - Fix manpages installation.
 - Fix logrotate config installation.

@@ -59,7 +59,7 @@ PASSWD = '/etc/pam.d/passwd'
 POWEROFF = '/etc/security/console.apps/poweroff'
 REBOOT = '/etc/security/console.apps/reboot'
 SECURETTY = '/etc/securetty'
-SECURITYCONF = '/etc/security/msec/security.conf'
+SECURITYCONF = '/var/lib/msec/security.conf'
 SECURITYCRON = '/etc/cron.daily/msec'
 SECURITYSH = '/usr/share/msec/security.sh'
 SERVER = '/etc/security/msec/server'
@@ -390,7 +390,8 @@ def enable_security_check(arg):
         
 def authorize_services(arg):
     '''  Authorize all services controlled by tcp_wrappers (see hosts.deny(5)) if \\fIarg\\fP = ALL. Only local ones
-if \\fIarg\\fP = LOCAL and none if \\fIarg\\fP = NONE.'''
+if \\fIarg\\fP = LOCAL and none if \\fIarg\\fP = NONE. To authorize the services you need, use /etc/hosts.allow
+(see hosts.allow(5)).'''
     hostsdeny = ConfigFile.get_config_file(HOSTSDENY)
 
     if arg == ALL:
@@ -512,7 +513,8 @@ def enable_msec_cron(arg):
         mseccron.unlink()
 
 def enable_at_crontab(arg):
-    '''  Enable/Disable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow.'''
+    '''  Enable/Disable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow
+(see man at(1) and crontab(1)).'''
     cronallow = ConfigFile.get_config_file(CRONALLOW)
     atallow = ConfigFile.get_config_file(ATALLOW)
 
@@ -549,7 +551,11 @@ def password_aging(max, inactive=-1):
                 continue
             name = field[0]
             password = field[1]
-            entry = pwd.getpwnam(name)
+            try:
+                entry = pwd.getpwnam(name)
+            except KeyError:
+                error(_('User %s in shadow but not in passwd file') % name)
+                continue
             if (len(password) > 0 and password[0] != '!') and password != '*' and password != 'x' and (entry[2] >= uid_min or entry[2] == 0):
                 cmd = '/usr/bin/chage -l %s' % entry[0]
                 ret = commands.getstatusoutput(cmd)
@@ -572,7 +578,44 @@ def password_aging(max, inactive=-1):
                     error(_('unable to run chage: %s') % ret[1])
 
 def set_security_conf(var, value):
-    '''1 Set the variable \\fIvar\\fP to the value \\fIvalue\\fP in /etc/security/msec/security.conf.'''
+    '''1 Set the variable \\fIvar\\fP to the value \\fIvalue\\fP in /var/lib/msec/security.conf.
+
+The following variables are currentrly recognized by msec:
+
+CHECK_UNOWNED if set to yes, report unowned files.
+
+CHECK_SHADOW if set to yes, check empty passord in /etc/shadow.
+
+CHECK_SUID_MD5 if set to yes, verify checksum of the suid/sgid files.
+
+CHECK_SECURITY if set to yes, run the daily security checks.
+
+CHECK_PASSWD if set to yes, check for empty password, or a password while it should be in /etc/shadow or other users with id 0.
+
+SYSLOG_WARN if set to yes, report check result to syslog.
+
+CHECK_SUID_ROOT if set to yes, check additions/removals of suid root files.
+
+CHECK_PERMS if set to yes, check permissions of files in the users' home.
+
+CHKROOTKIT_CHECK if set to yes, run chkrootkit checks.
+
+CHECK_PROMISC if set to yes, check if the network devices are in promiscuous mode.
+
+RPM_CHECK if set to yes, run some checks against the rpm database.
+
+TTY_WARN if set to yes, reports check result to tty.
+
+CHECK_WRITEABLE if set to yes, check files/directories writable by everybody.
+
+MAIL_WARN if set to yes, report check result by mail.
+
+MAIL_USER if set, send the mail report to this email address else send it to root.
+
+CHECK_OPEN_PORT if set to yes, check open ports.
+
+CHECK_SUID_GROUP if set to yes, check additions/removals of sgid files.
+'''
     securityconf = ConfigFile.get_config_file(SECURITYCONF)
     securityconf.set_shell_variable(var, value)
 

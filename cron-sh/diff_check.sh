@@ -232,5 +232,8 @@ if [ -s ${TMP} ]; then
 	date=`date`
 	echo -n "\n\n*** ${date} ***\n" >> ${SECURITY_LOG}
     cat ${TMP} >> ${SECURITY_LOG}
-    rm -f ${TMP}
+fi
+
+if [ -f ${TMP} ]; then
+	rm -f ${TMP}
 fi

@@ -11,7 +11,7 @@ else
     exit 1
 fi
 
-if [ SECURITY_CHECK == "no" ]; then
+if [[ ${CHECK_SECURITY} != yes ]]; then
     exit 0
 fi
 
@@ -30,7 +30,7 @@ rm -f ${SECURITY} ${TMP} >& /dev/null
 ### Functions ###
 
 Syslog() {
-    if [ $SYS_LOG=="yes" ]; then
+    if [[ ${SYSLOG_WARN} == yes ]]; then
 	cat ${1} | while read line; do
 	    /sbin/initlog --string="${line}"
 	done
@@ -38,15 +38,15 @@ Syslog() {
 }
 
 Ttylog() {
-	if [ $TTY_LOG=="yes" ]; then
-		for i in `w | grep -v "load\|TTY" | awk '{print $2}'` ; do
-			echo -e "$1" > /dev/$i
-		done
-	fi
+    if [[ ${TTY_WARN} == yes ]]; then
+	for i in `w | grep -v "load\|TTY" | awk '{print $2}'` ; do
+	    echo -e "${1}" > /dev/$i
+	done
+    fi
 }
 
 ### Writeable file detection
-if [ ${CHECK_WRITEABLE}=="yes" ]; then
+if [[ ${CHECK_WRITEABLE} == yes ]]; then
     find ${DIR} -xdev -type f -perm -2 -ls -print | awk '{print $11}' | sort > ${TMP}
 
     if [ -s ${TMP} ]; then
@@ -56,7 +56,7 @@ if [ ${CHECK_WRITEABLE}=="yes" ]; then
 fi
 
 ### Search Un Owned file
-if [ ${CHECK_UNOWNED}=="yes" ]; then
+if [[ ${CHECK_UNOWNED} == yes ]]; then
     find ${DIR} -xdev -nouser -print -ls | awk '{print $11}' | sort > ${TMP}
     if [ -s ${TMP} ]; then
 	printf "\nSecurity Warning : the following file aren't owned by any user :\n" >> ${SECURITY}
@@ -74,27 +74,27 @@ if [ ${CHECK_UNOWNED}=="yes" ]; then
     fi
 fi
 
-if [ ${CHECK_PERMISSIONS}=="yes" ]; then
+if [[ ${CHECK_PERMS} == yes ]]; then
 # Files that should not be owned by someone else or readable.
 list=".netrc .rhosts .shosts .Xauthority .pgp/secring.pgp .ssh/identity .ssh/random_seed"
-awk -F: '/^[^+-]/ { print $3 " " $6 }' /etc/passwd | \
-while read uid homedir; do
+awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' /etc/passwd | 
+while read username uid homedir; do
         for f in ${list} ; do
                 file="${homedir}/${f}"
                 if [ -f ${file} ] ; then
-			printf "${uid} ${f} `ls -ldcgn ${file}`\n"
+			printf "${uid} ${username} ${file} `ls -ldcgn ${file}`\n"
                 fi
         done
-done | awk '$1 != $5 && $5 != "0" \
-        { print "\t\tuser=" $1 ", file=" $2 " : file is owned by " $5 }
-	$3 ~ /^-....w/ \
-        { print "\t\tuser=" $1 ", file=" $2 " : file is group readable" }
-	$3 ~ /^-....w/ \
-        { print "\t\tuser=" $1 ", file=" $2 " : file is other readable" }
-	$3 ~ /^-....w/ \
-        { print "\t\tuser=" $1 ", file=" $2 " : file is group writeable" }
-	$3 ~ /^-....w/ \
-        { print "\t\tuser=" $1 ", file=" $2 " : file is other writeable" }' > ${TMP}
+done | awk '$1 != $6 && $6 != "0" \
+        { print "\t\t- " $3 " : file is owned by uid " $6 "." }
+	$4 ~ /^-...r/ \
+        { print "\t\t- " $3 " : file is group readable." }
+	$4 ~ /^-......r/ \
+        { print "\t\t- " $3 " : file is other readable." }
+	$4 ~ /^-....w/ \
+        { print "\t\t- " $3 " : file is group writeable." }
+	$4 ~ /^-.......w/ \
+        { print "\t\t- " $3 " : file is other writeable." }' > ${TMP}
 
 if [ -s ${TMP} ]; then
     printf "\nSecurity Warning: these files shouldn't be owned by someone else or readable :\n" >> ${SECURITY}
@@ -107,20 +107,20 @@ list=".bashrc .bash_profile .bash_login .bash_logout .cshrc .emacs .exrc \
 .forward .klogin .login .logout .profile .tcshrc .fvwmrc .inputrc .kshrc \
 .nexrc .screenrc .ssh .ssh/config .ssh/authorized_keys .ssh/environment \
 .ssh/known_hosts .ssh/rc .twmrc .xsession .xinitrc .Xdefaults"
-awk -F: '/^[^+-]/ { print $3 " " $6 }' /etc/passwd | \
-while read uid homedir; do
+awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' /etc/passwd | \
+while read username uid homedir; do
         for f in ${list} ; do
-                file="${homedir}/${f}"
-                if [ -f $file ] ; then
-                        printf "$uid ${f} `ls -ldcgn ${file}`\n"
+                file=${homedir}/${f}
+                if [ -f ${file} ] ; then
+                        printf "${uid} ${username} ${file} `ls -ldcgn ${file}`\n"
                 fi
         done
-done | awk '$1 != $5 && $5 != "0" \
-        { print "\t\t- user=" $1 ", file=" $2 " : file is owned by " $5 }
-     $3 ~ /^-....w/ \
-        { print "\t\t- user=" $1 ", file=" $2 " : file is group writeable" }
-     $3 ~ /^-.......w/ \
-        { print "\t\t- user=" $1 ", file=" $2 " : file is other writeable" }' > ${TMP}
+done | awk '$1 != $6 && $6 != "0" \
+        { print "\t\t- " $3 " : file is owned by uid " $6 "." }
+     $4 ~ /^-....w/ \
+        { print "\t\t- " $3 " : file is group writeable." }
+     $4 ~ /^-.......w/ \
+        { print "\t\t- " $3 " : file is other writeable." }' > ${TMP}
 
 if [ -s ${TMP} ]; then
     printf "\nSecurity Warning: theses files should not be owned by someone else or writeable :\n" >> ${SECURITY}
@@ -135,11 +135,11 @@ while read uid homedir; do
                 printf "$uid $file\n"
         fi
 done | awk '$1 != $4 && $4 != "root" \
-        { print "user=" $1 " : home directory is owned by " $4 }
+        { print "user=" $1 " : home directory is owned by " $4 "." }
      $2 ~ /^-....w/ \
-        { print "user=" $1 " : home directory is group writeable" }
+        { print "user=" $1 " : home directory is group writeable." }
      $2 ~ /^-.......w/ \
-        { print "user=" $1 " : home directory is other writeable" }' > ${TMP}
+        { print "user=" $1 " : home directory is other writeable." }' > ${TMP}
 
 if [ -s $TMP ] ; then
         printf "\nSecurity Warning: these home directory should not be owned by someone else or writeable :\n" >> ${SECURITY}
@@ -147,9 +147,10 @@ if [ -s $TMP ] ; then
 fi
 fi
 
-if [ ${CHECK_SECURITY}=="yes" ]; then
+
+if [ ${CHECK_SECURITY} == yes ]; then
 ### Passwd file check
-if [ ${CHECK_PASSWD}=="yes" ]; then    
+if [ ${CHECK_PASSWD} == yes ]; then    
     awk -F: '{
         if ( $2 == "" )
 	    printf("\t\t- /etc/passwd:%d: User \"%s\" has no password !\n", FNR, $1);
@@ -164,7 +165,7 @@ if [ ${CHECK_PASSWD}=="yes" ]; then
 fi
 
 ### Shadow password file Check
-if [ ${CHECK_SHADOW}=="yes" ]; then
+if [[ ${CHECK_SHADOW} == yes ]]; then
     awk -F: '{
 	if ( $2 == "" )
 	    printf("\t\t- /etc/shadow:%d: User \"%s\" has no password !\n", FNR, $1);
@@ -256,7 +257,7 @@ for file in ${list}; do
 done
 
 ### Dump a list of open port.
-if [ ${CHECK_OPEN_PORT}=="yes" ]; then
+if [[ ${CHECK_OPEN_PORT} == yes ]]; then
     netstat -pvlA inet > ${TMP};
     
     if [ -s ${TMP} ]; then
@@ -271,7 +272,7 @@ if [ -s ${SECURITY} ]; then
     Syslog ${SECURITY}
     Ttylog ${SECURITY}
     date=`date`
-    echo -e "\n\n*** Diff Check, ${date} ***\n" >> ${SECURITY_LOG}
+    echo -e "\n\n*** Security Check, ${date} ***\n" >> ${SECURITY_LOG}
     cat ${SECURITY} >> ${SECURITY_LOG}
 fi
 
@@ -282,5 +283,6 @@ fi
 if [ -f ${TMP} ]; then
     rm -f ${TMP}
 fi
+
 
 

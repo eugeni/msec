@@ -26,7 +26,7 @@ Ttylog() {
     fi
 }
 
-PROMISC_CHECK="/usr/bin/promisc_check -q"
+PROMISC="/usr/bin/promisc_check -q"
 #
 # Check if a network interface is in promisc check...
 # Written by Vandoorselaere Yoann, <yoann@mandrakesoft.com>
@@ -49,11 +49,11 @@ else
 	exit 1
 fi
 
-if [ CHECK_PROMISC == "no" ]; then
+if [ ${CHECK_PROMISC}=="no" ]; then
 	exit 0;
 fi
 
-for INTERFACE in `$PROMISC_CHECK`; do
+for INTERFACE in `${PROMISC}`; do
 	LogPromisc $INTERFACE
 done
 

@@ -4,7 +4,7 @@
 #
 
 # Need root access
-if [ $UID != 0 ]; then
+if [ ${UID} != 0 ]; then
     echo "You need to be root in order to change secure level."
     exit 1
 fi
@@ -96,13 +96,13 @@ CommentUserRules() {
 }
 
 Syslog() {
-    if [ "${SYS_LOG}" == "yes" ]; then
+    if [ "${SYSLOG_WARN}" == "yes" ]; then
         /sbin/initlog --string=${1}
     fi
 }
 
 Ttylog() {
-    if [ "${TTY_LOG}" == "yes" ]; then
+    if [ "${TTY_WARN}" == "yes" ]; then
 		w | grep -v "load\|TTY" | awk '{print $2}' | while read line; do
             echo -e ${1} > /dev/$i
         done

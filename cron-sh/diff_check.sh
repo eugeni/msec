@@ -10,7 +10,7 @@ else
     exit 1
 fi
 
-if [ SECURITY_CHECK == "no" ]; then
+if [ "${CHECK_SECURITY}" == "no" ]; then
     exit 0
 fi
 
@@ -57,7 +57,7 @@ rm -f ${TMP} ${SECURITY_TMP} >& /dev/null
 ### Functions ###
 
 Syslog() {
-    if [ $SYS_LOG=="yes" ]; then
+    if [ ${SYSLOG_WARN}=="yes" ]; then
 	cat ${1} | while read line; do
 	    /sbin/initlog --string="${line}"
 	done
@@ -65,7 +65,7 @@ Syslog() {
 }
 
 Ttylog() {
-	if [ $TTY_LOG=="yes" ]; then
+	if [ ${TTY_WARN}=="yes" ]; then
 		for i in `w | grep -v "load\|TTY" | awk '{print $2}'` ; do
 			echo -e "$1" > /dev/$i
 		done

@@ -1,6 +1,6 @@
 #---------------------------------------------------------------
 # Project         : Mandrake Linux
-# Module          : msec2
+# Module          : msec
 # File            : ConfigFile.py
 # Version         : $Id$
 # Author          : Frederic Lepied
@@ -141,6 +141,7 @@ class ConfigFile:
                 log(_('deleted %s') % (self.path,))
         elif self.is_modified:
             content = string.join(self.lines, "\n")
+            mkdir_p(self.path)
             file = open(self.path, 'w')
             file.write(content)
             file.close()
@@ -435,4 +436,9 @@ def add_config_assoc(regex, action):
 
     return all_files.add_config_assoc(regex, action)
 
+def mkdir_p(path):
+    s = os.stat(path)
+    if not s:
+        os.makedirs(os.path.dirname(path))
+    
 # ConfigFile.py ends here

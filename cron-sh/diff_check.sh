@@ -80,7 +80,7 @@ if [[ ${CHECK_WRITEABLE} == yes ]]; then
 	    printf "\nSecurity Warning: Change in World Writeable Files found :\n" >> ${TMP}
 	    grep '^+' ${WRITEABLE_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
 		printf "\t\t- Added writables files : ${file}\n"
-	    done >> ${TMP
+	    done >> ${TMP}
 	    grep '^-' ${WRITEABLE_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
 		printf "\t\t- Removed writables files : ${file}\n"
 	    done >> ${TMP}

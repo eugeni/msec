@@ -156,7 +156,6 @@ is used by chkconfig --add to decide to add a service if it is present in the fi
 during the installation of packages.'''
     level = get_server_level()
     server = ConfigFile.get_config_file(SERVER)
-    print 'create_server_link', level, server.exists()
     if level in ('0', '1', '2', '3'):
         _interactive and log(_('Allowing chkconfig --add from rpm'))
         server.exists() and server.unlink()

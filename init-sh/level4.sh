@@ -60,17 +60,5 @@ done
 AddRules "umask 022" /etc/profile
 
 # Path
-
-if [ ${HAVE_X}==1 ]; then
-    AddRules "PATH=$PATH:/usr/X11R6/bin" /etc/profile
-fi
-
-
-
-
-
-
-
-
-
+AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile
 

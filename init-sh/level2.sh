@@ -27,7 +27,7 @@ AddRules "SYSLOG_WARN=yes" /etc/security/msec/security.conf
 
 # Permissions
 AddRules "umask 002" /etc/profile
-
+AddRules "SECURE_LEVEL=2" /etc/profile
 # Group
 usermod -G audio ${USERNAME} >& /dev/null
 
@@ -38,9 +38,7 @@ xhost + localhost 2>&1 >& /dev/null
 /sbin/lilo
 
 # Path
-if [ ${HAVE_X}==1 ]; then
-    AddRules "PATH=$PATH:/usr/X11R6/bin" /etc/profile
-fi
+AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile
 
 
 

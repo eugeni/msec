@@ -37,14 +37,13 @@ AddRules "0 0-23 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-
 
 # Permissions
 AddRules "umask 022" /etc/profile
+AddRules "SECURE_LEVEL=3 /etc/profile
 
 /sbin/lilo
 
 
 # Path
-if [ ${HAVE_X}==1 ]; then
-    AddRules "PATH=$PATH:/usr/X11R6/bin" /etc/profile
-fi
+AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile
 
 
 

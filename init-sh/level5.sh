@@ -53,9 +53,7 @@ done
 AddRules "umask 077" /etc/profile 
 
 # Path
-if [ ${HAVE_X}==1 ]; then
-    AddRules "PATH=$PATH:/usr/X11R6/bin" /etc/profile
-fi
+AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile
 
 echo
 echo "You are now running your system in security level 5,"

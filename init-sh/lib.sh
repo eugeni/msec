@@ -23,12 +23,6 @@ if [ -f /etc/security/msec/security.conf ]; then
     . /etc/security/msec/security.conf
 fi
 
-if rpm -q XFree86 2>&1 > /dev/null; then
-    HAVE_X=1
-else
-    HAVE_X=0
-fi
-
 USERNAME="blah"
 COMMENT="# Mandrake-Security : if you remove this comment, remove the next line too."
 
@@ -155,7 +149,6 @@ CleanRules /etc/crontab
 
 # For all secure level
 AddRules "echo 1 > /proc/sys/net/ipv4/conf/all/rp_filter" /etc/rc.d/rc.firewall
-
 # default group which must exist on the system
 groupadd audio >& /dev/null
 groupadd xgrp >& /dev/null

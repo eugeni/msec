@@ -1,15 +1,13 @@
-%define version 0.11
-%define release 1mdk
+%define version 0.12
+2%define release mdk
 
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
 Version: %{version}
 Release: %{release}
-# get the source from our cvs repository (see
-# http://www.linuxmandrake.com/en/cvs.php3)
 Source: %{name}-%{version}.tar.bz2
 Copyright: GPL
-Group: System Environment/Base
+Group: System/Base
 BuildRoot: /var/tmp/msec
 Requires: /bin/bash setup chkconfig >= 0.9-6
 
@@ -48,6 +46,13 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/security/msec
 
 %changelog
+* Mon Apr 17 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.12-2mdk
+- updated documentation.
+
+* Fri Apr 14 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.12-1mdk
+- Modify zprofile.
+- use libsafe-1.3
+
 * Thu Mar 16 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - security.sh : export *_TODAY variable to be used by msec_find.
 - find.c      : removed a debuging printf.

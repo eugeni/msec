@@ -1,25 +1,25 @@
-.TH init.sh 8 "15 Dec 1999" "Mandrakesoft" "Linux-Mandrake"
+.TH msec 8 "17 Appr 2000" "Mandrakesoft" "Linux-Mandrake"
 .IX msec
 .SH NAME
 msec \- Mandrake security tools
 .SH SYNOPSIS
-.B init.sh
+.B msec
 [0-5 | custom]
 .SH DESCRIPTION
-\fPinit.sh\fP is the main script of msec package. It enables the system administrator to change the security level for that system.
+\fPmsec\fP is the main script of msec package. It enables the system administrator to change the security level for that system.
 msec is provided with six preconfigured security levels. These levels range from poor security and ease of use, to paranoid config, suitable for very sensitive server applications, managed by experts.
 .PP
-You must be root to run \fPinit.sh\fP .
+You must be root to run \fPmsec\fP .
 .br
-Launch "init.sh x" to set you security level to x (x=[0-5]). It'll modify your system according to security level x features.
+Launch "msec x" to set you security level to x (x=[0-5]). It'll modify your system according to security level x features.
 .br
 For a fine description of each security level, consult the documentation under /usr/doc/msec-*/.
 .PP
-If you wish to setup your own security level, finely tuning all available parameters, launch "init.sh custom". It'll ask you for each features you want to enable, and will then apply them to the system.
+If you wish to setup your own security level, finely tuning all available parameters, launch "msec custom". It'll ask you for each features you want to enable, and will then apply them to the system.
 .SH FILES
-/etc/security/msec/init.sh
+/usr/sbin/msec
 .br
-The \fPinit.sh\fP executable (sh script)
+The \fPmsec\fP executable (sh script)
 .PP
 /etc/security/msec/security.conf
 .br

@@ -96,7 +96,7 @@ Then just login as root and type
 \begin_inset Quotes erd
 \end_inset 
 
-/etc/security/msec/init.sh x
+/usr/sbin/msec x
 \begin_inset Quotes erd
 \end_inset 
 
@@ -1282,7 +1282,7 @@ All services not contained into
 \begin_inset Quotes eld
 \end_inset 
 
-/etc/security/msec/init-sh/server.4
+/etc/security/msec/server.4
 \begin_inset Quotes erd
 \end_inset 
 

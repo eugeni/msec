@@ -1,3 +1,10 @@
+2000-04-17 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* Updated the doc.
+
+2000-04-14 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* Modify zprofile.
+	* use libsafe-1.3
+
 2000-03-22 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* Added many of the proposed feature from Bryan Paxton.
 

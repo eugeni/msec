@@ -101,7 +101,8 @@ if len(args) == 0:
         sys.exit(1)
 else:
     level = args[0]
-
+    changing_level()
+    
 try:
     level = int(level)
 except ValueError:
@@ -135,6 +136,7 @@ else:
 password_length(plength, level / 4, level / 4)
 
 enable_ip_spoofing_protection(server)
+enable_dns_spoofing_protection(server)
 
 # differences between level 5 and others
 if level == 5:
@@ -157,10 +159,12 @@ if level >= 4:
     set_user_umask('077')
     set_shell_history_size(10)
     allow_root_login(0)
+    allow_remote_root_login(0)
     enable_sulogin(1)
     allow_user_list(0)
     enable_promisc_check(1)
     accept_icmp_echo(0)
+    accept_broadcasted_icmp_echo(0)
     accept_bogus_error_responses(0)
     allow_reboot(0)
     enable_at_crontab(0)
@@ -172,10 +176,12 @@ else:
     set_user_umask('022')
     set_shell_history_size(-1)
     allow_root_login(1)
+    allow_remote_root_login(1)
     enable_sulogin(0)
     allow_user_list(1)
     enable_promisc_check(0)
     accept_icmp_echo(1)
+    accept_broadcasted_icmp_echo(1)
     accept_bogus_error_responses(1)
     allow_reboot(1)
     enable_at_crontab(1)
@@ -201,12 +207,15 @@ if level != 0:
     enable_security_check(1)
     enable_password(1)
     if level < 3:
-        allow_x_connections(LOCAL, 1)
+        allow_x_connections(LOCAL)
+        allow_xserver_to_listen(1)
     else:
         if level == 3:
-            allow_x_connections(NONE, 1)
+            allow_x_connections(NONE)
+            allow_xserver_to_listen(1)
         else:
-            allow_x_connections(NONE, 0)
+            allow_x_connections(NONE)
+            allow_xserver_to_listen(0)            
 else:
     enable_security_check(0)
     enable_password(0)

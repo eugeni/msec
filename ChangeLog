@@ -1,5 +1,6 @@
 1999-12-17 Yoann Vandoorselaere <yoann@mandrakesoft.com>
-	* security_check.sh: fix the mktemp problem
+	* security_check.sh: Bugfix
+	* diff_check.sh: dito
 
 1999-12-16 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* Don't use msec parsing routine to hack inittab.

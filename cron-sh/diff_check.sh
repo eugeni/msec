@@ -14,15 +14,6 @@ if [[ ${CHECK_SECURITY} == no ]]; then
     exit 0
 fi
 
-# Modified filters coming from debian security scripts.
-CS_NFSAFS='(nfs|afs|xfs|coda)'
-CS_TYPES=' type (devpts|auto|proc|msdos|fat|vfat|iso9660|ncpfs|smbfs|'$CS_NFSAFS')'
-CS_DEVS='^/dev/fd'
-CS_DIRS='on /mnt'
-FILTERS="$CS_TYPES|$CS_DEVS|$CS_DIRS"
-DIR=`mount | grep -vE "$FILTERS" | cut -d ' ' -f3`
-###
-
 SUID_ROOT_TODAY="/var/log/security/suid_root.today"
 SUID_ROOT_YESTERDAY="/var/log/security/suid_root.yesterday"
 SUID_ROOT_DIFF="/var/log/security/suid_root.diff"

@@ -85,7 +85,7 @@ CleanRules() {
     fi
 
     echo -en "\t- Cleaning msec appended line in ${file} : "
-  
+
     tmpfile=`mktemp /tmp/secure.XXXXXX`
     cp ${file} ${tmpfile}
 
@@ -196,7 +196,7 @@ CommentUserRules /etc/hosts.allow
 CleanRules /etc/securetty
 CommentUserRules /etc/securetty
 CleanRules /etc/security/msec/security.conf
-CommentUserRules /etc/security/msec/security.conf
+#CommentUserRules /etc/security/msec/security.conf
 CleanRules /etc/profile
 CleanRules /etc/lilo.conf
 CleanRules /etc/rc.d/rc.firewall
@@ -217,9 +217,6 @@ usermod -G xgrp xfs
 
 /etc/security/msec/init-sh/grpuser.sh --clean
 echo
-
-
-
 
 
 

@@ -7,7 +7,7 @@
 if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
 else
-	echo "/etc/security/msec/security.conf don't exist."
+    echo "/etc/security/msec/security.conf don't exist."
     exit 1
 fi
 
@@ -43,30 +43,35 @@ Ttylog() {
 
 ### Writeable file detection
 if [[ ${CHECK_WRITEABLE} == yes ]]; then
-    find ${DIR} -xdev -type f -perm -2 -ls -print | awk '{print $11}' | sort > ${TMP}
+    find ${DIR} -xdev -type f -perm -2 -print | sort > ${TMP}
 
     if [[ -s ${TMP} ]]; then
 	printf "\nSecurity Warning: World Writeable Files found :\n" >> ${SECURITY}
-	cat ${TMP} >> ${SECURITY}
+	cat ${TMP} | awk '{print "\t\t- " $0}' >> ${SECURITY}
     fi
 fi
 
 ### Search Un Owned file
 if [[ ${CHECK_UNOWNED} == yes ]]; then
-    find ${DIR} -xdev -nouser -print -ls | awk '{print $11}' | sort > ${TMP}
+    find ${DIR} -xdev -nouser -print | sort > ${TMP}
+
     if [[ -s ${TMP} ]]; then
 	printf "\nSecurity Warning : the following file aren't owned by any user :\n" >> ${SECURITY}
-	printf "\ttheses files now have user \"nobody\" as their owner." >> ${SECURE_LOG}
-	cat ${TMP} >> ${SECURITY}
-        cat ${TMP} | while read line; do chown nobody ${line}; done	
+	printf "\ttheses files now have user \"nobody\" as their owner." >> ${SECURITY_LOG}
+	cat ${TMP} | awk '{print "\t\t- " $0}' >> ${SECURITY}
+        cat ${TMP} | while read line; do
+	    chown nobody ${line}; 
+	done	
     fi
 
-    find $DIR -xdev -nogroup -print -ls | awk '{print $11}' | sort > ${TMP}
+    find $DIR -xdev -nogroup -print | sort > ${TMP}
     if [[ -s ${TMP} ]]; then
 	printf "\nSecurity Warning : the following file aren't owned by any group :\n" >> ${SECURITY}
         printf "\ttheses files now have group \"nogroup\" as their group owner." >> ${SECURITY}
-	cat ${TMP} >> ${SECURITY}
-	cat ${TMP} | while read line; do chgrp nogroup ${line}; done
+	cat ${TMP} | awk '{print "\t\t- " $0}' >> ${SECURITY}
+	cat ${TMP} | while read line; do
+	    chgrp nogroup ${line}; 
+	done
     fi
 fi
 

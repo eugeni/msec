@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Linux Mandrake distribution
 Name:		msec
 Version:	0.15
-Release:	29mdk
+Release:	30mdk
 
 Source:		%{name}-%{version}.tar.bz2
 Source2:    	msec.logrotate
@@ -81,6 +81,9 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Wed Sep 26 2001 Florin <florin@mandrakesoft.com> 0.15-30mdk
+- more things from /etc/profile to /etc/profile.d/msec.{sh|csh}
+
 * Thu Sep 20 2001 Florin <florin@mandrakesoft.com> 0.15-29mdk
 - fix the /etc/profile.d/msec.{sh|csh} entries
 - get rid of /etc/profile entries

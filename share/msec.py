@@ -175,6 +175,7 @@ if level >= 4:
     else:
         password_aging(30, 15)
         allow_remote_root_login(no)
+    allow_xauth_from_root(no)
 else:
     set_user_umask('022')
     set_shell_history_size(-1)
@@ -189,6 +190,7 @@ else:
     allow_reboot(yes)
     enable_at_crontab(yes)
     password_aging(99999)
+    allow_xauth_from_root(yes)
     
 # differences between level 3,4,5 and others
 if server:

@@ -1,4 +1,5 @@
 1999-12-08  Chmouel Boudjnah  <chmouel@mandrakesoft.com>
 
+	* doc/msec.spec: use bzip2 sources.
 	* cron-sh/promisc_check.sh (LogPromisc): add a missing quote.
 	* ChangeLog: first entry.

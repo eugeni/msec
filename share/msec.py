@@ -28,10 +28,37 @@ except IOError:
     _ = str
 
 # Eval a file
+import mseclib
+def import_only_mseclib(name, globals = None, locals = None, fromlist = None):
+    """ Import hook to allow only the mseclib module to be imported. """
+
+    if name == 'mseclib':
+        return mseclib
+    else:
+        raise ImportError, '%s cannot be imported' % name
+    
 def eval_file(name):
-    file = os.fdopen(os.open(os.path.expanduser(name), os.O_RDONLY))
-    imp.load_source('', name, file)
-    file.close()
+    """ Eval level.local file.  Only allow mseclib to be imported for
+    backward compatibility. """
+    
+    globals = {}
+    locals = {}
+    builtins = {}
+
+    # Insert symbols from mseclib into globals
+    non_exported_names = ['FAKE', 'indirect', 'commit_changes']
+    for attrib_name in dir(mseclib):
+        if attrib_name[0] != '_' and attrib_name not in non_exported_names:
+            globals[attrib_name] = getattr(mseclib, attrib_name)
+            
+    # Set import hook -- it needs to be in globals['__builtins'] so we make
+    # a copy of builtins to put there
+    builtins.update(__builtins__.__dict__)
+    builtins['__import__'] = import_only_mseclib
+    globals['__builtins__'] = builtins
+
+    # Exec file
+    execfile(os.path.expanduser(name), globals, locals)
 
 # program
 _name = 'msec'
@@ -217,7 +244,7 @@ if os.path.exists(CONFIG):
     try:
         eval_file(CONFIG)
     except:
-        log(_('Error loading %s: %s') % (CONFIG, sys.exc_value[0]))
+        log(_('Error loading %s: %s') % (CONFIG, str(sys.exc_value)))
 
 commit_changes()
 

@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.31.1
+Version:	0.32
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -19,6 +19,7 @@ Requires:	fileutils >= 4.1.5
 Requires:	iproute2
 Requires:	sh-utils
 PreReq:		rpm-helper >= 0.4
+Conflicts:	passwd < 0.67
 
 %description
 The Mandrake-Security package is designed to provide generic 
@@ -34,8 +35,6 @@ in order to test the security of your system and alert you if needed.
 
 %build
 make CFLAGS="$RPM_OPT_FLAGS"
-
-cd share; make
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -133,7 +132,16 @@ rm -rf $RPM_BUILD_ROOT
 
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
+
 %changelog
+* Fri Aug  9 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.32-1mdk
+- do not change permissions/groups/owners of remote files/directories.
+- documented the command line options in the man page
+- added password_history function (level 5)
+- password_length uses system-auth pam file instead of passwd pam file (added
+Conflicts with the old passwd package)
+- allow_remote_root_login handles the without_password argument (level 4)
+
 * Wed Jul 31 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.31.1-1mdk
 - handle again level.local
 

@@ -4,7 +4,7 @@ Version:	0.15
 Release:	26mdk
 
 Source:		%{name}-%{version}.tar.bz2
-Source2:    	msec
+Source2:    	msec.logrotate
 
 License:	GPL
 Group:		System/Base

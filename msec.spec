@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.15
-Release:	31mdk
+Release:	32mdk
 Url:		http://www.linux-mandrake.com
 Source0:		%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -86,6 +86,11 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Thu Nov 08 2001 Florin <florin@mandrakesoft.com> 0.15-32mdk
+- fix a typo in snf security level
+- fix permissions for monitoring in snf level
+- deny root ssh access in snf level
+
 * Wed Nov 07 2001 Florin <florin@mandrakesoft.com> 0.15-31mdk
 - bring back the squid.squid permissions
 - add some permissions for the naat servers

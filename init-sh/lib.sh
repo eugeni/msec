@@ -87,6 +87,14 @@ CleanRules() {
     echo "done."
 }
 
+CleanRules2() {
+    echo -en "\t- Cleaning msec appended line in $1 : "
+
+    perl -ni -e '$_ eq "$ENV{COMMENT}\n" ... // or print' $1        
+
+    echo "done."
+}
+
 CommentUserRules() {
     file=$1
 

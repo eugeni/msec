@@ -1,7 +1,8 @@
 1999-12-19  Pixel  <pixel@mandrakesoft.com>
 	* init-sh/lib.sh: removed the failsafe for not a tty stdin (not
 	efficient)
-	
+	* init-sh/lib.sh: rewrote the perl script (now a one-liner :)
+
 1999-12-19 Yoann Vandoorselaere <yoann@mandrakesoft.com>
         * Big cleanup.
         * All work properly now.

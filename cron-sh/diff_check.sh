@@ -43,7 +43,7 @@ UNOWNED_YESTERDAY="/var/log/security/unowned.yesterday"
 UNOWNED_DIFF="/var/log/security/unowned.diff"
 
 SECURITY_LOG="/var/log/security.log"
-TMP="/tmp/secure.tmp"
+TMP=`mktemp /tmp/secure.XXXXXX`
 
 if [[ ! -d /var/log/security ]]; then
     mkdir /var/log/security

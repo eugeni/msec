@@ -15,9 +15,9 @@ if [[ ${CHECK_SECURITY} != yes ]]; then
     exit 0
 fi
 
-SECURITY="/tmp/secure.log"
+SECURITY=`mktemp /tmp/secure.log`
 SECURITY_LOG="/var/log/security.log"
-TMP="/tmp/secure.tmp"
+TMP=`mktemp /tmp/secure.tmp`
 
 if [[ ! -d /var/log/security ]]; then
     mkdir /var/log/security

@@ -9,7 +9,6 @@ if [[ ${UID} != 0 ]]; then
     exit 1
 fi
 
-
 COMMENT="# Mandrake-Security : if you remove this comment, remove the next line too."
 
 WaitAnswer() {
@@ -38,37 +37,40 @@ AddRules() {
 		echo -e "${COMMENT}" >> ${file};
 		echo -e "${string}" >> ${file};
 	fi
+
 	if [[ -z ${3} ]]; then
 		echo -e "done.\n"
 	fi
 }
 
 AddBegRules() {
-    string=$1
-    file=$2
-    quiet=$3
-    ctrl=0
+    echo "Modifying config in ${2}..."
+    
+/usr/bin/perl -e '
+    my $m;
 
-    if [[ -z ${string} ]]; then
-	return;
-    fi
+    $file = shift or die;
+    $temp = `mktemp /tmp/secure.XXXXXX`;
 
-    if [[ -z ${quiet} ]]; then
-	echo "Modifying config in ${file}..."
-    fi
+    chomp $temp;
 
-    cp -f ${file} /tmp/secure.tmp
+    open FH, $file;
+    open FW, ">$temp";
 
-    if ! grep -Eqx "^${string}" /tmp/secure.tmp; then
-	echo -e "${COMMENT}" > ${file};
-	echo -e "${string}" >> ${file};
-    fi
+    while (<FH>) {
+	if (!/^\#/ && !/^$/ && !$m) {
+	    print FW $ENV{"COMMENT"};
+	    print FW "@ARGV\n\n"; $m++;
+	}
+	print FW;
+    }
+    close FH;
+    close FW;
 
-    cat /tmp/secure.tmp >> ${file}
+    `mv -f $temp $file`;
+' $@
 
-    if [[ -z ${3} ]]; then
-	echo -e "done.\n"
-    fi
+    echo -e "done.\n"
 }
 
 
@@ -77,11 +79,14 @@ CleanRules() {
     ctrl=0
 
     if [[ ! -f ${file} ]]; then
+	echo "${file} do not exist... can not clean."
 	return;
     fi
 
     echo -en "\t- Cleaning msec appended line in ${file} : "
-    cp -f ${file} /tmp/secure.tmp
+  
+    tmpfile=`mktemp /tmp/secure.XXXXXX`
+    cp ${file} ${tmpfile}
 
     while read line; do
 	if [[ ${ctrl} == 1 ]]; then
@@ -94,11 +99,11 @@ CleanRules() {
 	fi
 		
 	if [[ ${ctrl} == 0 ]]; then
-	    echo "${line}" > ${file}
+	    echo "${line}"
 	fi
-    done < /tmp/secure.tmp
+    done < ${tmpfile} > ${file}
 
-    rm -f /tmp/secure.tmp
+    rm -f ${tmpfile}
 
     echo "done."
 }
@@ -112,16 +117,18 @@ CommentUserRules() {
 
     echo -en "\t- Cleaning user appended line in ${file} : "
 
-    cp -f ${file} /tmp/secure.tmp
-         
-    while read line; do 
+    tmpfile=`mktemp /tmp/secure.XXXXXX`
+    cp -f ${file} ${tmpfile}
+      
+    while read line; do
 	if ! echo "${line}" | grep -qE "^#"; then
-	    echo "# ${line}" > ${file}
+	    echo "# ${line}"
 	fi
-    done < /tmp/secure.tmp
+    done < ${tmpfile} > ${file}
   
-    rm -f /tmp/secure.tmp
-	echo "done."
+    rm -f ${tmpfile}
+    
+    echo "done."
 }
 
 Syslog() {
@@ -132,7 +139,7 @@ Syslog() {
 
 Ttylog() {
     if [[ ${TTY_WARN} == yes ]]; then
-		w | grep -v "load\|TTY" | awk '{print $2}' | while read line; do
+	w | grep -v "load\|TTY" | awk '{print $2}' | while read line; do
             echo -e ${1} > /dev/$i
         done
     fi
@@ -156,14 +163,16 @@ LiloUpdate() {
     fi
 
     if [[ ! -z "${password}" ]]; then
-    	cp -f /etc/lilo.conf /tmp/secure.tmp
+	tmpfile=`mktemp /tmp/secure.XXXXXX`
+
+    	cp -f /etc/lilo.conf ${tmpfile}
 	while read line; do
 	    if ! echo "${line}" | grep -q "password"; then
 		echo "${line}" > /etc/lilo.conf
 	    fi
-    	done < /tmp/secure.tmp
+    	done < ${tmpfile}
 	
-	rm -f /tmp/secure.tmp
+	rm -f ${tmpfile}
 	clear
     	AddRules "password=$password" /etc/lilo.conf
     fi
@@ -172,11 +181,6 @@ LiloUpdate() {
 # If we are currently installing our
 # system with DrakX, we don't ask anything to the user...
 # Instead, DrakX do it and give us a file with some variable.
-if [[ -f /tmp/secure.DrakX ]]; then
-    . /tmp/secure.DrakX
-    AddRules "${DRAKX_USERS}" /etc/security/msec/security.conf
-fi
-
 if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
 fi
@@ -197,7 +201,6 @@ CleanRules /etc/profile
 CleanRules /etc/lilo.conf
 CleanRules /etc/rc.d/rc.firewall
 CleanRules /etc/crontab
-CleanRules /etc/security/msec/security.users
 CleanRules /etc/X11/xdm/Xsession
 CleanRules /etc/X11/xinit/xinitrc
 
@@ -213,6 +216,47 @@ groupadd xgrp >& /dev/null
 usermod -G xgrp xfs
 
 /etc/security/msec/init-sh/grpuser.sh --clean
+echo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

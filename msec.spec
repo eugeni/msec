@@ -35,6 +35,20 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/promisc_check
 
 %changelog
+* Thu Dec 16 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Indentation problem should be fixed.
+- All debug finished, changing secure.tmp to a mktemp
+  allocated tmpfile for symlink security.
+- grpuser.sh take only one opt ( --refresh ),
+  take group name from /etc/security/msec/group.conf
+  and add user from /etc/security/msec/user.conf if secure level > 2
+- level0.sh fixed inittab entry
+- fix a typo
+- As requested, direct shell access for level 0
+- Fixed a little problem with the DRAKX_USERS variable
+- removed chattr +a because of the problem it can cause to
+  other system automated system task.
+
 * Mon Dec 13 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - diff_check.sh : fix a typo.
 

@@ -20,22 +20,19 @@ Usage() {
 }
 
 ModifyFile() {
-    cp /etc/${file} /tmp/${file}.old
+    tmpfile=`mktemp /tmp/grpuser.XXXXXX`
+    cp /etc/${file} ${tmpfile}
 
-    head -$((group_line_number - 1)) /tmp/${file}.old > /etc/${file}
+    head -$((group_line_number - 1)) ${tmpfile} > /etc/${file}
     echo "${new_group_line}" >> /etc/${file}
-    tail +$((group_line_number + 1)) /tmp/${file}.old >> /etc/${file}
-	
-    new_group_line=""
+    tail +$((group_line_number + 1)) ${tmpfile} >> /etc/${file}
 
-    rm -f /tmp/${file}.old
+    rm -f ${tmpfile}
 }
 
 RemoveUserFromGroup() {
     new_group_line=${group}`echo ${group_users} | 
 	sed -e s/,${user_name}$//g -e s/${user_name},//g -e s/${user_name}$//g`
-	
-    echo ${new_group_line}
 }
 
 AppendUserToGroup() {
@@ -87,27 +84,28 @@ RefreshAdd() {
 	exit 1;
     fi
 
-    cat /etc/security/msec/group.conf | while read group_name; do
+    cat /etc/security/msec/group.conf | grep -v "^$" | while read group_name; do
 	IsGroupExisting;
 	if [[ $? != 0 ]]; then
 	    echo "Group \"${group_name}\" doesn't exist. skiping it."
 	else
-	    cat /etc/security/msec/user.conf | while read user_name; do
+	    cat /etc/security/msec/user.conf | grep -v "^$" | while read user_name; do
 		IsUserExisting; 
 		if [[ $? != 0 ]]; then
 		    # user doesn't exist
 		    echo "Can't add user \"${user_name}\" to group \"${group_name}\" user doesn't exist. skiping."
 		    IsUserAlreadyInGroup;
 		    if [[ $? == 0 ]]; then
-			echo "User doesn't exist but is in a group... delete user from this group."
+			#User doesn't exist but is in a group... delete user from this group.
+			IsGroupExisting;
 			RemoveUserFromGroup;
 			ModifyFile;
 		    fi
 		else
 		    echo "Adding user \"${user_name}\" to group \"${group_name}\"."
-		    #AppendUserToGroup;
-		    #ModifyFile;
-		    usermod -G ${group_name} ${user_name}
+		    IsGroupExisting;
+		    AppendUserToGroup;
+		    ModifyFile;
 		fi
 	    done
 	fi
@@ -115,12 +113,12 @@ RefreshAdd() {
 }
 
 RefreshDel() {
-    cat /etc/security/msec/group.conf | while read group_name; do
+    cat /etc/security/msec/group.conf | grep -v "^$" | while read group_name; do
 	IsGroupExisting;
 	if [[ $? != 0 ]]; then
 	    echo "Group \"${group_name}\" doesn't exist. skiping it."
         else
-	    cat /etc/security/msec/user.conf | while read user_name; do
+	    cat /etc/security/msec/user.conf | grep -v "^$" | while read user_name; do
 		IsGroupExisting; # We need some variable at each turn.
 		IsUserAlreadyInGroup;
 		if [[ $? == 0 ]]; then

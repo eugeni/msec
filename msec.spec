@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.18
-Release:	5mdk
+Release:	6mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -11,6 +11,7 @@ Source3:    	msec.csh
 License:	GPL
 Group:		System/Base
 BuildRoot:	%_tmppath/%name-%version-%release-root
+BuildRequires:	python
 Requires:	/bin/bash /bin/touch perl-base diffutils textutils /usr/bin/python /usr/bin/chage gawk
 Requires:	setup >= 2.2.0-21mdk
 Requires:	chkconfig >= 1.2.24-3mdk
@@ -72,14 +73,14 @@ touch $RPM_BUILD_ROOT/var/log/security.log
 touch /var/log/security.log
 
 if [ $1 != 1 -a -f /etc/security/msec/security.conf ]; then
+	SL=$SECURE_LEVEL
+ 	[ ! -r /etc/sysconfig/msec ] || SL=`sed -n 's/SECURE_LEVEL=//p' < /etc/sysconfig/msec` || :
 	if grep -q "# Mandrake-Security : if you remove this comment" /etc/security/msec/security.conf; then
-		SL=
-		[ ! -r /etc/sysconfig/msec ] || SL=`sed -n 's/SECURE_LEVEL=//p' < /etc/sysconfig/msec` || :
 		[ -z "$SL" -a -r /etc/profile.d/msec.sh ] && SL=`sed -n 's/.*SECURE_LEVEL=//p' <  /etc/profile.d/msec.sh` || :
 		/usr/share/msec/cleanold.sh || :
  		[ -n "$SL" ] && msec $SL < /dev/null || :
 	else
-		msec < /dev/null || :
+		[ -n "$SL" ] && msec < /dev/null || :
 	fi
 	# remove the old way of doing the daily cron
 	rm -f /etc/cron.d/msec
@@ -118,6 +119,11 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Fri Feb 15 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.18-6mdk
+- promisc_check.sh: use complete path to the ip command
+- correct upgrade when secure level isn't set
+- enable_console_log support an arg to specify what to log
+
 * Wed Feb 13 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.18-5mdk
 - perm.5: /etc/sendmail.cf 640 for sendmail to work.
 - set umask and . in path according to the secure level

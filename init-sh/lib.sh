@@ -310,6 +310,33 @@ RootSshLogin () {
 	fi
 }
 
+LoadSysctl () {
+	/sbin/sysctl -e -p /etc/sysctl.conf
+	service network restart
+}
+
+RemoveIssue () {
+        if [ -f /etc/issue ]; then
+	         mv -f /etc/issue /etc/issue.msec
+	fi
+}
+
+RemoveIssueNet () {
+	if [ -f /etc/issue.net ]; then
+		mv -f /etc/issue.net /etc/issue.net.msec
+	fi
+}
+
+RestoreIssues () {
+	if [ ! -f /etc/issue.net -a -f /etc/issue.net.msec ]; then
+		mv -f /etc/issue.net.msec /etc/issue.net
+	fi
+
+	if [ ! -f /etc/issue -a -f /etc/issue.msec ]; then
+		mv -f /etc/issue.msec /etc/issue
+	fi
+}
+
 # If we are currently installing our
 # system with DrakX, we don't ask anything to the user...
 # Instead, DrakX do it and give us a file with some variable.
@@ -330,6 +357,8 @@ CleanRules /etc/security/msec/security.conf
 CommentUserRules /etc/security/msec/security.conf
 touch /etc/ld.so.preload
 CleanRules /etc/ld.so.preload
+CleanRules /etc/host.conf
+CleanRules /etc/sysctl.conf
 
 CleanLoaderRules
 LoaderDrakX
@@ -341,6 +370,7 @@ CleanRules /etc/crontab
 CleanRules /etc/profile
 CleanRules /etc/zprofile
 
+RestoreIssues
 
 if [[ -f /etc/X11/xinit.d/msec ]]; then
 	CleanRules /etc/X11/xinit.d/msec

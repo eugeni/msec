@@ -62,6 +62,18 @@ if [[ ${answer} == yes ]]; then
     AddRules "tty6" /etc/securetty 
 fi
 ###
+echo "Do you want to enable the libsafe stack overflow protection ?"
+echo "This stack overflow protection work by catching dangerous function call"
+echo "like strcpy, strcat, getwd, gets, [vf]scanf, realpath, [v]sprintf"
+echo "and verify the address & the size of the destination buffer in the stack"
+echo "this is done by searching in the stack frame the one which contain the"
+echo "destination address, and by substracting the frame address to the destination buffer one" 
+WaitAnswer; clear
+if [[ ${answer} == yes ]]; then
+	AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.2" /etc/profile
+fi
+
+###
 echo "Do you want your system to daily check important security problem ?"
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then

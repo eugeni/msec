@@ -16,11 +16,17 @@ fi
 
 if [[ ${1} == custom ]]; then
 	/usr/share/msec/custom.sh
+	echo
+	echo "You might logout of your session for some change to be activated."
+	echo
 	exit 0;
 fi
 
 if [[ -f /usr/share/msec/level$1.sh ]]; then
 	/usr/share/msec/level$1.sh
+	echo
+	echo "You might logout of your session for some change to be activated."
+	echo
 	if [[ -f /usr/share/msec/perm.$1 ]]; then
 		/usr/share/msec/file_perm.sh /usr/share/msec/perm.$1
 	else

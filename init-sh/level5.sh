@@ -103,9 +103,15 @@ echo -e "done.\n";
 # /etc/profile
 echo "Setting umask to 077 (u=rw) :"
 AddRules "umask 077" /etc/profile 
+
 echo "Adding \"normal\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile
+
+if [[ -f /usr/lib/libsafe.so.1.2 ]]; then
+    echo "Enabling stack overflow protection :"
+    AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.2" /etc/profile
+fi
 
 # Do not boot on a shell
 echo -n "Setting up inittab to deny any user to issue ctrl-alt-del : "
@@ -131,6 +137,9 @@ echo
 
 # Group were modified in lib.sh...
 grpconv
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 VERSION = 0.9
 NAME = msec
 
-all: promisc_check
+all: promisc_check msec_find
 
 clean:
 	find . -name *.o -exec rm -f {} \;
@@ -9,7 +9,10 @@ clean:
 	rm -f src/promisc_check/promisc_check
 
 promisc_check: 
-	(cd src/promisc_check; make)
+	(cd src/promisc_check && make)
+
+msec_find:
+	(cd src/msec_find && make)
 
 dis: clean
 	rm -rf msec-$(VERSION) ../msec-$(VERSION).tar*
@@ -40,7 +43,7 @@ install:
 	(touch $(RPM_BUILD_ROOT)/var/log/security.log)
 	(mkdir -p $(RPM_BUILD_ROOT)/var/log/security)
 	(cd src/promisc_check && make install)
-	(cd cron-sh && make install)
+	(cd src/msec_find && make install)
 
 	@echo
 	@echo

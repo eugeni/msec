@@ -74,11 +74,18 @@ fi
 netstat -pvlA inet 2> /dev/null > ${OPEN_PORT_TODAY};
 
 # Hard disk related file check; the less priority the better...
-nice --adjustment=+19 find ${DIR} -xdev -type f -perm +04000 -user root -printf "${PRINT}" 2> /dev/null | sort > ${SUID_ROOT_TODAY}
-nice --adjustment=+19 find ${DIR} -xdev -type f -perm +02000 -printf "${PRINT}" 2> /dev/null | sort > ${SUID_GROUP_TODAY}
-nice --adjustment=+19 find ${DIR} -xdev -type f -perm -2 -printf "${PRINT}" 2> /dev/null | sort > ${WRITEABLE_TODAY}
-nice --adjustment=+19 find ${DIR} -xdev -nouser -printf "${PRINT}" 2> /dev/null | sort > ${UNOWNED_USER_TODAY}
-nice --adjustment=+19 find ${DIR} -xdev -nogroup -printf "${PRINT}" 2> /dev/null | sort > ${UNOWNED_GROUP_TODAY}
+nice --adjustment=+19 /usr/bin/msec_find ${DIR}
+sort < ${SUID_ROOT_TODAY} > ${SUID_ROOT_TODAY}.tmp
+sort < ${SUID_GROUP_TODAY} > ${SUID_GROUP_TODAY}.tmp
+sort < ${WRITEABLE_TODAY} > ${WRITEABLE_TODAY}.tmp
+sort < ${UNOWNED_USER_TODAY} > ${UNOWNED_USER_TODAY}.tmp
+sort < ${UNOWNED_GROUP_TODAY} > ${UNOWNED_GROUP_TODAY}.tmp
+
+mv -f ${SUID_ROOT_TODAY}.tmp ${SUID_ROOT_TODAY}
+mv -f ${SUID_GROUP_TODAY}.tmp ${SUID_GROUP_TODAY}
+mv -f ${WRITEABLE_TODAY}.tmp ${WRITEABLE_TODAY}
+mv -f ${UNOWNED_USER_TODAY}.tmp ${UNOWNED_USER_TODAY}
+mv -f ${UNOWNED_GROUP_TODAY}.tmp ${UNOWNED_GROUP_TODAY}
 
 while read line; do 
     md5sum ${line}

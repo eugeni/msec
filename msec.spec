@@ -39,6 +39,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING Makefile README 
 %doc doc/*txt ChangeLog doc/*ps
 /usr/bin/promisc_check
+/usr/bin/msec_find
 /usr/sbin/msec
 /usr/share/msec
 /var/log/security.log
@@ -48,7 +49,12 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/security/msec
 
 %changelog
-* Tue Mar 07 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+* Tue Mar 08 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Heavylly Modified msec_find.
+- Added msec_find utility, written by Thierry Vignaud which will avoid us to
+  find / 5 times :)
+- Added support for libsafe stack overflow protection in level 4 / 5 /
+  custom
 - trap the sigint signal.
 - use %config for config file ( thanks to Frederic Lepied ).
 - use /etc/security/msec for config file only.

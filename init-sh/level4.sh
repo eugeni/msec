@@ -105,9 +105,15 @@ echo -e "done.\n";
 # /etc/profile
 echo "Setting umask to 022 (u=rw,g=rx) for root, 077 (u=rw) for user :"
 AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/profile
+
 echo "Adding \"normal\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
-AddRules "export PATH SECURE_LEVEL" /etc/profile
+AddRules "export PATH SECURE_LEVEL" /etc/profile 
+
+if [[ -f /usr/lib/libsafe.so.1.2 ]]; then
+    echo "Enabling stack overflow protection :"
+    AddRules "export LD_PRELOAD=/usr/lib/libsafe.so.1.2" /etc/profile
+fi
 
 # Do not boot on a shell
 echo -n "Setting up inittab to deny any user to issue ctrl-alt-del : "
@@ -121,4 +127,9 @@ echo "done."
 
 # Group were modified in lib.sh...
 grpconv
+
+
+
+
+
 

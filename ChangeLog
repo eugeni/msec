@@ -1,4 +1,11 @@
+2000-03-08 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* Added msec_find utility, written by Thierry Vignaud
+		which will avoid us to find / 5 times :)
+	* Heavilly modified msec_find.
+
 2000-03-07 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* Added support for libsafe stack overflow protection in level 4 / 5 /
+	  custom
 	* trap the sigint signal
 	* use /etc/security/msec for config file only.
 	* Renamed init.sh to msec, and install it in /usr/sbin.

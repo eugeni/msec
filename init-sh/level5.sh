@@ -60,10 +60,10 @@ echo -e "\t- Security warning in syslog : yes."
 ################ Crontab things ###################
 # Check every 1 minutes for promisc problem 
 echo "Adding promisc check in crontab (scheduled every minutes) :"
-AddRules "*/1 * * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/promisc_check.sh" /etc/crontab
+AddRules "*/1 * * * *    root    /etc/security/msec/cron-sh/promisc_check.sh" /etc/crontab
 
 echo "Adding \"diff\" & \"global\" security check in crontab (scheduled every midnight) :"
-AddRules "0 0 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/security.sh" /etc/crontab
+AddRules "0 0 * * *    root    /etc/security/msec/cron-sh/security.sh" /etc/crontab
 
 ###################################################
 

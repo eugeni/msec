@@ -46,6 +46,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Tue Jan 06 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- security.sh : find are niced to (+19)
+- Camille updated the documentation.
 - Removed the "spawn a shell on boot" feature of level0 cause of a tty problem.
 - shutdown.allow is 600 in level 4/5; 644 else.
 - updated doc/security.txt

@@ -1,4 +1,6 @@
 2000-01-06 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* security.sh : find are niced to (+19)
+	* Camille updated the documentation.	
 	* Removed the "spawn a shell on boot" feature of level0 cause of a tty
       problem 
 

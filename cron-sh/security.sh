@@ -72,11 +72,11 @@ fi
 
 
 netstat -pvlA inet 2> /dev/null > ${OPEN_PORT_TODAY};
-find ${DIR} -xdev -type f -perm +04000 -user root -printf "${PRINT}" 2> /dev/null | sort > ${SUID_ROOT_TODAY}
-find ${DIR} -xdev -type f -perm +02000 -printf "${PRINT}" 2> /dev/null | sort > ${SUID_GROUP_TODAY}
-find ${DIR} -xdev -type f -perm -2 -printf "${PRINT}" 2> /dev/null | sort > ${WRITEABLE_TODAY}
-find ${DIR} -xdev -nouser -printf "${PRINT}" 2> /dev/null | sort > ${UNOWNED_USER_TODAY}
-find ${DIR} -xdev -nogroup -printf "${PRINT}" 2> /dev/null | sort > ${UNOWNED_GROUP_TODAY}
+nice --adjustment=+19 find ${DIR} -xdev -type f -perm +04000 -user root -printf "${PRINT}" 2> /dev/null | sort > ${SUID_ROOT_TODAY}
+nice --adjustment=+19 find ${DIR} -xdev -type f -perm +02000 -printf "${PRINT}" 2> /dev/null | sort > ${SUID_GROUP_TODAY}
+nice --adjustment=+19 find ${DIR} -xdev -type f -perm -2 -printf "${PRINT}" 2> /dev/null | sort > ${WRITEABLE_TODAY}
+nice --adjustment=+19 find ${DIR} -xdev -nouser -printf "${PRINT}" 2> /dev/null | sort > ${UNOWNED_USER_TODAY}
+nice --adjustment=+19 find ${DIR} -xdev -nogroup -printf "${PRINT}" 2> /dev/null | sort > ${UNOWNED_GROUP_TODAY}
 
 while read line; do 
     md5sum ${line}

@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.17
-Release:	14mdk
+Release:	15mdk
 Url:		http://www.linux-mandrake.com
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -11,7 +11,7 @@ Source3:    	msec.csh
 License:	GPL
 Group:		System/Base
 BuildRoot:	%_tmppath/%name-%version-%release-root
-Requires:	/bin/bash /bin/touch perl diffutils textutils /usr/bin/python /usr/bin/chage gawk
+Requires:	/bin/bash /bin/touch perl-base diffutils textutils /usr/bin/python /usr/bin/chage gawk
 Requires:	setup >= 2.2.0-19mdk
 Requires:	chkconfig >= 1.2.24-3mdk
 
@@ -103,6 +103,10 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Tue Jan 22 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-15mdk
+- change Requires: from perl to perl-base.
+- perm.*: corrected errors reported by Pierre Fortin's script.
+
 * Mon Jan 21 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-14mdk
 - perm.*: make mandrake_consmap 755 because it needs to be readable by everyone
 

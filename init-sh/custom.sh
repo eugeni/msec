@@ -75,7 +75,7 @@ if [[ ${answer} == yes ]]; then
 fi
 ###
 
-if [[ -f /usr/lib/libsafe.so.1.2 ]]; then
+if [[ -f /usr/lib/libsafe.so.1.3 ]]; then
 echo "Do you want to enable the libsafe stack overflow protection ?"
 echo "This stack overflow protection work by catching dangerous function call"
 echo "like strcpy, strcat, getwd, gets, [vf]scanf, realpath, [v]sprintf"

@@ -126,7 +126,7 @@ AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/zprofile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/zprofile
 
 
-if [[ -f /usr/lib/libsafe.so.1.2 ]]; then
+if [[ -f /usr/lib/libsafe.so.1.3 ]]; then
     echo "Enabling stack overflow protection :"
     AddRules "/lib/libsafe.so.1.3" /etc/ld.so.preload
 fi

@@ -229,7 +229,7 @@ fi
 list="/etc/aliases /etc/postfix/aliases"
 for file in ${list}; do
     if [[ -s ${file} ]]; then
-	grep -v '^#' /etc/aliases | grep '|' | while read line; do
+	grep -v '^#' ${file} | grep '|' | while read line; do
 	    printf "\t\t- ${line}\n"
 	done > ${TMP}
     fi

@@ -1,8 +1,8 @@
 # Welcome in Level 4, aka secure & usable.
 ###
 /						root.adm		751
-/bin/						root.root		4755
-/bin/ping					root.root		755
+/bin/						root.adm		751
+/bin/ping					root.ntools		4750
 /bin/rpm					rpm.rpm			750
 /boot/						root.root		700
 /dev/						root.root		711
@@ -39,7 +39,7 @@
 /etc/rc.d/init.d/mandrake_consmap		root.adm		755
 /etc/securetty					root.root		640
 /etc/sendmail.cf				root.adm		640
-/etc/shutdown.allow				root.root		600
+/etc/shutdown.allow				root.adm		640
 /etc/ssh/ssh_config				root.root		644
 /etc/ssh/ssh_host_*key				root.adm		600
 /etc/ssh/ssh_host_*key.pub			root.adm		644
@@ -54,22 +54,32 @@
 /proc						root.kmem		550
 /root/						root.root		700
 /sbin/						root.adm		751
-/tmp/						root.root		1777
+/tmp/						root.adm		1773
 /usr/						root.adm		751
 /usr/*						root.adm		751
 /usr/X11R6/					root.xgrp		751
 /usr/bin/					root.adm		751
+/usr/bin/cc					root.ctools		750
+/usr/bin/finger					root.ntools		750
+/usr/bin/g++*					root.ctools		750
+/usr/bin/gcc*					root.ctools		750
+/usr/bin/ssh					root.ntools		750
+/usr/bin/telnet					root.ntools		750
+/usr/bin/w					root.ntools		750
+/usr/bin/who					root.ntools		750
 /usr/lib/rpm/rpm?				rpm.rpm			750
 /usr/sbin/					root.adm		751
+/usr/sbin/sendmail				root.root		755
+/usr/sbin/traceroute				root.ntools		4750
 /usr/share/doc					rpm.rpm			750
 /usr/share/man					rpm.rpm			750
-/usr/tmp					root.root		1777
+/usr/tmp					root.adm		1773
 /var/						root.root		755
-/var/lock/subsys				root.root		700
-/var/log/					root.root		711
+/var/lock/subsys				root.adm		750
+/var/log/					root.adm		751
 /var/log/*					root.root		600
 /var/log/*/*					current			600
 /var/log/*/*/*					current			600
 /var/log/*/.					current			700
 /var/spool/mail/				root.mail		771
-/var/tmp					root.root		1777
+/var/tmp					root.adm		1773

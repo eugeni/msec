@@ -8,6 +8,23 @@ clean:
 promisc_check: 
 	(cd src/promisc_check; make)
 
+rpm: all
+	rm -rf $(RPM_BUILD_ROOT)
+	mkdir -p $(RPM_BUILD_ROOT)/etc/security/msec/{init-sh,cron-sh}/
+	mkdir -p $(RPM_BUILD_ROOT)/usr/bin
+	cp init-sh/level*.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
+	cp init-sh/lib.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
+	cp init-sh/init.sh $(RPM_BUILD_ROOT)/etc/security/msec
+	cp init-sh/file_perm.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
+	cp init-sh/perm.[1-5] $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
+	cp init-sh/server.* $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
+	cp init-sh/grpuser $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
+	cp init-sh/custom.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
+	cp cron-sh/*.sh $(RPM_BUILD_ROOT)/etc/security/msec/cron-sh
+	touch $(RPM_BUILD_ROOT)/etc/security/msec/security.conf
+	install -s src/promisc_check/promisc_check $(RPM_BUILD_ROOT)/usr/bin
+	echo "Install complete"
+
 install:
 	(rm -rf /etc/security/msec)
 	(mkdir -p /etc/security/msec/init-sh)

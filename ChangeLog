@@ -1,3 +1,22 @@
+2004-02-27 12:44  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.42-1mdk
+
+2004-02-27 12:41  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/README: document perm file syntax
+
+2004-02-27 12:35  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/Perms.py: - allow to specify only group or user in perm
+	  files (Bill Shirley) - allow the force keyword in perm files to
+	  be able to lower security (Bill Shirley)
+
+2004-02-27 12:08  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: mailman
+	  log dir fix (Guillaume Rousse)
+
 2004-02-14 22:13  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.41.1-1mdk

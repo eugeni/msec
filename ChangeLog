@@ -1,5 +1,5 @@
 1999-12-09  Yoann Vandoorselaere <yoann@mandrakesoft.com>
-	* Many bugfix, i'm trying to get a bugfree release before the freeze
+	* Many bugfix, just trying to get a bugfree release
     * Renamed some variable, added consistencie. 
 	* security_check.sh: print header at begining of the log.
 	* diff_check.sh: typo.

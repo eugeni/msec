@@ -1,5 +1,8 @@
 2001-09-19    <yoann@no.mandrakesoft.com>
 
+	* msec.spec:
+	Install the manpages and the logrotate config.
+
 	* init-sh/level0.sh:	
 	* init-sh/level1.sh: 
 	* init-sh/level2.sh:

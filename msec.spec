@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.34.5
-Release:	2mdk
+Version:	0.36
+Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -154,6 +154,14 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Tue Sep 17 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.36-1mdk
+- allow_user_list handles Selected when not changing security level.
+- allow_reboot handles Root when not changing security level.
+
+* Sun Sep  8 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.35-1mdk
+- when changing the aging expiry, change the date of last password
+change to today to avoid having accounts already expired.
+
 * Fri Sep  6 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34.5-2mdk
 - fixed bad file name in find.c (David Relson)
 

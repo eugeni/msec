@@ -1,0 +1,78 @@
+.TH msec 8 "29 Sep 2001" "Mandrakesoft" "Mandrake Linux"
+.IX msec
+.SH NAAM
+msec \- Mandrake beveiligingsgereedschappen
+.SH SYNOPSIS
+.B msec
+([-o <option>=<value>...]) ([0-5])
+.SH BESCHRIJVING
+\fPmsec\fP is het voornaamste script van het pakket msec. Met dit 
+script kan de beheerder het beveiligingsniveau van een systeem wijzigen.
+msec biedt zes voorgedefinieerde beveiligingsniveaus. Het laagste niveau
+biedt weinig beveiliging en veel gebruiksgemak; het hoogste niveau biedt
+een extreme mate van beveiliging en is geschikt voor zeer belangrijke
+servertaken.
+.PP
+U moet root zijn om \fPmsec\fP te kunnen uitvoeren.
+.br
+Met de opdracht "msec x" stelt u het beveiligingsniveau x in (x=[0-5]).
+Het systeem zal vervolgens worden aangepast aan de instellingen die voor
+beveiligingsniveau x zijn gedefinieerd. Wanneer msec zonder parameter
+wordt aangeroepen, wordt het huidige beveiligingsniveau afgedwongen,
+zonder de beveiliging te verminderen.
+.br
+Alle wijzigingen worden gelogd bij de AUTH-faciliteit van syslog wanneer
+msec niet-interactief wordt aangeroepen (bijvoorbeeld via cron), of bij
+de LOCAL1-faciliteit wanneer de aanroep interactief is (bijvoorbeeld 
+vanaf de opdrachtregel of vanuit Mandrake Configuratiecentrum).
+.br
+Een uitgebreide beschrijving van de verschillende beveiligingsniveaus
+vindt u in de documentatie, in /usr/share/doc/msec-*/security.txt.
+.PP
+Wanneer u wijzigingen wilt aanbrengen in het huidige niveau, gebruik dan
+/etc/security/msec/perm.local om de nieuwe instellingen voor permissies,
+eigenaars en groepen af te dwingen (gebruik dezelfde syntaxis als in
+/usr/share/msec/perm.*, of gebruik de grafische utility drakperm), en
+/etc/security/msec/level.local om de gewijzigde regels af te dwingen
+(zie mseclib(3) voor details, of gebruik de grafische utility draksec).
+.PP
+Beschikbare opties:
+.TP
+\fB\-o all-local-files=<waarde>\fR
+wanneer <waarde> gelijk is aan 1, beschouw dan alle bestanden als lokaal.
+.TP
+\fB\-o log=<waarde>\fR
+wanneer <waarde> iets anders is dan syslog, stuur de logging dan niet
+naar syslog, maar naar de standaard-foutuitvoer.
+.TP
+\fB\-o nolocal=<pad>\fR
+laad niet de regels in /etc/security/msec/level.local.
+.TP
+\fB\-o non-local-fstypes=<waarde>\fR
+<waarde> is een lijst met niet-lokale typen bestandssystemen, van elkaar
+gescheiden door middel van spaties.
+.TP
+\fB\-o print=<waarde>\fR
+wanneer <waarde> gelijk is aan 1, toon dan de standaardwaarden van de
+regels.
+.TP
+\fB\-o root=<pad>\fR
+beschouw <pad> als de root van het bestandssysteem.
+.SH BESTANDEN
+/usr/sbin/msec
+.br
+De executable \fPmsec\fP (sh-script)
+.PP
+/etc/security/msec/security.conf
+.br
+Bevat de configuratie van het momenteel ingestelde beveiligingsniveau.
+Deze instellingen kunnen teniet worden gedaan door de waarden in
+/etc/security/msec/security.conf.
+
+.SH "ZIE OOK"
+mseclib(3), draksec, drakperm
+
+.SH AUTEUR
+Vandoorselaere Yoann, Mandrakesoft
+.br
+yoann@mandrakesoft.com

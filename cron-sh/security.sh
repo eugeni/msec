@@ -7,6 +7,28 @@ fi
 
 . /etc/security/msec/security.conf
 
+SUID_ROOT_TODAY="/var/log/security/suid_root.today"
+SUID_ROOT_YESTERDAY="/var/log/security/suid_root.yesterday"
+SUID_ROOT_DIFF="/var/log/security/suid_root.diff"
+SUID_GROUP_TODAY="/var/log/security/suid_group.today"
+SUID_GROUP_YESTERDAY="/var/log/security/suid_group.yesterday"
+SUID_GROUP_DIFF="/var/log/security/suid_group.diff"
+SUID_MD5_TODAY="/var/log/security/suid_md5.today"
+SUID_MD5_YESTERDAY="/var/log/security/suid_md5.yesterday"
+SUID_MD5_DIFF="/var/log/security/suid_md5.diff"
+OPEN_PORT_TODAY="/var/log/security/open_port.today"
+OPEN_PORT_YESTERDAY="/var/log/security/open_port.yesterday"
+OPEN_PORT_DIFF="/var/log/security/open_port.diff"
+WRITEABLE_TODAY="/var/log/security/writeable.today"
+WRITEABLE_YESTERDAY="/var/log/security/writeable.yesterday"
+WRITEABLE_DIFF="/var/log/security/writeable.diff"
+UNOWNED_USER_TODAY="/var/log/security/unowned_user.today"
+UNOWNED_USER_YESTERDAY="/var/log/security/unowned_user.yesterday"
+UNOWNED_USER_DIFF="/var/log/security/unowned_user.diff"
+UNOWNED_GROUP_TODAY="/var/log/security/unowned_group.today"
+UNOWNED_GROUP_YESTERDAY="/var/log/security/unowned_group.yesterday"
+UNOWNED_GROUP_DIFF="/var/log/security/unowned_group.diff"
+
 # Modified filters coming from debian security scripts.
 
 CS_NFSAFS='(nfs|afs|xfs|coda)'
@@ -17,6 +39,8 @@ FILTERS="$CS_TYPES|$CS_DEVS|$CS_DIRS"
 DIR=`mount | grep -vE "$FILTERS" | cut -d ' ' -f3`
 PRINT="%h/%f\n"
 #PRINT="%8i %5m %3n %-10u %-10g %9s %t %h/%f\n"
+
+
 
 if [[ ! -d /var/log/security ]]; then
     mkdir /var/log/security

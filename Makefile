@@ -23,7 +23,6 @@ rpm_install: all
 	cp init-sh/grpuser.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
 	cp init-sh/custom.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
 	cp cron-sh/*.sh $(RPM_BUILD_ROOT)/etc/security/msec/cron-sh
-	cp init-sh/security.conf $(RPM_BUILD_ROOT)/etc/security/msec/security.conf
 	install -s src/promisc_check/promisc_check $(RPM_BUILD_ROOT)/usr/bin
 	echo "Install complete"
 
@@ -48,7 +47,6 @@ install:
 	(cp init-sh/*.[0-5] /etc/security/msec/init-sh/)
 	(cp init-sh/custom.sh /etc/security/msec/init-sh);
 	(cp init-sh/server.* /etc/security/msec/init-sh)
-	(cp init-sh/security.conf /etc/security/msec/security.conf)
 	(cd src/promisc_check; make install)
 	(cd cron-sh; make install)
 

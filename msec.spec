@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.23
+Version:	0.24
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -124,6 +124,9 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Thu Jun 27 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.24-1mdk
+- don't lower access rights when not changing security level
+
 * Thu May 30 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.23-1mdk
 - check that only root can run msec
 - added more complete error messages

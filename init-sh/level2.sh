@@ -40,8 +40,6 @@ xhost + localhost 2>&1 >& /dev/null
 # Path
 if [ ${HAVE_X}==1 ]; then
     AddRules "PATH=$PATH:/usr/X11R6/bin" /etc/profile
-else
-    AddRules "PATH=$PATH" /etc/profile
 fi
 
 

@@ -40,8 +40,6 @@ lilo
 # Path
 if [ ${HAVE_X}==1 ]; then
     AddRules "PATH=$PATH:/usr/X11R6/bin:." /etc/profile
-else
-    AddRUles "PATH=$PATH:." /etc/profile
 fi
 
 

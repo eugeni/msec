@@ -80,9 +80,6 @@ NONE=0
 ALL=1
 LOCAL=2
 
-yes=1
-no=0
-
 # config files => actions
 
 ConfigFile.add_config_assoc(INITTAB, '/sbin/telinit q')
@@ -543,7 +540,7 @@ def enable_at_crontab(arg):
         cronallow.replace_line_matching('root', 'root', 1)
         atallow.replace_line_matching('root', 'root', 1)
 
-maximum_regex = re.compile('^Maximum:\s*([0-9]+)', re.MULTILINE)
+maximum_regex = re.compile('^Maximum:\s*([0-9]+|-1)', re.MULTILINE)
 inactive_regex = re.compile('^Inactive:\s*(-?[0-9]+)', re.MULTILINE)
 
 # TODO FL Sat Dec 29 20:18:20 2001

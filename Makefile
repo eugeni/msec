@@ -7,6 +7,7 @@ clean:
 	find . -name *.o -exec rm -f {} \;
 	find . -name *~ -exec rm -f {} \;
 	rm -f src/promisc_check/promisc_check
+	rm -f src/msec_find/msec_find
 
 promisc_check: 
 	(cd src/promisc_check && make)

@@ -27,8 +27,8 @@ if [[ -f /usr/share/msec/level$1.sh ]]; then
 	echo
 	echo "You might logout of your session for some change to be activated."
 	echo
-	if [[ -f /usr/share/msec/perm.$1 ]]; then
-		/usr/share/msec/file_perm.sh /usr/share/msec/perm.$1
+	if [[ -f /etc/security/msec/perm.$1 ]]; then
+		/usr/share/msec/file_perm.sh /etc/security/msec/perm.$1
 	else
 		echo "Couldn't find the default permissions for level $1."
 	fi

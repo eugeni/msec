@@ -79,14 +79,57 @@ def get_group_name(id):
             GROUPID[id] = str(id)
     return GROUPID[id]
 
+# Build a regexp that matches all the non local filesystems
+REGEXP_START = '^('
+REGEXP_END   = ')'
+
+def build_non_localfs_regexp():
+    # Allow to avoid this feature
+    if Config.get_config('all-local-files', '0') == '1':
+        return None
+    
+    try:
+        file = open('/proc/mounts', 'r')
+    except IOError:
+        error(_('Unable to check /proc/mounts. Assuming all file systems are local.'))
+        return None
+
+    non_localfs = Config.get_config('non-local-fstypes', None)
+    if non_localfs:
+        non_localfs = string.split(non_localfs)
+    else:
+        non_localfs = ('nfs', 'codafs', 'smbfs')
+        
+    regexp = None
+    
+    for line in file.readlines():
+        fields = string.split(line)
+        if fields[2] in non_localfs:
+            if regexp:
+                regexp = regexp + '|' + fields[1]
+            else:
+                regexp = REGEXP_START + fields[1]
+
+    file.close()
+    
+    if not regexp:
+        return None
+    else:
+        return re.compile(regexp + REGEXP_END)
+
+# put the new perm/group/owner in the assoc variable according to the
+# content of the path file.
 assoc = {}
 
-def fix_perms(path):
+def fix_perms(path, _interactive):
     try:
         file = open(path, 'r')
     except IOError:
         return
     root = Config.get_config('root', '')
+
+    fs_regexp = build_non_localfs_regexp()
+    
     lineno = 0
     for line in file.readlines():
         lineno = lineno + 1
@@ -101,7 +144,7 @@ def fix_perms(path):
             newmode = -1
         else:
             newmode = int(mode_str, 8)
-        
+
         if fields[1] == 'current':
             user = group = -1
             user_str = group_str = ''
@@ -112,6 +155,9 @@ def fix_perms(path):
         
         if len(fields) == 4:
             for f in glob.glob(fields[0]):
+                if fs_regexp and fs_regexp.search(f):
+                    _interactive and log(_('Non local file: "%s". Nothing changed.') % fields[0])
+                    continue
                 try:
                     full = os.stat(f)
                 except OSError:
@@ -136,6 +182,7 @@ def fix_perms(path):
             error(_('invalid syntax in %s line %d') % (path, lineno))
     file.close()
 
+# commit the changes to the files
 def act(change):
     for f in assoc.keys():
         (mode, uid, gid, newperm, user, group, user_str, group_str) = assoc[f]
@@ -143,7 +190,6 @@ def act(change):
         # if the user has changed it manually
         if not change:
             newperm = newperm & mode
-        #print f, (mode, uid, gid, newperm, user, group)
         if newperm != -1 and mode != newperm:
             log(_('changed mode of %s from %o to %o') % (f, mode, newperm))
             try:
@@ -189,7 +235,7 @@ if __name__ == '__main__':
     
     _interactive = sys.stdin.isatty()
     change = 0
-    
+
     # process the options
     try:
         (opt, args) = getopt.getopt(sys.argv[1:], 'co:',
@@ -223,7 +269,7 @@ if __name__ == '__main__':
     # process the files
     for p in args:
         _interactive and log(_('Reading data from %s') % p)
-        fix_perms(p)
+        fix_perms(p, _interactive)
 
     # do the modifications
     act(change)

@@ -486,7 +486,7 @@ def password_aging(max):
             uid_min = int(uid_min)
     shadow = ConfigFile.get_config_file(SHADOW)
     if shadow.exists():
-        _interactive and log(_('Setting password maximum aging for users with id greater than %d to %d') % (uid_min, max))
+        _interactive and log(_('Setting password maximum aging for root and users with id greater than %d to %d') % (uid_min, max))
         for line in shadow.get_lines():
             field = string.split(line, ':')
             if len(field) < 2:
@@ -494,7 +494,7 @@ def password_aging(max):
             name = field[0]
             password = field[1]
             entry = pwd.getpwnam(name)
-            if (len(password) > 0 and password[0] != '!') and password != '*' and password != 'x' and entry[2] >= uid_min:
+            if (len(password) > 0 and password[0] != '!') and password != '*' and password != 'x' and (entry[2] >= uid_min or entry[2] == 0):
                 cmd = '/usr/bin/chage -l %s' % entry[0]
                 ret = commands.getstatusoutput(cmd)
                 _interactive and log(_('got current maximum password aging for user %s with command \'%s\'') % (entry[0], cmd))

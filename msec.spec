@@ -80,7 +80,7 @@ echo "You might logout of your session for some change to be activated."        
 if [[ -f /etc/security/msec/perm.${SECURE_LEVEL} ]]; then
 	ln -sf /etc/security/msec/perm.${SECURE_LEVEL} /etc/security/msec/current.perm
 	/usr/share/msec/file_perm.sh /etc/security/msec/current.perm
-if
+fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT

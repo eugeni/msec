@@ -23,14 +23,14 @@ if [[ ${1} == custom ]]; then
 fi
 
 if [[ -f /usr/share/msec/level$1.sh ]]; then
-	ln -sf /usr/share/msec/level$1.sh /usr/share/msec/current-level.sh
-	/usr/share/msec/current-level.sh
 	if [[ $1 == 4 || $1 == 5 || $1 == snf ]]; then
 		ln -sf /etc/security/msec/server.$1 /etc/security/msec/server
 	else 
 		rm -rf /etc/security/msec/server
 		chkconfig --list |awk ' {print $1}' | grep -v ":" | sort -u > /etc/security/msec/server
 	fi
+	ln -sf /usr/share/msec/level$1.sh /usr/share/msec/current-level.sh
+	/usr/share/msec/current-level.sh
 	echo
 	echo "You might logout of your session for some change to be activated."
 	echo

@@ -49,9 +49,9 @@ SUID_MD5_DIFF="/var/log/security/suid_md5.diff"
 export OPEN_PORT_TODAY="/var/log/security/open_port.today"
 OPEN_PORT_YESTERDAY="/var/log/security/open_port.yesterday"
 OPEN_PORT_DIFF="/var/log/security/open_port.diff"
-export WRITEABLE_TODAY="/var/log/security/writeable.today"
-WRITEABLE_YESTERDAY="/var/log/security/writeable.yesterday"
-WRITEABLE_DIFF="/var/log/security/writeable.diff"
+export WRITABLE_TODAY="/var/log/security/writable.today"
+WRITABLE_YESTERDAY="/var/log/security/writable.yesterday"
+WRITABLE_DIFF="/var/log/security/writable.diff"
 export UNOWNED_USER_TODAY="/var/log/security/unowned_user.today"
 UNOWNED_USER_YESTERDAY="/var/log/security/unowned_user.yesterday"
 UNOWNED_USER_DIFF="/var/log/security/unowned_user.diff"
@@ -91,8 +91,8 @@ if [[ -f ${SUID_GROUP_TODAY} ]]; then
     mv ${SUID_GROUP_TODAY} ${SUID_GROUP_YESTERDAY};
 fi
 
-if [[ -f ${WRITEABLE_TODAY} ]]; then
-    mv ${WRITEABLE_TODAY} ${WRITEABLE_YESTERDAY};
+if [[ -f ${WRITABLE_TODAY} ]]; then
+    mv ${WRITABLE_TODAY} ${WRITABLE_YESTERDAY};
 fi
 
 if [[ -f ${UNOWNED_USER_TODAY} ]]; then
@@ -142,9 +142,9 @@ if [[ -f ${SUID_GROUP_TODAY} ]]; then
     mv -f ${SUID_GROUP_TODAY}.tmp ${SUID_GROUP_TODAY}
 fi
 
-if [[ -f ${WRITEABLE_TODAY} ]]; then
-    sort < ${WRITEABLE_TODAY} | egrep -v '^(/var)?/tmp$' > ${WRITEABLE_TODAY}.tmp
-    mv -f ${WRITEABLE_TODAY}.tmp ${WRITEABLE_TODAY}    
+if [[ -f ${WRITABLE_TODAY} ]]; then
+    sort < ${WRITABLE_TODAY} | egrep -v '^(/var)?/tmp$' > ${WRITABLE_TODAY}.tmp
+    mv -f ${WRITABLE_TODAY}.tmp ${WRITABLE_TODAY}    
 fi
 
 if [[ -f ${UNOWNED_USER_TODAY} ]]; then

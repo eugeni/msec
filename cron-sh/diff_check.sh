@@ -28,10 +28,10 @@ if [[ ${CHECK_SUID_ROOT} == yes ]]; then
 	if ! diff -u ${SUID_ROOT_YESTERDAY} ${SUID_ROOT_TODAY} > ${SUID_ROOT_DIFF}; then
 	    printf "\nSecurity Warning: Change in Suid Root files found :\n" >> ${TMP}
 	    grep '^+' ${SUID_ROOT_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
-		printf "\t\t-     Newly added suid root file : ${file}\n"
+		printf "\t\t-       Newly added suid root file : ${file}\n"
 	    done >> ${TMP}
 	    grep '^-' ${SUID_ROOT_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
-		printf "\t\t- No more present suid root file : ${file}\n"
+		printf "\t\t- No longer present suid root file : ${file}\n"
 	    done >> ${TMP}
 	fi
     fi
@@ -45,10 +45,10 @@ if [[ ${CHECK_SUID_GROUP} == yes ]]; then
 	if ! diff -u ${SUID_GROUP_YESTERDAY} ${SUID_GROUP_TODAY} > ${SUID_GROUP_DIFF}; then
             printf "\nSecurity Warning: Changes in Sgid files found :\n" >> ${TMP}
 	    grep '^+' ${SUID_GROUP_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
-		printf "\t\t-     Newly added sgid file : ${file}\n"
+		printf "\t\t-       Newly added sgid file : ${file}\n"
 	    done >> ${TMP}
 	    grep '^-' ${SUID_GROUP_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
-		printf "\t\t- No more present sgid file : ${file}\n"
+		printf "\t\t- No longer present sgid file : ${file}\n"
 	    done >> ${TMP}
 	fi
     fi
@@ -56,17 +56,17 @@ if [[ ${CHECK_SUID_GROUP} == yes ]]; then
 fi
 
 ### Writable files detection
-if [[ ${CHECK_WRITEABLE} == yes ]]; then
+if [[ ${CHECK_WRITABLE} == yes ]]; then
 
-    if [[ -f ${WRITEABLE_YESTERDAY} ]]; then
-	diff -u ${WRITEABLE_YESTERDAY} ${WRITEABLE_TODAY} > ${WRITEABLE_DIFF}
-	if [ -s ${WRITEABLE_DIFF} ]; then
-	    printf "\nSecurity Warning: Change in World Writeable Files found :\n" >> ${TMP}
-	    grep '^+' ${WRITEABLE_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
-		printf "\t\t-    Newly added writables files : ${file}\n"
+    if [[ -f ${WRITABLE_YESTERDAY} ]]; then
+	diff -u ${WRITABLE_YESTERDAY} ${WRITABLE_TODAY} > ${WRITABLE_DIFF}
+	if [ -s ${WRITABLE_DIFF} ]; then
+	    printf "\nSecurity Warning: Change in World Writable Files found :\n" >> ${TMP}
+	    grep '^+' ${WRITABLE_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
+		printf "\t\t-       Newly added writable file : ${file}\n"
 	    done >> ${TMP}
-	    grep '^-' ${WRITEABLE_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
-		printf "\t\t- No more present writables file : ${file}\n"
+	    grep '^-' ${WRITABLE_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
+		printf "\t\t- No longer present writable file : ${file}\n"
 	    done >> ${TMP}
 	fi
     fi
@@ -81,10 +81,10 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
 	if [ -s ${UNOWNED_USER_DIFF} ]; then
 	    printf "\nSecurity Warning: the following files aren't owned by an user :\n" >> ${TMP}
 	    grep '^+' ${UNOWNED_USER_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
-		printf "\t\t-     Newly added un-owned file : ${file}\n"
+		printf "\t\t-       Newly added un-owned file : ${file}\n"
 	    done >> ${TMP}
 	    grep '^-' ${UNOWNED_USER_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
-		printf "\t\t- No more present un-owned file : ${file}\n"
+		printf "\t\t- No longer present un-owned file : ${file}\n"
 	    done >> ${TMP}
 	fi
     fi
@@ -94,10 +94,10 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
 	if [ -s ${UNOWNED_GROUP_DIFF} ]; then
 	    printf "\nSecurity Warning: the following files aren't owned by a group :\n" >> ${TMP}
 	    grep '^+' ${UNOWNED_GROUP_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
-		printf "\t\t-     Newly added un-owned file : ${file}\n"
+		printf "\t\t-       Newly added un-owned file : ${file}\n"
 	    done >> ${TMP}
 	    grep '^-' ${UNOWNED_GROUP_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
-		printf "\t\t- No more present un-owned file : ${file}\n"
+		printf "\t\t- No longer present un-owned file : ${file}\n"
 	    done >> ${TMP}
 	fi
     fi
@@ -118,7 +118,7 @@ if [[ ${CHECK_SUID_MD5} == yes  ]]; then
 			printf "\tmaybe an intruder modified one of these suid binary in order to put in a backdoor...\n" >> ${TMP}
 			ctrl_md5=1;
 		    fi
-		    printf "\t\t- Checksum changed files : ${file}\n"
+		    printf "\t\t- Checksum changed file : ${file}\n"
 		fi
 	    done >> ${TMP}
 	fi
@@ -151,10 +151,10 @@ if [[ ${RPM_CHECK} == yes ]]; then
 	if [ -s ${RPM_QA_DIFF} ]; then
 	    printf "\nSecurity Warning: These packages have changed on the system :\n" >> ${TMP}
 	    grep '^+' ${RPM_QA_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
-		printf "\t\t- Newly installed package : ${file}\n"
+		printf "\t\t-   Newly installed package : ${file}\n"
 	    done >> ${TMP}
 	    grep '^-' ${RPM_QA_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
-		printf "\t\t- No more present package : ${file}\n"
+		printf "\t\t- No longer present package : ${file}\n"
 	    done >> ${TMP}
 	fi
     fi
@@ -163,10 +163,10 @@ if [[ ${RPM_CHECK} == yes ]]; then
 	if [ -s ${RPM_VA_DIFF} ]; then
 	    printf "\nSecurity Warning: These files belonging to packages have changed of status on the system :\n" >> ${TMP}
 	    grep '^+' ${RPM_VA_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
-		printf "\t\t-   Newly modified : ${file}\n"
+		printf "\t\t-     Newly modified : ${file}\n"
 	    done >> ${TMP}
 	    grep '^-' ${RPM_VA_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
-		printf "\t\t- No more modified : ${file}\n"
+		printf "\t\t- No longer modified : ${file}\n"
 	    done >> ${TMP}
 	fi
     fi
@@ -175,10 +175,10 @@ if [[ ${RPM_CHECK} == yes ]]; then
 	if [ -s ${RPM_VA_CONFIG_DIFF} ]; then
 	    printf "\nSecurity Warning: These config files belonging to packages have changed of status on the system :\n" >> ${TMP}
 	    grep '^+' ${RPM_VA_CONFIG_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
-		printf "\t\t-   Newly modified : ${file}\n"
+		printf "\t\t-     Newly modified : ${file}\n"
 	    done >> ${TMP}
 	    grep '^-' ${RPM_VA_CONFIG_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
-		printf "\t\t- No more modified : ${file}\n"
+		printf "\t\t- No longer modified : ${file}\n"
 	    done >> ${TMP}
 	fi
     fi

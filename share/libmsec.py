@@ -156,6 +156,7 @@ is used by chkconfig --add to decide to add a service if it is present in the fi
 during the installation of packages.'''
     level = get_server_level()
     server = ConfigFile.get_config_file(SERVER)
+    print 'create_server_link', level, server.exists()
     if level in ('0', '1', '2', '3'):
         _interactive and log(_('Allowing chkconfig --add from rpm'))
         server.exists() and server.unlink()
@@ -1207,7 +1208,7 @@ RPM_CHECK if set to yes, run some checks against the rpm database.
 
 TTY_WARN if set to yes, reports check result to tty.
 
-CHECK_WRITEABLE if set to yes, check files/directories writable by everybody.
+CHECK_WRITABLE if set to yes, check files/directories writable by everybody.
 
 MAIL_WARN if set to yes, report check result by mail.
 

@@ -28,11 +28,11 @@ if [[ ! -d /var/log/security ]]; then
     mkdir /var/log/security
 fi
 
-### Writeable file detection
-if [[ ${CHECK_WRITEABLE} == yes ]]; then
-    if [[ -s ${WRITEABLE_TODAY} ]]; then
-	printf "\nSecurity Warning: World Writeable files found :\n" >> ${SECURITY}
-	cat ${WRITEABLE_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
+### Writable file detection
+if [[ ${CHECK_WRITABLE} == yes ]]; then
+    if [[ -s ${WRITABLE_TODAY} ]]; then
+	printf "\nSecurity Warning: World Writable files found :\n" >> ${SECURITY}
+	cat ${WRITABLE_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
     fi
 fi
 
@@ -76,16 +76,16 @@ done | awk '$1 != $6 && $6 != "0" \
 	$4 ~ /^-......r/ \
         { print "\t\t- " $3 " : file is other readable." }
 	$4 ~ /^-....w/ \
-        { print "\t\t- " $3 " : file is group writeable." }
+        { print "\t\t- " $3 " : file is group writable." }
 	$4 ~ /^-.......w/ \
-        { print "\t\t- " $3 " : file is other writeable." }' > ${TMP}
+        { print "\t\t- " $3 " : file is other writable." }' > ${TMP}
 
 if [[ -s ${TMP} ]]; then
     printf "\nSecurity Warning: these files shouldn't be owned by someone else or readable :\n" >> ${SECURITY}
     cat ${TMP} >> ${SECURITY}
 fi
 
-### Files that should not be owned by someone else or writeable.
+### Files that should not be owned by someone else or writable.
 list=".bashrc .bash_profile .bash_login .bash_logout .cshrc .emacs .exrc \
 .forward .klogin .login .logout .profile .tcshrc .fvwmrc .inputrc .kshrc \
 .nexrc .screenrc .ssh .ssh/config .ssh/authorized_keys .ssh/environment \
@@ -101,16 +101,16 @@ while read username uid homedir; do
 done | awk '$1 != $6 && $6 != "0" \
         { print "\t\t- " $3 " : file is owned by uid " $6 "." }
      $4 ~ /^.....w/ \
-        { print "\t\t- " $3 " : file is group writeable." }
+        { print "\t\t- " $3 " : file is group writable." }
      $4 ~ /^........w/ \
-        { print "\t\t- " $3 " : file is other writeable." }' > ${TMP}
+        { print "\t\t- " $3 " : file is other writable." }' > ${TMP}
 
 if [[ -s ${TMP} ]]; then
-    printf "\nSecurity Warning: theses files should not be owned by someone else or writeable :\n" >> ${SECURITY}
+    printf "\nSecurity Warning: theses files should not be owned by someone else or writable :\n" >> ${SECURITY}
     cat ${TMP} >> ${SECURITY}
 fi
 
-### Check home directories.  Directories should not be owned by someone else or writeable.
+### Check home directories.  Directories should not be owned by someone else or writable.
 awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' /etc/passwd | \
 while read username uid homedir; do
         if [[ -d ${homedir} ]] ; then
@@ -122,12 +122,12 @@ while read username uid homedir; do
 done | awk '$3 != $5 && $5 != "(0)" \
         { print "user=" $2 $3 " : home directory is owned by " $4 $5 "." }
      $1 ~ /^d....w/ && $2 != "lp" && $2 != "mail" \
-        { print "user=" $2 $3" : home directory is group writeable." }
+        { print "user=" $2 $3" : home directory is group writable." }
      $1 ~ /^d.......w/ \
-        { print "user=" $2 $3" : home directory is other writeable." }' > ${TMP}
+        { print "user=" $2 $3" : home directory is other writable." }' > ${TMP}
 
 if [[ -s $TMP ]] ; then
-        printf "\nSecurity Warning: these home directory should not be owned by someone else or writeable :\n" >> ${SECURITY}
+        printf "\nSecurity Warning: these home directory should not be owned by someone else or writable :\n" >> ${SECURITY}
         cat ${TMP} >> ${SECURITY}
 fi
 fi # End of check perms

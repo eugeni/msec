@@ -62,7 +62,7 @@ static FILE *suid_fd;
 static FILE *sgid_fd;
 static FILE *unowned_user_fd;
 static FILE *unowned_group_fd;
-static FILE *writeable_fd;
+static FILE *writable_fd;
 
 static int traverse(const char *file, const struct stat *sb, int flag, struct FTW *s)
 {
@@ -105,10 +105,10 @@ static int traverse(const char *file, const struct stat *sb, int flag, struct FT
                  */
         case FTW_D:
                 /*
-                 * Is world writeable check.
+                 * Is world writable check.
                  */
 		if (sb->st_mode & 0002)
-			fprintf(writeable_fd, "%s\n", file);
+			fprintf(writable_fd, "%s\n", file);
                 
                 /*
                  * Unowned user check.
@@ -145,9 +145,9 @@ __inline__ static void init()
                 exit(1);
         }
 
-        writeable_fd = fopen(getenv("WRITEABLE_TODAY"), mode);
-        if ( ! writeable_fd ) {
-                perror("fopen (writeable_today)");
+        writable_fd = fopen(getenv("WRITABLE_TODAY"), mode);
+        if ( ! writable_fd ) {
+                perror("fopen (writable_today)");
                 exit(1);
         }
         
@@ -213,7 +213,7 @@ int main(int argc, char **argv)
         
 	fclose(suid_fd);
 	fclose(sgid_fd);
-	fclose(writeable_fd);
+	fclose(writable_fd);
 	fclose(unowned_user_fd);
 	fclose(unowned_group_fd);
 

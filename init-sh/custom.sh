@@ -143,10 +143,10 @@ if [[ ${answer} == yes ]]; then
 fi
 
 ###
-echo "Do you want your system to daily check Writeable file change ?"
+echo "Do you want your system to daily check Writable file change ?"
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
-    AddRules "CHECK_WRITEABLE=yes" /etc/security/msec/security.conf
+    AddRules "CHECK_WRITABLE=yes" /etc/security/msec/security.conf
     WRITE_CRON="true"
 fi
 

@@ -295,7 +295,7 @@ warnings dispatching,
 periodicall security checks:
 \layout Quotation
 
-- on files: suid root, writeable, unowned;
+- on files: suid root, writable, unowned;
 \layout Quotation
 
 - listening ports: active, promiscuous;
@@ -758,7 +758,7 @@ Suid root file md5sum check
 \newline 
 *
 \newline 
-Writeable file check
+Writable file check
 \newline 
 
 \newline 
@@ -984,7 +984,7 @@ Suid root file check
 Suid root file md5sum check
 \layout Itemize
 
-Writeable file check
+Writable file check
 \layout Itemize
 
 Suid group file check 
@@ -1160,7 +1160,7 @@ Checks the md5sum signature of each suid root file that is on the system.
  A warning is then issued.
 \layout Subsection
 
-Writeable file check
+Writable file check
 \layout Standard
 
 Check wether files are world writable on the system.

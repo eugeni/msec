@@ -47,7 +47,7 @@ CHECK_PERMS       no  no  no  yes  yes  yes
 CHECK_SUID_ROOT   no  no  yes yes  yes  yes  
 CHECK_SUID_MD5    no  no  yes yes  yes  yes  
 CHECK_SUID_GROUP  no  no  yes yes  yes  yes  
-CHECK_WRITEABLE   no  no  yes yes  yes  yes  
+CHECK_WRITABLE    no  no  yes yes  yes  yes  
 CHECK_UNOWNED     no  no  no  no   yes  yes  
 CHECK_PROMISC     no  no  no  no   yes  yes  
 CHECK_OPEN_PORT   no  no  no  yes  yes  yes  

@@ -24,7 +24,7 @@ Security level 2 ( Aka normal system ) :
 - Global security check
 - Suid root file check
 - Suid root file md5sum check
-- Writeable file check
+- Writable file check
 - Warning in syslog
 - Warning in /var/log/security.log 
 
@@ -41,7 +41,7 @@ Security level 3  ( Aka more secure system ) :
 - Suid root file check
 - Suid root file md5sum check
 - Suid group file check 
-- Writeable file check 
+- Writable file check 
 - Unowned file check 
 - Promiscuous check 
 - Listening port check 
@@ -69,7 +69,7 @@ Security level 4 ( Aka Secured system ) :
 - Suid root file check 
 - Suid root file md5sum check
 - Suid group file check
-- Writeable file check
+- Writable file check
 - Unowned file check 
 - Promiscuous check 
 - Listening port check 
@@ -120,7 +120,7 @@ Security level 5 ( Aka Paranoid system ) :
 - Suid root file check 
 - Suid root file md5sum check
 - Suid group file check 
-- Writeable file check
+- Writable file check
 - Unowned file check 
 - Promiscuous check 
 - Listening port check 

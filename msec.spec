@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.34.2
+Version:	0.34.3
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -83,8 +83,24 @@ touch $RPM_BUILD_ROOT/var/log/security.log
 touch /var/log/security.log
 
 if [ $1 != 1 ]; then
+	# manage spelling change
+	if [ -f /etc/security/msec/level.local ]; then
+		perl -pi -e 's/CHECK_WRITEABLE/CHECK_WRITABLE/g' /etc/security/msec/level.local
+	fi
+	if [ -f /etc/security/msec/security.conf ]; then
+		perl -pi -e 's/CHECK_WRITEABLE/CHECK_WRITABLE/g' /etc/security/msec/security.conf
+	fi
+	for ext in today yesterday diff; do
+		if [ -f /var/log/security/writeable.$ext ]; then
+			mv -f /var/log/security/writeable.$ext /var/log/security/writable.$ext
+		fi
+	done
+
+	# find secure level
 	SL=$SECURE_LEVEL
  	[ ! -r /etc/sysconfig/msec ] || SL=`sed -n 's/SECURE_LEVEL=//p' < /etc/sysconfig/msec` || :
+
+	# upgrade from old style msec or rerun the new msec
 	if grep -q "# Mandrake-Security : if you remove this comment" /etc/profile; then
 		[ -z "$SL" -a -r /etc/profile.d/msec.sh ] && SL=`sed -n 's/.*SECURE_LEVEL=//p' <  /etc/profile.d/msec.sh` || :
 		/usr/share/msec/cleanold.sh || :
@@ -92,6 +108,7 @@ if [ $1 != 1 ]; then
 	else
 		[ -n "$SL" ] && msec < /dev/null || :
 	fi
+
 	# remove the old way of doing the daily cron
 	rm -f /etc/cron.d/msec
 fi
@@ -135,6 +152,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Thu Aug 29 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34.3-1mdk
+- Corrected spelling errors thx to David Relson
+
 * Tue Aug 27 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34.2-1mdk
 - fixed /boot as suggested by Guillaume Rousse.
 

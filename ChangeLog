@@ -1,3 +1,6 @@
+2000-03-09 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* custom.sh : added a patch from Havard Bell.
+
 2000-03-08 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* Added msec_find utility, written by Thierry Vignaud
 		which will avoid us to find / 5 times :)

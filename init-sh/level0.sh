@@ -6,9 +6,10 @@
 #
 
 
-if [[ -f /etc/security/msec/init-sh/lib.sh ]]; then
-    . /etc/security/msec/init-sh/lib.sh
+if [[ -f /usr/share/msec/lib.sh ]]; then
+    . /usr/share/msec/lib.sh
 else
+    echo "Can't find /usr/share/msec/lib.sh, exiting."
     exit 1
 fi
 

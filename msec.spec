@@ -38,13 +38,24 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc AUTHORS COPYING Makefile README 
 %doc doc/*txt ChangeLog doc/*ps
-/etc/security/msec
 /usr/bin/promisc_check
+/usr/sbin/msec
+/usr/share/msec
 /var/log/security.log
 /var/log/security
 /usr/man/*/*
 
+%config
+/etc/security/msec/
+
 %changelog
+* Tue Mar 07 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- use %config for config file ( thanks to Frederic Lepied ).
+- use /etc/security/msec for config file only.
+- Renamed init.sh to msec, and install it in /usr/sbin.
+- The other shell scripts are located in /usr/share/msec
+- Included patch from Stefan Siegel.
+
 * Tue Jan 18 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - custom.sh : fix a nasty typo.
 

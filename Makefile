@@ -11,29 +11,6 @@ clean:
 promisc_check: 
 	(cd src/promisc_check; make)
 
-rpm_install: all
-	rm -rf $(RPM_BUILD_ROOT)
-	mkdir -p $(RPM_BUILD_ROOT)/etc/security/msec/{init-sh,cron-sh}/
-	mkdir -p $(RPM_BUILD_ROOT)/usr/bin
-	mkdir -p $(RPM_BUILD_ROOT)/usr/man/man8/
-	cp init-sh/level*.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
-	cp init-sh/lib.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
-	cp init-sh/init.sh $(RPM_BUILD_ROOT)/etc/security/msec
-	cp init-sh/file_perm.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
-	cp init-sh/perm.[0-5] $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
-	cp init-sh/server.* $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
-	cp init-sh/grpuser.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
-	cp init-sh/custom.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
-	cp cron-sh/*.sh $(RPM_BUILD_ROOT)/etc/security/msec/cron-sh
-	mkdir -p $(RPM_BUILD_ROOT)/var/log/security
-	touch $(RPM_BUILD_ROOT)/etc/security/msec/security.conf
-	touch $(RPM_BUILD_ROOT)/var/log/security.log
-	install -s src/promisc_check/promisc_check $(RPM_BUILD_ROOT)/usr/bin
-	install -d $(RPM_BUILD_ROOT)/usr/man/man8/
-	install -m644 doc/*8 $(RPM_BUILD_ROOT)/usr/man/man8/
-	bzip2 -9f $(RPM_BUILD_ROOT)/usr/man/man8/*8
-	@echo "Install complete"
-
 dis: clean
 	rm -rf msec-$(VERSION) ../msec-$(VERSION).tar*
 	mkdir -p msec-$(VERSION)

@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.38
-Release:	2mdk
+Release:	3mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -153,6 +153,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Fri Mar  7 2003 Frederic Lepied <flepied@mandrakesoft.com> 0.38-3mdk
+- report correct message in log (bug #748)
+
 * Sun Feb  2 2003 Thierry Vignaud <tvignaud@mandrakesoft.com> 0.38-2mdk
 - move security::help from msec to drakxtools so that it get
   translated

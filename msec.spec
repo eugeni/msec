@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.19
-Release:	8mdk
+Version:	0.20
+Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -123,6 +123,12 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Mon Mar 25 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.20-1mdk
+- Maximum password aging can be -1 (David Relson)
+- allow to pass ignore in function calls in
+/etc/security/msec/level.local to ask msec to do nothing with this
+feature.
+
 * Fri Mar  8 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-8mdk
 - /var/log/lp-errs must always be 600
 

@@ -51,6 +51,7 @@ for a in "$@"; do
 done
 
 if [ -n "$last" ]; then
+    CHANGE=-c
     case "$last" in
 	[0-5]) ;;
 	*) [ -x /usr/share/msec/$last.py ] && MSEC=/usr/share/msec/$last.py;;
@@ -78,7 +79,7 @@ if $MSEC "$@"; then
     LOCAL=
     [ -f /etc/security/msec/perm.local ] && LOCAL=/etc/security/msec/perm.local
 
-    /usr/share/msec/Perms.py $OPT /usr/share/msec/perm.$PERM_LEVEL $LOCAL
+    /usr/share/msec/Perms.py $CHANGE $OPT /usr/share/msec/perm.$PERM_LEVEL $LOCAL
 fi
 
 # msec ends here

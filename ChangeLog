@@ -1,6 +1,5 @@
 1999-12-21  Pixel  <pixel@mandrakesoft.com>
 	* init-sh/perm.4: changed /etc/lilo.conf to 600 to make lilo quiet
-	* init-sh/perm.5: changed /etc/lilo.conf to 600 to make lilo quiet
 	* init-sh/lib.sh (LiloUpdate): replace the -z ${LILO_PASSWORD} by
 	${LILO_PASSWORD+set} != set 
 	* init-sh/lib.sh (LiloUpdate): replace the call to AddRules to

@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.18
-Release:	3mdk
+Release:	4mdk
 Url:		http://www.linux-mandrake.com
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -117,6 +117,10 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Tue Feb  5 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.18-4mdk
+- password aging also enable delay to change
+- correct gdm.conf modifications
+
 * Mon Feb  4 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.18-3mdk
 - in level > 2 X server doesn't listen on tcp connection.
 - in level > 3 /etc/hosts.{allow,deny,equiv} readable by daemon group.

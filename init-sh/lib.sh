@@ -346,6 +346,10 @@ else
 	chmod 755 /etc/X11/xinit.d/msec
 fi
 
+if [[ -f /etc/sysconfig/msec ]]; then
+	        CleanRules /etc/sysconfig/msec
+fi
+
 echo -e "\nStarting to reconfigure the system : "
 # For all secure level
 echo "Setting spoofing protection : "

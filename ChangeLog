@@ -1,3 +1,12 @@
+2002-07-28 22:53  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.30.1-1mdk
+
+2002-07-28 22:53  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: (set_zero_one_variable): corrected bug when the
+	variable doesn't exist before setting it.
+
 2002-07-27 22:47  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.30

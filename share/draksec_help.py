@@ -50,7 +50,7 @@ for f in inspect.getmembers(module, inspect.isfunction):
     doc = f[1].__doc__
     if doc and len(doc) > 2:
         doc = doc[2:]    
-        argspec = inspect.formatargspec(args, varargs, varkw, locals)
+        argspec = inspect.formatargspec(args, varargs, varkw, locals) + '\n'
         if f[0] == 'set_security_conf':
             doc = clean.sub('', doc)
             doc = clean2.sub('', doc)

@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.16
-Release:	1mdk
+Release:	2mdk
 Url:		http://www.linux-mandrake.com
 Source0:		%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -63,6 +63,24 @@ touch $RPM_BUILD_ROOT/var/log/security.log
 
 %post 
 touch /var/log/security.log
+# create the /etc/security/msec/server
+# the /usr/share/msec/current-level.sh and
+# /etc/security/msec/current.perm files
+if [[ ${SECURE_LEVEL} == 4 || ${SECURE_LEVEL} == 5 || ${SECURE_LEVEL} == snf ]]; then
+	ln -sf /etc/security/msec/server.${SECURE_LEVEL} /etc/security/msec/server
+        else
+        	rm -rf /etc/security/msec/server
+                chkconfig --list |awk ' {print $1}' | grep -v ":" | sort -u > /etc/security/msec/server
+fi
+
+ln -sf /usr/share/msec/level${SECURE_LEVEL}.sh /usr/share/msec/current-level.sh
+echo
+echo "You might logout of your session for some change to be activated."        echo
+
+if [[ -f /etc/security/msec/perm.${SECURE_LEVEL} ]]; then
+	ln -sf /etc/security/msec/perm.${SECURE_LEVEL} /etc/security/msec/current.perm
+	/usr/share/msec/file_perm.sh /etc/security/msec/current.perm
+if
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -87,6 +105,12 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Thu Nov 08 2001 Florin <florin@mandrakesoft.com> 0.16-2mdk
+- oups forgot to create the needed links in post:
+- create the /etc/security/msec/server
+- the /usr/share/msec/current-level.sh and
+- /etc/security/msec/current.perm files
+
 * Thu Nov 08 2001 Florin <florin@mandrakesoft.com> 0.16-1mdk
 - 0.16
 - add requires on chkconfig >= 1.2.24-3mdk

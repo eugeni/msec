@@ -19,7 +19,7 @@ msec_find:
 	(cd src/msec_find && make)
 
 python:
-	-cd share; ./msec.py -h
+	-cd share; make
 
 install:
 	mkdir -p $RPM_BUILD_ROOT/etc/security/msec

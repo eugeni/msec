@@ -115,7 +115,7 @@ for service in `chkconfig --list | awk '{print $1}'`; do
 done
 echo -e "done.\n";
 
-# /etc/profile
+# /etc/profile.d/msec.{sh,csh}
 echo "Setting umask to 077 (u=rw) :"
 AddRules "umask 077" /etc/profile.d/msec.sh
 AddRules "umask 077" /etc/profile.d/msec.csh

@@ -1,3 +1,26 @@
+2002-02-13 20:50  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: only reports an error for an empty wheel group
+	when run interactively.
+
+2002-02-13 19:54  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/: Config.py, ConfigFile.py, Perms.py: corrected warnings
+	reported by pychecker
+
+2002-02-13 19:53  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/promisc_check.sh: use ip to detect promiscuous mode with
+	2.4 kernels.
+
+2002-02-13 19:52  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.csh, msec.sh: handle umask and . in path
+
+2002-02-11 09:44  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/perm.5: /etc/sendmail.cf 640 to sendmail to work.
+
 2002-02-05 15:10  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.18-4mdk
@@ -205,7 +228,7 @@
 
 2002-01-22 14:21  Frederic Lepied <flepied@mandrakesoft.com>
 
-	* man/: C/init.sh.8, fr/init.sh.8: removed init-sh man page
+	* man/C/init.sh.8: removed init-sh man page
 
 2002-01-21 21:58  Frederic Lepied <flepied@mandrakesoft.com>
 
@@ -814,8 +837,7 @@
 2001-09-02 21:24  Pablo Saratxaga <pablo@mandrakesoft.com>
 
 	* Makefile, msec.spec, doc/init.sh.8, doc/msec.8, man/C/init.sh.8,
-	man/C/msec.8, man/fr/init.sh.8: moved man pages to man/C, added
-	French man page
+	man/C/msec.8: moved man pages to man/C, added French man page
 
 2001-08-09 05:02  Frederic Lepied <flepied@mandrakesoft.com>
 

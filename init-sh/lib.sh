@@ -329,6 +329,7 @@ CommentUserRules /etc/securetty
 CleanRules /etc/security/msec/security.conf
 CommentUserRules /etc/security/msec/security.conf
 CleanRules /etc/profile
+CleanRules /etc/zprofile
 CleanRules /etc/ld.so.preload
 
 CleanLoaderRules
@@ -347,11 +348,11 @@ else
 fi
 
 
-if [[ -f /etc/profile.d/msec ]]; then
-	CleanRules /etc/profile.d/msec
+if [[ -f /etc/profile.d/msec.sh ]]; then
+	CleanRules /etc/profile.d/msec.sh
 else
-	touch /etc/profile.d/msec
-	chmod 755 /etc/profile.d/msec
+	touch /etc/profile.d/msec.sh
+	chmod 755 /etc/profile.d/msec.sh
 fi
 
 

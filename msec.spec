@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Linux Mandrake distribution
 Name:		msec
 Version:	0.15
-Release:	25mdk
+Release:	26mdk
 
 Source:		%{name}-%{version}.tar.bz2
 Source2:    	msec
@@ -81,6 +81,11 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Wed Sep 19 2001 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-26mdk
+
+- Output in /etc/profile.d/msec.sh as only .sh extenssion files are read.
+- Keep the output of the SECURE_LEVEL in /etc/profile and /etc/zprofile.
+
 * Wed Sep 19 2001 florin <florin@mandrakesoft.com> 0.15-25mdk
 - RootSshLogin in levels 4/5
 - squidGuard entries

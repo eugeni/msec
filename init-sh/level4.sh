@@ -81,7 +81,10 @@ AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 
 # Server update
 echo "Setting secure level variable to 4 :"
-AddRules "SECURE_LEVEL=4" /etc/profile.d/msec
+AddRules "SECURE_LEVEL=4" /etc/profile.d/msec.sh
+AddRules "SECURE_LEVEL=4" /etc/profile
+AddRules "SECURE_LEVEL=4" /etc/zprofile
+
 
 export SECURE_LEVEL=4
 
@@ -110,9 +113,9 @@ AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/zprofi
 
 echo "Adding \"normal\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
-AddRules "export PATH" /etc/profile 
+AddRules "export PATH SECURE_LEVEL" /etc/profile 
 AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/zprofile quiet
-AddRules "export PATH" /etc/zprofile 
+AddRules "export PATH SECURE_LEVEL" /etc/zprofile 
 
 if [[ -f /lib/libsafe.so.1.3 ]]; then
     echo "Enabling stack overflow protection :"

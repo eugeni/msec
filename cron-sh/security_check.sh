@@ -77,23 +77,23 @@ fi
 if [ ${CHECK_PERMISSIONS}=="yes" ]; then
 # Files that should not be owned by someone else or readable.
 list=".netrc .rhosts .shosts .Xauthority .pgp/secring.pgp .ssh/identity .ssh/random_seed"
-awk -F: '/^[^+-]/ { print $1 " " $6 }' /etc/passwd | \
+awk -F: '/^[^+-]/ { print $3 " " $6 }' /etc/passwd | \
 while read uid homedir; do
         for f in ${list} ; do
                 file="${homedir}/${f}"
                 if [ -f ${file} ] ; then
-                        printf "${uid} ${f} `ls -ldcg ${file}`\n"
+			printf "${uid} ${f} `ls -ldcgn ${file}`\n"
                 fi
         done
-done | awk '$1 != $5 && $5 != "root" \
+done | awk '$1 != $5 && $5 != "0" \
         { print "\t\tuser=" $1 ", file=" $2 " : file is owned by " $5 }
-     $3 ~ /^-...r/ \
+	$3 ~ /^-....w/ \
         { print "\t\tuser=" $1 ", file=" $2 " : file is group readable" }
-     $3 ~ /^-......r/ \
+	$3 ~ /^-....w/ \
         { print "\t\tuser=" $1 ", file=" $2 " : file is other readable" }
-     $3 ~ /^-....w/ \
+	$3 ~ /^-....w/ \
         { print "\t\tuser=" $1 ", file=" $2 " : file is group writeable" }
-     $3 ~ /^-.......w/ \
+	$3 ~ /^-....w/ \
         { print "\t\tuser=" $1 ", file=" $2 " : file is other writeable" }' > ${TMP}
 
 if [ -s ${TMP} ]; then
@@ -107,15 +107,15 @@ list=".bashrc .bash_profile .bash_login .bash_logout .cshrc .emacs .exrc \
 .forward .klogin .login .logout .profile .tcshrc .fvwmrc .inputrc .kshrc \
 .nexrc .screenrc .ssh .ssh/config .ssh/authorized_keys .ssh/environment \
 .ssh/known_hosts .ssh/rc .twmrc .xsession .xinitrc .Xdefaults"
-awk -F: '/^[^+-]/ { print $1 " " $6 }' /etc/passwd | \
+awk -F: '/^[^+-]/ { print $3 " " $6 }' /etc/passwd | \
 while read uid homedir; do
         for f in ${list} ; do
                 file="${homedir}/${f}"
                 if [ -f $file ] ; then
-                        printf "$uid ${f} `ls -ldcg ${file}`\n"
+                        printf "$uid ${f} `ls -ldcgn ${file}`\n"
                 fi
         done
-done | awk '$1 != $5 && $5 != "root" \
+done | awk '$1 != $5 && $5 != "0" \
         { print "\t\t- user=" $1 ", file=" $2 " : file is owned by " $5 }
      $3 ~ /^-....w/ \
         { print "\t\t- user=" $1 ", file=" $2 " : file is group writeable" }

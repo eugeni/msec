@@ -115,7 +115,9 @@ echo "All services are disabled : try the chkconfig to enable one..."
 echo "If you're on a senssible machine, ( which is probably the case )"
 echo "you should compile the server from the sources".
 echo
-echo "Good luck. :-)"
+echo "In order to launch X in this security level,"
+echo "you need to add your user to the \"xgrp\" group..." 
+echo "Use : usermod -G xgrp username"
 echo
 
 

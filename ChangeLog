@@ -1,3 +1,6 @@
+2000-02-17 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* /etc/printcap is 644 in mode 4 & 5
+
 2000-01-13 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* custom.sh : ( thanks to Thomas Poindessous ) for pointing out that :
 	* 	s'/tmp\/msec.XXXXXX/\/tmp\/msec.XXXXXX/'

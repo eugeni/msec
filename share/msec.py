@@ -255,10 +255,12 @@ if Config.get_config('nolocal', '0') == '0':
     CONFIG='/etc/security/msec/level.local'
     if os.path.exists(CONFIG):
         interactive and log(_('Reading local rules from %s') % CONFIG)
+        local_config(1)
         try:
             eval_file(CONFIG)
         except:
             log(_('Error loading %s: %s') % (CONFIG, str(sys.exc_value)))
+        local_config(0)
 
 if Config.get_config('print', '0') == '1':
     print_changes()

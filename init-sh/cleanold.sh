@@ -120,14 +120,3 @@ else
         chmod 755 /etc/profile.d/msec.sh
         chmod 755 /etc/profile.d/msec.csh
 fi  
-
-# default groups which must exist on the system
-# groupadd already checks for their existance...
-groupadd nogroup >& /dev/null
-groupadd -g 26 xgrp >& /dev/null
-groupadd -g 33 ntools >& /dev/null
-groupadd -g 34 ctools >& /dev/null
-groupadd -g 81 audio >& /dev/null
-
-usermod -G xgrp xfs
-

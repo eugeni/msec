@@ -49,6 +49,7 @@ install -d $RPM_BUILD_ROOT/var/log/security
 install -d $RPM_BUILD_ROOT%{_mandir}/man{3,8}
 
 cp -p init-sh/cleanold.sh share/*.py share/*.pyo share/level.* cron-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
+chmod 644 $RPM_BUILD_ROOT/usr/share/msec/{security,diff}_check.sh
 install -m 755 share/msec $RPM_BUILD_ROOT/usr/sbin
 install -m 644 conf/server.* $RPM_BUILD_ROOT/etc/security/msec
 install -m 644 conf/perm.* $RPM_BUILD_ROOT/usr/share/msec

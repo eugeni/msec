@@ -33,6 +33,7 @@ cp init-sh/init.sh $RPM_BUILD_ROOT/etc/security/msec
 cp init-sh/file_perm.sh $RPM_BUILD_ROOT/etc/security/msec/init-sh
 cp init-sh/perm.[1-5] $RPM_BUILD_ROOT/etc/security/msec/init-sh
 cp init-sh/server.* $RPM_BUILD_ROOT/etc/security/msec/init-sh
+cp init-sh/grpuser $RPM_BUILD_ROOT/etc/security/msec/init-sh
 cp cron-sh/*.sh $RPM_BUILD_ROOT/etc/security/msec/cron-sh
 touch $RPM_BUILD_ROOT/etc/security/msec/security.conf
 cp src/promisc_check/promisc_check $RPM_BUILD_ROOT/usr/bin
@@ -46,6 +47,9 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/promisc_check
 
 %changelog
+* Fri Nov 26 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- grpuser was not installed.
+
 * Fri Nov 26 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - Fix a bug in level3.sh
 - level[12].sh Removed some unused code

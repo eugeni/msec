@@ -59,9 +59,15 @@ echo "Adding permission check in crontab (scheduled every midnight) :"
 AddRules "0 0 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/diff_check.sh" /etc/crontab
 AddRules "0 0 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/security_check.sh" /etc/crontab
 
+# lilo update
 echo -n "Running lilo to record new config : "
 /sbin/lilo >& /dev/null
 echo -e "done.\n"
+
+# /etc/inittab 
+echo "Disabling direct console access : "
+AddRules "1:2345:respawn:/sbin/mingetty tty1" /etc/inittab
+echo "done.\n"
 
 # /etc/profile
 export SECURE_LEVEL=3

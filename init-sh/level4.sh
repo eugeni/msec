@@ -79,6 +79,11 @@ echo -n "Running lilo to record new config : "
 /sbin/lilo >& /dev/null
 echo -e "done.\n"
 
+# /etc/inittab 
+echo "Disabling direct console access : "
+AddRules "1:2345:respawn:/sbin/mingetty tty1" /etc/inittab
+echo "done.\n"
+
 # Server update
 echo "Setting secure level variable to 4 :"
 AddRules "SECURE_LEVEL=4" /etc/profile

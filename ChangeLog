@@ -1,4 +1,5 @@
 1999-15-10  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* As requested, direct shell access for level 0
 	* Fixed a little problem with the DRAKX_USERS variable
 	* removed chattr +a because of the problem it can cause to
 	  other system automated system task

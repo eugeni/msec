@@ -1,3 +1,29 @@
+2001-09-17 18:35  Daouda Lo <daouda@mandrakesoft.com>
+
+	* msec.spec: fix  kdm sec hole at level 4 (displayin users)
+
+2001-09-17 18:32  Daouda Lo <daouda@mandrakesoft.com>
+
+	* init-sh/lib.sh: -fix users display in level up to 4 (kdm)
+
+2001-09-14 18:14  florin
+
+	* conf/: perm.2, perm.3, perm.5: /var/log/squid permisssions
+
+2001-09-14 18:13  florin
+
+	* conf/: perm.0, perm.1, perm.4: /var/log/squid permisssion
+
+2001-09-14 18:12  florin
+
+	* msec.spec: /var/log/squid permissions
+
+2001-09-03 03:24  Pablo Saratxaga <pablo@mandrakesoft.com>
+
+	* Makefile, msec.spec, doc/init.sh.8, doc/msec.8, man/C/init.sh.8,
+	man/C/msec.8, man/fr/init.sh.8: moved man pages to man/C, added
+	French man page
+
 2001-08-09 11:02  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.15-18mdk

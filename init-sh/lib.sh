@@ -299,7 +299,7 @@ AllowReboot() {
 
 RootSshLogin () {
 	echo -n "Setting up the root ssh login : "
-	if [[ $1 == 4 || $1 == 5 ]]; then
+	if [[ $1 == 4 || $1 == 5 || $1 == snf ]]; then
 		/bin/sed 's/PermitRootLogin yes/PermitRootLogin no/' < /etc/ssh/sshd_config > /etc/ssh/sshd_config.new
 		mv /etc/ssh/sshd_config.new /etc/ssh/sshd_config
 		chmod 0600 /etc/ssh/sshd_config

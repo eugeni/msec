@@ -182,12 +182,46 @@ def chmod(f, newperm):
 
 if __name__ == '__main__':
     import sys
-
-    initlog('msec')
+    import Config
+    import getopt
     
-    for p in sys.argv[1:]:
+    _interactive = sys.stdin.isatty()
+
+    # process the options
+    try:
+        (opt, args) = getopt.getopt(sys.argv[1:], 'o:',
+                                    ['option'])
+    except getopt.error:
+        error(_('Invalid option. Use %s (-o var=<val>...) ([0-5])') % sys.argv[0])
+        sys.exit(1)
+
+    for o in opt:
+        if o[0] == '-o' or o[0] == '--option':
+            pair = string.split(o[1], '=')
+            if len(pair) != 2:
+                error(_('Invalid option format %s %s: use -o var=<val>') % (o[0], o[1]))
+                sys.exit(1)
+            else:
+                print 'setting', pair[0], pair[1]
+                Config.set_config(pair[0], pair[1])
+
+    # initlog must be done after processing the option because we can change
+    # the way to report log with options...
+    if _interactive:
+        import syslog
+        
+        initlog('msec', syslog.LOG_LOCAL1)
+    else:
+        initlog('msec')
+        
+    _interactive and log(_('Fixing owners and permissions of files and directories'))
+    
+    # process the files
+    for p in args:
+        _interactive and log(_('Reading data from %s') % p)
         fix_perms(p)
 
+    # do the modifications
     act()
     
 # Perms.py ends here

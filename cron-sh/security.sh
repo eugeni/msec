@@ -62,6 +62,8 @@ cat ${SUID_ROOT_TODAY} | while read line; do
 done > ${SUID_MD5_TODAY}
 
 
+/etc/security/msec/cron-sh/diff_check.sh
+/etc/security/msec/cron-sh/security_check.sh
 
 
 

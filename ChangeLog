@@ -1,3 +1,17 @@
+2001-09-19 15:37  florin
+
+	* msec.spec: source2 is msec.logrotate and not msec
+
+2001-09-19 14:32  yoann
+
+	* msec.spec, init-sh/level0.sh, init-sh/level1.sh,
+	init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
+	init-sh/level5.sh, init-sh/lib.sh: 
+	
+	- Output in /etc/profile.d/msec.sh as only .sh extenssion files are
+	read.  - Keep the output of the SECURE_LEVEL in /etc/profile and
+	/etc/zprofile.
+
 2001-09-19 14:28  florin
 
 	* msec.spec: 25mdk

@@ -1,0 +1,41 @@
+.TH msec 8 "2000ko apirilak 17" "MandrakeSoft" "Linux Mandrake"
+.IX msec
+.SH IZENA
+msec \- Mandrake-ren segurtasun-tresnak
+.SH LABURPENA
+.B msec
+[0-5 | custom]
+.SH AZALPENA
+\fPmsec\fP msec paketearen script nagusia da. Sistema-administratzaileari sistema horren segurtasun-maila aldatzeko aukera ematen dio.
+msec-ek aurrez konfiguratutako sei segurtasun-maila ditu. Maila horien artean daude segurtasun txikiko maila erabilerrazetik hasi, eta konfigurazio paranoideora arteko maila guztiak; azken hori adituek maneiatzen dituzten zerbitzari-aplikazio oso sentikorretarako da egokia.
+.PP
+Root-a izan behar zara \fPmsec\fP exekutatzeko.
+.br
+Abiarazi "msec x" zure segurtasun-maila x-n (x=[0-5]) jartzeko. Horrek zure sistema aldatuko du x segurtasun-mailaren eginbideei egokitzeko.
+.br
+Segurtasun-maila bakoitzaren azalpen zehatza ikusteko, hemen daukazun dokumentazioan begiratu: /usr/doc/msec-*/.
+.PP
+Zeure segurtasun-maila konfiguratu nahi baduzu, parametro erabilgarri guztiak zehaztasunez doitzeko, abiarazi "msec custom". Gaitu nahi dituzun eginbide guztiak eskatuko dizkizu, eta denak aplikatuko ditu sisteman.
+.SH FITXATEGIAK
+/usr/sbin/msec
+.br
+\fPmsec\fP exekutagarria (sh script-a)
+.PP
+/etc/security/msec/security.conf
+.br
+Uneko segurtasun-maila aktiboaren konfigurazioa du.
+
+.SH EGILEA
+Vandoorselaere Yoann, Mandrakesoft
+.br
+yoann@mandrakesoft.com
+
+
+
+
+
+
+
+
+
+

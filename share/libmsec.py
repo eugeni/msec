@@ -571,7 +571,7 @@ def password_aging(max, inactive=-1):
             name = field[0]
             password = field[1]
             if name in no_aging_list:
-                _interactive and log(_('User %s in password aging exception list') % (name,)
+                _interactive and log(_('User %s in password aging exception list') % (name,))
                 continue
             try:
                 entry = pwd.getpwnam(name)

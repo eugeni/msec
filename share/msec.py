@@ -8,21 +8,30 @@
 # Created On      : Wed Dec  5 20:20:21 2001
 #---------------------------------------------------------------
 
-from libmsec import *
+from mseclib import *
 from Log import *
 from Log import _name
 import Config
+import ConfigFile
+
 import sys
 import os
 import string
 import getopt
 import gettext
+import imp
 
 try:
     cat = gettext.Catalog('msec')
     _ = cat.gettext
 except IOError:
     _ = str
+
+# Eval a file
+def eval_file(name):
+    file = os.fdopen(os.open(os.path.expanduser(name), os.O_RDONLY))
+    imp.load_source('', name, file)
+    file.close()
 
 # program
 _name = 'msec'
@@ -97,31 +106,31 @@ enable_ip_spoofing_protection(server)
 if level == 5:
     set_root_umask('077')
     set_shell_timeout(900)
-    deny_all_services()
-    enable_pam_wheel_for_su()
+    authorize_services(NONE)
+    enable_pam_wheel_for_su(1)
 else:
     set_root_umask('022')
     if level == 4:
         set_shell_timeout(3600)
-        deny_non_local_services()
+        authorize_services(LOCAL)
     else:
         set_shell_timeout(0)
-        authorize_all_services()
-    disable_pam_wheel_for_su()
-        
+        authorize_services(ALL)
+    enable_pam_wheel_for_su(0)
+    
 # differences between level 4,5 and others
 if level >= 4:
     set_user_umask('077')
     set_shell_history_size(10)
-    forbid_root_login()
-    enable_sulogin()
-    forbid_user_list()
-    enable_promisc_check()
-    ignore_icmp_echo()
-    ignore_bogus_error_responses()
-    enable_libsafe()
-    forbid_reboot()
-    disable_at_crontab()
+    allow_root_login(0)
+    enable_sulogin(1)
+    allow_user_list(0)
+    enable_promisc_check(1)
+    accept_icmp_echo(0)
+    accept_bogus_error_responses(0)
+    enable_libsafe(1)
+    allow_reboot(0)
+    enable_at_crontab(0)
     if level == 4:
         password_aging(60)
     else:
@@ -129,43 +138,48 @@ if level >= 4:
 else:
     set_user_umask('022')
     set_shell_history_size(-1)
-    allow_root_login()
-    disable_sulogin()
-    allow_user_list()
-    disable_promisc_check()
-    accept_icmp_echo()
-    accept_bogus_error_responses()
-    disable_libsafe()
-    allow_reboot()
-    enable_at_crontab()
+    allow_root_login(1)
+    enable_sulogin(0)
+    allow_user_list(1)
+    enable_promisc_check(0)
+    accept_icmp_echo(1)
+    accept_bogus_error_responses(1)
+    enable_libsafe(0)
+    allow_reboot(1)
+    enable_at_crontab(1)
     password_aging(99999)
     
 # differences between level 3,4,5 and others
 if server:
-    forbid_autologin()
-    enable_console_log()
-    forbid_issues((level != 5))
-    enable_log_strange_packets()
+    allow_autologin(0)
+    enable_console_log(1)
+    if level == 5:
+        allow_issues(NONE)
+    else:
+        allow_issues(LOCAL)
+    enable_log_strange_packets(1)
 else:
-    allow_autologin()
-    disable_console_log()
-    allow_issues()
-    disable_log_strange_packets()
+    allow_autologin(1)
+    enable_console_log(0)
+    allow_issues(ALL)
+    enable_log_strange_packets(0)
 
 # differences between level 0 and others
 if level != 0:
-    enable_security_check()
+    enable_security_check(1)
     if level < 3:
-        allow_local_x_connections()
+        allow_x_connections(LOCAL)
     else:
-        restrict_x_connections()
+        allow_x_connections(NONE)
 else:
-    disable_security_check()
-    allow_x_connections()
+    enable_security_check(0)
+    allow_x_connections(ALL)
 
 # msec cron
-enable_msec_cron()
+enable_msec_cron(1)
 
+# TODO: need to be rewritten because we need to use fakelibmsec instead
+# of calling directly the low level functions
 #                                     0      1      2      3       4       5
 FILE_CHECKS = {'CHECK_SECURITY' :   ('no',  'yes', 'yes', 'yes',  'yes',  'yes',  ),
                'CHECK_PERMS' :      ('no',  'no',  'no',  'yes',  'yes',  'yes',  ),
@@ -185,11 +199,19 @@ FILE_CHECKS = {'CHECK_SECURITY' :   ('no',  'yes', 'yes', 'yes',  'yes',  'yes',
                'CHKROOTKIT_CHECK' : ('no',  'no',  'no',  'yes',  'yes',  'yes',  ),
                }
 
-interactive and log(_('Configuring periodic files checks'))
-securityconf = ConfigFile.get_config_file('/etc/security/msec/security.conf')
 for k in FILE_CHECKS.keys():
-    securityconf.set_shell_variable(k, FILE_CHECKS[k][level])
-    
+    set_security_conf(k, FILE_CHECKS[k][level])
+
+# load local customizations
+CONFIG='/etc/security/msec/level.local'
+if os.path.exists(CONFIG):
+    try:
+        eval_file(CONFIG)
+    except:
+        log(_('Error loading %s: %s') % (CONFIG, sys.exc_value[0]))
+
+commit_changes()
+
 interactive and log(_('Writing config files and then taking needed actions'))
 ConfigFile.write_files()
 

@@ -75,7 +75,8 @@ fi
 
 ln -sf /usr/share/msec/level${SECURE_LEVEL}.sh /usr/share/msec/current-level.sh
 echo
-echo "You might logout of your session for some change to be activated."        echo
+echo "You might need to logout of your terminal session in order to update your environment variables."
+echo
 
 if [[ -f /etc/security/msec/perm.${SECURE_LEVEL} ]]; then
 	ln -sf /etc/security/msec/perm.${SECURE_LEVEL} /etc/security/msec/current.perm

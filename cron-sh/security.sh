@@ -203,13 +203,27 @@ Ttylog() {
 Maillog() {
     subject=${1}
     text=${2}
-
+    SOMETHING_TO_SEND=
+    
     if [[ ${MAIL_WARN} == yes ]]; then
 	if [[ -z ${MAIL_USER} ]]; then 
 	    MAIL_USER="root"
 	fi
 	if [[ -x /bin/mail ]]; then
-	    cat ${text} | /bin/mail -s "${subject}" "${MAIL_USER}"
+	    for f in ${text}; do
+		if [[ -s $f ]]; then
+		    SOMETHING_TO_SEND=1
+		    break
+		fi
+	    done
+	    if [[ -z ${SOMETHING_TO_SEND} ]]; then
+		if [[ ${MAIL_EMPTY_CONTENT} != no ]]; then
+		    /bin/mail -s "${subject}" "${MAIL_USER}" <<EOF
+Nothing has changed since the last run.
+EOF
+            else
+		cat ${text} | /bin/mail -s "${subject}" "${MAIL_USER}"
+	    fi
 	fi
     fi
 }

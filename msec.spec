@@ -45,7 +45,8 @@ rm -rf $RPM_BUILD_ROOT
 /usr/man/*/*
 
 %changelog
-* Tue Jan 04 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+* Tue Jan 06 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Removed the "spawn a shell on boot" feature of level0 cause of a tty problem.
 - shutdown.allow is 600 in level 4/5; 644 else.
 - updated doc/security.txt
 - updated init-sh/custom.sh

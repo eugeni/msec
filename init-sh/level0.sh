@@ -78,11 +78,10 @@ echo "Adding system users to specific groups :"
 echo -e "done.\n"
 
 # Boot on a shell / authorize ctrl-alt-del
-echo -n "Setting up inittab to spawn a shell on boot & to authorize any user to issue ctrl-alt-del : "
+echo -n "Setting up inittab to authorize any user to issue ctrl-alt-del : "
 tmpfile=`mktemp /tmp/secure.XXXXXX`
 cp /etc/inittab ${tmpfile}
 cat ${tmpfile} | \
-    sed s'/\/sbin\/mingetty tty1/\/bin\/bash --login/' | \
     sed s'/ca::ctrlaltdel:\/sbin\/shutdown -a -t3 -r now/ca::ctrlaltdel:\/sbin\/shutdown -t3 -r now/' > /etc/inittab
 rm -f ${tmpfile}
 echo "done."

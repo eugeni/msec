@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.17
-Release:	15mdk
+Version:	0.18
+Release:	1mdk
 Url:		http://www.linux-mandrake.com
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -18,7 +18,7 @@ Requires:	chkconfig >= 1.2.24-3mdk
 %description
 The Mandrake-Security package is designed to provide generic 
 secure level to the Mandrake Linux users...
-It will permit you to choose between level 1 to 5 & custom
+It will permit you to choose between level 0 to 5
 for a less -> more secured distribution.
 This packages includes several program that will be run periodically
 in order to test the security of your system and alert you if needed.
@@ -30,8 +30,7 @@ in order to test the security of your system and alert you if needed.
 %build
 make CFLAGS="$RPM_OPT_FLAGS"
 
-cd share; ./compile.py '/usr/share/msec/' *.py
-rm -f msec.pyo
+cd share; make
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -72,9 +71,11 @@ touch /var/log/security.log
 
 if [ $1 != 1 -a -f /etc/security/msec/security.conf ]; then
 	if grep -q "# Mandrake-Security : if you remove this comment" /etc/security/msec/security.conf; then
-		SL=`sed -n 's/SECURE_LEVEL=//p' < /etc/sysconfig/msec` || :
+		SL=
+		[ ! -r /etc/sysconfig/msec ] || SL=`sed -n 's/SECURE_LEVEL=//p' < /etc/sysconfig/msec` || :
+		[ -z "$SL" -a -r /etc/profile.d/msec.sh ] && SL=`sed -n 's/.*SECURE_LEVEL=//p' <  /etc/profile.d/msec.sh` || :
 		/usr/share/msec/cleanold.sh || :
-		msec $SL < /dev/null || :
+ 		[ -n "$SL" ] && msec $SL < /dev/null || :
 	else
 		msec < /dev/null || :
 	fi
@@ -93,8 +94,10 @@ rm -rf $RPM_BUILD_ROOT
 %_datadir/msec
 %_mandir/*/*
 
-%config(noreplace) /var/log/security
-%config(noreplace) /etc/security/msec
+%dir /var/log/security
+%dir /etc/security/msec
+
+%config(noreplace) /etc/security/msec/*
 %config(noreplace) /etc/logrotate.d/msec
 %config(noreplace) /etc/profile.d/msec*
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
@@ -104,6 +107,10 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Sat Jan 26 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.18-1mdk
+- corrected upgrade from 0.16 and older versions
+- allow customization of level through /etc/security/msec/level.local
+
 * Tue Jan 22 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.17-15mdk
 - change Requires: from perl to perl-base.
 - perm.*: corrected errors reported by Pierre Fortin's script.

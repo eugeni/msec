@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.24
+Version:	0.25
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -124,6 +124,11 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Thu Jul  4 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.25-1mdk
+- insert the change at the end of the file if no match is found for
+PermitRootLogin and logindefs.
+- updated server.4 with MNF needs
+
 * Thu Jun 27 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.24-1mdk
 - don't lower access rights when not changing security level
 

@@ -56,7 +56,7 @@ fi
 if [[ ${CHECK_PERMS} == yes ]]; then
 # Files that should not be owned by someone else or readable.
 list=".netrc .rhosts .shosts .Xauthority .gnupg/secring.gpg \
-.pgp/secring.pgp .ssh/identity .ssh/random_seed"
+.pgp/secring.pgp .ssh/identity .ssh/id_dsa .ssh/id_rsa .ssh/random_seed"
 awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' /etc/passwd | 
 while read username uid homedir; do
     for f in ${list} ; do

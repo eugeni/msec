@@ -86,5 +86,3 @@ cat ${tmpfile} | \
     sed s'/ca::ctrlaltdel:\/sbin\/shutdown -a -t3 -r now/ca::ctrlaltdel:\/sbin\/shutdown -t3 -r now/' > /etc/inittab
 rm -f ${tmpfile}
 echo "done."
-
-

@@ -141,7 +141,7 @@ class ConfigFile:
                 log(_('deleted %s') % (self.path,))
         elif self.is_modified:
             content = string.join(self.lines, "\n")
-            mkdir_p(self.path)
+            mkdir_p(os.path.dirname(self.path))
             file = open(self.path, 'w')
             file.write(content)
             file.close()
@@ -438,6 +438,6 @@ def add_config_assoc(regex, action):
 
 def mkdir_p(path):
     if not os.path.exists(path):
-        os.makedirs(os.path.dirname(path))
+        os.makedirs(path)
     
 # ConfigFile.py ends here

@@ -80,6 +80,9 @@ NONE=0
 ALL=1
 LOCAL=2
 
+yes=1
+no=0
+
 # config files => actions
 
 ConfigFile.add_config_assoc(INITTAB, '/sbin/telinit q')
@@ -592,6 +595,8 @@ def password_aging(max, inactive=-1):
 
 def set_security_conf(var, value):
     '''1 Set the variable \\fIvar\\fP to the value \\fIvalue\\fP in /var/lib/msec/security.conf.
+The best way to override the default setting is to use create /etc/security/msec/security.conf
+with the value you want.
 
 The following variables are currentrly recognized by msec:
 

@@ -1164,7 +1164,7 @@ def password_aging(max, inactive=-1):
                 error(_('User %s in shadow but not in passwd file') % name)
                 continue
             if (len(password) > 0 and password[0] != '!') and password != '*' and password != 'x' and (entry[2] >= uid_min or entry[2] == 0):
-                cmd = '/usr/bin/chage -l %s' % entry[0]
+                cmd = 'LC_ALL=C /usr/bin/chage -l %s' % entry[0]
                 ret = commands.getstatusoutput(cmd)
                 _interactive and log(_('got current maximum password aging for user %s with command \'%s\'') % (entry[0], cmd))
                 if ret[0] == 0:
@@ -1184,7 +1184,7 @@ def password_aging(max, inactive=-1):
                             if current_inactive < inactive:
                                 new_inactive = current_inactive
                         if new_max != current_max or current_inactive != new_inactive:
-                            cmd = '/usr/bin/chage -M %d -I %d -d %s %s' % (new_max, new_inactive, time.strftime('%Y-%m-%d'), entry[0])
+                            cmd = 'LC_ALL=C /usr/bin/chage -M %d -I %d -d %s %s' % (new_max, new_inactive, time.strftime('%Y-%m-%d'), entry[0])
                             ret = commands.getstatusoutput(cmd)
                             log(_('changed maximum password aging for user %s with command %s') % (entry[0], cmd))
                             if ret[0] != 0:

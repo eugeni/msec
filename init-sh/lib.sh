@@ -45,6 +45,10 @@ AddRules() {
 
 AddBegRules() {
     echo "Modifying config in ${2}..."
+
+	if [[ ! -f ${file} ]]; then
+		return;
+	fi
     
     export VAL=$1
     perl -pi -e '/^#/ or /^$/ or $m++ or print "$ENV{COMMENT}\n$ENV{VAL}\n"' $2
@@ -134,64 +138,86 @@ Ttylog() {
 
 
 LoaderUpdate() {
-    loader=`/usr/sbin/detectloader`
-	
-    case "${loader}" in
-	"LILO")
-		file="/etc/lilo.conf"
-		at_exit="/sbin/lilo"
-		;;
-	"GRUB")
-		file="/boot/grub/menu.lst"
-		at_exit=""
-		;;
-    esac
-
-    if [[ ${LILO_PASSWORD+set} != set ]]; then
+   
+    # Ask only if we're not inside DrakX.
+    if [[ -z ${DRAKX_PASSWORD} ]]; then
     	echo "Do you want a password authentication at boot time ?"
     	echo "Be very carefull,"
     	echo "this will prevent your server to reboot without an operator to enter password".
-		WaitAnswer;
+	WaitAnswer;
     	if [[ ${answer} == yes ]]; then
         	echo -n "Please enter the password which will be used at boot time : "
         	read password
     	else
         	password=""
     	fi
-    else
-    	password=${LILO_PASSWORD}
+
+	if [[ ! -z ${password} ]]; then
+	    if [[ -f /etc/lilo.conf ]]; then
+		AddBegRules "password=$password" /etc/lilo.conf
+		chmod 600 /etc/lilo.conf
+	    fi
+	    if [[ -f /boot/grub/menu.lst ]]; then
+		AddBegRules "password $password" /boot/grub/menu.lst
+		chmod 600 /boot/grub/menu.lst
+	    fi
+	    
+	    loader=`/usr/sbin/detectloader`
+	    case "${loader}" in
+		"LILO")
+		    /sbin/lilo
+		    ;;
+		"GRUB")
+		    ;;
+	    esac
+	fi
     fi
-
-    if [[ ! -z ${password} ]]; then
-	tmpfile=`mktemp /tmp/secure.XXXXXX`
-
-    cp ${file} ${tmpfile}
-	cat ${tmpfile} | grep -v password > ${file}
-	
-	rm -f ${tmpfile}
-	clear
-    	AddBegRules "password=$password" ${file}
-    fi
-
-    ${at_exit};
 }
 
-CleanLoaderRules() {
+# Do something only if DRAKX_PASSWORD set ( we're in DrakX )
+LoaderDrakX() {
+    if [[ -n "${DRAKX_PASSWORD}" ]]; then
+	if [[ -f /etc/lilo.conf ]]; then
+	    AddBegRules "password=$DRAKX_PASSWORD" /etc/lilo.conf
+	    chmod 600 /etc/lilo.conf
+	fi
+	if [[ -f /boot/grub/menu.lst ]]; then
+	    AddBegRules "password $DRAKX_PASSWORD" /boot/grub/menu.lst
+	    chmod 600 /boot/grub/menu.lst
+	fi
+	  
 	loader=`/usr/sbin/detectloader`
-	file=""
 	case "${loader}" in
+	    "LILO")
+		    /sbin/lilo
+		    ;;
+	    "GRUB")
+		    ;;
+	esac
+    fi
+}
+
+
+CleanLoaderRules() {
+	if [[ -f /etc/lilo.conf ]]; then
+	    CleanRules /etc/lilo.conf
+	    chmod 644 /etc/lilo.conf
+	fi
+	if [[ -f /boot/grub/menu.lst ]]; then
+	    CleanRules /boot/grub/menu.lst
+	    chmod 644 /boot/grub/menu.lst
+	fi
+
+	if [[ -z ${DRAKX_PASSWORD} ]]; then
+	    loader=`/usr/sbin/detectloader`
+	    case "${loader}" in
 		"LILO")
-			file="/etc/lilo.conf"
-			at_exit="/sbin/lilo"
+			/sbin/lilo
 			;;
 		"GRUB")
-			file="/boot/grub/menu.lst"
-			at_exit=""
 			;;
-	esac
-
-	CleanRules ${file}
-	${at_exit};
+	    esac
+	fi
 }
 
 # If we are currently installing our
@@ -213,7 +239,10 @@ CommentUserRules /etc/securetty
 CleanRules /etc/security/msec/security.conf
 CommentUserRules /etc/security/msec/security.conf
 CleanRules /etc/profile
+
 CleanLoaderRules
+LoaderDrakX
+
 CleanRules /etc/logrotate.conf
 CleanRules /etc/rc.d/rc.local
 CleanRules /etc/rc.d/rc.firewall

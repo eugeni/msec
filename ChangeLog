@@ -1,6 +1,7 @@
 2000-04-19 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - Support grub as well as lilo...
 - bugfix.
+- Loaders bugfix
 
 2000-04-17 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* file_perm.sh : removed a check to see if file exist because it block *

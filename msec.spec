@@ -1,4 +1,4 @@
-%define version 0.13
+%define version 0.14
 %define release 1mdk
 
 Summary: Security Level & Program for the Linux Mandrake distribution
@@ -46,7 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/security/msec
 
 %changelog
-* Wed Apr 19 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.12-5mdk
+* Wed Apr 19 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.14-1mdk
 - Bug fix.
 - Support Grub as well as Lilo.
 

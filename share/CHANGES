@@ -13,6 +13,7 @@ msec utility changes:
  * removed manipulation of the groups of users
  * removed removal of services
  * logging in syslog according to the guideline for explanations in tools
+ * more correct prevention of direct root logins
  * rewritten in python
 
 msec can be used to change level and it's also run hourly by cron to
@@ -21,9 +22,10 @@ on the filesystem are applied and the minimum of programs started.
 
 Periodic security checks changes:
 
- * added an rpm database check (rpm -va and rpm -qa)
+ * added rpm database checks (rpm -va and rpm -qa)
  * report when a user other than root is at uid 0
  * diff_check reports even when the log is empty
+ * use chkrootkit if present.
 
 Permissions settings changes:
 
@@ -38,4 +40,6 @@ Permissions settings changes:
  * rpm related files to avoid exposing what is installed
  * /var/lock/subsys
  * added a local.perm to allow modifications without modifying level perms
+ * corrected all the inconsistencies between levels to be able to change and come back
+without problem
  * rewritten in python

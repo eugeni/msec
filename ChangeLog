@@ -1,3 +1,38 @@
+2002-02-19 15:10  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: /etc/security/msec/security.conf =>
+	/var/lib/msec/security.conf
+	
+	enhanced documentation.
+	
+	catch inconsistency between /etc/shadow and /etc/passwd.
+
+2002-02-19 15:00  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* man/C/msec.8: /etc/security/msec/security.conf =>
+	/var/lib/msec/security.conf
+
+2002-02-19 14:17  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.4, perm.5: corrected permissions for
+	/var/log/intraline
+
+2002-02-19 14:12  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec: use perm file from /usr/share/msec/
+
+2002-02-19 14:08  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/security.sh: use /var/lib/msec/msec/security.conf
+
+2002-02-19 14:05  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.csh: corrected id test.
+
+2002-02-15 17:59  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/.cvsignore: added generated files
+
 2002-02-15 00:22  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.18-6mdk

@@ -1,3 +1,29 @@
+2002-02-20 16:51  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.19-2mdk
+
+2002-02-20 16:50  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: implement no password in level 0
+	
+	X listens to tcp connections in level 3
+
+2002-02-20 16:50  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: added enable_password
+
+2002-02-20 16:49  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/CHANGES: documented changes in versions 0.18 and 0.19
+
+2002-02-20 16:47  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/ConfigFile.py: added insert_before.
+
+2002-02-20 16:40  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.4, perm.5: kmem => adm
+
 2002-02-19 15:18  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* cron-sh/security.sh: corrected typo msec/msec.

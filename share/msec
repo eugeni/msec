@@ -53,7 +53,7 @@ if $MSEC "$@"; then
     LOCAL=
     [ -f /etc/security/msec/perm.local ] && LOCAL=/etc/security/msec/perm.local
 
-    /usr/share/msec/Perms.py $OPT /etc/security/msec/perm.$PERM_LEVEL $LOCAL
+    /usr/share/msec/Perms.py $OPT /usr/share/msec/perm.$PERM_LEVEL $LOCAL
 fi
 
 # msec ends here

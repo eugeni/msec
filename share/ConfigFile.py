@@ -59,8 +59,11 @@ def move(old, new):
         os.unlink(new)
     except OSError:
         pass
-    os.rename(old, new)
-    
+    try:
+        os.rename(old, new)
+    except:
+        error('rename %s %s: %s' % (old, new, sys.exc_value[0]))
+
 class ConfigFile:
     def __init__(self, path, suffix=None, meta=all_files):
         self.meta=meta
@@ -131,7 +134,10 @@ class ConfigFile:
     def write(self):
         if self.is_deleted:
             if self.exists():
-                os.unlink(self.path)
+                try:
+                    os.unlink(self.path)
+                except:
+                    error('unlink %s: %s' % (self.path, sys.exc_value[0]))
                 log(_('deleted %s') % (self.path,))
         elif self.is_modified:
             content = string.join(self.lines, "\n")
@@ -141,10 +147,16 @@ class ConfigFile:
             self.meta.modified(self.path)
         elif self.is_touched:
             if os.path.exists(self.path):
-                os.utime(self.path, None)
+                try:
+                    os.utime(self.path, None)
+                except:
+                    error('utime %s: %s' % (self.path, sys.exc_value[0]))
             elif self.suffix and os.path.exists(self.path + self.suffix):
                 move(self.path + self.suffix, self.path)
-                os.utime(self.path, None)
+                try:
+                    os.utime(self.path, None)
+                except:
+                    error('utime %s: %s' % (self.path, sys.exc_value[0]))
             else:
                 self.lines = []
                 self.is_modified = 1
@@ -160,10 +172,16 @@ class ConfigFile:
                    # to be fixed: resolv relative symlink
                    done = (link == self.sym_link)
                if not done:
-                   os.unlink(self.path)
+                   try:
+                       os.unlink(self.path)
+                   except:
+                       error('unlink %s: %s' % (self.path, sys.exc_value[0]))
                    log(_('deleted %s') % (self.path,))
             if not done:
-                os.symlink(self.sym_link, self.path)
+                try:
+                    os.symlink(self.sym_link, self.path)
+                except:
+                    error('symlink %s %s: %s' % (self.sym_link, self.path, sys.exc_value[0]))
                 log(_('made symbolic link from %s to %s') % (self.sym_link, self.path))
                 
         if self.is_moved:

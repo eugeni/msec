@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.19
-Release:	2mdk
+Release:	3mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -15,6 +15,7 @@ BuildRequires:	python
 Requires:	/bin/bash /bin/touch perl-base diffutils textutils /usr/bin/python /usr/bin/chage gawk
 Requires:	setup >= 2.2.0-21mdk
 Requires:	chkconfig >= 1.2.24-3mdk
+Requires:	fileutils >= 4.1.5
 Requires:	iproute2
 
 %description
@@ -122,6 +123,14 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Fri Feb 22 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-3mdk
+- security_check.sh: check uid and not gid ! (change of meaning of the -g option
+of ls).
+- perm.*: do not manage lilo.conf.
+- corrected missing security.conf migration from /etc/security/msec/
+to /var/lib/msec.
+- don't handle libsafe (let the package do it's job)
+
 * Wed Feb 20 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-2mdk
 - implement no password in level 0
 - X listens to tcp connections in level 3

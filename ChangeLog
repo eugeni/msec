@@ -1,3 +1,7 @@
+2002-05-29 16:38  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.22-1mdk
+
 2002-05-29 16:35  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* share/libmsec.py: added no_password_aging_for

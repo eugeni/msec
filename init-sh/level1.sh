@@ -68,8 +68,8 @@ AddRules "export PATH SECURE_LEVEL" /etc/profile
 
 # Xserver
 echo "Allowing users to connect X server from localhost :"
-AddBegRules /etc/X11/xdm/Xsession "/usr/X11R6/bin/xhost + localhost"
-AddBegRules /etc/X11/xinit/xinitrc "/usr/X11R6/bin/xhost + localhost"
+AddBegRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xdm/Xsession
+AddBegRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xinit/xinitrc
 
 # Group
 echo "Adding system users to specific groups :"

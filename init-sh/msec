@@ -8,7 +8,7 @@
 trap "" sigint
 
 if [[ -z $1 ]]; then
-	echo "Usage : $0 [0-5]"
+	echo "Usage : $0 [0-5] | snf"
 	echo "Usage : $0 \"custom\""
 	exit 1
 fi

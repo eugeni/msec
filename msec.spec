@@ -53,7 +53,7 @@ for i in man/??* ; do \
 done;
 
 
-touch $RPM_BUILD_ROOT/etc/security/msec/security.conf $RPM_BUILD_ROOT/var/log/security.log
+touch $RPM_BUILD_ROOT/etc/security/msec/security.conf $RPM_BUILD_ROOT/var/log/security.log $RPM_BUILD_ROOT/%{_sysconfdir}/%{name}
 
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/{logrotate.d,profile.d}
 install -m 644 %{SOURCE1} $RPM_BUILD_ROOT/etc/logrotate.d/msec

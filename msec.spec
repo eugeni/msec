@@ -39,7 +39,7 @@ install -m 755 init-sh/*.sh cron-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
 install -m 755 init-sh/msec $RPM_BUILD_ROOT/usr/sbin
 install -m 644 conf/perm.* conf/server.* $RPM_BUILD_ROOT/etc/security/msec
 install -m 755 src/promisc_check/promisc_check src/msec_find/msec_find $RPM_BUILD_ROOT/usr/bin
-install -m 644 doc/*8 $RPM_BUILD_ROOT%{_mandir}/man8/
+#install -m 644 doc/*8 $RPM_BUILD_ROOT%{_mandir}/man8/
 
 touch $RPM_BUILD_ROOT/etc/security/msec/security.conf $RPM_BUILD_ROOT/var/log/security.log
 
@@ -71,6 +71,10 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Mon Sep 17 2001 Daouda LO <daouda@mandrakesoft.com> 0.15-23mdk
+- Resync with cvs (yoann sucks)
+- real fix for kdm is in lib.sh (msec sux)
+
 * Fri Sep 14 2001 Florin <florin@mandrakesoft.com> 0.15-21mdk
 - conf/perm.*: /var/log/squid must be owned by nobody.nobody.
 - add the %post section for the ghost file

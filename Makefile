@@ -50,6 +50,8 @@ version:
 
 # rules to build a test rpm
 
+localsrpm: clean localdist buildsrpm
+
 localrpm: clean localdist buildrpm
 
 localdist: cleandist dir localcopy tar
@@ -68,6 +70,9 @@ tar:
 	tar cvf $(PACKAGE)-$(VERSION).tar $(PACKAGE)-$(VERSION)
 	bzip2 -9vf $(PACKAGE)-$(VERSION).tar
 	rm -rf $(PACKAGE)-$(VERSION)
+
+buildsrpm:
+	rpm -ts $(PACKAGE)-$(VERSION).tar.bz2
 
 buildrpm:
 	rpm -ta $(PACKAGE)-$(VERSION).tar.bz2

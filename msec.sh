@@ -26,8 +26,10 @@ else
     fi
 fi
 
-if [ -n "$SECURE_LEVEL" -a "$SECURE_LEVEL" -le 1 ] && ! echo ${PATH} | fgrep -q :.; then
-    export PATH=$PATH:.
+if [ -n "$SECURE_LEVEL" ]; then
+    if [ "$SECURE_LEVEL" -le 1 ] && ! echo ${PATH} | fgrep -q :.; then
+	export PATH=$PATH:.
+    fi
 fi
 
 export SECURE_LEVEL

@@ -42,7 +42,7 @@ try:
     (opt, args) = getopt.getopt(sys.argv[1:], 'o:',
                                 ['option'])
 except getopt.error:
-    error(_('Invalid option. Use %s (-o var=<val>...) ([0-5])') % sys.argv[0])
+    error(_('Invalid option. Use %s (-o var=<val>...) ([0-5])') % _name)
     sys.exit(1)
 
 
@@ -70,7 +70,7 @@ else:
 if len(args) == 0:
     level = get_secure_level()
     if level == None:
-        error(_('Secure level not set. Use %s <secure level> to set it.') % sys.argv[0])
+        error(_('Secure level not set. Use %s <secure level> to set it.') % _msec)
         sys.exit(1)
 else:
     level = args[0]
@@ -78,11 +78,11 @@ else:
 try:
     level = int(level)
 except ValueError:
-    error(_('Invalid secure level %s.  Use %s [0-5] to set it.') % (level, sys.argv[0]))
+    error(_('Invalid secure level %s.  Use %s [0-5] to set it.') % (level, _msec))
     sys.exit(1)
 
 if level < 0 or level > 5:
-    error(_('Invalid secure level %s.  Use %s [0-5] to set it.') % (level, sys.argv[0]))
+    error(_('Invalid secure level %s.  Use %s [0-5] to set it.') % (level, _msec))
     sys.exit(1)
 
 interactive and log(_('### Program is starting ###'))

@@ -71,12 +71,11 @@ AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 # /etc/profile.d/msec.{sh,csh}
 export SECURE_LEVEL=3
 echo "Setting secure level variable to 3 :"
-AddRules "export SECURE_LEVEL=3" /etc/profile.d/msec.sh
-AddRules "setenv SECURE_LEVEL 3" /etc/profile.d/msec.csh
+AddRules "SECURE_LEVEL=3" /etc/sysconfig/msec
 
 echo "Setting umask to 022 (u=rw,g=r,o=r) :"
-AddRules "umask 022" /etc/profile.d/msec.sh
-AddRules "umask 022" /etc/profile.d/msec.csh
+AddRules "UMASK_ROOT=022" /etc/sysconfig/msec
+AddRules "UMASK_USER=022" /etc/sysconfig/msec
 
 # Do not boot on a shell
 AllowReboot

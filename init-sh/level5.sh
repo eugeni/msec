@@ -117,8 +117,8 @@ echo -e "done.\n";
 
 # /etc/profile.d/msec.{sh,csh}
 echo "Setting umask to 077 (u=rw) :"
-AddRules "umask 077" /etc/profile.d/msec.sh
-AddRules "umask 077" /etc/profile.d/msec.csh
+AddRules "UMASK_ROOT=077" /etc/sysconfig/msec
+AddRules "UMASK_USER=077" /etc/sysconfig/msec
 
 if [[ -f /lib/libsafe.so.2]]; then
     echo "Enabling stack overflow protection :"

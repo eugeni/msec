@@ -80,12 +80,9 @@ echo "Adding \"diff\" & \"global\" security check in crontab (scheduled every mi
 AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 
 # Server update
-echo "Setting secure level variable to 4 :"
-AddRules "export SECURE_LEVEL=4" /etc/profile.d/msec.sh
-AddRules "setenv SECURE_LEVEL 4" /etc/profile.d/msec.csh
-
-
 export SECURE_LEVEL=4
+echo "Setting secure level variable to 4 :"
+AddRules "SECURE_LEVEL=4" /etc/sysconfig/msec
 
 IFS="
 "
@@ -107,8 +104,8 @@ echo -e "done.\n";
 
 # /etc/profile.d/msec.{sh,csh}
 echo "Setting umask to 022 (u=rw,g=rx) for root, 077 (u=rw) for user :"
-AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/profile.d/msec.sh
-AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/profile.d/msec.csh
+AddRules "UMASK_ROOT=022" /etc/sysconfig/msec
+AddRules "UMASK_USER=077" /etc/sysconfig/msec
 
 if [[ -f /lib/libsafe.so.2 ]]; then
     echo "Enabling stack overflow protection :"

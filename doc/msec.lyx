@@ -1,4 +1,4 @@
-#This file was created by <camille> Tue Jan  4 10:45:05 2000
+#This file was created by <camille> Thu Jan  6 11:03:16 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass article
@@ -137,7 +137,15 @@ Note that whatever the level you chose, your configuration will be stored
 .
 \layout Subsection
 
-Level 0
+Level 0 
+\begin_inset Quotes eld
+\end_inset 
+
+Welcome To Crackers
+\begin_inset Quotes erd
+\end_inset 
+
+
 \layout Standard
 
 This level is to be used with care.
@@ -166,7 +174,15 @@ As we see, this security level shouldn't be set by default because it may
  result in big problems for your data.
 \layout Subsection
 
-Level 1
+Level 1 
+\begin_inset Quotes eld
+\end_inset 
+
+Poor
+\begin_inset Quotes erd
+\end_inset 
+
+
 \layout Standard
 
 The main security improvement compared with level 0 is that now, the access
@@ -176,7 +192,15 @@ The main security improvement compared with level 0 is that now, the access
  or to a LAN (Local Area Network).
 \layout Subsection
 
-Level 2
+Level 2 
+\begin_inset Quotes eld
+\end_inset 
+
+Low
+\begin_inset Quotes erd
+\end_inset 
+
+
 \layout Standard
 
 Few improvements for this security level, the main one is that there are
@@ -184,7 +208,15 @@ Few improvements for this security level, the main one is that there are
  It is more secure for multi-users use.
 \layout Subsection
 
-Level 3
+Level 3 
+\begin_inset Quotes erd
+\end_inset 
+
+Medium
+\begin_inset Quotes erd
+\end_inset 
+
+
 \layout Standard
 
 This is the standard security recommended for a computer that will be used
@@ -204,7 +236,15 @@ From the user's point of view, the system is now a little bit more closed,
  or previous Mandrake distribution.
 \layout Subsection
 
-Level 4
+Level 4 
+\begin_inset Quotes eld
+\end_inset 
+
+High
+\begin_inset Quotes erd
+\end_inset 
+
+
 \layout Standard
 
 With this security level, the use of this system as a server becomes possible.
@@ -220,7 +260,15 @@ Security checks will warn system administrator of possible security holes
  or intrusions on the system.
 \layout Subsection
 
-Level 5
+Level 5 
+\begin_inset Quotes eld
+\end_inset 
+
+Paranoid
+\begin_inset Quotes erd
+\end_inset 
+
+
 \layout Standard
 
 We take level 4 features, but now the system is entirely closed.
@@ -850,7 +898,15 @@ All system events additionally logged to /dev/tty12
 \newline 
 *
 \newline 
-Only root can shutdown
+Only root can 
+\begin_inset Quotes eld
+\end_inset 
+
+ctrl-alt-del
+\begin_inset Quotes erd
+\end_inset 
+
+
 \newline 
 
 \newline 
@@ -1187,11 +1243,27 @@ All system events additionally logged to /dev/tty12
 *All* system messages directed to syslog are copied to tty12 console.
 \layout Subsection
 
-Only root can shutdown
+Only root can 
+\begin_inset Quotes eld
+\end_inset 
+
+ctrl-alt-del
+\begin_inset Quotes erd
+\end_inset 
+
+
 \layout Standard
 
 You must be root (or referenced into /etc/shutdown.allow) and logged into
- a console to be able to shutdown or reboot the machine.
+ a console to be able to reboot the machine through key binding 
+\begin_inset Quotes eld
+\end_inset 
+
+ctrl-alt-del
+\begin_inset Quotes erd
+\end_inset 
+
+.
 \layout Subsection
 
 Services not known disabled 

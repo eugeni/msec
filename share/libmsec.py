@@ -1211,8 +1211,7 @@ CHECK_SUID_MD5 if set to yes, verify checksum of the suid/sgid files.
 
 CHECK_SECURITY if set to yes, run the daily security checks.
 
-CHECK_PASSWD if set to yes, check for empty passwords, for no password in /etc/shadow and for
-users with the 0 id other than root.
+CHECK_PASSWD if set to yes, check for empty passwords, for no password in /etc/shadow and for users with the 0 id other than root.
 
 SYSLOG_WARN if set to yes, report check result to syslog.
 

@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.36
-Release:	2mdk
+Version:	0.37
+Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -153,6 +153,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Wed Nov 20 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.37-1mdk
+- chage is l10n now so use LC_ALL=C before calling it
+
 * Thu Nov 07 2002 Thierry Vignaud <tvignaud@mandrakesoft.com> 0.36-2mdk
 - requires s/(sh-|text|file)utils/coreutils/
 

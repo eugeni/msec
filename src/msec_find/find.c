@@ -92,9 +92,10 @@ static int traverse(const char *file, const struct stat *sb, int flag, struct FT
         case FTW_F:
                 /*
                  * Regular file
+                 *
+                 * printf("%s\n", file);
                  */
-                printf("%s\n", file);
-                
+            
                 /*
                  * Is writeable check.
                  */

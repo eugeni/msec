@@ -7,25 +7,25 @@ fi
 
 . /etc/security/msec/security.conf
 
-SUID_ROOT_TODAY="/var/log/security/suid_root.today"
+export SUID_ROOT_TODAY="/var/log/security/suid_root.today"
 SUID_ROOT_YESTERDAY="/var/log/security/suid_root.yesterday"
 SUID_ROOT_DIFF="/var/log/security/suid_root.diff"
-SUID_GROUP_TODAY="/var/log/security/suid_group.today"
+export SUID_GROUP_TODAY="/var/log/security/suid_group.today"
 SUID_GROUP_YESTERDAY="/var/log/security/suid_group.yesterday"
 SUID_GROUP_DIFF="/var/log/security/suid_group.diff"
-SUID_MD5_TODAY="/var/log/security/suid_md5.today"
+export SUID_MD5_TODAY="/var/log/security/suid_md5.today"
 SUID_MD5_YESTERDAY="/var/log/security/suid_md5.yesterday"
 SUID_MD5_DIFF="/var/log/security/suid_md5.diff"
-OPEN_PORT_TODAY="/var/log/security/open_port.today"
+export OPEN_PORT_TODAY="/var/log/security/open_port.today"
 OPEN_PORT_YESTERDAY="/var/log/security/open_port.yesterday"
 OPEN_PORT_DIFF="/var/log/security/open_port.diff"
-WRITEABLE_TODAY="/var/log/security/writeable.today"
+export WRITEABLE_TODAY="/var/log/security/writeable.today"
 WRITEABLE_YESTERDAY="/var/log/security/writeable.yesterday"
 WRITEABLE_DIFF="/var/log/security/writeable.diff"
-UNOWNED_USER_TODAY="/var/log/security/unowned_user.today"
+export UNOWNED_USER_TODAY="/var/log/security/unowned_user.today"
 UNOWNED_USER_YESTERDAY="/var/log/security/unowned_user.yesterday"
 UNOWNED_USER_DIFF="/var/log/security/unowned_user.diff"
-UNOWNED_GROUP_TODAY="/var/log/security/unowned_group.today"
+export UNOWNED_GROUP_TODAY="/var/log/security/unowned_group.today"
 UNOWNED_GROUP_YESTERDAY="/var/log/security/unowned_group.yesterday"
 UNOWNED_GROUP_DIFF="/var/log/security/unowned_group.diff"
 
@@ -75,6 +75,7 @@ netstat -pvlA inet 2> /dev/null > ${OPEN_PORT_TODAY};
 
 # Hard disk related file check; the less priority the better...
 nice --adjustment=+19 /usr/bin/msec_find ${DIR}
+
 sort < ${SUID_ROOT_TODAY} > ${SUID_ROOT_TODAY}.tmp
 sort < ${SUID_GROUP_TODAY} > ${SUID_GROUP_TODAY}.tmp
 sort < ${WRITEABLE_TODAY} > ${WRITEABLE_TODAY}.tmp

@@ -1,6 +1,6 @@
 # do not modify Version below, modify it in Makefile (see CVS)
 %define version 0.10
-%define release 3mdk
+%define release 4mdk
 
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
@@ -49,6 +49,10 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/security/msec
 
 %changelog
+* Thu Mar 16 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- security.sh : export *_TODAY variable to be used by msec_find.
+- find.c      : removed a debuging printf.
+
 * Tue Mar 09 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.10-1mdk
 - custom.sh : added a patch from Havard Bell.
 - custom.sh : check if libsafe is installed before asking if the user want to use it.

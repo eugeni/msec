@@ -1,3 +1,8 @@
+2001-11-30 14:45  florin
+
+        * add /etc/sysconfig/msec support, allow ssh connexions in snf level(hosts.allow), 
+
+	
 2001-10-03 14:45  florin
 
 	* init-sh/level*.sh: libsafe.so.2

@@ -70,7 +70,7 @@ else:
 if len(args) == 0:
     level = get_secure_level()
     if level == None:
-        error(_('Secure level not set. Use %s <secure level> to set it.') % _msec)
+        error(_('Secure level not set. Use %s <secure level> to set it.') % _name)
         sys.exit(1)
 else:
     level = args[0]
@@ -78,11 +78,11 @@ else:
 try:
     level = int(level)
 except ValueError:
-    error(_('Invalid secure level %s.  Use %s [0-5] to set it.') % (level, _msec))
+    error(_('Invalid secure level %s.  Use %s [0-5] to set it.') % (level, _name))
     sys.exit(1)
 
 if level < 0 or level > 5:
-    error(_('Invalid secure level %s.  Use %s [0-5] to set it.') % (level, _msec))
+    error(_('Invalid secure level %s.  Use %s [0-5] to set it.') % (level, _name))
     sys.exit(1)
 
 interactive and log(_('### Program is starting ###'))

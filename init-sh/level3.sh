@@ -60,7 +60,7 @@ echo -e "\t- Security warning in syslog : yes."
 
 # Crontab
 echo "Adding permission check in crontab (scheduled every midnight) :"
-AddRules "0 0 * * *    root    /usr/share/msec/security.sh" /etc/crontab
+AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 
 # lilo update
 echo -n "Running lilo to record new config : "

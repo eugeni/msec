@@ -66,7 +66,7 @@ echo "Adding promisc check in crontab (scheduled every minutes) :"
 AddRules "*/1 * * * *    root    /usr/share/msec/promisc_check.sh" /etc/crontab
 
 echo "Adding \"diff\" & \"global\" security check in crontab (scheduled every midnight) :"
-AddRules "0 0 * * *    root    /usr/share/msec/security.sh" /etc/crontab
+AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 
 ###################################################
 

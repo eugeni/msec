@@ -181,7 +181,7 @@ fi
 ### chkrootkit checks
 if [[ ${CHKROOTKIT_CHECK} == yes ]]; then
     if [ -x /usr/sbin/chkrootkit ]; then
-	/usr/sbin/chkrootkit > ${CHKROOTKIT_TODAY}
+	/usr/sbin/chkrootkit ${CHKROOTKIT_OPTION} > ${CHKROOTKIT_TODAY}
     fi
 fi
 

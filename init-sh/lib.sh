@@ -337,6 +337,8 @@ CleanRules /etc/logrotate.conf
 CleanRules /etc/rc.d/rc.local
 CleanRules /etc/rc.d/rc.firewall
 CleanRules /etc/crontab
+CleanRules /etc/profile
+CleanRules /etc/zprofile
 
 if [[ -f /etc/X11/xinit.d/msec ]]; then
 	CleanRules /etc/X11/xinit.d/msec

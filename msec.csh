@@ -12,7 +12,7 @@ if ( -r /etc/sysconfig/msec ) then
 	eval `sed -n 's/^\([^#]*\)=\([^#]*\)/set \1=\2;/p' < /etc/sysconfig/msec`
 endif
 
-if ( { id -u } >= 500 ) then
+if ( "`id -u`" >= 500 ) then
     if ( ${?UMASK_USER} ) then
 	umask ${UMASK_USER}
     else

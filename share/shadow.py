@@ -42,12 +42,20 @@ ignore=-1
 
 FAKE = {}
 
+_force = 0
+
+def local_config(val):
+    global _force
+    _force = val
+
 def indirect(name, func, type, args):
     if type == 1:
         key = (name, args[0])
     else:
         key = name
     FAKE[key] = (func, args)
+    if _force:
+        force_val(name)
 
 def commit_changes():
     for f in FAKE.values():

@@ -964,7 +964,7 @@ enable_libsafe.arg_trans = YES_NO_TRANS
 
 ################################################################################
 
-LENGTH_REGEXP = re.compile('^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sminlen=([0-9]+)\s(.*)')
+LENGTH_REGEXP = re.compile('^(password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*?)\sminlen=([0-9]+)\s(.*)')
 NDIGITS_REGEXP = re.compile('^(password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*?)\sdcredit=([0-9]+)\s(.*)')
 UCREDIT_REGEXP = re.compile('^(password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*?)\sucredit=([0-9]+)\s(.*)')
 

@@ -22,21 +22,21 @@ python:
 	-cd share; make
 
 install:
-	mkdir -p $RPM_BUILD_ROOT/etc/security/msec
-	mkdir -p $RPM_BUILD_ROOT/usr/share/msec
-	mkdir -p $RPM_BUILD_ROOT/usr/sbin
-	cp init-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
-	cp cron-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
-	cp init-sh/msec $RPM_BUILD_ROOT/usr/sbin
-	cp conf/perm.* conf/server.* $RPM_BUILD_ROOT/etc/security/msec
+	mkdir -p $(RPM_BUILD_ROOT)/etc/security/msec
+	mkdir -p $(RPM_BUILD_ROOT)/usr/share/msec
+	mkdir -p $(RPM_BUILD_ROOT)/usr/sbin
+	cp init-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec
+	cp cron-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec
+	cp init-sh/msec $(RPM_BUILD_ROOT)/usr/sbin
+	cp conf/perm.* conf/server.* $(RPM_BUILD_ROOT)/etc/security/msec
 
-	mkdir -p $RPM_BUILD_ROOT/var/log
-	mkdir -p $RPM_BUILD_ROOT/var/log/security
-	touch $RPM_BUILD_ROOT/etc/security/msec/security.conf
-	touch $RPM_BUILD_ROOT/var/log/security.log
+	mkdir -p $(RPM_BUILD_ROOT)/var/log
+	mkdir -p $(RPM_BUILD_ROOT)/var/log/security
+	touch $(RPM_BUILD_ROOT)/etc/security/msec/security.conf
+	touch $(RPM_BUILD_ROOT)/var/log/security.log
 	cd src/promisc_check && make install
 	cd src/msec_find && make install
-	mkdir -p $RPM_BUILD_ROOT/usr/share/man/man8/
+	mkdir -p $(RPM_BUILD_ROOT)/usr/share/man/man8/
 	install -d $(RPM_BUILD_ROOT)/usr/share/man/man8/
 	install -m644 man/C/*8 $(RPM_BUILD_ROOT)/usr/share/man/man8/
 	for i in man/??* ; do \

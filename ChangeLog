@@ -1,3 +1,17 @@
+2002-09-17 15:08  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.36-1mdk
+
+2002-09-17 15:08  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: - allow_user_list handles Selected when not
+	changing security level.  - allow_reboot handles Root when not
+	changing security level.
+
+2002-09-09 20:51  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/server.4: removed double network entry
+
 2002-09-06 15:37  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.34.5-2mdk

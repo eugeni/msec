@@ -61,6 +61,8 @@ if ( ${?HISTFILESIZE} ) then
     set history=$HISTFILESIZE
 endif
 
-setenv SECURE_LEVEL ${SECURE_LEVEL}
+if ( ${?SECURE_LEVEL} ) then
+    setenv SECURE_LEVEL ${SECURE_LEVEL}
+endif
 
 # msec.csh ends here

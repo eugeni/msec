@@ -1,3 +1,12 @@
+2002-01-22 15:28  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: clean before installing and don't install init.sh man
+	pages anymore.
+
+2002-01-22 15:27  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* Makefile: don't put .bz2 archive in source for localcopy.
+
 2002-01-22 15:14  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.17-15mdk

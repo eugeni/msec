@@ -84,6 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 * Thu Sep 27 2001 Florin <florin@mandrakesoft.com> 0.15-30mdk
 - more things from /etc/profile to /etc/profile.d/msec.{sh|csh}
 - remove the "or print" in the perl line in CleanRules 
+- update the doc path in the man pages
 
 * Thu Sep 20 2001 Florin <florin@mandrakesoft.com> 0.15-29mdk
 - fix the /etc/profile.d/msec.{sh|csh} entries

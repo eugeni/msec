@@ -1,6 +1,6 @@
 Summary:	Security Level management for the Mandrakelinux distribution
 Name:		msec
-Version:	0.45
+Version:	0.45.1
 Release:	1mdk
 Url:		http://www.mandrakelinux.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -155,6 +155,12 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Mon Mar 21 2005 Frederic Lepied <flepied@mandrakesoft.com> 0.45.1-1mdk
+- allow to use the variable CHKROOTKIT_OPTION as an argument to
+chkrootkit (Michael, bug #12687).
+- fixed documentation of the use of the current keyword (bug #12866).
+- fixed password_history.
+
 * Mon Feb 21 2005 Frederic Lepied <flepied@mandrakesoft.com> 0.45-1mdk
 - requires mailx (bug #13497).
 - fixed the permissions of sendmail symlinks (bug #13515).

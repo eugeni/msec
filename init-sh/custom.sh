@@ -65,7 +65,7 @@ fi
 echo "Do you want your system to daily check Writable file change ?"
 WaitAnswer; clear
 if [ ${answer} == "yes" ]; then
-    AddRules "CHECK_WRITABLE=yes" /etc/security/msec/security.conf
+    AddRules "CHECK_WRITEABLE=yes" /etc/security/msec/security.conf
     AddRules "0 0-23 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/file_check.sh" /etc/crontab
 fi
 ###

@@ -1,8 +1,8 @@
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
-Version: 0.4
-Release: 6mdk
-Source: ftp://mandrakesoft.com/pub/yoann/msec-0.4.tar.gz
+Version: 0.5
+Release: 1mdk
+Source: msec-0.5.tar.gz
 Copyright: GPL
 Group: System Environment/Base
 BuildRoot: /var/tmp/msec
@@ -48,6 +48,14 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/promisc_check
 
 %changelog
+* Mon Dec  6 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Released 0.5
+- Divided security check into 2 files :
+  security_check.sh & file_check.sh, 
+  the first do normal security check, the other watch at anormal change
+  on the system...
+- Bug fix again & again
+
 * Wed Dec  1 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - DrakX compatibility.
 

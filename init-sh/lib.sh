@@ -174,6 +174,7 @@ echo "Setting spoofing protection : "
 AddRules "echo 1 > /proc/sys/net/ipv4/conf/all/rp_filter" /etc/rc.d/rc.firewall
 
 # default group which must exist on the system
+groupadd nogroup >& /dev/null
 groupadd audio >& /dev/null
 groupadd xgrp >& /dev/null
 usermod -G xgrp xfs

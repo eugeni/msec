@@ -22,6 +22,10 @@ AddRules "tty6" /etc/securetty
 
 # Security check
 echo "Updating file check variable : "
+echo -e "\t- Check security : yes."
+    AddRules "CHECK_SECURITY=yes" /etc/security/msec/security.conf      quiet
+echo -e "\t- Check important permissions : no."
+    AddRules "CHECK_PERMS=no" /etc/security/msec/security.conf          quiet          
 echo -e "\t- Check suid root file : yes."
     AddRules "CHECK_SUID_ROOT=yes" /etc/security/msec/security.conf 	quiet
 echo -e "\t- Check suid root file integrity (backdoor check) : yes."

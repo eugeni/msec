@@ -83,11 +83,11 @@ server=(level in range(3, 6))
 # for all levels: min length = 2 * (level - 1) and for level 4,5 makes mandatory
 # to have at least one upper case character and one digit.
 if level > 1:
-    password_length = (level - 1) * 2
+    plength = (level - 1) * 2
 else:
-    password_length = 0
+    plength = 0
     
-password_length(password_length, level / 4, level / 4)
+password_length(plength, level / 4, level / 4)
 
 enable_ip_spoofing_protection(server)
 

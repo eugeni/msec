@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.16
-Release:	2mdk
+Release:	3mdk
 Url:		http://www.linux-mandrake.com
 Source0:		%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -99,12 +99,17 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) /etc/security/msec
 %config(noreplace) /etc/logrotate.d/msec
 %config(noreplace) /etc/profile.d/msec*
+%config(noreplace) %{_sysconfdir}/%{name}
 
 %ghost /var/log/security.log
 
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Thu Nov 29 2001 Florin <florin@mandrakesoft.com> 0.16-2mdk
+- remove the redundance related to umask and /etc/bashrc
+- add the %{_sysconfdir}/%{name} file
+
 * Thu Nov 08 2001 Florin <florin@mandrakesoft.com> 0.16-2mdk
 - oups forgot to create the needed links in post:
 - create the /etc/security/msec/server

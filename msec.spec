@@ -157,7 +157,7 @@ rm -rf $RPM_BUILD_ROOT
 * Tue Sep 17 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.36-1mdk
 - allow_user_list handles Selected in X-*-Greeter section of kdmrc
 when not changing security level.
-- allow_reboot handles Root in X-*-Core section of kdmrc when not
+- allow_reboot handles Root in X-:*-Core section of kdmrc when not
 changing security level.
 
 * Sun Sep  8 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.35-1mdk

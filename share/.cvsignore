@@ -1,2 +1,4 @@
 *.pyo
 *.pyc
+mseclib.man
+mseclib.py

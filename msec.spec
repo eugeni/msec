@@ -1,5 +1,5 @@
 # do not modify Version below, modify it in Makefile (see CVS)
-%define version 0.9
+%define version 0.10
 %define release 1mdk
 
 Summary: Security Level & Program for the Linux Mandrake distribution
@@ -29,7 +29,7 @@ in order to test the security of your system and alert you if needed.
 make CFLAGS="$RPM_OPT_FLAGS"
 
 %install
-make rpm_install RPM_BUILD_ROOT=$RPM_BUILD_ROOT
+make install RPM_BUILD_ROOT=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -49,7 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/security/msec
 
 %changelog
-* Tue Mar 08 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+* Tue Mar 08 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.10-1mdk
 - Heavily modified msec_find.
 - Added msec_find utility, written by Thierry Vignaud which will avoid us to
   find / 5 times :)

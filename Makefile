@@ -32,28 +32,23 @@ rpm: dis ../$(NAME)-$(VERSION).tar.bz2 $(RPM)
 	rm -f ../$(NAME)-$(VERSION).tar.bz2
 
 install:
-	(rm -rf $(RPM_BUILD_ROOT)/etc/security/msec)
 	(mkdir -p $(RPM_BUILD_ROOT)/etc/security/msec)
 	(mkdir -p $(RPM_BUILD_ROOT)/usr/share/msec)
+	(mkdir -p $(RPM_BUILD_ROOT)/usr/sbin)
 	(cp init-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec)
 	(cp cron-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec)
 	(cp init-sh/msec $(RPM_BUILD_ROOT)/usr/sbin)
 	(cp conf/perm.* conf/server.* $(RPM_BUILD_ROOT)/etc/security/msec)
-	
+
+	(mkdir -p $(RPM_BUILD_ROOT)/var/log)
+	(mkdir -p $(RPM_BUILD_ROOT)/var/log/security)
 	(touch $(RPM_BUILD_ROOT)/etc/security/msec/security.conf)
 	(touch $(RPM_BUILD_ROOT)/var/log/security.log)
-	(mkdir -p $(RPM_BUILD_ROOT)/var/log/security)
 	(cd src/promisc_check && make install)
 	(cd src/msec_find && make install)
+	(mkdir -p $(RPM_BUILD_ROOT)/usr/man/man8/)
+	install -d $(RPM_BUILD_ROOT)/usr/man/man8/
+	install -m644 doc/*8 $(RPM_BUILD_ROOT)/usr/man/man8/
+	bzip2 -9f $(RPM_BUILD_ROOT)/usr/man/man8/*8
 
-	@echo
-	@echo
-	@echo "BE CAREFULL !!!"
-	@echo "This is *alpha* release & it does not contains all planned features..."
-	@echo "Please help debuging it..."
-	@echo "See security.txt to know what is done & all :-)"
-	@echo
-	@echo
-	@echo "To switch between runlevel, just launch init.sh ( in init-sh dir )"
-	@echo
-	@echo
+

@@ -10,4 +10,5 @@ msec_find: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 install:
-	cp $(NAME) /usr/bin
+	mkdir -p $(RPM_BUILD_ROOT)/usr/bin
+	cp $(NAME) $(RPM_BUILD_ROOT)/usr/bin

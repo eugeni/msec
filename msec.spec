@@ -1,5 +1,5 @@
 # do not modify Version below, modify it in Makefile (see CVS)
-%define version 0.10
+%define version 0.9
 %define release 1mdk
 
 Summary: Security Level & Program for the Linux Mandrake distribution

@@ -875,7 +875,7 @@ enable_dns_spoofing_protection.arg_trans = YES_NO_TRANS
 
 def accept_icmp_echo(arg):
     '''   Accept/Refuse icmp echo.'''
-    set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_all', not arg, 1, 'Accepting icmp echo', 'Ignoring icmp echo')
+    set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_all', not arg, 1, 'Ignoring icmp echo', 'Accepting icmp echo')
 
 accept_icmp_echo.arg_trans = YES_NO_TRANS
 
@@ -883,7 +883,7 @@ accept_icmp_echo.arg_trans = YES_NO_TRANS
 
 def accept_broadcasted_icmp_echo(arg):
     '''   Accept/Refuse broadcasted icmp echo.'''
-    set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_broadcasts', not arg, 1, 'Accepting broadcasted icmp echo', 'Ignoring broadcasted icmp echo')
+    set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_broadcasts', not arg, 1, 'Ignoring broadcasted icmp echo', 'Accepting broadcasted icmp echo')
 
 accept_broadcasted_icmp_echo.arg_trans = YES_NO_TRANS
 
@@ -891,7 +891,7 @@ accept_broadcasted_icmp_echo.arg_trans = YES_NO_TRANS
 
 def accept_bogus_error_responses(arg):
     '''  Accept/Refuse bogus IPv4 error messages.'''
-    set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_ignore_bogus_error_responses', not arg, 1, 'Accepting bogus icmp error responses', 'Ignoring bogus icmp error responses')
+    set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_ignore_bogus_error_responses', not arg, 1, 'Ignoring bogus icmp error responses', 'Accepting bogus icmp error responses')
 
 accept_bogus_error_responses.arg_trans = YES_NO_TRANS
 

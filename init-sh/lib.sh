@@ -212,22 +212,7 @@ groupadd audio >& /dev/null
 groupadd xgrp >& /dev/null
 usermod -G xgrp xfs
 
-# We aren't at install time, 
-# so we delete ( temporarily ) audio user.
-
-if [[ ! -f /tmp/secure.DrakX ]]; then
-    if [[ ! -z ${DRAKX_USERS} ]]; then
-	for user in ${DRAKX_USERS}; do
-	    /etc/security/msec/init-sh/grpuser --del audio "${user}"
-	done
-    fi
-else
-    if [[ ! -z ${DRAKX_USERS} ]]; then
-	AddRules "DRAKX_USERS=${DRAKX_USERS}" /etc/security/msec/security.conf
-    fi
-fi
-
-
+/etc/security/msec/init-sh/grpuser.sh --refresh
 
 
 

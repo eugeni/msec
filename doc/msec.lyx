@@ -1,4 +1,4 @@
-#This file was created by <camille> Thu Dec 16 18:08:20 1999
+#This file was created by <camille> Tue Dec 21 23:01:04 1999
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass article
@@ -34,10 +34,18 @@ msec
 [Mandrake SECurity tools]
 \layout Author
 
-Camille Begnis <camille@mandrakesoft.com>
+Camille Bégnis <camille@mandrakesoft.com>
 \layout Date
 
-15/12/1999
+21/12/1999
+\layout Standard
+
+
+\begin_inset LatexCommand \tableofcontents
+
+\end_inset 
+
+
 \layout Section
 
 Introducing msec
@@ -101,8 +109,9 @@ custom
 \end_inset 
 
  to create your own security level.
- The script will begin to remove all modifications made by a previous runlevel
- change, and apply the features of the chosen security level to your system.
+ The script will begin to remove all modifications made by a previous security
+ level change, and apply the features of the chosen security level to your
+ system.
  If you choose 
 \begin_inset Quotes eld
 \end_inset 
@@ -112,7 +121,7 @@ custom
 \end_inset 
 
 , then you will be asked a series of questions for each security feature
- msec propose.
+ msec proposes.
  At the end, these features will be applied to your system.
 \layout Standard
 
@@ -126,6 +135,104 @@ Note that whatever the level you chose, your configuration will be stored
 \end_inset 
 
 .
+\layout Subsection
+
+Level 0
+\layout Standard
+
+This level is to be used with care.
+ It makes your system more easy to use, but very sensitive at the same time.
+ In particular, you shouldn't use this security level if you answer yes
+ to at least one of the following questions:
+\layout Itemize
+
+Is my computer connected to the Internet?
+\layout Itemize
+
+Is my computer connected to other computers by a network?
+\layout Itemize
+
+Does this computer will be used by someone else than me?
+\layout Itemize
+
+Is there some confidential stuff on my computer I don't want others have
+ access?
+\layout Itemize
+
+I don't know Linux enough and I could harm it by myself?
+\layout Standard
+
+As we see, this security level shouldn't be set by default because it may
+ result in big problems for your data.
+\layout Subsection
+
+Level 1
+\layout Standard
+
+The main security improvement compared with level 0 is that now, the access
+ to one user's stuff is granted via user-name and password.
+ So it may be used by various people, and it is less sensitive to bad maneuvers.
+ However it shouldn't be used for a connected computer whether by modem
+ or in a LAN (Local Area Network).
+\layout Subsection
+
+Level 2
+\layout Standard
+
+Few improvements for this security level, the main one is that there are
+ more security warnings and checks.
+ It is more secure for multi-users use.
+\layout Subsection
+
+Level 3
+\layout Standard
+
+This is the standard security recommended for a computer that will be used
+ to connect to the Internet as a client.
+ All security checks are periodically run, specifically one that check for
+ open ports on the system.
+ However, these open ports are kept opened and access to them is granted
+ to everyone.
+ So this security level is not really suited for a system permanently connected
+ to the Internet.
+\layout Standard
+
+From the user's point of view, the system is now a little bit more closed,
+ so it'll need some basic knowledges of the Linux system to achieve some
+ special operations.
+\layout Standard
+
+Note 1: The security here offered is comparable with the one of a standard
+ RedHat or previous Mandrake distribution.
+\layout Standard
+
+Note 2: All possible security checks are not run in this runlevel.
+\layout Subsection
+
+Level 4
+\layout Standard
+
+With this security level, the use of this system as a server becomes possible.
+ The security is now high enough to use the system as a server which accept
+ connections from many clients.
+ Connections from the computer itself only will be granted.
+ Howether advanced services have been disabled, and the system administrator
+ will have to activate the desired ones by hand in config files.
+ He also will have to define from whom the access is granted.
+\layout Standard
+
+Security checks will warn system administrator of possible security holes
+ or intrusions on the system.
+\layout Subsection
+
+Level 5
+\layout Standard
+
+We take level 4 features, but now the system is entirely closed.
+ Security features are at their maximum.
+ The system administrator has to activate ports, and grant connections to
+ give other computers access to services offered by this machine.
+ 
 \layout Section
 
 Security levels features
@@ -197,13 +304,14 @@ multicol5
 0 1 0 0
 0 1 0 0
 0 1 0 0
-2 1 0 "80mm" ""
-2 1 0 "80mm" ""
+2 1 0 "50mm" ""
+8 1 0 "" ""
 8 1 0 "" ""
 8 1 0 "" ""
 8 1 0 "" ""
 8 1 0 "" ""
 8 1 1 "" ""
+0 2 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
@@ -218,8 +326,7 @@ multicol5
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
-0 8 0 1 0 0 0 "" ""
-0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
@@ -481,7 +588,7 @@ none
 \newline 
 User in audio group
 \newline 
-
+*
 \newline 
 *
 \newline 
@@ -496,7 +603,7 @@ User in audio group
 .
  in $PATH
 \newline 
-
+*
 \newline 
 *
 \newline 

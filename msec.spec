@@ -2,7 +2,7 @@ Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.15
 Release:	31mdk
-
+Url:		http://www.linux-mandrake.com
 Source0:		%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
 Source2:    	msec.sh
@@ -15,7 +15,7 @@ Requires:	/bin/bash /bin/touch setup chkconfig >= 0.9-6
 
 %description
 The Mandrake-Security package is designed to provide generic 
-secure level to the Mandrake-Linux users...
+secure level to the Mandrake Linux users...
 It will permit you to choose between level 1 to 5 & custom
 for a less -> more secured distribution.
 This packages includes several program that will be run periodically
@@ -91,6 +91,8 @@ rm -rf $RPM_BUILD_ROOT
 - add some permissions for the naat servers
 - add some authorized servers for naat-snf, cooker version
 - add the snf security level
+- make rpmlint happy with the distribution name
+- add Url tag
 
 * Wed Oct 03 2001 Florin <florin@mandrakesoft.com> 0.15-30mdk
 - more things from /etc/profile to /etc/profile.d/msec.{sh|csh}

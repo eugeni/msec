@@ -1,3 +1,7 @@
+2002-08-25 21:55  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.34-1mdk
+
 2002-08-25 21:48  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: security_check.sh and diff_check.sh installed 644 to

@@ -52,7 +52,7 @@ if [[ ${CHECK_PROMISC} == no ]]; then
     exit 0;
 fi
 
-for INTERFACE in `ip link list | grep PROMISC | cut -f 2 -d ':';/usr/bin/promisc_check -q`; do
+for INTERFACE in `/sbin/ip link list | grep PROMISC | cut -f 2 -d ':';/usr/bin/promisc_check -q`; do
     LogPromisc ${INTERFACE}
 done
 

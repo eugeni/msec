@@ -543,11 +543,16 @@ def enable_at_crontab(arg):
 
 maximum_regex = re.compile('^Maximum:\s*([0-9]+|-1)', re.MULTILINE)
 inactive_regex = re.compile('^Inactive:\s*(-?[0-9]+)', re.MULTILINE)
+no_aging_list = []
 
+def no_password_aging_for(name):
+    '''D Add the name as an exception to the handling of password aging by msec.'''
+    no_aging_list.append(name)
+    
 # TODO FL Sat Dec 29 20:18:20 2001
 # replace chage calls and /etc/shadow parsing by a python API to the shadow functions.
 def password_aging(max, inactive=-1):
-    '''   Set password aging to \\fImax\\fP days and delay to change to \\fIinactive\\fP.'''
+    '''  Set password aging to \\fImax\\fP days and delay to change to \\fIinactive\\fP.'''
     uid_min = 500
     _interactive and log(_('Setting password maximum aging for new user to %d') % max)
     logindefs = ConfigFile.get_config_file(LOGINDEFS)
@@ -565,6 +570,9 @@ def password_aging(max, inactive=-1):
                 continue
             name = field[0]
             password = field[1]
+            if name in no_aging_list:
+                _interactive and log(_('User %s in password aging exception list') % (name,)
+                continue
             try:
                 entry = pwd.getpwnam(name)
             except KeyError:

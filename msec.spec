@@ -81,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
-* Wed Sep 26 2001 Florin <florin@mandrakesoft.com> 0.15-30mdk
+* Thu Sep 27 2001 Florin <florin@mandrakesoft.com> 0.15-30mdk
 - more things from /etc/profile to /etc/profile.d/msec.{sh|csh}
 - remove the -E option in the AddRules grep function
 - remove the "or print" in the perl line in CleanRules 

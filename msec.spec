@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.18
-Release:	1mdk
+Release:	2mdk
 Url:		http://www.linux-mandrake.com
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -66,7 +66,7 @@ install -m 755 %{SOURCE2} $RPM_BUILD_ROOT/etc/profile.d
 install -m 755 %{SOURCE3} $RPM_BUILD_ROOT/etc/profile.d
 touch $RPM_BUILD_ROOT/var/log/security.log
 
-%post -p /bin/sh
+%post
 touch /var/log/security.log
 
 if [ $1 != 1 -a -f /etc/security/msec/security.conf ]; then
@@ -79,6 +79,15 @@ if [ $1 != 1 -a -f /etc/security/msec/security.conf ]; then
 	else
 		msec < /dev/null || :
 	fi
+	# remove the old way of doing the daily cron
+	rm -f /etc/cron.d/msec
+fi
+
+%postun
+
+if [ $1 = 0 ]; then
+	# cleanup crontabs on package removal
+	rm -f /etc/cron.d/msec /etc/cron.hourly/msec /etc/cron.daily/msec
 fi
 
 %clean
@@ -107,6 +116,15 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Mon Jan 28 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.18-2mdk
+- do the daily cron through /etc/cron.daily to avoid heavy loads
+- clean crontabs when removing the package (Dadou)
+- 644 for /etc/rc.d/init.d/mandrake_consmap (Andrej)
+- fix sendmail perms (Florin)
+- symlink /etc/security/msec/server.<level> to /etc/security/msec/server for
+secure levels > 3 (used by chkconfig).
+- password aging for the root account too.
+
 * Sat Jan 26 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.18-1mdk
 - corrected upgrade from 0.16 and older versions
 - allow customization of level through /etc/security/msec/level.local

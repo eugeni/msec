@@ -1,3 +1,12 @@
+2002-03-27 16:23  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.20-2mdk
+
+2002-03-27 16:16  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: allow_reboot: only touch the shutdown,
+	poweroff, reboot and halt files if they don't exist.
+
 2002-03-26 00:03  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.20-1mdk

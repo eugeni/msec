@@ -1,3 +1,33 @@
+2003-08-22 14:54  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.39-1mdk
+
+2003-08-22 14:53  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.40-1mdk
+
+2003-08-22 11:56  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/Perms.py: better support for symlinks
+
+2003-08-22 11:53  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/shadow.py: don't use apply anymore (Olivier Blin)
+
+2003-08-22 11:50  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: better doc for no_password_aging_for and
+	set_security_conf allow to pass a number in set_umask
+
+2003-08-22 10:52  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: be carefull to use 1 or 0 instead of True and
+	False in set_zero_one_variable
+
+2003-07-24 19:25  Thierry Vignaud <tvignaud@mandrakesoft.com>
+
+	* msec.spec: resync with cooker
+
 2003-07-24 19:22  Thierry Vignaud <tvignaud@mandrakesoft.com>
 
 	* msec.spec: fix upgrade (spotted by new draksec localization
@@ -5,17 +35,9 @@
 
 2003-05-08 11:50  Pablo Saratxaga <pablo@mandrakesoft.com>
 
-	* man/: cs/init.sh.8, et/init.sh.8, eu/init.sh.8, fi/msec.8,
-	fr/init.sh.8, fr/msec.8, ru/init.sh.8, uk/msec.8: Added Finnish and
-	Ukrainian man pages; removed "init.sh" man page from translations
-
-2003-05-06 21:55  Arkadiusz Lipiec <alipiec@elka.pw.edu.pl>
-
-	* man/pl/msec.8: Changes
-
-2003-05-06 21:42  Arkadiusz Lipiec <alipiec@elka.pw.edu.pl>
-
-	* man/pl/msec.8: Polish version of msec manual
+	* man/: cs/init.sh.8, et/init.sh.8, eu/init.sh.8, fr/init.sh.8,
+	fr/msec.8, ru/init.sh.8: Added Finnish and Ukrainian man pages;
+	removed "init.sh" man page from translations
 
 2003-03-07 15:27  Frederic Lepied <flepied@mandrakesoft.com>
 

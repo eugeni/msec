@@ -72,9 +72,10 @@ AddBegRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xinit/xinitrc
 
 # Group
 if [[ ! -z ${DRAKX_USERS} ]]; then
-    echo -n "Adding \"${DRAKX_USERS}\" to audio group :"
+    echo -n "Adding \"${DRAKX_USERS}\" to audio & mail group :"
     for user in ${DRAKX_USERS}; do
 	usermod -G audio "${user}"
+	usermod -G mail "${user}"
     done
     echo "done."
 fi

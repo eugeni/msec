@@ -208,6 +208,7 @@ echo "Setting spoofing protection : "
 AddRules "echo 1 > /proc/sys/net/ipv4/conf/all/rp_filter" /etc/rc.d/rc.firewall
 
 # default group which must exist on the system
+groupadd mail >& /dev/null
 groupadd nogroup >& /dev/null
 groupadd audio >& /dev/null
 groupadd xgrp >& /dev/null
@@ -220,6 +221,7 @@ if [[ ! -f /tmp/secure.DrakX ]]; then
     if [[ ! -z ${DRAKX_USERS} ]]; then
 	for user in ${DRAKX_USERS}; do
 	    /etc/security/msec/init-sh/grpuser --del audio "${user}"
+	    /etc/security/msec/init-sh/grpuser --del mail "${user}"
 	done
     fi
 else

@@ -437,8 +437,7 @@ def add_config_assoc(regex, action):
     return all_files.add_config_assoc(regex, action)
 
 def mkdir_p(path):
-    s = os.stat(path)
-    if not s:
+    if not os.path.exists(path):
         os.makedirs(os.path.dirname(path))
     
 # ConfigFile.py ends here

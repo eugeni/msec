@@ -111,6 +111,7 @@ in /etc/hosts.allow).
 - network commands (ssh, scp, rsh, ...) restricted to the members of the ntools group.
 - compilation commands (gcc, g++, ...) restricted to the members of the ctools group.
 - rpm command restricted to the members of the rpm group.
+- forbid exporting X display when switching from root to another user
 
 *******************************
 Security level 5 ( Aka Paranoid system ) :
@@ -161,6 +162,7 @@ in /etc/hosts.allow).
 - network commands (ssh, scp, rsh, ...) restricted to the members of the ntools group.
 - compilation commands (gcc, g++, ...) restricted to the members of the ctools group.
 - rpm command restricted to the members of the rpm group.
+- forbid exporting X display when switching from root to another user
 
 ******************
 

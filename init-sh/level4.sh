@@ -112,7 +112,6 @@ AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/profil
 
 if [[ -f /lib/libsafe.so.2 ]]; then
     echo "Enabling stack overflow protection :"
-    touch /etc/ld.so.preload
     AddRules "/lib/libsafe.so.2" /etc/ld.so.preload
 fi
 

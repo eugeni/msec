@@ -122,7 +122,6 @@ AddRules "umask 077" /etc/profile.d/msec.csh
 
 if [[ -f /lib/libsafe.so.2]]; then
     echo "Enabling stack overflow protection :"
-    touch /etc/ld.so.preload
     AddRules "/lib/libsafe.so.2" /etc/ld.so.preload
 fi
 

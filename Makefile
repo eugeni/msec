@@ -1,3 +1,5 @@
+VERSION = 0.5
+
 all: promisc_check
 
 clean:
@@ -25,6 +27,14 @@ rpm: all
 	install -s src/promisc_check/promisc_check $(RPM_BUILD_ROOT)/usr/bin
 	echo "Install complete"
 
+dis: clean
+	rm -rf msec-$(VERSION) ../msec-$(VERSION).tar*
+	mkdir -p msec-$(VERSION)
+	find . -not -name "msec-$(VERSION)"|cpio -pd msec-$(VERSION)/
+	find msec-$(VERSION) -type d -name CVS|xargs rm -rf 
+	tar cf ../msec-$(VERSION).tar msec-$(VERSION)
+	bzip2 ../msec-$(VERSION).tar
+
 install:
 	(rm -rf /etc/security/msec)
 	(mkdir -p /etc/security/msec/init-sh)
@@ -51,4 +61,3 @@ install:
 	@echo "To switch between runlevel, just launch init.sh ( in init-sh dir )"
 	@echo
 	@echo
-

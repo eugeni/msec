@@ -1,6 +1,7 @@
 1999-12-08  Chmouel Boudjnah  <chmouel@mandrakesoft.com>
 
 	* Makefile (rpm): target for rpm.
+	(dis): Add a make dis to easy switch from cvs to dis.
 
 	* doc/msec.spec: use bzip2 sources, clean up %install to use Makefile.
 

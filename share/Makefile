@@ -28,7 +28,7 @@ levels:
 	  ./msec.py -o log=stderr -o print=1 -o nolocal=1 $$l < /dev/null | sort > level.$$l; \
 	done
 clean:
-	rm -f *.pyc *.pyo mseclib.py *~
+	rm -f *.pyc *.pyo mseclib.py *~ level.[0-5] mseclib.man
 
 # Local variables:
 # mode: makefile

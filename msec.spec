@@ -34,8 +34,8 @@ rm -rf $RPM_BUILD_ROOT
 /etc/security/msec
 /usr/bin/promisc_check
 
-%changeloga
-1999-12-09  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+%changelog
+* Thu Dec  9 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - Many bugfix, i'm trying to get a bugfree release before the freeze
 - Renamed some variable, added consistencie.
 - security_cjheck.sh: print header at begining of the log.

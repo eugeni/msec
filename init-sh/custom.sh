@@ -13,13 +13,6 @@ fi
 clear
 
 ###
-echo "Do you want your log file to be in append mode only ?"
-WaitAnswer; clear
-if [[ ${answer} == yes ]]; then
-    find /var/log/ -type f -exec chattr +a {} \;
-fi
-
-###
 echo "Do you want all system events to be logged on tty12 ?"
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then

@@ -15,7 +15,6 @@ fi
 
 # Log in append only mode
 echo -e "Changing attribute of /var/log/* to append only...\n"
-chattr +a /var/log/*
 
 # All events logged on tty12
 echo "Loging all messages on tty12 : "

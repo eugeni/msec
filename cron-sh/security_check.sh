@@ -23,8 +23,6 @@ if [[ ! -d /var/log/security ]]; then
     mkdir /var/log/security
 fi
 
-chattr -a /var/log/security/ >& /dev/null
-chattr -a /var/log/security/* >& /dev/null
 rm -f ${SECURITY} ${TMP} >& /dev/null
 
 ### Functions ###

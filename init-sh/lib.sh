@@ -21,7 +21,7 @@ WaitAnswer() {
     done
 }
 
-AddRules () {
+AddRules() {
 	string=$1
 	file=$2
 	quiet=$3
@@ -224,7 +224,7 @@ if [[ ! -f /tmp/secure.DrakX ]]; then
     fi
 else
     if [[ ! -z ${DRAKX_USERS} ]]; then
-	AddRules "${DRAKX_USERS}" /etc/security/msec/security.conf
+	AddRules "DRAKX_USERS=${DRAKX_USERS}" /etc/security/msec/security.conf
     fi
 fi
 

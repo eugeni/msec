@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.40
+Version:	0.41
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -152,7 +152,29 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
-- more csh-ish msec.csh
+* Thu Feb 12 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.41-1mdk
+- make it lib64 aware wrt pam files rewriting
+- more csh-ish msec.csh (Pixel)
+- msec.csh: only set SECURE_LEVEL whenever it already exists
+  locally
+- conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: fixed typo
+  rpp => rpm
+- share/libmsec.py: allow_xserver_to_listen: corrected startx
+  modifications (Gavin Porter)
+- cron-sh/security.sh: removed xfs from remote filesystems and
+  added hfs in foreign filesystems (Stefaan Simoens)
+- conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: handle
+  /var/lib/rpm/Packages
+- AUTHORS, README, TODO: fix #6145 (list current maintainer instead
+  of old one) (Thierry)
+- share/shadow.py: Added local_config to say that the calls are now
+  coming from the config file.	Call force_val in indirect to store
+  that the arguments of the function need to be used even if the
+  security is lowered.
+- share/libmsec.py: Rework same_level to be able to put the
+  priority on the config file.	This is realized by inspecting the
+  stack trace and using a global associative array.
+- man/cs/msec.8: updated Czech man page (Pablo)
 
 * Wed Sep  3 2003 Frederic Lepied <flepied@mandrakesoft.com> 0.40-1mdk
 - corrected strange permission settings in /var/log (bug #4854)

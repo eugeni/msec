@@ -16,7 +16,6 @@ Security level 2 :
 - Suid root file check
 - Suid root file md5sum check
 - Writeable file check
-- Warning directly on tty 
 - Warning in syslog
 - Warning in /var/log/security.log 
 

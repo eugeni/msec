@@ -1,3 +1,15 @@
+2002-04-19 14:17  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.21-1mdk
+
+2002-04-19 14:17  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: load the config file using the context of mseclib.
+
+2002-04-19 14:15  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* man/C/msec.8: don't specify a version for the doc path.
+
 2002-03-27 16:23  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.20-2mdk

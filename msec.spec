@@ -1,6 +1,6 @@
 Summary:	Security Level management for the Mandrakelinux distribution
 Name:		msec
-Version:	0.43
+Version:	0.44
 Release:	1mdk
 Url:		http://www.mandrakelinux.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -152,6 +152,10 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Fri Jul 30 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.44-1mdk
+- Mandrakelinux/Mandrakesoft
+- new function allow_xauth_from_root
+
 * Wed Jul  7 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.43-1mdk
 - fixed again mailman permissions for mailman in level 3 (bug #9319)
 - use getent to parse the passwd database (bug #9904)

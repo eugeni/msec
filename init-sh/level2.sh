@@ -71,17 +71,6 @@ echo "Setting umask to 022 (u=rw,g=r,o=r) :"
 AddRules "umask 022" /etc/profile.d/msec.sh
 AddRules "umask 022" /etc/profile.d/msec.csh
 
-echo "Adding \"non secure\" PATH variable :"
-AddRules "if ! echo \${PATH} |grep -q /usr/X11R6/bin ; then\n\texport PATH=\$PATH:/usr/X11R6/bin\nfi" /etc/profile.d/msec.sh quiet
-AddRules "if ! { (echo "\${PATH}" | grep -q /usr/X11R6/bin) } then\n\tsetenv PATH \"\${PATH}:/usr
-/X11R6/bin\"\nendif" /etc/profile.d/msec.csh quiet
-AddRules "if ! echo \${PATH} |grep -q /usr/games ; then\n\texport PATH=\$PATH:/usr/games\nfi" /etc/profile.d/msec.sh quiet
-AddRules "if ! { (echo "\${PATH}" | grep -q /usr/games) } then\n\tsetenv PATH \"\${PATH}:/usr/games\"\nendif" /etc/profile.d/msec.csh quiet
-
-AddRules "if ! echo \${PATH} |grep -q :. ; then\n\texport PATH=\$PATH:.\nfi" /etc/profile.d/msec.
-sh quiet
-AddRules "if ! { (echo "\${PATH}" | grep -q :.) } then\n\tsetenv PATH \"\${PATH}:.\"\nendif" /etc/profile.d/msec.csh quiet
-
 # Xserver
 echo "Allowing users to connect X server from localhost :"
 AddBegRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xinit.d/msec

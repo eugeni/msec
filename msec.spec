@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.21
+Version:	0.22
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -123,6 +123,11 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Wed May 29 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.22-1mdk
+- corrected alias files loop (Jérôme UZEL).
+- added no_password_aging_for function to mseclib
+- server.4, server.5: added shorewall
+
 * Tue Apr 16 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.21-1mdk
 - applied patch from John Ehresman to exec the config file in the
 context of mseclib.

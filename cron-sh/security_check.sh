@@ -15,6 +15,7 @@ if [[ ${CHECK_SECURITY} != yes ]]; then
     exit 0
 fi
 
+INFOS=`mktemp /tmp/secure.XXXXXX`
 SECURITY=`mktemp /tmp/secure.XXXXXX`
 SECURITY_LOG="/var/log/security.log"
 TMP=`mktemp /tmp/secure.XXXXXX`
@@ -251,11 +252,10 @@ done
 
 ### Dump a list of open port.
 if [[ ${CHECK_OPEN_PORT} == yes ]]; then
-    netstat -pvlA inet > ${TMP};
     
-    if [[ -s ${TMP} ]]; then
-	printf "\nThese are the ports listening on your machine :\n" >> ${SECURITY}
-	cat ${TMP} >> ${SECURITY}
+    if [[ -s ${OPEN_PORT_TODAY} ]]; then
+	printf "\nThese are the ports listening on your machine :\n" >> ${INFOS}
+	cat ${OPEN_PORT_TODAY} >> ${INFOS}
     fi
 fi
 
@@ -267,6 +267,7 @@ if [[ -s ${SECURITY} ]]; then
     date=`date`
     echo -e "\n\n*** Security Check, ${date} ***\n" >> ${SECURITY_LOG}
     cat ${SECURITY} >> ${SECURITY_LOG}
+    cat ${INFOS} >> ${SECURITY_LOG}
 fi
 
 if [[ -f ${SECURITY} ]]; then
@@ -276,6 +277,11 @@ fi
 if [[ -f ${TMP} ]]; then
     rm -f ${TMP}
 fi
+
+if [[ -f ${INFOS} ]]; then
+    rm -f ${INFOS};
+fi
+
 
 
 

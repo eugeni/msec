@@ -1,3 +1,84 @@
+2002-02-04 23:14  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/ConfigFile.py: (exists): add an extra arg to really test if
+	the file exists (without testing if the file + suffix exists).
+
+2002-02-04 23:12  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: handle the extra arg for allow_x_connections.
+
+2002-02-04 23:11  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: corrected issue moving (only when really
+	present).
+	
+	add doc strings to be used in the man page.
+	
+	(allow_x_connections): add an extra argument to control if the X
+	server listens on tcp port.
+
+2002-02-04 22:53  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/Perms.py: removed debugging trace.
+
+2002-02-04 22:09  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec: pass the same options used for msec.py to Perms.py
+
+2002-02-04 22:07  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/perm.4: put /etc/hosts.{allow,deny,equiv} in the daemon
+	group
+
+2002-02-04 22:06  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* Makefile: don't commit in the Makefile
+
+2002-02-04 22:05  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/perm.5: put /etc/hosts.{allow,deny,equiv}
+
+2002-02-04 22:04  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/Perms.py: process the options like msec to be able to log
+	the same way.
+
+2002-02-04 22:03  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* man/C/msec.8: Linux-Mandrake => Mandrake Linux
+	
+	remove references to the custom level
+
+2002-02-04 21:37  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/security_check.sh: corrected typo
+
+2002-02-04 21:34  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/security_check.sh: back to nogroup
+
+2002-02-04 20:23  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/security_check.sh: use nobody instead of nogroup
+
+2002-02-03 22:27  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/security_check.sh: added .ssh/id_dsa .ssh/id_rsa to the
+	list of files to check.
+
+2002-02-03 22:26  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/security.sh: don't report /tmp and /var/tmp as word
+	writable dirs (it's normal)
+
+2002-02-02 00:20  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/Makefile: create the man page for mseclib
+
+2002-02-02 00:20  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/man.py: first version
+
 2002-01-29 00:22  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.18-2mdk

@@ -79,6 +79,7 @@ SYSLOGCONF = '/etc/syslog.conf'
 SYSTEM_AUTH = '/etc/pam.d/system-auth'
 XDM = '/etc/pam.d/xdm'
 XSERVERS = '/etc/X11/xdm/Xservers'
+EXPORT = '/root/.xauth/export'
 
 # constants to keep in sync with shadow.py
 NONE=0
@@ -1228,6 +1229,29 @@ def password_aging(max, inactive=-1):
                         error(_('unable to parse chage output'))
                 else:
                     error(_('unable to run chage: %s') % ret[1])
+
+################################################################################
+
+def allow_xauth_from_root(arg):
+    ''' Allow/forbid to export display when passing from the root account
+to the other users. See pam_xauth(8) for more details.'''
+    export = ConfigFile.get_config_file(EXPORT)
+
+    allow = export.exists() and export.get_match('^\*$')
+
+    # don't lower security when not changing security level
+    if same_level():
+        if not allow:
+            return
+
+    if arg:
+        if not allow:
+            _interactive and log(_('Allowing export display from root'))
+            export.insert_at(0, '*')
+    else:
+        if allow:
+            _interactive and log(_('Forbidding export display from root'))
+            export.remove_line_matching('^\*$')
 
 ################################################################################
 

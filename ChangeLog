@@ -1,3 +1,16 @@
+2002-11-20 20:57  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.37-1mdk
+
+2002-11-20 20:57  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: password_aging: chage is l10n now so use
+	LC_ALL=C before calling it.
+
+2002-11-07 11:29  Thierry Vignaud <tvignaud@mandrakesoft.com>
+
+	* msec.spec: requires s/(sh-|text|file)utils/coreutils/
+
 2002-09-17 16:12  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: X-\*-Core => X-:\*-Core

@@ -69,7 +69,7 @@ Security level 4 ( Aka Secured system ) :
 - restricted file permissions.
 - All system events additionally logged to /dev/tty12
 - System security check every midnight ( crontab ).
-* - Services not contained in /etc/security/msec/init-sh/server.4 are disabled (
+* - Services not contained in /etc/security/msec/server.4 are disabled (
   considered as not really secure ) ( but the user can reenable it with
   chkconfig ).
 - Ask for a boot password ( if the user want ).
@@ -98,7 +98,7 @@ Security level 5 ( Aka Paranoid system ) :
 - Highly restricted file permission
 - All system events additionally logged to /dev/tty12
 - System security check every midnight ( crontab ).
-- Services not contained in /etc/security/msec/init-sh/server.5 are disabled (
+- Services not contained in /etc/security/msec/server.5 are disabled (
   considered as not really secure ) ( but the user can reenable it with
   chkconfig ).
 - Ask for a boot password ( if the user want ).
@@ -111,7 +111,7 @@ Security level 5 ( Aka Paranoid system ) :
 
 - Some server aren't really considered as secure,
   these one, should for exemple be compiled from sources.
-  server considered as secure are specified in /etc/security/msec/init-sh/server.4/5
+  server considered as secure are specified in /etc/security/msec/server.4/5
   
   When enabling level4/5, all server which aren't considered as secure are
   disabled ( NOT uninstalled, just disabled ) user can reenable them using the

@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.19
-Release:	5mdk
+Release:	6mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -123,6 +123,9 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Tue Mar  5 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-6mdk
+- protect scripts from beeing run twice
+
 * Thu Feb 28 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-5mdk
 - use 127.0.0.1 instead of localhost in hosts.deny
 - msec.csh: "unhash" workaround for /usr/bin non-readable (msec 5) applied

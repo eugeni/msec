@@ -92,3 +92,4 @@ ForbidAutologin
 grpconv
 
 AllowUserList
+RootSshLogin 3

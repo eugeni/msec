@@ -91,3 +91,4 @@ AllowAutologin
 # Do not boot on a shell
 AllowReboot
 AllowUserList
+RootSshLogin 2

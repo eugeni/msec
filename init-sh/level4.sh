@@ -127,10 +127,5 @@ ForbidAutologin
 # Group were modified in lib.sh...
 grpconv
 
-
-
-
-
-
-
 ForbidUserList
+RootSshLogin 4

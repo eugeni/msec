@@ -89,3 +89,4 @@ AllowAutologin
 # Boot on a shell / authorize ctrl-alt-del
 AllowReboot
 AllowUserList
+RootSshLogin 0

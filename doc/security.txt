@@ -88,6 +88,8 @@ Security level 4 ( Aka Secured system ) :
 - X server doesn't listen for tcp connections
 - no autologin
 - sulogin in single user
+- no direct root login
+- remote root login only with a pass phrase
 - no list of users in kdm and gdm
 - password aging at 60 days
 - shell history limited to 10
@@ -133,8 +135,10 @@ Security level 5 ( Aka Paranoid system ) :
 - X server doesn't listen for tcp connections
 - no autologin
 - sulogin in single user
+- no direct root login
 - no list of users in kdm and gdm
 - password aging at 30 days
+- password history to 5
 - shell history limited to 10
 - shell timeout 900 seconds
 - su to root only allowed to members of the wheel group (activated only if the wheel group

@@ -1,3 +1,41 @@
+2002-08-25 21:48  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: security_check.sh and diff_check.sh installed 644 to
+	prevent direct execution.
+
+2002-08-25 21:47  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.4, perm.5: let hosts.{allow,deny} be readable by
+	everyone (to allow all the daemons to access them).
+
+2002-08-25 21:43  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/diff_check.sh: emptiness is tested in Maillog now
+
+2002-08-25 21:41  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/security.sh: implement MAIL_EMPTY_CONTENT
+
+2002-08-25 21:39  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* doc/security.txt: documented daily mailing of security checks
+
+2002-08-25 21:38  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: added MAIL_EMPTY_CONTENT
+
+2002-08-25 21:30  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/ConfigFile.py: enhanced get_shell_variable to be able to
+	specify a region to do the search.
+
+2002-08-25 21:29  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: allow_reboot: used section X-:0-Core instead of
+	X-:*-Greeter for kdmrc.
+	
+	password_history: create /etc/security/opasswd if it doesn't exist.
+
 2002-08-19 23:09  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.33-1mdk

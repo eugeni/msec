@@ -59,7 +59,7 @@ dir:
 	mkdir $(PACKAGE)-$(VERSION)
 
 localcopy: clean
-	find . -not -name "$(PACKAGE)-$(VERSION)"|cpio -pd $(PACKAGE)-$(VERSION)/
+	find . -not -name "$(PACKAGE)-$(VERSION)" -a -not -name '*.bz2'|cpio -pd $(PACKAGE)-$(VERSION)/
 	find $(PACKAGE)-$(VERSION) -type d -name CVS|xargs rm -rf 
 
 tar:

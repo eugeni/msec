@@ -328,8 +328,6 @@ CleanRules /etc/securetty
 CommentUserRules /etc/securetty
 CleanRules /etc/security/msec/security.conf
 CommentUserRules /etc/security/msec/security.conf
-CleanRules /etc/profile
-CleanRules /etc/zprofile
 CleanRules /etc/ld.so.preload
 
 CleanLoaderRules
@@ -348,13 +346,15 @@ else
 fi
 
 
-if [[ -f /etc/profile.d/msec.sh ]]; then
+if [[ -f /etc/profile.d/msec.sh && -f /etc/profile.d/msec.csh ]]; then
 	CleanRules /etc/profile.d/msec.sh
+	CleanRules /etc/profile.d/msec.csh
 else
 	touch /etc/profile.d/msec.sh
+	touch /etc/profile.d/msec.csh
 	chmod 755 /etc/profile.d/msec.sh
+	chmod 755 /etc/profile.d/msec.csh
 fi
-
 
 echo -e "\nStarting to reconfigure the system : "
 # For all secure level
@@ -373,46 +373,3 @@ usermod -G xgrp xfs
 
 /usr/share/msec/grpuser.sh --clean
 echo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

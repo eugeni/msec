@@ -328,6 +328,7 @@ CleanRules /etc/securetty
 CommentUserRules /etc/securetty
 CleanRules /etc/security/msec/security.conf
 CommentUserRules /etc/security/msec/security.conf
+touch /etc/ld.so.preload
 CleanRules /etc/ld.so.preload
 
 CleanLoaderRules

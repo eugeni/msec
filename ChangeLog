@@ -1,3 +1,17 @@
+2004-02-14 22:13  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.41.1-1mdk
+
+2004-02-14 20:24  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/diff_check.sh: allow % in file names [bug #6144] (Sven
+	  Hoexter)
+
+2004-02-14 20:19  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: fixed system-auth growing line forever (bug
+	  #7853) (Michael Scherer)
+
 2004-02-12 17:13  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* share/libmsec.py: make it lib64 aware wrt pam files rewriting

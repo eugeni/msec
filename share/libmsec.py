@@ -1,6 +1,6 @@
 #---------------------------------------------------------------
 # Project         : Mandrake Linux
-# Module          : share
+# Module          : msec
 # File            : libmsec.py
 # Version         : $Id$
 # Author          : Frederic Lepied
@@ -20,6 +20,7 @@ import pwd
 import re
 import string
 import commands
+import time
 
 try:
     cat = gettext.Catalog('msec')
@@ -338,6 +339,15 @@ def set_shell_history_size(size):
         
 ################################################################################
 
+def get_index(val, array):
+    for loop in range(0, len(array)):
+        if val == array[loop]:
+            return loop
+    return -1
+
+################################################################################
+ALLOW_SHUTDOWN_VALUES = ('All', 'Root', 'None')
+
 def allow_reboot(arg):
     '''  Allow/Forbid reboot by the console user.'''
     shutdownallow = ConfigFile.get_config_file(SHUTDOWNALLOW)
@@ -353,14 +363,22 @@ def allow_reboot(arg):
         val[f] = ConfigFile.get_config_file(f).exists()
         if val[f]:
             num = num + 1
-    val_kdmrc = kdmrc.exists() and kdmrc.get_shell_variable('AllowShutdown', 'X-:0-Core', '^\s*$')
     val_gdmconf = gdmconf.exists() and gdmconf.get_shell_variable('SystemMenu')
-
+    oldval_kdmrc = kdmrc.exists() and kdmrc.get_shell_variable('AllowShutdown', 'X-\*-Core', '^\s*$')
+    if oldval_kdmrc:
+        oldval_kdmrc = get_index(oldval_kdmrc, ALLOW_SHUTDOWN_VALUES)
+    if arg:
+        val_kdmrc = 0
+    else:
+        val_kdmrc = 2
+        
     # don't lower security when not changing security level
     if _same_level:
-        if val_shutdownallow and val_sysctlconf == '0' and num == 0 and val_kdmrc == 'None' and val_gdmconf == 'false':
+        if val_shutdownallow and val_sysctlconf == '0' and num == 0 and oldval_kdmrc >= val_kdmrc and val_gdmconf == 'false':
             return
-        
+        if oldval_kdmrc > val_kdmrc:
+            val_kdmrc = oldval_kdmrc
+            
     if arg:
         _interactive and log(_('Allowing reboot to the console user'))
         if not (_same_level and val_shutdownallow):
@@ -371,8 +389,6 @@ def allow_reboot(arg):
                 cfg.exists() or cfg.touch()
         if not (_same_level and val_sysctlconf == '0'):
             sysctlconf.set_shell_variable('kernel.sysrq', 1)
-        if not (_same_level and val_kdmrc == 'None'):
-            kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', 'All', 'X-:0-Core', '^\s*$')
         if not (_same_level and val_gdmconf == 'false'):
             gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'true', '\[greeter\]', '^\s*$')
     else:
@@ -381,42 +397,46 @@ def allow_reboot(arg):
         for f in [SHUTDOWN, POWEROFF, REBOOT, HALT]:
             ConfigFile.get_config_file(f).unlink()
         sysctlconf.set_shell_variable('kernel.sysrq', 0)
-        kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', 'None', 'X-:0-Core', '^\s*$')
         gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'false', '\[greeter\]', '^\s*$')
+
+    kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', ALLOW_SHUTDOWN_VALUES[val_kdmrc], 'X-\*-Core', '^\s*$')
 
 allow_reboot.arg_trans = YES_NO_TRANS
 
 ################################################################################
+SHOW_USERS_VALUES = ('All', 'Selected', 'None')
 
 def allow_user_list(arg):
     '''  Allow/Forbid the list of users on the system on display managers (kdm and gdm).'''
     kdmrc = ConfigFile.get_config_file(KDMRC)
     gdmconf = ConfigFile.get_config_file(GDMCONF)
     
-    oldval_kdmrc = kdmrc.exists() and kdmrc.get_shell_variable('ShowUsers', 'X-\*-Greeter', '^\s*$')
     oldval_gdmconf = gdmconf.exists() and gdmconf.get_shell_variable('Browser')
-    
+    oldval_kdmrc = kdmrc.exists() and kdmrc.get_shell_variable('ShowUsers', 'X-\*-Greeter', '^\s*$')
+    if oldval_kdmrc:
+        oldval_kdmrc = get_index(oldval_kdmrc, SHOW_USERS_VALUES)
+
     if arg:
         msg = 'Allowing the listing of users in display managers'
-        val_kdmrc = 'All'
+        val_kdmrc = 0
         val_gdmconf = 'true'
     else:
         msg = 'Disabling the listing of users in display managers'
-        val_kdmrc = 'None'
+        val_kdmrc = 2
         val_gdmconf = 'false'
 
     # don't lower security when not changing security level
     if _same_level:
-        if oldval_kdmrc == 'None' and oldval_gdmconf == 'false':
+        if oldval_kdmrc >= val_kdmrc  and oldval_gdmconf == 'false':
             return
-        if oldval_kdmrc == 'None':
-            val_kdmrc = 'None'
+        if oldval_kdmrc > val_kdmrc:
+            val_kdmrc = oldval_kdmrc
         if oldval_gdmconf == 'false':
             val_gdmconf = 'false'
     
     if (gdmconf.exists() and oldval_gdmconf != val_gdmconf) or (kdmrc.exists() and oldval_kdmrc != val_kdmrc):
         _interactive and log(_(msg))
-        oldval_kdmrc != val_gdmconf and kdmrc.exists() and kdmrc.set_shell_variable('ShowUsers', val_kdmrc, 'X-\*-Greeter', '^\s*$')
+        oldval_kdmrc != val_gdmconf and kdmrc.exists() and kdmrc.set_shell_variable('ShowUsers', SHOW_USERS_VALUES[val_kdmrc], 'X-\*-Greeter', '^\s*$')
         oldval_gdmconf != val_gdmconf and gdmconf.exists() and gdmconf.set_shell_variable('Browser', val_gdmconf)
 
 allow_user_list.arg_trans = YES_NO_TRANS
@@ -601,7 +621,7 @@ allowed else only /etc/issue is allowed.'''
             _interactive and log(_('Disabling network pre-login message'))
             issuenet.exists(1) and issuenet.move(SUFFIX)
 
-allow_issues.arg_trans = YES_NO_TRANS
+allow_issues.arg_trans = ALL_LOCAL_NONE_TRANS
 
 ################################################################################
 
@@ -1164,7 +1184,7 @@ def password_aging(max, inactive=-1):
                             if current_inactive < inactive:
                                 new_inactive = current_inactive
                         if new_max != current_max or current_inactive != new_inactive:
-                            cmd = '/usr/bin/chage -M %d -I %d %s' % (new_max, new_inactive, entry[0])
+                            cmd = '/usr/bin/chage -M %d -I %d -d %s %s' % (new_max, new_inactive, time.strftime('%Y-%m-%d'), entry[0])
                             ret = commands.getstatusoutput(cmd)
                             log(_('changed maximum password aging for user %s with command %s') % (entry[0], cmd))
                             if ret[0] != 0:

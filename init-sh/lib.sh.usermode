@@ -319,7 +319,6 @@ CleanRules /etc/securetty
 CommentUserRules /etc/securetty
 CleanRules /etc/security/msec/security.conf
 CommentUserRules /etc/security/msec/security.conf
-CleanRules /etc/profile
 CleanRules /etc/ld.so.preload
 
 CleanLoaderRules

@@ -1,3 +1,8 @@
+2004-04-23 11:58  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: corrected
+	  mailman log permissions (bug #9319)
+
 2004-03-22 06:50  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: Mandrake => Mandrakelinux
@@ -661,7 +666,7 @@
 	  lower the security if the user has changed it manually (added -c
 	  option).
 
-2002-06-04 20:24  Christian Belisle <cbelisle@mandrakesoft.com>
+2002-06-04 20:24  Christian Belisle
 
 	* share/libmsec.py: corrected typo
 
@@ -1711,7 +1716,7 @@
 
 	* msec.spec: authorize the usb service in 4/5 levels of security
 
-2001-09-19 19:00  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2001-09-19 19:00  Yoann Vandoorselaere
 
 	* msec.spec:
 
@@ -1721,7 +1726,7 @@
 
 	* msec.spec: source2 is msec.logrotate and not msec
 
-2001-09-19 14:32  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2001-09-19 14:32  Yoann Vandoorselaere
 
 	* msec.spec, init-sh/level0.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
@@ -1754,15 +1759,15 @@
 	* doc/security.txt: there are no */init-sh/ directories in the rpm
 	  msec
 
-2001-09-19 13:30  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2001-09-19 13:30  Yoann Vandoorselaere
 
 	* msec.spec: [no log message]
 
-2001-09-19 13:18  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2001-09-19 13:18  Yoann Vandoorselaere
 
 	* msec.spec: [no log message]
 
-2001-09-19 11:37  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2001-09-19 11:37  Yoann Vandoorselaere
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh, lib.sh: [no log message]
@@ -1832,24 +1837,24 @@
 	  init-sh/level5.sh, init-sh/lib.sh, init-sh/lib.sh.usermode: merge
 	  back 0.15-17mdk in CVS
 
-2000-05-17 15:38  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-05-17 15:38  Yoann Vandoorselaere
 
 	* init-sh/: custom.sh, level4.sh, level5.sh: [no log message]
 
-2000-05-17 12:45  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-05-17 12:45  Yoann Vandoorselaere
 
 	* init-sh/: custom.sh, level4.sh, level5.sh: [no log message]
 
-2000-05-03 14:39  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-05-03 14:39  Yoann Vandoorselaere
 
 	* msec.spec, init-sh/custom.sh, init-sh/level4.sh,
 	  init-sh/level5.sh, init-sh/lib.sh: [no log message]
 
-2000-04-25 14:04  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-04-25 14:04  Yoann Vandoorselaere
 
 	* msec.spec, Makefile: [no log message]
 
-2000-04-25 14:01  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-04-25 14:01  Yoann Vandoorselaere
 
 	* Makefile, msec.spec, init-sh/lib.sh: [no log message]
 
@@ -1858,117 +1863,117 @@
 	* msec.spec, conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3,
 	  conf/perm.4: no_comment
 
-2000-04-19 13:04  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-04-19 13:04  Yoann Vandoorselaere
 
 	* Makefile, msec.spec, init-sh/lib.sh: [no log message]
 
-2000-04-19 12:06  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-04-19 12:06  Yoann Vandoorselaere
 
 	* init-sh/lib.sh, msec.spec: [no log message]
 
-2000-04-19 11:54  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-04-19 11:54  Yoann Vandoorselaere
 
 	* init-sh/: custom.sh, level0.sh, level1.sh, level2.sh, level3.sh,
 	  level4.sh, level5.sh, lib.sh: [no log message]
 
-2000-04-18 18:30  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-04-18 18:30  Yoann Vandoorselaere
 
 	* init-sh/custom.sh, src/msec_find/find.c, msec.spec: [no log
 	  message]
 
-2000-04-18 16:36  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-04-18 16:36  Yoann Vandoorselaere
 
 	* init-sh/: level3.sh, level4.sh, level5.sh: [no log message]
 
-2000-04-17 18:19  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-04-17 18:19  Yoann Vandoorselaere
 
 	* msec.spec: [no log message]
 
-2000-04-17 17:25  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-04-17 17:25  Yoann Vandoorselaere
 
 	* msec.spec, src/msec_find/find.c: [no log message]
 
-2000-04-17 16:27  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-04-17 16:27  Yoann Vandoorselaere
 
 	* msec.spec, conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3,
 	  conf/perm.4, conf/perm.5, init-sh/file_perm.sh: [no log message]
 
-2000-04-17 16:14  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-04-17 16:14  Yoann Vandoorselaere
 
 	* msec.spec, init-sh/file_perm.sh: [no log message]
 
-2000-04-17 16:07  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-04-17 16:07  Yoann Vandoorselaere
 
 	* conf/perm.5: [no log message]
 
-2000-04-17 15:55  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-04-17 15:55  Yoann Vandoorselaere
 
 	* Makefile, msec.spec, doc/msec.8, doc/msec.lyx: [no log message]
 
-2000-04-14 18:35  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-04-14 18:35  Yoann Vandoorselaere
 
 	* init-sh/: custom.sh, level0.sh, level1.sh, level2.sh, level3.sh,
 	  level4.sh, level5.sh: [no log message]
 
-2000-03-22 18:44  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-22 18:44  Yoann Vandoorselaere
 
 	* README, init-sh/custom.sh: [no log message]
 
-2000-03-22 18:37  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-22 18:37  Yoann Vandoorselaere
 
 	* README, init-sh/custom.sh, init-sh/level5.sh, init-sh/lib.sh,
 	  Makefile, msec.spec: [no log message]
 
-2000-03-22 17:59  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-22 17:59  Yoann Vandoorselaere
 
 	* conf/perm.5: [no log message]
 
-2000-03-19 19:41  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-19 19:41  Yoann Vandoorselaere
 
 	* cron-sh/security.sh, src/msec_find/find.c: [no log message]
 
-2000-03-19 17:10  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-19 17:10  Yoann Vandoorselaere
 
 	* msec.spec, cron-sh/security.sh, src/msec_find/find.c: [no log
 	  message]
 
-2000-03-09 14:52  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-09 14:52  Yoann Vandoorselaere
 
 	* msec.spec: [no log message]
 
-2000-03-09 14:42  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-09 14:42  Yoann Vandoorselaere
 
 	* msec.spec, init-sh/custom.sh, src/msec_find/find.c: [no log
 	  message]
 
-2000-03-08 15:44  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-08 15:44  Yoann Vandoorselaere
 
 	* Makefile, msec.spec, src/msec_find/Makefile,
 	  src/promisc_check/Makefile: [no log message]
 
-2000-03-08 15:25  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-08 15:25  Yoann Vandoorselaere
 
 	* msec.spec, Makefile: [no log message]
 
-2000-03-08 15:19  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-08 15:19  Yoann Vandoorselaere
 
 	* Makefile, init-sh/msec: [no log message]
 
-2000-03-08 15:01  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-08 15:01  Yoann Vandoorselaere
 
 	* Makefile, msec.spec, cron-sh/security.sh, init-sh/custom.sh,
 	  init-sh/level4.sh, init-sh/level5.sh, init-sh/msec,
 	  src/msec_find/Makefile, src/msec_find/find.c: [no log message]
 
-2000-03-07 18:03  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-07 18:03  Yoann Vandoorselaere
 
 	* msec.spec, init-sh/msec: [no log message]
 
-2000-03-07 17:50  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-07 17:50  Yoann Vandoorselaere
 
 	* Makefile, msec.spec, init-sh/level0.sh: [no log message]
 
-2000-03-07 17:45  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-07 17:45  Yoann Vandoorselaere
 
 	* Makefile, conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3,
 	  conf/perm.4, conf/perm.5, conf/server.4, conf/server.5,
@@ -1980,32 +1985,32 @@
 	  init-sh/perm.5, init-sh/server.4, init-sh/server.5: [no log
 	  message]
 
-2000-03-07 15:39  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-03-07 15:39  Yoann Vandoorselaere
 
 	* cron-sh/security_check.sh, init-sh/perm.4, init-sh/perm.5: [no
 	  log message]
 
-2000-02-17 12:29  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-02-17 12:29  Yoann Vandoorselaere
 
 	* init-sh/: perm.4, perm.5: [no log message]
 
-2000-02-17 11:07  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-02-17 11:07  Yoann Vandoorselaere
 
 	* init-sh/: perm.4, perm.5: [no log message]
 
-2000-01-21 01:46  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-01-21 01:46  Yoann Vandoorselaere
 
 	* init-sh/grpuser.sh: [no log message]
 
-2000-01-18 09:57  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-01-18 09:57  Yoann Vandoorselaere
 
 	* msec.spec: [no log message]
 
-2000-01-13 10:08  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-01-13 10:08  Yoann Vandoorselaere
 
 	* msec.spec, init-sh/custom.sh: [no log message]
 
-2000-01-06 15:27  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-01-06 15:27  Yoann Vandoorselaere
 
 	* msec.spec, cron-sh/security.sh, init-sh/level3.sh,
 	  init-sh/level4.sh, init-sh/level5.sh: [no log message]
@@ -2019,7 +2024,7 @@
 	* doc/: msec.lyx, msec.ps: Added friendly level names Corrected a
 	  mistake
 
-2000-01-06 14:14  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-01-06 14:14  Yoann Vandoorselaere
 
 	* init-sh/level0.sh, msec.spec: [no log message]
 
@@ -2027,37 +2032,37 @@
 
 	* doc/: msec.lyx, msec.ps: Added "root shutdown" feature.
 
-2000-01-04 13:37  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-01-04 13:37  Yoann Vandoorselaere
 
 	* doc/security.txt, init-sh/custom.sh, msec.spec: [no log message]
 
-2000-01-04 11:25  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-01-04 11:25  Yoann Vandoorselaere
 
 	* init-sh/: level0.sh, perm.0, perm.1, perm.2, perm.3, perm.4,
 	  perm.5: [no log message]
 
-2000-01-03 11:41  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+2000-01-03 11:41  Yoann Vandoorselaere
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh: [no log message]
 
-1999-12-29 14:24  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-29 14:24  Yoann Vandoorselaere
 
 	* msec.spec: [no log message]
 
-1999-12-29 14:21  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-29 14:21  Chmouel Boudjnah
 
 	* Makefile, msec.spec: "Seethechangelog"
 
-1999-12-29 14:18  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-29 14:18  Yoann Vandoorselaere
 
 	* doc/grpuser.8: [no log message]
 
-1999-12-28 19:28  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-28 19:28  Chmouel Boudjnah
 
 	* doc/: msec.lyx, msec.ps: "Seethechangelog"
 
-1999-12-28 19:15  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-28 19:15  Chmouel Boudjnah
 
 	* doc/: grpuser.8, grpuser.8.bz2, init.sh.8, init.sh.8.bz2, msec.8,
 	  msec.8.bz2: "Seethechangelog"
@@ -2070,40 +2075,40 @@
 
 	* doc/msec.lyx: Added latest enhancement: mail warning
 
-1999-12-28 09:47  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-28 09:47  Yoann Vandoorselaere
 
 	* init-sh/level3.sh: [no log message]
 
-1999-12-27 18:03  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-27 18:03  Yoann Vandoorselaere
 
 	* msec.spec: [no log message]
 
-1999-12-27 17:31  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-27 17:31  Yoann Vandoorselaere
 
 	* cron-sh/: diff_check.sh, security.sh: [no log message]
 
-1999-12-27 17:28  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-27 17:28  Yoann Vandoorselaere
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
 	  msec.spec, cron-sh/security_check.sh: [no log message]
 
-1999-12-27 17:24  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-27 17:24  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh, cron-sh/security.sh, init-sh/perm.0,
 	  init-sh/perm.1, init-sh/perm.2, init-sh/perm.3, init-sh/perm.4,
 	  init-sh/perm.5: [no log message]
 
-1999-12-24 10:32  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-24 10:32  Yoann Vandoorselaere
 
 	* msec.spec: [no log message]
 
-1999-12-23 14:05  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-23 14:05  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh:
 	  typo
 
-1999-12-22 10:27  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-22 10:27  Yoann Vandoorselaere
 
 	* init-sh/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: [no log
 	  message]
@@ -2126,37 +2131,37 @@
 
 	* msec.spec, init-sh/lib.sh: no_comment
 
-1999-12-20 19:28  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-20 19:28  Yoann Vandoorselaere
 
 	* init-sh/level5.sh: [no log message]
 
-1999-12-20 19:03  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-20 19:03  Yoann Vandoorselaere
 
 	* msec.spec, init-sh/lib.sh: [no log message]
 
-1999-12-20 18:14  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-20 18:14  Yoann Vandoorselaere
 
 	* init-sh/: perm.1, perm.2, perm.3: [no log message]
 
-1999-12-20 17:56  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-20 17:56  Yoann Vandoorselaere
 
 	* Makefile, msec.spec, cron-sh/security.sh,
 	  cron-sh/security_check.sh: [no log message]
 
-1999-12-20 12:52  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-20 12:52  Yoann Vandoorselaere
 
 	* cron-sh/security.sh, init-sh/grpuser.sh: [no log message]
 
-1999-12-20 09:34  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-20 09:34  Yoann Vandoorselaere
 
 	* Makefile, init-sh/level4.sh, init-sh/level5.sh: [no log message]
 
-1999-12-20 09:06  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-20 09:06  Yoann Vandoorselaere
 
 	* init-sh/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: [no log
 	  message]
 
-1999-12-20 00:51  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-20 00:51  Yoann Vandoorselaere
 
 	* init-sh/: lib.sh, perm.0, perm.1, perm.2, perm.3, perm.4, perm.5:
 	  [no log message]
@@ -2169,11 +2174,11 @@
 
 	* init-sh/: lib.sh: [no log message]
 
-1999-12-19 23:09  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-19 23:09  Yoann Vandoorselaere
 
 	* init-sh/: level1.sh, level2.sh: [no log message]
 
-1999-12-19 23:01  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-19 23:01  Yoann Vandoorselaere
 
 	* Makefile, cron-sh/security.sh, init-sh/security.conf: [no log
 	  message]
@@ -2182,7 +2187,7 @@
 
 	* init-sh/lib.sh: [no log message]
 
-1999-12-19 22:36  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-19 22:36  Yoann Vandoorselaere
 
 	* cron-sh/security_check.sh: [no log message]
 
@@ -2190,17 +2195,17 @@
 
 	* init-sh/lib.sh: [no log message]
 
-1999-12-19 21:44  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-19 21:44  Yoann Vandoorselaere
 
 	* cron-sh/: diff_check.sh, security_check.sh: [no log message]
 
-1999-12-19 21:19  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-19 21:19  Yoann Vandoorselaere
 
 	* cron-sh/find.sh, cron-sh/security.sh, init-sh/custom.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: [no log
 	  message]
 
-1999-12-19 21:02  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-19 21:02  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh, cron-sh/find.sh,
 	  cron-sh/security_check.sh, init-sh/security.conf: [no log
@@ -2218,12 +2223,12 @@
 
 	* msec.spec, init-sh/init.sh, init-sh/lib.sh: no_comment
 
-1999-12-17 16:22  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-17 16:22  Yoann Vandoorselaere
 
 	* Makefile, cron-sh/diff_check.sh, cron-sh/security_check.sh,
 	  init-sh/lib.sh, init-sh/security.conf: [no log message]
 
-1999-12-17 15:17  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-17 15:17  Yoann Vandoorselaere
 
 	* cron-sh/security_check.sh: [no log message]
 
@@ -2231,113 +2236,113 @@
 
 	* doc/msec.lyx: Added level 0 minor changes
 
-1999-12-16 18:48  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-16 18:48  Yoann Vandoorselaere
 
 	* msec.spec, init-sh/level0.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
 	  init-sh/level5.sh, init-sh/lib.sh: [no log message]
 
-1999-12-16 17:41  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-16 17:41  Yoann Vandoorselaere
 
 	* msec.spec, init-sh/level0.sh, init-sh/lib.sh: [no log message]
 
-1999-12-16 17:21  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-16 17:21  Yoann Vandoorselaere
 
 	* msec.spec: [no log message]
 
-1999-12-16 17:17  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-16 17:17  Yoann Vandoorselaere
 
 	* Makefile, TODO, cron-sh/diff_check.sh, cron-sh/security_check.sh,
 	  init-sh/grpuser.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/lib.sh, init-sh/group.conf: [no log message]
 
-1999-12-16 11:37  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-16 11:37  Yoann Vandoorselaere
 
 	* init-sh/: level1.sh, level2.sh, lib.sh: [no log message]
 
-1999-12-16 11:32  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-16 11:32  Yoann Vandoorselaere
 
 	* init-sh/grpuser.sh: [no log message]
 
-1999-12-16 03:07  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-16 03:07  Chmouel Boudjnah
 
 	* doc/msec.lyx: [no log message]
 
-1999-12-15 19:04  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-15 19:04  Yoann Vandoorselaere
 
 	* init-sh/level0.sh: [no log message]
 
-1999-12-15 18:35  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-15 18:35  Yoann Vandoorselaere
 
 	* TODO, init-sh/lib.sh: [no log message]
 
-1999-12-15 18:19  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-15 18:19  Yoann Vandoorselaere
 
 	* Makefile, init-sh/grpuser, init-sh/lib.sh, init-sh/group.conf,
 	  init-sh/grpuser.sh, TODO: [no log message]
 
-1999-12-15 12:13  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-15 12:13  Yoann Vandoorselaere
 
 	* init-sh/level0.sh: [no log message]
 
-1999-12-15 12:05  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-15 12:05  Yoann Vandoorselaere
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh: [no log message]
 
-1999-12-15 11:48  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-15 11:48  Yoann Vandoorselaere
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh, lib.sh: [no log message]
 
-1999-12-15 10:39  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-15 10:39  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh, cron-sh/security_check.sh,
 	  init-sh/custom.sh, init-sh/level4.sh, init-sh/level5.sh,
 	  init-sh/lib.sh: [no log message]
 
-1999-12-15 09:10  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-15 09:10  Yoann Vandoorselaere
 
 	* doc/security.txt, init-sh/level2.sh, init-sh/perm.1,
 	  init-sh/perm.2, init-sh/perm.4, init-sh/perm.5: [no log message]
 
-1999-12-14 18:24  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-14 18:24  Yoann Vandoorselaere
 
 	* msec.spec, init-sh/level1.sh, init-sh/level2.sh, init-sh/lib.sh:
 	  [no log message]
 
-1999-12-14 17:35  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-14 17:35  Yoann Vandoorselaere
 
 	* init-sh/: level1.sh, level2.sh, lib.sh: [no log message]
 
-1999-12-14 14:40  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-14 14:40  Yoann Vandoorselaere
 
 	* init-sh/lib.sh: [no log message]
 
-1999-12-14 14:10  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-14 14:10  Yoann Vandoorselaere
 
 	* doc/security.txt, msec.spec, init-sh/level0.sh,
 	  init-sh/level1.sh, init-sh/level2.sh, init-sh/lib.sh: [no log
 	  message]
 
-1999-12-13 12:45  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-13 12:45  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh, msec.spec: [no log message]
 
-1999-12-10 16:28  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-10 16:28  Yoann Vandoorselaere
 
 	* init-sh/: level0.sh, level2.sh, level3.sh, level4.sh, level5.sh:
 	  [no log message]
 
-1999-12-10 16:22  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-10 16:22  Yoann Vandoorselaere
 
 	* msec.spec, init-sh/custom.sh: [no log message]
 
-1999-12-09 18:17  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-09 18:17  Yoann Vandoorselaere
 
 	* msec.spec: [no log message]
 
-1999-12-09 18:16  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-09 18:16  Yoann Vandoorselaere
 
 	* Makefile, cron-sh/diff_check.sh, cron-sh/promisc_check.sh,
 	  cron-sh/security_check.sh, init-sh/custom.sh,
@@ -2348,83 +2353,83 @@
 
 	  Should really be stable now.
 
-1999-12-09 17:44  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-09 17:44  Yoann Vandoorselaere
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, lib.sh: [no log
 	  message]
 
-1999-12-09 17:20  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-09 17:20  Yoann Vandoorselaere
 
 	* init-sh/: level0.sh, perm.0: [no log message]
 
-1999-12-09 16:48  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-09 16:48  Yoann Vandoorselaere
 
 	* msec.spec: [no log message]
 
-1999-12-09 16:44  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-09 16:44  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh, cron-sh/promisc_check.sh,
 	  cron-sh/security_check.sh, init-sh/custom.sh, init-sh/level4.sh,
 	  init-sh/lib.sh, msec.spec: [no log message]
 
-1999-12-09 15:48  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-09 15:48  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh, cron-sh/promisc_check.sh,
 	  cron-sh/security_check.sh, init-sh/lib.sh: [no log message]
 
-1999-12-09 11:20  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-09 11:20  Yoann Vandoorselaere
 
 	* cron-sh/promisc_check.sh: [no log message]
 
-1999-12-09 11:05  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-09 11:05  Yoann Vandoorselaere
 
 	* cron-sh/: diff_check.sh, security_check.sh: [no log message]
 
-1999-12-08 18:16  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-08 18:16  Yoann Vandoorselaere
 
 	* cron-sh/: diff_check.sh, promisc_check.sh: [no log message]
 
-1999-12-08 17:13  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-08 17:13  Yoann Vandoorselaere
 
 	* msec.spec, cron-sh/security_check.sh: [no log message]
 
-1999-12-08 15:55  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-08 15:55  Yoann Vandoorselaere
 
 	* msec.spec: [no log message]
 
-1999-12-08 13:58  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-08 13:58  Yoann Vandoorselaere
 
 	* init-sh/lib.sh: [no log message]
 
-1999-12-08 13:49  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-08 13:49  Yoann Vandoorselaere
 
 	* init-sh/lib.sh: [no log message]
 
-1999-12-08 13:44  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-08 13:44  Yoann Vandoorselaere
 
 	* init-sh/: custom.sh, level5.sh: [no log message]
 
-1999-12-08 13:08  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-08 13:08  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh, init-sh/level5.sh: [no log message]
 
-1999-12-08 13:04  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-08 13:04  Yoann Vandoorselaere
 
 	* msec.spec, cron-sh/diff_check.sh, cron-sh/promisc_check.sh,
 	  cron-sh/security_check.sh, init-sh/lib.sh: [no log message]
 
-1999-12-08 13:00  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-08 13:00  Yoann Vandoorselaere
 
 	* msec.spec, cron-sh/diff_check.sh, cron-sh/file_check.sh,
 	  cron-sh/security_check.sh, init-sh/custom.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
 	  init-sh/level5.sh, init-sh/lib.sh: [no log message]
 
-1999-12-08 11:24  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-08 11:24  Yoann Vandoorselaere
 
 	* init-sh/file_perm.sh: [no log message]
 
-1999-12-08 11:04  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-08 11:04  Yoann Vandoorselaere
 
 	* msec.spec, init-sh/file_perm.sh, init-sh/level3.sh,
 	  init-sh/level4.sh, init-sh/level5.sh: [no log message]
@@ -2434,23 +2439,23 @@
 	* cron-sh/security_check.sh: Handle usernames longer than 8 chars
 	  uses ls -n and moves a couple $1 to $3 and such blah blah
 
-1999-12-08 03:49  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-08 03:49  Chmouel Boudjnah
 
 	* Makefile, msec.spec: "See_The_Changelog"
 
-1999-12-08 03:40  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-08 03:40  Chmouel Boudjnah
 
 	* Makefile, msec.spec, doc/msec.spec: "See_The_Changelog"
 
-1999-12-08 03:33  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-08 03:33  Chmouel Boudjnah
 
 	* Makefile: "See_The_Changelog"
 
-1999-12-08 03:15  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-08 03:15  Chmouel Boudjnah
 
 	* doc/msec.spec: "See_The_Changelog"
 
-1999-12-08 03:11  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-08 03:11  Chmouel Boudjnah
 
 	* cron-sh/promisc_check.sh: "See_The_Changelog"
 
@@ -2459,45 +2464,45 @@
 	* cron-sh/file_check.sh:
 	  Fix the typo
 
-1999-12-06 19:11  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-06 19:11  Yoann Vandoorselaere
 
 	* doc/msec.spec, init-sh/custom.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: [no log
 	  message]
 
-1999-12-06 19:08  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-06 19:08  Yoann Vandoorselaere
 
 	* doc/msec.spec: [no log message]
 
-1999-12-06 19:05  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-06 19:05  Yoann Vandoorselaere
 
 	* cron-sh/file_check.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
 	  init-sh/lib.sh, cron-sh/security_check.sh: [no log message]
 
-1999-12-06 10:01  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-06 10:01  Yoann Vandoorselaere
 
 	* cron-sh/file_check.sh, init-sh/perm.1, init-sh/perm.2,
 	  init-sh/perm.3, init-sh/perm.4, init-sh/perm.5:
 
 	  Added permission for /var/log/ and it's subdirectory
 
-1999-12-03 15:05  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-03 15:05  Yoann Vandoorselaere
 
 	* init-sh/: level1.sh, level2.sh, level3.sh, level4.sh, level5.sh:
 
 	  Added /usr/games in PATH
 
-1999-12-01 17:30  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-01 17:30  Yoann Vandoorselaere
 
 	* doc/msec.spec, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/lib.sh: [no log message]
 
-1999-12-01 16:52  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-01 16:52  Yoann Vandoorselaere
 
 	* doc/msec.spec: [no log message]
 
-1999-12-01 16:51  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-01 16:51  Yoann Vandoorselaere
 
 	* doc/msec.spec, init-sh/file_perm.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/lib.sh:
@@ -2505,26 +2510,26 @@
 	  Ok now add the user list to audio group ( level 1 & 2 ).  lib.sh
 	  delete user list from audio group
 
-1999-12-01 15:55  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-01 15:55  Yoann Vandoorselaere
 
 	* init-sh/: level1.sh, level2.sh, level3.sh:
 	  Bug fix
 
-1999-12-01 12:40  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-01 12:40  Yoann Vandoorselaere
 
 	* doc/msec.spec: [no log message]
 
-1999-12-01 12:39  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-01 12:39  Yoann Vandoorselaere
 
 	* init-sh/: level4.sh, lib.sh:
 
 	  Now preserve file indentation
 
-1999-12-01 12:10  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-01 12:10  Yoann Vandoorselaere
 
 	* init-sh/: level4.sh, lib.sh: [no log message]
 
-1999-12-01 12:02  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-01 12:02  Yoann Vandoorselaere
 
 	* doc/msec.spec, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
@@ -2532,7 +2537,7 @@
 
 	  Bug fix
 
-1999-11-30 16:47  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-11-30 16:47  Yoann Vandoorselaere
 
 	* cron-sh/file_check.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh:
@@ -2540,19 +2545,19 @@
 	  Many cron security check added.  Now report what it does ( msec
 	  ).
 
-1999-11-29 16:06  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-11-29 16:06  Yoann Vandoorselaere
 
 	* Makefile, doc/msec.spec, init-sh/custom.sh, init-sh/init.sh,
 	  init-sh/lib.sh: [no log message]
 
-1999-11-29 15:18  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-11-29 15:18  Yoann Vandoorselaere
 
 	* init-sh/: custom.sh, init.sh, level1.sh, level2.sh, level3.sh,
 	  level4.sh, level5.sh, lib.sh:
 
 	  Uhh custom security will always be a good idea.
 
-1999-11-29 11:09  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-11-29 11:09  Yoann Vandoorselaere
 
 	* doc/msec.spec, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
@@ -2560,11 +2565,11 @@
 
 	  Fix a few bug.
 
-1999-11-26 18:23  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-11-26 18:23  Yoann Vandoorselaere
 
 	* doc/msec.spec: [no log message]
 
-1999-11-26 01:21  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-11-26 01:21  Yoann Vandoorselaere
 
 	* doc/msec.spec, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh:
@@ -2572,14 +2577,14 @@
 	  msec.spec:  updated revision / changelog.  level[12].sh: removed
 	  some unused code.  level3.sh: fixed a bug
 
-1999-11-25 21:24  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-11-25 21:24  Yoann Vandoorselaere
 
 	* doc/msec.spec, init-sh/level4.sh, init-sh/level5.sh:
 
 	  level[45].sh : use the new --msec option when calling chkconfig
 	  msec.spec : updated release version number
 
-1999-11-25 20:44  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-11-25 20:44  Yoann Vandoorselaere
 
 	* AUTHORS, Makefile, COPYING, README, cron-sh/Makefile,
 	  cron-sh/file_check.sh, cron-sh/promisc_check.sh, doc/msec.spec,
@@ -2591,7 +2596,7 @@
 	  init-sh/server.4, src/promisc_check/Makefile,
 	  src/promisc_check/promisc_check.c: Initial revision
 
-1999-11-25 20:44  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-11-25 20:44  Yoann Vandoorselaere
 
 	* AUTHORS, Makefile, COPYING, README, cron-sh/Makefile,
 	  cron-sh/file_check.sh, cron-sh/promisc_check.sh, doc/msec.spec,

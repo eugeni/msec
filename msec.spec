@@ -39,7 +39,6 @@ install -m 755 init-sh/*.sh cron-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
 install -m 755 init-sh/msec $RPM_BUILD_ROOT/usr/sbin
 install -m 644 conf/perm.* conf/server.* $RPM_BUILD_ROOT/etc/security/msec
 install -m 755 src/promisc_check/promisc_check src/msec_find/msec_find $RPM_BUILD_ROOT/usr/bin
-#install -m 644 doc/*8 $RPM_BUILD_ROOT%{_mandir}/man8/
 
 touch $RPM_BUILD_ROOT/etc/security/msec/security.conf $RPM_BUILD_ROOT/var/log/security.log
 

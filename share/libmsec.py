@@ -288,7 +288,7 @@ def enable_pam_wheel_for_su(arg):
             return
         members = ent[3]
         if members == [] or members == ['root']:
-            error(_('wheel group is empty'))
+            _interactive and error(_('wheel group is empty'))
             return
         su.exists() and (su.replace_line_matching('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$',
                                                   'auth       required     /lib/security/pam_wheel.so use_uid') or \

@@ -47,7 +47,7 @@ AddBegRules() {
     echo "Modifying config in ${2}..."
     
     export VAL=$2
-    perl -pe -i '/^#/ or /^$/ or $m++ or print "$ENV{COMMENT}\n$ENV{VAL}\n\n"' $1
+    perl -pi -e '/^#/ or /^$/ or $m++ or print "$ENV{COMMENT}\n$ENV{VAL}\n\n"' $1
 
     echo -e "done.\n"
 }

@@ -6,8 +6,8 @@ TAG := $(shell echo "V$(VERSION)_$(RELEASE)" | tr -- '-.' '__')
 all: promisc_check msec_find
 
 clean:
-	find . -name *.o -exec rm -f {} \;
-	find . -name *~ -exec rm -f {} \;
+	-find . -name '*.o' -exec rm -f {} \;
+	-find . -name '*~' -exec rm -f {} \;
 	rm -f src/promisc_check/promisc_check
 	rm -f src/msec_find/msec_find
 

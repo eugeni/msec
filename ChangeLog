@@ -1,3 +1,17 @@
+2003-09-03 17:45  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.40-1mdk
+
+2003-09-03 17:39  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/shadow.py: make an exception for set_shell_history_size
+	that accept -1 as a normal argument
+
+2003-09-03 17:36  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/Perms.py: correct broken code in fix_perms which add +x for
+	all files when it finds a directory in a glob.
+
 2003-08-22 14:54  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.39-1mdk

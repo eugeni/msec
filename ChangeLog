@@ -1,3 +1,24 @@
+2002-02-15 00:21  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.sh: test SECURE_LEVEL before using it as a number
+
+2002-02-15 00:20  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: use the right string for the prog name
+
+2002-02-15 00:19  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: allow an extra arg to specify the log to do in
+	enable_console_log
+
+2002-02-15 00:18  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/security.sh: use umask from the secure level setting
+
+2002-02-14 23:36  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/promisc_check.sh: use complete path for the ip command.
+
 2002-02-13 21:59  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.18-5mdk

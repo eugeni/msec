@@ -28,11 +28,11 @@ Syslog() {
 }
 
 Ttylog() {
-	if [[ ${TTY_WARN} == yes ]]; then
-		for i in `w | grep -v "load\|TTY" | awk '{print $2}'` ; do
-			echo -e "$1" > /dev/$i
-		done
-	fi
+    if [[ ${TTY_WARN} == yes ]]; then
+	for i in `w | grep -v "load\|TTY" | awk '{print $2}'` ; do
+	    cat ${1} > /dev/$i
+	done
+    fi
 }
 
 ##################

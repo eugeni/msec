@@ -50,6 +50,7 @@ Security level 3  ( Aka more secure system ) :
 - Warning in syslog
 - Warning in /var/log/security.log
 - rpm database checks
+- send the results of checks by mail if they aren't empty
 
 - umask is 022 ( user = read,write | group = read | other = read )
 - Normal file permission.
@@ -78,6 +79,8 @@ Security level 4 ( Aka Secured system ) :
 - Warning in /var/log/security.log
 - Warning directly on tty
 - rpm database checks
+- Send the results of checks by mail even if they are empty
+ to show that the checks were run.
 
 - umask 022 ( user = read,write | group = read | other = read ) for root
 - umask 077 ( user = read,write | group =  | other =  ) for normal users
@@ -127,6 +130,8 @@ Security level 5 ( Aka Paranoid system ) :
 - Warning in /var/log/security.log
 - Warning directly on tty
 - rpm database checks
+- Send the results of checks by mail even if they are empty
+ to show that the checks were run.
 
 - umask 077 ( user = read,write | group =  | other =  )
 - Highly restricted file permission

@@ -1,11 +1,13 @@
 #!/bin/bash
 
-IFS="
-"
+if [ ! -s $1 ]; then
+	echo "I need a msec permfile in argument".
+	exit 1
+fi
 
 echo -n "Setting files permissions : "
 
-cat $1 | while read file owner perm; do
+grep -v "^#" $1 | while read file owner perm; do
 	if [ -a "${file}" ]; then
 		if [ ${owner} != "current" ]; then
 			chown ${owner} ${file}
@@ -16,4 +18,3 @@ done
 
 echo "done."
 		
-	

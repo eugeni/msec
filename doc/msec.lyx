@@ -1,4 +1,4 @@
-#This file was created by <camille> Thu Jan  6 11:03:16 2000
+#This file was created by <camille> Thu Jan  6 11:15:42 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass article
@@ -1254,8 +1254,8 @@ ctrl-alt-del
 
 \layout Standard
 
-You must be root (or referenced into /etc/shutdown.allow) and logged into
- a console to be able to reboot the machine through key binding 
+Root (or a user referenced into /etc/shutdown.allow) must be logged into
+ a console for the key binding 
 \begin_inset Quotes eld
 \end_inset 
 
@@ -1263,7 +1263,16 @@ ctrl-alt-del
 \begin_inset Quotes erd
 \end_inset 
 
-.
+ having effect.
+ If no privileged user is logged, nothing happens when someone uses 
+\begin_inset Quotes eld
+\end_inset 
+
+ctrl-alt-del
+\begin_inset Quotes erd
+\end_inset 
+
+ .
 \layout Subsection
 
 Services not known disabled 

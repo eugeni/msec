@@ -81,7 +81,7 @@ CleanRules() {
     
     rm -f /tmp/secure.tmp
 
-	echo "done."
+    echo "done."
 }
 
 CommentUserRules() {

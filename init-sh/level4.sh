@@ -98,7 +98,7 @@ echo -e "done.\n";
 
 # /etc/profile
 echo "Setting umask to 022 (u=rw,g=rx) for root, 077 (u=rw) for user :"
-AddRules "if [ ${UID} == 0 ]; then umask 022; else umask 077; fi"
+AddRules "if [ ${UID} == 0 ]; then umask 022; else umask 077; fi" /etc/profile
 echo "Adding \"normal\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile

@@ -1,21 +1,425 @@
-2001-11-30 14:45  florin
+2001-12-02 01:52  Frederic Lepied <flepied@mandrakesoft.com>
 
-        * add /etc/sysconfig/msec support, allow ssh connexions in snf level(hosts.allow), 
+	* conf/: server.4, server.5: snort => snortd
 
+2001-12-02 01:52  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5, perm.snf:
+	added default owners of /var/log/{news,snort,uucp}
+
+2001-12-02 01:03  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.16-3mdk
+
+2001-12-02 01:03  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
+	level5.sh, levelsnf.sh: added sysctl.conf, host.conf and
+	/etc/issue{.net} customization.
+
+2001-12-02 00:59  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: server.4, server.5: added firewall and IDS to the list.
+
+2001-12-02 00:58  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5, perm.snf:
+	customize rpm progs and /usr/share/doc permissions.
+
+2001-12-02 00:56  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.csh: sed black magic to read /etc/sysconfig/msec and
+	translate sh variables in csh ones.
+
+2001-12-02 00:55  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* init-sh/custom.sh: libsafe.so.1.3 => libsafe.so.2
+
+2001-12-02 00:54  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* init-sh/lib.sh: added LoadSysctl, RemoveIssue, RemoveIssueNet,
+	RestoreIssues functions.
+
+2001-12-01 23:32  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* Makefile: corrected clean rule
+
+2001-11-30 08:22  florin
+
+	* msec.spec: 0.16-3mdk Changelog
+
+2001-11-30 08:15  florin
+
+	* msec.spec: update the changelog message in the 0.16-3mdk
+
+2001-11-30 08:13  florin
+
+	* msec.spec: update the post message
+
+2001-11-30 07:32  florin
+
+	* init-sh/levelsnf.sh: allow the ssh connexions from everywhere
+
+2001-11-29 12:33  florin
+
+	* msec.csh: sysconfig file
+
+2001-11-29 12:32  florin
+
+	* msec.sh: source the sysconfig file
+
+2001-11-29 12:30  florin
+
+	* msec.sh: add SECURE LEVEL
+
+2001-11-29 12:23  florin
+
+	* init-sh/lib.sh: bring back the cleaning of the profile files in
+	order to make an update work
+
+2001-11-29 12:11  florin
+
+	* init-sh/level5.sh: fix a typo error space in ldpreload condition
+	if
+
+2001-11-29 12:04  florin
+
+	* init-sh/levelsnf.sh: typo error in SECURE_LEVEL
+
+2001-11-29 11:56  florin
+
+	* msec.spec: create the entries for the %{_sysconfdir}/%{name} file
+
+2001-11-29 11:50  florin
+
+	* msec.csh: remove the sysconfig/source
+
+2001-11-29 11:50  florin
+
+	* msec.sh: remove the source of sysconfig/msec
+
+2001-11-29 09:24  florin
+
+	* init-sh/lib.sh: clean sysconfig/msec
+
+2001-11-29 09:15  florin
+
+	* init-sh/custom.sh: remove the profile.d comment
+
+2001-11-29 09:12  florin
+
+	* msec.spec: fix changelog for 3mdk
+
+2001-11-29 09:12  florin
+
+	* msec.spec: 3mdk
+
+2001-11-29 08:39  florin
+
+	* init-sh/lib.sh: clean the entries related to the
+	profile.d/msec*sh files
+
+2001-11-29 08:38  florin
+
+	* init-sh/levelsnf.sh: clean the comment related to the profile.d
+	dir
+
+2001-11-29 08:37  florin
+
+	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
+	level5.sh: remove the comments related to profile.d
+
+2001-11-29 08:33  florin
+
+	* init-sh/level5.sh: sysconfig/msec support
+
+2001-11-29 08:30  florin
+
+	* init-sh/custom.sh: add the sysconfig/msec support
+
+2001-11-29 08:26  florin
+
+	* init-sh/levelsnf.sh: add sysconfig/msec support
+
+2001-11-28 10:39  florin
+
+	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
+	level5.sh: add the /etc/sysconfig/mesc support for UMASK
+
+2001-11-28 10:14  florin
+
+	* msec.csh, msec.sh: source the /etc/sysconfig/msec file
+
+2001-11-28 09:16  florin
+
+	* init-sh/custom.sh: add the support to the profile.d files
+
+2001-11-08 11:35  florin
+
+	* msec.spec: typo error in post script
+
+2001-11-08 11:23  florin
+
+	* msec.spec: update post section and modify the changelog
+
+2001-11-08 10:37  florin
+
+	* init-sh/msec: typo error
+
+2001-11-08 10:26  florin
+
+	* init-sh/msec: new entries for snf
+
+2001-11-08 10:25  florin
+
+	* msec.spec: new version
+
+2001-11-08 10:23  florin
+
+	* init-sh/grpuser.sh: new support for snf
+
+2001-11-08 06:21  florin
+
+	* msec.spec: 32 mdk
+
+2001-11-08 06:17  florin
+
+	* init-sh/lib.sh: add snf in RootSshLogin function
+
+2001-11-08 06:12  florin
+
+	* init-sh/levelsnf.sh, conf/perm.snf: [no log message]
+
+2001-11-07 10:38  florin
+
+	* msec.spec: make rpmlint happy and add Url tag
+
+2001-11-07 10:36  florin
+
+	* msec.spec: Mandrake Linux
+
+2001-11-07 10:28  florin
+
+	* conf/server.snf: new snf level
+
+2001-11-07 10:28  florin
+
+	* conf/server.4: back to the old 4 level
+
+2001-11-07 10:26  florin
+
+	* msec.spec: changelog enrtry in 31mdk
+
+2001-11-07 10:25  florin
+
+	* init-sh/levelsnf.sh: nex snf level
+
+2001-11-07 10:15  florin
+
+	* init-sh/msec: add snf entry in usage
+
+2001-11-07 10:11  florin
+
+	* conf/: perm.3, perm.4, perm.5, perm.snf: new entry
+
+2001-11-07 09:31  florin
+
+	* conf/server.4: add named in authorized servers for level 4
+
+2001-11-07 09:29  florin
+
+	* msec.spec: changelog for 31mdk
+
+2001-11-07 09:26  florin
+
+	* conf/server.4: add some servers in level 4
+
+2001-11-07 09:03  florin
+
+	* msec.spec: new modifs
+
+2001-11-07 09:02  florin
+
+	* conf/: perm.3, perm.4, perm.5: add monitoring permissions
+
+2001-11-07 08:58  florin
+
+	* conf/: perm.3, perm.4, perm.5: add the right permissions for naat
+	packages
+
+2001-11-07 08:33  florin
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5, server.4:
+	modify the squid permissions and add naat-backend permissions
+
+2001-10-03 09:07  florin
+
+	* init-sh/: level4.sh, level5.sh: remove the touch ld.so.preload as
+	we're doing it in lib.sh
+
+2001-10-03 09:06  florin
+
+	* init-sh/lib.sh: touch ld.so.preload before cleaning
+
+2001-10-03 08:58  florin
+
+	* msec.csh, msec.sh: first add
+
+2001-10-03 08:52  florin
+
+	* msec.spec, init-sh/level4.sh, init-sh/level5.sh: libsafe.so.2
+
+2001-10-03 08:51  florin
+
+	* init-sh/lib.sh: add print in CleanRules
+
+2001-10-03 08:50  florin
+
+	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
+	level5.sh: libsafe.so.2 in levels 4/5 and remove the . in PATH
+
+2001-09-29 10:05  florin
+
+	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
+	level5.sh: add \n
+
+2001-09-29 09:58  florin
+
+	* init-sh/lib.sh: remove or print
+
+2001-09-29 09:46  florin
+
+	* man/C/: init.sh.8, msec.8: date
+
+2001-09-29 09:44  florin
+
+	* msec.spec: date in 30mdk
+
+2001-09-29 09:42  florin
+
+	* init-sh/lib.sh: add the E in grep in AddRules
+
+2001-09-29 09:41  florin
+
+	* msec.spec: 30mdk man changelog
+
+2001-09-29 09:40  florin
+
+	* msec.spec: 30mdk changelog
+
+2001-09-29 09:38  florin
+
+	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
+	level5.sh: PATH modifs
+
+2001-09-29 09:34  florin
+
+	* init-sh/lib.sh: bring back the or print in CleanRules
+
+2001-09-29 09:23  florin
+
+	* man/C/: init.sh.8, msec.8: update the doc path
+
+2001-09-27 11:23  florin
+
+	* init-sh/lib.sh: remove the or print part in the perl line in
+	CleanRules
+
+2001-09-27 11:22  florin
+
+	* msec.spec: date in 30mdk changelog
+
+2001-09-27 11:21  florin
+
+	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
+	level5.sh: move from profile ro the profile.d/msec.{sh,csh} entries
+
+2001-09-27 11:14  florin
+
+	* msec.spec: add a changelog entry in the 30mdk
+
+2001-09-26 10:25  florin
+
+	* msec.spec: add an entry in the 30 mdk changelog
+
+2001-09-26 10:24  florin
+
+	* init-sh/lib.sh: remove the -E option in the AddRules grep
+
+2001-09-26 09:48  florin
+
+	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
+	level5.sh: typo errors
+
+2001-09-26 08:35  florin
+
+	* init-sh/lib.sh: CleanRules for /etc/profile and /etc/zprofile
+
+2001-09-26 08:20  florin
+
+	* msec.spec: 30mdk
+
+2001-09-26 08:10  florin
+
+	* init-sh/: level1.sh, level2.sh, level3.sh, level4.sh, level5.sh:
+	comment for profile.d section
+
+2001-09-26 08:07  florin
+
+	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
+	level5.sh: use profile.d/* files instead of /etc/{z}profile
+
+2001-09-26 06:03  florin
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: use
+	profile.d/ files instead of profile
+
+2001-09-20 12:05  florin
+
+	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
+	level5.sh: typo for /etc/profile.d/*csh
+
+2001-09-20 11:54  florin
+
+	* init-sh/level2.sh: typo in profile.d entries
+
+2001-09-20 11:43  florin
+
+	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
+	level5.sh: profile.d entries
+
+2001-09-20 11:36  florin
+
+	* init-sh/lib.sh.usermode: remove the /etc/profile entries
+
+2001-09-20 11:35  florin
+
+	* init-sh/lib.sh: remove the /etc/profile entries and use
+	/etc/profile.d/msec*sh|csh instead
+
+2001-09-20 11:28  florin
+
+	* msec.spec: /etc/profile.d*sh|csh entries
+
+2001-09-20 09:43  florin
+
+	* conf/: server.4, server.5: add the usb service
+
+2001-09-20 09:42  florin
+
+	* msec.spec: authorize the usb service in 4/5 levels of security
+
+2001-09-19 13:00  yoann
+
+	* msec.spec: 
 	
-2001-10-03 14:45  florin
+	Require /bin/touch
 
-	* init-sh/level*.sh: libsafe.so.2
-
-2001-09-20 17:45  florin
-
-	* init-sh/level*.sh: use /etc/profile.d instead of /etc/profile
-
-2001-09-19 15:37  florin
+2001-09-19 09:37  florin
 
 	* msec.spec: source2 is msec.logrotate and not msec
 
-2001-09-19 14:32  yoann
+2001-09-19 08:32  yoann
 
 	* msec.spec, init-sh/level0.sh, init-sh/level1.sh,
 	init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
@@ -25,98 +429,98 @@
 	read.  - Keep the output of the SECURE_LEVEL in /etc/profile and
 	/etc/zprofile.
 
-2001-09-19 14:28  florin
+2001-09-19 08:28  florin
 
 	* msec.spec: 25mdk
 
-2001-09-19 14:21  florin
+2001-09-19 08:21  florin
 
 	* conf/server.4: sshd entry
 
-2001-09-19 14:20  florin
+2001-09-19 08:20  florin
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: squidGuard
 	entries
 
-2001-09-19 14:16  florin
+2001-09-19 08:16  florin
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	level5.sh, lib.sh, lib.sh.usermode: RootSshLogin
 
-2001-09-19 14:00  florin
+2001-09-19 08:00  florin
 
 	* doc/security.txt: there are no */init-sh/ directories in the rpm
 	msec
 
-2001-09-19 13:30  yoann
+2001-09-19 07:30  yoann
 
 	* msec.spec, msec.spec: [no log message]
 
-2001-09-19 13:18  yoann
+2001-09-19 07:18  yoann
 
 	* msec.spec: [no log message]
 
-2001-09-19 11:37  yoann
+2001-09-19 05:37  yoann
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	level5.sh, lib.sh: [no log message]
 
-2001-09-17 19:14  Daouda Lo <daouda@mandrakesoft.com>
+2001-09-17 13:14  Daouda Lo <daouda@mandrakesoft.com>
 
 	* msec.logrotate: logrotate file
 
-2001-09-17 18:44  Daouda Lo <daouda@mandrakesoft.com>
+2001-09-17 12:44  Daouda Lo <daouda@mandrakesoft.com>
 
 	* msec.spec: del doc/*
 
-2001-09-17 18:42  Daouda Lo <daouda@mandrakesoft.com>
+2001-09-17 12:42  Daouda Lo <daouda@mandrakesoft.com>
 
 	* msec.spec: comment doc/*.8
 
-2001-09-17 18:35  Daouda Lo <daouda@mandrakesoft.com>
+2001-09-17 12:35  Daouda Lo <daouda@mandrakesoft.com>
 
 	* msec.spec: fix  kdm sec hole at level 4 (displayin users)
 
-2001-09-17 18:32  Daouda Lo <daouda@mandrakesoft.com>
+2001-09-17 12:32  Daouda Lo <daouda@mandrakesoft.com>
 
 	* init-sh/lib.sh: -fix users display in level up to 4 (kdm)
 
-2001-09-14 18:14  florin
+2001-09-14 12:14  florin
 
 	* conf/: perm.2, perm.3, perm.5: /var/log/squid permisssions
 
-2001-09-14 18:13  florin
+2001-09-14 12:13  florin
 
 	* conf/: perm.0, perm.1, perm.4: /var/log/squid permisssion
 
-2001-09-14 18:12  florin
+2001-09-14 12:12  florin
 
 	* msec.spec: /var/log/squid permissions
 
-2001-09-03 03:24  Pablo Saratxaga <pablo@mandrakesoft.com>
+2001-09-02 21:24  Pablo Saratxaga <pablo@mandrakesoft.com>
 
 	* Makefile, msec.spec, doc/init.sh.8, doc/msec.8, man/C/init.sh.8,
 	man/C/msec.8, man/fr/init.sh.8: moved man pages to man/C, added
 	French man page
 
-2001-08-09 11:02  Frederic Lepied <flepied@mandrakesoft.com>
+2001-08-09 05:02  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.15-18mdk
 
-2001-08-09 11:00  Frederic Lepied <flepied@mandrakesoft.com>
+2001-08-09 05:00  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* Makefile: add rules to build test and release rpms.
 
-2001-08-09 10:48  Frederic Lepied <flepied@mandrakesoft.com>
+2001-08-09 04:48  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* init-sh/: custom.sh, level0.sh, level1.sh, level2.sh, level3.sh,
 	level4.sh: added vc/[1-6] to securetty (devfs)
 
-2001-08-09 10:47  Frederic Lepied <flepied@mandrakesoft.com>
+2001-08-09 04:47  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* conf/perm.4: made securetty entry compliant with other perm.*
 
-2001-08-09 10:10  Frederic Lepied <flepied@mandrakesoft.com>
+2001-08-09 04:10  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* Makefile, TODO, msec.spec, conf/perm.0, conf/perm.1, conf/perm.2,
 	conf/perm.3, conf/perm.4, conf/perm.5, conf/server.4,
@@ -126,145 +530,145 @@
 	init-sh/level5.sh, init-sh/lib.sh, init-sh/lib.sh.usermode: merge
 	back 0.15-17mdk in CVS
 
-2000-05-17 15:38  yoann
+2000-05-17 09:38  yoann
 
 	* init-sh/: custom.sh, level4.sh, level5.sh: [no log message]
 
-2000-05-17 12:45  yoann
+2000-05-17 06:45  yoann
 
 	* init-sh/: custom.sh, level4.sh, level5.sh: [no log message]
 
-2000-05-03 14:39  yoann
+2000-05-03 08:39  yoann
 
 	* msec.spec, init-sh/custom.sh, init-sh/level4.sh,
 	init-sh/level5.sh, init-sh/lib.sh, msec.spec, msec.spec, msec.spec:
 	[no log message]
 
-2000-04-25 14:04  yoann
+2000-04-25 08:04  yoann
 
 	* msec.spec, Makefile, msec.spec: [no log message]
 
-2000-04-25 14:01  yoann
+2000-04-25 08:01  yoann
 
 	* Makefile, msec.spec, init-sh/lib.sh: [no log message]
 
-2000-04-24 23:01  Pixel <pixel@mandrakesoft.com>
+2000-04-24 17:01  Pixel <pixel@mandrakesoft.com>
 
 	* msec.spec, conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3,
 	conf/perm.4: no_comment
 
-2000-04-19 13:04  yoann
+2000-04-19 07:04  yoann
 
 	* Makefile, msec.spec, init-sh/lib.sh: [no log message]
 
-2000-04-19 12:06  yoann
+2000-04-19 06:06  yoann
 
 	* init-sh/lib.sh, msec.spec, init-sh/lib.sh: [no log message]
 
-2000-04-19 11:54  yoann
+2000-04-19 05:54  yoann
 
 	* init-sh/: custom.sh, level0.sh, level1.sh, level2.sh, level3.sh,
 	level4.sh, level5.sh, lib.sh: [no log message]
 
-2000-04-18 18:30  yoann
+2000-04-18 12:30  yoann
 
 	* init-sh/custom.sh, src/msec_find/find.c, msec.spec: [no log
 	message]
 
-2000-04-18 16:36  yoann
+2000-04-18 10:36  yoann
 
 	* init-sh/: level3.sh, level4.sh, level5.sh: [no log message]
 
-2000-04-17 18:19  yoann
+2000-04-17 12:19  yoann
 
 	* msec.spec: [no log message]
 
-2000-04-17 17:25  yoann
+2000-04-17 11:25  yoann
 
 	* msec.spec, src/msec_find/find.c: [no log message]
 
-2000-04-17 16:27  yoann
+2000-04-17 10:27  yoann
 
 	* msec.spec, conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3,
 	conf/perm.4, conf/perm.5, init-sh/file_perm.sh: [no log message]
 
-2000-04-17 16:14  yoann
+2000-04-17 10:14  yoann
 
 	* msec.spec, init-sh/file_perm.sh: [no log message]
 
-2000-04-17 16:07  yoann
+2000-04-17 10:07  yoann
 
 	* conf/perm.5: [no log message]
 
-2000-04-17 15:55  yoann
+2000-04-17 09:55  yoann
 
 	* Makefile, msec.spec, doc/msec.8, doc/msec.lyx: [no log message]
 
-2000-04-14 18:35  yoann
+2000-04-14 12:35  yoann
 
 	* init-sh/: custom.sh, level0.sh, level1.sh, level2.sh, level3.sh,
 	level4.sh, level5.sh: [no log message]
 
-2000-03-22 18:44  yoann
+2000-03-22 12:44  yoann
 
 	* README, init-sh/custom.sh: [no log message]
 
-2000-03-22 18:37  yoann
+2000-03-22 12:37  yoann
 
 	* README, init-sh/custom.sh, init-sh/level5.sh, init-sh/lib.sh,
 	init-sh/custom.sh, Makefile, msec.spec: [no log message]
 
-2000-03-22 17:59  yoann
+2000-03-22 11:59  yoann
 
 	* conf/perm.5: [no log message]
 
-2000-03-19 19:41  yoann
+2000-03-19 13:41  yoann
 
 	* cron-sh/security.sh, src/msec_find/find.c: [no log message]
 
-2000-03-19 17:10  yoann
+2000-03-19 11:10  yoann
 
 	* msec.spec, cron-sh/security.sh, src/msec_find/find.c: [no log
 	message]
 
-2000-03-09 14:52  yoann
+2000-03-09 08:52  yoann
 
 	* msec.spec: [no log message]
 
-2000-03-09 14:42  yoann
+2000-03-09 08:42  yoann
 
 	* msec.spec, init-sh/custom.sh, src/msec_find/find.c: [no log
 	message]
 
-2000-03-08 15:44  yoann
+2000-03-08 09:44  yoann
 
 	* Makefile, msec.spec, src/msec_find/Makefile,
 	src/promisc_check/Makefile: [no log message]
 
-2000-03-08 15:25  yoann
+2000-03-08 09:25  yoann
 
 	* msec.spec, Makefile, msec.spec: [no log message]
 
-2000-03-08 15:19  yoann
+2000-03-08 09:19  yoann
 
 	* Makefile, init-sh/msec: [no log message]
 
-2000-03-08 15:01  yoann
+2000-03-08 09:01  yoann
 
 	* Makefile, msec.spec, cron-sh/security.sh, init-sh/custom.sh,
 	init-sh/level4.sh, init-sh/level5.sh, init-sh/msec,
 	src/msec_find/Makefile, src/msec_find/find.c: [no log message]
 
-2000-03-07 18:03  yoann
+2000-03-07 12:03  yoann
 
 	* msec.spec, init-sh/msec: [no log message]
 
-2000-03-07 17:50  yoann
+2000-03-07 11:50  yoann
 
 	* Makefile, msec.spec, init-sh/level0.sh, msec.spec: [no log
 	message]
 
-2000-03-07 17:45  yoann
+2000-03-07 11:45  yoann
 
 	* Makefile, conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3,
 	conf/perm.4, conf/perm.5, conf/server.4, conf/server.5,
@@ -276,362 +680,362 @@
 	init-sh/perm.5, init-sh/server.4, init-sh/server.5: [no log
 	message]
 
-2000-03-07 15:39  yoann
+2000-03-07 09:39  yoann
 
 	* cron-sh/security_check.sh, init-sh/perm.4, init-sh/perm.5: [no
 	log message]
 
-2000-02-17 12:29  yoann
+2000-02-17 06:29  yoann
 
 	* init-sh/: perm.4, perm.5: [no log message]
 
-2000-02-17 11:07  yoann
+2000-02-17 05:07  yoann
 
 	* init-sh/: perm.4, perm.5: [no log message]
 
-2000-01-21 01:46  yoann
+2000-01-20 19:46  yoann
 
 	* init-sh/grpuser.sh: [no log message]
 
-2000-01-18 09:57  yoann
+2000-01-18 03:57  yoann
 
 	* msec.spec: [no log message]
 
-2000-01-13 10:08  yoann
+2000-01-13 04:08  yoann
 
 	* msec.spec, init-sh/custom.sh: [no log message]
 
-2000-01-06 15:27  yoann
+2000-01-06 09:27  yoann
 
 	* msec.spec, cron-sh/security.sh, init-sh/level3.sh,
 	init-sh/level4.sh, init-sh/level5.sh: [no log message]
 
-2000-01-06 14:35  camille
+2000-01-06 08:35  camille
 
 	* doc/: msec.lyx, msec.ps: re-mistake...
 
-2000-01-06 14:24  camille
+2000-01-06 08:24  camille
 
 	* doc/: msec.lyx, msec.ps: Added friendly level names Corrected a
 	mistake
 
-2000-01-06 14:14  yoann
+2000-01-06 08:14  yoann
 
 	* init-sh/level0.sh, msec.spec: [no log message]
 
-2000-01-04 14:10  camille
+2000-01-04 08:10  camille
 
 	* doc/: msec.lyx, msec.ps: Added "root shutdown" feature.
 
-2000-01-04 13:37  yoann
+2000-01-04 07:37  yoann
 
 	* doc/security.txt, init-sh/custom.sh, msec.spec: [no log message]
 
-2000-01-04 11:25  yoann
+2000-01-04 05:25  yoann
 
 	* init-sh/: level0.sh, perm.0, perm.1, perm.2, perm.3, perm.4,
 	perm.5: [no log message]
 
-2000-01-03 11:41  yoann
+2000-01-03 05:41  yoann
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	level5.sh: [no log message]
 
-1999-12-29 14:24  yoann
+1999-12-29 08:24  yoann
 
 	* msec.spec: [no log message]
 
-1999-12-29 14:21  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-29 08:21  Chmouel Boudjnah <chmouel@mandrakesoft.com>
 
 	* Makefile, msec.spec: "Seethechangelog"
 
-1999-12-29 14:18  yoann
+1999-12-29 08:18  yoann
 
 	* doc/grpuser.8: [no log message]
 
-1999-12-28 19:28  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-28 13:28  Chmouel Boudjnah <chmouel@mandrakesoft.com>
 
 	* doc/: msec.lyx, msec.ps: "Seethechangelog"
 
-1999-12-28 19:15  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-28 13:15  Chmouel Boudjnah <chmouel@mandrakesoft.com>
 
 	* doc/: grpuser.8, grpuser.8.bz2, init.sh.8, init.sh.8.bz2, msec.8,
 	msec.8.bz2: "Seethechangelog"
 
-1999-12-28 17:13  camille
+1999-12-28 11:13  camille
 
 	* doc/: grpuser.8.bz2, init.sh.8.bz2, msec.8.bz2: Added man pages
 
-1999-12-28 16:32  camille
+1999-12-28 10:32  camille
 
 	* doc/msec.lyx: Added latest enhancement: mail warning
 
-1999-12-28 09:47  yoann
+1999-12-28 03:47  yoann
 
 	* init-sh/level3.sh: [no log message]
 
-1999-12-27 18:03  yoann
+1999-12-27 12:03  yoann
 
 	* msec.spec: [no log message]
 
-1999-12-27 17:31  yoann
+1999-12-27 11:31  yoann
 
 	* cron-sh/: diff_check.sh, security.sh: [no log message]
 
-1999-12-27 17:28  yoann
+1999-12-27 11:28  yoann
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh, msec.spec,
 	cron-sh/security_check.sh: [no log message]
 
-1999-12-27 17:24  yoann
+1999-12-27 11:24  yoann
 
 	* cron-sh/diff_check.sh, cron-sh/security.sh, init-sh/perm.0,
 	init-sh/perm.1, init-sh/perm.2, init-sh/perm.3, init-sh/perm.4,
 	init-sh/perm.5: [no log message]
 
-1999-12-24 10:32  yoann
+1999-12-24 04:32  yoann
 
 	* msec.spec: [no log message]
 
-1999-12-23 14:05  yoann
+1999-12-23 08:05  yoann
 
 	* cron-sh/diff_check.sh: 
 	typo
 
-1999-12-22 10:27  yoann
+1999-12-22 04:27  yoann
 
 	* init-sh/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: [no log
 	message]
 
-1999-12-22 03:41  camille
+1999-12-21 21:41  camille
 
 	* doc/msec.lyx: Added comprehensive level descriptions
 
-1999-12-21 23:17  Pixel <pixel@mandrakesoft.com>
+1999-12-21 17:17  Pixel <pixel@mandrakesoft.com>
 
 	* msec.spec, init-sh/perm.4: no_comment
 
-1999-12-21 23:10  Pixel <pixel@mandrakesoft.com>
+1999-12-21 17:10  Pixel <pixel@mandrakesoft.com>
 
 	* msec.spec, init-sh/level1.sh, init-sh/level2.sh,
 	init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: no_comment
 
-1999-12-21 23:02  Pixel <pixel@mandrakesoft.com>
+1999-12-21 17:02  Pixel <pixel@mandrakesoft.com>
 
 	* msec.spec, init-sh/lib.sh: no_comment
 
-1999-12-20 19:28  yoann
+1999-12-20 13:28  yoann
 
 	* init-sh/level5.sh: [no log message]
 
-1999-12-20 19:03  yoann
+1999-12-20 13:03  yoann
 
 	* msec.spec, init-sh/lib.sh: [no log message]
 
-1999-12-20 18:14  yoann
+1999-12-20 12:14  yoann
 
 	* init-sh/: perm.1, perm.2, perm.3: [no log message]
 
-1999-12-20 17:56  yoann
+1999-12-20 11:56  yoann
 
 	* Makefile, msec.spec, cron-sh/security.sh,
 	cron-sh/security_check.sh: [no log message]
 
-1999-12-20 12:52  yoann
+1999-12-20 06:52  yoann
 
 	* cron-sh/security.sh, init-sh/grpuser.sh: [no log message]
 
-1999-12-20 09:34  yoann
+1999-12-20 03:34  yoann
 
 	* Makefile, init-sh/level4.sh, init-sh/level5.sh: [no log message]
 
-1999-12-20 09:06  yoann
+1999-12-20 03:06  yoann
 
 	* init-sh/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: [no log
 	message]
 
-1999-12-20 00:51  yoann
+1999-12-19 18:51  yoann
 
 	* init-sh/: lib.sh, perm.0, perm.1, perm.2, perm.3, perm.4, perm.5:
 	[no log message]
 
-1999-12-19 23:38  Pixel <pixel@mandrakesoft.com>
+1999-12-19 17:38  Pixel <pixel@mandrakesoft.com>
 
 	* init-sh/lib.sh: [no log message]
 
-1999-12-19 23:14  Pixel <pixel@mandrakesoft.com>
+1999-12-19 17:14  Pixel <pixel@mandrakesoft.com>
 
 	* init-sh/: lib.sh, lib.sh, lib.sh: [no log message]
 
-1999-12-19 23:09  yoann
+1999-12-19 17:09  yoann
 
 	* init-sh/: level1.sh, level2.sh: [no log message]
 
-1999-12-19 23:01  yoann
+1999-12-19 17:01  yoann
 
 	* Makefile, cron-sh/security.sh, init-sh/security.conf: [no log
 	message]
 
-1999-12-19 22:53  Pixel <pixel@mandrakesoft.com>
+1999-12-19 16:53  Pixel <pixel@mandrakesoft.com>
 
 	* init-sh/lib.sh: [no log message]
 
-1999-12-19 22:36  yoann
+1999-12-19 16:36  yoann
 
 	* cron-sh/security_check.sh: [no log message]
 
-1999-12-19 22:12  Pixel <pixel@mandrakesoft.com>
+1999-12-19 16:12  Pixel <pixel@mandrakesoft.com>
 
 	* init-sh/lib.sh: [no log message]
 
-1999-12-19 21:44  yoann
+1999-12-19 15:44  yoann
 
 	* cron-sh/: diff_check.sh, security_check.sh: [no log message]
 
-1999-12-19 21:19  yoann
+1999-12-19 15:19  yoann
 
 	* cron-sh/find.sh, cron-sh/security.sh, cron-sh/security.sh,
 	init-sh/custom.sh, init-sh/level3.sh, init-sh/level4.sh,
 	init-sh/level5.sh: [no log message]
 
-1999-12-19 21:02  yoann
+1999-12-19 15:02  yoann
 
 	* cron-sh/diff_check.sh, cron-sh/find.sh,
 	cron-sh/security_check.sh, init-sh/security.conf: [no log message]
 
-1999-12-19 01:35  Pixel <pixel@mandrakesoft.com>
+1999-12-18 19:35  Pixel <pixel@mandrakesoft.com>
 
 	* msec.spec: no_comment
 
-1999-12-19 01:30  Pixel <pixel@mandrakesoft.com>
+1999-12-18 19:30  Pixel <pixel@mandrakesoft.com>
 
 	* msec.spec, Makefile, msec.spec: no_comment
 
-1999-12-18 17:08  Pixel <pixel@mandrakesoft.com>
+1999-12-18 11:08  Pixel <pixel@mandrakesoft.com>
 
 	* msec.spec, init-sh/init.sh, init-sh/lib.sh: no_comment
 
-1999-12-17 16:22  yoann
+1999-12-17 10:22  yoann
 
 	* Makefile, cron-sh/diff_check.sh, cron-sh/security_check.sh,
 	init-sh/lib.sh, init-sh/security.conf: [no log message]
 
-1999-12-17 15:17  yoann
+1999-12-17 09:17  yoann
 
 	* cron-sh/security_check.sh: [no log message]
 
-1999-12-16 23:21  camille
+1999-12-16 17:21  camille
 
 	* doc/msec.lyx: Added level 0 minor changes
 
-1999-12-16 18:48  yoann
+1999-12-16 12:48  yoann
 
 	* msec.spec, init-sh/level0.sh, init-sh/level1.sh,
 	init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
 	init-sh/level5.sh, init-sh/lib.sh: [no log message]
 
-1999-12-16 17:41  yoann
+1999-12-16 11:41  yoann
 
 	* msec.spec, init-sh/level0.sh, init-sh/lib.sh: [no log message]
 
-1999-12-16 17:21  yoann
+1999-12-16 11:21  yoann
 
 	* msec.spec: [no log message]
 
-1999-12-16 17:17  yoann
+1999-12-16 11:17  yoann
 
 	* Makefile, TODO, cron-sh/diff_check.sh, cron-sh/security_check.sh,
 	init-sh/grpuser.sh, init-sh/level1.sh, init-sh/level2.sh,
 	init-sh/lib.sh, init-sh/group.conf: [no log message]
 
-1999-12-16 11:37  yoann
+1999-12-16 05:37  yoann
 
 	* init-sh/: level1.sh, level2.sh, lib.sh: [no log message]
 
-1999-12-16 11:32  yoann
+1999-12-16 05:32  yoann
 
 	* init-sh/grpuser.sh: [no log message]
 
-1999-12-16 03:07  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-15 21:07  Chmouel Boudjnah <chmouel@mandrakesoft.com>
 
 	* doc/msec.lyx: [no log message]
 
-1999-12-15 19:04  yoann
+1999-12-15 13:04  yoann
 
 	* init-sh/level0.sh: [no log message]
 
-1999-12-15 18:35  yoann
+1999-12-15 12:35  yoann
 
 	* TODO, init-sh/lib.sh: [no log message]
 
-1999-12-15 18:19  yoann
+1999-12-15 12:19  yoann
 
 	* Makefile, init-sh/grpuser, init-sh/lib.sh, init-sh/group.conf,
 	init-sh/grpuser, init-sh/grpuser.sh, TODO: [no log message]
 
-1999-12-15 12:13  yoann
+1999-12-15 06:13  yoann
 
 	* init-sh/level0.sh: [no log message]
 
-1999-12-15 12:05  yoann
+1999-12-15 06:05  yoann
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	level5.sh: [no log message]
 
-1999-12-15 11:48  yoann
+1999-12-15 05:48  yoann
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	level5.sh, lib.sh: [no log message]
 
-1999-12-15 10:39  yoann
+1999-12-15 04:39  yoann
 
 	* cron-sh/diff_check.sh, cron-sh/security_check.sh,
 	init-sh/custom.sh, init-sh/level4.sh, init-sh/level5.sh,
 	init-sh/lib.sh: [no log message]
 
-1999-12-15 09:10  yoann
+1999-12-15 03:10  yoann
 
 	* doc/security.txt, init-sh/level2.sh, init-sh/perm.1,
 	init-sh/perm.2, init-sh/perm.4, init-sh/perm.5: [no log message]
 
-1999-12-14 18:24  yoann
+1999-12-14 12:24  yoann
 
 	* msec.spec, init-sh/level1.sh, init-sh/level2.sh, init-sh/lib.sh:
 	[no log message]
 
-1999-12-14 17:35  yoann
+1999-12-14 11:35  yoann
 
 	* init-sh/: level1.sh, level2.sh, lib.sh: [no log message]
 
-1999-12-14 14:40  yoann
+1999-12-14 08:40  yoann
 
 	* init-sh/lib.sh: [no log message]
 
-1999-12-14 14:10  yoann
+1999-12-14 08:10  yoann
 
 	* doc/security.txt, msec.spec, init-sh/level0.sh,
 	init-sh/level1.sh, init-sh/level2.sh, init-sh/lib.sh: [no log
 	message]
 
-1999-12-13 12:45  yoann
+1999-12-13 06:45  yoann
 
 	* cron-sh/diff_check.sh, msec.spec: [no log message]
 
-1999-12-10 16:28  yoann
+1999-12-10 10:28  yoann
 
 	* init-sh/: level0.sh, level2.sh, level3.sh, level4.sh, level5.sh:
 	[no log message]
 
-1999-12-10 16:22  yoann
+1999-12-10 10:22  yoann
 
 	* msec.spec, init-sh/custom.sh: [no log message]
 
-1999-12-09 18:17  yoann
+1999-12-09 12:17  yoann
 
 	* msec.spec, msec.spec: [no log message]
 
-1999-12-09 18:16  yoann
+1999-12-09 12:16  yoann
 
 	* Makefile, cron-sh/diff_check.sh, cron-sh/promisc_check.sh,
 	cron-sh/security_check.sh, init-sh/custom.sh, init-sh/file_perm.sh,
@@ -641,156 +1045,156 @@
 	
 	Should really be stable now.
 
-1999-12-09 17:44  yoann
+1999-12-09 11:44  yoann
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, lib.sh: [no log
 	message]
 
-1999-12-09 17:20  yoann
+1999-12-09 11:20  yoann
 
 	* init-sh/: level0.sh, perm.0: [no log message]
 
-1999-12-09 16:48  yoann
+1999-12-09 10:48  yoann
 
 	* msec.spec: [no log message]
 
-1999-12-09 16:44  yoann
+1999-12-09 10:44  yoann
 
 	* cron-sh/diff_check.sh, cron-sh/promisc_check.sh,
 	cron-sh/security_check.sh, init-sh/custom.sh, init-sh/level4.sh,
 	init-sh/lib.sh, msec.spec, msec.spec: [no log message]
 
-1999-12-09 15:48  yoann
+1999-12-09 09:48  yoann
 
 	* cron-sh/diff_check.sh, cron-sh/promisc_check.sh,
 	cron-sh/security_check.sh, init-sh/lib.sh: [no log message]
 
-1999-12-09 11:20  yoann
+1999-12-09 05:20  yoann
 
 	* cron-sh/promisc_check.sh: [no log message]
 
-1999-12-09 11:05  yoann
+1999-12-09 05:05  yoann
 
 	* cron-sh/: diff_check.sh, security_check.sh: [no log message]
 
-1999-12-08 18:16  yoann
+1999-12-08 12:16  yoann
 
 	* cron-sh/: diff_check.sh, promisc_check.sh: [no log message]
 
-1999-12-08 17:13  yoann
+1999-12-08 11:13  yoann
 
 	* msec.spec, cron-sh/security_check.sh: [no log message]
 
-1999-12-08 15:55  yoann
+1999-12-08 09:55  yoann
 
 	* msec.spec: [no log message]
 
-1999-12-08 13:58  yoann
+1999-12-08 07:58  yoann
 
 	* init-sh/lib.sh: [no log message]
 
-1999-12-08 13:49  yoann
+1999-12-08 07:49  yoann
 
 	* init-sh/lib.sh: [no log message]
 
-1999-12-08 13:44  yoann
+1999-12-08 07:44  yoann
 
 	* init-sh/: custom.sh, level5.sh: [no log message]
 
-1999-12-08 13:08  yoann
+1999-12-08 07:08  yoann
 
 	* cron-sh/diff_check.sh, init-sh/level5.sh: [no log message]
 
-1999-12-08 13:04  yoann
+1999-12-08 07:04  yoann
 
 	* msec.spec, cron-sh/diff_check.sh, cron-sh/promisc_check.sh,
 	cron-sh/security_check.sh, init-sh/lib.sh: [no log message]
 
-1999-12-08 13:00  yoann
+1999-12-08 07:00  yoann
 
 	* msec.spec, cron-sh/diff_check.sh, cron-sh/file_check.sh,
 	cron-sh/security_check.sh, init-sh/custom.sh, init-sh/level1.sh,
 	init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
 	init-sh/level5.sh, init-sh/lib.sh: [no log message]
 
-1999-12-08 11:24  yoann
+1999-12-08 05:24  yoann
 
 	* init-sh/file_perm.sh: [no log message]
 
-1999-12-08 11:04  yoann
+1999-12-08 05:04  yoann
 
 	* msec.spec, init-sh/file_perm.sh, init-sh/level3.sh,
 	init-sh/level4.sh, init-sh/level5.sh: [no log message]
 
-1999-12-08 05:47  axalon
+1999-12-07 23:47  axalon
 
 	* cron-sh/security_check.sh: Handle usernames longer than 8 chars
 	uses ls -n and moves a couple $1 to $3 and such blah blah
 
-1999-12-08 03:49  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-07 21:49  Chmouel Boudjnah <chmouel@mandrakesoft.com>
 
 	* Makefile, msec.spec: "See_The_Changelog"
 
-1999-12-08 03:40  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-07 21:40  Chmouel Boudjnah <chmouel@mandrakesoft.com>
 
 	* Makefile, msec.spec, doc/msec.spec: "See_The_Changelog"
 
-1999-12-08 03:33  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-07 21:33  Chmouel Boudjnah <chmouel@mandrakesoft.com>
 
 	* Makefile: "See_The_Changelog"
 
-1999-12-08 03:15  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-07 21:15  Chmouel Boudjnah <chmouel@mandrakesoft.com>
 
 	* doc/msec.spec: "See_The_Changelog"
 
-1999-12-08 03:11  Chmouel Boudjnah <chmouel@mandrakesoft.com>
+1999-12-07 21:11  Chmouel Boudjnah <chmouel@mandrakesoft.com>
 
 	* cron-sh/promisc_check.sh: "See_The_Changelog"
 
-1999-12-08 02:30  axalon
+1999-12-07 20:30  axalon
 
 	* cron-sh/file_check.sh: 
 	Fix the typo
 
-1999-12-06 19:11  yoann
+1999-12-06 13:11  yoann
 
 	* doc/msec.spec, init-sh/custom.sh, init-sh/level2.sh,
 	init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: [no log
 	message]
 
-1999-12-06 19:08  yoann
+1999-12-06 13:08  yoann
 
 	* doc/msec.spec: [no log message]
 
-1999-12-06 19:05  yoann
+1999-12-06 13:05  yoann
 
 	* cron-sh/file_check.sh, init-sh/level1.sh, init-sh/level2.sh,
 	init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
 	init-sh/lib.sh, cron-sh/security_check.sh: [no log message]
 
-1999-12-06 10:01  yoann
+1999-12-06 04:01  yoann
 
 	* cron-sh/file_check.sh, init-sh/perm.1, init-sh/perm.2,
 	init-sh/perm.3, init-sh/perm.4, init-sh/perm.5: 
 	
 	Added permission for /var/log/ and it's subdirectory
 
-1999-12-03 15:05  yoann
+1999-12-03 09:05  yoann
 
 	* init-sh/: level1.sh, level2.sh, level3.sh, level4.sh, level5.sh: 
 	
 	Added /usr/games in PATH
 
-1999-12-01 17:30  yoann
+1999-12-01 11:30  yoann
 
 	* doc/msec.spec, init-sh/level1.sh, init-sh/level2.sh,
 	init-sh/lib.sh: [no log message]
 
-1999-12-01 16:52  yoann
+1999-12-01 10:52  yoann
 
 	* doc/msec.spec: [no log message]
 
-1999-12-01 16:51  yoann
+1999-12-01 10:51  yoann
 
 	* doc/msec.spec, init-sh/file_perm.sh, init-sh/level1.sh,
 	init-sh/level2.sh, init-sh/lib.sh: 
@@ -798,26 +1202,26 @@
 	Ok now add the user list to audio group ( level 1 & 2 ).  lib.sh
 	delete user list from audio group
 
-1999-12-01 15:55  yoann
+1999-12-01 09:55  yoann
 
 	* init-sh/: level1.sh, level2.sh, level3.sh: 
 	Bug fix
 
-1999-12-01 12:40  yoann
+1999-12-01 06:40  yoann
 
 	* doc/msec.spec: [no log message]
 
-1999-12-01 12:39  yoann
+1999-12-01 06:39  yoann
 
 	* init-sh/: level4.sh, lib.sh: 
 	
 	Now preserve file indentation
 
-1999-12-01 12:10  yoann
+1999-12-01 06:10  yoann
 
 	* init-sh/: level4.sh, lib.sh: [no log message]
 
-1999-12-01 12:02  yoann
+1999-12-01 06:02  yoann
 
 	* doc/msec.spec, init-sh/level1.sh, init-sh/level2.sh,
 	init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
@@ -825,26 +1229,26 @@
 	
 	Bug fix
 
-1999-11-30 16:47  yoann
+1999-11-30 10:47  yoann
 
 	* cron-sh/file_check.sh, init-sh/level1.sh, init-sh/level2.sh,
 	init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: 
 	
 	Many cron security check added.  Now report what it does ( msec ).
 
-1999-11-29 16:06  yoann
+1999-11-29 10:06  yoann
 
 	* Makefile, doc/msec.spec, init-sh/custom.sh, init-sh/init.sh,
 	init-sh/lib.sh, doc/msec.spec: [no log message]
 
-1999-11-29 15:18  yoann
+1999-11-29 09:18  yoann
 
 	* init-sh/: custom.sh, init.sh, level1.sh, level2.sh, level3.sh,
 	level4.sh, level5.sh, lib.sh: 
 	
 	Uhh custom security will always be a good idea.
 
-1999-11-29 11:09  yoann
+1999-11-29 05:09  yoann
 
 	* doc/msec.spec, init-sh/level1.sh, init-sh/level2.sh,
 	init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
@@ -852,11 +1256,11 @@
 	
 	Fix a few bug.
 
-1999-11-26 18:23  yoann
+1999-11-26 12:23  yoann
 
 	* doc/msec.spec: [no log message]
 
-1999-11-26 01:21  yoann
+1999-11-25 19:21  yoann
 
 	* doc/msec.spec, init-sh/level1.sh, init-sh/level2.sh,
 	init-sh/level3.sh: 
@@ -864,14 +1268,14 @@
 	msec.spec:  updated revision / changelog.  level[12].sh: removed
 	some unused code.  level3.sh: fixed a bug
 
-1999-11-25 21:24  yoann
+1999-11-25 15:24  yoann
 
 	* doc/msec.spec, init-sh/level4.sh, init-sh/level5.sh: 
 	
 	level[45].sh : use the new --msec option when calling chkconfig
 	msec.spec : updated release version number
 
-1999-11-25 20:44  yoann
+1999-11-25 14:44  yoann
 
 	* AUTHORS, Makefile, COPYING, README, cron-sh/Makefile,
 	cron-sh/file_check.sh, cron-sh/promisc_check.sh, doc/msec.spec,
@@ -883,7 +1287,7 @@
 	src/promisc_check/Makefile, src/promisc_check/promisc_check.c:
 	Initial revision
 
-1999-11-25 20:44  yoann
+1999-11-25 14:44  yoann
 
 	* AUTHORS, Makefile, COPYING, README, cron-sh/Makefile,
 	cron-sh/file_check.sh, cron-sh/promisc_check.sh, doc/msec.spec,

@@ -46,7 +46,7 @@ def eval_file(name):
     builtins = {}
 
     # Insert symbols from mseclib into globals
-    non_exported_names = ['FAKE', 'indirect', 'commit_changes']
+    non_exported_names = ['FAKE', 'indirect', 'commit_changes', 'print_changes', 'get_translation']
     for attrib_name in dir(mseclib):
         if attrib_name[0] != '_' and attrib_name not in non_exported_names:
             globals[attrib_name] = getattr(mseclib, attrib_name)
@@ -246,16 +246,20 @@ FILE_CHECKS = {'CHECK_SECURITY' :   ('no',  'yes', 'yes', 'yes',  'yes',  'yes',
 for k in FILE_CHECKS.keys():
     set_security_conf(k, FILE_CHECKS[k][level])
 
-# load local customizations
-CONFIG='/etc/security/msec/level.local'
-if os.path.exists(CONFIG):
-    interactive and log(_('Reading local rules from %s') % CONFIG)
-    try:
-        eval_file(CONFIG)
-    except:
-        log(_('Error loading %s: %s') % (CONFIG, str(sys.exc_value)))
+if Config.get_config('nolocal', '0') == '1':
+    # load local customizations
+    CONFIG='/etc/security/msec/level.local'
+    if os.path.exists(CONFIG):
+        interactive and log(_('Reading local rules from %s') % CONFIG)
+        try:
+            eval_file(CONFIG)
+        except:
+            log(_('Error loading %s: %s') % (CONFIG, str(sys.exc_value)))
 
-commit_changes()
+if Config.get_config('print', '0') == '1':
+    print_changes()
+else:
+    commit_changes()
 
 interactive and log(_('Writing config files and then taking needed actions'))
 ConfigFile.write_files()

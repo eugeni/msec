@@ -1,6 +1,6 @@
 Summary:	Security Level management for the Mandrakelinux distribution
 Name:		msec
-Version:	0.44.2
+Version:	0.45
 Release:	1mdk
 Url:		http://www.mandrakelinux.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -20,6 +20,7 @@ Requires:	iproute2
 PreReq:		rpm-helper >= 0.4
 Conflicts:	passwd < 0.67
 Requires:	python-base >= 2.3.3-2mdk
+Requires:	mailx
 
 %description
 The Mandrakelinux-Security package is designed to provide generic
@@ -154,6 +155,12 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Mon Feb 21 2005 Frederic Lepied <flepied@mandrakesoft.com> 0.45-1mdk
+- requires mailx (bug #13497).
+- fixed the permissions of sendmail symlinks (bug #13515).
+- allow to put an EXCLUDE_REGEXP variable in
+/etc/security/msec/security.conf to be used in msec_find (bug #508).
+
 * Thu Sep 30 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.44.2-1mdk
 - fix allow_reboot
 

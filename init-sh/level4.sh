@@ -111,25 +111,16 @@ AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/profil
 AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/profile.d/msec.csh
 
 echo "Adding \"normal\" PATH variable :"
-AddRules "if ! echo \${PATH} |grep -q /usr/X11R6/bin ; then" /etc/profile.d/msec.sh quiet
-AddRules "\texport PATH=\$PATH:/usr/X11R6/bin" /etc/profile.d/msec.sh quiet
-AddRules "fi" /etc/profile.d/msec.sh quiet
-AddRules "if ! { (echo "\${PATH}" | grep -q /usr/X11R6/bin) } then" /etc/profile.d/msec.csh quiet
-AddRules "\tsetenv PATH \"\${PATH}:/usr/X11R6/bin\"" /etc/profile.d/msec.csh quiet
-AddRules "endif" /etc/profile.d/msec.csh quiet
-AddRules "if ! echo \${PATH} |grep -q /usr/games ; then" /etc/profile.d/msec.sh quiet
-AddRules "\texport PATH=\$PATH:/usr/games" /etc/profile.d/msec.sh quiet
-AddRules "fi" /etc/profile.d/msec.sh quiet
-AddRules "if ! { (echo "\${PATH}" | grep -q /usr/games) } then" /etc/profile.d/msec.csh quiet
-AddRules "\tsetenv PATH \"\${PATH}:/usr/games\"" /etc/profile.d/msec.csh quiet
-AddRules "endif" /etc/profile.d/msec.csh quiet
+AddRules "if ! echo \${PATH} |grep -q /usr/X11R6/bin ; then\n\texport PATH=\$PATH:/usr/X11R6/bin\nfi" /etc/profile.d/msec.sh quiet
+AddRules "if ! { (echo "\${PATH}" | grep -q /usr/X11R6/bin) } then\n\tsetenv PATH \"\${PATH}:/usr
+/X11R6/bin\"\nendif" /etc/profile.d/msec.csh quiet
+AddRules "if ! echo \${PATH} |grep -q /usr/games ; then\n\texport PATH=\$PATH:/usr/games\nfi" /et
+c/profile.d/msec.sh quiet
+AddRules "if ! { (echo "\${PATH}" | grep -q /usr/games) } then\n\tsetenv PATH \"\${PATH}:/usr/games\"\nendif" /etc/profile.d/msec.csh quiet
 
-AddRules "if ! echo \${PATH} |grep -q :. ; then" /etc/profile.d/msec.sh quiet
-AddRules "\texport PATH=\$PATH:." /etc/profile.d/msec.sh quiet
-AddRules "fi" /etc/profile.d/msec.sh quiet
-AddRules "if ! { (echo "\${PATH}" | grep -q :.) } then" /etc/profile.d/msec.csh quiet
-AddRules "\tsetenv PATH \"\${PATH}:.\"" /etc/profile.d/msec.csh quiet
-AddRules "endif" /etc/profile.d/msec.csh quiet
+AddRules "if ! echo \${PATH} |grep -q :. ; then\n\texport PATH=\$PATH:.\nfi" /etc/profile.d/msec.
+sh quiet
+AddRules "if ! { (echo "\${PATH}" | grep -q :.) } then\n\tsetenv PATH \"\${PATH}:.\"\nendif" /etc/profile.d/msec.csh quiet
 
 if [[ -f /lib/libsafe.so.1.3 ]]; then
     echo "Enabling stack overflow protection :"

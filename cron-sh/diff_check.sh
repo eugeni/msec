@@ -145,7 +145,7 @@ if [[ ${RPM_CHECK} == yes ]]; then
     if [[ -f ${RPM_VA_YESTERDAY} ]]; then
 	diff -u ${RPM_VA_YESTERDAY} ${RPM_VA_TODAY} > ${RPM_VA_DIFF}
 	if [ -s ${RPM_VA_DIFF} ]; then
-	    printf "\nSecurity Warning: These files have been modified on the system :\n" >> ${TMP}
+	    printf "\nSecurity Warning: These files belonging to packages have changed of status on the system :\n" >> ${TMP}
 	    grep '^+' ${RPM_VA_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
 		printf "\t\t-   newly modified : ${file}\n"
 	    done >> ${TMP}

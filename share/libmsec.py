@@ -101,9 +101,13 @@ def changing_level():
 # configuration rules
 
 def set_secure_level(level):
-    _interactive and log(_('Setting secure level to %s') % level)
     msec = ConfigFile.get_config_file(MSEC)
-    msec.set_shell_variable('SECURE_LEVEL', level)
+
+    val = msec.get_shell_variable('SECURE_LEVEL')
+
+    if not val or int(val) != level:
+        _interactive and log(_('Setting secure level to %s') % level)
+        msec.set_shell_variable('SECURE_LEVEL', level)
 
 def get_secure_level():
     'D'
@@ -233,9 +237,12 @@ to the X server on the tcp port 6000 or not.'''
     if arg:
         if val_startx or val_xservers or val_gdmconf:
             _interactive and log(_('Allowing the X server to listen to tcp connections'))
-            startx.exists() and startx.replace_line_matching(STARTX_REGEXP, '@1@2')
-            xservers.exists() and xservers.replace_line_matching(XSERVERS_REGEXP, '@1@2', 0, 1)
-            gdmconf.exists() and gdmconf. replace_line_matching(GDMCONF_REGEXP, '@1@2', 0, 1)
+            if not (_same_level and val_startx):
+                startx.exists() and startx.replace_line_matching(STARTX_REGEXP, '@1@2')
+            if not (_same_level and val_xservers):
+                xservers.exists() and xservers.replace_line_matching(XSERVERS_REGEXP, '@1@2', 0, 1)
+            if not (_same_level and val_gdmconf):
+                gdmconf.exists() and gdmconf. replace_line_matching(GDMCONF_REGEXP, '@1@2', 0, 1)
     else:
         if not val_startx or not val_xservers or not val_gdmconf:
             _interactive and log(_('Forbidding the X server to listen to tcp connection'))
@@ -269,23 +276,23 @@ def set_shell_history_size(size):
     msec = ConfigFile.get_config_file(MSEC)
 
     if msec.exists():
-        old = msec.get_shell_variable('HISTFILESIZE')
+        val = msec.get_shell_variable('HISTFILESIZE')
     else:
-        old = None
+        val = None
         
     # don't lower security when not changing security level
     if _same_level:
-        if old != None:
-            old = int(old)
-            if size == -1 or old < size:
+        if val != None:
+            val = int(val)
+            if size == -1 or val < size:
                 return
             
     if size >= 0:
-        if old != size:
+        if val != size:
             _interactive and log(_('Setting shell history size to %s') % size)
             msec.set_shell_variable('HISTFILESIZE', size)
     else:
-        if old != None:
+        if val != None:
             _interactive and log(_('Removing limit on shell history size'))
             msec.remove_line_matching('^HISTFILESIZE=')
         
@@ -296,15 +303,36 @@ def allow_reboot(arg):
     kdmrc = ConfigFile.get_config_file(KDMRC)
     gdmconf = ConfigFile.get_config_file(GDMCONF)
     
+    val_shutdownallow = shutdownallow.exists()
+    val_sysctlconf = sysctlconf.exists() and sysctlconf.get_shell_variable('kernel.sysrq')
+    num = 0
+    val = {}
+    for f in [SHUTDOWN, POWEROFF, REBOOT, HALT]:
+        val[f] = ConfigFile.get_config_file(f).exists()
+        if val[f]:
+            num = num + 1
+    val_kdmrc = kdmrc.exists() and kdmrc.get_shell_variable('AllowShutdown')
+    val_gdmconf = gdmconf.exists() and gdmconf.get_shell_variable('SystemMenu')
+
+    # don't lower security when not changing security level
+    if _same_level:
+        if val_shutdownallow and val_sysctlconf == '0' and num == 0 and val_kdmrc == 'None' and val_gdmconf == 'false':
+            return
+        
     if arg:
         _interactive and log(_('Allowing reboot to the console user'))
-        shutdownallow.exists() and shutdownallow.move(SUFFIX)
+        if not (_same_level and val_shutdownallow):
+            shutdownallow.exists() and shutdownallow.move(SUFFIX)
         for f in [SHUTDOWN, POWEROFF, REBOOT, HALT]:
             cfg = ConfigFile.get_config_file(f)
-            cfg.exists() or cfg.touch()
-        sysctlconf.set_shell_variable('kernel.sysrq', 1)
-        kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', 'All', 'X-:\*-Greeter', '^\s*$')
-        gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'true', '\[greeter\]', '^\s*$')
+            if not (_same_level and not val[f]):
+                cfg.exists() or cfg.touch()
+        if not (_same_level and val_sysctlconf == '0'):
+            sysctlconf.set_shell_variable('kernel.sysrq', 1)
+        if not (_same_level and val_kdmrc == 'None'):
+            kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', 'All', 'X-:\*-Greeter', '^\s*$')
+        if not (_same_level and val_gdmconf == 'false'):
+            gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'true', '\[greeter\]', '^\s*$')
     else:
         _interactive and log(_('Forbidding reboot to the console user'))
         ConfigFile.get_config_file(SHUTDOWNALLOW, SUFFIX).touch()
@@ -352,35 +380,45 @@ def allow_root_login(arg):
     gdm = ConfigFile.get_config_file(GDM)
     xdm = ConfigFile.get_config_file(XDM)
 
-    val_kde = kde.exists() and kde.get_match('auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
-    val_gdm = gdm.exists() and gdm.get_match('auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
-    val_xdm = xdm.exists() and xdm.get_match('auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+    val = {}
+    val[kde] = kde.exists() and kde.get_match('auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+    val[gdm] = gdm.exists() and gdm.get_match('auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+    val[xdm] = xdm.exists() and xdm.get_match('auth required /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
     num = 0
     for n in range(1, 7):
         s = 'tty' + str(n)
         if securetty.get_match(s):
             num = num + 1
+            val[s] = 1
+        else:
+            val[s] = 0
         s = 'vc/' + str(n)
         if securetty.get_match(s):
             num = num + 1
-
+            val[s] = 1
+        else:
+            val[s] = 0
+    
     # don't lower security when not changing security level
     if _same_level:
-        if (not kde.exists() or val_kde) and (not gdm.exists() or val_gdm) and (not xdm.exists() or val_xdm) and num == 12:
+        if (not kde.exists() or val[kde]) and (not gdm.exists() or val[gdm]) and (not xdm.exists() or val[xdm]) and num == 12:
             return
 
     if arg:
-        if val_kde or val_gdm or val_xdm or num != 12:
+        if val[kde] or val[gdm] or val[xdm] or num != 12:
             _interactive and log(_('Allowing direct root login'))
         
             for cnf in (kde, gdm, xdm):
-                cnf.exists() and cnf.remove_line_matching('^auth\s*required\s*/lib/security/pam_listfile.so.*bastille-no-login', 1)
+                if not (_same_level and val[cnf]):
+                    cnf.exists() and cnf.remove_line_matching('^auth\s*required\s*/lib/security/pam_listfile.so.*bastille-no-login', 1)
         
             for n in range(1, 7):
                 s = 'tty' + str(n)
-                securetty.replace_line_matching(s, s, 1)
+                if not (_same_level and not val[s]):
+                    securetty.replace_line_matching(s, s, 1)
                 s = 'vc/' + str(n)
-                securetty.replace_line_matching(s, s, 1)
+                if not (_same_level and not val[s]):
+                    securetty.replace_line_matching(s, s, 1)
     else:
         if (kde.exists() and not val_kde) or (gdm.exists() and not val_gdm) or (xdm.exists() and not val_xdm) or num > 0:
             _interactive and log(_('Forbidding direct root login'))
@@ -869,8 +907,10 @@ def enable_at_crontab(arg):
     if arg:
         if val_cronallow or val_atallow:
             _interactive and log(_('Enabling crontab and at'))
-            cronallow.exists() and cronallow.move(SUFFIX)
-            atallow.exists() and atallow.move(SUFFIX)
+            if not (_same_level and val_cronallow):
+                cronallow.exists() and cronallow.move(SUFFIX)
+            if not (_same_level and val_atallow):
+                atallow.exists() and atallow.move(SUFFIX)
     else:
         if not val_cronallow or not val_atallow:
             _interactive and log(_('Disabling crontab and at'))

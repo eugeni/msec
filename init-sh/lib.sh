@@ -152,12 +152,8 @@ LiloUpdate() {
     if [[ ! -z ${password} ]]; then
 	tmpfile=`mktemp /tmp/secure.XXXXXX`
 
-    	cp -f /etc/lilo.conf ${tmpfile}
-	while read line; do
-	    if ! echo "${line}" | grep -q "password"; then
-		echo "${line}" > /etc/lilo.conf
-	    fi
-    	done < ${tmpfile}
+    	cp /etc/lilo.conf ${tmpfile}
+	cat ${tmpfile} | grep -v password > /etc/lilo.conf
 	
 	rm -f ${tmpfile}
 	clear

@@ -6,9 +6,10 @@ TAG := $(shell echo "V$(VERSION)_$(RELEASE)" | tr -- '-.' '__')
 all: promisc_check msec_find python
 
 clean:
-	-find . -name '*.o' -o -name '*.pyc' -o -name '*~' -exec rm -f {} \;
+	-find . -name '*.o' -o -name '*.py[oc]' -o -name '*~' | xargs rm -f
 	rm -f src/promisc_check/promisc_check
 	rm -f src/msec_find/msec_find
+	rm -f *.bz2
 
 promisc_check: 
 	(cd src/promisc_check && make)

@@ -1,3 +1,19 @@
+2002-02-05 15:10  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.18-4mdk
+
+2002-02-05 15:07  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: add a delay in passowrd change before desactiving.
+
+2002-02-05 14:52  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: handle allowed delay in password changing.
+
+2002-02-05 11:48  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: use true/false for Browser value in gdm.conf
+
 2002-02-04 23:19  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.18-3mdk

@@ -1,7 +1,7 @@
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
 Version: 0.3
-Release: 5mdk
+Release: 6mdk
 Source: ftp://mandrakesoft.com/pub/yoann/msec-0.3.tar.gz
 Copyright: GPL
 Group: System Environment/Base
@@ -46,6 +46,9 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/promisc_check
 
 %changelog
+* Thu Nov 25 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Call chkconfig with the new --msec option.
+
 * Thu Nov 25 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - Cleaned up tree.
 

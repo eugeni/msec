@@ -47,6 +47,15 @@ AddRules "0 0-23 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-
 LiloUpdate;
 /sbin/lilo
 
+# Server update
+AddRules "SECURE_LEVEL=4" /etc/profile
+export SECURE_LEVEL=4
+
+for service in `chkconfig --list | awk '{print $1}'`; do
+    chkconfig --del "${service}"
+    chkconfig --msec --add "${service}"
+done
+
 # Permissions 
 AddRules "umask 022" /etc/profile
 

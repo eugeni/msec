@@ -39,24 +39,14 @@ LiloUpdate;
 /sbin/lilo
 
 # Disable all server :
+AddRules "SECURE_LEVEL=5" /etc/profile
 IFS="
 "
 
+export SECURE_LEVEL=5
 for service in `chkconfig --list | awk '{print $1}'`; do
-    if [ "${service}" == "xfs" ]; then
-	if [ ${HAVE_X}==1 ]; then
-	    continue;
-	fi
-    fi
-
-    if [ "${service}" == "network" ]; then continue; fi
-    if [ "${service}" == "keytable" ]; then continue; fi
-    if [ "${service}" == "crond" ]; then continue; fi
-    if [ "${service}" == "gpm" ]; then continue; fi
-    if [ "${service}" == "syslog" ]; then continue; fi
-    
-    
     chkconfig --del "${service}"
+	chkconfig --msec --add "${service}"
 done
 
 # Permissions

@@ -4,11 +4,15 @@
 # Written by Vandoorselaere Yoann, <yoann@mandrakesoft.com>
 #
 
+if [[ -f /var/lib/msec/security.conf ]]; then
+    . /var/lib/msec/security.conf
+else
+    echo "/var/lib/msec/security.conf don't exist."
+    exit 1
+fi
+
 if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
-else
-    echo "/etc/security/msec/security.conf don't exist."
-    exit 1
 fi
 
 if [[ ${CHECK_SECURITY} != yes ]]; then
@@ -62,7 +66,7 @@ while read username uid homedir; do
     for f in ${list} ; do
 	file="${homedir}/${f}"
 	if [[ -f ${file} ]] ; then
-	    printf "${uid} ${username} ${file} `ls -Lldcgn ${file}`\n"
+	    printf "${uid} ${username} ${file} `ls -LldcGn ${file}`\n"
 	fi
     done
 done | awk '$1 != $6 && $6 != "0" \
@@ -91,7 +95,7 @@ while read username uid homedir; do
         for f in ${list} ; do
                 file=${homedir}/${f}
                 if [[ -f ${file} ]] ; then
-                        printf "${uid} ${username} ${file} `ls -Lldcgn ${file}`\n"
+                        printf "${uid} ${username} ${file} `ls -LldcGn ${file}`\n"
                 fi
         done
 done | awk '$1 != $6 && $6 != "0" \
@@ -110,9 +114,9 @@ fi
 awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' /etc/passwd | \
 while read username uid homedir; do
         if [[ -d ${homedir} ]] ; then
-                realuid=`ls -Lldgn ${homedir}| awk '{ print $3 }'`
-                realuser=`ls -Lldg ${homedir}| awk '{ print $3 }'`
-                permissions=`ls -Lldg ${homedir}| awk '{ print $1 }'`
+                realuid=`ls -LldGn ${homedir}| awk '{ print $3 }'`
+                realuser=`ls -LldG ${homedir}| awk '{ print $3 }'`
+                permissions=`ls -LldG ${homedir}| awk '{ print $1 }'`
                 printf "${permissions} ${username} (${uid}) ${realuser} (${realuid})\n"
         fi
 done | awk '$3 != $5 && $5 != "(0)" \

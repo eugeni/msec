@@ -67,10 +67,12 @@ SHADOW = '/etc/shadow'
 SHUTDOWN = '/etc/security/console.apps/shutdown'
 SHUTDOWNALLOW = '/etc/shutdown.allow'
 SSHDCONFIG = '/etc/ssh/sshd_config'
+STARTX = '/usr/X11R6/bin/startx '
 SU = '/etc/pam.d/su'
 SYSCTLCONF = '/etc/sysctl.conf'
 SYSLOGCONF = '/etc/syslog.conf'
 XDM = '/etc/pam.d/xdm'
+XSERVERS = '/etc/X11/xdm/Xservers'
 
 # constants to keep in sync with shadow.py
 NONE=0
@@ -113,6 +115,11 @@ def get_server_level():
     return msec.get_shell_variable('SECURE_LEVEL')
 
 def create_server_link():
+    '''  If SERVER_LEVEL (or SECURE_LEVEL if absent) is greater than 3
+in /etc/security/msec/security.conf, creates the symlink /etc/security/msec/server
+to point to /etc/security/msec/server.<SERVER_LEVEL>. The /etc/security/msec/server
+is used by chkconfig --add to decide to add a service if it is present in the file
+during the installation of packages.'''
     level = get_server_level()
     server = ConfigFile.get_config_file(SERVER)
     if level in ('0', '1', '2', '3'):
@@ -123,39 +130,64 @@ def create_server_link():
         server.symlink(SERVER + '.' + str(level))
 
 def set_root_umask(umask):
+    '''  Set the root umask.'''
     _interactive and log(_('Setting root umask to %s') % umask)
     msec = ConfigFile.get_config_file(MSEC)
     msec.set_shell_variable('UMASK_ROOT', umask)
 
 def set_user_umask(umask):
+    '''  Set the user umask.'''
     _interactive and log(_('Setting users umask to %s') % umask)
     msec = ConfigFile.get_config_file(MSEC)
     msec.set_shell_variable('UMASK_USER', umask)
 
-def allow_x_connections(arg):
+def allow_x_connections(arg, listen_tcp):
+    '''  Allow/Forbid X connections. First arg specifies what is done
+on the client side: ALL (all connections are allowed), LOCAL (only
+local connection) and NONE (no connection). The second argument
+specifies what is authorized on the server side: if clients are
+authorized to connect on the tcp port 6000 or not.'''
+    
     msec = ConfigFile.get_config_file(MSEC_XINIT)
+    startx = ConfigFile.get_config_file(STARTX)
+    xservers = ConfigFile.get_config_file(XSERVERS)
+    gdmconf = ConfigFile.get_config_file(GDMCONF)
     
     if arg == ALL:
         _interactive and log(_('Allowing users to connect X server from everywhere'))
-        msec.replace_line_matching('/usr/X11R6/bin/xhost', '/usr/X11R6/bin/xhost +', 1)
-        
+        msec.exists() and msec.replace_line_matching('/usr/X11R6/bin/xhost', '/usr/X11R6/bin/xhost +', 1)
+
     elif arg == LOCAL:
         _interactive and log(_('Allowing users to connect X server from localhost'))
-        msec.replace_line_matching('/usr/X11R6/bin/xhost', '/usr/X11R6/bin/xhost + localhost', 1)
-
+        msec.exists() and msec.replace_line_matching('/usr/X11R6/bin/xhost', '/usr/X11R6/bin/xhost + localhost', 1)
+        
     elif arg == NONE:
         _interactive and log(_('Restricting X server connection to the console user'))
-        msec.remove_line_matching('/usr/X11R6/bin/xhost', 1)
+        msec.exists() and msec.remove_line_matching('/usr/X11R6/bin/xhost', 1)
         
     else:
         error(_('invalid allow_x_connections arg: %s') % arg)
-        
+        return
+    
+    if listen_tcp:
+        _interactive and log(_('Allowing the X server to listen to tcp connections'))
+        startx.exists() and startx.replace_line_matching('(\s*clientargs=".*) -nolisten tcp(.*")', '@1@2')
+        xservers.exists() and xservers.replace_line_matching('(\s*[^#]+/usr/X11R6/bin/X .*) -nolisten tcp(.*)', '@1@2', 0, 1)
+        gdmconf.exists() and gdmconf. replace_line_matching('(\s*command=.*/X.*?) -nolisten tcp(.*)$', '@1@2', 0, 1)
+    else:
+        _interactive and log(_('Forbidding the X server to listen to tcp connection'))
+        startx.exists() and startx.replace_line_matching('clientargs="(.*?)( -nolisten tcp)?"', 'clientargs="@1 -nolisten tcp"')
+        xservers.exists() and xservers.replace_line_matching('(\s*[^#]+/usr/X11R6/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
+        gdmconf.exists() and gdmconf. replace_line_matching('(\s*command=.*/X.*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
+
 def set_shell_timeout(val):
+    '''  Set the shell timeout. A value of zero means no timeout.'''
     _interactive and log(_('Setting shell timeout to %s') % val)
     msec = ConfigFile.get_config_file(MSEC)
     msec.set_shell_variable('TMOUT', val)
 
 def set_shell_history_size(size):
+    '''  Set shell commands history size. A value of -1 means unlimited.'''
     msec = ConfigFile.get_config_file(MSEC)
 
     if size >= 0:
@@ -166,6 +198,7 @@ def set_shell_history_size(size):
         msec. remove_line_matching('^HISTFILESIZE=')
         
 def allow_reboot(arg):
+    '''  Allow/Forbid reboot by the console user.'''
     shutdownallow = ConfigFile.get_config_file(SHUTDOWNALLOW)
     sysctlconf = ConfigFile.get_config_file(SYSCTLCONF)
     kdmrc = ConfigFile.get_config_file(KDMRC)
@@ -189,6 +222,7 @@ def allow_reboot(arg):
         gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'false', '\[greeter\]', '^\s*$')
     
 def allow_user_list(arg):
+    '''  Allow/Forbid the list of users on the system on display managers (kdm and gdm).'''
     kdmrc = ConfigFile.get_config_file(KDMRC)
     gdmconf = ConfigFile.get_config_file(GDMCONF)
 
@@ -202,11 +236,12 @@ def allow_user_list(arg):
         gdmconf.exists() and gdmconf.set_shell_variable('Browser', '0')
 
 def allow_root_login(arg):
+    '''  Allow/Forbid direct root login.'''
     sshd_config = ConfigFile.get_config_file(SSHDCONFIG)
     securetty = ConfigFile.get_config_file(SECURETTY)
     
     if arg:
-        _interactive and log(_('Allowing root login'))
+        _interactive and log(_('Allowing direct root login'))
         sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+no',
                                                                    'PermitRootLogin yes')
         
@@ -223,7 +258,7 @@ def allow_root_login(arg):
             s = 'vc/' + str(n)
             securetty.replace_line_matching(s, s, 1)
     else:
-        _interactive and log(_('Forbidding root login'))
+        _interactive and log(_('Forbidding direct root login'))
         sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+yes',
                                                                    'PermitRootLogin no')
         
@@ -241,6 +276,7 @@ def allow_root_login(arg):
         securetty.remove_line_matching('.+', 1)
 
 def enable_pam_wheel_for_su(arg):
+    '''   Enabling su only from members of the wheel group or allow su from any user.'''
     su = ConfigFile.get_config_file(SU)
     
     if arg:
@@ -263,6 +299,8 @@ def enable_pam_wheel_for_su(arg):
         su.exists() and su.remove_line_matching('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$')
     
 def allow_issues(arg):
+    '''  If \\fIarg\\fP = ALL allow /etc/issue and /etc/issue.net to exist. If \\fIarg\\fP = NONE no issues are
+allowed else only /etc/issue is allowed.'''
     issue = ConfigFile.get_config_file(ISSUE, SUFFIX)
     issuenet = ConfigFile.get_config_file(ISSUENET, SUFFIX)
 
@@ -273,14 +311,15 @@ def allow_issues(arg):
     else:
         if arg == NONE:
             _interactive and log(_('Disabling pre-login message'))
-            issue.exists() and issue.move(SUFFIX) and issue.modified()
+            issue.exists(1) and issue.move(SUFFIX) and issue.modified()
         else:
             _interactive and log(_('Allowing pre-login message'))
             issue.exists() and issue.get_lines()
         _interactive and log(_('Disabling network pre-login message'))
-        issuenet.exists() and issuenet.move(SUFFIX)
+        issuenet.exists(1) and issuenet.move(SUFFIX)
 
 def allow_autologin(arg):
+    '''  Allow/Forbid autologin.'''
     autologin = ConfigFile.get_config_file(AUTOLOGIN)
     
     if arg:
@@ -313,6 +352,7 @@ def nopassword_loader():
     menulst.exists() and menulst.remove_line_matching('^password\s')
 
 def enable_console_log(arg):
+    '''  Enable/Disable syslog reports to console 12.'''
     syslogconf = ConfigFile.get_config_file(SYSLOGCONF)
 
     if arg:
@@ -323,6 +363,7 @@ def enable_console_log(arg):
         syslogconf.exists() and syslogconf.remove_line_matching('\*\.\*\s*/dev/tty12')
 
 def enable_promisc_check(arg):
+    '''  Activate/Disable ethernet cards promiscuity check.'''
     cron = ConfigFile.get_config_file(CRON)
 
     if arg:
@@ -333,6 +374,7 @@ def enable_promisc_check(arg):
         cron.remove_line_matching('[^#]+/usr/share/msec/promisc_check.sh')
 
 def enable_security_check(arg):
+    '''   Activate/Disable daily security check.'''
     cron = ConfigFile.get_config_file(CRON)
     cron.remove_line_matching('[^#]+/usr/share/msec/security.sh')
 
@@ -346,6 +388,8 @@ def enable_security_check(arg):
         securitycron.unlink()
         
 def authorize_services(arg):
+    '''  Authorize all services controlled by tcp_wrappers (see hosts.deny(5)) if \\fIarg\\fP = ALL. Only local ones
+if \\fIarg\\fP = LOCAL and none if \\fIarg\\fP = NONE.'''
     hostsdeny = ConfigFile.get_config_file(HOSTSDENY)
 
     if arg == ALL:
@@ -364,6 +408,7 @@ def authorize_services(arg):
         error(_('authorize_services invalid argument: %s') % arg)
     
 def enable_ip_spoofing_protection(arg, alert=1):
+    '''  Enable/Disable IP spoofing protection. If \\fIalert\\fP is true, also reports to syslog.'''
     hostconf = ConfigFile.get_config_file(HOSTCONF)
 
     if arg:
@@ -378,6 +423,7 @@ def enable_ip_spoofing_protection(arg, alert=1):
         hostconf.remove_line_matching('spoofalert')
 
 def accept_icmp_echo(arg):
+    '''   Accept/Refuse icmp echo.'''
     sysctlconf = ConfigFile.get_config_file(SYSCTLCONF)
 
     if arg:
@@ -390,6 +436,7 @@ def accept_icmp_echo(arg):
         sysctlconf.set_shell_variable('net.ipv4.icmp_echo_ignore_broadcasts', 1)
     
 def accept_bogus_error_responses(arg):
+    '''  Accept/Refuse bogus IPv4 error messages.'''
     sysctlconf = ConfigFile.get_config_file(SYSCTLCONF)
 
     if arg:
@@ -400,6 +447,7 @@ def accept_bogus_error_responses(arg):
         sysctlconf.set_shell_variable('net.ipv4.icmp_ignore_bogus_error_responses', 1)
     
 def enable_log_strange_packets(arg):
+    '''  Enable/Disable the logging of IPv4 strange packets.'''
     sysctlconf = ConfigFile.get_config_file(SYSCTLCONF)
 
     if arg:
@@ -410,6 +458,7 @@ def enable_log_strange_packets(arg):
         sysctlconf.set_shell_variable('net.ipv4.conf.all.log_martians', 0)
 
 def enable_libsafe(arg):
+    '''  Enable/Disable libsafe if libsafe is found on the system.'''
     if arg:
         if os.path.exists(Config.get_config('root', '') + '/lib/libsafe.so.2'):
             _interactive and log(_('Enabling libsafe'))
@@ -421,6 +470,7 @@ def enable_libsafe(arg):
         ldsopreload.remove_line_matching('[^#]*libsafe')        
 
 def password_length(length, ndigits=0, nupper=0):
+    '''  Set the password minimum length and minimum number of digit and minimum number of capitalized letters.'''
     _interactive and log(_('Setting minimum password length %d') % length)
     passwd = ConfigFile.get_config_file(PASSWD)
     passwd.exists() and (passwd.replace_line_matching('^(password\s+required\s+/lib/security/pam_cracklib.so.*?)(\sminlen=[0-9]+\s)(.*)',
@@ -439,6 +489,7 @@ def password_length(length, ndigits=0, nupper=0):
                                                       '@0 ucredit=%s ' % nupper))
 
 def enable_sulogin(arg):
+    '''   Enable/Disable sulogin(8) in single user level.'''
     inittab = ConfigFile.get_config_file(INITTAB)
 
     if arg:
@@ -449,6 +500,7 @@ def enable_sulogin(arg):
         inittab.remove_line_matching('~~:S:wait:/sbin/sulogin')
 
 def enable_msec_cron(arg):
+    '''  Enable/Disable msec hourly security check.'''
     mseccron = ConfigFile.get_config_file(MSECCRON)
 
     if arg:
@@ -459,6 +511,7 @@ def enable_msec_cron(arg):
         mseccron.unlink()
 
 def enable_at_crontab(arg):
+    '''  Enable/Disable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow.'''
     cronallow = ConfigFile.get_config_file(CRONALLOW)
     atallow = ConfigFile.get_config_file(ATALLOW)
 
@@ -476,6 +529,7 @@ maximum_regex = re.compile('^Maximum:\s*([0-9]+)', re.MULTILINE)
 # TODO FL Sat Dec 29 20:18:20 2001
 # replace chage calls and /etc/shadow parsing by a python API to the shadow functions.
 def password_aging(max):
+    '''   Set password aging to \\fImax\\fP days.'''
     uid_min = 500
     _interactive and log(_('Setting password maximum aging for new user to %d') % max)
     logindefs = ConfigFile.get_config_file(LOGINDEFS)
@@ -514,7 +568,7 @@ def password_aging(max):
                     error(_('unable to run chage: %s') % ret[1])
 
 def set_security_conf(var, value):
-    "1"
+    '''1 Set the variable \\fIvar\\fP to the value \\fIvalue\\fP in /etc/security/msec/security.conf.'''
     securityconf = ConfigFile.get_config_file(SECURITYCONF)
     securityconf.set_shell_variable(var, value)
 

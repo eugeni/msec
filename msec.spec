@@ -1,8 +1,8 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.18
-Release:	4mdk
-Url:		http://www.linux-mandrake.com
+Release:	5mdk
+Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
 Source2:    	msec.sh
@@ -14,6 +14,7 @@ BuildRoot:	%_tmppath/%name-%version-%release-root
 Requires:	/bin/bash /bin/touch perl-base diffutils textutils /usr/bin/python /usr/bin/chage gawk
 Requires:	setup >= 2.2.0-21mdk
 Requires:	chkconfig >= 1.2.24-3mdk
+Requires:	iproute2
 
 %description
 The Mandrake-Security package is designed to provide generic 
@@ -117,6 +118,11 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Wed Feb 13 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.18-5mdk
+- perm.5: /etc/sendmail.cf 640 for sendmail to work.
+- set umask and . in path according to the secure level
+- use the ip command to detect promiscuous mode with 2.4 kernel
+
 * Tue Feb  5 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.18-4mdk
 - password aging also enable delay to change
 - correct gdm.conf modifications

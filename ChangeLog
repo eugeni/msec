@@ -1,3 +1,11 @@
+2002-03-05 23:12  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.19-6mdk
+
+2002-03-05 23:11  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec, cron-sh/security.sh: don't run twice
+
 2002-03-04 14:19  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.19-5mdk

@@ -1,3 +1,7 @@
+2002-02-15 00:22  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.18-6mdk
+
 2002-02-15 00:21  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.sh: test SECURE_LEVEL before using it as a number

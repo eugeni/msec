@@ -18,6 +18,7 @@ import stat
 import pwd
 import grp
 import Config
+import sys
 from Log import *
 import gettext
 
@@ -89,10 +90,18 @@ def fix_perms(path):
     lineno = 0
     for line in file.readlines():
         lineno = lineno + 1
+        
         if comment_regex.search(line):
             continue
+
         fields = re.split('\s*', line)
-        newmode = int(fields[2], 8)
+        mode_str = fields[2]
+        
+        if mode_str == 'current':
+            newmode = -1
+        else:
+            newmode = int(mode_str, 8)
+        
         if fields[1] == 'current':
             user = group = -1
             user_str = group_str = ''
@@ -100,6 +109,7 @@ def fix_perms(path):
             (user_str, group_str) = string.split(fields[1], '.')
             user = get_user_id(user_str)
             group = get_group_id(group_str)
+        
         if len(fields) == 4:
             for f in glob.glob(fields[0]):
                 try:
@@ -130,17 +140,24 @@ def act():
     for f in assoc.keys():
         (mode, uid, gid, newperm, user, group, user_str, group_str) = assoc[f]
         #print f, (mode, uid, gid, newperm, user, group)
-        if mode != newperm:
+        if newperm != -1 and mode != newperm:
             log(_('changed mode of %s from %o to %o') % (f, mode, newperm))
-            os.chmod(f, newperm)
-        if user != -1:
-            if user != uid:
-                log(_('changed owner of %s from %s to %s') % (f, get_user_name(uid), user_str))
+            try:
+                os.chmod(f, newperm)
+            except:
+                error('chmod %s %o: %s' % (f, newperm, sys.exc_value[0]))
+        if user != -1 and user != uid:
+            log(_('changed owner of %s from %s to %s') % (f, get_user_name(uid), user_str))
+            try:
                 os.chown(f, user, -1)
-        if group != -1:
-            if group != gid:
-                log(_('changed group of %s from %s to %s') % (f, get_group_name(gid), group_str))
+            except:
+                error('chown %s %s: %s' % (f, user, sys.exc_value[0]))
+        if group != -1 and group != gid:
+            log(_('changed group of %s from %s to %s') % (f, get_group_name(gid), group_str))
+            try:
                 os.chown(f, -1, group)
+            except:
+                error('chgrp %s %s: %s' % (f, group, sys.exc_value[0]))
 
 def chmod(f, newperm):
     try:
@@ -157,7 +174,10 @@ def chmod(f, newperm):
             newperm = newperm | 0001
     if mode != newperm:
         log(_('changed mode of %s from %o to %o') % (f, mode, newperm))
-        os.chmod(f, newperm)
+        try:
+            os.chmod(f, newperm)
+        except:
+            error('chmod %s %o: %s' % (f, newperm, sys.exc_value[0]))
     return 1
 
 if __name__ == '__main__':

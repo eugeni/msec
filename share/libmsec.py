@@ -32,6 +32,7 @@ except IOError:
 SUFFIX='.msec'
 _interactive=0
 _same_level=1
+FORCED = {}
 
 # list of config files
 
@@ -106,6 +107,10 @@ ConfigFile.add_config_assoc('^/etc/issue$', '/usr/bin/killall mingetty')
 
 ################################################################################
 
+# The same_level function inspects the call stack in the 2 previous
+# levels to see if a function is used that has been registered by
+# force_val and if this is the case we act as if we were changing the
+# security level to force the value to be used.
 def same_level():
     'D'
     tb = traceback.extract_stack()
@@ -118,8 +123,6 @@ def changing_level():
     'D'
     global _same_level
     _same_level=0
-
-FORCED = {}
 
 def force_val(name):
     'D'

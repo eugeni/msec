@@ -1,30 +1,29 @@
-2001-09-19 14:22  florin
+2001-09-19 14:28  florin
+
+	* msec.spec: 25mdk
+
+2001-09-19 14:21  florin
 
 	* conf/server.4: sshd entry
 
-2001-09-19 14:22  florin
+2001-09-19 14:20  florin
 
-	* conf/perm*: squidGuard entries
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: squidGuard
+	entries
 
-2001-09-19 14:19  florin
+2001-09-19 14:16  florin
 
-	* init-sh/level*: RootSshLogin entries
+	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
+	level5.sh, lib.sh, lib.sh.usermode: RootSshLogin
 
-2001-09-19 14:04  florin
+2001-09-19 14:00  florin
 
-	* init-sh/lib.sh*: add the RootSshLogin () function 
-
-2001-09-19 14:04  florin
-	
-	* msec.spec: root ssh login in level 4/5, squidGuard entries
-
-2001-09-19 14:02  florin
-
-	* doc/security.txt: remove the init-sh directories
+	* doc/security.txt: there are no */init-sh/ directories in the rpm
+	msec
 
 2001-09-19 13:30  yoann
 
-	* msec.spec: [no log message]
+	* msec.spec, msec.spec: [no log message]
 
 2001-09-19 13:18  yoann
 

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Writen by Vandoorselaere Yoann, 
+# <yoann@mandrakesoft.com>
+
 if [ -f /etc/security/msec/security.conf ]; then
 	. /etc/security/msec/security.conf
 else
@@ -13,13 +16,13 @@ if tail /var/log/security.log | grep -q "promiscuous"; then
 fi
 
 Syslog() {
-    if [ "${SYSLOG_WARN}" == "yes" ]; then
+    if [[ ${SYSLOG_WARN} == yes ]]; then
         /sbin/initlog --string="${1}"
     fi
 }
 
 Ttylog() {
-    if [ "${TTYLOG_WARN}" == "yes" ]; then
+    if [[ ${TTYLOG_WARN} == yes ]]; then
         w | grep -v "load\|TTY" | awk '{print $2}' | while read line; do
             echo -e "${1}" > /dev/$i
         done
@@ -49,7 +52,7 @@ else
 	exit 1
 fi
 
-if [ ${CHECK_PROMISC}=="no" ]; then
+if [[ ${CHECK_PROMISC} == no ]]; then
 	exit 0;
 fi
 

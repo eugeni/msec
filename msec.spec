@@ -34,7 +34,13 @@ rm -rf $RPM_BUILD_ROOT
 /etc/security/msec
 /usr/bin/promisc_check
 
-%changelog
+%changeloga
+1999-12-09  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Many bugfix, i'm trying to get a bugfree release before the freeze
+- Renamed some variable, added consistencie.
+- security_cjheck.sh: print header at begining of the log.
+- diff_check.sh: typo.
+
 * Wed Dec  8 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - security_check.sh: remove /tmp stuff.
 - security_check.sh: typo

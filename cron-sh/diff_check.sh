@@ -57,7 +57,7 @@ rm -f ${TMP} ${SECURITY_TMP} >& /dev/null
 ### Functions ###
 
 Syslog() {
-    if [ ${SYSLOG_WARN}=="yes" ]; then
+    if [[ ${SYSLOG_WARN} == yes ]]; then
 	cat ${1} | while read line; do
 	    /sbin/initlog --string="${line}"
 	done
@@ -65,7 +65,7 @@ Syslog() {
 }
 
 Ttylog() {
-	if [ ${TTY_WARN}=="yes" ]; then
+	if [[ ${TTY_WARN} == yes ]]; then
 		for i in `w | grep -v "load\|TTY" | awk '{print $2}'` ; do
 			echo -e "$1" > /dev/$i
 		done
@@ -76,7 +76,7 @@ Ttylog() {
 
 
 ### New Suid root files detection
-if [ ${CHECK_SUID_ROOT}=="yes" ]; then
+if [[ ${CHECK_SUID_ROOT} == yes ]]; then
 
     if [ -f ${SUID_ROOT_TODAY} ]; then
 	mv ${SUID_ROOT_TODAY} ${SUID_ROOT_YESTERDAY}
@@ -121,7 +121,7 @@ if [ ${CHECK_SUID_GROUP} ]; then
 fi
 
 ### Writable files detection
-if [ ${CHECK_WRITEABLE}=="yes" ]; then
+if [[ ${CHECK_WRITEABLE} == yes ]]; then
 
     if [ -f ${WRITEABLE_TODAY} ]; then
 	mv -f ${WRITEABLE_TODAY} ${WRITEABLE_YESTERDAY}
@@ -143,7 +143,7 @@ if [ ${CHECK_WRITEABLE}=="yes" ]; then
 fi
 
 ### Search Non Owned files
-if [ ${CHECK_UNOWNED}=="yes" ]; then
+if [[ ${CHECK_UNOWNED} == yes ]]; then
 
     if [ -f ${UNOWNED_TODAY} ]; then
 	mv -f ${UNOWNED_TODAY} ${UNOWNED_YESTERDAY}
@@ -179,7 +179,7 @@ if [ ${CHECK_UNOWNED}=="yes" ]; then
 fi
 
 ### Md5 check for SUID root file
-if [ ${CHECK_SUID_MD5}=="yes" ]; then 
+if [[ ${CHECK_SUID_MD5} == yes  ]]; then 
     if [ -f ${SUID_MD5_TODAY} ]; then
 	mv ${SUID_MD5_TODAY} ${SUID_MD5_YESTERDAY}
     fi
@@ -205,7 +205,7 @@ if [ ${CHECK_SUID_MD5}=="yes" ]; then
 fi
 
 ### Changed open port
-if [ ${CHECK_OPEN_PORT}=="yes" ]; then
+if [[ ${CHECK_OPEN_PORT} == yes ]]; then
     if [ -f ${OPEN_PORT_TODAY} ]; then
 	mv -f ${OPEN_PORT_TODAY} ${OPEN_PORT_YESTERDAY}
     fi

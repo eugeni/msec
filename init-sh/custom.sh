@@ -68,7 +68,7 @@ if [ ${answer} == "yes" ]; then
 fi
 
 ###
-echo "Do you want your system to check for permission problem ?"
+echo "Do you want your system to check for grave permission problem on senssibles files ?"
 WaitAnswer; clear
 if [ ${answer} == "yes" ]; then
 	AddRules "CHECK_PERMS=yes" /etc/security/msec/security.conf

@@ -79,12 +79,12 @@ if [[ ${CHECK_PERMS} == yes ]]; then
 list=".netrc .rhosts .shosts .Xauthority .pgp/secring.pgp .ssh/identity .ssh/random_seed"
 awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' /etc/passwd | 
 while read username uid homedir; do
-        for f in ${list} ; do
-                file="${homedir}/${f}"
-                if [ -f ${file} ] ; then
-			printf "${uid} ${username} ${file} `ls -ldcgn ${file}`\n"
-                fi
-        done
+    for f in ${list} ; do
+	file="${homedir}/${f}"
+	if [ -f ${file} ] ; then
+	    printf "${uid} ${username} ${file} `ls -ldcgn ${file}`\n"
+	fi
+    done
 done | awk '$1 != $6 && $6 != "0" \
         { print "\t\t- " $3 " : file is owned by uid " $6 "." }
 	$4 ~ /^-...r/ \
@@ -100,7 +100,6 @@ if [ -s ${TMP} ]; then
     printf "\nSecurity Warning: these files shouldn't be owned by someone else or readable :\n" >> ${SECURITY}
     cat ${TMP} >> ${SECURITY}
 fi
-
 
 ### Files that should not be owned by someone else or writeable.
 list=".bashrc .bash_profile .bash_login .bash_logout .cshrc .emacs .exrc \
@@ -145,12 +144,10 @@ if [ -s $TMP ] ; then
         printf "\nSecurity Warning: these home directory should not be owned by someone else or writeable :\n" >> ${SECURITY}
         cat ${TMP} >> ${SECURITY}
 fi
-fi
+fi # End of check perms
 
-
-if [ ${CHECK_SECURITY} == yes ]; then
 ### Passwd file check
-if [ ${CHECK_PASSWD} == yes ]; then    
+if [[ ${CHECK_PASSWD} == yes ]]; then    
     awk -F: '{
         if ( $2 == "" )
 	    printf("\t\t- /etc/passwd:%d: User \"%s\" has no password !\n", FNR, $1);
@@ -265,7 +262,6 @@ if [[ ${CHECK_OPEN_PORT} == yes ]]; then
 	cat ${TMP} >> ${SECURITY}
     fi
 fi
-fi # end of CHECK_SECURITY
 
 ### Report
 if [ -s ${SECURITY} ]; then

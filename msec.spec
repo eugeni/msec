@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.34.1
+Version:	0.34.2
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -135,6 +135,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Tue Aug 27 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34.2-1mdk
+- fixed /boot as suggested by Guillaume Rousse.
+
 * Tue Aug 27 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34.1-1mdk
 - corrected permissions for /boot/kernel.h*
 - corrected syntax error in cron (David Relson)

@@ -94,7 +94,7 @@ OLD_CleanRules() {
 CleanRules() {
     echo -en "\t- Cleaning msec appended line in $1 : "
 
-    perl -ni -e '$_ eq "$ENV{COMMENT}\n" ... //' $1        
+    perl -ni -e '$_ eq "$ENV{COMMENT}\n" ... // or print' $1        
 
     echo "done."
 }
@@ -352,8 +352,6 @@ if [[ -f /etc/profile.d/msec.sh && -f /etc/profile.d/msec.csh ]]; then
 	CleanRules /etc/profile.d/msec.sh
 	CleanRules /etc/profile.d/msec.csh
 else
-	touch /etc/profile.d/msec.sh
-	touch /etc/profile.d/msec.csh
 	chmod 755 /etc/profile.d/msec.sh
 	chmod 755 /etc/profile.d/msec.csh
 fi

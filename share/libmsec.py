@@ -420,7 +420,7 @@ def allow_root_login(arg):
                 if not (_same_level and not val[s]):
                     securetty.replace_line_matching(s, s, 1)
     else:
-        if (kde.exists() and not val_kde) or (gdm.exists() and not val_gdm) or (xdm.exists() and not val_xdm) or num > 0:
+        if (kde.exists() and not val[kde]) or (gdm.exists() and not val[gdm]) or (xdm.exists() and not val[xdm]) or num > 0:
             _interactive and log(_('Forbidding direct root login'))
         
             bastillenologin = ConfigFile.get_config_file(BASTILLENOLOGIN)

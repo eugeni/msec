@@ -690,7 +690,9 @@ def set_zero_one_variable(file, variable, value, secure_value, one_msg, zero_msg
     f = ConfigFile.get_config_file(file)
 
     if f.exists():
-        val = int(f.get_shell_variable(variable))
+        val = f.get_shell_variable(variable)
+        if val:
+            val = int(val)
     else:
         val = None
         

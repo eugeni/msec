@@ -53,7 +53,7 @@ AddBegRules() {
 }
 
 
-CleanRules() {
+OLD_CleanRules() {
     file=$1
     ctrl=0
 
@@ -87,7 +87,7 @@ CleanRules() {
     echo "done."
 }
 
-CleanRules2() {
+CleanRules() {
     echo -en "\t- Cleaning msec appended line in $1 : "
 
     perl -ni -e '$_ eq "$ENV{COMMENT}\n" ... // or print' $1        
@@ -182,7 +182,7 @@ CommentUserRules /etc/hosts.allow
 CleanRules /etc/securetty
 CommentUserRules /etc/securetty
 CleanRules /etc/security/msec/security.conf
-#CommentUserRules /etc/security/msec/security.conf
+CommentUserRules /etc/security/msec/security.conf
 CleanRules /etc/profile
 CleanRules /etc/lilo.conf
 CleanRules /etc/rc.d/rc.firewall

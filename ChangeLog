@@ -1,3 +1,8 @@
+2000-04-24  Pixel  <pixel@mandrakesoft.com>
+
+	* conf/perm.[0-4]: fix ugly disgusting fucking bloody buggy bug!
+	(remove bloody /usr/{bin,sbin}/* entries)
+
 2000-04-19 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - Support grub as well as lilo...
 - bugfix.

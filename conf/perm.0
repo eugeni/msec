@@ -27,7 +27,6 @@
 /etc/inetd.conf					root.root		644
 /etc/inittab					root.root		644
 /etc/ld.so.conf					root.root		644
-/etc/lilo.conf					root.root		644
 /etc/mandrake-release				root.root		644
 /etc/modules.conf				root.root		644
 /etc/motd					root.root		644

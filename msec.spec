@@ -81,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
-* Thu Sep 27 2001 Florin <florin@mandrakesoft.com> 0.15-30mdk
+* Sat Sep 29 2001 Florin <florin@mandrakesoft.com> 0.15-30mdk
 - more things from /etc/profile to /etc/profile.d/msec.{sh|csh}
 - remove the "or print" in the perl line in CleanRules 
 - update the doc path in the man pages

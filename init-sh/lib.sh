@@ -151,7 +151,7 @@ LoaderUpdate() {
     	echo "Do you want a password authentication at boot time ?"
     	echo "Be very carefull,"
     	echo "this will prevent your server to reboot without an operator to enter password".
-	WaitAnswer;
+		WaitAnswer;
     	if [[ ${answer} == yes ]]; then
         	echo -n "Please enter the password which will be used at boot time : "
         	read password
@@ -165,7 +165,7 @@ LoaderUpdate() {
     if [[ ! -z ${password} ]]; then
 	tmpfile=`mktemp /tmp/secure.XXXXXX`
 
-    	cp ${file} ${tmpfile}
+    cp ${file} ${tmpfile}
 	cat ${tmpfile} | grep -v password > ${file}
 	
 	rm -f ${tmpfile}

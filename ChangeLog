@@ -1,3 +1,19 @@
+2000-03-07 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* Included patch from Stefan Siegel which fix these item :
+		* Files that should not be owned by someone else or readable:
+   			-> added ".gnupg/secring.gpg" as Mandrake uses GNUPG as default
+
+		* Files that should not be owned by someone else or writeable:
+   			-> replaced "-" by "." in awk-script beause ".ssh" is a directory
+
+		* Check home directories. Directories should not be owned by=20
+  			someone else or writeable:
+   			-> replaced "-" by "d" in awk-script beause "~" is a directory
+   			-> replaced username-check by uid-check (avoids false output=20
+     			 by usernames > 8 char, e.g. "fetchmail" !=3D "fetchmai" )
+   			-> removed "~lp" and "~mail" from group-check as their homedirs
+	      		are group writeable
+
 2000-02-17 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* level 4 - 5 /var/log in mode 711 for daemon spawned as non root user.
 	* /etc/printcap is 644 in mode 4 & 5

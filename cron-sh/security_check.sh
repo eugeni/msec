@@ -55,7 +55,8 @@ fi
 
 if [[ ${CHECK_PERMS} == yes ]]; then
 # Files that should not be owned by someone else or readable.
-list=".netrc .rhosts .shosts .Xauthority .pgp/secring.pgp .ssh/identity .ssh/random_seed"
+list=".netrc .rhosts .shosts .Xauthority .gnupg/secring.gpg \
+.pgp/secring.pgp .ssh/identity .ssh/random_seed"
 awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' /etc/passwd | 
 while read username uid homedir; do
     for f in ${list} ; do
@@ -95,9 +96,9 @@ while read username uid homedir; do
         done
 done | awk '$1 != $6 && $6 != "0" \
         { print "\t\t- " $3 " : file is owned by uid " $6 "." }
-     $4 ~ /^-....w/ \
+     $4 ~ /^.....w/ \
         { print "\t\t- " $3 " : file is group writeable." }
-     $4 ~ /^-.......w/ \
+     $4 ~ /^........w/ \
         { print "\t\t- " $3 " : file is other writeable." }' > ${TMP}
 
 if [[ -s ${TMP} ]]; then
@@ -106,18 +107,20 @@ if [[ -s ${TMP} ]]; then
 fi
 
 ### Check home directories.  Directories should not be owned by someone else or writeable.
-awk -F: '/^[^+-]/ { print $1 " " $6 }' /etc/passwd | \
-while read uid homedir; do
+awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' /etc/passwd | \
+while read username uid homedir; do
         if [[ -d ${homedir} ]] ; then
-                file=`ls -ldg ${homedir}`
-                printf "$uid $file\n"
+                realuid=`ls -ldgn ${homedir}| awk '{ print $3 }'`
+                realuser=`ls -ldg ${homedir}| awk '{ print $3 }'`
+                permissions=`ls -ldg ${homedir}| awk '{ print $1 }'`
+                printf "${permissions} ${username} (${uid}) ${realuser} (${realuid})\n"
         fi
-done | awk '$1 != $4 && $4 != "root" \
-        { print "user=" $1 " : home directory is owned by " $4 "." }
-     $2 ~ /^-....w/ \
-        { print "user=" $1 " : home directory is group writeable." }
-     $2 ~ /^-.......w/ \
-        { print "user=" $1 " : home directory is other writeable." }' > ${TMP}
+done | awk '$3 != $5 && $5 != "(0)" \
+        { print "user=" $2 $3 " : home directory is owned by " $4 $5 "." }
+     $1 ~ /^d....w/ && $2 != "lp" && $2 != "mail" \
+        { print "user=" $2 $3" : home directory is group writeable." }
+     $1 ~ /^d.......w/ \
+        { print "user=" $2 $3" : home directory is other writeable." }' > ${TMP}
 
 if [[ -s $TMP ]] ; then
         printf "\nSecurity Warning: these home directory should not be owned by someone else or writeable :\n" >> ${SECURITY}

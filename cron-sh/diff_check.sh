@@ -146,6 +146,18 @@ fi
 
 ### rpm database
 if [[ ${RPM_CHECK} == yes ]]; then
+    if [[ -f ${RPM_QA_YESTERDAY} ]]; then
+	diff -u ${RPM_QA_YESTERDAY} ${RPM_QA_TODAY} > ${RPM_QA_DIFF}
+	if [ -s ${RPM_QA_DIFF} ]; then
+	    printf "\nSecurity Warning: These packages have changed on the system :\n" >> ${TMP}
+	    grep '^+' ${RPM_QA_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
+		printf "\t\t-   added package : ${file}\n"
+	    done >> ${TMP}
+	    grep '^-' ${RPM_QA_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
+		printf "\t\t- removed package : ${file}\n"
+	    done >> ${TMP}
+	fi
+    fi
     if [[ -f ${RPM_VA_YESTERDAY} ]]; then
 	diff -u ${RPM_VA_YESTERDAY} ${RPM_VA_TODAY} > ${RPM_VA_DIFF}
 	if [ -s ${RPM_VA_DIFF} ]; then
@@ -158,15 +170,15 @@ if [[ ${RPM_CHECK} == yes ]]; then
 	    done >> ${TMP}
 	fi
     fi
-    if [[ -f ${RPM_QA_YESTERDAY} ]]; then
-	diff -u ${RPM_QA_YESTERDAY} ${RPM_QA_TODAY} > ${RPM_QA_DIFF}
-	if [ -s ${RPM_QA_DIFF} ]; then
-	    printf "\nSecurity Warning: These packages have changed on the system :\n" >> ${TMP}
-	    grep '^+' ${RPM_QA_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
-		printf "\t\t-   added package : ${file}\n"
+    if [[ -f ${RPM_VA_CONFIG_YESTERDAY} ]]; then
+	diff -u ${RPM_VA_CONFIG_YESTERDAY} ${RPM_VA_CONFIG_TODAY} > ${RPM_VA_CONFIG_DIFF}
+	if [ -s ${RPM_VA_CONFIG_DIFF} ]; then
+	    printf "\nSecurity Warning: These config files belonging to packages have changed of status on the system :\n" >> ${TMP}
+	    grep '^+' ${RPM_VA_CONFIG_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
+		printf "\t\t-   newly modified : ${file}\n"
 	    done >> ${TMP}
-	    grep '^-' ${RPM_QA_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
-		printf "\t\t- removed package : ${file}\n"
+	    grep '^-' ${RPM_VA_CONFIG_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
+		printf "\t\t- no more modified : ${file}\n"
 	    done >> ${TMP}
 	fi
     fi

@@ -43,6 +43,9 @@ UNOWNED_GROUP_DIFF="/var/log/security/unowned_group.diff"
 export RPM_VA_TODAY="/var/log/security/rpm-va.today"
 RPM_VA_YESTERDAY="/var/log/security/rpm-va.yesterday"
 RPM_VA_DIFF="/var/log/security/rpm-va.diff"
+export RPM_VA_CONFIG_TODAY="/var/log/security/rpm-va-config.today"
+RPM_VA_CONFIG_YESTERDAY="/var/log/security/rpm-va-config.yesterday"
+RPM_VA_CONFIG_DIFF="/var/log/security/rpm-va-config.diff"
 export RPM_QA_TODAY="/var/log/security/rpm-qa.today"
 RPM_QA_YESTERDAY="/var/log/security/rpm-qa.yesterday"
 RPM_QA_DIFF="/var/log/security/rpm-qa.diff"
@@ -92,6 +95,10 @@ fi
 
 if [[ -f ${RPM_VA_TODAY} ]]; then
     mv -f ${RPM_VA_TODAY} ${RPM_VA_YESTERDAY}
+fi
+
+if [[ -f ${RPM_VA_CONFIG_TODAY} ]]; then
+    mv -f ${RPM_VA_CONFIG_TODAY} ${RPM_VA_CONFIG_YESTERDAY}
 fi
 
 if [[ -f ${RPM_QA_TODAY} ]]; then
@@ -147,8 +154,12 @@ if [[ ${RPM_CHECK} == yes ]]; then
     fi
     
     rpm -qa --qf "%{NAME}-%{VERSION}-%{RELEASE}\t%{INSTALLTIME}\n" | sort > ${RPM_QA_TODAY}
-    
-    nice --adjustment=+19 rpm -V `cut -f 1  < ${RPM_QA_TODAY} | grep -v '^dev-[0-9]'` | grep '^..5' | sed 's/...........//' | sort > ${RPM_VA_TODAY}
+
+    rm -f ${RPM_VA_TODAY}.tmp
+    nice --adjustment=+19 rpm -V `cut -f 1  < ${RPM_QA_TODAY} | grep -v '^dev-[0-9]'` | grep '^..5' | sort > ${RPM_VA_TODAY}.tmp
+    grep -v '^.........c.'  ${RPM_VA_TODAY}.tmp | sed 's/^...........//' | sort > ${RPM_VA_TODAY}
+    grep '^.........c.'  ${RPM_VA_TODAY}.tmp | sed 's/^...........//' | sort > ${RPM_VA_CONFIG_TODAY}
+    rm -f ${RPM_VA_TODAY}.tmp
 fi
 
 ### chkrootkit checks

@@ -260,6 +260,13 @@ if [[ ${RPM_CHECK} == yes ]]; then
 	    printf "\t\t- $f\n"
         done >> ${SECURITY}
     fi
+
+    if [[ -s ${RPM_VA_CONFIG_TODAY} ]]; then
+	printf "\nSecurity Warning: These config files belonging to packages are modified on the system :\n" >> ${SECURITY}
+	cat ${RPM_VA_CONFIG_TODAY} | while read f; do
+	    printf "\t\t- $f\n"
+        done >> ${SECURITY}
+    fi
 fi
 
 ### chkrootkit checks

@@ -1,6 +1,9 @@
+# do not modify Version below, modify it in Makefile (see CVS)
+%define version 0.8
+
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
-Version: 0.8
+Version: %{version}
 Release: 4mdk
 Source: %{name}-%{version}.tar.bz2
 Copyright: GPL

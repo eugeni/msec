@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.19
-Release:	1mdk
+Release:	2mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -122,6 +122,10 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Wed Feb 20 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-2mdk
+- implement no password in level 0
+- X listens to tcp connections in level 3
+
 * Tue Feb 19 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.19-1mdk
 - corrected msec.sh and msec.csh problems.
 - security.conf is now read from /var/lib/msec and can be overridden

@@ -152,8 +152,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
-* Thu Aug 29 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34.3-1mdk
-- Corrected spelling errors thx to David Relson
+* Fri Aug 30 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34.3-1mdk
+- fixed server symlink creation
+- corrected spelling errors thx to David Relson
 
 * Tue Aug 27 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34.2-1mdk
 - fixed /boot as suggested by Guillaume Rousse.

@@ -9,9 +9,9 @@ echo -n "Setting files permissions : "
 
 grep -v "^#" $1 | while read file owner perm; do
 	if [[ ${owner} != current ]]; then
-		chown ${owner} ${file}
+		chown ${owner} ${file} >& /dev/null
 	fi
-	chmod ${perm} ${file}
+	chmod ${perm} ${file} >& /dev/null
 done
 
 echo "done."

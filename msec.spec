@@ -49,7 +49,8 @@ rm -rf $RPM_BUILD_ROOT
 * Mon Apr 17 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.12-3mdk
 - perm.5 : -e s'/ntool/ntools/' -e s'/ctool/ctools/'
 - updated documentation.
-- fixed file_perm.sh
+- file_perm.sh : bug fix + output to /dev/null.
+- include /var/tmp in perm.[0-5].
 
 * Fri Apr 14 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.12-1mdk
 - Modify zprofile.

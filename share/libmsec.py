@@ -81,8 +81,13 @@ NONE=0
 ALL=1
 LOCAL=2
 
+no=0
+yes=1
+without_password=2
+
 ALL_LOCAL_NONE_TRANS = {ALL : 'ALL', NONE: 'NONE', LOCAL : 'LOCAL'}
-YES_NO_TRANS = {1 : 'yes', 0 : 'no'}
+YES_NO_TRANS = {yes : 'yes', no : 'no'}
+ALLOW_ROOT_LOGIN_TRANS = {no : 'no', yes : 'yes', without_password : 'without-password'}
 
 # config files => actions
 
@@ -96,12 +101,16 @@ ConfigFile.add_config_assoc('^/etc/issue$', '/usr/bin/killall mingetty')
 
 # rules
 
+################################################################################
+
 def changing_level():
     'D'
     global _same_level
     _same_level=0
     
 # configuration rules
+
+################################################################################
 
 def set_secure_level(level):
     msec = ConfigFile.get_config_file(MSEC)
@@ -112,15 +121,21 @@ def set_secure_level(level):
         _interactive and log(_('Setting secure level to %s') % level)
         msec.set_shell_variable('SECURE_LEVEL', level)
 
+################################################################################
+
 def get_secure_level():
     'D'
     msec = ConfigFile.get_config_file(MSEC)
     return msec.get_shell_variable('SECURE_LEVEL')
 
+################################################################################
+
 def set_server_level(level):
     _interactive and log(_('Setting server level to %s') % level)
     securityconf = ConfigFile.get_config_file(SECURITYCONF)
     securityconf.set_shell_variable('SERVER_LEVEL', level)
+
+################################################################################
 
 def get_server_level():
     'D'
@@ -129,6 +144,8 @@ def get_server_level():
     if level: return level
     msec = ConfigFile.get_config_file(MSEC)
     return msec.get_shell_variable('SECURE_LEVEL')
+
+################################################################################
 
 def create_server_link():
     '''  If SERVER_LEVEL (or SECURE_LEVEL if absent) is greater than 3
@@ -146,6 +163,8 @@ during the installation of packages.'''
         server.symlink(SERVER + '.' + str(level))
 
 create_server_link.arg_trans = YES_NO_TRANS
+
+################################################################################
 
 # helper function for set_root_umask and set_user_umask
 def set_umask(variable, umask, msg):
@@ -174,6 +193,8 @@ def set_root_umask(umask):
 def set_user_umask(umask):
     '''  Set the user umask.'''
     set_umask('UMASK_USER', umask, 'users')
+
+################################################################################
 
 # the listen_tcp argument is kept for backward compatibility
 def allow_x_connections(arg, listen_tcp=None):
@@ -222,6 +243,8 @@ local connection) and NONE (no connection).'''
 allow_x_connections.arg_trans=ALL_LOCAL_NONE_TRANS
 allow_x_connections.one_arg = 1
 
+################################################################################
+
 STARTX_REGEXP = '(\s*clientargs=".*) -nolisten tcp(.*")'
 XSERVERS_REGEXP = '(\s*[^#]+/usr/X11R6/bin/X .*) -nolisten tcp(.*)'
 GDMCONF_REGEXP = '(\s*command=.*/X.*?) -nolisten tcp(.*)$'
@@ -260,6 +283,8 @@ to the X server on the tcp port 6000 or not.'''
 
 allow_xserver_to_listen.arg_trans = YES_NO_TRANS
 
+################################################################################
+
 def set_shell_timeout(val):
     '''  Set the shell timeout. A value of zero means no timeout.'''
 
@@ -280,6 +305,8 @@ def set_shell_timeout(val):
     if old != val:
         _interactive and log(_('Setting shell timeout to %s') % val)
         msec.set_shell_variable('TMOUT', val)
+
+################################################################################
 
 def set_shell_history_size(size):
     '''  Set shell commands history size. A value of -1 means unlimited.'''
@@ -306,6 +333,8 @@ def set_shell_history_size(size):
             _interactive and log(_('Removing limit on shell history size'))
             msec.remove_line_matching('^HISTFILESIZE=')
         
+################################################################################
+
 def allow_reboot(arg):
     '''  Allow/Forbid reboot by the console user.'''
     shutdownallow = ConfigFile.get_config_file(SHUTDOWNALLOW)
@@ -354,6 +383,8 @@ def allow_reboot(arg):
 
 allow_reboot.arg_trans = YES_NO_TRANS
 
+################################################################################
+
 def allow_user_list(arg):
     '''  Allow/Forbid the list of users on the system on display managers (kdm and gdm).'''
     kdmrc = ConfigFile.get_config_file(KDMRC)
@@ -386,6 +417,8 @@ def allow_user_list(arg):
         oldval_gdmconf != val_gdmconf and gdmconf.exists() and gdmconf.set_shell_variable('Browser', val_gdmconf)
 
 allow_user_list.arg_trans = YES_NO_TRANS
+
+################################################################################
 
 def allow_root_login(arg):
     '''  Allow/Forbid direct root login.'''
@@ -448,12 +481,16 @@ def allow_root_login(arg):
 
 allow_root_login.arg_trans = YES_NO_TRANS
 
+PERMIT_ROOT_LOGIN_REGEXP = '^\s*PermitRootLogin\s+(no|yes|without-password|forced-commands-only)'
+
+################################################################################
+
 def allow_remote_root_login(arg):
     '''  Allow/Forbid remote root login.'''
     sshd_config = ConfigFile.get_config_file(SSHDCONFIG)
 
     if sshd_config.exists():
-        val = sshd_config.get_match('^\s*PermitRootLogin\s+(no|yes)', '@1')
+        val = sshd_config.get_match(PERMIT_ROOT_LOGIN_REGEXP, '@1')
     else:
         val = None
 
@@ -461,21 +498,35 @@ def allow_remote_root_login(arg):
     if _same_level:
         if val == 'no':
             return
+        if val == 'forced-commands-only':
+            return
 
-    val = (val == 'yes')
-
-    if arg:
-        if val != arg:
-            _interactive and log(_('Allowing remote root login'))
-            sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+(no|yes)',
-                                                                       'PermitRootLogin yes', 1)
+    if val == 'yes':
+        val = yes
+    elif val == 'no':
+        val = no
+    elif val == 'without-password':
+        val = without_password
     else:
-        if val != arg:
+        val = yes
+        
+    if val != arg:
+        if arg == yes:
+            _interactive and log(_('Allowing remote root login'))
+            sshd_config.exists() and sshd_config.replace_line_matching(PERMIT_ROOT_LOGIN_REGEXP,
+                                                                       'PermitRootLogin yes', 1)
+        elif arg == no:
             _interactive and log(_('Forbidding remote root login'))
-            sshd_config.exists() and sshd_config.replace_line_matching('^\s*PermitRootLogin\s+(no|yes)',
+            sshd_config.exists() and sshd_config.replace_line_matching(PERMIT_ROOT_LOGIN_REGEXP,
                                                                        'PermitRootLogin no', 1)
+        elif arg == without_password:
+            _interactive and log(_('Allowing remote root login only by passphrase'))
+            sshd_config.exists() and sshd_config.replace_line_matching(PERMIT_ROOT_LOGIN_REGEXP,
+                                                                       'PermitRootLogin without-password', 1)
 
-allow_remote_root_login.arg_trans = YES_NO_TRANS
+allow_remote_root_login.arg_trans = ALLOW_ROOT_LOGIN_TRANS
+
+################################################################################
 
 def enable_pam_wheel_for_su(arg):
     '''   Enabling su only from members of the wheel group or allow su from any user.'''
@@ -510,6 +561,8 @@ def enable_pam_wheel_for_su(arg):
             su.exists() and su.remove_line_matching('^auth\s+required\s+/lib/security/pam_wheel.so\s+use_uid\s*$')
 
 enable_pam_wheel_for_su.arg_trans = YES_NO_TRANS
+
+################################################################################
 
 def allow_issues(arg):
     '''  If \\fIarg\\fP = ALL allow /etc/issue and /etc/issue.net to exist. If \\fIarg\\fP = NONE no issues are
@@ -547,6 +600,8 @@ allowed else only /etc/issue is allowed.'''
 
 allow_issues.arg_trans = YES_NO_TRANS
 
+################################################################################
+
 def allow_autologin(arg):
     '''  Allow/Forbid autologin.'''
     autologin = ConfigFile.get_config_file(AUTOLOGIN)
@@ -572,6 +627,8 @@ def allow_autologin(arg):
 
 allow_autologin.arg_trans = YES_NO_TRANS
 
+################################################################################
+
 def password_loader(value):
     'D'
     _interactive and log(_('Activating password in boot loader'))
@@ -586,6 +643,8 @@ def password_loader(value):
                           Perms.chmod(menulst.path, 0600)
     # TODO add yaboot support
         
+################################################################################
+
 def nopassword_loader():
     'D'
     _interactive and log(_('Removing password in boot loader'))
@@ -593,6 +652,8 @@ def nopassword_loader():
     liloconf.exists() and liloconf.remove_line_matching('^password=', 1)
     menulst = ConfigFile.get_config_file(MENULST)
     menulst.exists() and menulst.remove_line_matching('^password\s')
+
+################################################################################
 
 def enable_console_log(arg, expr='*.*', dev='tty12'):
     '''  Enable/Disable syslog reports to console 12. \\fIexpr\\fP is the
@@ -625,6 +686,8 @@ enable_console_log.arg_trans = YES_NO_TRANS
 CRON_ENTRY = '*/1 * * * *    root    /usr/share/msec/promisc_check.sh'
 CRON_REGEX = '[^#]+/usr/share/msec/promisc_check.sh'
 
+################################################################################
+
 def enable_promisc_check(arg):
     '''  Activate/Disable ethernet cards promiscuity check.'''
     cron = ConfigFile.get_config_file(CRON)
@@ -646,6 +709,8 @@ def enable_promisc_check(arg):
             cron.remove_line_matching('[^#]+/usr/share/msec/promisc_check.sh')
 
 enable_promisc_check.arg_trans = YES_NO_TRANS
+
+################################################################################
 
 def enable_security_check(arg):
     '''   Activate/Disable daily security check.'''
@@ -671,6 +736,8 @@ def enable_security_check(arg):
             securitycron.unlink()
 
 enable_security_check.arg_trans = YES_NO_TRANS
+
+################################################################################
 
 ALL_REGEXP = '^ALL:ALL:DENY'
 ALL_LOCAL_REGEXP = '^ALL:ALL EXCEPT 127\.0\.0\.1:DENY'
@@ -715,6 +782,8 @@ if \\fIarg\\fP = LOCAL and none if \\fIarg\\fP = NONE. To authorize the services
 
 authorize_services.arg_trans = ALL_LOCAL_NONE_TRANS
 
+################################################################################
+
 # helper function for enable_ip_spoofing_protection, accept_icmp_echo, accept_broadcasted_icmp_echo,
 # accept_bogus_error_responses and enable_log_strange_packets.
 def set_zero_one_variable(file, variable, value, secure_value, one_msg, zero_msg):
@@ -742,6 +811,8 @@ def set_zero_one_variable(file, variable, value, secure_value, one_msg, zero_msg
         _interactive and log(msg)
         f.set_shell_variable(variable, value)
 
+################################################################################
+
 # the alert argument is kept for backward compatibility
 def enable_ip_spoofing_protection(arg, alert=1):
     '''  Enable/Disable IP spoofing protection.'''
@@ -749,6 +820,8 @@ def enable_ip_spoofing_protection(arg, alert=1):
 
 enable_ip_spoofing_protection.arg_trans = YES_NO_TRANS
 enable_ip_spoofing_protection.one_arg = 1
+
+################################################################################
 
 def enable_dns_spoofing_protection(arg, alert=1):
     ''' Enable/Disable name resolution spoofing protection.  If
@@ -775,11 +848,15 @@ def enable_dns_spoofing_protection(arg, alert=1):
 
 enable_dns_spoofing_protection.arg_trans = YES_NO_TRANS
 
+################################################################################
+
 def accept_icmp_echo(arg):
     '''   Accept/Refuse icmp echo.'''
     set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_all', not arg, 1, 'Accepting icmp echo', 'Ignoring icmp echo')
 
 accept_icmp_echo.arg_trans = YES_NO_TRANS
+
+################################################################################
 
 def accept_broadcasted_icmp_echo(arg):
     '''   Accept/Refuse broadcasted icmp echo.'''
@@ -787,17 +864,23 @@ def accept_broadcasted_icmp_echo(arg):
 
 accept_broadcasted_icmp_echo.arg_trans = YES_NO_TRANS
 
+################################################################################
+
 def accept_bogus_error_responses(arg):
     '''  Accept/Refuse bogus IPv4 error messages.'''
     set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_ignore_bogus_error_responses', not arg, 1, 'Accepting bogus icmp error responses', 'Ignoring bogus icmp error responses')
 
 accept_bogus_error_responses.arg_trans = YES_NO_TRANS
 
+################################################################################
+
 def enable_log_strange_packets(arg):
     '''  Enable/Disable the logging of IPv4 strange packets.'''
     set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.log_martians', arg, 1, 'Enabling logging of strange packets', 'Disabling logging of strange packets')
 
 enable_log_strange_packets.arg_trans = YES_NO_TRANS
+
+################################################################################
 
 def enable_libsafe(arg):
     '''  Enable/Disable libsafe if libsafe is found on the system.'''
@@ -823,20 +906,24 @@ def enable_libsafe(arg):
 
 enable_libsafe.arg_trans = YES_NO_TRANS
 
-LENGTH_REGEXP = '^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sminlen=([0-9]+)\s(.*)'
-NDIGITS_REGEXP = '^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sdcredit=([0-9]+)\s(.*)'
-UCREDIT_REGEXP = '^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sucredit=([0-9]+)\s(.*)'
+################################################################################
+
+LENGTH_REGEXP = re.compile('^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sminlen=([0-9]+)\s(.*)')
+NDIGITS_REGEXP = re.compile('^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sdcredit=([0-9]+)\s(.*)')
+UCREDIT_REGEXP = re.compile('^(password\s+required\s+/lib/security/pam_cracklib.so.*?)\sucredit=([0-9]+)\s(.*)')
 
 def password_length(length, ndigits=0, nupper=0):
     '''  Set the password minimum length and minimum number of digit and minimum number of capitalized letters.'''
-    
-    passwd = ConfigFile.get_config_file(PASSWD)
 
+    passwd = ConfigFile.get_config_file(SYSTEM_AUTH)
+
+    val_length = val_ndigits = val_ucredit = 999999
+    
     if passwd.exists():
         val_length  = passwd.get_match(LENGTH_REGEXP, '@2')
         if val_length:
             val_length = int(val_length)
-
+        
         val_ndigits = passwd.get_match(NDIGITS_REGEXP, '@2')
         if val_ndigits:
             val_ndigits = int(val_ndigits)
@@ -876,6 +963,8 @@ def password_length(length, ndigits=0, nupper=0):
          passwd.replace_line_matching('^password\s+required\s+/lib/security/pam_cracklib.so.*',
                                       '@0 ucredit=%s ' % nupper))
 
+################################################################################
+
 PASSWORD_REGEXP = '^\s*auth\s+sufficient\s+/lib/security/pam_permit.so'
 def enable_password(arg):
     '''  Use password to authenticate users.'''
@@ -900,6 +989,40 @@ def enable_password(arg):
 
 enable_password.arg_trans = YES_NO_TRANS
 
+################################################################################
+
+UNIX_REGEXP = re.compile('(^\s*password\s+sufficient\s+/lib/security/pam_unix.so.*)\sremember=([0-9]+)(.*)')
+
+def password_history(arg):
+    '''  Set the password history length to prevent password reuse.'''
+    system_auth = ConfigFile.get_config_file(SYSTEM_AUTH)
+
+    if system_auth.exists():
+        val = system_auth.get_match(UNIX_REGEXP, '@2')
+
+        if val and val != '':
+            val = int(val)
+        else:
+            val = 0
+    else:
+        val = 0
+
+    # don't lower security when not changing security level
+    if _same_level:
+        if val >= arg:
+            return
+    
+    if arg != val:
+        if arg > 0:
+            _interactive and log(_('Setting password history to %d.') % arg)
+            system_auth.replace_line_matching(UNIX_REGEXP, '@1 remember=%d@3' % arg) or \
+            system_auth.replace_line_matching('(^\s*password\s+sufficient\s+/lib/security/pam_unix.so.*)', '@1 remember=%d' % arg)
+        else:
+            _interactive and log(_('Disabling password history'))
+            system_auth.replace_line_matching(UNIX_REGEXP, '@1@3')
+
+################################################################################
+
 SULOGIN_REGEXP = '~~:S:wait:/sbin/sulogin'
 def enable_sulogin(arg):
     '''   Enable/Disable sulogin(8) in single user level.'''
@@ -923,6 +1046,8 @@ def enable_sulogin(arg):
 
 enable_sulogin.arg_trans = YES_NO_TRANS
 
+################################################################################
+
 def enable_msec_cron(arg):
     '''  Enable/Disable msec hourly security check.'''
     mseccron = ConfigFile.get_config_file(MSECCRON)
@@ -944,6 +1069,8 @@ def enable_msec_cron(arg):
             mseccron.unlink()
 
 enable_msec_cron.arg_trans = YES_NO_TRANS
+
+################################################################################
 
 def enable_at_crontab(arg):
     '''  Enable/Disable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow
@@ -973,6 +1100,8 @@ def enable_at_crontab(arg):
             atallow.replace_line_matching('root', 'root', 1)
 
 enable_at_crontab.arg_trans = YES_NO_TRANS
+
+################################################################################
 
 maximum_regex = re.compile('^Maximum:\s*([0-9]+|-1)', re.MULTILINE)
 inactive_regex = re.compile('^Inactive:\s*(-?[0-9]+)', re.MULTILINE)
@@ -1041,6 +1170,8 @@ def password_aging(max, inactive=-1):
                         error(_('unable to parse chage output'))
                 else:
                     error(_('unable to run chage: %s') % ret[1])
+
+################################################################################
 
 def set_security_conf(var, value):
     '''1 Set the variable \\fIvar\\fP to the value \\fIvalue\\fP in /var/lib/msec/security.conf.

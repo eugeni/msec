@@ -36,7 +36,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Thu Dec  9 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
-- Many bugfix, i'm trying to get a bugfree release before the freeze
+- More bugfix.
+- Many bugfix, always trying to get a bugfree release :).
 - Renamed some variable, added consistencie.
 - security_cjheck.sh: print header at begining of the log.
 - diff_check.sh: typo.

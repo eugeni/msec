@@ -1,4 +1,5 @@
 1999-12-09  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* More bug fix.
 	* xhost + localhost for lower level, xhost + for level0.
 	* Many bugfix, just trying to get a bugfree release
     * Renamed some variable, added consistencie. 

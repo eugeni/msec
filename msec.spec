@@ -111,6 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 - remove the redundance related to umask and /etc/bashrc
 - add the %{_sysconfdir}/%{name} file
 - allow the ssh connexions in the snf security level
+- sort of update the ChangeLog
 
 * Thu Nov 08 2001 Florin <florin@mandrakesoft.com> 0.16-2mdk
 - oups forgot to create the needed links in post:

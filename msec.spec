@@ -3,8 +3,10 @@ Name:		msec
 Version:	0.15
 Release:	30mdk
 
-Source:		%{name}-%{version}.tar.bz2
-Source2:    	msec.logrotate
+Source0:		%{name}-%{version}.tar.bz2
+Source1:    	msec.logrotate
+Source2:    	msec.sh
+Source3:    	msec.csh
 
 License:	GPL
 Group:		System/Base
@@ -52,8 +54,10 @@ done;
 
 touch $RPM_BUILD_ROOT/etc/security/msec/security.conf $RPM_BUILD_ROOT/var/log/security.log
 
-mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/logrotate.d
-install -m 644 %{SOURCE2} $RPM_BUILD_ROOT/etc/logrotate.d/msec
+mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/{logrotate.d,profile.d}
+install -m 644 %{SOURCE1} $RPM_BUILD_ROOT/etc/logrotate.d/msec
+install -m 755 %{SOURCE2} $RPM_BUILD_ROOT/etc/profile.d
+install -m 755 %{SOURCE3} $RPM_BUILD_ROOT/etc/profile.d
 touch $RPM_BUILD_ROOT/var/log/security.log
 
 %post 
@@ -75,16 +79,18 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) /var/log/security
 %config(noreplace) /etc/security/msec
 %config(noreplace) /etc/logrotate.d/msec
+%config(noreplace) /etc/profile.d/msec*
 
 %ghost /var/log/security.log
 
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
-* Sat Sep 29 2001 Florin <florin@mandrakesoft.com> 0.15-30mdk
+* Wed Oct 03 2001 Florin <florin@mandrakesoft.com> 0.15-30mdk
 - more things from /etc/profile to /etc/profile.d/msec.{sh|csh}
-- remove the "or print" in the perl line in CleanRules 
 - update the doc path in the man pages
+- add the msec*sh sources
+- libsafe.so.2 in levels 4/5
 
 * Thu Sep 20 2001 Florin <florin@mandrakesoft.com> 0.15-29mdk
 - fix the /etc/profile.d/msec.{sh|csh} entries

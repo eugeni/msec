@@ -110,8 +110,9 @@ echo "Setting umask to 022 (u=rw,g=rx) for root, 077 (u=rw) for user :"
 AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/profile.d/msec.sh
 AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi" /etc/profile.d/msec.csh
 
-if [[ -f /lib/libsafe.so.1.3 ]]; then
+if [[ -f /lib/libsafe.so.2 ]]; then
     echo "Enabling stack overflow protection :"
+    touch /etc/ld.so.preload
     AddRules "/lib/libsafe.so.2" /etc/ld.so.preload
 fi
 

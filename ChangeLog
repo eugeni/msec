@@ -1,3 +1,29 @@
+2002-03-08 13:56  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.19-7mdk
+
+2002-03-08 13:42  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/shadow.py: export yes/no to be in sync with libmsec.
+
+2002-03-08 13:41  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/man.py: document the value of arguments.
+
+2002-03-08 13:41  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: added yes and no to be used as argument to the
+	functions.
+
+2002-03-08 13:40  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* man/C/msec.8: ponts to security.txt
+
+2002-03-08 13:37  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: fix
+	permissions of /var/log/lp-errs for LPRng
+
 2002-03-05 23:12  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.19-6mdk

@@ -164,10 +164,24 @@ def fix_perms(path, _interactive):
             user_str = group_str = ''
         else:
             (user_str, group_str) = string.split(fields[1], '.')
-            user = get_user_id(user_str)
-            group = get_group_id(group_str)
+            if user_str != '':
+                user = get_user_id(user_str)
+            else:
+                user = -1
+            if group_str != '':
+                group = get_group_id(group_str)
+            else:
+                group = -1
         
-        if len(fields) == 4:
+        fieldcount = len(fields)
+        if fieldcount == 5:
+            if fields[3] == 'force':
+                mandatory = 1
+            fieldcount = 4
+        else:
+            mandatory = 0
+
+        if fieldcount == 4:
             for f in glob.glob(fields[0]):
                 newperm = perm
                 if fs_regexp and fs_regexp.search(f):
@@ -201,7 +215,7 @@ def fix_perms(path, _interactive):
                     f = f[:-1]
                 if f[-2:] == '/.':
                     f = f[:-2]
-                assoc[f] = (mode, uid, gid, newperm, user, group, user_str, group_str)
+                assoc[f] = (mode, uid, gid, newperm, user, group, user_str, group_str, mandatory)
         else:
             error(_('invalid syntax in %s line %d') % (path, lineno))
     file.close()
@@ -209,10 +223,10 @@ def fix_perms(path, _interactive):
 # commit the changes to the files
 def act(change):
     for f in assoc.keys():
-        (mode, uid, gid, newperm, user, group, user_str, group_str) = assoc[f]
+        (mode, uid, gid, newperm, user, group, user_str, group_str, mandatory) = assoc[f]
         # if we don't change the security level, try not to lower the security
         # if the user has changed it manually
-        if not change:
+        if not change and not mandatory:
             newperm = newperm & mode
         if newperm != -1 and mode != newperm:
             try:

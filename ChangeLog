@@ -2,6 +2,8 @@
 	* Added msec_find utility, written by Thierry Vignaud
 		which will avoid us to find / 5 times :)
 	* Heavilly modified msec_find.
+	* custom.sh : check if libsafe is installed before asking
+	  if the user want to use it.
 
 2000-03-07 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* Added support for libsafe stack overflow protection in level 4 / 5 /

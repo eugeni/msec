@@ -193,7 +193,7 @@ int main(int argc, char **argv)
                          * /mnt/cdrom/ is the mounted directory.
                          * Hopefully, find has the same "bug"
                          */
-                        
+                    
                         ctrl = 1;
                         directory = ( char * ) malloc((strlen(argv[i]) + 1));
                         if ( ! directory ) {

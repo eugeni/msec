@@ -1,10 +1,10 @@
-.TH msec 8 "29 Sep 2001" "Mandrakesoft" "Linux-Mandrake"
+.TH msec 8 "29 Sep 2001" "Mandrakesoft" "Mandrake Linux"
 .IX msec
 .SH NAME
 msec \- Mandrake security tools
 .SH SYNOPSIS
 .B msec
-[0-5 | custom]
+[0-5]
 .SH DESCRIPTION
 \fPmsec\fP is the main script of msec package. It enables the system administrator to change the security level for that system.
 msec is provided with six preconfigured security levels. These levels range from poor security and ease of use, to paranoid config, suitable for very sensitive server applications, managed by experts.
@@ -15,7 +15,8 @@ Launch "msec x" to set you security level to x (x=[0-5]). It'll modify your syst
 .br
 For a fine description of each security level, consult the documentation under /usr/share/doc/msec-*/.
 .PP
-If you wish to setup your own security level, finely tuning all available parameters, launch "msec custom". It'll ask you for each features you want to enable, and will then apply them to the system.
+If you want to make changes to the current level, use /etc/security/msec/perm.local to override the
+permissions/owners/groups and /etc/security/msec/level.local to override the rules.
 .SH FILES
 /usr/sbin/msec
 .br
@@ -29,12 +30,3 @@ Contains the configuration of current active security level.
 Vandoorselaere Yoann, Mandrakesoft
 .br
 yoann@mandrakesoft.com
-
-
-
-
-
-
-
-
-

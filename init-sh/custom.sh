@@ -234,11 +234,9 @@ if [[ ${answer} == yes ]]; then
     # /etc/profile.d/msec.{sh,csh}
         export SECURE_LEVEL=4
         echo "Setting secure level variable to 4 :"
-        AddRules "export SECURE_LEVEL=4" /etc/profile.d/msec.sh
-        AddRules "setenv SECURE_LEVEL 4" /etc/profile.d/msec.csh
+	AddRules "SECURE_LEVEL=4" /etc/sysconfig/msec
 else
-        AddRules "export SECURE_LEVEL=3" /etc/profile.d/msec.sh
-        AddRules "setenv SECURE_LEVEL 3" /etc/profile.d/msec.csh
+	AddRules "SECURE_LEVEL=3" /etc/sysconfig/msec
 fi
 
 ###
@@ -256,22 +254,23 @@ done
 case "${answer}" in
 	"easy")
 	echo "Setting umask to 022 (u=rw,g=r,o=r) :"
-	AddRules "umask 022" /etc/profile.d/msec.sh
-	AddRules "umask 022" /etc/profile.d/msec.csh
+	AddRules "UMASK_ROOT=022" /etc/sysconfig/msec
+	AddRules "UMASK_USER=022" /etc/sysconfig/msec
 	
 	;;
 	"normal")
 	echo "Setting umask to 022 (u=rw,g=r,o=r) :"
-	AddRules "umask 022" /etc/profile.d/msec.sh
-	AddRules "umask 022" /etc/profile.d/msec.csh
+	AddRules "UMASK_ROOT=022" /etc/sysconfig/msec
+	AddRules "UMASK_USER=022" /etc/sysconfig/msec
 	;;
 	"restricted")
-	AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi"  /etc/profile.d/msec.sh
-	AddRules "if [[ \${UID} == 0 ]]; then umask 022; else umask 077; fi"  /etc/profile.d/msec.csh
+	echo "Setting umask to 022 (u=rw,g=rx) for root, 077 (u=rw) for user :" 
+	AddRules "UMASK_ROOT=022" /etc/sysconfig/msec
+	AddRules "UMASK_USER=077" /etc/sysconfig/msec
 	;;
 	"paranoid")
-	AddRules "umask 077"  /etc/profile.d/msec.sh
-	AddRules "umask 077"  /etc/profile.d/msec.csh
+	AddRules "UMASK_ROOT=077" /etc/sysconfig/msec
+	AddRules "UMASK_USER=077" /etc/sysconfig/msec
 	;;
 esac
 

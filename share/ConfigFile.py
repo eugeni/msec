@@ -244,7 +244,7 @@ class ConfigFile:
     def get_shell_variable(self, var):
         regex = re.compile('^' + var + '="?([^#"]+)"?(.*)')
         lines = self.get_lines()
-        for idx in range(0, len(lines)):
+        for idx in range(len(lines) - 1, -1, -1):
             res = regex.search(lines[idx])
             if res:
                 return res.group(1)
@@ -256,8 +256,11 @@ class ConfigFile:
         for idx in range(0, len(lines)):
             res = r.search(lines[idx])
             if res:
-                s = substitute_re_result(res, replace)
-                return s
+                if replace:
+                    s = substitute_re_result(res, replace)
+                    return s
+                else:
+                    return lines[idx]
         return None
 
     def replace_line_matching(self, regex, value, at_end_if_not_found=0, all=0, start=None, end=None):

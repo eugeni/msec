@@ -61,7 +61,7 @@ if [[ ${CHECK_PERMS} == yes ]]; then
 # Files that should not be owned by someone else or readable.
 list=".netrc .rhosts .shosts .Xauthority .gnupg/secring.gpg \
 .pgp/secring.pgp .ssh/identity .ssh/id_dsa .ssh/id_rsa .ssh/random_seed"
-awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' /etc/passwd | 
+getent passwd | awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' | 
 while read username uid homedir; do
     for f in ${list} ; do
 	file="${homedir}/${f}"
@@ -90,7 +90,7 @@ list=".bashrc .bash_profile .bash_login .bash_logout .cshrc .emacs .exrc \
 .forward .klogin .login .logout .profile .tcshrc .fvwmrc .inputrc .kshrc \
 .nexrc .screenrc .ssh .ssh/config .ssh/authorized_keys .ssh/environment \
 .ssh/known_hosts .ssh/rc .twmrc .xsession .xinitrc .Xdefaults"
-awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' /etc/passwd | \
+getent passwd | awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' | \
 while read username uid homedir; do
         for f in ${list} ; do
                 file=${homedir}/${f}
@@ -111,7 +111,7 @@ if [[ -s ${TMP} ]]; then
 fi
 
 ### Check home directories.  Directories should not be owned by someone else or writable.
-awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' /etc/passwd | \
+getent passwd | awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' | \
 while read username uid homedir; do
         if [[ -d ${homedir} ]] ; then
                 realuid=`ls -LldGn ${homedir}| awk '{ print $3 }'`
@@ -134,14 +134,14 @@ fi # End of check perms
 
 ### Passwd file check
 if [[ ${CHECK_PASSWD} == yes ]]; then    
-    awk -F: '{
+    getent passwd | awk -F: '{
         if ( $2 == "" )
 	    printf("\t\t- /etc/passwd:%d: User \"%s\" has no password !\n", FNR, $1);
 	else if ($2 !~ /^[x*!]+$/)
 	    printf("\t\t- /etc/passwd:%d: User \"%s\" has a real password (it is not shadowed).\n", FNR, $1);
         else if ( $3 == 0 && $1 != "root" )
 	    printf("\t\t- /etc/passwd:%d: User \"%s\" has id 0 !\n", FNR, $1);
-    }' < /etc/passwd > ${TMP}
+    }' > ${TMP}
     
     if [[ -s ${TMP} ]]; then
 	printf "\nSecurity Warning: /etc/passwd check :\n" >> ${SECURITY}
@@ -204,7 +204,7 @@ for file in $list ; do
         fi
 done > ${TMP}
 
-awk -F: '{print $1" "$6}' /etc/passwd |
+getent passwd | awk -F: '{print $1" "$6}' |
     while read username homedir; do
 	for file in .rhosts .shosts; do
 	    if [[ -s ${homedir}/${file} ]] ; then

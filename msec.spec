@@ -1,10 +1,9 @@
 Summary:	Security Level & Program for the Linux Mandrake distribution
 Name:		msec
 Version:	0.15
-Release:	17mdk
+Release:	18mdk
 
 Source:		%{name}-%{version}.tar.bz2
-Patch0:		msec-0.15-usermode.patch.bz2
 
 License:	GPL
 Group:		System/Base
@@ -22,7 +21,6 @@ in order to test the security of your system and alert you if needed.
 %prep
 
 %setup -q
-%patch0 -p1 -b .usermode
 
 %build
 make CFLAGS="$RPM_OPT_FLAGS"
@@ -61,7 +59,12 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) /var/log/security
 %config(noreplace) /etc/security/msec
 
+# MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Thu Aug  9 2001 Frederic Lepied <flepied@mandrakesoft.com> 0.15-18mdk
+- added vc/[1-6] to securetty (devfs)
+- merged back in cvs
+
 * Mon Jul  9 2001 Frederic Crozat <fcrozat@mandrakesoft.com> 0.15-17mdk
 - Patch 0: add suppport for usermode halt/reboot
 

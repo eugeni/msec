@@ -1,3 +1,25 @@
+2002-02-25 16:15  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.19-4mdk
+
+2002-02-25 16:14  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.sh: don't manage /usr/games and /usr/X11R6/bin, this has
+	nothing to do with security
+
+2002-02-25 16:13  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: don't restart network on sysctl.conf change.
+
+2002-02-25 16:12  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/: diff_check.sh, security.sh, security_check.sh: split
+	rpm-va check in 2: config files and other files
+
+2002-02-25 16:07  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* doc/security.txt: resync with current code
+
 2002-02-22 16:56  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.19-3mdk

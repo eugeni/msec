@@ -3,14 +3,14 @@
 # Written by Vandoorselaere Yoann, <yoann@mandrakesoft.com>
 #
 
-if [ -f /etc/security/msec/security.conf ]; then
+if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
 else
 	echo "/etc/security/msec/security.conf don't exist."
     exit 1
 fi
 
-if [ "${CHECK_SECURITY}" == "no" ]; then
+if [[ ${CHECK_SECURITY} == no ]; then
     exit 0
 fi
 
@@ -45,7 +45,7 @@ UNOWNED_DIFF="/var/log/security/unowned.diff"
 SECURITY_LOG="/var/log/security.log"
 TMP="/tmp/secure.tmp"
 
-if [ ! -d /var/log/security ]; then
+if [[ ! -d /var/log/security ]]; then
     mkdir /var/log/security
 fi
 
@@ -78,14 +78,14 @@ Ttylog() {
 ### New Suid root files detection
 if [[ ${CHECK_SUID_ROOT} == yes ]]; then
 
-    if [ -f ${SUID_ROOT_TODAY} ]; then
+    if [[ -f ${SUID_ROOT_TODAY} ]]; then
 	mv ${SUID_ROOT_TODAY} ${SUID_ROOT_YESTERDAY}
     fi
 
     find ${DIR} -xdev -type f -perm +04000 -user root \
 	-printf "%8i %5m %3n %-10u %-10g %9s %t %h/%f\n" | sort > ${SUID_ROOT_TODAY}
 
-    if [ -f ${SUID_ROOT_YESTERDAY} ]; then
+    if [[ -f ${SUID_ROOT_YESTERDAY} ]]; then
 	if ! diff -u ${SUID_ROOT_YESTERDAY} ${SUID_ROOT_TODAY} > ${SUID_ROOT_DIFF}; then
 	    printf "\nSecurity Warning: Change in Suid Root files found :\n" >> ${TMP}
 	    grep '^+' ${SUID_ROOT_DIFF} | grep -vw "^+++ " |  sed 's|^.||' | awk '{print $12}' | while read file; do
@@ -99,15 +99,16 @@ if [[ ${CHECK_SUID_ROOT} == yes ]]; then
 fi
 
 ### New Suid group files detection
-if [ ${CHECK_SUID_GROUP} ]; then
-    if [ -f ${SUID_GROUP_TODAY} ]; then
+if [[ ${CHECK_SUID_GROUP} == yes ]]; then
+
+    if [[ -f ${SUID_GROUP_TODAY} ]]; then
 	mv ${SUID_GROUP_TODAY} ${SUID_GROUP_YESTERDAY}
     fi
 
     find ${DIR} -xdev -type f -perm +02000 \
 	-printf "%8i %5m %3n %-10u %-10g %9s %t %h/%f\n" | sort > ${SUID_GROUP_TODAY}
 
-    if [ -f ${SUID_GROUP_YESTERDAY} ]; then
+    if [[ -f ${SUID_GROUP_YESTERDAY} ]]; then
 	if ! diff -u ${SUID_GROUP_YESTERDAY} ${SUID_GROUP_TODAY} > ${SUID_GROUP_DIFF}; then
 	    printf "\nSecurity Warning: Changes in Suid Group files found :\n" >> ${TMP}
 	    grep '^+' ${SUID_GROUP_DIFF} | grep -vw "^+++ " | sed 's|^.||' | awk '{print $12}' | while read file; do
@@ -123,13 +124,13 @@ fi
 ### Writable files detection
 if [[ ${CHECK_WRITEABLE} == yes ]]; then
 
-    if [ -f ${WRITEABLE_TODAY} ]; then
+    if [[ -f ${WRITEABLE_TODAY} ]]; then
 	mv -f ${WRITEABLE_TODAY} ${WRITEABLE_YESTERDAY}
     fi
 
     find ${DIR} -xdev -type f -perm -2 -ls -print | sort > ${WRITEABLE_TODAY}
 
-    if [ -f ${WRITEABLE_YESTERDAY} ]; then
+    if [[ -f ${WRITEABLE_YESTERDAY} ]]; then
 	if ! diff -u ${WRITEABLE_YESTERDAY} ${WRITEABLE_TODAY} > ${WRITEABLE_DIFF}; then
 	    printf "\nSecurity Warning: Change in World Writeable Files found :\n" >> ${TMP}
 	    grep '^+' ${WRITEABLE_DIFF} | grep -vw "^+++ " | sed 's|^.||' | awk '{print $12}' | while read file; do
@@ -145,13 +146,13 @@ fi
 ### Search Non Owned files
 if [[ ${CHECK_UNOWNED} == yes ]]; then
 
-    if [ -f ${UNOWNED_TODAY} ]; then
+    if [[ -f ${UNOWNED_TODAY} ]]; then
 	mv -f ${UNOWNED_TODAY} ${UNOWNED_YESTERDAY}
     fi
 
     find ${DIR} -xdev -nouser -print -ls | sort > ${UNOWNED_TODAY}
     
-    if [ -f ${UNOWNED_YESTERDAY} ]; then
+    if [[ -f ${UNOWNED_YESTERDAY} ]]; then
 	if ! diff -u ${UNOWNED_YESTERDAY} ${UNOWNED_TODAY} > ${UNOWNED_DIFF}; then
 	    printf "\nSecurity Warning: the following files aren't owned by an user :\n" >> ${TMP}
 	    grep '^+' ${UNOWNED_DIFF} | grep -vw "^--- " | sed 's|^.||' | awk '{print $12}' | while read file; do
@@ -165,7 +166,7 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
  
     find ${DIR} -xdev -nogroup -print -ls | sort >> ${UNOWNED_TODAY}
 
-    if [ -f ${UNOWNED_YESTERDAY} ]; then
+    if [[ -f ${UNOWNED_YESTERDAY} ]]; then
 	if ! diff -u ${UNOWNED_YESTERDAY} ${UNOWNED_TODAY} > ${UNOWNED_DIFF}; then
 	    printf "\nSecurity Warning: the following files aren't owned by a group :\n" >> ${TMP}
 	    grep '^+' ${UNOWNED_DIFF} | grep -vw "^+++ " | sed 's|^.||' | awk '{print $12}' | while read file; do
@@ -179,8 +180,9 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
 fi
 
 ### Md5 check for SUID root file
-if [[ ${CHECK_SUID_MD5} == yes  ]]; then 
-    if [ -f ${SUID_MD5_TODAY} ]; then
+if [[ ${CHECK_SUID_MD5} == yes  ]]; then
+ 
+    if [[ -f ${SUID_MD5_TODAY} ]]; then
 	mv ${SUID_MD5_TODAY} ${SUID_MD5_YESTERDAY}
     fi
 
@@ -190,7 +192,7 @@ if [[ ${CHECK_SUID_MD5} == yes  ]]; then
 	    md5sum ${line} >> ${SUID_MD5_TODAY}
 	done
 	
-    if [ -f ${SUID_MD5_YESTERDAY} ]; then
+    if [[ -f ${SUID_MD5_YESTERDAY} ]]; then
 	if ! diff -u ${SUID_MD5_YESTERDAY} ${SUID_MD5_TODAY} > ${SUID_MD5_DIFF}; then
 	    printf "\nSecurity Warning: the md5 checksum for one of your SUID files has changed,\n" >> ${TMP}
 	    printf "\tmaybe an intruder modified one of these suid binary in order to put in a backdoor...\n" >> ${TMP}
@@ -206,13 +208,14 @@ fi
 
 ### Changed open port
 if [[ ${CHECK_OPEN_PORT} == yes ]]; then
-    if [ -f ${OPEN_PORT_TODAY} ]; then
+
+    if [[ -f ${OPEN_PORT_TODAY} ]]; then
 	mv -f ${OPEN_PORT_TODAY} ${OPEN_PORT_YESTERDAY}
     fi
 
     netstat -pvlA inet > ${OPEN_PORT_TODAY};
     
-    if [ -f ${OPEN_PORT_YESTERDAY} ]; then
+    if [[ -f ${OPEN_PORT_YESTERDAY} ]]; then
 	if ! diff -u ${OPEN_PORT_YESTERDAY} ${OPEN_PORT_TODAY} 1> ${OPEN_PORT_DIFF}; then
 	    printf "\nSecurity Warning: There is a new port listening on your machine :\n" >> ${TMP}
 	    grep '^+' ${OPEN_PORT_DIFF} | grep -vw "^+++ " | sed 's|^.||' | awk '{print $12}' | while read file; do
@@ -226,7 +229,7 @@ if [[ ${CHECK_OPEN_PORT} == yes ]]; then
 fi
 
 ######## Report ######
-if [ -s ${TMP} ]; then
+if [[ -s ${TMP} ]]; then
     Syslog ${TMP}
     Ttylog ${TMP}
     date=`date`
@@ -234,6 +237,6 @@ if [ -s ${TMP} ]; then
     cat ${TMP} >> ${SECURITY_LOG}
 fi
 
-if [ -f ${TMP} ]; then
+if [[ -f ${TMP} ]]; then
 	rm -f ${TMP}
 fi

@@ -15,7 +15,7 @@ COMMENT="# Mandrake-Security : if you remove this comment, remove the next line 
 WaitAnswer() {
     answer="nothing"
 
-    while [[ "${answer}" != "yes" && "${answer}" != "no" ]]; do
+    while [[ ${answer} != yes && ${answer} != no ]]; do
 	echo -n "yes/no : "
 	read answer
     done
@@ -24,12 +24,13 @@ WaitAnswer() {
 AddRules () {
 	string=$1
 	file=$2
+	quiet=$3
 
-	if [ -z "${string}" ]; then
+	if [[ -z ${string} ]]; then
 		return;
 	fi
 
-	if [ -z ${3} ]; then
+	if [[ -z ${quiet} ]]; then
 		echo "Modifying config in ${file}..."
 	fi	
 	
@@ -37,7 +38,7 @@ AddRules () {
 		echo -e "${COMMENT}" >> ${file};
 		echo -e "${string}" >> ${file};
 	fi
-	if [ -z ${3} ]; then
+	if [[ -z ${3} ]]; then
 		echo -e "done.\n"
 	fi
 }
@@ -46,9 +47,10 @@ CleanRules() {
     file=$1
     ctrl=0
 
-    if [ ! -f ${file} ]; then
+    if [[ ! -f ${file} ]]; then
 	return;
     fi
+
     echo -en "\t- Cleaning msec appended line in ${file} : "
     mv -f ${file} /tmp/secure.tmp
     touch ${file}
@@ -76,7 +78,7 @@ CleanRules() {
 CommentUserRules() {
     file=$1
 
-    if [ ! -f ${file} ]; then
+    if [[ ! -f ${file} ]]; then
 	return;
     fi
 
@@ -111,7 +113,7 @@ Ttylog() {
 
 
 LiloUpdate() {
-    if [ ! -f /tmp/secure.DrakX ]; then
+    if [[ ! -f /tmp/secure.DrakX ]]; then
     	echo "Do you want a password authentication at boot time ?"
     	echo "Be very carefull,"
     	echo "this will prevent your server to reboot without an operator to enter password".
@@ -126,7 +128,7 @@ LiloUpdate() {
     	password=${DRAKX_PASSWORD}
     fi
 
-    if [ ! -z "${password}" ]; then
+    if [[ ! -z "${password}" ]]; then
     	mv /etc/lilo.conf /tmp/secure.tmp
 	while read line; do
 	    if ! echo "${line}" | grep -q "password"; then
@@ -143,12 +145,12 @@ LiloUpdate() {
 # If we are currently installing our
 # system with DrakX, we don't ask anything to the user...
 # Instead, DrakX do it and give us a file with some variable.
-if [ -f /tmp/secure.DrakX ]; then
+if [[ -f /tmp/secure.DrakX ]]; then
     . /tmp/secure.DrakX
     AddRules "${DRAKX_USERS}" /etc/security/msec/security.conf
 fi
 
-if [ -f /etc/security/msec/security.conf ]; then
+if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
 fi
 
@@ -188,14 +190,14 @@ usermod -G xgrp xfs
 # We aren't at install time, 
 # so we delete ( temporarily ) audio user.
 
-if [ ! -f /tmp/secure.DrakX ]; then
-    if [ ! -z ${DRAKX_USERS} ]; then
+if [[ ! -f /tmp/secure.DrakX ]]; then
+    if [[ ! -z ${DRAKX_USERS} ]]; then
 	for user in ${DRAKX_USERS}; do
 	    /etc/security/msec/init-sh/grpuser --del audio "${user}"
 	done
     fi
 else
-    if [ ! -z ${DRAKX_USERS} ]; then
+    if [[ ! -z ${DRAKX_USERS} ]]; then
 	AddRules "${DRAKX_USERS}" /etc/security/msec/security.conf
     fi
 fi

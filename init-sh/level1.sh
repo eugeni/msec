@@ -5,7 +5,7 @@
 # Writen by Vandoorselaere Yoann <yoann@mandrakesoft.com>
 #
 
-if [ -f /etc/security/msec/init-sh/lib.sh ]; then
+if [[ -f /etc/security/msec/init-sh/lib.sh ]]; then
     . /etc/security/msec/init-sh/lib.sh
 else
     exit 1
@@ -74,13 +74,13 @@ AddRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xinit/xinitrc
 ###
 
 # Group
-echo -n "Adding \"${DRAKX_USERS}\" to audio group :"
-for user in ${DRAKX_USERS}; do
-    usermod -G audio "${user}"
-done
-echo "done."
-
-
+if [[ ! -z ${DRAKX_USERS} ]]; then
+    echo -n "Adding \"${DRAKX_USERS}\" to audio group :"
+    for user in ${DRAKX_USERS}; do
+	usermod -G audio "${user}"
+    done
+    echo "done."
+fi
 
 
 

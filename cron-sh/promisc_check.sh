@@ -3,7 +3,7 @@
 # Writen by Vandoorselaere Yoann, 
 # <yoann@mandrakesoft.com>
 
-if [ -f /etc/security/msec/security.conf ]; then
+if [[ -f /etc/security/msec/security.conf ]]; then
 	. /etc/security/msec/security.conf
 else
 	echo "/etc/security/msec/security.conf don't exist."
@@ -46,7 +46,7 @@ LogPromisc() {
 
 }
 
-if [ -f /etc/security/msec/security.conf ]; then
+if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
 else 
 	exit 1

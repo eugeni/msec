@@ -7,7 +7,7 @@
 #
 
 
-if [ -f /etc/security/msec/init-sh/lib.sh ]; then
+if [[ -f /etc/security/msec/init-sh/lib.sh ]]; then
     . /etc/security/msec/init-sh/lib.sh
 else
     exit 1

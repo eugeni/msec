@@ -33,7 +33,7 @@ RemoveUserFromGroup() {
 }
 
 AppendUserToGroup() {
-    if [ -z "${group_users}" ]; then
+    if [[ -z ${group_users} ]]; then
 	new_group_line=${group_line}${user_name}
     else
 	new_group_line=${group_line}",${user_name}"
@@ -41,7 +41,7 @@ AppendUserToGroup() {
 }
 
 IsUserAlreadyInGroup() {
-    if echo "${group_users}" | grep -qw "${user_name}"; then
+    if echo ${group_users} | grep -qw "${user_name}"; then
 	return 1
     fi
     
@@ -66,7 +66,7 @@ IsGroupExisting() {
 
 IsUserExisting() {
 	grep -qn "^${user_name}:" /etc/passwd
-	if [ $? == 0 ]; then
+	if [[ $? == 0 ]]; then
 		return 0;
 	fi
 
@@ -75,20 +75,20 @@ IsUserExisting() {
 
 Add() {
     IsGroupExisting;
-    if [ $? == 0 ]; then
+    if [[ $? == 0 ]]; then
 	echo "Sorry, group \"${group_name}\" does not exist."
 	echo "Please create it using the \"groupadd\" command."
 	exit 1
     fi
 
 	IsUserExisting;
-    if [ $? == 1 ]; then
+    if [[ $? == 1 ]]; then
     echo "Sorry, user \"${user_name}\" does not exist."
     exit 1
     fi
 
     IsUserAlreadyInGroup;
-    if [ $? == 1 ]; then
+    if [[ $? == 1 ]]; then
 	echo "Sorry, user \"${user_name}\" is already in group \"${group_name}\"."
 	exit 1
     fi
@@ -101,13 +101,13 @@ Add() {
 
 Del() {
     IsGroupExisting;
-    if [ $? == 0 ]; then
+    if [[ $? == 0 ]]; then
 	echo "Sorry, group \"${group_name}\" does not exist."
 	exit 1
     fi
 
     IsUserAlreadyInGroup;
-    if [ $? == 0 ]; then
+    if [[ $? == 0 ]]; then
 	echo "Sorry, user \"${user_name}\" is not in group \"${group_name}\"."
 	exit 1
     fi
@@ -119,13 +119,13 @@ Del() {
 }
 
 Perm() {
-	if [ ! -w /etc/${file} ]; then
+	if [[ ! -w /etc/${file} ]]; then
 		echo "You're not allowed to write to /etc/group..." 
 		exit 1
 	fi
 }
 
-if [ $# == 3 ]; then
+if [[ $# == 3 ]]; then
 	case $1 in
 		"--add")
 			Perm;

@@ -18,7 +18,7 @@ rpm_install: all
 	cp init-sh/lib.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
 	cp init-sh/init.sh $(RPM_BUILD_ROOT)/etc/security/msec
 	cp init-sh/file_perm.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
-	cp init-sh/perm.[1-5] $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
+	cp init-sh/perm.[0-5] $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
 	cp init-sh/server.* $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
 	cp init-sh/grpuser $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
 	cp init-sh/custom.sh $(RPM_BUILD_ROOT)/etc/security/msec/init-sh
@@ -45,7 +45,7 @@ install:
 	(cp init-sh/lib.sh /etc/security/msec/init-sh);
 	(cp init-sh/grpuser /etc/security/msec/init-sh);
 	(cp init-sh/file_perm.sh /etc/security/msec/init-sh);
-	(cp init-sh/*.[1-5] /etc/security/msec/init-sh/)
+	(cp init-sh/*.[0-5] /etc/security/msec/init-sh/)
 	(cp init-sh/custom.sh /etc/security/msec/init-sh);
 	(cp init-sh/server.* /etc/security/msec/init-sh)
 	(touch /etc/security/msec/security.conf)

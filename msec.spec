@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.20
-Release:	1mdk
+Release:	2mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -123,6 +123,10 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Wed Mar 27 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.20-2mdk
+- allow_reboot: only touch the shutdown, poweroff, reboot and halt
+files if they don't exist (reported by Jason Baker).
+
 * Mon Mar 25 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.20-1mdk
 - Maximum password aging can be -1 (David Relson)
 - allow to pass ignore in function calls in

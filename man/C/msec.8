@@ -16,15 +16,15 @@ Launch "msec x" to set you security level to x (x=[0-5]). It'll modify your syst
 For a fine description of each security level, consult the documentation under /usr/share/doc/msec-*/.
 .PP
 If you want to make changes to the current level, use /etc/security/msec/perm.local to override the
-permissions/owners/groups and /etc/security/msec/level.local to override the rules.
+permissions/owners/groups and /etc/security/msec/level.local to override the rules (see mseclib(3) for details).
 .SH FILES
 /usr/sbin/msec
 .br
 The \fPmsec\fP executable (sh script)
 .PP
-/etc/security/msec/security.conf
+/var/lib/msec/security.conf
 .br
-Contains the configuration of current active security level.
+Contains the configuration of the current active security level. These settings can be overridden in /etc/security/msec/security.conf.
 
 .SH AUTHOR
 Vandoorselaere Yoann, Mandrakesoft

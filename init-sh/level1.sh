@@ -54,6 +54,7 @@ echo -n "Running lilo to record new config : "
 echo -e "done.\n"
 
 # /etc/profile
+export SECURE_LEVEL=1
 echo "Setting secure level variable to 1 :"
 AddRules "SECURE_LEVEL=1" /etc/profile
 echo "Setting umask to 002 (u=rw,g=rw,o=r) :"

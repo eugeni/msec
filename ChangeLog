@@ -1,3 +1,18 @@
+2002-06-27 09:58  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.24-1mdk
+
+2002-06-27 09:57  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec: pass -c to Perms.py if the level is given on the
+	command line.
+
+2002-06-27 09:56  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/Perms.py: if we don't change the security level, try not to
+	lower the security if the user has changed it manually (added -c
+	option).
+
 2002-06-04 20:24  Christian Belisle <cbelisle@mandrakesoft.com>
 
 	* share/libmsec.py: corrected typo

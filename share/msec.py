@@ -139,9 +139,9 @@ if level >= 4:
     allow_reboot(0)
     enable_at_crontab(0)
     if level == 4:
-        password_aging(60)
+        password_aging(60, 30)
     else:
-        password_aging(30)
+        password_aging(30, 15)
 else:
     set_user_umask('022')
     set_shell_history_size(-1)

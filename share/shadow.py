@@ -35,6 +35,9 @@ NONE=0
 ALL=1
 LOCAL=2
 
+yes=1
+no=0
+
 FAKE = {}
 
 def indirect(name, func, type, args):

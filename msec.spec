@@ -1,6 +1,6 @@
 Summary:	Security Level management for the Mandrakelinux distribution
 Name:		msec
-Version:	0.44
+Version:	0.44.1
 Release:	1mdk
 Url:		http://www.mandrakelinux.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -154,6 +154,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Fri Jul 30 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.44.1-1mdk
+- fix directory creation code
+
 * Fri Jul 30 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.44-1mdk
 - new function allow_xauth_from_root
 - the perm.local config file is now forcing permissions even if it's lowering the security.

@@ -67,7 +67,8 @@
 /usr/bin/who					root.root		755
 /usr/lib/rpm/rpm?				rpm.rpm			755
 /usr/sbin/					root.root		755
-/usr/sbin/sendmail				root.mail		2711
+/usr/sbin/sendmail.postfix			root.root		755
+/usr/sbin/sendmail.sendmail			root.mail		2755
 /usr/sbin/traceroute				root.bin		4755
 /usr/share/doc					root.root		755
 /usr/share/man					root.root		755

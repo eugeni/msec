@@ -76,21 +76,36 @@ netstat -pvlA inet 2> /dev/null > ${OPEN_PORT_TODAY};
 # Hard disk related file check; the less priority the better...
 nice --adjustment=+19 /usr/bin/msec_find ${DIR}
 
-sort < ${SUID_ROOT_TODAY} > ${SUID_ROOT_TODAY}.tmp
-sort < ${SUID_GROUP_TODAY} > ${SUID_GROUP_TODAY}.tmp
-sort < ${WRITEABLE_TODAY} > ${WRITEABLE_TODAY}.tmp
-sort < ${UNOWNED_USER_TODAY} > ${UNOWNED_USER_TODAY}.tmp
-sort < ${UNOWNED_GROUP_TODAY} > ${UNOWNED_GROUP_TODAY}.tmp
+if [[ -f ${SUID_ROOT_TODAY} ]]; then
+    sort < ${SUID_ROOT_TODAY} > ${SUID_ROOT_TODAY}.tmp
+    mv -f ${SUID_ROOT_TODAY}.tmp ${SUID_ROOT_TODAY}
+fi
 
-mv -f ${SUID_ROOT_TODAY}.tmp ${SUID_ROOT_TODAY}
-mv -f ${SUID_GROUP_TODAY}.tmp ${SUID_GROUP_TODAY}
-mv -f ${WRITEABLE_TODAY}.tmp ${WRITEABLE_TODAY}
-mv -f ${UNOWNED_USER_TODAY}.tmp ${UNOWNED_USER_TODAY}
-mv -f ${UNOWNED_GROUP_TODAY}.tmp ${UNOWNED_GROUP_TODAY}
+if [[ -f ${SUID_GROUP_TODAY} ]]; then
+    sort < ${SUID_GROUP_TODAY} > ${SUID_GROUP_TODAY}.tmp
+    mv -f ${SUID_GROUP_TODAY}.tmp ${SUID_GROUP_TODAY}
+fi
 
-while read line; do 
-    md5sum ${line}
-done < ${SUID_ROOT_TODAY} > ${SUID_MD5_TODAY}
+if [[ -f ${WRITEABLE_TODAY} ]]; then
+    sort < ${WRITEABLE_TODAY} > ${WRITEABLE_TODAY}.tmp
+    mv -f ${WRITEABLE_TODAY}.tmp ${WRITEABLE_TODAY}    
+fi
+
+if [[ -f ${UNOWNED_USER_TODAY} ]]; then
+    sort < ${UNOWNED_USER_TODAY} > ${UNOWNED_USER_TODAY}.tmp
+    mv -f ${UNOWNED_USER_TODAY}.tmp ${UNOWNED_USER_TODAY}
+fi
+
+if [[ -f ${UNOWNED_GROUP_TODAY} ]]; then
+    sort < ${UNOWNED_GROUP_TODAY} > ${UNOWNED_GROUP_TODAY}.tmp
+    mv -f ${UNOWNED_GROUP_TODAY}.tmp ${UNOWNED_GROUP_TODAY}
+fi
+
+if [[ -f ${SUID_ROOT_TODAY} ]]; then
+    while read line; do 
+	md5sum ${line}
+    done < ${SUID_ROOT_TODAY} > ${SUID_MD5_TODAY}
+fi
 
 ### Functions ###
 

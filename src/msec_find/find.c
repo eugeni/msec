@@ -9,16 +9,16 @@
 
 /*
  * TODO
- * +++	hash tables or btree to stock already searched uid/gid for speed
- *		Pb: since linux-2.3.4x, uid & gid are 32 bits wide ... => BTREE?
- *		static char **uid_hash, **gid_hash;
+ * +++  hash tables or btree to stock already searched uid/gid for speed
+ *              Pb: since linux-2.3.4x, uid & gid are 32 bits wide ... => BTREE?
+ *              static char **uid_hash, **gid_hash;
  *
- * +++	check for open & I/O error on log files ...
- * +++	Yoann scripts should avoid /dev if devfs is mounted (either by testing
- *		if /dev is mounted by devfs or if [ -f /dev/.devfsd ] => see with
- *		Yoann
- * ---	disable 'cannot stat ...' warning (???) => better log them SECURITY_LOG
- * ---	disable write test on links => OK
+ * +++  check for open & I/O error on log files ...
+ * +++  Yoann scripts should avoid /dev if devfs is mounted (either by testing
+ *              if /dev is mounted by devfs or if [ -f /dev/.devfsd ] => see with
+ *              Yoann
+ * ---  disable 'cannot stat ...' warning (???) => better log them SECURITY_LOG
+ * ---  disable write test on links => OK
  */
 
 /*
@@ -31,7 +31,6 @@
  * - Do not use getenv to get the root directory.
  * - Use argv instead of a DIR variable to get directory to scan.
  * - Free directory after use when allocated for appending a '/'.
- * - We do not need __USE_XOPEN_EXTENDED definition.
  */
 
 #include <stdlib.h>
@@ -67,41 +66,27 @@ static FILE *writeable_fd;
 
 static int traverse(const char *file, const struct stat *sb, int flag, struct FTW *s)
 {
-	struct passwd *u_nss_data;
-	struct group *g_nss_data;
-        
+        struct passwd *u_nss_data;
+        struct group *g_nss_data;
+
+         /*
+          * handle bogus glibc ftw
+          * else we won't print only one '/' in front of file names
+          */
 	if (strncmp(file, "//", 2) == 0 )
-                /*
-                 * handle bogus glibc ftw
-                 * else we won't print only one '/' in front of file names
-                 */
                 file++;
 
-        if (strncmp("/proc", file, 5) == 0)
-                return 0;
-        if (strncmp("/dev", file, 4) == 0)
+        /*
+         * Don't walk throught /dev & /proc
+         */
+        if ( (strncmp("/proc", file, 5) == 0) || (strncmp("/dev", file, 4) == 0) )
                 return 0;
         
 	switch (flag) {
-		/*
-                 * Here is a difference with security-check.sh:
-		 * we don't check for regular files only for Set-UID et Set-GID but
-		 * to directories too. Idem for world writable directories ...
-		 */
-
+                /*
+                 * Regular file handling.
+                 */
         case FTW_F:
-                /*
-                 * Regular file
-                 *
-                 * printf("%s\n", file);
-                 */
-            
-                /*
-                 * Is writeable check.
-                 */
-		if (sb->st_mode & 0002)
-			fprintf(writeable_fd, "%s\n", file);
-
                 /*
                  * Is suid root check.
                  */
@@ -114,7 +99,17 @@ static int traverse(const char *file, const struct stat *sb, int flag, struct FT
                 if (sb->st_mode & S_ISGID)
 			fprintf(sgid_fd, "%s\n", file);
 
+                /*
+                 * Their is no break statement here, it is normal.
+                 * Directory handing.
+                 */
         case FTW_D:
+                /*
+                 * Is world writeable check.
+                 */
+		if (sb->st_mode & 0002)
+			fprintf(writeable_fd, "%s\n", file);
+                
                 /*
                  * Unowned user check.
                  */

@@ -1,3 +1,7 @@
+2000-03-19 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+	* security.sh : added patch from Thomas Poindessous.
+	* find.c : many modification :)
+
 2000-03-16 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* security.sh : export *_TODAY variable to be used by msec_find.
 	* find.c      : removed a debuging printf.

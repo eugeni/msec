@@ -209,7 +209,8 @@ def allow_reboot(arg):
         _interactive and log(_('Allowing reboot to the console user'))
         shutdownallow.exists() and shutdownallow.move(SUFFIX)
         for f in [SHUTDOWN, POWEROFF, REBOOT, HALT]:
-            ConfigFile.get_config_file(f).touch()
+            cfg = ConfigFile.get_config_file(f)
+            cfg.exists() or cfg.touch()
         sysctlconf.set_shell_variable('kernel.sysrq', 1)
         kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', 'All', 'X-:\*-Greeter', '^\s*$')
         gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'true', '\[greeter\]', '^\s*$')

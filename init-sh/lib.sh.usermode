@@ -303,7 +303,7 @@ RootSshLogin () {
 
 # If we are currently installing our
 # system with DrakX, we don't ask anything to the user...
-# Instead, DrakX do it and give us a file with some variable.
+# Instead, DrakX does it and gives us a file with some variables.
 if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
 fi
@@ -341,58 +341,15 @@ echo -e "\nStarting to reconfigure the system : "
 echo "Setting spoofing protection : "
 AddRules "echo 1 > /proc/sys/net/ipv4/conf/all/rp_filter" /etc/rc.d/rc.firewall
 
-# default group which must exist on the system
-# groupadd already check for their existance...
+# default groups which must exist on the system
+# groupadd already checks for their existance...
 groupadd nogroup >& /dev/null
-groupadd audio >& /dev/null
-groupadd xgrp >& /dev/null
-groupadd ntools >& /dev/null
-groupadd ctools >& /dev/null
+groupadd -g 26 xgrp >& /dev/null
+groupadd -g 33 ntools >& /dev/null
+groupadd -g 34 ctools >& /dev/null
+groupadd -g 81 audio >& /dev/null
 
 usermod -G xgrp xfs
 
 /usr/share/msec/grpuser.sh --clean
 echo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -71,6 +71,7 @@ STARTX = '/usr/X11R6/bin/startx '
 SU = '/etc/pam.d/su'
 SYSCTLCONF = '/etc/sysctl.conf'
 SYSLOGCONF = '/etc/syslog.conf'
+SYSTEM_AUTH = '/etc/pam.d/system-auth'
 XDM = '/etc/pam.d/xdm'
 XSERVERS = '/etc/X11/xdm/Xservers'
 
@@ -489,6 +490,18 @@ def password_length(length, ndigits=0, nupper=0):
                                                      '@1 ucredit=%s @3' % nupper) or \
                          passwd.replace_line_matching('^password\s+required\s+/lib/security/pam_cracklib.so.*',
                                                       '@0 ucredit=%s ' % nupper))
+
+def enable_password(arg):
+    '''  Use password to authenticate users.'''
+    system_auth = ConfigFile.get_config_file(SYSTEM_AUTH)
+
+    if arg:
+        _interactive and log(_('Using password to authenticate users'))
+        system_auth.remove_line_matching('^\s*auth\s+sufficient\s+/lib/security/pam_permit.so')
+    else:
+        _interactive and log(_('Don\'t use password to authenticate users'))
+        system_auth.replace_line_matching('^\s*auth\s+sufficient\s+/lib/security/pam_permit.so', 'auth        sufficient    /lib/security/pam_permit.so') or \
+        system_auth.insert_before('auth\s+sufficient', 'auth        sufficient    /lib/security/pam_permit.so')
 
 def enable_sulogin(arg):
     '''   Enable/Disable sulogin(8) in single user level.'''

@@ -375,6 +375,7 @@ def get_index(val, array):
 
 ################################################################################
 ALLOW_SHUTDOWN_VALUES = ('All', 'Root', 'None')
+CTRALTDEL_REGEXP = '^ca::ctrlaltdel:/sbin/shutdown.*'
 
 def allow_reboot(arg):
     '''  Allow/Forbid reboot by the console user.'''
@@ -382,9 +383,11 @@ def allow_reboot(arg):
     sysctlconf = ConfigFile.get_config_file(SYSCTLCONF)
     kdmrc = ConfigFile.get_config_file(KDMRC)
     gdmconf = ConfigFile.get_config_file(GDMCONF)
+    inittab = ConfigFile.get_config_file(INITTAB)
     
     val_shutdownallow = shutdownallow.exists()
     val_sysctlconf = sysctlconf.exists() and sysctlconf.get_shell_variable('kernel.sysrq')
+    val_inittab = inittab.exists() and inittab.get_match(CTRALTDEL_REGEXP)
     num = 0
     val = {}
     for f in [SHUTDOWN, POWEROFF, REBOOT, HALT]:
@@ -402,7 +405,7 @@ def allow_reboot(arg):
         
     # don't lower security when not changing security level
     if same_level():
-        if val_shutdownallow and val_sysctlconf == '0' and num == 0 and oldval_kdmrc >= val_kdmrc and val_gdmconf == 'false':
+        if val_shutdownallow and val_sysctlconf == '0' and num == 0 and oldval_kdmrc >= val_kdmrc and val_gdmconf == 'false' and not val_inittab:
             return
         if oldval_kdmrc > val_kdmrc:
             val_kdmrc = oldval_kdmrc
@@ -419,6 +422,8 @@ def allow_reboot(arg):
             sysctlconf.set_shell_variable('kernel.sysrq', 1)
         if not (same_level() and val_gdmconf == 'false'):
             gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'true', '\[greeter\]', '^\s*$')
+        if not (same_level() and not val_inittab):
+            inittab.replace_line_matching(CTRALTDEL_REGEXP, 'ca::ctrlaltdel:/sbin/shutdown -t3 -r now', 1)
     else:
         _interactive and log(_('Forbidding reboot to the console user'))
         ConfigFile.get_config_file(SHUTDOWNALLOW, SUFFIX).touch()
@@ -426,6 +431,7 @@ def allow_reboot(arg):
             ConfigFile.get_config_file(f).unlink()
         sysctlconf.set_shell_variable('kernel.sysrq', 0)
         gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'false', '\[greeter\]', '^\s*$')
+        inittab.remove_line_matching(CTRALTDEL_REGEXP)
 
     kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', ALLOW_SHUTDOWN_VALUES[val_kdmrc], 'X-:\*-Core', '^\s*$')
 

@@ -1,6 +1,6 @@
 # do not modify Version below, modify it in Makefile (see CVS)
-%define version 0.9
-%define release 15mdk
+%define version 0.10
+%define release 1mdk
 
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
@@ -12,7 +12,7 @@ Source: %{name}-%{version}.tar.bz2
 Copyright: GPL
 Group: System Environment/Base
 BuildRoot: /var/tmp/msec
-Requires: /bin/bash setup chkconfig
+Requires: /bin/bash setup chkconfig >= 0.9-6
 
 %description
 The Mandrake-Security package is designed to provide generic 
@@ -50,7 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Tue Mar 08 Yoann Vandoorselaere <yoann@mandrakesoft.com>
-- Heavylly Modified msec_find.
+- Heavily modified msec_find.
 - Added msec_find utility, written by Thierry Vignaud which will avoid us to
   find / 5 times :)
 - Added support for libsafe stack overflow protection in level 4 / 5 /

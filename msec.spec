@@ -81,6 +81,12 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Wed Sep 19 2001 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-24mdk
+- Fix manpages installation.
+- Fix logrotate config installation.
+- Fix issue with SECURE_LEVEL not updated if not exiting the console
+  (this is a workaround for problems in several terminal programs).
+
 * Mon Sep 17 2001 Daouda LO <daouda@mandrakesoft.com> 0.15-23mdk
 - Resync with cvs (yoann sucks)
 - real fix for kdm is in lib.sh (msec sux)

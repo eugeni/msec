@@ -7,6 +7,11 @@ else
 	exit 1
 fi
 
+if tail /var/log/security.log | grep -q "promiscuous"; then
+    # Dont flood with warning.
+    exit 0
+fi
+
 Syslog() {
     if [ "${SYSLOG_WARN}" == "yes" ]; then
         /sbin/initlog --string="${1}"
@@ -28,11 +33,12 @@ PROMISC_CHECK="/usr/bin/promisc_check -q"
 #
 
 LogPromisc() {
-	Syslog "Security warning : $1 is in promiscuous mode."
-	Syslog "    A sniffer is probably running on your system."
-	Ttylog "\\033[1;31mSecurity warning : $1 is in promiscuous mode.\\033[0;39m"
-	Ttylog "\\033[1;31mA sniffer is probably running on your system.\\033[0;39m"
-	echo "Security warning : $1 is in promiscuous mode." >> /var/log/security.log
+    date=`date`
+    Syslog "Security warning : $1 is in promiscuous mode."
+    Syslog "    A sniffer is probably running on your system."
+    Ttylog "\\033[1;31mSecurity warning : $1 is in promiscuous mode.\\033[0;39m"
+    Ttylog "\\033[1;31mA sniffer is probably running on your system.\\033[0;39m"
+    echo -e "\n${date} Security warning : $1 is in promiscuous mode." >> /var/log/security.log
     echo "    A sniffer is probably running on your system." >> /var/log/security.log
 
 }
@@ -50,6 +56,12 @@ fi
 for INTERFACE in `$PROMISC_CHECK`; do
 	LogPromisc $INTERFACE
 done
+
+
+
+
+
+
 
 
 

@@ -38,7 +38,12 @@ install -m 755 init-sh/*.sh cron-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
 install -m 755 init-sh/msec $RPM_BUILD_ROOT/usr/sbin
 install -m 644 conf/perm.* conf/server.* $RPM_BUILD_ROOT/etc/security/msec
 install -m 755 src/promisc_check/promisc_check src/msec_find/msec_find $RPM_BUILD_ROOT/usr/bin
-install -m 644 doc/*8 $RPM_BUILD_ROOT%{_mandir}/man8/
+install -m 644 man/C/*8 $RPM_BUILD_ROOT%{_mandir}/man8/
+
+for i in man/??* ; do \
+    install -d $RPM_BUILD_ROOT%{_mandir}/`basename $i`/man8 ; \
+    install -m 644 $i/*.8 $RPM_BUILD_ROOT%{_mandir}/`basename $i`/man8 ; \
+done	
 
 touch $RPM_BUILD_ROOT/etc/security/msec/security.conf $RPM_BUILD_ROOT/var/log/security.log
 
@@ -53,7 +58,9 @@ rm -rf $RPM_BUILD_ROOT
 %_bindir/msec_find
 %_sbindir/msec
 %_datadir/msec
-%_mandir/*/*
+%_mandir/man*/*
+# find_lang can't find man pages :-(
+%lang(fr) %_mandir/fr/man*/*
 
 %config(noreplace) /var/log/security.log
 %config(noreplace) /var/log/security

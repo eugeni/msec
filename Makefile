@@ -34,8 +34,13 @@ install:
 	(cd src/msec_find && make install)
 	(mkdir -p $(RPM_BUILD_ROOT)/usr/man/man8/)
 	install -d $(RPM_BUILD_ROOT)/usr/man/man8/
-	install -m644 doc/*8 $(RPM_BUILD_ROOT)/usr/man/man8/
+	install -m644 man/C/*8 $(RPM_BUILD_ROOT)/usr/man/man8/
 	bzip2 -9f $(RPM_BUILD_ROOT)/usr/man/man8/*8
+	for i in man/??* ; do \
+	    install -d $(RPM_BUILD_ROOT)/usr/man/`basename $$i`/man8 ; \
+	    install -m 644 $$i/*.8 $(RPM_BUILD_ROOT)/usr/man/`basename $$i`/man8 ; \
+	    bzip2 -9f $(RPM_BUILD_ROOT)/usr/man/`basename $$i`/man8/*8 ; \
+	done	
 
 version:
 	@echo $(VERSION)-$(RELEASE)

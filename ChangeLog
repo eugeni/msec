@@ -1,3 +1,27 @@
+2001-09-19 14:22  florin
+
+	* conf/server.4: sshd entry
+
+2001-09-19 14:22  florin
+
+	* conf/perm*: squidGuard entries
+
+2001-09-19 14:19  florin
+
+	* init-sh/level*: RootSshLogin entries
+
+2001-09-19 14:04  florin
+
+	* init-sh/lib.sh*: add the RootSshLogin () function 
+
+2001-09-19 14:04  florin
+	
+	* msec.spec: root ssh login in level 4/5, squidGuard entries
+
+2001-09-19 14:02  florin
+
+	* doc/security.txt: remove the init-sh directories
+
 2001-09-19 13:30  yoann
 
 	* msec.spec: [no log message]

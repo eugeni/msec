@@ -1,3 +1,24 @@
+2002-03-26 00:03  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.20-1mdk
+
+2002-03-25 23:55  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/.cvsignore: added *.flog
+
+2002-03-25 23:55  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/shadow.py: handle ignore case.
+
+2002-03-25 23:54  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/man.py: document ignore argument.
+
+2002-03-25 23:54  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: removed yes/no declarations as they are used
+	only from mseclib.py.  Maximum password aging can be -1.
+
 2002-03-08 19:24  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.19-8mdk

@@ -1,0 +1,94 @@
+
+****************************
+
+Security level 1 :
+OK - Access to the system as a normal user.
+OK - . in $PATH
+OK - Login as root from the console granted.
+OK - No rules check for password.
+OK - Permission for /dev & /etc = 755
+OK - Permission for /home = 755
+OK - Device are accessible by group. ( ie: the user is automagically added to the audio group, video group & all... ).
+OK - xhost + localhost
+
+****************************
+
+Security level 2 :
+OK - Access to the system as a normal user.
+OK - Login as root from the console granted.
+
+	- No rules check for password.
+		---> Waiting for Chmouel to verify password...
+
+OK - Device are accessible by group. ( ie: the user is automagically added to the audio group, video group & all... ).
+OK - Permission for /dev & /etc = 755
+OK - Permission for /home = 755
+OK xhost + localhost
+
+****************************
+
+Security level 3 :
+OK - Access to the system as a normal user.
+OK - Login as root from the console denied.
+
+	- Low level rules check on password.
+		---> Waiting for Chmouel to verify password...
+
+OK - Permission for /dev & /etc = 755
+OK - Permission for /home/* = 750
+OK - Detection of interface in promiscuous mode ( one time a minute )
+
+
+****************************
+
+Security level 4 :
+OK - lilo pass -> only if the user want it .
+- kernel patch -> Secure linux ?
+OK - Access to the system as a normal user.
+OK - Login as root from the console denied.
+
+	- Medium level rules check on password.
+		---> Waiting for Chmouel to verify password...
+
+OK - Keep track of the suid file, warn when new suid file are detected, in a suid log file.
+OK - Device only accessible by root as a default.
+OK - Deny all kind of connection except from local network.
+OK - Permission for /dev & /etc directories = 755
+OK - Permission for /home = 711
+OK - Permission for /home/* = 750
+OK - Detection of interface in promiscuous mode ( one time a minute )
+
+*****************************
+
+Security level 5 : *Server Only*
+ 
+OK - lilo pass -> only if the user want it .
+- kernel patch -> Secure linux 
+OK - Access to the system as a normal user.
+OK - Login as root from the console denied.
+
+	- High level rules check on password.
+		---> Waiting for Chmouel to verify password...
+
+OK - Keep track of the suid file, warn when new suid file are detected, in a suid log file.
+OK - Device only accessible by root as a default.
+OK - No server installed by default. ( except maybe the crontab )
+OK - Deny all kind of connection ( hosts.deny -> ALL:ALL:DENY )
+OK - Permission for /dev & /etc directories = 711
+OK - Permission for /home = 711
+OK - Permission for /home/* = 700
+OK - Permission for /tmp = 700
+OK - Detection of interface in promiscuous mode ( one time a minute )
+
+
+
+
+
+*** Future Release : ***
+- Automatic tty locking ( unlock by passwd ) after X time of inactivity.
+
+
+
+
+
+

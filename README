@@ -1,0 +1,23 @@
+This is really basic stuff at the moment...
+
+init-sh : 
+	this is where all script / library to switch security level are,
+	use init.sh only.
+
+cron-sh : 
+	Here are all security script that will be used in crontab.
+
+src:
+	C program for security check.
+
+Note : i know my Makefile are dirty, 
+		so if someone wish to clean them :-)
+
+
+******************
+
+All stuff are installed in /etc/security/msec/
+use init.sh to change security level
+
+Suggest & Comment :
+yoann@mandrakesoft.com

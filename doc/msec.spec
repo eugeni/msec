@@ -1,0 +1,76 @@
+Summary: Security Level & Program for the Linux Mandrake distribution
+Name: msec
+Version: 0.3
+Release: 5mdk
+Source: ftp://mandrakesoft.com/pub/yoann/msec-0.3.tar.gz
+Copyright: GPL
+Group: System Environment/Base
+BuildRoot: /var/tmp/msec
+Requires: /bin/bash setup chkconfig
+
+%description
+The Mandrake-Security package is designed to provide generic 
+secure level to the Mandrake-Linux users...
+It will permit you to choose between level 1 to 5 for a 
+less -> more secured distribution.
+This packages includes several program that will be run periodically
+in order to test the security of your system and alert you if needed.
+
+%prep
+%setup 
+
+%build
+make CFLAGS="$RPM_OPT_FLAGS"
+
+%install
+mkdir -p $RPM_BUILD_ROOT/etc/security/msec/init-sh
+mkdir -p $RPM_BUILD_ROOT/etc/security/msec/cron-sh
+mkdir -p $RPM_BUILD_ROOT/usr/bin
+
+cp init-sh/level*.sh $RPM_BUILD_ROOT/etc/security/msec/init-sh
+cp init-sh/lib.sh $RPM_BUILD_ROOT/etc/security/msec/init-sh
+cp init-sh/init.sh $RPM_BUILD_ROOT/etc/security/msec
+cp init-sh/file_perm.sh $RPM_BUILD_ROOT/etc/security/msec/init-sh
+cp init-sh/perm.[1-5] $RPM_BUILD_ROOT/etc/security/msec/init-sh
+cp init-sh/server.* $RPM_BUILD_ROOT/etc/security/msec/init-sh
+cp cron-sh/*.sh $RPM_BUILD_ROOT/etc/security/msec/cron-sh
+touch $RPM_BUILD_ROOT/etc/security/msec/security.conf
+cp src/promisc_check/promisc_check $RPM_BUILD_ROOT/usr/bin
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(-,root,root)
+/etc/security/msec
+/usr/bin/promisc_check
+
+%changelog
+* Thu Nov 25 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Cleaned up tree.
+
+* Thu Nov 25 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Removed touched file /-i
+
+* Thu Nov 25 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Create rc.firewall to avoid error,
+- Call grpuser with the good path,
+- Call groupadd before usermod.
+
+* Tue Nov 23 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- New release (0.3) :
+  Now each security level has it's own set of permissions.
+  Add "." at the end of $PATH for level 1.
+  Corrected some grave bug, it should work properly now.
+
+* Thu Nov 18 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- New release (0.2) :
+  Fixed the path for promisc_check.sh :
+  now /etc/security/msec/cron-sh/promisc_check.sh
+  In level 1 & 2, user is now automagically added to the audio group. 
+
+* Tue Nov 16 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- First packaging attempt :-).
+
+
+

@@ -1,0 +1,152 @@
+#!/bin/sh
+
+#
+# Writen by Vandoorselaere Yoann <yoann@mandrakesoft.com>
+# Thanks to Francis Galiegue.
+#
+
+file="group"
+group_line=""
+new_group_line=""
+group_name=$2
+user_name=$3
+
+Usage() {
+	echo "Usage :"
+	echo "	--add [ groupname ] [ username ] ---> Add an user to a group."
+	echo "	--del [ groupname ] [ username ] ---> Delete an user from a group."
+}
+
+ModifyFile() {
+    mv /etc/${file} /tmp/${file}.old
+
+    head -$((group_line_number - 1)) /tmp/${file}.old > /etc/${file}
+    echo "${new_group_line}" >> /etc/${file}
+    tail +$((group_line_number + 1)) /tmp/${file}.old >> /etc/${file}
+	
+    rm -f /tmp/${file}.old
+}
+
+RemoveUserFromGroup() {
+    new_group_line=${group}`echo ${group_users} | 
+	sed -e s/,${user_name}$//g -e s/${user_name},//g -e s/${user_name}$//g`
+}
+
+AppendUserToGroup() {
+    if [ -z "${group_users}" ]; then
+	new_group_line=${group_line}${user_name}
+    else
+	new_group_line=${group_line}",${user_name}"
+    fi
+}
+
+IsUserAlreadyInGroup() {
+    if echo "${group_users}" | grep -qw "${user_name}"; then
+	return 1
+    fi
+    
+    return 0
+}
+
+IsGroupExisting() {
+    group_line=""
+    group_line_number=""
+    
+    # We get some group infos as well, will be used later
+    tmp=`grep -n "^${group_name}:" /etc/${file} | tr -d " "`
+    
+    group_line_number=`echo ${tmp} | awk -F: '{print $1}'`
+    group=`echo ${tmp} | awk -F: '{print $2":"$3":"$4":"}'`
+    group_users=`echo ${tmp} | awk -F: '{print $5}'`
+    group_line=`echo ${tmp} | awk -F: '{print $2":"$3":"$4":"$5}'`
+
+    [ -z "${tmp}" ] && return 0
+    return 1
+}
+
+IsUserExisting() {
+	grep -qn "^${user_name}:" /etc/passwd
+	if [ $? == 0 ]; then
+		return 0;
+	fi
+
+	return 1;
+}
+
+Add() {
+    IsGroupExisting;
+    if [ $? == 0 ]; then
+	echo "Sorry, group \"${group_name}\" does not exist."
+	echo "Please create it using the \"groupadd\" command."
+	exit 1
+    fi
+
+	IsUserExisting;
+    if [ $? == 1 ]; then
+    echo "Sorry, user \"${user_name}\" does not exist."
+    exit 1
+    fi
+
+    IsUserAlreadyInGroup;
+    if [ $? == 1 ]; then
+	echo "Sorry, user \"${user_name}\" is already in group \"${group_name}\"."
+	exit 1
+    fi
+
+    AppendUserToGroup;
+    ModifyFile;
+
+    exit 0
+}
+
+Del() {
+    IsGroupExisting;
+    if [ $? == 0 ]; then
+	echo "Sorry, group \"${group_name}\" does not exist."
+	exit 1
+    fi
+
+    IsUserAlreadyInGroup;
+    if [ $? == 0 ]; then
+	echo "Sorry, user \"${user_name}\" is not in group \"${group_name}\"."
+	exit 1
+    fi
+
+    RemoveUserFromGroup;
+    ModifyFile;
+    
+    exit 0
+}
+
+Perm() {
+	if [ ! -w /etc/${file} ]; then
+		echo "You're not allowed to write to /etc/group..." 
+		exit 1
+	fi
+}
+
+if [ $# == 3 ]; then
+	case $1 in
+		"--add")
+			Perm;
+			Add;
+		        exit 0
+			;;
+		"--del")
+			Perm;
+			Del;
+			exit 0
+			;;
+		esac
+			Usage;
+			exit 0
+else
+    Usage;
+fi
+
+
+
+
+
+
+

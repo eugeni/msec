@@ -351,16 +351,17 @@ def nopassword_loader():
     menulst = ConfigFile.get_config_file(MENULST)
     menulst.exists() and menulst.remove_line_matching('^password\s')
 
-def enable_console_log(arg):
-    '''  Enable/Disable syslog reports to console 12.'''
+def enable_console_log(arg, expr='*.*'):
+    '''  Enable/Disable syslog reports to console 12. \\fIexpr\\fP is the
+expression describing what to log (see syslog.conf(5) for more details).'''
     syslogconf = ConfigFile.get_config_file(SYSLOGCONF)
 
     if arg:
         _interactive and log(_('Enabling log on console 12'))
-        syslogconf.exists() and syslogconf.replace_line_matching('\s*[^#]+/dev/tty12', '*.* /dev/tty12', 1)
+        syslogconf.exists() and syslogconf.replace_line_matching('\s*[^#]+/dev/tty12', expr + ' /dev/tty12', 1)
     else:
         _interactive and log(_('Disabling log on console 12'))
-        syslogconf.exists() and syslogconf.remove_line_matching('\*\.\*\s*/dev/tty12')
+        syslogconf.exists() and syslogconf.remove_line_matching('\s*[^#]+/dev/tty12')
 
 def enable_promisc_check(arg):
     '''  Activate/Disable ethernet cards promiscuity check.'''

@@ -241,10 +241,31 @@ class ConfigFile:
         log(_('set variable %s to %s in %s') % (var, value, self.path,))
         return self
     
-    def get_shell_variable(self, var):
+    def get_shell_variable(self, var, start=None, end=None):
+        if end:
+            end=re.compile(end)
+        if start:
+            start=re.compile(start)
         regex = re.compile('^' + var + '="?([^#"]+)"?(.*)')
         lines = self.get_lines()
-        for idx in range(len(lines) - 1, -1, -1):
+        llen = len(lines)
+        start_idx = 0
+        end_idx = llen
+        if start:
+            found = 0
+            for idx in range(0, llen):
+                if start.search(lines[idx]):
+                    start_idx = idx
+                    found = 1
+                    break
+            if found:
+                for idx in range(start_idx, llen):
+                    if end.search(lines[idx]):
+                        end_idx = idx
+                        break
+        else:
+            start_idx = 0
+        for idx in range(end_idx - 1, start_idx - 1, -1):
             res = regex.search(lines[idx])
             if res:
                 return res.group(1)

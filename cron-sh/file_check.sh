@@ -15,6 +15,8 @@ if [ SECURITY_CHECK == "no" ]; then
     exit 0
 fi
 
+OUT=./blah
+
 # Modified filters coming from debian security scripts.
 CS_NFSAFS='(nfs|afs|xfs|coda)'
 CS_TYPES=' type (devpts|auto|proc|msdos|fat|vfat|iso9660|ncpfs|smbfs|'$CS_NFSAFS')'
@@ -263,6 +265,128 @@ if [ ${CHECK_OPEN_PORT}=="yes" ]; then
 	    Ttylog "There is a new port listening on your machine..."
 	    Ttylog "Please consult ${OPEN_PORT_DIFF} for security purpose..."
         fi
+    fi
+fi
+
+### /etc/exports check ###
+
+# File systems should not be globally exported.
+if [ -s /etc/exports ] ; then
+    awk '{
+	if (($1 ~ /^#/) || ($1 ~ /^$/)) next;
+	readonly = 0;
+                for (i = 2; i <= NF; ++i) {
+                        if ($i ~ /^-ro$/)
+                                readonly = 1;
+                        else if ($i !~ /^-/)
+                                next;
+                }
+                if (readonly) {
+		    print "Warning : Nfs File system " $1 " globally exported, read-only.";
+		} else print "Warning : Nfs File system " $1 " globally exported, read-write.";
+        }' < /etc/exports > $OUT
+        if [ -s "$OUT" ] ; then
+                printf "\nChecking for globally exported file systems.\n"
+                cat "$OUT"
+        fi
+fi
+
+
+# nfs mounts with missing nosuid
+/bin/mount | /bin/grep -v nosuid | /bin/grep ' nfs ' > $OUT
+if [ -s "$OUT" ] ; then
+    printf "\nThe following NFS mounts haven't got the nosuid option set:\n"
+    cat "$OUT"
+fi
+
+# Files that should not be owned by someone else or readable.
+list=".netrc .rhosts .shosts .Xauthority .pgp/secring.pgp .ssh/identity .ssh/random_seed"
+awk -F: '/^[^+-]/ { print $1 " " $6 }' /etc/passwd | \
+while read uid homedir; do
+        for f in $list ; do
+                file=${homedir}/${f}
+                if [ -f $file ] ; then
+                        printf "$uid $f `ls -ldcg $file`\n"
+                fi
+        done
+done |
+awk '$1 != $5 && $5 != "root" \
+        { print "user " $1 " " $2 " : file is owned by " $5 }
+     $3 ~ /^-...r/ \
+        { print "user " $1 " " $2 " : file is group readable" }
+     $3 ~ /^-......r/ \
+        { print "user " $1 " " $2 " : file is other readable" }
+     $3 ~ /^-....w/ \
+        { print "user " $1 " " $2 " : file is group writeable" }
+     $3 ~ /^-.......w/ \
+        { print "user " $1 " " $2 " : file is other writeable" }' > $OUT
+
+
+# Files that should not be owned by someone else or writeable.
+list=".bashrc .bash_profile .bash_login .bash_logout .cshrc .emacs .exrc \
+.forward .klogin .login .logout .profile .tcshrc .fvwmrc .inputrc .kshrc \
+.nexrc .screenrc .ssh .ssh/config .ssh/authorized_keys .ssh/environment \
+.ssh/known_hosts .ssh/rc .twmrc .xsession .xinitrc .Xdefaults"
+awk -F: '/^[^+-]/ { print $1 " " $6 }' /etc/passwd | \
+while read uid homedir; do
+        for f in $list ; do
+                file=${homedir}/${f}
+                if [ -f $file ] ; then
+                        printf "$uid $f `ls -ldcg $file`\n"
+                fi
+        done
+done |
+awk '$1 != $5 && $5 != "root" \
+        { print "user " $1 " " $2 " : file is owned by " $5 }
+     $3 ~ /^-....w/ \
+        { print "user " $1 " " $2 " : file is group writeable" }
+     $3 ~ /^-.......w/ \
+        { print "user " $1 " " $2 " : file is other writeable" }' >> $OUT
+if [ -s "$OUT" ] ; then
+        printf "\nChecking dot files.\n"
+        cat "$OUT"
+fi
+
+# Check home directories.  Directories should not be owned by someone else
+# or writeable.
+awk -F: '/^[^+-]/ { print $1 " " $6 }' /etc/passwd | \
+while read uid homedir; do
+        if [ -d ${homedir}/ ] ; then
+                file=`ls -ldg ${homedir}`
+                printf "$uid $file\n"
+        fi
+done |
+awk '$1 != $4 && $4 != "root" \
+        { print "user " $1 " : home directory is owned by " $4 }
+     $2 ~ /^-....w/ \
+        { print "user " $1 " : home directory is group writeable" }
+     $2 ~ /^-.......w/ \
+        { print "user " $1 " : home directory is other writeable" }' > $OUT
+if [ -s "$OUT" ] ; then
+        printf "\nChecking home directories.\n"
+        cat "$OUT"
+fi
+
+# Files that should not have + signs.
+list="/etc/hosts.equiv /etc/shosts.equiv /etc/hosts.lpd"
+for f in $list ; do
+        if [ -s $f ] ; then
+                awk '{
+                        if ($0 ~ /^\+@.*$/)
+                                next;
+                        if ($0 ~ /^\+.*$/)
+                                printf("\nPlus sign in the file %s\n", FILENAME);
+                }' $f
+        fi
+done
+
+
+# executables should not be in the /etc/aliases file.
+if [ -s /etc/aliases ]; then
+    grep -v '^#' /etc/aliases | grep '|' > $OUT
+    if [ -s "$OUT" ] ; then
+            printf "\nThe following programs are executed in your mail via /etc/aliases (bad!):\n"
+            cat "$OUT"
     fi
 fi
 

@@ -1,26 +1,46 @@
-#
-#
-# - Group for X user
-# - Group for audio user
-# - Group for dialout user
-# - Group for video user
-# Directories /
 # Welcome in Level 2
 ###
-
 /bin						root.root		755
 /boot						root.root		755
 /dev						root.root		755
 /dev/audio*					root.audio		660
 /dev/dsp*					root.audio		660
 /etc/						root.root		755
+/etc/conf.modules				root.root		644
 /etc/cron.daily/				root.root		755
 /etc/cron.hourly/				root.root		755
 /etc/cron.monthly/				root.root		755
 /etc/cron.weekly/				root.root		755
+/etc/crontab					root.root		644
 /etc/dhcpcd/					root.root		755
+/etc/esd.conf					root.root		644
+/etc/ftpaccess					root.root		644
+/etc/ftpconversions				root.root		644
+/etc/ftpgroups					root.root		644
+/etc/ftphosts					root.root		644
+/etc/ftpusers					root.root		644
+/etc/gettydefs					root.root		644
+/etc/hosts.allow				root.root		644
+/etc/hosts.deny					root.root		644
+/etc/hosts.equiv				root.root		644
+/etc/inetd.conf					root.root		644
 /etc/init.d/					root.root		755
+/etc/inittab					root.root		644
+/etc/ld.so.conf					root.root		644
+/etc/lilo.conf					root.root		644
+/etc/modules.conf				root.root		644
+/etc/motd					root.root		644
+/etc/printcap					root.root		644
 /etc/profile					root.root		644
+/etc/rc.d/					root.root		755
+/etc/securetty					root.root		644
+/etc/sendmail.cf				root.root		644
+/etc/ssh_config					root.root		644
+/etc/ssh_host_key				root.root		644
+/etc/ssh_host_key.pub				root.root		644
+/etc/sshd_config				root.root		644
+/etc/syslog.conf				root.root		644
+/etc/updatedb.conf				root.root		644
 /home/						root.root		755
 /home/*						current			755
 /lib						root.root		755
@@ -35,38 +55,7 @@
 /usr/bin/*					root.root		755
 /usr/sbin/					root.root		755
 /var						root.root		755
-
-/etc/conf.modules				root.root		644
-/etc/crontab					root.root		644
-/etc/esd.conf					root.root		644
-/etc/ftpaccess					root.root		644
-/etc/ftpconversions				root.root		644
-/etc/ftpgroups					root.root		644
-/etc/ftphosts					root.root		644
-/etc/ftpusers					root.root		644
-/etc/gettydefs					root.root		644
-/etc/hosts.allow				root.root		644
-/etc/hosts.deny					root.root		644
-/etc/hosts.equiv				root.root		644
-/etc/inetd.conf					root.root		644
-/etc/inittab					root.root		644
-/etc/ld.so.conf					root.root		644
-/etc/lilo.conf					root.root		644
-/etc/modules.conf				root.root		644
-/etc/motd					root.root		644
-/etc/printcap					root.root		644
-/etc/rc.d/					root.root		755
-/etc/securetty					root.root		644
-/etc/sendmail.cf				root.root		644
-/etc/ssh_config					root.root		644
-/etc/ssh_host_key				root.root		644
-/etc/ssh_host_key.pub				root.root		644
-/etc/sshd_config				root.root		644
-/etc/syslog.conf				root.root		644
-/etc/updatedb.conf				root.root		644
-
-
-
-
-
-
+/var/log					root.root		755
+/var/log/*					root.adm		640
+/var/log/security				root.root		700
+/var/log/security/*				root.root		600

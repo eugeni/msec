@@ -1,11 +1,5 @@
-#
-#
-# - Group for X user
-# - Group for audio user
-# - Group for dialout user
-# - Group for video user
 # Welcome in Level 4, aka secure & usable.
-
+###
 /bin						root.root		711
 /boot						root.root		700
 /dev						root.root		711
@@ -47,7 +41,6 @@
 /etc/sshd_config				root.adm		640
 /etc/syslog.conf				root.adm		640
 /etc/updatedb.conf				root.adm		640
-
 /home/						root.adm		751
 /home/*						current			700
 /lib						root.adm		751
@@ -63,10 +56,7 @@
 /usr/sbin/					root.adm		751
 /usr/sbin/*					root.root		755
 /var						root.root		755
-
-
-
-
-
-
-
+/var/log					root.root		700
+/var/log/*					root.root		600
+/var/log/security				root.root		700
+/var/log/security/*				root.root		600

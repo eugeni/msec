@@ -1,11 +1,5 @@
-#
-#
-# - Group for X user
-# - Group for audio user
-# - Group for dialout user
-# - Group for video user
 # Welcome in Level 5, aka paranoid.
-
+###
 /bin						root.root		711
 /boot						root.root		700
 /dev						root.root		711
@@ -47,7 +41,6 @@
 /etc/sshd_config				root.root		600
 /etc/syslog.conf				root.root		600
 /etc/updatedb.conf				root.root		600
-
 /home/						root.root		711
 /home/*						current			700
 /lib						root.root		711
@@ -64,4 +57,7 @@
 /usr/sbin/*					root.root		700
 /usr/sbin/sendmail				root.root		755
 /var						root.root		755
-
+/var/log					root.root		700
+/var/log/*					root.root		600
+/var/log/security				root.root		700
+/var/log/security/*				root.root		600

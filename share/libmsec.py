@@ -251,7 +251,7 @@ STARTX_REGEXP = '(\s*clientargs=".*) -nolisten tcp(.*")'
 XSERVERS_REGEXP = '(\s*[^#]+/usr/X11R6/bin/X .*) -nolisten tcp(.*)'
 GDMCONF_REGEXP = '(\s*command=.*/X.*?) -nolisten tcp(.*)$'
 def allow_xserver_to_listen(arg):
-    ''' The argument specifies if clients are authorized to connect
+    '''  The argument specifies if clients are authorized to connect
 to the X server on the tcp port 6000 or not.'''
     
     startx = ConfigFile.get_config_file(STARTX)
@@ -847,7 +847,7 @@ enable_ip_spoofing_protection.one_arg = 1
 ################################################################################
 
 def enable_dns_spoofing_protection(arg, alert=1):
-    ''' Enable/Disable name resolution spoofing protection.  If
+    '''  Enable/Disable name resolution spoofing protection.  If
 \\fIalert\\fP is true, also reports to syslog.'''
     hostconf = ConfigFile.get_config_file(HOSTCONF)
 

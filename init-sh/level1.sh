@@ -44,9 +44,9 @@ echo -e "\t- Check passwd file integrity : no."
     AddRules "CHECK_PASSWD=no" /etc/security/msec/security.conf	        quiet
 echo -e "\t- Check shadow file integrity : no."
     AddRules "CHECK_SHADOW=no" /etc/security/msec/security.conf	        quiet
-echo -e "\t- Security warning on tty : \"no\" :"
+echo -e "\t- Security warning on tty : no."
     AddRules "TTY_WARN=no" /etc/security/msec/security.conf	        quiet
-echo -e "\t- Security warning in syslog : \"no\" :"			
+echo -e "\t- Security warning in syslog : no."			
     AddRules "SYSLOG_WARN=no" /etc/security/msec/security.conf		
 # end security check
 
@@ -64,6 +64,14 @@ AddRules "umask 002" /etc/profile
 echo "Adding \"non secure\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games:." /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile
+
+
+# Xserver
+echo "Allowing users to connect X server from localhost :"
+AddRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xdm/Xsession quiet
+AddRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xinit/xinitrc
+
+###
 
 # Group
 echo -n "Adding \"${DRAKX_USERS}\" to audio group :"

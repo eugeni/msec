@@ -65,6 +65,11 @@ echo "Adding \"normal\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
 AddRules "export PATH SECURE_LEVEL" /etc/profile
 
+# Xserver
+echo "Allowing users to connect X server from localhost :"
+AddRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xdm/Xsession quiet
+AddRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xinit/xinitrc
+
 # Group
 echo -n "Adding \"${DRAKX_USERS}\" to audio group :"
 for user in ${DRAKX_USERS}; do

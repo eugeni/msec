@@ -171,9 +171,10 @@ CleanRules /etc/lilo.conf
 CleanRules /etc/rc.d/rc.firewall
 CleanRules /etc/crontab
 CleanRules /etc/security/msec/security.users
+CleanRules /etc/X11/xdm/Xsession
+CleanRules /etc/X11/xinit/xinitrc
 
 echo -e "\nStarting to reconfigure the system : "
-
 # For all secure level
 echo "Setting spoofing protection : "
 AddRules "echo 1 > /proc/sys/net/ipv4/conf/all/rp_filter" /etc/rc.d/rc.firewall

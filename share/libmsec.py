@@ -72,7 +72,7 @@ SHADOW = '/etc/shadow'
 SHUTDOWN = '/etc/security/console.apps/shutdown'
 SHUTDOWNALLOW = '/etc/shutdown.allow'
 SSHDCONFIG = '/etc/ssh/sshd_config'
-STARTX = '/usr/X11R6/bin/startx '
+STARTX = '/usr/X11R6/bin/startx'
 SU = '/etc/pam.d/su'
 SYSCTLCONF = '/etc/sysctl.conf'
 SYSLOGCONF = '/etc/syslog.conf'
@@ -274,7 +274,7 @@ allow_x_connections.one_arg = 1
 
 ################################################################################
 
-STARTX_REGEXP = '(\s*clientargs=".*) -nolisten tcp(.*")'
+STARTX_REGEXP = '(\s*serverargs=".*) -nolisten tcp(.*")'
 XSERVERS_REGEXP = '(\s*[^#]+/usr/X11R6/bin/X .*) -nolisten tcp(.*)'
 GDMCONF_REGEXP = '(\s*command=.*/X.*?) -nolisten tcp(.*)$'
 def allow_xserver_to_listen(arg):
@@ -306,7 +306,7 @@ to the X server on the tcp port 6000 or not.'''
     else:
         if not val_startx or not val_xservers or not val_gdmconf:
             _interactive and log(_('Forbidding the X server to listen to tcp connection'))
-            startx.exists() and startx.replace_line_matching('clientargs="(.*?)( -nolisten tcp)?"', 'clientargs="@1 -nolisten tcp"')
+            startx.exists() and startx.replace_line_matching('serverargs="(.*?)( -nolisten tcp)?"', 'serverargs="@1 -nolisten tcp"')
             xservers.exists() and xservers.replace_line_matching('(\s*[^#]+/usr/X11R6/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
             gdmconf.exists() and gdmconf. replace_line_matching('(\s*command=.*/X.*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
 

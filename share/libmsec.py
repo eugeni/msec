@@ -608,7 +608,7 @@ The following variables are currentrly recognized by msec:
 
 CHECK_UNOWNED if set to yes, report unowned files.
 
-CHECK_SHADOW if set to yes, check empty passord in /etc/shadow.
+CHECK_SHADOW if set to yes, check empty password in /etc/shadow.
 
 CHECK_SUID_MD5 if set to yes, verify checksum of the suid/sgid files.
 

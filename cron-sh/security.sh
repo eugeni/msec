@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [[ ! -f /etc/security/msec/security.conf ]]; then
     echo "Can't access /etc/security/msec/security.conf."

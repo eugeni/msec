@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #
 # Writen by Vandoorselaere Yoann <yoann@mandrakesoft.com>

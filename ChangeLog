@@ -1,3 +1,16 @@
+2002-05-30 23:35  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.23-1mdk
+
+2002-05-30 23:34  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/: ConfigFile.py, Perms.py: report more complete error
+	messages.
+
+2002-05-30 23:31  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec: check that the root is running the process
+
 2002-05-29 16:39  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* share/libmsec.py: corrected typo

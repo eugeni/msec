@@ -1,5 +1,5 @@
-%define version 0.15
-%define release 1mdk
+%define version 0.14
+%define release 3mdk
 
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
@@ -46,7 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/security/msec
 
 %changelog
-* Fri Apr 25 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.15-2mdk
+* Fri Apr 25 2000 Yoann Vandoorselaere <yoann@mandrakesoft.com> 0.14-3mdk
 - Fix a bug with comment removed pointed out by Konrad Bernloehr.
 
 * Mon Apr 24 2000 Pixel <pixel@mandrakesoft.com> 0.14-2mdk

@@ -5,8 +5,12 @@
 # Writen by Vandoorselaere Yoann <yoann@mandrakesoft.com>
 #
 
-if [[ -f /etc/security/msec/init-sh/lib.sh ]]; then
-    . /etc/security/msec/init-sh/lib.sh
+
+if [[ -f /usr/share/msec/lib.sh ]]; then
+    . /usr/share/msec/lib.sh
+else
+    echo "Can't find /usr/share/msec/lib.sh, exiting."
+    exit 1
 fi
 
 clear
@@ -62,7 +66,7 @@ echo "Do you want your system to daily check important security problem ?"
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
 	AddRules "CHECK_SECURITY=yes" /etc/security/msec/security.conf
-        AddRules "0 0-23 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/security.sh" /etc/crontab
+        AddRules "0 0-23 * * *    root    nice --adjustment=+19 /usr/share/msec/security.sh" /etc/crontab
 fi
 
 ###
@@ -70,7 +74,7 @@ echo "Do you want your system to daily check new open port listening ?"
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
 	AddRules "CHECK_OPEN_PORT=yes" /etc/security/msec/security.conf
-	AddRules "0 0-23 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/security.sh" /etc/crontab
+	AddRules "0 0-23 * * *    root    nice --adjustment=+19 /usr/share/msec/security.sh" /etc/crontab
 fi
 
 ###
@@ -78,7 +82,7 @@ echo "Do you want your system to check for grave permission problem on sensibles
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
 	AddRules "CHECK_PERMS=yes" /etc/security/msec/security.conf
-	AddRules "0 0-23 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/security.sh" /etc/crontab
+	AddRules "0 0-23 * * *    root    nice --adjustment=+19 /usr/share/msec/security.sh" /etc/crontab
 fi
 
 ###
@@ -86,7 +90,7 @@ echo "Do you want your system to daily check SUID Root file change ?"
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
     AddRules "CHECK_SUID_ROOT=yes" /etc/security/msec/security.conf
-    AddRules "0 0-23 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/security.sh" /etc/crontab
+    AddRules "0 0-23 * * *    root    nice --adjustment=+19 /usr/share/msec/security.sh" /etc/crontab
 fi
 
 ###
@@ -94,7 +98,7 @@ echo "Do you want your system to daily check suid files md5 checksum changes ?"
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
 	AddRules "CHECK_SUID_MD5=yes" /etc/security/msec/security.conf
-	AddRules "0 0-23 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/security.sh" /etc/crontab
+	AddRules "0 0-23 * * *    root    nice --adjustment=+19 /usr/share/msec/security.sh" /etc/crontab
 fi
 
 ###
@@ -102,7 +106,7 @@ echo "Do you want your system to daily check SUID Group file change ?"
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
     AddRules "CHECK_SUID_GROUP=yes" /etc/security/msec/security.conf
-    AddRules "0 0-23 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/security.sh" /etc/crontab
+    AddRules "0 0-23 * * *    root    nice --adjustment=+19 /usr/share/msec/security.sh" /etc/crontab
 fi
 
 ###
@@ -110,7 +114,7 @@ echo "Do you want your system to daily check Writeable file change ?"
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
     AddRules "CHECK_WRITEABLE=yes" /etc/security/msec/security.conf
-    AddRules "0 0-23 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/security.sh" /etc/crontab
+    AddRules "0 0-23 * * *    root    nice --adjustment=+19 /usr/share/msec/security.sh" /etc/crontab
 fi
 
 ###
@@ -118,7 +122,7 @@ echo "Do you want your system to daily check Unowned file change ?"
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
     AddRules "CHECK_UNOWNED=yes" /etc/security/msec/security.conf
-    AddRules "0 0-23 * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/security.sh" /etc/crontab
+    AddRules "0 0-23 * * *    root    nice --adjustment=+19 /usr/share/msec/security.sh" /etc/crontab
 fi
 
 ###
@@ -127,7 +131,7 @@ echo "is in promiscuous state (which mean someone is probably running a sniffer 
 WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
     AddRules "CHECK_PROMISC=yes" /etc/security/msec/security.conf
-    AddRules "*/1 * * * *    root    nice --adjustment=+19 /etc/security/msec/cron-sh/promisc_check.sh" /etc/crontab
+    AddRules "*/1 * * * *    root    nice --adjustment=+19 /usr/share/msec/promisc_check.sh" /etc/crontab
 fi
 ###
 
@@ -169,7 +173,7 @@ WaitAnswer; clear
 if [[ ${answer} == yes ]]; then
 	echo -n "Disabling all service, except : {"
 	chkconfig --list | awk '{print $1}' | while read service; do
-   		if grep -qx ${service} /etc/security/msec/init-sh/server.4; then
+   		if grep -qx ${service} /etc/security/msec/server.4; then
        		echo -n " ${service}"
    		fi
 	done
@@ -235,6 +239,14 @@ else
 fi
 
 AddRules "export PATH SECURE_LEVEL" /etc/profile
+
+
+
+
+
+
+
+
 
 
 

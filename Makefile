@@ -51,21 +51,19 @@ rpm: dis ../$(NAME)-$(VERSION).tar.bz2 $(RPM)
 	rm -f ../$(NAME)-$(VERSION).tar.bz2
 
 install:
-	(rm -rf /etc/security/msec)
-	(mkdir -p /etc/security/msec/init-sh)
-	(cp init-sh/level* /etc/security/msec/init-sh)
-	(cp init-sh/init.sh /etc/security/msec/init.sh);
-	(cp init-sh/lib.sh /etc/security/msec/init-sh);
-	(cp init-sh/grpuser.sh /etc/security/msec/init-sh);
-	(cp init-sh/file_perm.sh /etc/security/msec/init-sh);
-	(cp init-sh/*.[0-5] /etc/security/msec/init-sh/)
-	(cp init-sh/custom.sh /etc/security/msec/init-sh);
-	(cp init-sh/server.* /etc/security/msec/init-sh)
+	(rm -rf $(RPM_BUILD_ROOT)/etc/security/msec)
+	(mkdir -p $(RPM_BUILD_ROOT)/etc/security/msec)
+	(mkdir -p $(RPM_BUILD_ROOT)/usr/share/msec)
+	(cp init-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec)
+	(cp cron-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec)
+	(cp init-sh/msec $(RPM_BUILD_ROOT)/usr/sbin)
+	(cp conf/perm.* conf/server.* $(RPM_BUILD_ROOT)/etc/security/msec)
+	
 	(touch $(RPM_BUILD_ROOT)/etc/security/msec/security.conf)
-	touch $(RPM_BUILD_ROOT)/var/log/security.log
-	mkdir -p $(RPM_BUILD_ROOT)/var/log/security
-	(cd src/promisc_check; make install)
-	(cd cron-sh; make install)
+	(touch $(RPM_BUILD_ROOT)/var/log/security.log)
+	(mkdir -p $(RPM_BUILD_ROOT)/var/log/security)
+	(cd src/promisc_check && make install)
+	(cd cron-sh && make install)
 
 	@echo
 	@echo

@@ -5,9 +5,12 @@
 # Writen by Vandoorselaere Yoann <yoann@mandrakesoft.com>
 #
 
-if [[ -f /etc/security/msec/init-sh/lib.sh ]]; then
-    . /etc/security/msec/init-sh/lib.sh
+
+
+if [[ -f /usr/share/msec/lib.sh ]]; then
+    . /usr/share/msec/lib.sh
 else
+    echo "Can't find /usr/share/msec/lib.sh, exiting."
     exit 1
 fi
 
@@ -74,7 +77,7 @@ AddBegRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xinit/xinitrc
 
 # group
 echo "Adding system users to specifics groups :"
-/etc/security/msec/init-sh/grpuser.sh --refresh
+/usr/share/msec/grpuser.sh --refresh
 grpconv
 echo -e "done.\n"
 
@@ -87,3 +90,5 @@ cat ${tmpfile} | \
     sed s'/ca::ctrlaltdel:\/sbin\/shutdown -a -t3 -r now/ca::ctrlaltdel:\/sbin\/shutdown -t3 -r now/' > /etc/inittab
 rm -f ${tmpfile}
 echo "done."
+
+

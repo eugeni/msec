@@ -8,14 +8,14 @@ fi
 
 
 if [[ ${1} == custom ]]; then
-	/etc/security/msec/init-sh/custom.sh
+	/usr/share/msec/custom.sh
 	exit 0;
 fi
 
-if [[ -f /etc/security/msec/init-sh/level$1.sh ]]; then
-    /etc/security/msec/init-sh/level$1.sh
-	if [[ -f /etc/security/msec/init-sh/perm.$1 ]]; then
-		/etc/security/msec/init-sh/file_perm.sh /etc/security/msec/init-sh/perm.$1
+if [[ -f /usr/share/msec/level$1.sh ]]; then
+	/usr/share/msec/level$1.sh
+	if [[ -f /usr/share/msec/perm.$1 ]]; then
+		/usr/share/msec/file_perm.sh /usr/share/msec/perm.$1
 	else
 		echo "Couldn't find the default permissions for level $1."
 	fi

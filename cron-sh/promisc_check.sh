@@ -6,7 +6,7 @@
 if [[ -f /etc/security/msec/security.conf ]]; then
 	. /etc/security/msec/security.conf
 else
-	echo "/etc/security/msec/security.conf don't exist."
+	echo "/etc/security/msec/security.conf doesn't exist."
 	exit 1
 fi
 
@@ -29,11 +29,8 @@ Ttylog() {
     fi
 }
 
+# Check if a network interface is in promiscuous mode...
 PROMISC="/usr/bin/promisc_check -q"
-#
-# Check if a network interface is in promisc check...
-# Written by Vandoorselaere Yoann, <yoann@mandrakesoft.com>
-#
 
 LogPromisc() {
     date=`date`
@@ -57,7 +54,7 @@ if [[ ${CHECK_PROMISC} == no ]]; then
 fi
 
 for INTERFACE in `${PROMISC}`; do
-	LogPromisc $INTERFACE
+	LogPromisc ${INTERFACE}
 done
 
 

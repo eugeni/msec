@@ -5,6 +5,7 @@
 # Writen by Vandoorselaere Yoann <yoann@mandrakesoft.com>
 #
 
+
 if [[ -f /etc/security/msec/init-sh/lib.sh ]]; then
     . /etc/security/msec/init-sh/lib.sh
 else
@@ -74,7 +75,7 @@ AddBegRules "/usr/X11R6/bin/xhost +" /etc/X11/xinit/xinitrc
 
 # Group
 echo "Adding system users to specific groups :"
-/etc/security/msec/init-sh/grpuser.sh --refresh
+/usr/share/msec/grpuser.sh --refresh
 echo -e "done.\n"
 
 # Boot on a shell / authorize ctrl-alt-del

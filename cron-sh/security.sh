@@ -72,6 +72,8 @@ fi
 
 
 netstat -pvlA inet 2> /dev/null > ${OPEN_PORT_TODAY};
+
+# Hard disk related file check; the less priority the better...
 nice --adjustment=+19 find ${DIR} -xdev -type f -perm +04000 -user root -printf "${PRINT}" 2> /dev/null | sort > ${SUID_ROOT_TODAY}
 nice --adjustment=+19 find ${DIR} -xdev -type f -perm +02000 -printf "${PRINT}" 2> /dev/null | sort > ${SUID_GROUP_TODAY}
 nice --adjustment=+19 find ${DIR} -xdev -type f -perm -2 -printf "${PRINT}" 2> /dev/null | sort > ${WRITEABLE_TODAY}
@@ -115,8 +117,8 @@ Maillog() {
 
 ##################
 
-. /etc/security/msec/cron-sh/diff_check.sh
-. /etc/security/msec/cron-sh/security_check.sh
+. /usr/share/msec/diff_check.sh
+. /usr/share/msec/security_check.sh
 
 
 

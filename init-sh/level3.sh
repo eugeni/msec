@@ -5,13 +5,14 @@
 # Writen by Vandoorselaere Yoann <yoann@mandrakesoft.com>
 #
 
-if [[ -f /etc/security/msec/init-sh/lib.sh ]]; then
-    . /etc/security/msec/init-sh/lib.sh
+
+if [[ -f /usr/share/msec/lib.sh ]]; then
+    . /usr/share/msec/lib.sh
 else
+    echo "Can't find /usr/share/msec/lib.sh, exiting."
     exit 1
 fi
 
-# All events logged on tty12
 echo "Loging all messages on tty12 : "
 AddRules "*.* /dev/tty12" /etc/syslog.conf
 
@@ -59,7 +60,7 @@ echo -e "\t- Security warning in syslog : yes."
 
 # Crontab
 echo "Adding permission check in crontab (scheduled every midnight) :"
-AddRules "0 0 * * *    root    /etc/security/msec/cron-sh/security.sh" /etc/crontab
+AddRules "0 0 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 
 # lilo update
 echo -n "Running lilo to record new config : "

@@ -5,8 +5,11 @@
 # Writen by Vandoorselaere Yoann <yoann@mandrakesoft.com>
 #
 
-if [[ -f /etc/security/msec/init-sh/lib.sh ]]; then
-    . /etc/security/msec/init-sh/lib.sh
+if [[ -f /usr/share/msec/lib.sh ]]; then
+    . /usr/share/msec/lib.sh
+else
+    echo "Can't find /usr/share/msec/lib.sh, exiting."
+    exit 1
 fi
 
 echo -e "Changing attribute of /var/log/* to append only...\n"
@@ -60,10 +63,10 @@ echo -e "\t- Security warning in syslog : yes."
 ################ Crontab things ###################
 # Check every 1 minutes for promisc problem 
 echo "Adding promisc check in crontab (scheduled every minutes) :"
-AddRules "*/1 * * * *    root    /etc/security/msec/cron-sh/promisc_check.sh" /etc/crontab
+AddRules "*/1 * * * *    root    /usr/share/msec/promisc_check.sh" /etc/crontab
 
 echo "Adding \"diff\" & \"global\" security check in crontab (scheduled every midnight) :"
-AddRules "0 0 * * *    root    /etc/security/msec/cron-sh/security.sh" /etc/crontab
+AddRules "0 0 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 
 ###################################################
 
@@ -83,7 +86,7 @@ IFS="
 export SECURE_LEVEL=5
 echo -n "Disabling all service, except : {"
 for service in `chkconfig --list | awk '{print $1}'`; do
-	if grep -qx ${service} /etc/security/msec/init-sh/server.5; then
+	if grep -qx ${service} /etc/security/msec/server.5; then
 		echo -n " ${service}"
 	fi
 done

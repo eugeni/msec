@@ -1,7 +1,7 @@
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
 Version: 0.5
-Release: 1mdk
+Release: 3mdk
 Source: msec-0.5.tar.bz2
 Copyright: GPL
 Group: System Environment/Base
@@ -23,31 +23,27 @@ in order to test the security of your system and alert you if needed.
 make CFLAGS="$RPM_OPT_FLAGS"
 
 %install
-mkdir -p $RPM_BUILD_ROOT/etc/security/msec/init-sh
-mkdir -p $RPM_BUILD_ROOT/etc/security/msec/cron-sh
-mkdir -p $RPM_BUILD_ROOT/usr/bin
-
-cp init-sh/level*.sh $RPM_BUILD_ROOT/etc/security/msec/init-sh
-cp init-sh/lib.sh $RPM_BUILD_ROOT/etc/security/msec/init-sh
-cp init-sh/init.sh $RPM_BUILD_ROOT/etc/security/msec
-cp init-sh/file_perm.sh $RPM_BUILD_ROOT/etc/security/msec/init-sh
-cp init-sh/perm.[1-5] $RPM_BUILD_ROOT/etc/security/msec/init-sh
-cp init-sh/server.* $RPM_BUILD_ROOT/etc/security/msec/init-sh
-cp init-sh/grpuser $RPM_BUILD_ROOT/etc/security/msec/init-sh
-cp init-sh/custom.sh $RPM_BUILD_ROOT/etc/security/msec/init-sh
-cp cron-sh/*.sh $RPM_BUILD_ROOT/etc/security/msec/cron-sh
-touch $RPM_BUILD_ROOT/etc/security/msec/security.conf
-cp src/promisc_check/promisc_check $RPM_BUILD_ROOT/usr/bin
+make rpm_install RPM_BUILD_ROOT=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
+%doc AUTHORS COPYING Makefile README doc/*txt ChangeLog
 /etc/security/msec
 /usr/bin/promisc_check
 
 %changelog
+* Wed Dec  8 1999 Chmouel Boudjnah <chmouel@mandrakesoft.com>
+- Various (Makefile|specfiles) clean-up.
+- insert doc.
+
+* Wed Dec  8 1999 Pixel <pixel@linux-mandrake.com>
+- fixed a yoyosuk in promisc_check cron (have to teach him how to use an editor!)
+- source in .bz2 (yoyosuk2)
+- strip binary (yoyosuk3)
+
 * Mon Dec  6 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
 - Released 0.5
 - Divided security check into 2 files :

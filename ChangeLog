@@ -3,7 +3,9 @@
 	* Makefile (rpm): target for rpm.
 	(dis): Add a make dis to easy switch from cvs to dis.
 
-	* doc/msec.spec: use bzip2 sources, clean up %install to use Makefile.
+	* msec.spec: use bzip2 sources, clean up %install to use Makefile.
+	move msec.spec on the top to allow rpm -ta (in fact rpm -ta don't
+	support currently bzip2 sources)
 
 	* cron-sh/promisc_check.sh (LogPromisc): add a missing quote.
 

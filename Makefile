@@ -10,7 +10,7 @@ clean:
 promisc_check: 
 	(cd src/promisc_check; make)
 
-rpm: all
+rpm_install: all
 	rm -rf $(RPM_BUILD_ROOT)
 	mkdir -p $(RPM_BUILD_ROOT)/etc/security/msec/{init-sh,cron-sh}/
 	mkdir -p $(RPM_BUILD_ROOT)/usr/bin
@@ -32,8 +32,10 @@ dis: clean
 	mkdir -p msec-$(VERSION)
 	find . -not -name "msec-$(VERSION)"|cpio -pd msec-$(VERSION)/
 	find msec-$(VERSION) -type d -name CVS|xargs rm -rf 
+	perl -p -i -e 's|^%define version.*|%define version $(VERSION)|' msec.spec
 	tar cf ../msec-$(VERSION).tar msec-$(VERSION)
-	bzip2 ../msec-$(VERSION).tar
+	bzip2 -9f ../msec-$(VERSION).tar
+	rm -rf msec-$(VERSION)
 
 install:
 	(rm -rf /etc/security/msec)

@@ -1,3 +1,21 @@
+2002-03-04 14:19  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.19-5mdk
+
+2002-03-04 14:19  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.sh: more robust if SECURE_LEVEL isn't set.
+
+2002-03-04 14:18  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: use 127.0.0.1 instead of localhost in
+	hosts.deny
+
+2002-02-26 16:16  Pixel <pixel@mandrakesoft.com>
+
+	* msec.csh, msec.spec: msec.csh: "unhash" workaround for /usr/bin
+	non-readable (msec 5) applied after modifying PATH (eurk!)
+
 2002-02-25 16:15  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.19-4mdk

@@ -43,6 +43,35 @@ AddRules () {
 	fi
 }
 
+AddBegRules() {
+    string=$1
+    file=$2
+    quiet=$3
+    ctrl=0
+
+    if [[ -z ${string} ]]; then
+	return;
+    fi
+
+    if [[ -z ${quiet} ]]; then
+	echo "Modifying config in ${file}..."
+    fi
+
+    mv ${file} /tmp/secure.tmp
+
+    if ! grep -Eqx "^${string}" /tmp/secure.tmp; then
+	echo -e "${COMMENT}" >> ${file};
+	echo -e "${string}" >> ${file};
+    fi
+
+    cat /tmp/secure.tmp >> ${file}
+
+    if [[ -z ${3} ]]; then
+	echo -e "done.\n"
+    fi
+}
+
+
 CleanRules() {
     file=$1
     ctrl=0

@@ -67,8 +67,8 @@ AddRules "export PATH SECURE_LEVEL" /etc/profile
 
 # Xserver
 echo "Allowing users to connect X server from everywhere :"
-AddRules "/usr/X11R6/bin/xhost +" /etc/X11/xdm/Xsession quiet
-AddRules "/usr/X11R6/bin/xhost +" /etc/X11/xinit/xinitrc
+AddBegRules "/usr/X11R6/bin/xhost +" /etc/X11/xdm/Xsession quiet
+AddBegRules "/usr/X11R6/bin/xhost +" /etc/X11/xinit/xinitrc
 
 # Group
 if [[ ! -z ${DRAKX_USERS} ]]; then

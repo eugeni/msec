@@ -1,84 +1,127 @@
-
 ****************************
-
 Security level 1 :
-OK - Access to the system as a normal user.
-OK - . in $PATH
-OK - Login as root from the console granted.
-OK - No rules check for password.
-OK - Permission for /dev & /etc = 755
-OK - Permission for /home = 755
-OK - Device are accessible by group. ( ie: the user is automagically added to the audio group, video group & all... ).
-OK - xhost + localhost
+
+- Global security check.
+- umask is 002 ( user = read,write | greoup = read,write | other = read ) 
+- easy file permission.
+- localhost authorized to connect to X display.
+- User in audio group. 
+- . in $PATH
+- Warning in /var/log/security.log
 
 ****************************
-
 Security level 2 :
-OK - Access to the system as a normal user.
-OK - Login as root from the console granted.
 
-	- No rules check for password.
-		---> Waiting for Chmouel to verify password...
+- Global security check
+- Suid root file check
+- Suid root file md5sum check
+- Writeable file check
+- Warning directly on tty 
+- Warning in syslog
+- Warning in /var/log/security.log 
 
-OK - Device are accessible by group. ( ie: the user is automagically added to the audio group, video group & all... ).
-OK - Permission for /dev & /etc = 755
-OK - Permission for /home = 755
-OK xhost + localhost
-
-****************************
-
-Security level 3 :
-OK - Access to the system as a normal user.
-OK - Login as root from the console denied.
-
-	- Low level rules check on password.
-		---> Waiting for Chmouel to verify password...
-
-OK - Permission for /dev & /etc = 755
-OK - Permission for /home/* = 750
-OK - Detection of interface in promiscuous mode ( one time a minute )
-
+- umask is 022 ( user = read,write | group = read | other = read )
+- easy file permission.
+- localhost authorized to connect to X display.
+- User in audio group.
 
 ****************************
+Security level 3  ( Aka normal system ) :
 
-Security level 4 :
-OK - lilo pass -> only if the user want it .
-- kernel patch -> Secure linux ?
-OK - Access to the system as a normal user.
-OK - Login as root from the console denied.
+- Global security check 
+- Permissions check
+- Suid root file check
+- Suid root file md5sum check
+- Suid group file check 
+- Writeable file check 
+- Unowned file check 
+- Promiscuous check 
+- Listening port check 
+- Passwd file integrity check
+- Shadow file integrity check
+- Warning in syslog
+- Warning in /var/log/security.log
 
-	- Medium level rules check on password.
-		---> Waiting for Chmouel to verify password...
+- umask is 022 ( user = read,write | group = read | other = read )
+- Normal file permission.
+- All system events additionally logged to /dev/tty12
+- Some system security check launched every midnight from the ( crontab ).
 
-OK - Keep track of the suid file, warn when new suid file are detected, in a suid log file.
-OK - Device only accessible by root as a default.
-OK - Deny all kind of connection except from local network.
-OK - Permission for /dev & /etc directories = 755
-OK - Permission for /home = 711
-OK - Permission for /home/* = 750
-OK - Detection of interface in promiscuous mode ( one time a minute )
+****************************
+Security level 4 ( Aka Secured system ) :
 
-*****************************
+- Global security check 
+- Permissions check
+- Suid root file check 
+- Suid root file md5sum check
+- Suid group file check
+- Writeable file check
+- Unowned file check 
+- Promiscuous check 
+- Listening port check 
+- Passwd file integrity check 
+- Shadow file integrity check 
+- Warning in syslog
+- Warning in /var/log/security.log
+- Warning directly on tty
 
-Security level 5 : *Server Only*
+- umask 022 ( user = read,write | group = read | other = read ) for root
+- umask 077 ( user = read,write | group =  | other =  ) for normal users
+- restricted file permissions.
+- All system events additionally logged to /dev/tty12
+- System security check every midnight ( crontab ).
+* - Services not contained in /etc/security/msec/init-sh/server.4 are disabled (
+  considered as not really secure ) ( but the user can reenable it with
+  chkconfig ).
+- Ask for a boot password ( if the user want ).
+- Connection to the system denyied for all except localhost.
+
+*******************************
+Security level 5 ( Aka Paranoid system ) :
+
+- Global security check
+- Permissions check 
+- Suid root file check 
+- Suid root file md5sum check
+- Suid group file check 
+- Writeable file check
+- Unowned file check 
+- Promiscuous check 
+- Listening port check 
+- Passwd file integrity check 
+- Shadow file integrity check
+- Warning in syslog
+- Warning in /var/log/security.log
+- Warning directly on tty
+
+- umask 077 ( user = read,write | group =  | other =  )
+- Highly restricted file permission
+- All system events additionally logged to /dev/tty12
+- System security check every midnight ( crontab ).
+* - Services not contained in /etc/security/msec/init-sh/server.5 are disabled (
+  considered as not really secure ) ( but the user can reenable it with
+  chkconfig ).
+- Ask for a boot password ( if the user want ).
+- Connection to the system denyied for all.
+
+******************
+
+* level4/level5 : "services disabled" explanations :
+
+- Some server aren't really considered as secure,
+  these one, should for exemple be compiled from sources.
+  server considered as secure are specified in /etc/security/msec/init-sh/server.4/5
+  
+  When enabling level4/5, all server which aren't considered as secure are
+  disabled ( NOT uninstalled, just disabled ) user can reenable them using the
+  chkconfig utility ( server will be launched at next boot ).
  
-OK - lilo pass -> only if the user want it .
-- kernel patch -> Secure linux 
-OK - Access to the system as a normal user.
-OK - Login as root from the console denied.
+  In these level, we are also denying rpm to enable any server considered as insecure 
+  ( off course rpm can install the server ).
+  The user have the choise : chkconfig --add servername will enable the server.
+  Or add the server in the secured server list
 
-	- High level rules check on password.
-		---> Waiting for Chmouel to verify password...
 
-OK - Keep track of the suid file, warn when new suid file are detected, in a suid log file.
-OK - Device only accessible by root as a default.
-OK - No server installed by default. ( except maybe the crontab )
-OK - Deny all kind of connection ( hosts.deny -> ALL:ALL:DENY )
-OK - Permission for /dev & /etc directories = 711
-OK - Permission for /home = 711
-OK - Permission for /home/* = 700
-OK - Permission for /tmp = 700
-OK - Detection of interface in promiscuous mode ( one time a minute )
 
 
 
@@ -86,6 +129,8 @@ OK - Detection of interface in promiscuous mode ( one time a minute )
 
 *** Future Release : ***
 - Automatic tty locking ( unlock by passwd ) after X time of inactivity.
+- In high security level, only user having access to group "sugrp" can use the su command.
+***
 
 
 

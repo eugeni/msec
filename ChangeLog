@@ -1,3 +1,8 @@
+2003-07-24 19:22  Thierry Vignaud <tvignaud@mandrakesoft.com>
+
+	* msec.spec: fix upgrade (spotted by new draksec localization
+	scheme)
+
 2003-05-08 11:50  Pablo Saratxaga <pablo@mandrakesoft.com>
 
 	* man/: cs/init.sh.8, et/init.sh.8, eu/init.sh.8, fi/msec.8,

@@ -1,7 +1,7 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
 Version:	0.18
-Release:	2mdk
+Release:	3mdk
 Url:		http://www.linux-mandrake.com
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
@@ -12,7 +12,7 @@ License:	GPL
 Group:		System/Base
 BuildRoot:	%_tmppath/%name-%version-%release-root
 Requires:	/bin/bash /bin/touch perl-base diffutils textutils /usr/bin/python /usr/bin/chage gawk
-Requires:	setup >= 2.2.0-19mdk
+Requires:	setup >= 2.2.0-21mdk
 Requires:	chkconfig >= 1.2.24-3mdk
 
 %description
@@ -41,7 +41,7 @@ install -d $RPM_BUILD_ROOT/etc/sysconfig
 install -d $RPM_BUILD_ROOT/usr/share/msec
 install -d $RPM_BUILD_ROOT/usr/sbin $RPM_BUILD_ROOT/usr/bin
 install -d $RPM_BUILD_ROOT/var/log/security
-install -d $RPM_BUILD_ROOT%{_mandir}/man8
+install -d $RPM_BUILD_ROOT%{_mandir}/man{3,8}
 
 cp -p init-sh/cleanold.sh share/*.py share/*.pyo cron-sh/*.sh $RPM_BUILD_ROOT/usr/share/msec
 install -m 755 share/msec $RPM_BUILD_ROOT/usr/sbin
@@ -49,6 +49,7 @@ install -m 644 conf/perm.* conf/server.* $RPM_BUILD_ROOT/etc/security/msec
 install -m 755 src/promisc_check/promisc_check src/msec_find/msec_find $RPM_BUILD_ROOT/usr/bin
 
 install -m644 man/C/*8 $RPM_BUILD_ROOT%{_mandir}/man8/
+install -m644 share/mseclib.man $RPM_BUILD_ROOT%{_mandir}/man3/mseclib.3
 
 #
 # for i in man/??* ; do \
@@ -116,6 +117,15 @@ rm -rf $RPM_BUILD_ROOT
 
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 %changelog
+* Mon Feb  4 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.18-3mdk
+- in level > 2 X server doesn't listen on tcp connection.
+- in level > 3 /etc/hosts.{allow,deny,equiv} readable by daemon group.
+- don't report /tmp and /var/tmp as bogus world writable directories.
+- security_check.sh: added .ssh/id_dsa .ssh/id_rsa to the list of files to check.
+- corrected /etc/issue* moving.
+- permissions settings part processes options like the rules part.
+- add a man page for the mseclib python library.
+
 * Mon Jan 28 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.18-2mdk
 - do the daily cron through /etc/cron.daily to avoid heavy loads
 - clean crontabs when removing the package (Dadou)

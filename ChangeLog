@@ -1,3 +1,36 @@
+2003-01-20 14:06  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* Makefile: use rpm to find version and release
+
+2003-01-20 12:50  Thierry Vignaud <tvignaud@mandrakesoft.com>
+
+	* msec.spec: - bump version - install draksec help
+
+2003-01-20 12:50  Thierry Vignaud <tvignaud@mandrakesoft.com>
+
+	* share/Makefile: - add the drakesec help target - sanitize make
+	rules through std macros to ease creating new rules
+
+2003-01-20 12:36  Thierry Vignaud <tvignaud@mandrakesoft.com>
+
+	* share/draksec_help.py: help generator for draksec gui
+
+2002-12-13 11:14  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: removed 9.0 stuff
+
+2002-12-13 09:55  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.32.1-1mdk
+
+2002-12-13 09:55  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: no password aging in level 4
+
+2002-12-13 09:54  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/libmsec.py: pam passwd file is in /etc/pam.d/passwd
+
 2002-11-20 20:57  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.37-1mdk
@@ -416,13 +449,12 @@
 
 	* cron-sh/security_check.sh: corrected alias files loop (Jérôme
 	UZEL).	CVS:
-	-------------------------------------------------------------------
-	--- CVS: Enter Log.  Lines beginning with `CVS: ' are removed
+	----------------------------------------------------------------------
+	CVS: Enter Log.  Lines beginning with `CVS: ' are removed
 	automatically CVS: committing files: CVS:
 	/home/flepied/work/msec/cron-sh/security_check.sh CVS: CVS: Type
 	C-c C-c when done or C-c C-d to abort.	CVS:
-	-------------------------------------------------------------------
-	---
+	----------------------------------------------------------------------
 
 2002-04-19 20:17  Frederic Lepied <flepied@mandrakesoft.com>
 

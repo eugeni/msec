@@ -117,6 +117,20 @@ def build_non_localfs_regexp():
     else:
         return re.compile(regexp + REGEXP_END)
 
+# resolv symlink
+def get_sylink_name(path):
+    try:
+        p = os.readlink(path)
+    except OSError:
+        return path
+    if p and p[0] != '/':
+        p = os.path.dirname(path) + '/' + p
+    p = os.path.abspath(p)
+    if p == path:
+        return path
+    else:
+        return get_sylink_name(p)
+
 # put the new perm/group/owner in the assoc variable according to the
 # content of the path file.
 assoc = {}
@@ -141,9 +155,9 @@ def fix_perms(path, _interactive):
         mode_str = fields[2]
         
         if mode_str == 'current':
-            newmode = -1
+            newperm = -1
         else:
-            newmode = int(mode_str, 8)
+            newperm = int(mode_str, 8)
 
         if fields[1] == 'current':
             user = group = -1
@@ -159,11 +173,19 @@ def fix_perms(path, _interactive):
                     _interactive and log(_('Non local file: "%s". Nothing changed.') % fields[0])
                     continue
                 try:
-                    full = os.stat(f)
+                    full = os.lstat(f)
                 except OSError:
                     continue
+                
+                if stat.S_ISLNK(full[stat.ST_MODE]):
+                    f = get_sylink_name(f)
+                    try:
+                        full = os.stat(f)
+                    except OSError:
+                        continue
+
                 mode = stat.S_IMODE(full[stat.ST_MODE])
-                newperm = newmode
+
                 if stat.S_ISDIR(full[stat.ST_MODE]):
                     if newperm & 0400:
                         newperm = newperm | 0100
@@ -171,6 +193,7 @@ def fix_perms(path, _interactive):
                         newperm = newperm | 0010
                     if newperm & 0004:
                         newperm = newperm | 0001
+                
                 uid = full[stat.ST_UID]
                 gid = full[stat.ST_GID]
                 if f != '/' and f[-1] == '/':
@@ -191,21 +214,21 @@ def act(change):
         if not change:
             newperm = newperm & mode
         if newperm != -1 and mode != newperm:
-            log(_('changed mode of %s from %o to %o') % (f, mode, newperm))
             try:
                 os.chmod(f, newperm)
+                log(_('changed mode of %s from %o to %o') % (f, mode, newperm))
             except:
                 error('chmod %s %o: %s' % (f, newperm, str(sys.exc_value)))
         if user != -1 and user != uid:
-            log(_('changed owner of %s from %s to %s') % (f, get_user_name(uid), user_str))
             try:
                 os.chown(f, user, -1)
+                log(_('changed owner of %s from %s to %s') % (f, get_user_name(uid), user_str))
             except:
                 error('chown %s %s: %s' % (f, user, str(sys.exc_value)))
         if group != -1 and group != gid:
-            log(_('changed group of %s from %s to %s') % (f, get_group_name(gid), group_str))
             try:
                 os.chown(f, -1, group)
+                log(_('changed group of %s from %s to %s') % (f, get_group_name(gid), group_str))
             except:
                 error('chgrp %s %s: %s' % (f, group, str(sys.exc_value)))
 

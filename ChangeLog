@@ -1,3 +1,29 @@
+2002-02-22 16:56  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* msec.spec: 0.19-3mdk
+
+2002-02-22 16:55  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* share/msec.py: do not use enable_libsafe anymore.
+
+2002-02-22 14:38  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/diff_check.sh: security.conf from /etc/security/msec/ to
+	/var/lib/msec/.
+
+2002-02-22 13:42  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/security_check.sh: check uid and not gid
+
+2002-02-22 08:23  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* cron-sh/promisc_check.sh: use security.conf from /var/lib/msec
+
+2002-02-21 08:52  Frederic Lepied <flepied@mandrakesoft.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5, perm.snf:
+	let drakx handle lilo.conf perm
+
 2002-02-20 16:51  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.19-2mdk

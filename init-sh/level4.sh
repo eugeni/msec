@@ -73,12 +73,6 @@ AddRules "*/1 * * * *    root    /usr/share/msec/promisc_check.sh" /etc/crontab
 echo "Adding \"diff\" & \"global\" security check in crontab (scheduled every midnight) :"
 AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 
-# Do you want a password ?
-LiloUpdate;
-echo -n "Running lilo to record new config : "
-/sbin/lilo >& /dev/null
-echo -e "done.\n"
-
 # Server update
 echo "Setting secure level variable to 4 :"
 AddRules "SECURE_LEVEL=4" /etc/profile

@@ -55,11 +55,6 @@ echo -e "\t- Security warning in syslog : yes."
     AddRules "SYSLOG_WARN=yes" /etc/security/msec/security.conf		
 # end security check
 
-# lilo update
-echo -n "Running lilo to record new config : "
-/sbin/lilo
-echo -e "done.\n"
-
 # /etc/profile
 export SECURE_LEVEL=2
 echo "Setting secure level variable to 2 :"

@@ -87,11 +87,7 @@ if [[ -f /sbin/accton ]]; then
 fi
 
 # Wanna password ?
-LiloUpdate;
-
-echo -n "Running lilo to record new config : "
-/sbin/lilo >& /dev/null
-echo -e "done.\n"
+LoaderUpdate;
 
 # Disable all server :
 echo "Setting secure level variable to 5 :"

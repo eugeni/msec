@@ -194,8 +194,7 @@ if [[ ${WRITE_CRON} == "true" ]]; then
     AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 fi
 
-LiloUpdate;
-/sbin/lilo >& /dev/null
+LoaderUpdate;
 
 ###
 clear

@@ -133,7 +133,19 @@ Ttylog() {
 }
 
 
-LiloUpdate() {
+LoaderUpdate() {
+    loader=/usr/sbin/detectloader
+    case "${loader}" in
+	"LILO")
+		file="/etc/lilo.conf"
+		at_exit="/sbin/lilo"
+		;;
+	"GRUB")
+		file="/boot/grub/menu.lst"
+		at_exit=""
+		;;
+    esac
+
     if [[ ${LILO_PASSWORD+set} != set ]]; then
     	echo "Do you want a password authentication at boot time ?"
     	echo "Be very carefull,"
@@ -152,13 +164,32 @@ LiloUpdate() {
     if [[ ! -z ${password} ]]; then
 	tmpfile=`mktemp /tmp/secure.XXXXXX`
 
-    	cp /etc/lilo.conf ${tmpfile}
-	cat ${tmpfile} | grep -v password > /etc/lilo.conf
+    	cp ${file} ${tmpfile}
+	cat ${tmpfile} | grep -v password > ${file}
 	
 	rm -f ${tmpfile}
 	clear
-    	AddBegRules "password=$password" /etc/lilo.conf
+    	AddBegRules "password=$password" ${file}
     fi
+
+    ${at_exit};
+}
+
+CleanLoaderRule() {
+	loader=/usr/sbin/detectloader
+	case "${loader}" in
+		"LILO")
+			file="/etc/lilo.conf"
+			at_exit="/sbin/lilo"
+			;;
+		"GRUB")
+			file="/boot/grub/menu.lst"
+			at_exit=""
+			;;
+	esac
+
+	CleanRules ${file}
+	${at_exit};
 }
 
 # If we are currently installing our
@@ -180,7 +211,7 @@ CommentUserRules /etc/securetty
 CleanRules /etc/security/msec/security.conf
 CommentUserRules /etc/security/msec/security.conf
 CleanRules /etc/profile
-CleanRules /etc/lilo.conf
+CleanLoaderRules
 CleanRules /etc/logrotate.conf
 CleanRules /etc/rc.d/rc.local
 CleanRules /etc/rc.d/rc.firewall

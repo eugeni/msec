@@ -62,11 +62,6 @@ echo -e "\t- Security warning in syslog : yes."
 echo "Adding permission check in crontab (scheduled every midnight) :"
 AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 
-# lilo update
-echo -n "Running lilo to record new config : "
-/sbin/lilo >& /dev/null
-echo -e "done.\n"
-
 # /etc/profile
 export SECURE_LEVEL=3
 echo "Setting secure level variable to 3 :"

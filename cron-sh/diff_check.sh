@@ -169,11 +169,12 @@ if [[ ${RPM_CHECK} == yes ]]; then
 fi
 
 ######## Report ######
+date=`date`
+hostname=`hostname`
+
 if [[ -s ${TMP} ]]; then
     Syslog ${TMP}
     Ttylog ${TMP}
-    date=`date`
-    hostname=`hostname`
 
     echo -e "\n\n*** Diff Check, ${date} ***\n" >> ${SECURITY_LOG}
     cat ${TMP} >> ${SECURITY_LOG}

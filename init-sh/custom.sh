@@ -4,6 +4,11 @@
 # Security level implementation...
 # Writen by Vandoorselaere Yoann <yoann@mandrakesoft.com>
 #
+# Thanks to :
+#		- Bryan Paxton.
+#		- Thomas Poindessous.	
+# for their contributions.
+#
 
 ###
 clear

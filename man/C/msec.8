@@ -4,7 +4,7 @@
 msec \- Mandrake security tools
 .SH SYNOPSIS
 .B msec
-([0-5])
+([-o <option>=<value>...]) ([0-5])
 .SH DESCRIPTION
 \fPmsec\fP is the main script of the msec package. It enables the
 system administrator to change the security level for that system.
@@ -31,6 +31,26 @@ If you want to make changes to the current level, use
 /etc/security/msec/perm.local to override the
 permissions/owners/groups and /etc/security/msec/level.local to
 override the rules (see mseclib(3) for details).
+.PP
+Available options:
+.TP
+\fB\-o all-local-files=<value>\fR
+if <value> is 1, consider that all the files are local.
+.TP
+\fB\-o log=<value>\fR
+if <value> is different of syslog do not log to syslog but to the standard error output.
+.TP
+\fB\-o nolocal=<path>\fR
+do not load the /etc/security/msec/level.local rules.
+.TP
+\fB\-o non-local-fstypes=<value>\fR
+<value> is a list of non local file system types separated by spaces.
+.TP
+\fB\-o print=<value>\fR
+if <value> is equal to 1, output the default values of the rules.
+.TP
+\fB\-o root=<path>\fR
+use <path> as the root of the file system.
 .SH FILES
 /usr/sbin/msec
 .br

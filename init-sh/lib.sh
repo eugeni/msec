@@ -212,8 +212,7 @@ groupadd audio >& /dev/null
 groupadd xgrp >& /dev/null
 usermod -G xgrp xfs
 
-/etc/security/msec/init-sh/grpuser.sh --refresh
-
+/etc/security/msec/init-sh/grpuser.sh --clean
 
 
 

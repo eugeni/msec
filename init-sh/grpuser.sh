@@ -13,6 +13,7 @@ user_name=$3
 
 Usage() {
 	echo "Usage :"
+	echo "  --clean      ---> Remove all group change."
 	echo "  --refresh    ---> Read group name in /etc/security/msec/group.conf"
 	echo "                    and add each user in /etc/security/msec/user.conf"  
 	echo "                    in these groups ( if security level is <= 2 )" 
@@ -25,12 +26,16 @@ ModifyFile() {
     echo "${new_group_line}" >> /etc/${file}
     tail +$((group_line_number + 1)) /tmp/${file}.old >> /etc/${file}
 	
+    new_group_line=""
+
     rm -f /tmp/${file}.old
 }
 
 RemoveUserFromGroup() {
     new_group_line=${group}`echo ${group_users} | 
 	sed -e s/,${user_name}$//g -e s/${user_name},//g -e s/${user_name}$//g`
+	
+    echo ${new_group_line}
 }
 
 AppendUserToGroup() {
@@ -75,7 +80,7 @@ IsUserExisting() {
 	return 1;
 }
 
-Refresh() {
+RefreshAdd() {
     if [[ ${SECURE_LEVEL} > 2 ]]; then
 	echo "You are in a secure level > 2, in this level you need to add group user by yourself."
 	echo "Use the command : usermod -G group_name user_name"
@@ -91,21 +96,44 @@ Refresh() {
 		IsUserExisting; 
 		if [[ $? != 0 ]]; then
 		    # user doesn't exist
-		    echo "Can't add user \"${user_name}\" to group \"${group_name}\"."
-		    echo "\"${user_name}\" doesn't exist. skiping."
+		    echo "Can't add user \"${user_name}\" to group \"${group_name}\" user doesn't exist. skiping."
 		    IsUserAlreadyInGroup;
 		    if [[ $? == 0 ]]; then
-			# user doesn't exist but is in a group... delete user from this group.
-			RemoveUserFromgroup;
+			echo "User doesn't exist but is in a group... delete user from this group."
+			RemoveUserFromGroup;
 			ModifyFile;
 		    fi
 		else
+		    echo "Adding user \"${user_name}\" to group \"${group_name}\"."
+		    #AppendUserToGroup;
+		    #ModifyFile;
 		    usermod -G ${group_name} ${user_name}
 		fi
 	    done
 	fi
     done
 }
+
+RefreshDel() {
+    cat /etc/security/msec/group.conf | while read group_name; do
+	IsGroupExisting;
+	if [[ $? != 0 ]]; then
+	    echo "Group \"${group_name}\" doesn't exist. skiping it."
+        else
+	    cat /etc/security/msec/user.conf | while read user_name; do
+		IsGroupExisting; # We need some variable at each turn.
+		IsUserAlreadyInGroup;
+		if [[ $? == 0 ]]; then
+		    echo "Removing \"${user_name}\" from group \"${group_name}\"."
+		    RemoveUserFromGroup;
+		    ModifyFile;
+		fi
+	    done
+	fi
+    done
+}
+
+
 
 Perm() {
 	if [[ ${UID} != 0 ]]; then
@@ -134,7 +162,12 @@ if [[ $# == 1 ]]; then
 	case $1 in
 		"--refresh")
 			Perm;
-			Refresh;
+			RefreshAdd;
+			exit 0
+			;;
+		"--clean")
+			Perm;
+			RefreshDel;
 			exit 0
 			;;
 		esac

@@ -74,5 +74,7 @@ echo "Allowing users to connect X server from localhost :"
 AddBegRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xdm/Xsession quiet
 AddBegRules "/usr/X11R6/bin/xhost + localhost" /etc/X11/xinit/xinitrc
 
+# group
+/etc/security/msec/init-sh/grpuser.sh --refresh
 
 

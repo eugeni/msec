@@ -7,28 +7,32 @@
 # Created On      : Sat Jan 26 20:17:55 2002
 #---------------------------------------------------------------
 
-all: mseclib.py compile man
+all: mseclib.py compile man help.pm
 
 compile:
 	./compile.py '/usr/share/msec/' *.py
 	rm -f msec.pyo
 
 mseclib.py: libmsec.py shadow.py
-	rm -f mseclib.py
-	./shadow.py libmsec > mseclib.py
+	rm -f $@
+	./shadow.py libmsec > $@
 
 man: mseclib.man levels
 
+help.pm: libmsec.py draksec_help.py
+	rm -f $@
+	./draksec_help.py libmsec > $@
+
 mseclib.man: libmsec.py man.py
-	rm -f mseclib.man
-	./man.py libmsec > mseclib.man
+	rm -f $@
+	./man.py libmsec > $@
 
 levels:
 	for l in 0 1 2 3 4 5; do rm -f level.$$l; \
 	  ./msec.py -o log=stderr -o print=1 -o nolocal=1 $$l < /dev/null | sort > level.$$l; \
 	done
 clean:
-	rm -f *.pyc *.pyo mseclib.py *~ level.[0-5] mseclib.man
+	rm -f *.pyc *.pyo mseclib.py *~ level.[0-5] mseclib.man help.pm
 
 # Local variables:
 # mode: makefile

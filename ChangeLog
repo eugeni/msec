@@ -1,3 +1,17 @@
+2003-05-08 11:50  Pablo Saratxaga <pablo@mandrakesoft.com>
+
+	* man/: cs/init.sh.8, et/init.sh.8, eu/init.sh.8, fi/msec.8,
+	fr/init.sh.8, fr/msec.8, ru/init.sh.8, uk/msec.8: Added Finnish and
+	Ukrainian man pages; removed "init.sh" man page from translations
+
+2003-05-06 21:55  Arkadiusz Lipiec <alipiec@elka.pw.edu.pl>
+
+	* man/pl/msec.8: Changes
+
+2003-05-06 21:42  Arkadiusz Lipiec <alipiec@elka.pw.edu.pl>
+
+	* man/pl/msec.8: Polish version of msec manual
+
 2003-03-07 15:27  Frederic Lepied <flepied@mandrakesoft.com>
 
 	* msec.spec: 0.38-3mdk
@@ -1565,7 +1579,7 @@
 
 2001-09-19 13:30  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
-	* msec.spec, msec.spec: [no log message]
+	* msec.spec: [no log message]
 
 2001-09-19 13:18  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
@@ -1652,12 +1666,11 @@
 2000-05-03 14:39  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
 	* msec.spec, init-sh/custom.sh, init-sh/level4.sh,
-	init-sh/level5.sh, init-sh/lib.sh, msec.spec, msec.spec, msec.spec:
-	[no log message]
+	init-sh/level5.sh, init-sh/lib.sh: [no log message]
 
 2000-04-25 14:04  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
-	* msec.spec, Makefile, msec.spec: [no log message]
+	* msec.spec, Makefile: [no log message]
 
 2000-04-25 14:01  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
@@ -1674,7 +1687,7 @@
 
 2000-04-19 12:06  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
-	* init-sh/lib.sh, msec.spec, init-sh/lib.sh: [no log message]
+	* init-sh/lib.sh, msec.spec: [no log message]
 
 2000-04-19 11:54  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
@@ -1727,7 +1740,7 @@
 2000-03-22 18:37  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
 	* README, init-sh/custom.sh, init-sh/level5.sh, init-sh/lib.sh,
-	init-sh/custom.sh, Makefile, msec.spec: [no log message]
+	Makefile, msec.spec: [no log message]
 
 2000-03-22 17:59  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
@@ -1758,7 +1771,7 @@
 
 2000-03-08 15:25  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
-	* msec.spec, Makefile, msec.spec: [no log message]
+	* msec.spec, Makefile: [no log message]
 
 2000-03-08 15:19  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
@@ -1776,8 +1789,7 @@
 
 2000-03-07 17:50  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
-	* Makefile, msec.spec, init-sh/level0.sh, msec.spec: [no log
-	message]
+	* Makefile, msec.spec, init-sh/level0.sh: [no log message]
 
 2000-03-07 17:45  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
@@ -1977,7 +1989,7 @@
 
 1999-12-19 23:14  Pixel <pixel@mandrakesoft.com>
 
-	* init-sh/: lib.sh, lib.sh, lib.sh: [no log message]
+	* init-sh/: lib.sh: [no log message]
 
 1999-12-19 23:09  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
@@ -2006,9 +2018,9 @@
 
 1999-12-19 21:19  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
-	* cron-sh/find.sh, cron-sh/security.sh, cron-sh/security.sh,
-	init-sh/custom.sh, init-sh/level3.sh, init-sh/level4.sh,
-	init-sh/level5.sh: [no log message]
+	* cron-sh/find.sh, cron-sh/security.sh, init-sh/custom.sh,
+	init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: [no log
+	message]
 
 1999-12-19 21:02  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
@@ -2021,7 +2033,7 @@
 
 1999-12-19 01:30  Pixel <pixel@mandrakesoft.com>
 
-	* msec.spec, Makefile, msec.spec: no_comment
+	* msec.spec, Makefile: no_comment
 
 1999-12-18 17:08  Pixel <pixel@mandrakesoft.com>
 
@@ -2083,7 +2095,7 @@
 1999-12-15 18:19  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
 	* Makefile, init-sh/grpuser, init-sh/lib.sh, init-sh/group.conf,
-	init-sh/grpuser, init-sh/grpuser.sh, TODO: [no log message]
+	init-sh/grpuser.sh, TODO: [no log message]
 
 1999-12-15 12:13  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
@@ -2144,7 +2156,7 @@
 
 1999-12-09 18:17  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
-	* msec.spec, msec.spec: [no log message]
+	* msec.spec: [no log message]
 
 1999-12-09 18:16  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
@@ -2173,7 +2185,7 @@
 
 	* cron-sh/diff_check.sh, cron-sh/promisc_check.sh,
 	cron-sh/security_check.sh, init-sh/custom.sh, init-sh/level4.sh,
-	init-sh/lib.sh, msec.spec, msec.spec: [no log message]
+	init-sh/lib.sh, msec.spec: [no log message]
 
 1999-12-09 15:48  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
@@ -2350,7 +2362,7 @@
 1999-11-29 16:06  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
 	* Makefile, doc/msec.spec, init-sh/custom.sh, init-sh/init.sh,
-	init-sh/lib.sh, doc/msec.spec: [no log message]
+	init-sh/lib.sh: [no log message]
 
 1999-11-29 15:18  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
@@ -2396,7 +2408,7 @@
 	init-sh/server.5, init-sh/grpuser, init-sh/perm.1, init-sh/perm.2,
 	init-sh/perm.3, init-sh/perm.4, init-sh/perm.5, init-sh/server.4,
 	src/promisc_check/Makefile, src/promisc_check/promisc_check.c:
-	Updated source tree
+	Initial revision
 
 1999-11-25 20:44  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 
@@ -2408,5 +2420,5 @@
 	init-sh/server.5, init-sh/grpuser, init-sh/perm.1, init-sh/perm.2,
 	init-sh/perm.3, init-sh/perm.4, init-sh/perm.5, init-sh/server.4,
 	src/promisc_check/Makefile, src/promisc_check/promisc_check.c:
-	Initial revision
+	Updated source tree
 

@@ -71,8 +71,7 @@ AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 # /etc/profile
 export SECURE_LEVEL=3
 echo "Setting secure level variable to 3 :"
-AddRules "SECURE_LEVEL=3" /etc/profile
-AddRules "SECURE_LEVEL=3" /etc/zprofile
+AddRules "SECURE_LEVEL=3" /etc/profile.d/msec
 
 echo "Setting umask to 022 (u=rw,g=r,o=r) :"
 AddRules "umask 022" /etc/profile
@@ -80,9 +79,9 @@ AddRules "umask 022" /etc/zprofile
 
 echo "Adding a \"normal\" PATH variable : "
 AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/profile quiet
-AddRules "export PATH SECURE_LEVEL" /etc/profile
+AddRules "export PATH" /etc/profile
 AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games" /etc/zprofile quiet
-AddRules "export PATH SECURE_LEVEL" /etc/zprofile
+AddRules "export PATH" /etc/zprofile
 
 # Do not boot on a shell
 AllowReboot

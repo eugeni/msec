@@ -91,8 +91,7 @@ LoaderUpdate;
 
 # Disable all server :
 echo "Setting secure level variable to 5 :"
-AddRules "SECURE_LEVEL=5" /etc/profile
-AddRules "SECURE_LEVEL=5" /etc/zprofile
+AddRules "SECURE_LEVEL=5" /etc/profile.d/msec
 
 IFS="
 "
@@ -121,9 +120,9 @@ AddRules "umask 077" /etc/zprofile
 
 echo "Adding \"normal\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/profile quiet
-AddRules "export PATH SECURE_LEVEL" /etc/profile
+AddRules "export PATH" /etc/profile
 AddRules "PATH=\$PATH:/usr/X11R6/bin" /etc/zprofile quiet
-AddRules "export PATH SECURE_LEVEL" /etc/zprofile
+AddRules "export PATH" /etc/zprofile
 
 
 if [[ -f /lib/libsafe.so.1.3 ]]; then

@@ -63,8 +63,7 @@ echo -e "\t- Security warning in syslog : no."
 # /etc/profile
 export SECURE_LEVEL=0
 echo "Setting secure level variable to 0 :"
-AddRules "SECURE_LEVEL=0" /etc/profile
-AddRules "SECURE_LEVEL=0" /etc/zprofile
+AddRules "SECURE_LEVEL=0" /etc/profile.d/msec
 
 echo "Setting umask to 002 (u=rw,g=rw,o=r) :"
 AddRules "umask 002" /etc/profile
@@ -72,9 +71,9 @@ AddRules "umask 002" /etc/zprofile
 
 echo "Adding \"non secure\" PATH variable :"
 AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games:." /etc/profile quiet
-AddRules "export PATH SECURE_LEVEL" /etc/profile
+AddRules "export PATH" /etc/profile
 AddRules "PATH=\$PATH:/usr/X11R6/bin:/usr/games:." /etc/zprofile quiet
-AddRules "export PATH SECURE_LEVEL" /etc/zprofile
+AddRules "export PATH" /etc/zprofile
 
 # Xserver
 echo "Allowing users to connect X server from everywhere :"

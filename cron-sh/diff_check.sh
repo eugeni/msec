@@ -1,6 +1,5 @@
 #!/bin/bash
 #
-# is that the check contained in this one ( file_check ) are  
 # Written by Vandoorselaere Yoann, <yoann@mandrakesoft.com>
 #
 

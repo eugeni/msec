@@ -1,7 +1,7 @@
 Summary: Security Level & Program for the Linux Mandrake distribution
 Name: msec
 Version: 0.4
-Release: 4mdk
+Release: 5mdk
 Source: ftp://mandrakesoft.com/pub/yoann/msec-0.4.tar.gz
 Copyright: GPL
 Group: System Environment/Base
@@ -49,6 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Wed Dec  1 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Add & delete of userlist from audio group ( level 1 & 2 ).
 - Minor fix
 
 * Wed Dec  1 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>

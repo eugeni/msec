@@ -169,19 +169,18 @@ int main(int argc, char **argv)
 	char *directory;
 	int res = 0, i;
         int ctrl = 0;
-
+        
         if ( argc < 2 ) {
                 fprintf(stderr, "Please give directory as argument.\n");
                 fprintf(stderr, "%s /usr/sbin /sbin\n\n", argv[0]);
                 exit(1);
         }
-        
+
         /* open all log files */
 	init();
 
-        for ( i = 0; i < argc; i++ ) {
-
-                if (strcmp(argv[0], "/") != 0) {
+        for ( i = 1; i < argc; i++ ) {
+                if ( strcmp(argv[i], "/") != 0) {
                         /*
                          * We need to add a final '/' to the base directory name else the
                          * FTW_MOUNT option of nftw won't work. i.e. : /mnt/cdrom is on the /
@@ -201,7 +200,7 @@ int main(int argc, char **argv)
                         strcat(directory, "/");
                 } else directory = argv[i];
                 
-                res = nftw(directory, traverse, (int) 500, FTW_PHYS | FTW_MOUNT | FTW_CHDIR);
+				res = nftw(directory, traverse, 200, FTW_PHYS | FTW_MOUNT | FTW_CHDIR);
                 if ( ctrl ) {
                         free(directory);
                         ctrl = 0;

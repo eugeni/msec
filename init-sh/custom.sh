@@ -191,7 +191,7 @@ fi
 ###
 
 if [[ ${WRITE_CRON} == "true" ]]; then
-    AddRules "0 0-23 * * *    root    nice --adjustment=+19 /usr/share/msec/security.sh" /etc/crontab
+    AddRules "0 4 * * *    root    /usr/share/msec/security.sh" /etc/crontab
 fi
 
 LiloUpdate;

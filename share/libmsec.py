@@ -1216,7 +1216,7 @@ MAIL_USER if set, send the mail report to this email address else send it to roo
 
 CHECK_OPEN_PORT if set to yes, check open ports.
 
-CHECK_SUID_GROUP if set to yes, check additions/removals of sgid files.
+CHECK_SGID if set to yes, check additions/removals of sgid files.
 '''
     securityconf = ConfigFile.get_config_file(SECURITYCONF)
     securityconf.set_shell_variable(var, value)

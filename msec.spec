@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.34.3
+Version:	0.34.4
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -85,14 +85,17 @@ touch /var/log/security.log
 if [ $1 != 1 ]; then
 	# manage spelling change
 	if [ -f /etc/security/msec/level.local ]; then
-		perl -pi -e 's/CHECK_WRITEABLE/CHECK_WRITABLE/g' /etc/security/msec/level.local
+		perl -pi -e 's/CHECK_WRITEABLE/CHECK_WRITABLE/g;s/CHECK_SUID_GROUP/CHECK_SGID/g' /etc/security/msec/level.local
 	fi
 	if [ -f /etc/security/msec/security.conf ]; then
-		perl -pi -e 's/CHECK_WRITEABLE/CHECK_WRITABLE/g' /etc/security/msec/security.conf
+		perl -pi -e 's/CHECK_WRITEABLE/CHECK_WRITABLE/g;s/CHECK_SUID_GROUP/CHECK_SGID/g' /etc/security/msec/security.conf
 	fi
 	for ext in today yesterday diff; do
 		if [ -f /var/log/security/writeable.$ext ]; then
 			mv -f /var/log/security/writeable.$ext /var/log/security/writable.$ext
+		fi
+		if [ -f /var/log/security/suid_group.$ext ]; then
+			mv -f /var/log/security/suid_group.$ext /var/log/security/sgid.$ext
 		fi
 	done
 
@@ -152,6 +155,10 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Tue Sep  3 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34.4-1mdk
+- more spelling errors fixes thx to David Relson:
+	o CHECK_SUID_GROUP => CHECK_SGID
+
 * Fri Aug 30 2002 Frederic Lepied <flepied@mandrakesoft.com> 0.34.3-1mdk
 - fixed server symlink creation
 - corrected spelling errors thx to David Relson

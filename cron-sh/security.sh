@@ -40,9 +40,9 @@ umask ${UMASK_ROOT=077}
 export SUID_ROOT_TODAY="/var/log/security/suid_root.today"
 SUID_ROOT_YESTERDAY="/var/log/security/suid_root.yesterday"
 SUID_ROOT_DIFF="/var/log/security/suid_root.diff"
-export SUID_GROUP_TODAY="/var/log/security/suid_group.today"
-SUID_GROUP_YESTERDAY="/var/log/security/suid_group.yesterday"
-SUID_GROUP_DIFF="/var/log/security/suid_group.diff"
+export SGID_TODAY="/var/log/security/sgid.today"
+SGID_YESTERDAY="/var/log/security/sgid.yesterday"
+SGID_DIFF="/var/log/security/sgid.diff"
 export SUID_MD5_TODAY="/var/log/security/suid_md5.today"
 SUID_MD5_YESTERDAY="/var/log/security/suid_md5.yesterday"
 SUID_MD5_DIFF="/var/log/security/suid_md5.diff"
@@ -87,8 +87,8 @@ if [[ -f ${SUID_ROOT_TODAY} ]]; then
     mv ${SUID_ROOT_TODAY} ${SUID_ROOT_YESTERDAY};
 fi
 
-if [[ -f ${SUID_GROUP_TODAY} ]]; then
-    mv ${SUID_GROUP_TODAY} ${SUID_GROUP_YESTERDAY};
+if [[ -f ${SGID_TODAY} ]]; then
+    mv ${SGID_TODAY} ${SGID_YESTERDAY};
 fi
 
 if [[ -f ${WRITABLE_TODAY} ]]; then
@@ -137,9 +137,9 @@ if [[ -f ${SUID_ROOT_TODAY} ]]; then
     mv -f ${SUID_ROOT_TODAY}.tmp ${SUID_ROOT_TODAY}
 fi
 
-if [[ -f ${SUID_GROUP_TODAY} ]]; then
-    sort < ${SUID_GROUP_TODAY} > ${SUID_GROUP_TODAY}.tmp
-    mv -f ${SUID_GROUP_TODAY}.tmp ${SUID_GROUP_TODAY}
+if [[ -f ${SGID_TODAY} ]]; then
+    sort < ${SGID_TODAY} > ${SGID_TODAY}.tmp
+    mv -f ${SGID_TODAY}.tmp ${SGID_TODAY}
 fi
 
 if [[ -f ${WRITABLE_TODAY} ]]; then

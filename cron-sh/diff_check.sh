@@ -38,16 +38,16 @@ if [[ ${CHECK_SUID_ROOT} == yes ]]; then
 
 fi
 
-### New Suid group files detection
-if [[ ${CHECK_SUID_GROUP} == yes ]]; then
+### New Sgid files detection
+if [[ ${CHECK_SGID} == yes ]]; then
 
-    if [[ -f ${SUID_GROUP_YESTERDAY} ]]; then
-	if ! diff -u ${SUID_GROUP_YESTERDAY} ${SUID_GROUP_TODAY} > ${SUID_GROUP_DIFF}; then
+    if [[ -f ${SGID_YESTERDAY} ]]; then
+	if ! diff -u ${SGID_YESTERDAY} ${SGID_TODAY} > ${SGID_DIFF}; then
             printf "\nSecurity Warning: Changes in Sgid files found :\n" >> ${TMP}
-	    grep '^+' ${SUID_GROUP_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
+	    grep '^+' ${SGID_DIFF} | grep -vw "^+++ " | sed 's|^.||' | while read file; do
 		printf "\t\t-       Newly added sgid file : ${file}\n"
 	    done >> ${TMP}
-	    grep '^-' ${SUID_GROUP_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
+	    grep '^-' ${SGID_DIFF} | grep -vw "^--- " | sed 's|^.||' | while read file; do
 		printf "\t\t- No longer present sgid file : ${file}\n"
 	    done >> ${TMP}
 	fi

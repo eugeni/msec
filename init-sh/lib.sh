@@ -94,7 +94,7 @@ OLD_CleanRules() {
 CleanRules() {
     echo -en "\t- Cleaning msec appended line in $1 : "
 
-    perl -ni -e '$_ eq "$ENV{COMMENT}\n" ... // or print' $1        
+    perl -ni -e '$_ eq "$ENV{COMMENT}\n" ... //' $1        
 
     echo "done."
 }

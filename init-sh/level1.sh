@@ -76,7 +76,7 @@ if ! echo ${PATH} |grep -q /usr/X11R6/bin ; then
 	AddRules "setenv PATH \"\${PATH}:/usr/X11R6/bin\"" /etc/profile.d/msec.csh quiet
 fi      
 if ! echo ${PATH} |grep -q /usr/games ; then
-	AddRules "export PATH=\$PATH:/usr/X11R6/bin:/usr/games:." /etc/profile.d/msec.sh quiet
+	AddRules "export PATH=\$PATH:/usr/games" /etc/profile.d/msec.sh quiet
 	AddRules "setenv PATH \"\${PATH}:/usr/games\"" /etc/profile.d/msec.csh quiet
 fi      
 

@@ -2,7 +2,7 @@
 
 	* msec.lyx: add new file from camille.
 
-1999-15-10  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-15  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* grpuser.sh take only one opt ( --refresh ),
 	  take group name from /etc/security/msec/group.conf
 	  and add user from /etc/security/msec/user.conf if secure level > 2
@@ -13,7 +13,7 @@
 	* removed chattr +a because of the problem it can cause to
 	  other system automated system task
 
-1999-13-10  Yoann Vandoorselaere <yoann@mandrakesoft.com>
+1999-12-13  Yoann Vandoorselaere <yoann@mandrakesoft.com>
 	* Documentation
 	* diff_check.sh : Fix a typo.
 

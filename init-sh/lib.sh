@@ -9,7 +9,7 @@ if [[ ${UID} != 0 ]]; then
     exit 1
 fi
 
-COMMENT="# Mandrake-Security : if you remove this comment, remove the next line too."
+export COMMENT="# Mandrake-Security : if you remove this comment, remove the next line too."
 
 WaitAnswer() {
     answer="nothing"
@@ -60,6 +60,7 @@ AddBegRules() {
     while (<FH>) {
 	if (!/^\#/ && !/^$/ && !$m) {
 	    print FW $ENV{"COMMENT"};
+	    print FW "\n";
 	    print FW "@ARGV\n\n"; $m++;
 	}
 	print FW;
@@ -147,7 +148,7 @@ Ttylog() {
 
 
 LiloUpdate() {
-    if [[ ! -f /tmp/secure.DrakX ]]; then
+    if [[ -z ${LILO_PASSWORD} ]]; then
     	echo "Do you want a password authentication at boot time ?"
     	echo "Be very carefull,"
     	echo "this will prevent your server to reboot without an operator to enter password".
@@ -159,10 +160,10 @@ LiloUpdate() {
         	password=""
     	fi
     else
-    	password=${DRAKX_PASSWORD}
+    	password=${LILO_PASSWORD}
     fi
 
-    if [[ ! -z "${password}" ]]; then
+    if [[ ! -z ${password} ]]; then
 	tmpfile=`mktemp /tmp/secure.XXXXXX`
 
     	cp -f /etc/lilo.conf ${tmpfile}

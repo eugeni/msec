@@ -75,14 +75,9 @@ AddBegRules "/usr/X11R6/bin/xhost +" /etc/X11/xdm/Xsession quiet
 AddBegRules "/usr/X11R6/bin/xhost +" /etc/X11/xinit/xinitrc
 
 # Group
-if [[ ! -z ${DRAKX_USERS} ]]; then
-    echo -n "Adding \"${DRAKX_USERS}\" to audio group :"
-    for user in ${DRAKX_USERS}; do
-	usermod -G audio "${user}"
-    done
-    echo "done."
-fi
-
+echo "Adding system users to specific groups :"
+/etc/security/msec/init-sh/grpuser.sh --refresh
+echo -e "done.\n"
 
 
 

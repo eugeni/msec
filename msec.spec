@@ -36,9 +36,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Thu Dec 16 1999 Yoann Vandoorselaere <yoann@mandrakesoft.com>
+- Fixed the last AddBegRules() problem.
 - Indentation problem should be fixed.
 - All debug finished, changing secure.tmp to a mktemp
   allocated tmpfile for symlink security.
+- DRAKX_USER variable no longer needed.
 - grpuser.sh take only one opt ( --refresh ),
   take group name from /etc/security/msec/group.conf
   and add user from /etc/security/msec/user.conf if secure level > 2

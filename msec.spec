@@ -1,6 +1,6 @@
 Summary:	Security Level & Program for the Mandrake Linux distribution
 Name:		msec
-Version:	0.41
+Version:	0.41.1
 Release:	1mdk
 Url:		http://www.linux-mandrake.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -152,6 +152,10 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Sat Feb 14 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.41.1-1mdk
+- allow % in file names [bug #6144] (Sven Hoexter)
+- fixed system-auth growing line forever [bug #7853] (Michael Scherer)
+
 * Thu Feb 12 2004 Frederic Lepied <flepied@mandrakesoft.com> 0.41-1mdk
 - make it lib64 aware wrt pam files rewriting
 - more csh-ish msec.csh (Pixel)

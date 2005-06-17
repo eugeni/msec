@@ -1,59 +1,83 @@
-2005-03-21 17:05  Frederic Lepied <flepied at mandrakesoft.com>
+2005-06-17 11:55  Frederic Lepied <flepied at mandriva.com>
+
+	* man/C/msec.8, man/C/mseclib.3, man/cs/msec.8, man/et/msec.8,
+	  man/eu/msec.8, man/fi/msec.8, man/fr/msec.8, man/it/msec.8,
+	  man/nl/msec.8, man/pl/msec.8, man/ru/msec.8, man/uk/msec.8,
+	  msec.csh: mandriva
+
+2005-06-17 11:16  Frederic Lepied <flepied at mandriva.com>
+
+	* msec.spec: mandriva
+
+2005-06-17 11:14  Frederic Lepied <flepied at mandriva.com>
+
+	* share/msec.py: call enable_pam_root_from_wheel
+
+2005-06-17 11:13  Frederic Lepied <flepied at mandriva.com>
+
+	* share/libmsec.py: new function enable_pam_root_from_wheel to
+	  allow transparent root access for the wheel group members.
+
+2005-06-17 11:13  Frederic Lepied <flepied at mandriva.com>
+
+	* Makefile: clean after build.
+
+2005-03-21 17:05  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.45.1-1mdk
 
-2005-03-21 16:00  Frederic Lepied <flepied at mandrakesoft.com>
+2005-03-21 16:00  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: password_history: touch opasswd to have it
 	  work.
 
-2005-03-21 15:59  Frederic Lepied <flepied at mandrakesoft.com>
+2005-03-21 15:59  Frederic Lepied <flepied at mandriva.com>
 
 	* share/README: documented allow xauth from root.  added current to
 	  authorized permissions.
 
-2005-03-21 12:31  Frederic Lepied <flepied at mandrakesoft.com>
+2005-03-21 12:31  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security.sh: added a CHKROOTKIT_OPTION variable used to
 	  pass arguments to chkrootkit.
 
-2005-02-21 18:05  Frederic Lepied <flepied at mandrakesoft.com>
+2005-02-21 18:05  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.45-1mdk
 
-2005-02-21 18:05  Frederic Lepied <flepied at mandrakesoft.com>
+2005-02-21 18:05  Frederic Lepied <flepied at mandriva.com>
 
 	* src/msec_find/find.c: use the EXCLUDE_REGEXP to be able to
 	  exclude files or directory from the reports.
 
-2005-02-21 15:51  Frederic Lepied <flepied at mandrakesoft.com>
+2005-02-21 15:51  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: better doc for allow_remote_root_login.
 
-2005-02-21 14:34  Frederic Lepied <flepied at mandrakesoft.com>
+2005-02-21 14:34  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/: security.sh, security_check.sh: filter home dir too
 	  (Guillaume Rousse, bug #12335)
 
-2005-02-21 14:25  Frederic Lepied <flepied at mandrakesoft.com>
+2005-02-21 14:25  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: fixed
 	  sendmail perms (bug #13515).
 
-2005-02-21 11:44  Frederic Lepied <flepied at mandrakesoft.com>
+2005-02-21 11:44  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/perm.4: fix ld.so.conf perm wrt compilation (bug #13718).
 
-2004-09-30 07:09  Frederic Lepied <flepied at mandrakesoft.com>
+2004-09-30 07:09  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.44.2-1mdk
 
-2004-09-30 07:08  Frederic Lepied <flepied at mandrakesoft.com>
+2004-09-30 07:08  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: allow_reboot: remove consolehelper links
 	  instead of files in /etc/security/console.apps.
 
-2004-09-30 04:50  Frederic Lepied <flepied at mandrakesoft.com>
+2004-09-30 04:50  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: control CTRL+ALT-DEL in allow_reboot
 
@@ -62,54 +86,54 @@
 	* man/nl/msec.8: Updated Dutch (nl) translation by Reinout van
 	  Schouwen <reinout@cs.vu.nl> * msec manpage
 
-2004-09-07 10:38  Pablo Saratxaga <pablo at mandrakesoft.com>
+2004-09-07 10:38  Pablo Saratxaga <pablo at mandriva.com>
 
 	* man/it/msec.8: Added Italian man page
 
-2004-07-30 04:03  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-30 04:03  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.44.1-1mdk
 
-2004-07-30 04:03  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-30 04:03  Frederic Lepied <flepied at mandriva.com>
 
 	* share/ConfigFile.py: fix directory creation code
 
-2004-07-30 01:51  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-30 01:51  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.44-1mdk
 
-2004-07-30 01:50  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-30 01:50  Frederic Lepied <flepied at mandriva.com>
 
 	* doc/security.txt: document allow_xauth_from_root levels
 
-2004-07-30 01:48  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-30 01:48  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: call allow_xauth_from_root
 
-2004-07-30 01:43  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-30 01:43  Frederic Lepied <flepied at mandriva.com>
 
 	* man/: C/msec.8, cs/msec.8, et/msec.8, eu/msec.8, fi/msec.8,
 	  fr/msec.8, pl/msec.8, ru/msec.8, uk/msec.8: remove
 	  yoann@mandrakesoft.com no more valid address
 
-2004-07-30 01:40  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-30 01:40  Frederic Lepied <flepied at mandriva.com>
 
 	* man/C/mseclib.3: first version
 
-2004-07-30 01:38  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-30 01:38  Frederic Lepied <flepied at mandriva.com>
 
 	* share/Makefile: generate mseclib.3 in man directory
 
-2004-07-30 01:37  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-30 01:37  Frederic Lepied <flepied at mandriva.com>
 
 	* share/Perms.py: the config file is now forcing permissions even
 	  if it's lowering the security.
 
-2004-07-30 01:31  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-30 01:31  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.44-1mdk
 
-2004-07-30 01:28  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-30 01:28  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.csh, msec.sh, man/C/msec.8, man/cs/msec.8, man/et/msec.8,
 	  man/eu/msec.8, man/fi/msec.8, man/fr/msec.8, man/pl/msec.8,
@@ -118,237 +142,237 @@
 	  share/man.py, share/msec, share/msec.py, share/shadow.py:
 	  Mandrakelinux
 
-2004-07-30 01:16  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-30 01:16  Frederic Lepied <flepied at mandriva.com>
 
 	* share/ConfigFile.py: mkdir_p: corrected test of existence
 
-2004-07-30 01:11  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-30 01:11  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: added allow_xauth_from_root
 
-2004-07-30 01:10  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-30 01:10  Frederic Lepied <flepied at mandriva.com>
 
 	* share/ConfigFile.py: create the intermediate directories before
 	  writing a file
 
-2004-07-07 10:38  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-07 10:38  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.43-1mdk
 
-2004-07-07 10:34  Frederic Lepied <flepied at mandrakesoft.com>
+2004-07-07 10:34  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/perm.3: fixed mailman permissions on files
 
-2004-06-22 11:11  Pixel <pixel at mandrakesoft.com>
+2004-06-22 11:11  Pixel <pixel at mandriva.com>
 
 	* msec.csh: you can't do   if ( ${?SECURE_LEVEL} && ${SECURE_LEVEL}
 	  <= 1 ) then in csh
 
-2004-06-18 01:52  Frederic Lepied <flepied at mandrakesoft.com>
+2004-06-18 01:52  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security_check.sh: use getent
 
-2004-06-08 18:33  Florin Grad <florin at mandrakesoft.com>
+2004-06-08 18:33  Florin Grad <florin at mandriva.com>
 
 	* conf/server.4: add ospfd
 
-2004-06-08 18:31  Florin Grad <florin at mandrakesoft.com>
+2004-06-08 18:31  Florin Grad <florin at mandriva.com>
 
 	* conf/server.4: add some version
 
-2004-04-23 12:00  Frederic Lepied <flepied at mandrakesoft.com>
+2004-04-23 12:00  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.42.2-1mdk
 
-2004-04-23 11:58  Frederic Lepied <flepied at mandrakesoft.com>
+2004-04-23 11:58  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: corrected
 	  mailman log permissions (bug #9319)
 
-2004-03-22 06:50  Frederic Lepied <flepied at mandrakesoft.com>
+2004-03-22 06:50  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: Mandrake => Mandrakelinux
 
-2004-03-21 16:56  Frederic Lepied <flepied at mandrakesoft.com>
+2004-03-21 16:56  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.42.1-1mdk
 
-2004-03-21 16:45  Frederic Lepied <flepied at mandrakesoft.com>
+2004-03-21 16:45  Frederic Lepied <flepied at mandriva.com>
 
 	* src/msec_find/find.c: workaround bug #9121 by not passing
 	  FTW_CHDIR to ntfw.
 
-2004-02-27 12:44  Frederic Lepied <flepied at mandrakesoft.com>
+2004-02-27 12:44  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.42-1mdk
 
-2004-02-27 12:41  Frederic Lepied <flepied at mandrakesoft.com>
+2004-02-27 12:41  Frederic Lepied <flepied at mandriva.com>
 
 	* share/README: document perm file syntax
 
-2004-02-27 12:35  Frederic Lepied <flepied at mandrakesoft.com>
+2004-02-27 12:35  Frederic Lepied <flepied at mandriva.com>
 
 	* share/Perms.py: - allow to specify only group or user in perm
 	  files (Bill Shirley) - allow the force keyword in perm files to
 	  be able to lower security (Bill Shirley)
 
-2004-02-27 12:08  Frederic Lepied <flepied at mandrakesoft.com>
+2004-02-27 12:08  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: mailman
 	  log dir fix (Guillaume Rousse)
 
-2004-02-14 22:13  Frederic Lepied <flepied at mandrakesoft.com>
+2004-02-14 22:13  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.41.1-1mdk
 
-2004-02-14 20:24  Frederic Lepied <flepied at mandrakesoft.com>
+2004-02-14 20:24  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/diff_check.sh: allow % in file names [bug #6144] (Sven
 	  Hoexter)
 
-2004-02-14 20:19  Frederic Lepied <flepied at mandrakesoft.com>
+2004-02-14 20:19  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: fixed system-auth growing line forever (bug
 	  #7853) (Michael Scherer)
 
-2004-02-12 17:13  Frederic Lepied <flepied at mandrakesoft.com>
+2004-02-12 17:13  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: make it lib64 aware wrt pam files rewriting
 
-2004-02-12 17:12  Frederic Lepied <flepied at mandrakesoft.com>
+2004-02-12 17:12  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.41-1mdk
 
-2004-02-12 17:08  Frederic Lepied <flepied at mandrakesoft.com>
+2004-02-12 17:08  Frederic Lepied <flepied at mandriva.com>
 
 	* man/C/msec.8: add pointers to perm files and draksec/drakperm
 
-2004-01-29 14:00  Frederic Lepied <flepied at mandrakesoft.com>
+2004-01-29 14:00  Frederic Lepied <flepied at mandriva.com>
 
 	* share/README: fixed location of perm files
 
-2004-01-06 11:56  Pixel <pixel at mandrakesoft.com>
+2004-01-06 11:56  Pixel <pixel at mandriva.com>
 
 	* msec.csh, msec.spec: more csh-ish msec.csh
 
-2003-11-28 12:55  Frederic Lepied <flepied at mandrakesoft.com>
+2003-11-28 12:55  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.csh: only set SECURE_LEVEL whenever it already exists
 	  locally
 
-2003-11-18 10:13  Frederic Lepied <flepied at mandrakesoft.com>
+2003-11-18 10:13  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: fixed typo
 	  rpp => rpm
 
-2003-11-18 09:46  Frederic Lepied <flepied at mandrakesoft.com>
+2003-11-18 09:46  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: allow_xserver_to_listen: corrected startx
 	  modifications (Gavin Porter)
 
-2003-11-18 09:45  Frederic Lepied <flepied at mandrakesoft.com>
+2003-11-18 09:45  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security.sh: removed xfs from remote filesystems and
 	  added hfs in foreign filesystems (Stefaan Simoens)
 
-2003-10-30 16:00  Frederic Lepied <flepied at mandrakesoft.com>
+2003-10-30 16:00  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: handle
 	  /var/lib/rpm/Packages
 
-2003-10-15 22:38  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2003-10-15 22:38  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* AUTHORS: list tv too
 
-2003-10-15 22:36  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2003-10-15 22:36  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* AUTHORS, README, TODO: fix #6145 (list current maintainer instead
 	  of old one)
 
-2003-10-15 22:36  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2003-10-15 22:36  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: enable to build srpm only
 
-2003-10-09 07:59  Frederic Lepied <flepied at mandrakesoft.com>
+2003-10-09 07:59  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: document same_level
 
-2003-10-08 23:15  Frederic Lepied <flepied at mandrakesoft.com>
+2003-10-08 23:15  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: use local_config
 
-2003-10-08 23:15  Frederic Lepied <flepied at mandrakesoft.com>
+2003-10-08 23:15  Frederic Lepied <flepied at mandriva.com>
 
 	* share/shadow.py: Added local_config to say that the calls are now
 	  coming from the config file.	Call force_val in indirect to store
 	  that the arguments of the function need to be used even if the
 	  security is lowered.
 
-2003-10-08 23:10  Frederic Lepied <flepied at mandrakesoft.com>
+2003-10-08 23:10  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: Rework same_level to be able to put the
 	  priority on the config file.	This is realized by inspecting the
 	  stack trace and using a global associative array.
 
-2003-10-08 21:33  Frederic Lepied <flepied at mandrakesoft.com>
+2003-10-08 21:33  Frederic Lepied <flepied at mandriva.com>
 
 	* man/: fr/msec.8, cs/msec.8, et/msec.8, ru/msec.8: Linux-Mandrake
 	  => Mandrake Linux
 
-2003-09-08 15:09  Pablo Saratxaga <pablo at mandrakesoft.com>
+2003-09-08 15:09  Pablo Saratxaga <pablo at mandriva.com>
 
 	* man/cs/msec.8: updated Czech man page
 
-2003-09-03 17:45  Frederic Lepied <flepied at mandrakesoft.com>
+2003-09-03 17:45  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.40-1mdk
 
-2003-09-03 17:39  Frederic Lepied <flepied at mandrakesoft.com>
+2003-09-03 17:39  Frederic Lepied <flepied at mandriva.com>
 
 	* share/shadow.py: make an exception for set_shell_history_size
 	  that accept -1 as a normal argument
 
-2003-09-03 17:36  Frederic Lepied <flepied at mandrakesoft.com>
+2003-09-03 17:36  Frederic Lepied <flepied at mandriva.com>
 
 	* share/Perms.py: correct broken code in fix_perms which add +x for
 	  all files when it finds a directory in a glob.
 
-2003-08-22 14:54  Frederic Lepied <flepied at mandrakesoft.com>
+2003-08-22 14:54  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.39-1mdk
 
-2003-08-22 14:53  Frederic Lepied <flepied at mandrakesoft.com>
+2003-08-22 14:53  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.40-1mdk
 
-2003-08-22 11:56  Frederic Lepied <flepied at mandrakesoft.com>
+2003-08-22 11:56  Frederic Lepied <flepied at mandriva.com>
 
 	* share/Perms.py: better support for symlinks
 
-2003-08-22 11:53  Frederic Lepied <flepied at mandrakesoft.com>
+2003-08-22 11:53  Frederic Lepied <flepied at mandriva.com>
 
 	* share/shadow.py: don't use apply anymore (Olivier Blin)
 
-2003-08-22 11:50  Frederic Lepied <flepied at mandrakesoft.com>
+2003-08-22 11:50  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: better doc for no_password_aging_for and
 	  set_security_conf allow to pass a number in set_umask
 
-2003-08-22 10:52  Frederic Lepied <flepied at mandrakesoft.com>
+2003-08-22 10:52  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: be carefull to use 1 or 0 instead of True and
 	  False in set_zero_one_variable
 
-2003-07-24 19:25  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2003-07-24 19:25  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* msec.spec: resync with cooker
 
-2003-07-24 19:22  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2003-07-24 19:22  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* msec.spec: fix upgrade (spotted by new draksec localization
 	  scheme)
 
-2003-05-08 11:50  Pablo Saratxaga <pablo at mandrakesoft.com>
+2003-05-08 11:50  Pablo Saratxaga <pablo at mandriva.com>
 
 	* man/: cs/init.sh.8, et/init.sh.8, eu/init.sh.8, fi/msec.8,
 	  fr/init.sh.8, fr/msec.8, ru/init.sh.8, uk/msec.8: Added Finnish
@@ -363,43 +387,43 @@
 
 	* man/pl/msec.8: Polish version of msec manual
 
-2003-03-07 15:27  Frederic Lepied <flepied at mandrakesoft.com>
+2003-03-07 15:27  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.38-3mdk
 
-2003-03-07 15:25  Frederic Lepied <flepied at mandrakesoft.com>
+2003-03-07 15:25  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: corrected inverted descriptions
 
-2003-02-17 18:36  Frederic Lepied <flepied at mandrakesoft.com>
+2003-02-17 18:36  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: put description on one line not to modify
 	  draksec_help.py
 
-2003-02-17 15:37  Frederic Lepied <flepied at mandrakesoft.com>
+2003-02-17 15:37  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: reworded CHECK_PASSWD description
 
-2003-02-03 16:22  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2003-02-03 16:22  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/draksec_help.py: help
 	  draksec::set_default_tip->formatAlaTeX() to have nicer tooltips
 
-2003-02-03 15:48  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2003-02-03 15:48  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/draksec_help.py: enforce gi policy for modules (it's the
 	  standalone tools job to provide a good @INC)
 
-2003-02-03 09:17  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2003-02-03 09:17  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/draksec_help.py: let this statement be more precise
 
-2003-02-03 09:15  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2003-02-03 09:15  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* msec.spec: move security::help from msec to drakxtools so that it
 	  get translated
 
-2003-02-03 09:15  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2003-02-03 09:15  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/draksec_help.py: - produce a perl module that pass strict
 	  mode checking - explain perl from where to find translation
@@ -408,123 +432,123 @@
 	  way other msec stuff, so let introduce some regexps (python fsck,
 	  perl	 rulez!)
 
-2003-02-03 09:14  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2003-02-03 09:14  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/libmsec.py: fix mseclib man page and draksec help (parsers
 	  drop first two bytes... :-()
 
-2003-01-31 13:10  Pablo Saratxaga <pablo at mandrakesoft.com>
+2003-01-31 13:10  Pablo Saratxaga <pablo at mandriva.com>
 
 	* man/et/: init.sh.8, msec.8: Added Estonian files
 
-2003-01-20 14:06  Frederic Lepied <flepied at mandrakesoft.com>
+2003-01-20 14:06  Frederic Lepied <flepied at mandriva.com>
 
 	* Makefile: use rpm to find version and release
 
-2003-01-20 12:50  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2003-01-20 12:50  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* msec.spec: - bump version - install draksec help
 
-2003-01-20 12:50  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2003-01-20 12:50  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/Makefile: - add the drakesec help target - sanitize make
 	  rules through std macros to ease creating new rules
 
-2003-01-20 12:36  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2003-01-20 12:36  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/draksec_help.py: help generator for draksec gui
 
-2002-12-13 11:14  Frederic Lepied <flepied at mandrakesoft.com>
+2002-12-13 11:14  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: removed 9.0 stuff
 
-2002-12-13 09:55  Frederic Lepied <flepied at mandrakesoft.com>
+2002-12-13 09:55  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.32.1-1mdk
 
-2002-12-13 09:55  Frederic Lepied <flepied at mandrakesoft.com>
+2002-12-13 09:55  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: no password aging in level 4
 
-2002-12-13 09:54  Frederic Lepied <flepied at mandrakesoft.com>
+2002-12-13 09:54  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: pam passwd file is in /etc/pam.d/passwd
 
-2002-11-20 20:57  Frederic Lepied <flepied at mandrakesoft.com>
+2002-11-20 20:57  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.37-1mdk
 
-2002-11-20 20:57  Frederic Lepied <flepied at mandrakesoft.com>
+2002-11-20 20:57  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: password_aging: chage is l10n now so use
 	  LC_ALL=C before calling it.
 
-2002-11-07 11:29  Thierry Vignaud <tvignaud at mandrakesoft.com>
+2002-11-07 11:29  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* msec.spec: requires s/(sh-|text|file)utils/coreutils/
 
-2002-09-17 16:12  Frederic Lepied <flepied at mandrakesoft.com>
+2002-09-17 16:12  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: X-\*-Core => X-:\*-Core
 
-2002-09-17 16:12  Frederic Lepied <flepied at mandrakesoft.com>
+2002-09-17 16:12  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: allow_reboot: X-\*-Core => X-:\*-Core
 
-2002-09-17 15:38  Frederic Lepied <flepied at mandrakesoft.com>
+2002-09-17 15:38  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: better wording
 
-2002-09-17 15:08  Frederic Lepied <flepied at mandrakesoft.com>
+2002-09-17 15:08  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.36-1mdk
 
-2002-09-17 15:08  Frederic Lepied <flepied at mandrakesoft.com>
+2002-09-17 15:08  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: - allow_user_list handles Selected when not
 	  changing security level.  - allow_reboot handles Root when not
 	  changing security level.
 
-2002-09-09 20:51  Frederic Lepied <flepied at mandrakesoft.com>
+2002-09-09 20:51  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/server.4: removed double network entry
 
-2002-09-06 15:37  Frederic Lepied <flepied at mandrakesoft.com>
+2002-09-06 15:37  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.34.5-2mdk
 
-2002-09-06 14:51  Frederic Lepied <flepied at mandrakesoft.com>
+2002-09-06 14:51  Frederic Lepied <flepied at mandriva.com>
 
 	* src/msec_find/find.c: SUID_GROUP_TODAY => SGID_TODAY
 
-2002-09-05 14:14  Frederic Lepied <flepied at mandrakesoft.com>
+2002-09-05 14:14  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.34.5-1mdk
 
-2002-09-05 14:12  Frederic Lepied <flepied at mandrakesoft.com>
+2002-09-05 14:12  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: allow_user_list: lookup ShowUsers in the
 	  X-*-Greeter section of kdmrc.
 
-2002-09-05 10:50  Frederic Lepied <flepied at mandrakesoft.com>
+2002-09-05 10:50  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.34.4-2mdk
 
-2002-09-05 10:50  Frederic Lepied <flepied at mandrakesoft.com>
+2002-09-05 10:50  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: removed debug output
 
-2002-09-03 08:57  Frederic Lepied <flepied at mandrakesoft.com>
+2002-09-03 08:57  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec, cron-sh/diff_check.sh, cron-sh/security.sh,
 	  share/README, share/libmsec.py, share/msec.py: CHECK_SUID_GROUP
 	  => CHECK_SGID
 
-2002-08-30 14:22  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-30 14:22  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.34.3-1mdk
 
-2002-08-30 14:20  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-30 14:20  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec, cron-sh/diff_check.sh, cron-sh/security.sh,
 	  cron-sh/security_check.sh, doc/msec.lyx, doc/security.txt,
@@ -532,90 +556,90 @@
 	  share/libmsec.py, share/msec.py, src/msec_find/find.c: writeable
 	  => writable
 
-2002-08-30 14:18  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-30 14:18  Frederic Lepied <flepied at mandriva.com>
 
 	* share/Makefile: clean generated files
 
-2002-08-29 20:53  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-29 20:53  Frederic Lepied <flepied at mandriva.com>
 
 	* share/shadow.py: call function with no argument in
 	  commit_changes.
 
-2002-08-27 22:26  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-27 22:26  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.34.2-1mdk
 
-2002-08-27 22:25  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-27 22:25  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: fix /boot
 	  with a better way
 
-2002-08-27 16:13  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-27 16:13  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.34.1-1mdk
 
-2002-08-27 16:10  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-27 16:10  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: correct
 	  permissions for /boot/kernel.h*
 
-2002-08-27 16:03  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-27 16:03  Frederic Lepied <flepied at mandriva.com>
 
 	* Makefile: launch make in cron-sh to check shell script syntax
 
-2002-08-27 16:03  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-27 16:03  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security.sh: correct syntax error
 
-2002-08-27 16:02  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-27 16:02  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/Makefile: check the syntax of the shell scripts
 
-2002-08-26 23:05  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-26 23:05  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: server.4, server.5: added dm
 
-2002-08-26 17:18  Pablo Saratxaga <pablo at mandrakesoft.com>
+2002-08-26 17:18  Pablo Saratxaga <pablo at mandriva.com>
 
 	* man/: cs/init.sh.8, cs/msec.8, ru/init.sh.8, ru/msec.8: Added
 	  Czech and Russian man pages
 
-2002-08-25 21:55  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-25 21:55  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.34-1mdk
 
-2002-08-25 21:48  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-25 21:48  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: security_check.sh and diff_check.sh installed 644 to
 	  prevent direct execution.
 
-2002-08-25 21:47  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-25 21:47  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.4, perm.5: let hosts.{allow,deny} be readable by
 	  everyone (to allow all the daemons to access them).
 
-2002-08-25 21:43  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-25 21:43  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/diff_check.sh: emptiness is tested in Maillog now
 
-2002-08-25 21:41  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-25 21:41  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security.sh: implement MAIL_EMPTY_CONTENT
 
-2002-08-25 21:39  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-25 21:39  Frederic Lepied <flepied at mandriva.com>
 
 	* doc/security.txt: documented daily mailing of security checks
 
-2002-08-25 21:38  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-25 21:38  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: added MAIL_EMPTY_CONTENT
 
-2002-08-25 21:30  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-25 21:30  Frederic Lepied <flepied at mandriva.com>
 
 	* share/ConfigFile.py: enhanced get_shell_variable to be able to
 	  specify a region to do the search.
 
-2002-08-25 21:29  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-25 21:29  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: allow_reboot: used section X-:0-Core instead of
 	  X-:*-Greeter for kdmrc.
@@ -623,154 +647,154 @@
 	  password_history: create /etc/security/opasswd if it doesn't
 	  exist.
 
-2002-08-19 23:09  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-19 23:09  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.33-1mdk
 
-2002-08-19 23:09  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-19 23:09  Frederic Lepied <flepied at mandriva.com>
 
 	* Makefile: use $(RPM_BUILD_ROOT) instead of $RPM_BUILD_ROOT
 
-2002-08-19 23:08  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-19 23:08  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/: diff_check.sh, security_check.sh: corrected wording
 
-2002-08-19 23:07  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-19 23:07  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec: added missing "not"
 
-2002-08-11 20:49  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-11 20:49  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.32-1mdk
 
-2002-08-11 20:48  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-11 20:48  Frederic Lepied <flepied at mandriva.com>
 
 	* Makefile: corrected the compilation of the python part.
 
-2002-08-11 20:44  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-11 20:44  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: replace 0 => no and 1 => yes.
 
 	  call password_history according to the levels.
 
-2002-08-11 20:43  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-11 20:43  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: corrected without_password
 
-2002-08-11 20:42  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-11 20:42  Frederic Lepied <flepied at mandriva.com>
 
 	* share/shadow.py: added without_password
 
-2002-08-11 20:41  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-11 20:41  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: password_length use system-auth instead of
 	  passwd pam file.
 
 	  new function: password_history.
 
-2002-08-11 20:39  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-11 20:39  Frederic Lepied <flepied at mandriva.com>
 
 	* share/Perms.py: do not change non local files/directories.
 
-2002-08-11 20:38  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-11 20:38  Frederic Lepied <flepied at mandriva.com>
 
 	* doc/security.txt: documented password history and root logins.
 
-2002-08-11 20:34  Frederic Lepied <flepied at mandrakesoft.com>
+2002-08-11 20:34  Frederic Lepied <flepied at mandriva.com>
 
 	* man/C/msec.8: document options
 
-2002-07-31 17:41  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-31 17:41  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.31.1-1mdk
 
-2002-07-31 17:40  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-31 17:40  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: correct the test for processing level.local.
 
-2002-07-30 20:51  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-30 20:51  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.31-1mdk
 
-2002-07-30 20:50  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-30 20:50  Frederic Lepied <flepied at mandriva.com>
 
 	* share/.cvsignore: added level.*
 
-2002-07-30 20:50  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-30 20:50  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: added fields to describe how arguments are used
 	  (to be used by shadow.py)
 
-2002-07-30 20:48  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-30 20:48  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: added print and nolocal options
 
-2002-07-30 20:47  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-30 20:47  Frederic Lepied <flepied at mandriva.com>
 
 	* share/shadow.py: added print_changes and get_translation
 
-2002-07-30 20:46  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-30 20:46  Frederic Lepied <flepied at mandriva.com>
 
 	* share/Makefile: added rules for level.*
 
-2002-07-29 09:36  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-29 09:36  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.30.2-1mdk
 
-2002-07-29 09:36  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-29 09:36  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: fixed typo in allow_root_login
 
-2002-07-28 22:53  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-28 22:53  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.30.1-1mdk
 
-2002-07-28 22:53  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-28 22:53  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: (set_zero_one_variable): corrected bug when the
 	  variable doesn't exist before setting it.
 
-2002-07-27 22:47  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-27 22:47  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.30
 
-2002-07-27 22:46  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-27 22:46  Frederic Lepied <flepied at mandriva.com>
 
 	* share/CHANGES: added 0.30 changes
 
-2002-07-27 22:40  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-27 22:40  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: finalized no security lowering feature.
 
-2002-07-27 21:26  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-27 21:26  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec: corrected last argument processing.
 
-2002-07-27 21:23  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-27 21:23  Frederic Lepied <flepied at mandriva.com>
 
 	* share/README: corrected splitted functions.
 
-2002-07-27 21:13  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-27 21:13  Frederic Lepied <flepied at mandriva.com>
 
 	* man/C/msec.8: descibed differences between interactive and
 	  non-interactive calls.  added a paragraph on the logs.
 
-2002-07-27 21:12  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-27 21:12  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: * (more functions): don't lower security when
 	  not changing secure level.
 
-2002-07-25 01:16  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-25 01:16  Frederic Lepied <flepied at mandriva.com>
 
 	* doc/security.txt: * describe file permissions according to the
 	  levels.  * correct description of X server security.
 
-2002-07-25 01:14  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-25 01:14  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/promisc_check.sh: * use TTY_WARN instead of TTYLOG_WARN
 	  (David Harris).
 
-2002-07-25 01:07  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-25 01:07  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: * (set_zero_one_variable): factorize
 	  sysctl.conf manipulation functions.  *
@@ -786,52 +810,52 @@
 	  disabling ip spoofing protection put back
 	  net.ipv4.conf.all.rp_filter to 0 (David Harris).
 
-2002-07-25 01:06  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-25 01:06  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: call splitted function with the same args.
 
-2002-07-25 01:02  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-25 01:02  Frederic Lepied <flepied at mandriva.com>
 
 	* share/ConfigFile.py: * (ConfigFile.get_match): return the whole
 	  line if replace is None.
 
-2002-07-06 15:36  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-06 15:36  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: if sysctl.conf is modified reload its content
 	  with sysctl but do not restart network.
 
-2002-07-04 19:02  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-04 19:02  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.25-1mdk
 
-2002-07-04 18:57  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-04 18:57  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: allow_root_login: corrected regexp to avoid
 	  adding the string at every run.
 
-2002-07-04 18:38  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-04 18:38  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: server.snf, perm.snf: [no log message]
 
-2002-07-04 18:37  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-04 18:37  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/server.4: added entry for MNF
 
-2002-07-04 09:30  Frederic Lepied <flepied at mandrakesoft.com>
+2002-07-04 09:30  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: insert changes when no match is found for
 	  logindefs and sshd_config.
 
-2002-06-27 09:58  Frederic Lepied <flepied at mandrakesoft.com>
+2002-06-27 09:58  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.24-1mdk
 
-2002-06-27 09:57  Frederic Lepied <flepied at mandrakesoft.com>
+2002-06-27 09:57  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec: pass -c to Perms.py if the level is given on the
 	  command line.
 
-2002-06-27 09:56  Frederic Lepied <flepied at mandrakesoft.com>
+2002-06-27 09:56  Frederic Lepied <flepied at mandriva.com>
 
 	* share/Perms.py: if we don't change the security level, try not to
 	  lower the security if the user has changed it manually (added -c
@@ -841,36 +865,36 @@
 
 	* share/libmsec.py: corrected typo
 
-2002-05-31 05:35  Frederic Lepied <flepied at mandrakesoft.com>
+2002-05-31 05:35  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.23-1mdk
 
-2002-05-31 05:34  Frederic Lepied <flepied at mandrakesoft.com>
+2002-05-31 05:34  Frederic Lepied <flepied at mandriva.com>
 
 	* share/: ConfigFile.py, Perms.py: report more complete error
 	  messages.
 
-2002-05-31 05:31  Frederic Lepied <flepied at mandrakesoft.com>
+2002-05-31 05:31  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec: check that the root is running the process
 
-2002-05-29 22:39  Frederic Lepied <flepied at mandrakesoft.com>
+2002-05-29 22:39  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: corrected typo
 
-2002-05-29 22:38  Frederic Lepied <flepied at mandrakesoft.com>
+2002-05-29 22:38  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.22-1mdk
 
-2002-05-29 22:35  Frederic Lepied <flepied at mandrakesoft.com>
+2002-05-29 22:35  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: added no_password_aging_for
 
-2002-05-14 19:04  Frederic Lepied <flepied at mandrakesoft.com>
+2002-05-14 19:04  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: server.4, server.5: added shorewall
 
-2002-04-29 19:52  Frederic Lepied <flepied at mandrakesoft.com>
+2002-04-29 19:52  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security_check.sh: corrected alias files loop (J�r�me
 	  UZEL).  CVS:
@@ -881,200 +905,200 @@
 	  C-c C-c when done or C-c C-d to abort.  CVS:
 	  ----------------------------------------------------------------------
 
-2002-04-19 20:17  Frederic Lepied <flepied at mandrakesoft.com>
+2002-04-19 20:17  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.21-1mdk
 
-2002-04-19 20:17  Frederic Lepied <flepied at mandrakesoft.com>
+2002-04-19 20:17  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: load the config file using the context of mseclib.
 
-2002-04-19 20:15  Frederic Lepied <flepied at mandrakesoft.com>
+2002-04-19 20:15  Frederic Lepied <flepied at mandriva.com>
 
 	* man/C/msec.8: don't specify a version for the doc path.
 
-2002-03-27 22:23  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-27 22:23  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.20-2mdk
 
-2002-03-27 22:16  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-27 22:16  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: allow_reboot: only touch the shutdown,
 	  poweroff, reboot and halt files if they don't exist.
 
-2002-03-26 06:03  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-26 06:03  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.20-1mdk
 
-2002-03-26 05:55  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-26 05:55  Frederic Lepied <flepied at mandriva.com>
 
 	* share/.cvsignore: added *.flog
 
-2002-03-26 05:55  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-26 05:55  Frederic Lepied <flepied at mandriva.com>
 
 	* share/shadow.py: handle ignore case.
 
-2002-03-26 05:54  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-26 05:54  Frederic Lepied <flepied at mandriva.com>
 
 	* share/man.py: document ignore argument.
 
-2002-03-26 05:54  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-26 05:54  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: removed yes/no declarations as they are used
 	  only from mseclib.py.  Maximum password aging can be -1.
 
-2002-03-09 01:24  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-09 01:24  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.19-8mdk
 
-2002-03-09 01:22  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-09 01:22  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3: /var/log/lp-errs must be
 	  600
 
-2002-03-08 19:56  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-08 19:56  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.19-7mdk
 
-2002-03-08 19:42  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-08 19:42  Frederic Lepied <flepied at mandriva.com>
 
 	* share/shadow.py: export yes/no to be in sync with libmsec.
 
-2002-03-08 19:41  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-08 19:41  Frederic Lepied <flepied at mandriva.com>
 
 	* share/man.py: document the value of arguments.
 
-2002-03-08 19:41  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-08 19:41  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: added yes and no to be used as argument to the
 	  functions.
 
-2002-03-08 19:40  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-08 19:40  Frederic Lepied <flepied at mandriva.com>
 
 	* man/C/msec.8: ponts to security.txt
 
-2002-03-08 19:37  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-08 19:37  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: fix
 	  permissions of /var/log/lp-errs for LPRng
 
-2002-03-06 05:12  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-06 05:12  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.19-6mdk
 
-2002-03-06 05:11  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-06 05:11  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec, cron-sh/security.sh: don't run twice
 
-2002-03-04 20:19  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-04 20:19  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.19-5mdk
 
-2002-03-04 20:19  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-04 20:19  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.sh: more robust if SECURE_LEVEL isn't set.
 
-2002-03-04 20:18  Frederic Lepied <flepied at mandrakesoft.com>
+2002-03-04 20:18  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: use 127.0.0.1 instead of localhost in
 	  hosts.deny
 
-2002-02-26 22:16  Pixel <pixel at mandrakesoft.com>
+2002-02-26 22:16  Pixel <pixel at mandriva.com>
 
 	* msec.csh, msec.spec: msec.csh: "unhash" workaround for /usr/bin
 	  non-readable (msec 5) applied after modifying PATH (eurk!)
 
-2002-02-25 22:15  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-25 22:15  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.19-4mdk
 
-2002-02-25 22:14  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-25 22:14  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.sh: don't manage /usr/games and /usr/X11R6/bin, this has
 	  nothing to do with security
 
-2002-02-25 22:13  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-25 22:13  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: don't restart network on sysctl.conf change.
 
-2002-02-25 22:12  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-25 22:12  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/: diff_check.sh, security.sh, security_check.sh: split
 	  rpm-va check in 2: config files and other files
 
-2002-02-25 22:07  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-25 22:07  Frederic Lepied <flepied at mandriva.com>
 
 	* doc/security.txt: resync with current code
 
-2002-02-24 01:38  Pablo Saratxaga <pablo at mandrakesoft.com>
+2002-02-24 01:38  Pablo Saratxaga <pablo at mandriva.com>
 
 	* man/fr/init.sh.8: added French man page
 
-2002-02-22 22:56  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-22 22:56  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.19-3mdk
 
-2002-02-22 22:55  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-22 22:55  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: do not use enable_libsafe anymore.
 
-2002-02-22 21:13  Pablo Saratxaga <pablo at mandrakesoft.com>
+2002-02-22 21:13  Pablo Saratxaga <pablo at mandriva.com>
 
 	* man/eu/: init.sh.8, msec.8: Added Basque files
 
-2002-02-22 20:38  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-22 20:38  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/diff_check.sh: security.conf from /etc/security/msec/ to
 	  /var/lib/msec/.
 
-2002-02-22 19:42  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-22 19:42  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security_check.sh: check uid and not gid
 
-2002-02-22 14:23  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-22 14:23  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/promisc_check.sh: use security.conf from /var/lib/msec
 
-2002-02-21 14:52  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-21 14:52  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5, perm.snf:
 	  let drakx handle lilo.conf perm
 
-2002-02-20 22:51  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-20 22:51  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.19-2mdk
 
-2002-02-20 22:50  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-20 22:50  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: implement no password in level 0
 
 	  X listens to tcp connections in level 3
 
-2002-02-20 22:50  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-20 22:50  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: added enable_password
 
-2002-02-20 22:49  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-20 22:49  Frederic Lepied <flepied at mandriva.com>
 
 	* share/CHANGES: documented changes in versions 0.18 and 0.19
 
-2002-02-20 22:47  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-20 22:47  Frederic Lepied <flepied at mandriva.com>
 
 	* share/ConfigFile.py: added insert_before.
 
-2002-02-20 22:40  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-20 22:40  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.4, perm.5: kmem => adm
 
-2002-02-19 21:18  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-19 21:18  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security.sh: corrected typo msec/msec.
 
-2002-02-19 21:15  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-19 21:15  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.19-1mdk
 
-2002-02-19 21:10  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-19 21:10  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: /etc/security/msec/security.conf =>
 	  /var/lib/msec/security.conf
@@ -1083,114 +1107,114 @@
 
 	  catch inconsistency between /etc/shadow and /etc/passwd.
 
-2002-02-19 21:00  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-19 21:00  Frederic Lepied <flepied at mandriva.com>
 
 	* man/C/msec.8: /etc/security/msec/security.conf =>
 	  /var/lib/msec/security.conf
 
-2002-02-19 20:17  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-19 20:17  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.4, perm.5: corrected permissions for
 	  /var/log/intraline
 
-2002-02-19 20:12  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-19 20:12  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec: use perm file from /usr/share/msec/
 
-2002-02-19 20:08  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-19 20:08  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security.sh: use /var/lib/msec/msec/security.conf
 
-2002-02-19 20:05  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-19 20:05  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.csh: corrected id test.
 
-2002-02-15 23:59  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-15 23:59  Frederic Lepied <flepied at mandriva.com>
 
 	* share/.cvsignore: added generated files
 
-2002-02-15 06:22  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-15 06:22  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.18-6mdk
 
-2002-02-15 06:21  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-15 06:21  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.sh: test SECURE_LEVEL before using it as a number
 
-2002-02-15 06:20  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-15 06:20  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: use the right string for the prog name
 
-2002-02-15 06:19  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-15 06:19  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: allow an extra arg to specify the log to do in
 	  enable_console_log
 
-2002-02-15 06:18  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-15 06:18  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security.sh: use umask from the secure level setting
 
-2002-02-15 05:36  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-15 05:36  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/promisc_check.sh: use complete path for the ip command.
 
-2002-02-14 03:59  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-14 03:59  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.18-5mdk
 
-2002-02-14 02:50  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-14 02:50  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: only reports an error for an empty wheel group
 	  when run interactively.
 
-2002-02-14 01:54  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-14 01:54  Frederic Lepied <flepied at mandriva.com>
 
 	* share/: Config.py, ConfigFile.py, Perms.py: corrected warnings
 	  reported by pychecker
 
-2002-02-14 01:53  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-14 01:53  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/promisc_check.sh: use ip to detect promiscuous mode with
 	  2.4 kernels.
 
-2002-02-14 01:52  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-14 01:52  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.csh, msec.sh: handle umask and . in path
 
-2002-02-11 15:44  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-11 15:44  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/perm.5: /etc/sendmail.cf 640 to sendmail to work.
 
-2002-02-05 21:10  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 21:10  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.18-4mdk
 
-2002-02-05 21:07  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 21:07  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: add a delay in passowrd change before desactiving.
 
-2002-02-05 20:52  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 20:52  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: handle allowed delay in password changing.
 
-2002-02-05 17:48  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 17:48  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: use true/false for Browser value in gdm.conf
 
-2002-02-05 05:19  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 05:19  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.18-3mdk
 
-2002-02-05 05:14  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 05:14  Frederic Lepied <flepied at mandriva.com>
 
 	* share/ConfigFile.py: (exists): add an extra arg to really test if
 	  the file exists (without testing if the file + suffix exists).
 
-2002-02-05 05:12  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 05:12  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: handle the extra arg for allow_x_connections.
 
-2002-02-05 05:11  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 05:11  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: corrected issue moving (only when really
 	  present).
@@ -1200,92 +1224,92 @@
 	  (allow_x_connections): add an extra argument to control if the X
 	  server listens on tcp port.
 
-2002-02-05 04:53  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 04:53  Frederic Lepied <flepied at mandriva.com>
 
 	* share/Perms.py: removed debugging trace.
 
-2002-02-05 04:09  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 04:09  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec: pass the same options used for msec.py to Perms.py
 
-2002-02-05 04:07  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 04:07  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/perm.4: put /etc/hosts.{allow,deny,equiv} in the daemon
 	  group
 
-2002-02-05 04:06  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 04:06  Frederic Lepied <flepied at mandriva.com>
 
 	* Makefile: don't commit in the Makefile
 
-2002-02-05 04:05  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 04:05  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/perm.5: put /etc/hosts.{allow,deny,equiv}
 
-2002-02-05 04:04  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 04:04  Frederic Lepied <flepied at mandriva.com>
 
 	* share/Perms.py: process the options like msec to be able to log
 	  the same way.
 
-2002-02-05 04:03  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 04:03  Frederic Lepied <flepied at mandriva.com>
 
 	* man/C/msec.8: Linux-Mandrake => Mandrake Linux
 
 	  remove references to the custom level
 
-2002-02-05 03:37  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 03:37  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security_check.sh: corrected typo
 
-2002-02-05 03:34  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 03:34  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security_check.sh: back to nogroup
 
-2002-02-05 02:23  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-05 02:23  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security_check.sh: use nobody instead of nogroup
 
-2002-02-04 04:27  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-04 04:27  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security_check.sh: added .ssh/id_dsa .ssh/id_rsa to the
 	  list of files to check.
 
-2002-02-04 04:26  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-04 04:26  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security.sh: don't report /tmp and /var/tmp as word
 	  writable dirs (it's normal)
 
-2002-02-02 06:20  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-02 06:20  Frederic Lepied <flepied at mandriva.com>
 
 	* share/Makefile: create the man page for mseclib
 
-2002-02-02 06:20  Frederic Lepied <flepied at mandrakesoft.com>
+2002-02-02 06:20  Frederic Lepied <flepied at mandriva.com>
 
 	* share/man.py: first version
 
-2002-01-29 06:22  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-29 06:22  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.18-2mdk
 
-2002-01-29 06:22  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-29 06:22  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: password aging for root too.
 
-2002-01-29 04:32  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-29 04:32  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/diff_check.sh: changed the wording for the rpm-va
 	  changes.
 
-2002-01-29 03:20  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-29 03:20  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/perm.4: the snf mod are not needed
 
-2002-01-29 03:19  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-29 03:19  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: new option: server_level to set a different
 	  server_level from the secure_level. For example the snf will be
 	  in secure_level 4 and server_level snf.
 
-2002-01-29 03:19  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-29 03:19  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: handle /etc/security/msec/server symlink
 	  through create_server_link().
@@ -1293,139 +1317,139 @@
 	  enable_security_check: register daily cron in /etc/cron.daily
 	  instead of /etc/cron.d.
 
-2002-01-28 19:41  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-28 19:41  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: report msec instead of msec.py in the error
 	  messages.
 
-2002-01-28 19:09  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-28 19:09  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.1, perm.2, perm.3, perm.5, perm.snf: made
 	  mandrake_consmap 644 (Andrej)
 
-2002-01-28 19:08  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-28 19:08  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/perm.4: merged diff with snf.
 
-2002-01-28 17:25  Florin Grad <florin at mandrakesoft.com>
+2002-01-28 17:25  Florin Grad <florin at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5, perm.snf:
 	  change sendmail ownership
 
-2002-01-28 15:52  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-28 15:52  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/diff_check.sh: report too the date and the hostname when
 	  the report is empty.
 
-2002-01-27 08:07  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-27 08:07  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.18-1mdk
 
-2002-01-27 08:06  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-27 08:06  Frederic Lepied <flepied at mandriva.com>
 
 	* Makefile: clean in share too
 
-2002-01-27 04:09  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-27 04:09  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: use mseclib to have a way to process a config file
 	  before really doing the changes.
 
-2002-01-27 04:08  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-27 04:08  Frederic Lepied <flepied at mandriva.com>
 
 	* share/libmsec.py: regroup the on/off funtions in uniq ones with
 	  an arg to decide on/off.
 
-2002-01-27 04:05  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-27 04:05  Frederic Lepied <flepied at mandriva.com>
 
 	* share/: shadow.py, Makefile: first version
 
-2002-01-22 21:28  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-22 21:28  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: clean before installing and don't install init.sh man
 	  pages anymore.
 
-2002-01-22 21:27  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-22 21:27  Frederic Lepied <flepied at mandriva.com>
 
 	* Makefile: don't put .bz2 archive in source for localcopy.
 
-2002-01-22 21:14  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-22 21:14  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.17-15mdk
 
-2002-01-22 21:14  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-22 21:14  Frederic Lepied <flepied at mandriva.com>
 
 	* share/CHANGES: more doc
 
-2002-01-22 21:12  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-22 21:12  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security.sh, cron-sh/security_check.sh, share/msec.py:
 	  experimental chkrootkit check.
 
-2002-01-22 20:23  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-22 20:23  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5, perm.snf:
 	  corrected errors reported by Pierre Fortin's script
 
-2002-01-22 20:21  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-22 20:21  Frederic Lepied <flepied at mandriva.com>
 
 	* man/: C/init.sh.8, fr/init.sh.8: removed init-sh man page
 
-2002-01-22 03:58  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-22 03:58  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3: corrected /bin/rpm path &
 	  perms
 
-2002-01-21 17:23  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-21 17:23  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.17-14mdk
 
-2002-01-21 17:19  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-21 17:19  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.3, perm.4, perm.5, perm.snf: make mandrake_consmap
 	  755 because we it needs to be readable by everyone
 
-2002-01-21 05:18  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-21 05:18  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.17-13mdk
 
-2002-01-21 05:16  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-21 05:16  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5, perm.snf:
 	  corrected mandrake_consmap permissions and ping path/permissions.
 
-2002-01-21 05:14  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-21 05:14  Frederic Lepied <flepied at mandriva.com>
 
 	* share/CHANGES: document 0.17-13mdk changes
 
-2002-01-21 05:11  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-21 05:11  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/diff_check.sh: mail even when the log is empty to signify
 	  that the check is fine.
 
-2002-01-21 05:07  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-21 05:07  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: log the start of the program in interactive mode.
 
-2002-01-21 05:06  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-21 05:06  Frederic Lepied <flepied at mandriva.com>
 
 	* share/Perms.py: allow current to be specified for permissions
 	  too.
 
 	  protect and log errors in os calls.
 
-2002-01-21 05:05  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-21 05:05  Frederic Lepied <flepied at mandriva.com>
 
 	* share/Log.py: log errors.
 
-2002-01-21 05:04  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-21 05:04  Frederic Lepied <flepied at mandriva.com>
 
 	* share/ConfigFile.py: protect and log errors on os calls.
 
-2002-01-21 05:03  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-21 05:03  Frederic Lepied <flepied at mandriva.com>
 
 	* Makefile: corrected clean rule
 
-2002-01-21 05:03  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-21 05:03  Frederic Lepied <flepied at mandriva.com>
 
 	* init-sh/cleanold.sh: don't create groups (rely on setup).
 
@@ -1434,11 +1458,11 @@
 	* init-sh/cleanold.sh: use "groupadd -g" to ensure the groupid
 	  provided by latest setup package
 
-2002-01-17 22:21  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-17 22:21  Frederic Lepied <flepied at mandriva.com>
 
 	* share/msec.py: corrected password_length mismatch.
 
-2002-01-17 20:56  Frederic Lepied <flepied at mandrakesoft.com>
+2002-01-17 20:56  Frederic Lepied <flepied at mandriva.com>
 
 	* Makefile, msec.sh, msec.spec, conf/perm.0, conf/perm.1,
 	  conf/perm.2, conf/perm.3, conf/perm.4, conf/perm.5,
@@ -1453,437 +1477,437 @@
 	* init-sh/: lib.sh, lib.sh.usermode: use "groupadd -g" to ensure
 	  the groupid provided by latest setup package
 
-2001-12-05 12:32  Florin Grad <florin at mandrakesoft.com>
+2001-12-05 12:32  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: typo error
 
-2001-12-05 12:09  Florin Grad <florin at mandrakesoft.com>
+2001-12-05 12:09  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: create the /etc/sysconfig/ directory
 
-2001-12-05 12:06  Florin Grad <florin at mandrakesoft.com>
+2001-12-05 12:06  Florin Grad <florin at mandriva.com>
 
 	* msec.csh: fix the tests, thx to Konrad Bernlohr
 
-2001-12-05 12:01  Florin Grad <florin at mandrakesoft.com>
+2001-12-05 12:01  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: changelog for 4mdk and use
 	  %{_sysconfdir}/sysconfig/msec instead of %{_sysconfdir}/msec
 
-2001-12-05 04:52  Frederic Lepied <flepied at mandrakesoft.com>
+2001-12-05 04:52  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.sh: test the existence of /etc/sysconfig/msec before
 	  sourcing it.
 
-2001-12-02 07:52  Frederic Lepied <flepied at mandrakesoft.com>
+2001-12-02 07:52  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: server.4, server.5: snort => snortd
 
-2001-12-02 07:52  Frederic Lepied <flepied at mandrakesoft.com>
+2001-12-02 07:52  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5, perm.snf:
 	  added default owners of /var/log/{news,snort,uucp}
 
-2001-12-02 07:03  Frederic Lepied <flepied at mandrakesoft.com>
+2001-12-02 07:03  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.16-3mdk
 
-2001-12-02 07:03  Frederic Lepied <flepied at mandrakesoft.com>
+2001-12-02 07:03  Frederic Lepied <flepied at mandriva.com>
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh, levelsnf.sh: added sysctl.conf, host.conf and
 	  /etc/issue{.net} customization.
 
-2001-12-02 06:59  Frederic Lepied <flepied at mandrakesoft.com>
+2001-12-02 06:59  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: server.4, server.5: added firewall and IDS to the list.
 
-2001-12-02 06:58  Frederic Lepied <flepied at mandrakesoft.com>
+2001-12-02 06:58  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5, perm.snf:
 	  customize rpm progs and /usr/share/doc permissions.
 
-2001-12-02 06:56  Frederic Lepied <flepied at mandrakesoft.com>
+2001-12-02 06:56  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.csh: sed black magic to read /etc/sysconfig/msec and
 	  translate sh variables in csh ones.
 
-2001-12-02 06:55  Frederic Lepied <flepied at mandrakesoft.com>
+2001-12-02 06:55  Frederic Lepied <flepied at mandriva.com>
 
 	* init-sh/custom.sh: libsafe.so.1.3 => libsafe.so.2
 
-2001-12-02 06:54  Frederic Lepied <flepied at mandrakesoft.com>
+2001-12-02 06:54  Frederic Lepied <flepied at mandriva.com>
 
 	* init-sh/lib.sh: added LoadSysctl, RemoveIssue, RemoveIssueNet,
 	  RestoreIssues functions.
 
-2001-12-02 05:32  Frederic Lepied <flepied at mandrakesoft.com>
+2001-12-02 05:32  Frederic Lepied <flepied at mandriva.com>
 
 	* Makefile: corrected clean rule
 
-2001-11-30 14:22  Florin Grad <florin at mandrakesoft.com>
+2001-11-30 14:22  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: 0.16-3mdk Changelog
 
-2001-11-30 14:15  Florin Grad <florin at mandrakesoft.com>
+2001-11-30 14:15  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: update the changelog message in the 0.16-3mdk
 
-2001-11-30 14:13  Florin Grad <florin at mandrakesoft.com>
+2001-11-30 14:13  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: update the post message
 
-2001-11-30 13:32  Florin Grad <florin at mandrakesoft.com>
+2001-11-30 13:32  Florin Grad <florin at mandriva.com>
 
 	* init-sh/levelsnf.sh: allow the ssh connexions from everywhere
 
-2001-11-29 18:33  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 18:33  Florin Grad <florin at mandriva.com>
 
 	* msec.csh: sysconfig file
 
-2001-11-29 18:32  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 18:32  Florin Grad <florin at mandriva.com>
 
 	* msec.sh: source the sysconfig file
 
-2001-11-29 18:30  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 18:30  Florin Grad <florin at mandriva.com>
 
 	* msec.sh: add SECURE LEVEL
 
-2001-11-29 18:23  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 18:23  Florin Grad <florin at mandriva.com>
 
 	* init-sh/lib.sh: bring back the cleaning of the profile files in
 	  order to make an update work
 
-2001-11-29 18:11  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 18:11  Florin Grad <florin at mandriva.com>
 
 	* init-sh/level5.sh: fix a typo error space in ldpreload condition
 	  if
 
-2001-11-29 18:04  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 18:04  Florin Grad <florin at mandriva.com>
 
 	* init-sh/levelsnf.sh: typo error in SECURE_LEVEL
 
-2001-11-29 17:56  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 17:56  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: create the entries for the %{_sysconfdir}/%{name} file
 
-2001-11-29 17:50  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 17:50  Florin Grad <florin at mandriva.com>
 
 	* msec.csh: remove the sysconfig/source
 
-2001-11-29 17:50  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 17:50  Florin Grad <florin at mandriva.com>
 
 	* msec.sh: remove the source of sysconfig/msec
 
-2001-11-29 15:24  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 15:24  Florin Grad <florin at mandriva.com>
 
 	* init-sh/lib.sh: clean sysconfig/msec
 
-2001-11-29 15:15  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 15:15  Florin Grad <florin at mandriva.com>
 
 	* init-sh/custom.sh: remove the profile.d comment
 
-2001-11-29 15:12  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 15:12  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: fix changelog for 3mdk
 
-2001-11-29 15:12  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 15:12  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: 3mdk
 
-2001-11-29 14:39  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 14:39  Florin Grad <florin at mandriva.com>
 
 	* init-sh/lib.sh: clean the entries related to the
 	  profile.d/msec*sh files
 
-2001-11-29 14:38  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 14:38  Florin Grad <florin at mandriva.com>
 
 	* init-sh/levelsnf.sh: clean the comment related to the profile.d
 	  dir
 
-2001-11-29 14:37  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 14:37  Florin Grad <florin at mandriva.com>
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh: remove the comments related to profile.d
 
-2001-11-29 14:33  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 14:33  Florin Grad <florin at mandriva.com>
 
 	* init-sh/level5.sh: sysconfig/msec support
 
-2001-11-29 14:30  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 14:30  Florin Grad <florin at mandriva.com>
 
 	* init-sh/custom.sh: add the sysconfig/msec support
 
-2001-11-29 14:26  Florin Grad <florin at mandrakesoft.com>
+2001-11-29 14:26  Florin Grad <florin at mandriva.com>
 
 	* init-sh/levelsnf.sh: add sysconfig/msec support
 
-2001-11-28 16:39  Florin Grad <florin at mandrakesoft.com>
+2001-11-28 16:39  Florin Grad <florin at mandriva.com>
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh: add the /etc/sysconfig/mesc support for UMASK
 
-2001-11-28 16:14  Florin Grad <florin at mandrakesoft.com>
+2001-11-28 16:14  Florin Grad <florin at mandriva.com>
 
 	* msec.csh, msec.sh: source the /etc/sysconfig/msec file
 
-2001-11-28 15:16  Florin Grad <florin at mandrakesoft.com>
+2001-11-28 15:16  Florin Grad <florin at mandriva.com>
 
 	* init-sh/custom.sh: add the support to the profile.d files
 
-2001-11-08 17:35  Florin Grad <florin at mandrakesoft.com>
+2001-11-08 17:35  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: typo error in post script
 
-2001-11-08 17:23  Florin Grad <florin at mandrakesoft.com>
+2001-11-08 17:23  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: update post section and modify the changelog
 
-2001-11-08 16:37  Florin Grad <florin at mandrakesoft.com>
+2001-11-08 16:37  Florin Grad <florin at mandriva.com>
 
 	* init-sh/msec: typo error
 
-2001-11-08 16:26  Florin Grad <florin at mandrakesoft.com>
+2001-11-08 16:26  Florin Grad <florin at mandriva.com>
 
 	* init-sh/msec: new entries for snf
 
-2001-11-08 16:25  Florin Grad <florin at mandrakesoft.com>
+2001-11-08 16:25  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: new version
 
-2001-11-08 16:23  Florin Grad <florin at mandrakesoft.com>
+2001-11-08 16:23  Florin Grad <florin at mandriva.com>
 
 	* init-sh/grpuser.sh: new support for snf
 
-2001-11-08 12:21  Florin Grad <florin at mandrakesoft.com>
+2001-11-08 12:21  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: 32 mdk
 
-2001-11-08 12:17  Florin Grad <florin at mandrakesoft.com>
+2001-11-08 12:17  Florin Grad <florin at mandriva.com>
 
 	* init-sh/lib.sh: add snf in RootSshLogin function
 
-2001-11-08 12:12  Florin Grad <florin at mandrakesoft.com>
+2001-11-08 12:12  Florin Grad <florin at mandriva.com>
 
 	* init-sh/levelsnf.sh, conf/perm.snf: [no log message]
 
-2001-11-07 16:38  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 16:38  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: make rpmlint happy and add Url tag
 
-2001-11-07 16:36  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 16:36  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: Mandrake Linux
 
-2001-11-07 16:28  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 16:28  Florin Grad <florin at mandriva.com>
 
 	* conf/server.snf: new snf level
 
-2001-11-07 16:28  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 16:28  Florin Grad <florin at mandriva.com>
 
 	* conf/server.4: back to the old 4 level
 
-2001-11-07 16:26  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 16:26  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: changelog enrtry in 31mdk
 
-2001-11-07 16:25  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 16:25  Florin Grad <florin at mandriva.com>
 
 	* init-sh/levelsnf.sh: nex snf level
 
-2001-11-07 16:15  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 16:15  Florin Grad <florin at mandriva.com>
 
 	* init-sh/msec: add snf entry in usage
 
-2001-11-07 16:11  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 16:11  Florin Grad <florin at mandriva.com>
 
 	* conf/: perm.3, perm.4, perm.5, perm.snf: new entry
 
-2001-11-07 15:31  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 15:31  Florin Grad <florin at mandriva.com>
 
 	* conf/server.4: add named in authorized servers for level 4
 
-2001-11-07 15:29  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 15:29  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: changelog for 31mdk
 
-2001-11-07 15:26  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 15:26  Florin Grad <florin at mandriva.com>
 
 	* conf/server.4: add some servers in level 4
 
-2001-11-07 15:03  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 15:03  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: new modifs
 
-2001-11-07 15:02  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 15:02  Florin Grad <florin at mandriva.com>
 
 	* conf/: perm.3, perm.4, perm.5: add monitoring permissions
 
-2001-11-07 14:58  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 14:58  Florin Grad <florin at mandriva.com>
 
 	* conf/: perm.3, perm.4, perm.5: add the right permissions for naat
 	  packages
 
-2001-11-07 14:33  Florin Grad <florin at mandrakesoft.com>
+2001-11-07 14:33  Florin Grad <florin at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5, server.4:
 	  modify the squid permissions and add naat-backend permissions
 
-2001-10-03 15:07  Florin Grad <florin at mandrakesoft.com>
+2001-10-03 15:07  Florin Grad <florin at mandriva.com>
 
 	* init-sh/: level4.sh, level5.sh: remove the touch ld.so.preload as
 	  we're doing it in lib.sh
 
-2001-10-03 15:06  Florin Grad <florin at mandrakesoft.com>
+2001-10-03 15:06  Florin Grad <florin at mandriva.com>
 
 	* init-sh/lib.sh: touch ld.so.preload before cleaning
 
-2001-10-03 14:58  Florin Grad <florin at mandrakesoft.com>
+2001-10-03 14:58  Florin Grad <florin at mandriva.com>
 
 	* msec.csh, msec.sh: first add
 
-2001-10-03 14:52  Florin Grad <florin at mandrakesoft.com>
+2001-10-03 14:52  Florin Grad <florin at mandriva.com>
 
 	* msec.spec, init-sh/level4.sh, init-sh/level5.sh: libsafe.so.2
 
-2001-10-03 14:51  Florin Grad <florin at mandrakesoft.com>
+2001-10-03 14:51  Florin Grad <florin at mandriva.com>
 
 	* init-sh/lib.sh: add print in CleanRules
 
-2001-10-03 14:50  Florin Grad <florin at mandrakesoft.com>
+2001-10-03 14:50  Florin Grad <florin at mandriva.com>
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh: libsafe.so.2 in levels 4/5 and remove the . in PATH
 
-2001-09-29 16:05  Florin Grad <florin at mandrakesoft.com>
+2001-09-29 16:05  Florin Grad <florin at mandriva.com>
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh: add \n
 
-2001-09-29 15:58  Florin Grad <florin at mandrakesoft.com>
+2001-09-29 15:58  Florin Grad <florin at mandriva.com>
 
 	* init-sh/lib.sh: remove or print
 
-2001-09-29 15:46  Florin Grad <florin at mandrakesoft.com>
+2001-09-29 15:46  Florin Grad <florin at mandriva.com>
 
 	* man/C/: init.sh.8, msec.8: date
 
-2001-09-29 15:44  Florin Grad <florin at mandrakesoft.com>
+2001-09-29 15:44  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: date in 30mdk
 
-2001-09-29 15:42  Florin Grad <florin at mandrakesoft.com>
+2001-09-29 15:42  Florin Grad <florin at mandriva.com>
 
 	* init-sh/lib.sh: add the E in grep in AddRules
 
-2001-09-29 15:41  Florin Grad <florin at mandrakesoft.com>
+2001-09-29 15:41  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: 30mdk man changelog
 
-2001-09-29 15:40  Florin Grad <florin at mandrakesoft.com>
+2001-09-29 15:40  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: 30mdk changelog
 
-2001-09-29 15:38  Florin Grad <florin at mandrakesoft.com>
+2001-09-29 15:38  Florin Grad <florin at mandriva.com>
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh: PATH modifs
 
-2001-09-29 15:34  Florin Grad <florin at mandrakesoft.com>
+2001-09-29 15:34  Florin Grad <florin at mandriva.com>
 
 	* init-sh/lib.sh: bring back the or print in CleanRules
 
-2001-09-29 15:23  Florin Grad <florin at mandrakesoft.com>
+2001-09-29 15:23  Florin Grad <florin at mandriva.com>
 
 	* man/C/: init.sh.8, msec.8: update the doc path
 
-2001-09-27 17:23  Florin Grad <florin at mandrakesoft.com>
+2001-09-27 17:23  Florin Grad <florin at mandriva.com>
 
 	* init-sh/lib.sh: remove the or print part in the perl line in
 	  CleanRules
 
-2001-09-27 17:22  Florin Grad <florin at mandrakesoft.com>
+2001-09-27 17:22  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: date in 30mdk changelog
 
-2001-09-27 17:21  Florin Grad <florin at mandrakesoft.com>
+2001-09-27 17:21  Florin Grad <florin at mandriva.com>
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh: move from profile ro the profile.d/msec.{sh,csh}
 	  entries
 
-2001-09-27 17:14  Florin Grad <florin at mandrakesoft.com>
+2001-09-27 17:14  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: add a changelog entry in the 30mdk
 
-2001-09-26 16:25  Florin Grad <florin at mandrakesoft.com>
+2001-09-26 16:25  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: add an entry in the 30 mdk changelog
 
-2001-09-26 16:24  Florin Grad <florin at mandrakesoft.com>
+2001-09-26 16:24  Florin Grad <florin at mandriva.com>
 
 	* init-sh/lib.sh: remove the -E option in the AddRules grep
 
-2001-09-26 15:48  Florin Grad <florin at mandrakesoft.com>
+2001-09-26 15:48  Florin Grad <florin at mandriva.com>
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh: typo errors
 
-2001-09-26 14:35  Florin Grad <florin at mandrakesoft.com>
+2001-09-26 14:35  Florin Grad <florin at mandriva.com>
 
 	* init-sh/lib.sh: CleanRules for /etc/profile and /etc/zprofile
 
-2001-09-26 14:20  Florin Grad <florin at mandrakesoft.com>
+2001-09-26 14:20  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: 30mdk
 
-2001-09-26 14:10  Florin Grad <florin at mandrakesoft.com>
+2001-09-26 14:10  Florin Grad <florin at mandriva.com>
 
 	* init-sh/: level1.sh, level2.sh, level3.sh, level4.sh, level5.sh:
 	  comment for profile.d section
 
-2001-09-26 14:07  Florin Grad <florin at mandrakesoft.com>
+2001-09-26 14:07  Florin Grad <florin at mandriva.com>
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh: use profile.d/* files instead of /etc/{z}profile
 
-2001-09-26 12:03  Florin Grad <florin at mandrakesoft.com>
+2001-09-26 12:03  Florin Grad <florin at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: use
 	  profile.d/ files instead of profile
 
-2001-09-20 18:05  Florin Grad <florin at mandrakesoft.com>
+2001-09-20 18:05  Florin Grad <florin at mandriva.com>
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh: typo for /etc/profile.d/*csh
 
-2001-09-20 17:54  Florin Grad <florin at mandrakesoft.com>
+2001-09-20 17:54  Florin Grad <florin at mandriva.com>
 
 	* init-sh/level2.sh: typo in profile.d entries
 
-2001-09-20 17:43  Florin Grad <florin at mandrakesoft.com>
+2001-09-20 17:43  Florin Grad <florin at mandriva.com>
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh: profile.d entries
 
-2001-09-20 17:36  Florin Grad <florin at mandrakesoft.com>
+2001-09-20 17:36  Florin Grad <florin at mandriva.com>
 
 	* init-sh/lib.sh.usermode: remove the /etc/profile entries
 
-2001-09-20 17:35  Florin Grad <florin at mandrakesoft.com>
+2001-09-20 17:35  Florin Grad <florin at mandriva.com>
 
 	* init-sh/lib.sh: remove the /etc/profile entries and use
 	  /etc/profile.d/msec*sh|csh instead
 
-2001-09-20 17:28  Florin Grad <florin at mandrakesoft.com>
+2001-09-20 17:28  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: /etc/profile.d*sh|csh entries
 
-2001-09-20 15:43  Florin Grad <florin at mandrakesoft.com>
+2001-09-20 15:43  Florin Grad <florin at mandriva.com>
 
 	* conf/: server.4, server.5: add the usb service
 
-2001-09-20 15:42  Florin Grad <florin at mandrakesoft.com>
+2001-09-20 15:42  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: authorize the usb service in 4/5 levels of security
 
@@ -1893,7 +1917,7 @@
 
 	  Require /bin/touch
 
-2001-09-19 15:37  Florin Grad <florin at mandrakesoft.com>
+2001-09-19 15:37  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: source2 is msec.logrotate and not msec
 
@@ -1907,25 +1931,25 @@
 	  are read.  - Keep the output of the SECURE_LEVEL in /etc/profile
 	  and /etc/zprofile.
 
-2001-09-19 14:28  Florin Grad <florin at mandrakesoft.com>
+2001-09-19 14:28  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: 25mdk
 
-2001-09-19 14:21  Florin Grad <florin at mandrakesoft.com>
+2001-09-19 14:21  Florin Grad <florin at mandriva.com>
 
 	* conf/server.4: sshd entry
 
-2001-09-19 14:20  Florin Grad <florin at mandrakesoft.com>
+2001-09-19 14:20  Florin Grad <florin at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: squidGuard
 	  entries
 
-2001-09-19 14:16  Florin Grad <florin at mandrakesoft.com>
+2001-09-19 14:16  Florin Grad <florin at mandriva.com>
 
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh, lib.sh, lib.sh.usermode: RootSshLogin
 
-2001-09-19 14:00  Florin Grad <florin at mandrakesoft.com>
+2001-09-19 14:00  Florin Grad <florin at mandriva.com>
 
 	* doc/security.txt: there are no */init-sh/ directories in the rpm
 	  msec
@@ -1943,62 +1967,62 @@
 	* init-sh/: level0.sh, level1.sh, level2.sh, level3.sh, level4.sh,
 	  level5.sh, lib.sh: [no log message]
 
-2001-09-17 19:14  Daouda Lo <daouda at mandrakesoft.com>
+2001-09-17 19:14  Daouda Lo <daouda at mandriva.com>
 
 	* msec.logrotate: logrotate file
 
-2001-09-17 18:44  Daouda Lo <daouda at mandrakesoft.com>
+2001-09-17 18:44  Daouda Lo <daouda at mandriva.com>
 
 	* msec.spec: del doc/*
 
-2001-09-17 18:42  Daouda Lo <daouda at mandrakesoft.com>
+2001-09-17 18:42  Daouda Lo <daouda at mandriva.com>
 
 	* msec.spec: comment doc/*.8
 
-2001-09-17 18:35  Daouda Lo <daouda at mandrakesoft.com>
+2001-09-17 18:35  Daouda Lo <daouda at mandriva.com>
 
 	* msec.spec: fix  kdm sec hole at level 4 (displayin users)
 
-2001-09-17 18:32  Daouda Lo <daouda at mandrakesoft.com>
+2001-09-17 18:32  Daouda Lo <daouda at mandriva.com>
 
 	* init-sh/lib.sh: -fix users display in level up to 4 (kdm)
 
-2001-09-14 18:14  Florin Grad <florin at mandrakesoft.com>
+2001-09-14 18:14  Florin Grad <florin at mandriva.com>
 
 	* conf/: perm.2, perm.3, perm.5: /var/log/squid permisssions
 
-2001-09-14 18:13  Florin Grad <florin at mandrakesoft.com>
+2001-09-14 18:13  Florin Grad <florin at mandriva.com>
 
 	* conf/: perm.0, perm.1, perm.4: /var/log/squid permisssion
 
-2001-09-14 18:12  Florin Grad <florin at mandrakesoft.com>
+2001-09-14 18:12  Florin Grad <florin at mandriva.com>
 
 	* msec.spec: /var/log/squid permissions
 
-2001-09-03 03:24  Pablo Saratxaga <pablo at mandrakesoft.com>
+2001-09-03 03:24  Pablo Saratxaga <pablo at mandriva.com>
 
 	* Makefile, msec.spec, doc/init.sh.8, doc/msec.8, man/C/init.sh.8,
 	  man/C/msec.8, man/fr/init.sh.8: moved man pages to man/C, added
 	  French man page
 
-2001-08-09 11:02  Frederic Lepied <flepied at mandrakesoft.com>
+2001-08-09 11:02  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.15-18mdk
 
-2001-08-09 11:00  Frederic Lepied <flepied at mandrakesoft.com>
+2001-08-09 11:00  Frederic Lepied <flepied at mandriva.com>
 
 	* Makefile: add rules to build test and release rpms.
 
-2001-08-09 10:48  Frederic Lepied <flepied at mandrakesoft.com>
+2001-08-09 10:48  Frederic Lepied <flepied at mandriva.com>
 
 	* init-sh/: custom.sh, level0.sh, level1.sh, level2.sh, level3.sh,
 	  level4.sh: added vc/[1-6] to securetty (devfs)
 
-2001-08-09 10:47  Frederic Lepied <flepied at mandrakesoft.com>
+2001-08-09 10:47  Frederic Lepied <flepied at mandriva.com>
 
 	* conf/perm.4: made securetty entry compliant with other perm.*
 
-2001-08-09 10:10  Frederic Lepied <flepied at mandrakesoft.com>
+2001-08-09 10:10  Frederic Lepied <flepied at mandriva.com>
 
 	* Makefile, TODO, msec.spec, conf/perm.0, conf/perm.1, conf/perm.2,
 	  conf/perm.3, conf/perm.4, conf/perm.5, conf/server.4,
@@ -2029,7 +2053,7 @@
 
 	* Makefile, msec.spec, init-sh/lib.sh: [no log message]
 
-2000-04-24 23:01  Pixel <pixel at mandrakesoft.com>
+2000-04-24 23:01  Pixel <pixel at mandriva.com>
 
 	* msec.spec, conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3,
 	  conf/perm.4: no_comment
@@ -2186,11 +2210,11 @@
 	* msec.spec, cron-sh/security.sh, init-sh/level3.sh,
 	  init-sh/level4.sh, init-sh/level5.sh: [no log message]
 
-2000-01-06 14:35  Camille Bégnis <camille at mandrakesoft.com>
+2000-01-06 14:35  Camille Bégnis <camille at mandriva.com>
 
 	* doc/: msec.lyx, msec.ps: re-mistake...
 
-2000-01-06 14:24  Camille Bégnis <camille at mandrakesoft.com>
+2000-01-06 14:24  Camille Bégnis <camille at mandriva.com>
 
 	* doc/: msec.lyx, msec.ps: Added friendly level names Corrected a
 	  mistake
@@ -2199,7 +2223,7 @@
 
 	* init-sh/level0.sh, msec.spec: [no log message]
 
-2000-01-04 14:10  Camille Bégnis <camille at mandrakesoft.com>
+2000-01-04 14:10  Camille Bégnis <camille at mandriva.com>
 
 	* doc/: msec.lyx, msec.ps: Added "root shutdown" feature.
 
@@ -2238,11 +2262,11 @@
 	* doc/: grpuser.8, grpuser.8.bz2, init.sh.8, init.sh.8.bz2, msec.8,
 	  msec.8.bz2: "Seethechangelog"
 
-1999-12-28 17:13  Camille Bégnis <camille at mandrakesoft.com>
+1999-12-28 17:13  Camille Bégnis <camille at mandriva.com>
 
 	* doc/: grpuser.8.bz2, init.sh.8.bz2, msec.8.bz2: Added man pages
 
-1999-12-28 16:32  Camille Bégnis <camille at mandrakesoft.com>
+1999-12-28 16:32  Camille Bégnis <camille at mandriva.com>
 
 	* doc/msec.lyx: Added latest enhancement: mail warning
 
@@ -2284,21 +2308,21 @@
 	* init-sh/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: [no log
 	  message]
 
-1999-12-22 03:41  Camille Bégnis <camille at mandrakesoft.com>
+1999-12-22 03:41  Camille Bégnis <camille at mandriva.com>
 
 	* doc/msec.lyx: Added comprehensive level descriptions
 
-1999-12-21 23:17  Pixel <pixel at mandrakesoft.com>
+1999-12-21 23:17  Pixel <pixel at mandriva.com>
 
 	* msec.spec, init-sh/perm.4: no_comment
 
-1999-12-21 23:10  Pixel <pixel at mandrakesoft.com>
+1999-12-21 23:10  Pixel <pixel at mandriva.com>
 
 	* msec.spec, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh:
 	  no_comment
 
-1999-12-21 23:02  Pixel <pixel at mandrakesoft.com>
+1999-12-21 23:02  Pixel <pixel at mandriva.com>
 
 	* msec.spec, init-sh/lib.sh: no_comment
 
@@ -2337,11 +2361,11 @@
 	* init-sh/: lib.sh, perm.0, perm.1, perm.2, perm.3, perm.4, perm.5:
 	  [no log message]
 
-1999-12-19 23:38  Pixel <pixel at mandrakesoft.com>
+1999-12-19 23:38  Pixel <pixel at mandriva.com>
 
 	* init-sh/lib.sh: [no log message]
 
-1999-12-19 23:14  Pixel <pixel at mandrakesoft.com>
+1999-12-19 23:14  Pixel <pixel at mandriva.com>
 
 	* init-sh/: lib.sh: [no log message]
 
@@ -2354,7 +2378,7 @@
 	* Makefile, cron-sh/security.sh, init-sh/security.conf: [no log
 	  message]
 
-1999-12-19 22:53  Pixel <pixel at mandrakesoft.com>
+1999-12-19 22:53  Pixel <pixel at mandriva.com>
 
 	* init-sh/lib.sh: [no log message]
 
@@ -2362,7 +2386,7 @@
 
 	* cron-sh/security_check.sh: [no log message]
 
-1999-12-19 22:12  Pixel <pixel at mandrakesoft.com>
+1999-12-19 22:12  Pixel <pixel at mandriva.com>
 
 	* init-sh/lib.sh: [no log message]
 
@@ -2382,15 +2406,15 @@
 	  cron-sh/security_check.sh, init-sh/security.conf: [no log
 	  message]
 
-1999-12-19 01:35  Pixel <pixel at mandrakesoft.com>
+1999-12-19 01:35  Pixel <pixel at mandriva.com>
 
 	* msec.spec: no_comment
 
-1999-12-19 01:30  Pixel <pixel at mandrakesoft.com>
+1999-12-19 01:30  Pixel <pixel at mandriva.com>
 
 	* msec.spec, Makefile: no_comment
 
-1999-12-18 17:08  Pixel <pixel at mandrakesoft.com>
+1999-12-18 17:08  Pixel <pixel at mandriva.com>
 
 	* msec.spec, init-sh/init.sh, init-sh/lib.sh: no_comment
 
@@ -2403,7 +2427,7 @@
 
 	* cron-sh/security_check.sh: [no log message]
 
-1999-12-16 23:21  Camille Bégnis <camille at mandrakesoft.com>
+1999-12-16 23:21  Camille Bégnis <camille at mandriva.com>
 
 	* doc/msec.lyx: Added level 0 minor changes
 

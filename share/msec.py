@@ -1,6 +1,6 @@
 #!/usr/bin/python -O
 #---------------------------------------------------------------
-# Project         : Mandrakelinux
+# Project         : Mandriva Linux
 # Module          : msec/share
 # File            : msec.py
 # Version         : $Id$
@@ -201,11 +201,13 @@ if server:
     else:
         allow_issues(LOCAL)
     enable_log_strange_packets(yes)
+    enable_pam_root_from_wheel(no)
 else:
     allow_autologin(yes)
     enable_console_log(no)
     allow_issues(ALL)
     enable_log_strange_packets(no)
+    enable_pam_root_from_wheel(yes)
 
 # differences between level 0 and others
 if level != 0:

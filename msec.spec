@@ -155,6 +155,11 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Fri Jun 17 2005 Frederic Lepied <flepied@mandriva.com> 0.46-1mdk
+- Mandriva
+- new function enable_pam_root_from_wheel to allow transparent root
+  access for the wheel group members.
+
 * Mon Mar 21 2005 Frederic Lepied <flepied@mandrakesoft.com> 0.45.1-1mdk
 - allow to use the variable CHKROOTKIT_OPTION as an argument to
 chkrootkit (Michael, bug #12687).

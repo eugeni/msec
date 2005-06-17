@@ -1,5 +1,5 @@
 #---------------------------------------------------------------
-# Project         : Mandrakelinux
+# Project         : Mandriva Linux
 # Module          : msec
 # File            : msec.csh
 # Version         : $Id$

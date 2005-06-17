@@ -1,8 +1,8 @@
-Summary:	Security Level management for the Mandrakelinux distribution
+Summary:	Security Level management for the Mandriva Linux distribution
 Name:		msec
-Version:	0.45.1
+Version:	0.46
 Release:	1mdk
-Url:		http://www.mandrakelinux.com/
+Url:		http://www.mandrivalinux.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:    	msec.logrotate
 Source2:    	msec.sh
@@ -23,8 +23,8 @@ Requires:	python-base >= 2.3.3-2mdk
 Requires:	mailx
 
 %description
-The Mandrakelinux-Security package is designed to provide generic
-secure level to the Mandrakelinux users...  It will permit you to
+The Mandriva Linux Security package is designed to provide generic
+secure level to the Mandriva Linux users...  It will permit you to
 choose between level 0 to 5 for a less -> more secured distribution.
 This packages includes several programs that will be run periodically
 in order to test the security of your system and alert you if needed.

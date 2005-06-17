@@ -75,7 +75,7 @@ buildsrpm:
 	rpm -ts $(PACKAGE)-$(VERSION).tar.bz2
 
 buildrpm:
-	rpm -ta $(PACKAGE)-$(VERSION).tar.bz2
+	rpm -ta --clean --rmsource --rmspec $(PACKAGE)-$(VERSION).tar.bz2
 
 # rules to build a distributable rpm
 

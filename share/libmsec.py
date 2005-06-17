@@ -1,5 +1,5 @@
 #---------------------------------------------------------------
-# Project         : Mandrakelinux
+# Project         : Mandriva Linux
 # Module          : msec
 # File            : libmsec.py
 # Version         : $Id$
@@ -619,6 +619,33 @@ def enable_pam_wheel_for_su(arg):
             su.exists() and su.remove_line_matching('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$')
 
 enable_pam_wheel_for_su.arg_trans = YES_NO_TRANS
+
+################################################################################
+
+def enable_pam_root_from_wheel(arg):
+    '''   Allow root access without password for the members of the wheel group.'''
+    system_auth = ConfigFile.get_config_file(SYSTEM_AUTH)
+
+    if not system_auth.exists():
+        return
+
+    val = system_auth.get_match('^auth\s+sufficient\s+pam_succeed_if.so\s+use_uid\s+user\s+ingroup\s+wheel\s*$')
+    
+    # don't lower security when not changing security level
+    if same_level():
+        if not val:
+            return
+
+    if arg:
+        if not val:
+            _interactive and log(_('Allowing transparent root access for wheel group members'))
+            system_auth.insert_after('^auth\s+required', 'auth	    sufficient    pam_succeed_if.so use_uid user ingroup wheel')
+    else:
+        if val:
+            _interactive and log(_('Disabling transparent root access for wheel group members'))
+            system_auth.remove_line_matching('^auth\s+sufficient\s+pam_succeed_if.so\s+use_uid\s+user\s+ingroup\s+wheel\s*$')
+
+enable_pam_root_from_wheel.arg_trans = YES_NO_TRANS
 
 ################################################################################
 

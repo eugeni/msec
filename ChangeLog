@@ -1,3 +1,7 @@
+2005-06-17 12:00  Frederic Lepied <flepied at mandriva.com>
+
+	* msec.spec: 0.46-1mdk
+
 2005-06-17 11:55  Frederic Lepied <flepied at mandriva.com>
 
 	* man/C/msec.8, man/C/mseclib.3, man/cs/msec.8, man/et/msec.8,

@@ -24,6 +24,11 @@
 /etc/hosts.allow				root.daemon		644
 /etc/hosts.deny					root.daemon		644
 /etc/hosts.equiv				root.daemon		640
+/etc/httpd/modules.d/*.conf			root.root		600
+/etc/httpd/conf/*.conf				root.root		600
+/etc/httpd/conf/addon-modules/*			root.root		600
+/etc/httpd/conf/vhosts.d/*			root.root		600
+/etc/httpd/conf/webapps.d/*			root.root		600
 /etc/inetd.conf					root.root		600
 /etc/inittab					root.root		600
 /etc/ld.so.conf					root.root		600

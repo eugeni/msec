@@ -64,7 +64,7 @@ list=".netrc .rhosts .shosts .Xauthority .gnupg/secring.gpg \
 .pgp/secring.pgp .ssh/identity .ssh/id_dsa .ssh/id_rsa .ssh/random_seed"
 getent passwd | awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' | 
 while read username uid homedir; do
-    if ! expr $homedir : $FILTER  > /dev/null; then
+    if ! expr "$homedir" : "$FILTER"  > /dev/null; then
 	for f in ${list} ; do
 	    file="${homedir}/${f}"
 	    if [[ -f ${file} ]] ; then
@@ -95,7 +95,7 @@ list=".bashrc .bash_profile .bash_login .bash_logout .cshrc .emacs .exrc \
 .ssh/known_hosts .ssh/rc .twmrc .xsession .xinitrc .Xdefaults"
 getent passwd | awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' | \
 while read username uid homedir; do
-    if ! expr $homedir : $FILTER  > /dev/null; then
+    if ! expr "$homedir" : "$FILTER"  > /dev/null; then
         for f in ${list} ; do
                 file=${homedir}/${f}
                 if [[ -f ${file} ]] ; then
@@ -118,7 +118,7 @@ fi
 ### Check home directories.  Directories should not be owned by someone else or writable.
 getent passwd | awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' | \
 while read username uid homedir; do
-    if ! expr $homedir : $FILTER  > /dev/null; then
+    if ! expr "$homedir" : "$FILTER"  > /dev/null; then
         if [[ -d ${homedir} ]] ; then
                 realuid=`ls -LldGn ${homedir}| awk '{ print $3 }'`
                 realuser=`ls -LldG ${homedir}| awk '{ print $3 }'`
@@ -213,7 +213,7 @@ done > ${TMP}
 
 getent passwd | awk -F: '{print $1" "$6}' |
     while read username homedir; do
-	if ! expr $homedir : $FILTER  > /dev/null; then
+	if ! expr "$homedir" : "$FILTER"  > /dev/null; then
 	    for file in .rhosts .shosts; do
 		if [[ -s ${homedir}/${file} ]] ; then
 		    awk '{

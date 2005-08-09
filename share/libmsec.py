@@ -437,7 +437,7 @@ def allow_reboot(arg):
 allow_reboot.arg_trans = YES_NO_TRANS
 
 ################################################################################
-SHOW_USERS_VALUES = ('All', 'Selected', 'None')
+SHOW_USERS_VALUES = ('NotHidden', 'Selected', 'None')
 
 def allow_user_list(arg):
     '''  Allow/Forbid the list of users on the system on display managers (kdm and gdm).'''
@@ -1135,7 +1135,7 @@ def enable_sulogin(arg):
     else:
         if val:
             _interactive and log(_('Disabling sulogin in single user runlevel'))
-            inittab.remove_line_matching('~~:S:wait:/sbin/sulogin')
+            inittab.replace_line_matching('[^#]+:S:', '~~:S:wait:/bin/sh', 1)
 
 enable_sulogin.arg_trans = YES_NO_TRANS
 

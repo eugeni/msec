@@ -1,6 +1,6 @@
 Summary:	Security Level management for the Mandriva Linux distribution
 Name:		msec
-Version:	0.46
+Version:	0.47
 Release:	1mdk
 Url:		http://www.mandrivalinux.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -75,6 +75,8 @@ install -m 755 %{SOURCE2} $RPM_BUILD_ROOT/etc/profile.d
 install -m 755 %{SOURCE3} $RPM_BUILD_ROOT/etc/profile.d
 touch $RPM_BUILD_ROOT/var/log/security.log
 
+%find_lang %name
+
 %pre
 %_pre_groupadd xgrp
 %_pre_groupadd ntools
@@ -130,7 +132,7 @@ fi
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(-,root,root)
 %doc AUTHORS COPYING share/README share/CHANGES
 %doc ChangeLog doc/*.txt
@@ -155,6 +157,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Mon Aug  8 2005 Frederic Lepied <flepied@mandriva.com> 0.47-1mdk
+- fix single user mode in enable_sulogin.
+
 * Fri Jun 17 2005 Frederic Lepied <flepied@mandriva.com> 0.46-1mdk
 - Mandriva
 - new function enable_pam_root_from_wheel to allow transparent root

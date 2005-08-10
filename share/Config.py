@@ -1,6 +1,6 @@
 #---------------------------------------------------------------
-# Project         : Linux-Mandrake
-# Module          : msec2
+# Project         : Mandriva Linux
+# Module          : msec
 # File            : Config.py
 # Version         : $Id$
 # Author          : Frederic Lepied

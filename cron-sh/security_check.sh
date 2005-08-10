@@ -67,12 +67,13 @@ while read username uid homedir; do
     if ! expr "$homedir" : "$FILTER"  > /dev/null; then
 	for f in ${list} ; do
 	    file="${homedir}/${f}"
-	    if [[ -f ${file} ]] ; then
-		printf "${uid} ${username} ${file} `ls -LldcGn ${file}`\n"
+	    if [[ -f "${file}" ]] ; then
+		res=`ls -LldcGn "${file}"`
+		printf "${uid}:${username}:${file}:${res}\n"
 	    fi
 	done
     fi
-done | awk '$1 != $6 && $6 != "0" \
+done | awk -F: '$1 != $6 && $6 != "0" \
         { print "\t\t- " $3 " : file is owned by uid " $6 "." }
 	$4 ~ /^-...r/ \
         { print "\t\t- " $3 " : file is group readable." }

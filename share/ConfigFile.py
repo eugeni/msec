@@ -1,5 +1,5 @@
 #---------------------------------------------------------------
-# Project         : Mandrakelinux
+# Project         : Mandriva Linux
 # Module          : msec
 # File            : ConfigFile.py
 # Version         : $Id$

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #---------------------------------------------------------------
-# Project         : Mandrakelinux
+# Project         : Mandriva Linux
 # Module          : share
 # File            : man.py
 # Version         : $Id$
@@ -15,7 +15,7 @@ import imp
 import inspect
 
 header = '''.ds q \N'34'
-.TH mseclib 3 V0 msec "Mandrakelinux"
+.TH mseclib 3 V0 msec "Mandriva Linux"
 .SH NAME
 mseclib
 .SH SYNOPSIS

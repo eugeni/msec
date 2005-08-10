@@ -1,6 +1,6 @@
 #!/usr/bin/python -O
 #---------------------------------------------------------------
-# Project         : Mandrakelinux
+# Project         : Mandriva Linux
 # Module          : msec
 # File            : Perms.py
 # Version         : $Id$

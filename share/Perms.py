@@ -152,12 +152,20 @@ def fix_perms(path, _interactive, force):
             continue
 
         fields = re.split('\s*', line)
-        mode_str = fields[2]
+        try:
+            mode_str = fields[2]
+        except IndexError:
+            error(_("%s: syntax error line %d") % (path, lineno))
+            continue
         
         if mode_str == 'current':
             perm = -1
         else:
-            perm = int(mode_str, 8)
+            try:
+                perm = int(mode_str, 8)
+            except ValueError:
+                error(_("%s: syntax error line %d") % (path, lineno))
+                continue
 
         if fields[1] == 'current':
             user = group = -1

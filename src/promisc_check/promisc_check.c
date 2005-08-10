@@ -1,12 +1,12 @@
 /*****************************************************************************
- * Mandrake Security                                                         *
+ * Mandriva Linux Security                                                         *
  * Written by Vandoorselaere Yoann                                           *
- * (C) 1999, Mandrakesoft		                                             *
+ * (C) 1999-2005, Mandrakesoft		                                             *
  *****************************************************************************/
 
 /*****
 *
-* Copyright (C) 1999 Mandrakesoft
+* Copyright (C) 1999-2005 Mandrakesoft
 * All Rights Reserved
 *
 * This file is part of the Mandrake Security program.
@@ -38,6 +38,7 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include <sys/socket.h>
 #include <sys/ioctl.h>
 #include <net/if.h>

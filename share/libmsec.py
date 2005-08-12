@@ -437,7 +437,7 @@ def allow_reboot(arg):
 allow_reboot.arg_trans = YES_NO_TRANS
 
 ################################################################################
-SHOW_USERS_VALUES = ('NotHidden', 'Selected', 'None')
+SHOW_USERS_VALUES = ('All', 'Selected', 'None')
 
 def allow_user_list(arg):
     '''  Allow/Forbid the list of users on the system on display managers (kdm and gdm).'''
@@ -1135,7 +1135,7 @@ def enable_sulogin(arg):
     else:
         if val:
             _interactive and log(_('Disabling sulogin in single user runlevel'))
-            inittab.replace_line_matching('[^#]+:S:', '~~:S:wait:/bin/sh', 1)
+            inittab.remove_line_matching('~~:S:wait:/sbin/sulogin')
 
 enable_sulogin.arg_trans = YES_NO_TRANS
 
@@ -1196,8 +1196,8 @@ enable_at_crontab.arg_trans = YES_NO_TRANS
 
 ################################################################################
 
-maximum_regex = re.compile('^Maximum:\s*([0-9]+|-1)', re.MULTILINE)
-inactive_regex = re.compile('^Inactive:\s*(-?[0-9]+)', re.MULTILINE)
+maximum_regex = re.compile('^Maximum.*:\s*([0-9]+|-1)', re.MULTILINE)
+inactive_regex = re.compile('^(Inactive|Password inactive\s*):\s*(-?[0-9]+|never)', re.MULTILINE)
 no_aging_list = []
 
 def no_password_aging_for(name):
@@ -1244,7 +1244,10 @@ def password_aging(max, inactive=-1):
                     res2 = inactive_regex.search(ret[1])
                     if res and res2:
                         current_max = int(res.group(1))
-                        current_inactive = int(res2.group(1))
+                        if res2.group(2) == 'never':
+                            current_inactive = 99999
+                        else:
+                            current_inactive = int(res2.group(2))
                         new_max = max
                         new_inactive = inactive
                         # don't lower security when not changing security level

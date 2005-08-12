@@ -17,7 +17,8 @@ Requires:	setup >= 2.2.0-21mdk
 Requires:	chkconfig >= 1.2.24-3mdk
 Requires:	coreutils
 Requires:	iproute2
-PreReq:		rpm-helper >= 0.4
+Requires(pre):	rpm-helper >= 0.4
+Requires(postun): rpm-helper >= 0.4
 Conflicts:	passwd < 0.67
 Requires:	python-base >= 2.3.3-2mdk
 Requires:	mailx

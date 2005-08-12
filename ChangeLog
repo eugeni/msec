@@ -1,3 +1,53 @@
+2005-08-12 10:07  Frederic Lepied <flepied at mandriva.com>
+
+	* cron-sh/security_check.sh: fix user or homedir with spaces in
+	  (bug #16237).
+
+2005-08-12 09:20  Frederic Lepied <flepied at mandriva.com>
+
+	* share/libmsec.py: password_aging: never means -1
+
+2005-08-12 08:18  Frederic Lepied <flepied at mandriva.com>
+
+	* conf/: perm.2, perm.3, perm.4, perm.5: added
+	  /etc/rc.d/init.d/xprint exception
+
+2005-08-12 08:07  Frederic Lepied <flepied at mandriva.com>
+
+	* share/libmsec.py: allow_user_list: fixed kdmrc settings.  support
+	  new inittab syntax for single user mode.  fix parsing of new
+	  chage output (bug #17477).
+
+2005-08-10 08:33  Frederic Lepied <flepied at mandriva.com>
+
+	* Makefile, msec.spec, cron-sh/security_check.sh, share/Config.py,
+	  share/ConfigFile.py, share/Log.py, share/Makefile,
+	  share/Perms.py, share/README, share/draksec_help.py,
+	  share/man.py, share/msec, share/shadow.py: Mandriva Linux
+
+2005-08-10 08:27  Frederic Lepied <flepied at mandriva.com>
+
+	* share/Perms.py: more robust parsing
+
+2005-08-10 08:26  Frederic Lepied <flepied at mandriva.com>
+
+	* src/promisc_check/promisc_check.c: fixed compilation warnings
+
+2005-08-10 00:41  Frederic Lepied <flepied at mandriva.com>
+
+	* share/libmsec.py: fixed wrong kdmrc values (bug #16268).  follow
+	  new Single user need in inittab.
+
+2005-07-14 06:00  Frederic Lepied <flepied at mandriva.com>
+
+	* cron-sh/security_check.sh: shell variable protection (Frederic
+	  Marmond).
+
+2005-06-30 08:54  Frederic Lepied <flepied at mandriva.com>
+
+	* conf/: perm.0, perm.1, perm.2, perm.3, perm.4, perm.5: manage
+	  apache files (Guillaume Rousse) (bug #12183)
+
 2005-06-17 12:00  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.46-1mdk

@@ -62,8 +62,8 @@ if [[ ${CHECK_PERMS} == yes ]]; then
 # Files that should not be owned by someone else or readable.
 list=".netrc .rhosts .shosts .Xauthority .gnupg/secring.gpg \
 .pgp/secring.pgp .ssh/identity .ssh/id_dsa .ssh/id_rsa .ssh/random_seed"
-getent passwd | awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' | 
-while read username uid homedir; do
+getent passwd | awk -F: '/^[^+-]/ { print $1 ":" $3 ":" $6 }' | 
+while IFS=: read username uid homedir; do
     if ! expr "$homedir" : "$FILTER"  > /dev/null; then
 	for f in ${list} ; do
 	    file="${homedir}/${f}"
@@ -94,17 +94,18 @@ list=".bashrc .bash_profile .bash_login .bash_logout .cshrc .emacs .exrc \
 .forward .klogin .login .logout .profile .tcshrc .fvwmrc .inputrc .kshrc \
 .nexrc .screenrc .ssh .ssh/config .ssh/authorized_keys .ssh/environment \
 .ssh/known_hosts .ssh/rc .twmrc .xsession .xinitrc .Xdefaults"
-getent passwd | awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' | \
-while read username uid homedir; do
+getent passwd | awk -F: '/^[^+-]/ { print $1 ":" $3 ":" $6 }' | \
+while IFS=: read username uid homedir; do
     if ! expr "$homedir" : "$FILTER"  > /dev/null; then
-        for f in ${list} ; do
-                file=${homedir}/${f}
-                if [[ -f ${file} ]] ; then
-                        printf "${uid} ${username} ${file} `ls -LldcGn ${file}`\n"
-                fi
+	for f in ${list} ; do
+	    file="${homedir}/${f}"
+	    if [[ -f "${file}" ]] ; then
+		res=`ls -LldcGn "${file}" | sed 's/ \{1,\}/:/g'`
+		printf "${uid}:${username}:${file}:${res}\n"
+	    fi
         done
     fi
-done | awk '$1 != $6 && $6 != "0" \
+done | awk -F: '$1 != $6 && $6 != "0" \
         { print "\t\t- " $3 " : file is owned by uid " $6 "." }
      $4 ~ /^.....w/ \
         { print "\t\t- " $3 " : file is group writable." }
@@ -117,17 +118,17 @@ if [[ -s ${TMP} ]]; then
 fi
 
 ### Check home directories.  Directories should not be owned by someone else or writable.
-getent passwd | awk -F: '/^[^+-]/ { print $1 " " $3 " " $6 }' | \
-while read username uid homedir; do
+getent passwd | awk -F: '/^[^+-]/ { print $1 ":" $3 ":" $6 }' | \
+while IFS=: read username uid homedir; do
     if ! expr "$homedir" : "$FILTER"  > /dev/null; then
-        if [[ -d ${homedir} ]] ; then
-                realuid=`ls -LldGn ${homedir}| awk '{ print $3 }'`
-                realuser=`ls -LldG ${homedir}| awk '{ print $3 }'`
-                permissions=`ls -LldG ${homedir}| awk '{ print $1 }'`
-                printf "${permissions} ${username} (${uid}) ${realuser} (${realuid})\n"
+        if [[ -d "${homedir}" ]] ; then
+                realuid=`ls -LldGn "${homedir}"| awk '{ print $3 }'`
+                realuser=`ls -LldG "${homedir}"| awk '{ print $3 }'`
+                permissions=`ls -LldG "${homedir}"| awk '{ print $1 }'`
+                printf "${permissions}:${username}:(${uid}):${realuser}:(${realuid})\n"
         fi
     fi
-done | awk '$3 != $5 && $5 != "(0)" \
+done | awk -F: '$3 != $5 && $5 != "(0)" \
         { print "user=" $2 $3 " : home directory is owned by " $4 $5 "." }
      $1 ~ /^d....w/ && $2 != "lp" && $2 != "mail" \
         { print "user=" $2 $3" : home directory is group writable." }

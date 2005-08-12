@@ -157,8 +157,17 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
-* Mon Aug  8 2005 Frederic Lepied <flepied@mandriva.com> 0.47-1mdk
-- fix single user mode in enable_sulogin.
+* Fri Aug 12 2005 Frederic Lepied <flepied@mandriva.com> 0.47-1mdk
+- security_check.sh: fix user or homedir with spaces in
+  (bug #16237).
+- perm.*: o /etc/rc.d/init.d/xprint exception
+          o  manage apache files (Guillaume Rousse) (bug #12183)
+- allow_user_list: fixed kdmrc settings.
+- support new inittab syntax for single user mode.
+- fix parsing of new chage output (bug #17477).
+- Perms.py: more robust parsing
+- fixed wrong kdmrc values (bug #16268).
+- follow new Single user need in inittab.
 
 * Fri Jun 17 2005 Frederic Lepied <flepied@mandriva.com> 0.46-1mdk
 - Mandriva

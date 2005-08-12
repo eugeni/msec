@@ -1,3 +1,7 @@
+2005-08-12 10:26  Frederic Lepied <flepied at mandriva.com>
+
+	* msec.spec: fixed PreReq
+
 2005-08-12 10:17  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.47-1mdk

@@ -1245,7 +1245,7 @@ def password_aging(max, inactive=-1):
                     if res and res2:
                         current_max = int(res.group(1))
                         if res2.group(2) == 'never':
-                            current_inactive = 99999
+                            current_inactive = -1
                         else:
                             current_inactive = int(res2.group(2))
                         new_max = max

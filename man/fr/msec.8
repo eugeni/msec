@@ -1,4 +1,4 @@
-.TH init.sh 8 "15 Dec 1999" "Mandriva" "Mandriva Linux"
+.TH msec 8 "13 Aou 2005" "Mandriva" "Mandriva Linux"
 .IX msec
 .SH NOM
 msec \- Outils de sécurité Mandriva Linux
@@ -9,21 +9,46 @@ msec \- Outils de sécurité Mandriva Linux
 \fPinit.sh\fP est le script principal du paquetage msec. Il permet à l'administrateur système de changer le niveau de sécurité de ce système.
 msec est fourni avec six niveaux de sécurité déjà configurés. Ces niveaux s'échelonnent d'une sécurité minimale favorisant la facilité d'utilisation, à la configuration paranoïaque convenant aux applications sensibles des serveurs administrés par des experts.
 .PP
-Vous devez être super-utilisateur (root) pour lancer \fPinit.sh\fP .
+Vous devez être super-utilisateur (root) pour lancer \fPmsec\fP .
 .br
-Lancer "init.sh x" pour obtenir le niveau de sécurité x (x=[0-5]). Cela modifiera votre système vers les caractéristiques du niveau de sécurité x.
+Lancer "msec x" pour obtenir le niveau de sécurité x (x=[0-5]). Cela modifiera votre système vers les caractéristiques du niveau de sécurité x. Appelé sans arguments, cette commande réappliquera le niveau de sécurité courant (sans rabaisser la sécurité).
 .br
-Pour une description précise de chaque niveau de sécurité, consulter la documentation dans /usr/doc/msec-*/.
+Tous les changements sont enregistrés via syslog(8) avec le niveau AUTH en mode non interactif (par exemple lorsque msec est appelé par cron) ou avec le niveau LOCAL1 en mode interactif (exécution en ligne de commande ou via le Centre de Contrôle de Mandriva Linux par exemple).
+.br
+Pour une description précise de chaque niveau de sécurité, consulter la documentation dans /usr/doc/msec-*/security.txt.
 .PP
-Si vous souhaitez définir votre propre niveau de sécurité, en définissant précisément tous les paramètres, lancer "init.sh custom". Il vous sera alors demander de choisir les caractéristiques à activer, qui seront ensuite appliquées au système.
+Si vous souhaitez modifier le niveau de sécurité courrant, utiliser /etc/security/msec/perm.local afin d'outrepasser les permissions/utilisateurs/groupes (en utilisant la même syntaxe que /usr/share/msec/perm.* ou en utilisant l'utilitaire graphique drakperm) et /etc/security/msec/level.local afin d'outrepasser les règles (voir mseclib(3) pour plus de détails ou l'utilitaire graphique drakperm).
+.PP
+Options disponibles :
+.TP
+\fB\-o all-local-files=<valeur>\fR
+si <valeur> vaut 1, tous les fichiers sont traités comme des fichiers locaux.
+.TP
+\fB\-o log=<valeur>\fR
+si <valeur> est différente de syslog, ne pas enregistriter via syslog mais via la sortie d'erreur standarde.
+.TP
+\fB\-o nolocal=<path>\fR
+ne pas charger les règles de /etc/security/msec/level.local.
+.TP
+\fB\-o non-local-fstypes=<valeur>\fR
+<valeur> est une liste de type de systèmes de fichier non locaux, séparés par des espaces.
+.TP
+\fB\-o print=<valeur>\fR
+si <valeur> est égale à 1, affiche les valeurs par défaut des règles.
+.TP
+\fB\-o root=<chemin>\fR
+utilise <chemin> comme racine du système de fichier.
 .SH FICHIERS
-/etc/security/msec/init.sh
+/usr/sbin/msec
 .br
-L'exécutable \fPinit.sh\fP (script sh)
+L'éxecutable \fPmsec\fP (script shell)
 .PP
-/etc/security/msec/security.conf
+/var/lib/msec/security.conf
 .br
-Contient la configuration du niveau de sécurité actuel.
+Contient la configuration du niveau de sécurité actif. Ces réglages peuvent être annulés par /etc/security/msec/security.conf.
+
+.SH "VOIR AUSSI"
+mseclib(3), draksec, drakperm
 
 .SH AUTEUR
 Vandoorselaere Yoann, Mandriva

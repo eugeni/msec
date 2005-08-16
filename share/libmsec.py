@@ -1206,8 +1206,6 @@ Name must be put between '. Msec will then no more manage password aging for
 name so you have to use chage(1) to manage it by hand.'''
     no_aging_list.append(name)
     
-# TODO FL Sat Dec 29 20:18:20 2001
-# replace chage calls and /etc/shadow parsing by a python API to the shadow functions.
 def password_aging(max, inactive=-1):
     '''  Set password aging to \\fImax\\fP days and delay to change to \\fIinactive\\fP.'''
     uid_min = 500
@@ -1227,6 +1225,11 @@ def password_aging(max, inactive=-1):
                 continue
             name = field[0]
             password = field[1]
+            current_max = int(field[4])
+            if field[6] == '':
+                current_inactive = -1
+            else:
+                current_inactive = int(field[6])
             if name in no_aging_list:
                 _interactive and log(_('User %s in password aging exception list') % (name,))
                 continue
@@ -1236,39 +1239,21 @@ def password_aging(max, inactive=-1):
                 error(_('User %s in shadow but not in passwd file') % name)
                 continue
             if (len(password) > 0 and password[0] != '!') and password != '*' and password != 'x' and (entry[2] >= uid_min or entry[2] == 0):
-                cmd = 'LC_ALL=C /usr/bin/chage -l %s' % entry[0]
-                ret = commands.getstatusoutput(cmd)
-                _interactive and log(_('got current maximum password aging for user %s with command \'%s\'') % (entry[0], cmd))
-                if ret[0] == 0:
-                    res = maximum_regex.search(ret[1])
-                    res2 = inactive_regex.search(ret[1])
-                    if res and res2:
-                        current_max = int(res.group(1))
-                        if res2.group(2) == 'never':
-                            current_inactive = -1
-                        else:
-                            current_inactive = int(res2.group(2))
-                        new_max = max
-                        new_inactive = inactive
-                        # don't lower security when not changing security level
-                        if same_level():
-                            if current_max < max and current_inactive < inactive:
-                                continue
-                            if current_max < max:
-                                new_max = current_max
-                            if current_inactive < inactive:
-                                new_inactive = current_inactive
-                        if new_max != current_max or current_inactive != new_inactive:
-                            cmd = 'LC_ALL=C /usr/bin/chage -M %d -I %d -d %s %s' % (new_max, new_inactive, time.strftime('%Y-%m-%d'), entry[0])
-                            ret = commands.getstatusoutput(cmd)
-                            log(_('changed maximum password aging for user %s with command %s') % (entry[0], cmd))
-                            if ret[0] != 0:
-                                error(ret[1])
-                    else:
-                        error(_('unable to parse chage output'))
-                else:
-                    error(_('unable to run chage: %s') % ret[1])
-
+                new_max = max
+                new_inactive = inactive
+                # don't lower security when not changing security level
+                if same_level():
+                    if current_max < max and current_inactive < inactive:
+                        continue
+                    if current_max < max:
+                        new_max = current_max
+                    if current_inactive < inactive:
+                        new_inactive = current_inactive
+                if new_max != current_max or current_inactive != new_inactive:
+                    cmd = 'LC_ALL=C /usr/bin/chage -M %d -I %d -d %s \'%s\'' % (new_max, new_inactive, time.strftime('%Y-%m-%d'), entry[0])
+                    ret = commands.getstatusoutput(cmd)
+                    log(_('changed maximum password aging for user \'%s\' with command %s') % (entry[0], cmd))
+                
 ################################################################################
 
 def allow_xauth_from_root(arg):

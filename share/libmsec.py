@@ -1225,11 +1225,6 @@ def password_aging(max, inactive=-1):
                 continue
             name = field[0]
             password = field[1]
-            current_max = int(field[4])
-            if field[6] == '':
-                current_inactive = -1
-            else:
-                current_inactive = int(field[6])
             if name in no_aging_list:
                 _interactive and log(_('User %s in password aging exception list') % (name,))
                 continue
@@ -1239,6 +1234,14 @@ def password_aging(max, inactive=-1):
                 error(_('User %s in shadow but not in passwd file') % name)
                 continue
             if (len(password) > 0 and password[0] != '!') and password != '*' and password != 'x' and (entry[2] >= uid_min or entry[2] == 0):
+                if field[4] == '':
+                    current_max = 99999
+                else:
+                    current_max = int(field[4])
+                if field[6] == '':
+                    current_inactive = -1
+                else:
+                    current_inactive = int(field[6])
                 new_max = max
                 new_inactive = inactive
                 # don't lower security when not changing security level

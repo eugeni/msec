@@ -1,6 +1,6 @@
 Summary:	Security Level management for the Mandriva Linux distribution
 Name:		msec
-Version:	0.47.2
+Version:	0.47.3
 Release:	1mdk
 Url:		http://www.mandrivalinux.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -158,6 +158,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Thu Sep  1 2005 Frederic Lepied <flepied@mandriva.com> 0.47.3-1mdk
+- make /etc/rc.d/init.d/functions always readable (bug #18080)
+
 * Wed Aug 17 2005 Frederic Lepied <flepied@mandriva.com> 0.47.2-1mdk
 - another fix for bug #17477
 

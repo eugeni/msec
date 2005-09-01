@@ -1,3 +1,12 @@
+2005-09-01 15:04  Frederic Lepied <flepied at mandriva.com>
+
+	* msec.spec: 0.47.3-1mdk
+
+2005-09-01 14:53  Frederic Lepied <flepied at mandriva.com>
+
+	* conf/: perm.1, perm.2, perm.3, perm.4, perm.5: make
+	  /etc/rc.d/init.d/functions always readable (bug #18080)
+
 2005-08-17 08:52  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.47.2-1mdk

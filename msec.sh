@@ -1,5 +1,5 @@
 #---------------------------------------------------------------
-# Project         : Mandrakelinux
+# Project         : Mandriva Linux
 # Module          : msec
 # File            : msec.sh
 # Version         : $Id$
@@ -34,6 +34,6 @@ fi
 
 export SECURE_LEVEL
 
-[ -n "$TMOUT" ] && typeset -r TMOUT
+[ -n "$TMOUT" ] && type typeset > /dev/null 2>&1 && typeset -r TMOUT
 
 # msec.sh ends here

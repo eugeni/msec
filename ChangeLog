@@ -1,3 +1,43 @@
+2005-09-08 16:14  Frederic Lepied <flepied at mandriva.com>
+
+	* msec.spec: 0.47.4-1mdk
+
+2005-09-08 16:10  Frederic Lepied <flepied at mandriva.com>
+
+	* share/shadow.py: print_changes: make an exception for
+	  set_shell_history_size.
+
+2005-09-08 16:08  Frederic Lepied <flepied at mandriva.com>
+
+	* share/ConfigFile.py: replace_line_matching: allow to pass the
+	  string to insert at the end if nothing is found.
+
+2005-09-08 16:07  Frederic Lepied <flepied at mandriva.com>
+
+	* share/libmsec.py: allow_xserver_to_listen: adapt to new way of
+	  specifying X server arguments for kdm (bug #15759).
+
+2005-09-08 12:19  Frederic Lepied <flepied at mandriva.com>
+
+	* share/libmsec.py: fixed security.conf path (bug #18271).
+
+2005-09-08 11:41  Frederic Lepied <flepied at mandriva.com>
+
+	* share/msec.py: fix allow_xserver_to_listen in level 0 (bug
+	  #18271).
+
+2005-09-08 11:31  Frederic Lepied <flepied at mandriva.com>
+
+	* man/C/mseclib.3: regenerated with the right email
+
+2005-09-08 11:31  Frederic Lepied <flepied at mandriva.com>
+
+	* share/man.py: fix email
+
+2005-09-08 11:27  Frederic Lepied <flepied at mandriva.com>
+
+	* msec.sh: bourne shell compatible
+
 2005-09-08 11:20  Frederic Lepied <flepied at mandriva.com>
 
 	* cron-sh/security.sh: fix parsing of rpm -Va (bug #18326 , Michael

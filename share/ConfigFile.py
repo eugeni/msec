@@ -18,6 +18,8 @@ import commands
 from Log import *
 import gettext
 
+STRING_TYPE = type('')
+
 try:
     cat = gettext.Catalog('msec')
     _ = cat.gettext
@@ -286,6 +288,7 @@ class ConfigFile:
         return None
 
     def replace_line_matching(self, regex, value, at_end_if_not_found=0, all=0, start=None, end=None):
+        # if at_end_if_not_found is a string its value will be used as the string to inster
         r=re.compile(regex)
         lines = self.get_lines()
         matches = 0
@@ -320,6 +323,8 @@ class ConfigFile:
                 if not all:
                     return matches
         if matches == 0 and at_end_if_not_found:
+            if type(at_end_if_not_found) == STRING_TYPE:
+                value = at_end_if_not_found
             log(_("appended in %s the line:\n%s") % (self.path, value))
             if idx == None or idx == len(lines):
                 self.append(value)

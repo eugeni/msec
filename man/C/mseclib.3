@@ -42,7 +42,9 @@ Allow/Forbid reboot by the console user.
 
 .TP 4
 .B \fIallow_remote_root_login(arg)\fP
-Allow/Forbid remote root login.
+Allow/Forbid remote root login via sshd. You can specify
+yes, no and without-password. See sshd_config(5) man page for more
+information.
 
 .TP 4
 .B \fIallow_root_login(arg)\fP
@@ -113,6 +115,10 @@ Enable/Disable the logging of IPv4 strange packets.
 .TP 4
 .B \fIenable_msec_cron(arg)\fP
 Enable/Disable msec hourly security check.
+
+.TP 4
+.B \fIenable_pam_root_from_wheel(arg)\fP
+ Allow root access without password for the members of the wheel group.
 
 .TP 4
 .B \fIenable_pam_wheel_for_su(arg)\fP
@@ -214,4 +220,4 @@ Set the user umask.
 .SH "SEE ALSO"
 msec(8)
 .SH AUTHORS
-Frederic Lepied <flepied@Mandriva.com>
+Frederic Lepied <flepied@mandriva.com>

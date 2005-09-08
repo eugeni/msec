@@ -1,3 +1,16 @@
+2005-09-09 00:45  Frederic Lepied <flepied at mandriva.com>
+
+	* msec.spec: 0.47.5-1mdk
+
+2005-09-09 00:44  Frederic Lepied <flepied at mandriva.com>
+
+	* share/Makefile: add a check to be sure to avoid print statements
+	  in python files
+
+2005-09-09 00:32  Frederic Lepied <flepied at mandriva.com>
+
+	* share/libmsec.py: removed print statement.
+
 2005-09-08 16:14  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.47.4-1mdk

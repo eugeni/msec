@@ -36,7 +36,7 @@ footer = '''.RE
 .SH "SEE ALSO"
 msec(8)
 .SH AUTHORS
-Frederic Lepied <flepied@mandrakesoft.com>
+Frederic Lepied <flepied@mandriva.com>
 '''
 
 ### strings used in the rewritting

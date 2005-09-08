@@ -68,7 +68,7 @@ def print_changes():
     import sys
     for f in FAKE.values():
         l = len(f[1])
-        if l >= 1 and f[1][0] != -1:
+        if l >= 1 and (f[1][0] != -1 or f[0].__name__ == 'set_shell_history_size'):
             name = f[0].__name__
             try:
                 if f[0].one_arg:

@@ -278,6 +278,8 @@ allow_x_connections.one_arg = 1
 STARTX_REGEXP = '(\s*serverargs=".*) -nolisten tcp(.*")'
 XSERVERS_REGEXP = '(\s*[^#]+/usr/X11R6/bin/X .*) -nolisten tcp(.*)'
 GDMCONF_REGEXP = '(\s*command=.*/X.*?) -nolisten tcp(.*)$'
+KDMRC_REGEXP = re.compile('(.*?)-nolisten tcp(.*)$')
+
 def allow_xserver_to_listen(arg):
     '''  The argument specifies if clients are authorized to connect
 to the X server on the tcp port 6000 or not.'''
@@ -285,31 +287,42 @@ to the X server on the tcp port 6000 or not.'''
     startx = ConfigFile.get_config_file(STARTX)
     xservers = ConfigFile.get_config_file(XSERVERS)
     gdmconf = ConfigFile.get_config_file(GDMCONF)
-
+    kdmrc = ConfigFile.get_config_file(KDMRC)
+    
     val_startx = startx.exists() and startx.get_match(STARTX_REGEXP)
     val_xservers = xservers.exists() and xservers.get_match(XSERVERS_REGEXP)
     val_gdmconf = gdmconf.exists() and gdmconf.get_match(GDMCONF_REGEXP)
-    
+    str = kdmrc.exists() and kdmrc.get_shell_variable('ServerArgsLocal', 'X-\*-Core', '^\s*$')
+
+    if str:
+        val_kdmrc = KDMRC_REGEXP.search(str)
+    else:
+        val_kdmrc = None
+
     # don't lower security when not changing security level
     if same_level():
-        if val_startx and val_xservers and val_gdmconf:
+        if val_startx and val_xservers and val_gdmconf and val_kdmrc:
             return
         
     if arg:
-        if val_startx or val_xservers or val_gdmconf:
+        if val_startx or val_xservers or val_gdmconf or val_kdmrc:
             _interactive and log(_('Allowing the X server to listen to tcp connections'))
             if not (same_level() and val_startx):
                 startx.exists() and startx.replace_line_matching(STARTX_REGEXP, '@1@2')
             if not (same_level() and val_xservers):
                 xservers.exists() and xservers.replace_line_matching(XSERVERS_REGEXP, '@1@2', 0, 1)
             if not (same_level() and val_gdmconf):
-                gdmconf.exists() and gdmconf. replace_line_matching(GDMCONF_REGEXP, '@1@2', 0, 1)
+                gdmconf.exists() and gdmconf.replace_line_matching(GDMCONF_REGEXP, '@1@2', 0, 1)
+            if not (same_level() and val_kdmrc):
+                kdmrc.exists() and kdmrc.replace_line_matching('^(ServerArgsLocal=.*?)-nolisten tcp(.*)$', '@1@2', 0, 0, 'X-\*-Core', '^\s*$')
     else:
-        if not val_startx or not val_xservers or not val_gdmconf:
+        if not val_startx or not val_xservers or not val_gdmconf or not val_kdmrc:
             _interactive and log(_('Forbidding the X server to listen to tcp connection'))
-            startx.exists() and startx.replace_line_matching('serverargs="(.*?)( -nolisten tcp)?"', 'serverargs="@1 -nolisten tcp"')
-            xservers.exists() and xservers.replace_line_matching('(\s*[^#]+/usr/X11R6/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
-            gdmconf.exists() and gdmconf. replace_line_matching('(\s*command=.*/X.*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
+            print val_startx ,val_xservers ,val_gdmconf ,val_kdmrc
+            startx.exists() and not val_startx and startx.replace_line_matching('serverargs="(.*?)( -nolisten tcp)?"', 'serverargs="@1 -nolisten tcp"')
+            xservers.exists() and not val_xservers and xservers.replace_line_matching('(\s*[^#]+/usr/X11R6/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
+            gdmconf.exists() and not val_gdmconf and gdmconf.replace_line_matching('(\s*command=.*/X.*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
+            kdmrc.exists() and not val_kdmrc and kdmrc.replace_line_matching('^(ServerArgsLocal=.*)( -nolisten tcp)?$', '@1 -nolisten tcp', 'ServerArgsLocal=-nolisten tcp', 0, 'X-\*-Core', '^\s*$')
 
 allow_xserver_to_listen.arg_trans = YES_NO_TRANS
 

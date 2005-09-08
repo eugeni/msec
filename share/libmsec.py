@@ -318,7 +318,6 @@ to the X server on the tcp port 6000 or not.'''
     else:
         if not val_startx or not val_xservers or not val_gdmconf or not val_kdmrc:
             _interactive and log(_('Forbidding the X server to listen to tcp connection'))
-            print val_startx ,val_xservers ,val_gdmconf ,val_kdmrc
             startx.exists() and not val_startx and startx.replace_line_matching('serverargs="(.*?)( -nolisten tcp)?"', 'serverargs="@1 -nolisten tcp"')
             xservers.exists() and not val_xservers and xservers.replace_line_matching('(\s*[^#]+/usr/X11R6/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
             gdmconf.exists() and not val_gdmconf and gdmconf.replace_line_matching('(\s*command=.*/X.*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)

@@ -1,6 +1,6 @@
 Summary:	Security Level management for the Mandriva Linux distribution
 Name:		msec
-Version:	0.47.4
+Version:	0.47.5
 Release:	1mdk
 Url:		http://www.mandrivalinux.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -158,6 +158,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Fri Sep  9 2005 Frederic Lepied <flepied@mandriva.com> 0.47.5-1mdk
+- remove debugging output
+
 * Thu Sep  8 2005 Frederic Lepied <flepied@mandriva.com> 0.47.4-1mdk
 - fixed security.conf path (bug #18271).
 - security.sh fix parsing of rpm -Va (bug #18326 , Michael Reinsch).

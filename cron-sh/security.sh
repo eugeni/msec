@@ -173,8 +173,8 @@ if [[ ${RPM_CHECK} == yes ]]; then
 
     rm -f ${RPM_VA_TODAY}.tmp
     nice --adjustment=+19 rpm -V `cut -f 1  < ${RPM_QA_TODAY} | grep -v '^dev-[0-9]'` | grep '^..5' | sort > ${RPM_VA_TODAY}.tmp
-    grep -v '^.........c.'  ${RPM_VA_TODAY}.tmp | sed 's/^...........//' | sort > ${RPM_VA_TODAY}
-    grep '^.........c.'  ${RPM_VA_TODAY}.tmp | sed 's/^...........//' | sort > ${RPM_VA_CONFIG_TODAY}
+    grep -v '^..........c.'  ${RPM_VA_TODAY}.tmp | sed 's/^............//' | sort > ${RPM_VA_TODAY}
+    grep '^..........c.'  ${RPM_VA_TODAY}.tmp | sed 's/^............//' | sort > ${RPM_VA_CONFIG_TODAY}
     rm -f ${RPM_VA_TODAY}.tmp
 fi
 

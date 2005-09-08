@@ -227,6 +227,7 @@ else:
     enable_security_check(no)
     enable_password(no)
     allow_x_connections(ALL, 1)
+    allow_xserver_to_listen(yes)
 
 # msec cron
 enable_msec_cron(1)

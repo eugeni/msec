@@ -1,6 +1,6 @@
 Summary:	Security Level management for the Mandriva Linux distribution
 Name:		msec
-Version:	0.47.3
+Version:	0.47.4
 Release:	1mdk
 Url:		http://www.mandrivalinux.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -158,6 +158,14 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Thu Sep  8 2005 Frederic Lepied <flepied@mandriva.com> 0.47.4-1mdk
+- fixed security.conf path (bug #18271).
+- security.sh fix parsing of rpm -Va (bug #18326 , Michael Reinsch).
+- security.sh: don't check sysfs and usbfs file system (bug #14359).
+- make msec.sh bourne shell compatible.
+- allow_xserver_to_listen: adapt to new way of specifying X server
+arguments for kdm (bug #15759).
+
 * Thu Sep  1 2005 Frederic Lepied <flepied@mandriva.com> 0.47.3-1mdk
 - make /etc/rc.d/init.d/functions always readable (bug #18080)
 

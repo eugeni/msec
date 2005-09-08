@@ -1,3 +1,13 @@
+2005-09-08 11:20  Frederic Lepied <flepied at mandriva.com>
+
+	* cron-sh/security.sh: fix parsing of rpm -Va (bug #18326 , Michael
+	  Reinsch).
+
+2005-09-06 07:45  Frederic Lepied <flepied at mandriva.com>
+
+	* cron-sh/security.sh: don't check sysfs and usbfs file system (bug
+	  #14359).
+
 2005-09-01 15:04  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.47.3-1mdk

@@ -1,3 +1,12 @@
+2005-09-19 16:50  Frederic Lepied <flepied at mandriva.com>
+
+	* msec.spec: 0.48-1mdk
+
+2005-09-19 16:50  Frederic Lepied <flepied at mandriva.com>
+
+	* share/libmsec.py: enable_pam_root_from_wheel: fixed too laxist
+	  config in level 2 (bug #18403).
+
 2005-09-09 00:45  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.47.5-1mdk

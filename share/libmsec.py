@@ -71,6 +71,7 @@ SERVER = '/etc/security/msec/server'
 SHADOW = '/etc/shadow'
 SHUTDOWN = '/usr/bin/shutdown'
 SHUTDOWNALLOW = '/etc/shutdown.allow'
+SIMPLE_ROOT_AUTHEN = '/etc/pam.d/simple_root_authen'
 SSHDCONFIG = '/etc/ssh/sshd_config'
 STARTX = '/usr/X11R6/bin/startx'
 SU = '/etc/pam.d/su'
@@ -634,28 +635,43 @@ enable_pam_wheel_for_su.arg_trans = YES_NO_TRANS
 
 ################################################################################
 
+SUCCEED_MATCH = '^auth\s+sufficient\s+pam_succeed_if.so\s+use_uid\s+user\s+ingroup\s+wheel\s*$'
+SUCCEED_LINE = 'auth	   sufficient   pam_succeed_if.so use_uid user ingroup wheel'
+
 def enable_pam_root_from_wheel(arg):
     '''   Allow root access without password for the members of the wheel group.'''
-    system_auth = ConfigFile.get_config_file(SYSTEM_AUTH)
-
-    if not system_auth.exists():
+    su = ConfigFile.get_config_file(SU)
+    simple = ConfigFile.get_config_file(SIMPLE_ROOT_AUTHEN)
+    
+    if not su.exists():
         return
 
-    val = system_auth.get_match('^auth\s+sufficient\s+pam_succeed_if.so\s+use_uid\s+user\s+ingroup\s+wheel\s*$')
-    
+    val = su.get_match(SUCCEED_MATCH)
+
+    if simple.exists():
+        val_simple = simple.get_match(SUCCEED_MATCH)
+    else:
+        val_simple = False
+        
     # don't lower security when not changing security level
     if same_level():
-        if not val:
+        if not val and not val_simple:
             return
 
     if arg:
-        if not val:
+        if not val or (simple.exists() and not val_simple):
             _interactive and log(_('Allowing transparent root access for wheel group members'))
-            system_auth.insert_after('^auth\s+required', 'auth	    sufficient    pam_succeed_if.so use_uid user ingroup wheel')
+            if not val:
+                su.insert_before('^auth\s+required', SUCCEED_LINE)
+            if simple.exists() and not val_simple:
+                simple.insert_before('^auth\s+required', SUCCEED_LINE)
     else:
-        if val:
+        if val or (simple.exists() and val_simple):
             _interactive and log(_('Disabling transparent root access for wheel group members'))
-            system_auth.remove_line_matching('^auth\s+sufficient\s+pam_succeed_if.so\s+use_uid\s+user\s+ingroup\s+wheel\s*$')
+            if val:
+                su.remove_line_matching(SUCCEED_MATCH)
+            if simple.exists() and val_simple:
+                simple.remove_line_matching(SUCCEED_MATCH)
 
 enable_pam_root_from_wheel.arg_trans = YES_NO_TRANS
 

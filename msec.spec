@@ -1,6 +1,6 @@
 Summary:	Security Level management for the Mandriva Linux distribution
 Name:		msec
-Version:	0.47.5
+Version:	0.48
 Release:	1mdk
 Url:		http://www.mandrivalinux.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -158,6 +158,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Mon Sep 19 2005 Frederic Lepied <flepied@mandriva.com> 0.48-1mdk
+- enable_pam_root_from_wheel: fixed too laxist config in level 2 (bug #18403).
+
 * Fri Sep  9 2005 Frederic Lepied <flepied@mandriva.com> 0.47.5-1mdk
 - remove debugging output
 

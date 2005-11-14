@@ -1,6 +1,6 @@
 PACKAGE = msec
-VERSION:=$(shell rpm -q --qf %{VERSION} --specfile $(PACKAGE).spec)
-RELEASE:=$(shell rpm -q --qf %{RELEASE} --specfile $(PACKAGE).spec)
+VERSION:=$(shell rpm -q --qf '%{VERSION}\n' --specfile $(PACKAGE).spec|head -1)
+RELEASE:=$(shell rpm -q --qf '%{RELEASE}\n' --specfile $(PACKAGE).spec|head -1)
 TAG := $(shell echo "V$(VERSION)_$(RELEASE)" | tr -- '-.' '__')
 
 all: promisc_check msec_find python

@@ -150,7 +150,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %config(noreplace) /etc/security/msec/*
 %config(noreplace) /etc/logrotate.d/msec
-%config(noreplace) /etc/profile.d/msec*
+/etc/profile.d/msec*
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 
 %ghost /var/log/security.log
@@ -159,6 +159,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Mon Nov 14 2005 Frederic Lepied <flepied@mandriva.com> 0.49-1mdk
+- scripts in /etc/profile.d no more config files
 - fix bug #19206 by really generating /var/lib/msec/security.conf
 
 * Mon Sep 19 2005 Frederic Lepied <flepied@mandriva.com> 0.48-1mdk

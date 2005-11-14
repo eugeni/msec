@@ -1,3 +1,20 @@
+2005-11-14 16:20  Frederic Lepied <flepied at mandriva.com>
+
+	* msec.spec: real 0.49-1mdk
+
+2005-11-14 16:18  Frederic Lepied <flepied at mandriva.com>
+
+	* msec.spec: 0.49-1mdk
+
+2005-11-14 16:16  Frederic Lepied <flepied at mandriva.com>
+
+	* Makefile: fix version gathering
+
+2005-11-14 16:04  Frederic Lepied <flepied at mandriva.com>
+
+	* share/libmsec.py: fix #19206 by really generating
+	  /var/lib/msec/security.conf
+
 2005-09-19 16:50  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: 0.48-1mdk

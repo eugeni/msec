@@ -64,7 +64,8 @@ PASSWD = '/etc/pam.d/passwd'
 POWEROFF = '/usr/bin/poweroff'
 REBOOT = '/usr/bin/reboot'
 SECURETTY = '/etc/securetty'
-SECURITYCONF = '/etc/security/msec/security.conf'
+SECURITYCONF = '/var/lib/msec/security.conf'
+SECURITYCONF2 = '/etc/security/msec/security.conf'
 SECURITYCRON = '/etc/cron.daily/msec'
 SECURITYSH = '/usr/share/msec/security.sh'
 SERVER = '/etc/security/msec/server'
@@ -155,14 +156,14 @@ def get_secure_level():
 
 def set_server_level(level):
     _interactive and log(_('Setting server level to %s') % level)
-    securityconf = ConfigFile.get_config_file(SECURITYCONF)
+    securityconf = ConfigFile.get_config_file(SECURITYCONF2)
     securityconf.set_shell_variable('SERVER_LEVEL', level)
 
 ################################################################################
 
 def get_server_level():
     'D'
-    securityconf = ConfigFile.get_config_file(SECURITYCONF)
+    securityconf = ConfigFile.get_config_file(SECURITYCONF2)
     level = securityconf.get_shell_variable('SERVER_LEVEL')
     if level: return level
     msec = ConfigFile.get_config_file(MSEC)
@@ -1312,7 +1313,7 @@ to the other users. See pam_xauth(8) for more details.'''
 
 def set_security_conf(var, value):
     '''1 Set the variable \\fIvar\\fP to the value \\fIvalue\\fP in /var/lib/msec/security.conf.
-The best way to override the default setting is to use create /etc/security/msec/security.conf
+The best way to override the default setting is to create /etc/security/msec/security.conf
 with the value you want. These settings are used to configure the daily check run each night.
 
 The following variables are currentrly recognized by msec:

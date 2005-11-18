@@ -68,7 +68,7 @@ while IFS=: read username uid homedir; do
 	for f in ${list} ; do
 	    file="${homedir}/${f}"
 	    if [[ -f "${file}" ]] ; then
-		res=`ls -LldcGn "${file}"`
+		res=`ls -LldcGn "${file}" | sed 's/ \{1,\}/:/g'`
 		printf "${uid}:${username}:${file}:${res}\n"
 	    fi
 	done

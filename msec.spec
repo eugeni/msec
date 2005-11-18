@@ -1,6 +1,6 @@
 Summary:	Security Level management for the Mandriva Linux distribution
 Name:		msec
-Version:	0.49
+Version:	0.49.1
 Release:	%mkrel 1
 Url:		http://www.mandrivalinux.com/
 Source0:	%{name}-%{version}.tar.bz2
@@ -158,6 +158,9 @@ rm -rf $RPM_BUILD_ROOT
 # MAKE THE CHANGES IN CVS: NO PATCH OR SOURCE ALLOWED
 
 %changelog
+* Fri Nov 18 2005 Frederic Lepied <flepied@mandriva.com> 0.49.1-1mdk
+- fix bug #17921
+
 * Mon Nov 14 2005 Frederic Lepied <flepied@mandriva.com> 0.49-1mdk
 - scripts in /etc/profile.d no more config files
 - fix bug #19206 by really generating /var/lib/msec/security.conf

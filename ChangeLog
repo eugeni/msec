@@ -1,3 +1,12 @@
+2005-11-18 12:15  Frederic Lepied <flepied at mandriva.com>
+
+	* msec.spec: 0.49.1-1mdk
+
+2005-11-18 12:10  Frederic Lepied <flepied at mandriva.com>
+
+	* cron-sh/security_check.sh: fix bug #17921 by parsing correctly
+	  the output of ls.
+
 2005-11-14 16:20  Frederic Lepied <flepied at mandriva.com>
 
 	* msec.spec: real 0.49-1mdk

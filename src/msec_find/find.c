@@ -198,9 +198,7 @@ int main(int argc, char **argv)
 	init();
 
         for ( i = 1; i < argc; i++ ) {
-	    	printf("%s\n",argv[i]);
                 if ( strcmp(argv[i], "/") != 0) {
-					printf("plop\n");
                         /*
                          * We need to add a final '/' to the base directory name else the
                          * FTW_MOUNT option of nftw won't work. i.e. : /mnt/cdrom is on the /

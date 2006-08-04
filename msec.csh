@@ -32,10 +32,6 @@ endif
 # using unhash *after modifying PATH* fixes the pb
 # So while modifying the PATH, do not rely on the PATH until unhash is done
 
-if ! { (echo "${PATH}" | /bin/grep -q /usr/X11R6/bin) } then
-	setenv PATH "${PATH}:/usr/X11R6/bin"
-endif
-
 if ! { (echo "${PATH}" | /bin/grep -q /usr/games) } then
 	setenv PATH "${PATH}:/usr/games"
 endif

@@ -74,7 +74,7 @@ SHUTDOWN = '/usr/bin/shutdown'
 SHUTDOWNALLOW = '/etc/shutdown.allow'
 SIMPLE_ROOT_AUTHEN = '/etc/pam.d/simple_root_authen'
 SSHDCONFIG = '/etc/ssh/sshd_config'
-STARTX = '/usr/X11R6/bin/startx'
+STARTX = '/usr/bin/startx'
 SU = '/etc/pam.d/su'
 SYSCTLCONF = '/etc/sysctl.conf'
 SYSLOGCONF = '/etc/syslog.conf'
@@ -236,7 +236,7 @@ local connection) and NONE (no connection).'''
     
     msec = ConfigFile.get_config_file(MSEC_XINIT)
 
-    val = msec.exists() and msec.get_match('/usr/X11R6/bin/xhost\s*\+\s*([^#]*)')
+    val = msec.exists() and msec.get_match('/usr/bin/xhost\s*\+\s*([^#]*)')
 
     if val:
         if val == '':
@@ -256,17 +256,17 @@ local connection) and NONE (no connection).'''
     if arg == ALL:
         if val != arg:
             _interactive and log(_('Allowing users to connect X server from everywhere'))
-            msec.exists() and msec.replace_line_matching('/usr/X11R6/bin/xhost', '/usr/X11R6/bin/xhost +', 1)
+            msec.exists() and msec.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost +', 1)
 
     elif arg == LOCAL:
         if val != arg:
             _interactive and log(_('Allowing users to connect X server from localhost'))
-            msec.exists() and msec.replace_line_matching('/usr/X11R6/bin/xhost', '/usr/X11R6/bin/xhost + localhost', 1)
+            msec.exists() and msec.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost + localhost', 1)
         
     elif arg == NONE:
         if val != arg:
             _interactive and log(_('Restricting X server connection to the console user'))
-            msec.exists() and msec.remove_line_matching('/usr/X11R6/bin/xhost', 1)
+            msec.exists() and msec.remove_line_matching('/usr/bin/xhost', 1)
         
     else:
         error(_('invalid allow_x_connections arg: %s') % arg)
@@ -278,7 +278,7 @@ allow_x_connections.one_arg = 1
 ################################################################################
 
 STARTX_REGEXP = '(\s*serverargs=".*) -nolisten tcp(.*")'
-XSERVERS_REGEXP = '(\s*[^#]+/usr/X11R6/bin/X .*) -nolisten tcp(.*)'
+XSERVERS_REGEXP = '(\s*[^#]+/usr/bin/X .*) -nolisten tcp(.*)'
 GDMCONF_REGEXP = '(\s*command=.*/X.*?) -nolisten tcp(.*)$'
 KDMRC_REGEXP = re.compile('(.*?)-nolisten tcp(.*)$')
 
@@ -321,7 +321,7 @@ to the X server on the tcp port 6000 or not.'''
         if not val_startx or not val_xservers or not val_gdmconf or not val_kdmrc:
             _interactive and log(_('Forbidding the X server to listen to tcp connection'))
             startx.exists() and not val_startx and startx.replace_line_matching('serverargs="(.*?)( -nolisten tcp)?"', 'serverargs="@1 -nolisten tcp"')
-            xservers.exists() and not val_xservers and xservers.replace_line_matching('(\s*[^#]+/usr/X11R6/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
+            xservers.exists() and not val_xservers and xservers.replace_line_matching('(\s*[^#]+/usr/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
             gdmconf.exists() and not val_gdmconf and gdmconf.replace_line_matching('(\s*command=.*/X.*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
             kdmrc.exists() and not val_kdmrc and kdmrc.replace_line_matching('^(ServerArgsLocal=.*)( -nolisten tcp)?$', '@1 -nolisten tcp', 'ServerArgsLocal=-nolisten tcp', 0, 'X-\*-Core', '^\s*$')
 

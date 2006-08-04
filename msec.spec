@@ -1,6 +1,6 @@
 Summary:	Security Level management for the Mandriva Linux distribution
 Name:		msec
-Version:	0.49.1
+Version:	0.50.0
 Release:	%mkrel 1
 Url:		http://www.mandrivalinux.com/
 Source0:	%{name}-%{version}.tar.bz2

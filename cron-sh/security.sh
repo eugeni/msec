@@ -190,7 +190,7 @@ fi
 Syslog() {
     if [[ ${SYSLOG_WARN} == yes ]]; then
     while read line; do
-        logger "${line}"
+        logger -- "${line}"
     done < ${1}
     fi
 }

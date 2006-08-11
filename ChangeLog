@@ -1,3 +1,21 @@
+2006-08-04 14:48  nanardon
+
+	* soft/msec/trunk/msec.spec: - remove now useless spec file
+
+2006-08-04 14:15  nanardon
+
+	* soft/msec/trunk/ChangeLog, soft/msec/trunk/Makefile,
+	  soft/msec/trunk/man/C/mseclib.3, soft/msec/trunk/msec.spec: -
+	  split rpm generation from software, cleanup, svn adaptation
+
+2006-08-04 14:01  nanardon
+
+	* soft/msec/trunk/conf/perm.0, soft/msec/trunk/conf/perm.1,
+	  soft/msec/trunk/conf/perm.2, soft/msec/trunk/conf/perm.3,
+	  soft/msec/trunk/conf/perm.4, soft/msec/trunk/conf/perm.5,
+	  soft/msec/trunk/msec.csh, soft/msec/trunk/share/libmsec.py: -
+	  remove X11R6 reference
+
 2006-05-04 14:11  mscherer
 
 	* soft/msec/trunk/src/msec_find/find.c: revert last spurious commit

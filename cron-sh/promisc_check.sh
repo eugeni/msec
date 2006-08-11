@@ -5,7 +5,7 @@
 
 Syslog() {
     if [[ ${SYSLOG_WARN} == yes ]]; then
-        logger "${1}"
+        logger -- "${1}"
     fi
 }
 

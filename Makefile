@@ -1,5 +1,5 @@
 PACKAGE = msec
-VERSION:=0.50.0
+VERSION:=0.50.1
 
 all: promisc_check msec_find python
 	make -C cron-sh

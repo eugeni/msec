@@ -495,6 +495,7 @@ def allow_root_login(arg):
     securetty = ConfigFile.get_config_file(SECURETTY)
     kde = ConfigFile.get_config_file(KDE)
     gdm = ConfigFile.get_config_file(GDM)
+    gdmconf = ConfigFile.get_config_file(GDMCONF)
     xdm = ConfigFile.get_config_file(XDM)
 
     val = {}
@@ -524,6 +525,8 @@ def allow_root_login(arg):
     if arg:
         if val[kde] or val[gdm] or val[xdm] or num != 12:
             _interactive and log(_('Allowing direct root login'))
+            gdmconf.exists() and gdmconf.set_shell_variable('ConfigAvailable', 'true', '\[greeter\]', '^\s*')
+
         
             for cnf in (kde, gdm, xdm):
                 if not (same_level() and val[cnf]):
@@ -537,6 +540,7 @@ def allow_root_login(arg):
                 if not (same_level() and not val[s]):
                     securetty.replace_line_matching(s, s, 1)
     else:
+        gdmconf.exists() and gdmconf.set_shell_variable('ConfigAvailable', 'false', '\[greeter\]', '^\s*')
         if (kde.exists() and not val[kde]) or (gdm.exists() and not val[gdm]) or (xdm.exists() and not val[xdm]) or num > 0:
             _interactive and log(_('Forbidding direct root login'))
         
@@ -545,8 +549,7 @@ def allow_root_login(arg):
         
             for cnf in (kde, gdm, xdm):
                 cnf.exists() and (cnf.replace_line_matching('^auth\s*required\s*(?:/lib/security/)?pam_listfile.so.*bastille-no-login', 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login') or \
-                                  cnf.insert_at(0, 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login'))
-        
+                                  cnf.insert_at(0, 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login'))                                        
             securetty.remove_line_matching('.+', 1)
 
 allow_root_login.arg_trans = YES_NO_TRANS

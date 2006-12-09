@@ -1,42 +1,42 @@
 .TH msec 8 "29 Srp 2001" "Mandriva" "Mandriva Linux"
 .IX msec
-.SH NÁZEV
-msec \- Bezpeènostní nástroje spoleènosti Mandriva Linux
+.SH NÃZEV
+msec \- BezpeÄnostnÃ­ nÃ¡stroje spoleÄnosti Mandriva Linux
 .SH SYNAPSE
 .B msec ([-o <volba>=<hodnota>...]) ([0-5])
 .SH POPIS
-Skript \fPmsec\fP je hlavním skriptem balíèku msec. Umo¾òuje správci systému zmìnit úroveò bezpeènostního nastavení systému.
-Aplikace msec je dodávána s ¹esti pøednastavenımi bezpeènostními úrovnìmi. Tyto úrovnì jsou v rozsahu od velmi slabé úrovnì zabezpeèení a snadnìj¹ího zpùsobu pou¾ití a¾ po paranoidní nastavení, vhodné pro velmi citlivé aplikace na servery.
+Skript \fPmsec\fP je hlavnÃ­m skriptem balÃ­Äku msec. UmoÅ¾Åˆuje sprÃ¡vci systÃ©mu zmÄ›nit ÃºroveÅˆ bezpeÄnostnÃ­ho nastavenÃ­ systÃ©mu.
+Aplikace msec je dodÃ¡vÃ¡na s Å¡esti pÅ™ednastavenÃ½mi bezpeÄnostnÃ­mi ÃºrovnÄ›mi. Tyto ÃºrovnÄ› jsou v rozsahu od velmi slabÃ© ÃºrovnÄ› zabezpeÄenÃ­ a snadnÄ›jÅ¡Ã­ho zpÅ¯sobu pouÅ¾itÃ­ aÅ¾ po paranoidnÃ­ nastavenÃ­, vhodnÃ© pro velmi citlivÃ© aplikace na servery.
 .PP
-Abyste mohli skript \fPmsec\fP spustit, musíte bıt pøihlá¹eni jako u¾ivatel root.
+Abyste mohli skript \fPmsec\fP spustit, musÃ­te bÃ½t pÅ™ihlÃ¡Å¡eni jako uÅ¾ivatel root.
 .br
-Spus»te skript "msec x", chcete-li nastavit úroveò bezpeènosti na úroveò x (x=[0-5]). Skript upraví vá¹ systém podle vlastností vybrané úrovnì x. Pokud zavoláte tento program bez parametrù, program automaticky znovu zavede aktuální úroveò bezpeènosti bez jejího sní¾ení.
+SpusÅ¥te skript "msec x", chcete-li nastavit ÃºroveÅˆ bezpeÄnosti na ÃºroveÅˆ x (x=[0-5]). Skript upravÃ­ vÃ¡Å¡ systÃ©m podle vlastnostÃ­ vybranÃ© ÃºrovnÄ› x. Pokud zavolÃ¡te tento program bez parametrÅ¯, program automaticky znovu zavede aktuÃ¡lnÃ­ ÃºroveÅˆ bezpeÄnosti bez jejÃ­ho snÃ­Å¾enÃ­.
 .br
-V¹echny zmìny jsou zaznamenávány do systémového logu pomocí nástroje AUTH, pokud je \fBmsec\fP volán neinteraktivnì (napøíklad démonem \fBcron\fP), nebo pomocí nástroje LOCAL1, pokud je \fBmsec\fP volán interaktivnì (napø. z pøíkazové øádky nebo z Ovládacího centra Mandriva Linux).
+VÅ¡echny zmÄ›ny jsou zaznamenÃ¡vÃ¡ny do systÃ©movÃ©ho logu pomocÃ­ nÃ¡stroje AUTH, pokud je \fBmsec\fP volÃ¡n neinteraktivnÄ› (napÅ™Ã­klad dÃ©monem \fBcron\fP), nebo pomocÃ­ nÃ¡stroje LOCAL1, pokud je \fBmsec\fP volÃ¡n interaktivnÄ› (napÅ™. z pÅ™Ã­kazovÃ© Å™Ã¡dky nebo z OvlÃ¡dacÃ­ho centra Mandriva Linux).
 .br
-Podrobnìj¹í popis ka¾dé z bezpeènostních úrovní naleznete v dokumentaci umístìné v souborech /usr/doc/msec-*/security.txt.
+PodrobnÄ›jÅ¡Ã­ popis kaÅ¾dÃ© z bezpeÄnostnÃ­ch ÃºrovnÃ­ naleznete v dokumentaci umÃ­stÄ›nÃ© v souborech /usr/doc/msec-*/security.txt.
 .PP
-Chcete-li provést zmìny ve stávající úrovni bezpeènosti, pou¾ijte soubor /etc/security/msec/level.local a pøepi¹te práva/u¾ivatele/skupiny, nebo pou¾ijte soubor /etc/security/msec/level.local a pøepi¹te pravidla (viz mseclib(3) pro více detailù).
-.SH "DOSTUPNÉ VOLBY"
+Chcete-li provÃ©st zmÄ›ny ve stÃ¡vajÃ­cÃ­ Ãºrovni bezpeÄnosti, pouÅ¾ijte soubor /etc/security/msec/level.local a pÅ™epiÅ¡te prÃ¡va/uÅ¾ivatele/skupiny, nebo pouÅ¾ijte soubor /etc/security/msec/level.local a pÅ™epiÅ¡te pravidla (viz mseclib(3) pro vÃ­ce detailÅ¯).
+.SH "DOSTUPNÃ‰ VOLBY"
 .IP "\fB\-o all-local-files=<hodnota>"
-pokud je nastaveno na 1, pova¾ují se v¹echny soubory za lokální.
+pokud je nastaveno na 1, povaÅ¾ujÃ­ se vÅ¡echny soubory za lokÃ¡lnÃ­.
 .IP "\fB\-o log=<hodnota>"
-pokud není zadaná hodnota syslog, nezaznamenávají se zmìny do systémového logu, ale na standardní vıstup.
+pokud nenÃ­ zadanÃ¡ hodnota syslog, nezaznamenÃ¡vajÃ­ se zmÄ›ny do systÃ©movÃ©ho logu, ale na standardnÃ­ vÃ½stup.
 .IP "\fB\-o nolocal=<cesta>"
-nenaètou se pravidla ze souboru /etc/security/msec/level.local.
+nenaÄtou se pravidla ze souboru /etc/security/msec/level.local.
 .IP "\fB\-o non-local-fstypes=<hodnota>"
-<hodnota> pøedstavuje seznam nelokálních souborovıch systémù oddìlenı èárkami.
+<hodnota> pÅ™edstavuje seznam nelokÃ¡lnÃ­ch souborovÃ½ch systÃ©mÅ¯ oddÄ›lenÃ½ ÄÃ¡rkami.
 .IP "\fB\-o print=<hodnota>"
-pokud je nastaveno na 1, vypí¹í se vıchozí hodnoty pravidel.
+pokud je nastaveno na 1, vypÃ­Å¡Ã­ se vÃ½chozÃ­ hodnoty pravidel.
 .IP "\fB\-o root=<cesta>"
-pou¾ije <cestu> jako koøen souborového systému.
+pouÅ¾ije <cestu> jako koÅ™en souborovÃ©ho systÃ©mu.
 .SH SOUBORY
 /usr/sbin/msec
 .br
-Spustitelnı soubor \fPmsec\fP (skript shellu sh)
+SpustitelnÃ½ soubor \fPmsec\fP (skript shellu sh)
 .PP
 /var/lib/msec/security.conf
 .br
-Obsahuje nastavení právì aktivní bezpeènostní úrovnì. Tato nastavení lze pøepsat v souboru /etc/security/msec/security.conf
+Obsahuje nastavenÃ­ prÃ¡vÄ› aktivnÃ­ bezpeÄnostnÃ­ ÃºrovnÄ›. Tato nastavenÃ­ lze pÅ™epsat v souboru /etc/security/msec/security.conf
 .SH AUTOR
 Vandoorselaere Yoann, Mandriva

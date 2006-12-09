@@ -1,60 +1,60 @@
 .TH msec 8 "29 Sep 2001" "Mandriva" "Mandriva Linux"
 .IX msec
 .SH NAZWA
-msec \- Narzêdzia bezpieczeñstwa Mandriva Linux
-.SH SK£ADNIA
+msec \- NarzÄ™dzia bezpieczeÅ„stwa Mandriva Linux
+.SH SKÅADNIA
 .B msec
 ([-o <option>=<value>...]) ([0-5])
 .SH OPIS
-\fPmsec\fP jest g³ównym skryptem pakietu msec. Umo¿liwia on
-administratorowi systemu zmianê poziomu bezpieczeñstwa dla systemu.
-msec jest dostarczony z sze¶cioma wstêpnie skonfigurowanymi poziomami
-bezpieczeñstwa. Od najs³abszego bezpieczeñstwa, ³atwego w u¿yciu do
-paranoidalnej konfiguracji odpowiedniej dla bardzo wra¿liwych
+\fPmsec\fP jest gÅ‚Ã³wnym skryptem pakietu msec. UmoÅ¼liwia on
+administratorowi systemu zmianÄ™ poziomu bezpieczeÅ„stwa dla systemu.
+msec jest dostarczony z szeÅ›cioma wstÄ™pnie skonfigurowanymi poziomami
+bezpieczeÅ„stwa. Od najsÅ‚abszego bezpieczeÅ„stwa, Å‚atwego w uÅ¼yciu do
+paranoidalnej konfiguracji odpowiedniej dla bardzo wraÅ¼liwych
 aplikacji serwerowych.
 .PP
-Skrypt \fPmsec\fP mo¿na uruchamiaæ tylko z poziomu administratora.
+Skrypt \fPmsec\fP moÅ¼na uruchamiaÄ‡ tylko z poziomu administratora.
 .br
-Uruchom "msec x" aby ustawiæ poziom bezpieczeñstwa na x (x=[0-5]).
-Wywo³anie to zmodyfikuje system w zale¿no¶ci od funkcji poziomu
-bezpieczeñstwa. Skrypt wywo³ywany bez argumentów wymusi bie¿±cy
-poziom bezpieczeñstwa bez jego zmiejszania.
+Uruchom "msec x" aby ustawiÄ‡ poziom bezpieczeÅ„stwa na x (x=[0-5]).
+WywoÅ‚anie to zmodyfikuje system w zaleÅ¼noÅ›ci od funkcji poziomu
+bezpieczeÅ„stwa. Skrypt wywoÅ‚ywany bez argumentÃ³w wymusi bieÅ¼Ä…cy
+poziom bezpieczeÅ„stwa bez jego zmiejszania.
 .br
-Wszystkie zmiany s± zapisywane do dziennika systemowego z funkcj±
-AUTH przy wywo³aniu nie interaktywnym (na przyk³ad za po¶rednictwem
-mechanizmu cron) lub z funkcj± LOCAL1 przy wywo³ywaniu interaktywnym
-(z wiersza poleceñ lub na przyk³ad z Centrum Sterowania Mandriva Linux).
+Wszystkie zmiany sÄ… zapisywane do dziennika systemowego z funkcjÄ…
+AUTH przy wywoÅ‚aniu nie interaktywnym (na przykÅ‚ad za poÅ›rednictwem
+mechanizmu cron) lub z funkcjÄ… LOCAL1 przy wywoÅ‚ywaniu interaktywnym
+(z wiersza poleceÅ„ lub na przykÅ‚ad z Centrum Sterowania Mandriva Linux).
 .br
-Aby uzyskaæ pe³ny opis ka¿dego poziomu bezpieczeñstwa, skonsultuj
-siê z dokumentacj± w pliku /usr/share/doc/msec-*/security.txt.
+Aby uzyskaÄ‡ peÅ‚ny opis kaÅ¼dego poziomu bezpieczeÅ„stwa, skonsultuj
+siÄ™ z dokumentacjÄ… w pliku /usr/share/doc/msec-*/security.txt.
 .PP
-Je¶li chcesz uczyniæ zmiany w bie¿±cym poziomie bezpieczeñstwa,
-u¿yj pliku /etc/security/msec/perm.local aby nadpisaæ 
-uprawnienia/w³a¶cicieli/grupy oraz /etc/security/msec/level.local
-aby nadpisaæ zasady (zajrzyj do manuala mseclib(3) aby uzyskaæ
-wiêcej szczegó³ów).
+JeÅ›li chcesz uczyniÄ‡ zmiany w bieÅ¼Ä…cym poziomie bezpieczeÅ„stwa,
+uÅ¼yj pliku /etc/security/msec/perm.local aby nadpisaÄ‡ 
+uprawnienia/wÅ‚aÅ›cicieli/grupy oraz /etc/security/msec/level.local
+aby nadpisaÄ‡ zasady (zajrzyj do manuala mseclib(3) aby uzyskaÄ‡
+wiÄ™cej szczegÃ³Å‚Ã³w).
 .PP
-Dostêpne opcje:
+DostÄ™pne opcje:
 .TP
-\fB\-o all-local-files=<warto¶æ>\fR
-je¶li <warto¶æ> wynosi 1, zak³ada siê, ¿e wszystkie pliki s± lokalne.
+\fB\-o all-local-files=<wartoÅ›Ä‡>\fR
+jeÅ›li <wartoÅ›Ä‡> wynosi 1, zakÅ‚ada siÄ™, Å¼e wszystkie pliki sÄ… lokalne.
 .TP
-\fB\-o log=<warto¶æ>\fR
-je¶li <warto¶æ> jest ró¿na ni¿ syslog komunikaty nie s± wysy³ane do
-dziennika tylko na wyj¶cie standardowe
+\fB\-o log=<wartoÅ›Ä‡>\fR
+jeÅ›li <wartoÅ›Ä‡> jest rÃ³Å¼na niÅ¼ syslog komunikaty nie sÄ… wysyÅ‚ane do
+dziennika tylko na wyjÅ›cie standardowe
 .TP
-\fB\-o nolocal=<¶cie¿ka>\fR
+\fB\-o nolocal=<Å›cieÅ¼ka>\fR
 bez wczytywania zasad /etc/security/msec/level.local.
 .TP
-\fB\-o non-local-fstypes=<warto¶æ>\fR
-<warto¶æ> jest list± nielokalnych systemowych typów plików rozdzielonych
+\fB\-o non-local-fstypes=<wartoÅ›Ä‡>\fR
+<wartoÅ›Ä‡> jest listÄ… nielokalnych systemowych typÃ³w plikÃ³w rozdzielonych
 spacjami.
 .TP
-\fB\-o print=<warto¶æ>\fR
-je¶li <warto¶æ> jest równa 1, wypisuje domy¶lne warto¶ci zasad.
+\fB\-o print=<wartoÅ›Ä‡>\fR
+jeÅ›li <wartoÅ›Ä‡> jest rÃ³wna 1, wypisuje domyÅ›lne wartoÅ›ci zasad.
 .TP
-\fB\-o root=<¶cie¿ka>\fR
-u¿ywanie parametru <¶cie¿ka> jako g³ównego systemu plików. 
+\fB\-o root=<Å›cieÅ¼ka>\fR
+uÅ¼ywanie parametru <Å›cieÅ¼ka> jako gÅ‚Ã³wnego systemu plikÃ³w. 
 .SH PLIKI
 /usr/sbin/msec
 .br
@@ -62,11 +62,11 @@ Wykonywalny plik \fPmsec\fP (skrypt sh)
 .PP
 /var/lib/msec/security.conf
 .br
-Zawiera konfiguracjê bie¿±cego aktywnego poziomu bezpieczeñstwa. Te
-ustawienia mog± byæ nadpisane w pliku /etc/security/msec/security.conf.
+Zawiera konfiguracjÄ™ bieÅ¼Ä…cego aktywnego poziomu bezpieczeÅ„stwa. Te
+ustawienia mogÄ… byÄ‡ nadpisane w pliku /etc/security/msec/security.conf.
 
 .SH AUTORZY
 Vandoorselaere Yoann, Mandriva
 
-.SH T£UMACZENIE
+.SH TÅUMACZENIE
 Arkadiusz Lipiec <alipiec@elka.pw.edu.pl>

@@ -451,7 +451,7 @@ def allow_reboot(arg):
 allow_reboot.arg_trans = YES_NO_TRANS
 
 ################################################################################
-SHOW_USERS_VALUES = ('All', 'Selected', 'None')
+SHOW_USERS_VALUES = ('NotHidden', 'Selected')
 
 def allow_user_list(arg):
     '''  Allow/Forbid the list of users on the system on display managers (kdm and gdm).'''
@@ -469,7 +469,7 @@ def allow_user_list(arg):
         val_gdmconf = 'true'
     else:
         msg = 'Disabling the listing of users in display managers'
-        val_kdmrc = 2
+        val_kdmrc = 1
         val_gdmconf = 'false'
 
     # don't lower security when not changing security level

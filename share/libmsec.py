@@ -433,7 +433,7 @@ def allow_reboot(arg):
                 cfg.exists() or cfg.symlink(CONSOLE_HELPER)
         if not (same_level() and val_sysctlconf == '0'):
             sysctlconf.set_shell_variable('kernel.sysrq', 1)
-        if not (same_level() and val_gdmconf == 'false'):
+        if not same_level() and val_gdmconf == 'false':
             gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'true', '\[greeter\]', '^\s*$')
         if not (same_level() and not val_inittab):
             inittab.replace_line_matching(CTRALTDEL_REGEXP, 'ca::ctrlaltdel:/sbin/shutdown -t3 -r now', 1)

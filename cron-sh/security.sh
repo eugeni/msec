@@ -72,14 +72,15 @@ CHKROOTKIT_YESTERDAY="/var/log/security/chkrootkit.yesterday"
 export EXCLUDE_REGEXP
 
 # Modified filters coming from debian security scripts.
-CS_NFSAFS='(nfs|afs|coda)'
-CS_TYPES=' type (devpts|sysfs|usbfs|auto|proc|msdos|fat|vfat|iso9660|ncpfs|smbfs|hfs|'$CS_NFSAFS')'
-CS_DEVS='^/dev/fd'
-CS_DIRS='on /mnt'
-FILTERS="$CS_TYPES|$CS_DEVS|$CS_DIRS"
-DIR=`mount | grep -vE "$FILTERS" | cut -d ' ' -f3`
+# rootfs is not listed among excluded types, because 
+# / is mounted twice, and filtering it would mess with excluded dir list
+TYPE_FILTER='(devpts|sysfs|usbfs|tmpfs|binfmt_misc|auto|proc|msdos|fat|vfat|iso9660|ncpfs|smbfs|hfs|nfs|afs|coda)'
+MOUNTPOINT_FILTER='^\/mnt'
+DIR=`awk '$3 !~ /'$TYPE_FILTER'/ && $2 !~ /'$MOUNTPOINT_FILTER'/ \
+	{print $2}' /proc/mounts | uniq`
 PRINT="%h/%f\n"
-EXCLUDEDIR=`mount | grep -E "$FILTERS" | cut -d ' ' -f3`
+EXCLUDEDIR=`awk '$3 ~ /'$TYPE_FILTER'/ || $2 ~ /'$MOUNTPOINT_FILTER'/ \
+	{print $2}' /proc/mounts | uniq`
 export EXCLUDEDIR
 
 if [[ ! -d /var/log/security ]]; then

@@ -1,5 +1,6 @@
 PACKAGE = msec
-VERSION:=0.50.2
+VERSION = 0.50.2
+SVNPATH = svn+ssh://svn.mandriva.com/svn/soft/msec
 
 all: promisc_check msec_find python
 	make -C cron-sh
@@ -68,3 +69,6 @@ changelog:
 export:
 	rm -fr $(PACKAGE)-$(VERSION)
 	svn export `svn info | grep '^URL' | sed 's/URL : //'` $(PACKAGE)-$(VERSION)
+
+svntag:
+	svn cp -m 'version $(VERSION)' $(SVNPATH)/trunk $(SVNPATH)/tags/v$(VERSION)

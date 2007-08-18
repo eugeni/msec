@@ -41,6 +41,7 @@ AUTOLOGIN = '/etc/sysconfig/autologin'
 BASTILLENOLOGIN = '/etc/bastille-no-login'
 CRON = '/etc/cron.d/msec'
 CRONALLOW = '/etc/cron.allow'
+FSTAB = '/etc/fstab'
 GDM = '/etc/pam.d/gdm'
 GDMCONF = '/etc/X11/gdm/gdm.conf'
 HALT = '/usr/bin/halt'
@@ -376,6 +377,25 @@ def set_shell_history_size(size):
         if val != None:
             _interactive and log(_('Removing limit on shell history size'))
             msec.remove_line_matching('^HISTFILESIZE=')
+
+################################################################################
+
+def set_win_parts_umask(umask):
+    '''  Set umask option for mounting vfat and ntfs partitions. A value of None means default umask.'''
+    fstab = ConfigFile.get_config_file(FSTAB)
+        
+    # don't lower security when not changing security level
+    if same_level():
+        if umask != None:
+            return
+
+    if umask == None:
+        fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+)umask=\d+(\s.*)", "@1defaults@3", 0, 1)
+        fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+)umask=\d+,(.*)", "@1@3", 0, 1)
+        fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+\S+),umask=\d+(.*)", "@1@3", 0, 1)
+    else:
+        fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+\S*)umask=\d+(.*)", "@1umask=0@3", 0, 1)
+        fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+)(?!.*umask=)(\S+)(.*)", "@1@3,umask=0@4", 0, 1)       
         
 ################################################################################
 

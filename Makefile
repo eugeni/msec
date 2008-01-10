@@ -64,6 +64,7 @@ tar: export
 dist: cleandist dir export tar
 
 changelog: 
+	svn up
 	svn2cl -o ChangeLog || : 
 
 export:

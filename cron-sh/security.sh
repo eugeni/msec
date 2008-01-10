@@ -69,6 +69,7 @@ RPM_QA_YESTERDAY="/var/log/security/rpm-qa.yesterday"
 RPM_QA_DIFF="/var/log/security/rpm-qa.diff"
 export CHKROOTKIT_TODAY="/var/log/security/chkrootkit.today"
 CHKROOTKIT_YESTERDAY="/var/log/security/chkrootkit.yesterday"
+CHKROOTKIT_DIFF="/var/log/security/chkrootkit.diff"
 export EXCLUDE_REGEXP
 
 # Modified filters coming from debian security scripts.

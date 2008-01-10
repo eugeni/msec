@@ -184,6 +184,24 @@ if [[ ${RPM_CHECK} == yes ]]; then
     fi
 fi
 
+### Changed chkrootkit
+if [[ ${CHKROOTKIT_CHECK} == yes ]]; then
+
+    if [[ -f ${CHKROOTKIT_YESTERDAY} ]]; then
+       diff -u ${CHKROOTKIT_YESTERDAY} ${CHKROOTKIT_TODAY} 1> ${CHKROOTKIT_DIFF}
+       if [ -s ${CHKROOTKIT_DIFF} ]; then
+           printf "\nSecurity Warning: There are modifications for chkrootkit results :\n" >> ${TMP}
+           grep '^+' ${CHKROOTKIT_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
+               printf "\t\t-  Added : ${file}\n"
+           done >> ${TMP}
+           grep '^-' ${CHKROOTKIT_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
+               printf "\t\t- Removed  : ${file}\n"
+           done >> ${TMP}
+        fi
+    fi
+fi
+
+
 ######## Report ######
 date=`date`
 hostname=`hostname`

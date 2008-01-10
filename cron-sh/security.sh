@@ -131,7 +131,7 @@ if [[ -f ${CHKROOTKIT_TODAY} ]]; then
     mv -f ${CHKROOTKIT_TODAY} ${CHKROOTKIT_YESTERDAY}
 fi
 
-netstat -pvlA inet 2> /dev/null > ${OPEN_PORT_TODAY};
+netstat -pvlA inet,inet6 2> /dev/null > ${OPEN_PORT_TODAY};
 
 # Hard disk related file check; the less priority the better...
 nice --adjustment=+19 /usr/bin/msec_find ${DIR}

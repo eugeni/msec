@@ -1,5 +1,5 @@
 PACKAGE = msec
-VERSION = 0.50.3
+VERSION = 0.50.4
 SVNPATH = svn+ssh://svn.mandriva.com/svn/soft/msec
 
 all: promisc_check msec_find python
@@ -69,7 +69,7 @@ changelog:
 
 export:
 	rm -fr $(PACKAGE)-$(VERSION)
-	svn export `svn info | grep '^URL' | sed 's/URL : //'` $(PACKAGE)-$(VERSION)
+	svn export `svn info | grep '^URL' | awk '{print $2}'` $(PACKAGE)-$(VERSION)
 
 svntag:
 	svn cp -m 'version $(VERSION)' $(SVNPATH)/trunk $(SVNPATH)/tags/v$(VERSION)

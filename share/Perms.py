@@ -117,6 +117,20 @@ def build_non_localfs_regexp():
     else:
         return re.compile(regexp + REGEXP_END)
 
+# resolv symlink
+def get_sylink_name(path):
+    try:
+        p = os.readlink(path)
+    except OSError:
+        return path
+    if p and p[0] != '/':
+        p = os.path.dirname(path) + '/' + p
+    p = os.path.abspath(p)
+    if p == path:
+        return path
+    else:
+        return get_sylink_name(p)
+
 # put the new perm/group/owner in the assoc variable according to the
 # content of the path file.
 assoc = {}
@@ -178,15 +192,20 @@ def fix_perms(path, _interactive, force):
         if fieldcount == 4:
             for f in glob.glob(fields[0]):
                 newperm = perm
-		f = os.path.realpath(f)
+                if fs_regexp and fs_regexp.search(f):
+                    _interactive and log(_('Non local file: "%s". Nothing changed.') % fields[0])
+                    continue
                 try:
                     full = os.lstat(f)
                 except OSError:
                     continue
                 
-                if fs_regexp and fs_regexp.search(f):
-                    _interactive and log(_('Non local file: "%s". Nothing changed.') % fields[0])
-                    continue
+                if stat.S_ISLNK(full[stat.ST_MODE]):
+                    f = get_sylink_name(f)
+                    try:
+                        full = os.stat(f)
+                    except OSError:
+                        continue
 
                 mode = stat.S_IMODE(full[stat.ST_MODE])
 

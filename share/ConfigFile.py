@@ -201,6 +201,7 @@ class ConfigFile:
         lines = self.get_lines()
         idx=0
         value=str(value)
+        start_regexp = start
 
         if start:
             status = BEFORE
@@ -231,6 +232,10 @@ class ConfigFile:
                     self.modified()
                     log(_('set variable %s to %s in %s') % (var, value, self.path,))
                 return self
+        if status == BEFORE:
+            # never found the start delimiter
+            log(_('WARNING: never found regexp %s in %s, not writing changes') % (start_regexp, self.path))
+            return self
         if space.search(value):
             s = var + '="' + value + '"'
         else:

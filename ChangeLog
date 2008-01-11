@@ -1,3 +1,20 @@
+2008-01-11 18:08  andreas
+
+	* Makefile, share/ConfigFile.py: - fix infinitely growing kdmrc
+	  with set variable AllowShutdown to None (#12821)
+
+2008-01-11 17:28  andreas
+
+	* Makefile: - typo fix in makefile
+
+2008-01-11 17:06  andreas
+
+	* Makefile: - prepare 0.50.4
+
+2008-01-11 17:03  andreas
+
+	* ChangeLog: - update ChangeLog
+
 2008-01-11 17:00  andreas
 
 	* cron-sh/security.sh: - don't place too many packages in the

@@ -228,7 +228,9 @@ Nothing has changed since the last run.
 EOF
                 fi
             else
-		cat ${text} | /bin/mail -s "${subject}" "${MAIL_USER}"
+		# remove non-printable characters,
+		# see http://qa.mandriva.com/show_bug.cgi?id=36848
+		cat ${text} | sed -e 's,[^[:print:]],,' | /bin/mail -s "${subject}" "${MAIL_USER}"
 	    fi
 	fi
     fi

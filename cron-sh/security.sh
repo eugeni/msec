@@ -134,6 +134,8 @@ fi
 
 netstat -pvlA inet,inet6 2> /dev/null > ${OPEN_PORT_TODAY};
 
+ionice -n7 -p $$
+
 # Hard disk related file check; the less priority the better...
 nice --adjustment=+19 /usr/bin/msec_find ${DIR}
 

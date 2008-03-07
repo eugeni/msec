@@ -43,6 +43,7 @@ install:
 	    install -d $(RPM_BUILD_ROOT)/usr/share/man/`basename $$i`/man8 ; \
 	    install -m 644 $$i/*.8 $(RPM_BUILD_ROOT)/usr/share/man/`basename $$i`/man8 ; \
 	done	
+
 cleandist:
 	rm -rf $(PACKAGE)-$(VERSION) $(PACKAGE)-$(VERSION).tar.bz2
 

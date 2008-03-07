@@ -47,8 +47,7 @@ cleandist:
 	rm -rf $(PACKAGE)-$(VERSION) $(PACKAGE)-$(VERSION).tar.bz2
 
 tar:
-	tar cvf $(PACKAGE)-$(VERSION).tar $(PACKAGE)-$(VERSION)
-	bzip2 -9vf $(PACKAGE)-$(VERSION).tar
+	tar cvfj $(PACKAGE)-$(VERSION).tar.bz2 $(PACKAGE)-$(VERSION)
 	rm -rf $(PACKAGE)-$(VERSION)
 
 dist: cleandist export tar

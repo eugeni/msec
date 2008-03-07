@@ -69,7 +69,7 @@ changelog:
 
 export:
 	rm -fr $(PACKAGE)-$(VERSION)
-	svn export `svn info | grep '^URL' | awk '{print $$2}'` $(PACKAGE)-$(VERSION)
+	svn export `LANGUAGE=C svn info | grep '^URL' | awk '{print $$2}'` $(PACKAGE)-$(VERSION)
 
 svntag:
 	svn cp -m 'version $(VERSION)' $(SVNPATH)/trunk $(SVNPATH)/tags/v$(VERSION)

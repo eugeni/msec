@@ -1,3 +1,89 @@
+2008-03-07 10:00  tv
+
+	* Makefile: (tar) no need to be verbose
+
+2008-03-07 10:00  tv
+
+	* Makefile: add space
+
+2008-03-07 09:59  tv
+
+	* Makefile: (tar) prevent using a large & useless temporary file
+
+2008-03-07 09:59  tv
+
+	* Makefile: (dir) kill it since it would break svn export which
+	  need to remove it
+	  before operating
+
+2008-03-07 09:58  tv
+
+	* Makefile: (localdist) kill it since it performs the same stuff as
+	  (dist)
+
+2008-03-07 09:58  tv
+
+	* Makefile: (localcopy) kill it; it's useless with SVN, svn export
+	  does a better job
+
+2008-03-07 09:57  tv
+
+	* Makefile: (tar) no need to copy again the files through (export)
+	  since both
+	  (dist) & (localdist) already did it
+
+2008-03-07 09:55  tv
+
+	* Makefile: (export) do not package uncommited local diff (if any)
+
+2008-03-07 09:55  tv
+
+	* Makefile: (export) let's be not verbose
+
+2008-03-07 09:54  tv
+
+	* Makefile: (export) simplify
+
+2008-03-07 09:54  tv
+
+	* Makefile: (export) fix it when using a locale != C
+
+2008-03-07 09:50  tv
+
+	* share/.cvsignore, share/.svnignore: rename .cvsignore as
+	  .svnignore
+
+2008-03-07 09:49  tv
+
+	* Makefile: (localcopy) we no more have CVS/ but .svn
+
+2008-03-07 09:45  tv
+
+	* Makefile: 0.50.8
+
+2008-03-07 09:45  tv
+
+	* cron-sh/security.sh: reduce I/O priority
+
+2008-01-25 12:23  andreas
+
+	* Makefile, src/msec_find/Makefile: - use large file support in
+	  msec_find (#36047)
+
+2008-01-25 11:17  andreas
+
+	* Makefile, cron-sh/security.sh: - remove non-printable characters
+	  from email report
+	  (#36848)
+
+2008-01-11 20:11  andreas
+
+	* man/C/mseclib.3: - add EXCLUDE_REGEXP to mseclib.3 manpage
+
+2008-01-11 18:40  andreas
+
+	* ChangeLog: - update ChangeLog
+
 2008-01-11 18:08  andreas
 
 	* Makefile, share/ConfigFile.py: - fix infinitely growing kdmrc

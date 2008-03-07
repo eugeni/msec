@@ -54,7 +54,7 @@ dir:
 
 localcopy: clean
 	find . -not -name "$(PACKAGE)-$(VERSION)" -a -not -name '*.bz2'|cpio -pd $(PACKAGE)-$(VERSION)/
-	find $(PACKAGE)-$(VERSION) -type d -name CVS|xargs rm -rf 
+	find $(PACKAGE)-$(VERSION) -type d -name .svn|xargs rm -rf 
 
 tar: export
 	tar cvf $(PACKAGE)-$(VERSION).tar $(PACKAGE)-$(VERSION)

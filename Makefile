@@ -44,17 +44,13 @@ install:
 	    install -m 644 $$i/*.8 $(RPM_BUILD_ROOT)/usr/share/man/`basename $$i`/man8 ; \
 	done	
 
-localdist: cleandist dir localcopy tar
+localdist: cleandist dir export tar
 
 cleandist:
 	rm -rf $(PACKAGE)-$(VERSION) $(PACKAGE)-$(VERSION).tar.bz2
 
 dir:
 	mkdir $(PACKAGE)-$(VERSION)
-
-localcopy: clean
-	find . -not -name "$(PACKAGE)-$(VERSION)" -a -not -name '*.bz2'|cpio -pd $(PACKAGE)-$(VERSION)/
-	find $(PACKAGE)-$(VERSION) -type d -name .svn|xargs rm -rf 
 
 tar:
 	tar cvf $(PACKAGE)-$(VERSION).tar $(PACKAGE)-$(VERSION)

@@ -69,7 +69,7 @@ changelog:
 
 export:
 	rm -fr $(PACKAGE)-$(VERSION)
-	svn export . $(PACKAGE)-$(VERSION)
+	svn export -q . $(PACKAGE)-$(VERSION)
 
 svntag:
 	svn cp -m 'version $(VERSION)' $(SVNPATH)/trunk $(SVNPATH)/tags/v$(VERSION)

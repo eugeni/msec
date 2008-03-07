@@ -46,15 +46,12 @@ install:
 cleandist:
 	rm -rf $(PACKAGE)-$(VERSION) $(PACKAGE)-$(VERSION).tar.bz2
 
-dir:
-	mkdir $(PACKAGE)-$(VERSION)
-
 tar:
 	tar cvf $(PACKAGE)-$(VERSION).tar $(PACKAGE)-$(VERSION)
 	bzip2 -9vf $(PACKAGE)-$(VERSION).tar
 	rm -rf $(PACKAGE)-$(VERSION)
 
-dist: cleandist dir export tar
+dist: cleandist export tar
 
 changelog: 
 	svn up

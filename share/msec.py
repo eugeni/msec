@@ -176,6 +176,7 @@ if level >= 4:
         password_aging(30, 15)
         allow_remote_root_login(no)
     allow_xauth_from_root(no)
+    set_win_parts_umask(None)
 else:
     set_user_umask('022')
     set_shell_history_size(-1)
@@ -202,7 +203,6 @@ if server:
         allow_issues(LOCAL)
     enable_log_strange_packets(yes)
     enable_pam_root_from_wheel(no)
-    set_win_parts_umask(None)
 else:
     allow_autologin(yes)
     enable_console_log(no)

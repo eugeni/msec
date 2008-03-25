@@ -1,3 +1,17 @@
+2008-03-25 15:08  pixel
+
+	* Makefile: 0.50.9: do not allow msec to mess with umask=xxx for
+	  vfat in level 3 (#37222)
+
+2008-03-25 15:06  pixel
+
+	* share/msec.py: do not allow msec to mess with umask=xxx for vfat
+	  in level 3 (#37222)
+
+2008-03-07 10:04  tv
+
+	* ChangeLog: update
+
 2008-03-07 10:00  tv
 
 	* Makefile: (tar) no need to be verbose

@@ -76,7 +76,7 @@ export EXCLUDE_REGEXP
 # rootfs is not listed among excluded types, because 
 # / is mounted twice, and filtering it would mess with excluded dir list
 TYPE_FILTER='(devpts|sysfs|usbfs|tmpfs|binfmt_misc|rpc_pipefs|securityfs|auto|proc|msdos|fat|vfat|iso9660|ncpfs|smbfs|hfs|nfs|afs|coda)'
-MOUNTPOINT_FILTER='^\/mnt'
+MOUNTPOINT_FILTER='^\/mnt|^\/media'
 DIR=`awk '$3 !~ /'$TYPE_FILTER'/ && $2 !~ /'$MOUNTPOINT_FILTER'/ \
 	{print $2}' /proc/mounts | uniq`
 PRINT="%h/%f\n"

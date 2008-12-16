@@ -213,6 +213,7 @@ for file in $list ; do
         fi
 done > ${TMP}
 
+# TODO: do not check on remote shares (#41709)
 getent passwd | awk -F: '{print $1" "$6}' |
     while read username homedir; do
 	if ! expr "$homedir" : "$FILTER"  > /dev/null; then

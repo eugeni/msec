@@ -436,17 +436,14 @@ if level >= 4:
     enable_at_crontab(no)
     if level == 4:
         password_aging(60, 30)
-        allow_remote_root_login(without_password)
     else:
         password_aging(30, 15)
-        allow_remote_root_login(no)
     allow_xauth_from_root(no)
     set_win_parts_umask(None)
 else:
     set_user_umask('022')
     set_shell_history_size(-1)
     allow_root_login(yes)
-    allow_remote_root_login(yes)
     enable_sulogin(no)
     allow_user_list(yes)
     enable_promisc_check(no)
@@ -457,7 +454,18 @@ else:
     enable_at_crontab(yes)
     password_aging(99999)
     allow_xauth_from_root(yes)
-    
+
+# special exception for ssh; if level == 3, set
+# PermitRootLogin to without_password, otherwise set to no
+# see https://qa.mandriva.com/show_bug.cgi?id=19726
+if level >= 3:
+    if level == 3:
+        allow_remote_root_login(without_password)
+    else:
+        allow_remote_root_login(no)
+else:
+    allow_remote_root_login(yes)
+
 # differences between level 3,4,5 and others
 if server:
     allow_autologin(no)

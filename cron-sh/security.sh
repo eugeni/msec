@@ -1,5 +1,6 @@
 #!/bin/bash
 
+. /etc/sysconfig/i18n
 LCK=/var/run/msec-security.pid
 
 function cleanup() {
@@ -231,8 +232,8 @@ EOF
                 fi
             else
 		# remove non-printable characters,
-		# see http://qa.mandriva.com/show_bug.cgi?id=36848
-		cat ${text} | sed -e 's,[^[:print:]],,' | /bin/mail -s "${subject}" "${MAIL_USER}"
+                # see http://qa.mandriva.com/show_bug.cgi?id=36848 and https://qa.mandriva.com/show_bug.cgi?id=26773
+                cat ${text} | sed -e "s,[[:cntrl:]],,g" | LC_CTYPE=$LC_CTYPE /bin/mail -s "${subject}" "${MAIL_USER}"
 	    fi
 	fi
     fi

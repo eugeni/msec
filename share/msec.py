@@ -209,6 +209,13 @@ class MsecConfig:
         """Sets a configuration option"""
         self.options[option] = value
 
+    def list_options(self):
+        """Sorts and returns configuration parameters"""
+        sortedparams = self.options.keys()
+        if sortedparams:
+            sortedparams.sort()
+        return sortedparams
+
     def save(self):
         """Saves configuration. Comments go on top"""
         try:
@@ -300,7 +307,7 @@ if __name__ == "__main__":
     # overriding defined parameters from config file
     for opt in params:
         if force_level:
-            # forcing new value
+            # forcing new value as user requested it
             config.set(opt, params[opt])
         else:
             # only forcing new value when undefined

@@ -79,6 +79,7 @@ SETTINGS =    {'CHECK_SECURITY' :               ['yes', 'yes',  'yes'],
                'ENABLE_PAM_WHEEL_FOR_SU':       ['no',  'no',   'yes'],
                'ENABLE_PASSWORD':               ['yes', 'yes',  'yes'],
                'ENABLE_SULOGIN':                ['no',  'no',   'yes'],
+               'ENABLE_APPARMOR':               ['no',  'no',   'yes'],
                # password aging - do we need that at all??
                'NO_PASSWORD_AGING_FOR':         ['no',  'no',   'no' ],
                'PASSWORD_AGING':                ['no',  'no',   'no' ],
@@ -199,8 +200,10 @@ class MsecConfig:
         return True
 
     def get(self, option, default=None):
-        """Gets a configuration option"""
-        return self.options.get(option, default)
+        """Gets a configuration option, or defines it if not defined"""
+        if option not in self.options:
+            self.options[option] = default
+        return self.options[option]
 
     def set(self, option, value):
         """Sets a configuration option"""
@@ -266,17 +269,31 @@ if __name__ == "__main__":
                 print "%s: %s" % (item, params[item])
             sys.exit(0)
 
+    # ok, let's if user specified a security level
+    if len(args) == 0:
+        log.debug(_("No security level specified, using %s") % DEFAULT_LEVEL)
+        level = DEFAULT_LEVEL
+    else:
+        level = args[0]
+        log.debug(_("Using security level %s") % level)
+
+    # loading default configuration
+    params = load_defaults(level)
+    if not params:
+        sys.exit(1)
+
     # loading initial config
     config = MsecConfig(log, config="/tmp/msec.conf")
     if not config.load():
         log.info(_("Unable to load config, using default values"))
-    CHECK_SUID_ROOT = config.get("CHECK_SUID_ROOT")
-    if not CHECK_SUID_ROOT:
-        config.set("CHECK_SUID_ROOT", "yes")
+
+    # overriding defined parameters from config file
+    for opt in params:
+        params[opt] = config.get(opt, params[opt])
+
     if not config.save():
         log.error(_("Unable to save config!"))
     sys.exit(0)
-
 
 ############
 

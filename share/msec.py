@@ -24,7 +24,7 @@ from logging.handlers import SysLogHandler
 APP_NAME="msec"
 
 # security levels
-SECURITY = {
+SECURITY_LEVELS = {
             "none": 0,
             "default": 1,
             "secure": 2
@@ -34,60 +34,71 @@ DEFAULT_LEVEL="default"
 # default parameters
 #                                                   security level
 #               OPTION                           none   default secure
-SETTINGS =    {'CHECK_SECURITY' :               ('yes', 'yes',  'yes'),
-               'CHECK_PERMS' :                  ('no',  'yes',  'yes'),
-               'CHECK_SUID_ROOT' :              ('yes', 'yes',  'yes'),
-               'CHECK_SUID_MD5' :               ('yes', 'yes',  'yes'),
-               'CHECK_SGID' :                   ('yes', 'yes',  'yes'),
-               'CHECK_WRITABLE' :               ('yes', 'yes',  'yes'),
-               'CHECK_UNOWNED' :                ('no',  'no',   'yes'),
-               'CHECK_PROMISC' :                ('no',  'no',   'yes'),
-               'CHECK_OPEN_PORT' :              ('no',  'yes',  'yes'),
-               'CHECK_PASSWD' :                 ('no',  'yes',  'yes'),
-               'CHECK_SHADOW' :                 ('no',  'yes',  'yes'),
-               'CHECK_CHKROOTKIT' :             ('no',  'yes',  'yes'), # was: CHKROOTKIT_CHECK
-               'CHECK_RPM' :                    ('no',  'yes',  'yes'), # was: RPM_CHECK
-               'TTY_WARN' :                     ('no',  'no',   'yes'),
-               'MAIL_WARN' :                    ('no',  'yes',  'yes'),
-               'MAIL_EMPTY_CONTENT':            ('no',  'no',   'yes'),
-               'SYSLOG_WARN' :                  ('yes', 'yes',  'yes'),
+SETTINGS =    {'CHECK_SECURITY' :               ['yes', 'yes',  'yes'],
+               'CHECK_PERMS' :                  ['no',  'yes',  'yes'],
+               'CHECK_SUID_ROOT' :              ['yes', 'yes',  'yes'],
+               'CHECK_SUID_MD5' :               ['yes', 'yes',  'yes'],
+               'CHECK_SGID' :                   ['yes', 'yes',  'yes'],
+               'CHECK_WRITABLE' :               ['yes', 'yes',  'yes'],
+               'CHECK_UNOWNED' :                ['no',  'no',   'yes'],
+               'CHECK_PROMISC' :                ['no',  'no',   'yes'],
+               'CHECK_OPEN_PORT' :              ['no',  'yes',  'yes'],
+               'CHECK_PASSWD' :                 ['no',  'yes',  'yes'],
+               'CHECK_SHADOW' :                 ['no',  'yes',  'yes'],
+               'CHECK_CHKROOTKIT' :             ['no',  'yes',  'yes'], # was: CHKROOTKIT_CHECK
+               'CHECK_RPM' :                    ['no',  'yes',  'yes'], # was: RPM_CHECK
+               'TTY_WARN' :                     ['no',  'no',   'yes'],
+               'MAIL_WARN' :                    ['no',  'yes',  'yes'],
+               'MAIL_EMPTY_CONTENT':            ['no',  'no',   'yes'],
+               'SYSLOG_WARN' :                  ['yes', 'yes',  'yes'],
                # security options
-               'USER_UMASK':                    ('022', '022',  '077'),
-               'ROOT_UMASK':                    ('022', '022',  '077'),
-               'WIN_PARTS_UMASK':               ('no',  'no',   '0'  ),
-               'ACCEPT_BOGUS_ERROR_RESPONSES':  ('no',  'no',   'no' ),
-               'ACCEPT_BROADCASTED_ICMP_ECHO':  ('yes', 'yes',  'no' ),
-               'ACCEPT_ICMP_ECHO':              ('yes', 'yes',  'yes'),
-               'ALLOW_AUTOLOGIN':               ('yes', 'yes',  'no' ),
-               'ALLOW_ISSUES':                  ('yes', 'yes',  'yes'),
-               'ALLOW_REBOOT':                  ('yes', 'yes',  'yes'),
-               'ALLOW_REMOTE_ROOT_LOGIN':       ('yes', 'NOPW', 'no' ), # was: WITHOUT_PASSWORD
-               'ALLOW_ROOT_LOGIN':              ('yes', 'yes',  'no' ),
-               'ALLOW_USER_LIST':               ('yes', 'yes',  'no' ),
-               'ALLOW_X_CONNECTIONS':           ('yes', 'LOCAL','no' ),
-               'ALLOW_XAUTH_FROM_ROOT':         ('yes', 'yes',  'no' ),
-               'ALLOW_XSERVER_TO_LISTEN':       ('yes', 'no',   'no' ),
-               'AUTHORIZE_SERVICES':            ('ALL', 'LOCAL','NONE'),
-               'CREATE_SERVER_LINK':            ('no',  'no',   'yes'),
-               'ENABLE_AT_CRONTAB':             ('no',  'yes',  'no' ),
-               'ENABLE_CONSOLE_LOG':            ('yes', 'yes',  'no' ),
-               'ENABLE_DNS_SPOOFING_PROTECTION':('yes', 'yes',  'yes'),
-               'ENABLE_IP_SPOOFING_PROTECTION': ('yes', 'yes',  'yes'),
-               'ENABLE_LOG_STRANGE_PACKETS':    ('no',  'yes',  'yes'),
-               'ENABLE_MSEC_CRON':              ('no',  'yes',  'yes'),
-               'ENABLE_PAM_ROOT_FROM_WHEEL':    ('no',  'no',   'no' ),
-               'ENABLE_PAM_WHEEL_FOR_SU':       ('no',  'no',   'yes'),
-               'ENABLE_PASSWORD':               ('yes', 'yes',  'yes'),
-               'ENABLE_SULOGIN':                ('no',  'no',   'yes'),
+               'USER_UMASK':                    ['022', '022',  '077'],
+               'ROOT_UMASK':                    ['022', '022',  '077'],
+               'WIN_PARTS_UMASK':               ['no',  'no',   '0'  ],
+               'ACCEPT_BOGUS_ERROR_RESPONSES':  ['no',  'no',   'no' ],
+               'ACCEPT_BROADCASTED_ICMP_ECHO':  ['yes', 'yes',  'no' ],
+               'ACCEPT_ICMP_ECHO':              ['yes', 'yes',  'yes'],
+               'ALLOW_AUTOLOGIN':               ['yes', 'yes',  'no' ],
+               'ALLOW_ISSUES':                  ['yes', 'yes',  'yes'],
+               'ALLOW_REBOOT':                  ['yes', 'yes',  'yes'],
+               'ALLOW_REMOTE_ROOT_LOGIN':       ['yes', 'NOPW', 'no' ], # was: WITHOUT_PASSWORD
+               'ALLOW_ROOT_LOGIN':              ['yes', 'yes',  'no' ],
+               'ALLOW_USER_LIST':               ['yes', 'yes',  'no' ],
+               'ALLOW_X_CONNECTIONS':           ['yes', 'LOCAL','no' ],
+               'ALLOW_XAUTH_FROM_ROOT':         ['yes', 'yes',  'no' ],
+               'ALLOW_XSERVER_TO_LISTEN':       ['yes', 'no',   'no' ],
+               'AUTHORIZE_SERVICES':            ['ALL', 'LOCAL','NONE'],
+               'CREATE_SERVER_LINK':            ['no',  'no',   'yes'],
+               'ENABLE_AT_CRONTAB':             ['no',  'yes',  'no' ],
+               'ENABLE_CONSOLE_LOG':            ['yes', 'yes',  'no' ],
+               'ENABLE_DNS_SPOOFING_PROTECTION':['yes', 'yes',  'yes'],
+               'ENABLE_IP_SPOOFING_PROTECTION': ['yes', 'yes',  'yes'],
+               'ENABLE_LOG_STRANGE_PACKETS':    ['no',  'yes',  'yes'],
+               'ENABLE_MSEC_CRON':              ['no',  'yes',  'yes'],
+               'ENABLE_PAM_ROOT_FROM_WHEEL':    ['no',  'no',   'no' ],
+               'ENABLE_PAM_WHEEL_FOR_SU':       ['no',  'no',   'yes'],
+               'ENABLE_PASSWORD':               ['yes', 'yes',  'yes'],
+               'ENABLE_SULOGIN':                ['no',  'no',   'yes'],
                # password aging - do we need that at all??
-               'NO_PASSWORD_AGING_FOR':         ('no',  'no',   'no' ),
-               'PASSWORD_AGING':                ('no',  'no',   'no' ),
-               'PASSWORD_HISTORY':              ('no',  'no',   '2'  ),
+               'NO_PASSWORD_AGING_FOR':         ['no',  'no',   'no' ],
+               'PASSWORD_AGING':                ['no',  'no',   'no' ],
+               'PASSWORD_HISTORY':              ['no',  'no',   '2'  ],
                #                                length, ndigits, nupper
-               'PASSWORD_LENGTH':               ('no',  'no',   '6,1,1'  ),
-               'SHELL_HISTORY_SIZE':            ('-1',  '-1',   '100'),
-               'SHELL_TIMEOUT':                 ('0',   '0',    '600'),
+               'PASSWORD_LENGTH':               ['no',  'no',   '6,1,1'],
+               'SHELL_HISTORY_SIZE':            ['-1',  '-1',   '100'],
+               'SHELL_TIMEOUT':                 ['0',   '0',    '600'],
                }
+
+def load_defaults(levelname):
+    """Loads default configuration for given level"""
+    if levelname not in SECURITY_LEVELS:
+        print >>sys.stderr, _("Error: unknown level '%s'!") % levelname
+        return None
+    level = SECURITY_LEVELS[levelname]
+    params = {}
+    for item in SETTINGS:
+        params[item] = SETTINGS[item][level]
+    return params
 
 # localization
 try:
@@ -209,13 +220,53 @@ class MsecConfig:
         return True
 # }}}
 
+def usage():
+    """Prints help message"""
+    print """Msec usage:
+msec [[-l] security level]
+The configuration is stored to /etc/security/msec/msec.conf.
+If no configuration file is found on the system, the specified
+security level is used to create one. If no security level is specified
+on the command line, "default" level is used.
+
+Arguments to msec:
+    -h, --help              displays this helpful message.
+    -l, --level <level>     displays configuration for specified security
+                            level.
+"""
+
 if __name__ == "__main__":
+    # configuring logging
     interactive = sys.stdin.isatty()
     if interactive:
         # logs to file and to terminal
         log = Log(log_path="/tmp/msec.log", interactive=True, log_syslog=False)
     else:
         log = Log(log_path="/tmp/msec.log", interactive=False)
+
+    # parse command line
+    try:
+        opt, args = getopt.getopt(sys.argv[1:], 'hl:', ['help', 'list'])
+    except getopt.error:
+        usage()
+        sys.exit(1)
+    for o in opt:
+        # help
+        if o[0] == '-h' or o[0] == '--option':
+            usage()
+            sys.exit(0)
+        # list
+        if o[0] == '-l' or o[0] == '--list':
+            level = o[1]
+            params = load_defaults(level)
+            if not params:
+                sys.exit(1)
+            print _("Default configuration for '%s' level") % level
+            for item in params:
+                print "%s: %s" % (item, params[item])
+            sys.exit(0)
+
+    # loading initial config
     config = MsecConfig(log, config="/tmp/msec.conf")
     if not config.load():
         log.info(_("Unable to load config, using default values"))

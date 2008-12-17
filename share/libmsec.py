@@ -1,3 +1,4 @@
+#!/usr/bin/python -O
 #---------------------------------------------------------------
 # Project         : Mandriva Linux
 # Module          : mseclib
@@ -23,11 +24,6 @@ import string
 import commands
 import time
 import traceback
-
-SUFFIX='.msec'
-_interactive=0
-_same_level=1
-FORCED = {}
 
 # list of config files
 
@@ -1365,14 +1361,7 @@ CHECK_SGID if set to yes, check additions/removals of sgid files.
     securityconf = ConfigFile.get_config_file(SECURITYCONF)
     securityconf.set_shell_variable(var, value)
 
-# various
-
-def set_interactive(v):
-    "D"
-    
-    global _interactive
-    
-    _interactive = v
-
-# libmsec.py ends here
+if __name__ == "__main__":
+    # this should never ever be run directly
+    print >>sys.stderr, """This file should not be run directly."""
 

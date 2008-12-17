@@ -218,7 +218,10 @@ class MsecConfig:
             return False
         for comment in self.comments:
             print >>fd, comment
-        for option in self.options:
+        # sorting keys
+        sortedparams = self.options.keys()
+        sortedparams.sort()
+        for option in sortedparams:
             print >>fd, "%s=%s" % (option, self.options[option])
         return True
 # }}}
@@ -247,9 +250,12 @@ if __name__ == "__main__":
     else:
         log = Log(log_path="/tmp/msec.log", interactive=False)
 
+    # configurable options
+    force_level = False
+
     # parse command line
     try:
-        opt, args = getopt.getopt(sys.argv[1:], 'hl:', ['help', 'list'])
+        opt, args = getopt.getopt(sys.argv[1:], 'hl:f', ['help', 'list', 'force'])
     except getopt.error:
         usage()
         sys.exit(1)
@@ -259,7 +265,7 @@ if __name__ == "__main__":
             usage()
             sys.exit(0)
         # list
-        if o[0] == '-l' or o[0] == '--list':
+        elif o[0] == '-l' or o[0] == '--list':
             level = o[1]
             params = load_defaults(level)
             if not params:
@@ -268,6 +274,10 @@ if __name__ == "__main__":
             for item in params:
                 print "%s: %s" % (item, params[item])
             sys.exit(0)
+        # force new level
+        elif o[0] == '-f' or o[0] == '--force':
+            force_level = True
+
 
     # ok, let's if user specified a security level
     if len(args) == 0:
@@ -289,7 +299,12 @@ if __name__ == "__main__":
 
     # overriding defined parameters from config file
     for opt in params:
-        params[opt] = config.get(opt, params[opt])
+        if force_level:
+            # forcing new value
+            config.set(opt, params[opt])
+        else:
+            # only forcing new value when undefined
+            config.get(opt, params[opt])
 
     if not config.save():
         log.error(_("Unable to save config!"))

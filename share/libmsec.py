@@ -1,11 +1,12 @@
 #---------------------------------------------------------------
 # Project         : Mandriva Linux
-# Module          : msec
+# Module          : mseclib
 # File            : libmsec.py
 # Version         : $Id$
-# Author          : Frederic Lepied
+# Author          : Eugeni Dodonov
+# Original Author : Frederic Lepied
 # Created On      : Mon Dec 10 22:52:17 2001
-# Purpose         : all access points of the msec utility.
+# Purpose         : low-level msec functions
 #---------------------------------------------------------------
 
 import ConfigFile
@@ -22,12 +23,6 @@ import string
 import commands
 import time
 import traceback
-
-try:
-    cat = gettext.Catalog('msec')
-    _ = cat.gettext
-except IOError:
-    _ = str
 
 SUFFIX='.msec'
 _interactive=0
@@ -110,65 +105,6 @@ ConfigFile.add_config_assoc('^/etc/issue$', '/usr/bin/killall mingetty')
 # functions
 
 ################################################################################
-
-# The same_level function inspects the call stack in the 2 previous
-# levels to see if a function is used that has been registered by
-# force_val and if this is the case we act as if we were changing the
-# security level to force the value to be used.
-def same_level():
-    'D'
-    tb = traceback.extract_stack()
-    if FORCED.has_key(tb[-2][2]) or FORCED.has_key(tb[-3][2]):
-        return 0
-    else:
-        return _same_level
-
-def changing_level():
-    'D'
-    global _same_level
-    _same_level=0
-
-def force_val(name):
-    'D'
-    global FORCED
-    FORCED[name] = 1
-
-# configuration rules
-
-################################################################################
-
-def set_secure_level(level):
-    msec = ConfigFile.get_config_file(MSEC)
-
-    val = msec.get_shell_variable('SECURE_LEVEL')
-
-    if not val or int(val) != level:
-        _interactive and log(_('Setting secure level to %s') % level)
-        msec.set_shell_variable('SECURE_LEVEL', level)
-
-################################################################################
-
-def get_secure_level():
-    'D'
-    msec = ConfigFile.get_config_file(MSEC)
-    return msec.get_shell_variable('SECURE_LEVEL')
-
-################################################################################
-
-def set_server_level(level):
-    _interactive and log(_('Setting server level to %s') % level)
-    securityconf = ConfigFile.get_config_file(SECURITYCONF2)
-    securityconf.set_shell_variable('SERVER_LEVEL', level)
-
-################################################################################
-
-def get_server_level():
-    'D'
-    securityconf = ConfigFile.get_config_file(SECURITYCONF2)
-    level = securityconf.get_shell_variable('SERVER_LEVEL')
-    if level: return level
-    msec = ConfigFile.get_config_file(MSEC)
-    return msec.get_shell_variable('SECURE_LEVEL')
 
 ################################################################################
 
@@ -1333,6 +1269,57 @@ to the other users. See pam_xauth(8) for more details.'''
             export.remove_line_matching('^\*$')
 
 ################################################################################
+
+def check_security():
+    pass
+
+def check_perms():
+    pass
+
+def check_suid_root():
+    pass
+
+def check_suid_md5():
+    pass
+
+def check_sgid():
+    pass
+
+def check_writable():
+    pass
+
+def check_unowned():
+    pass
+
+def check_promisc():
+    pass
+
+def check_open_port():
+    pass
+
+def check_passwd():
+    pass
+
+def check_shadow():
+    pass
+
+def check_chkrootkit():
+    pass
+
+def check_rpm():
+    pass
+
+def tty_warn():
+    pass
+
+def mail_warn():
+    pass
+
+def mail_empty_content():
+    pass
+
+def syslog_warn():
+    pass
 
 def set_security_conf(var, value):
     '''1 Set the variable \\fIvar\\fP to the value \\fIvalue\\fP in /var/lib/msec/security.conf.

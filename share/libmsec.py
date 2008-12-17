@@ -146,11 +146,11 @@ def set_umask(variable, umask, msg):
 
     if type(umask) != STRING_TYPE:
         umask = '0%o' % umask
-        
+
     if val != umask:
         _interactive and log(_('Setting %s umask to %s') % (msg, umask))
         msec.set_shell_variable(variable, umask)
-    
+
 def set_root_umask(umask):
     '''  Set the root umask.'''
     set_umask('UMASK_ROOT', umask, 'root')
@@ -166,7 +166,7 @@ def allow_x_connections(arg, listen_tcp=None):
     '''  Allow/Forbid X connections. First arg specifies what is done
 on the client side: ALL (all connections are allowed), LOCAL (only
 local connection) and NONE (no connection).'''
-    
+
     msec = ConfigFile.get_config_file(MSEC_XINIT)
 
     val = msec.exists() and msec.get_match('/usr/bin/xhost\s*\+\s*([^#]*)')
@@ -180,12 +180,12 @@ local connection) and NONE (no connection).'''
             val = NONE
     else:
         val = NONE
-        
+
     # don't lower security when not changing security level
     if same_level():
         if val == NONE or (val == LOCAL and arg == ALL):
             return
-        
+
     if arg == ALL:
         if val != arg:
             _interactive and log(_('Allowing users to connect X server from everywhere'))
@@ -195,12 +195,12 @@ local connection) and NONE (no connection).'''
         if val != arg:
             _interactive and log(_('Allowing users to connect X server from localhost'))
             msec.exists() and msec.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost + localhost', 1)
-        
+
     elif arg == NONE:
         if val != arg:
             _interactive and log(_('Restricting X server connection to the console user'))
             msec.exists() and msec.remove_line_matching('/usr/bin/xhost', 1)
-        
+
     else:
         error(_('invalid allow_x_connections arg: %s') % arg)
         return
@@ -218,12 +218,12 @@ KDMRC_REGEXP = re.compile('(.*?)-nolisten tcp(.*)$')
 def allow_xserver_to_listen(arg):
     '''  The argument specifies if clients are authorized to connect
 to the X server on the tcp port 6000 or not.'''
-    
+
     startx = ConfigFile.get_config_file(STARTX)
     xservers = ConfigFile.get_config_file(XSERVERS)
     gdmconf = ConfigFile.get_config_file(GDMCONF)
     kdmrc = ConfigFile.get_config_file(KDMRC)
-    
+
     val_startx = startx.exists() and startx.get_match(STARTX_REGEXP)
     val_xservers = xservers.exists() and xservers.get_match(XSERVERS_REGEXP)
     val_gdmconf = gdmconf.exists() and gdmconf.get_match(GDMCONF_REGEXP)
@@ -238,7 +238,7 @@ to the X server on the tcp port 6000 or not.'''
     if same_level():
         if val_startx and val_xservers and val_gdmconf and val_kdmrc:
             return
-        
+
     if arg:
         if val_startx or val_xservers or val_gdmconf or val_kdmrc:
             _interactive and log(_('Allowing the X server to listen to tcp connections'))
@@ -273,7 +273,7 @@ def set_shell_timeout(val):
             old = int(old)
     else:
         old = None
-        
+
     # don't lower security when not changing security level
     if same_level():
         if old != None and old > val:
@@ -293,14 +293,14 @@ def set_shell_history_size(size):
         val = msec.get_shell_variable('HISTFILESIZE')
     else:
         val = None
-        
+
     # don't lower security when not changing security level
     if same_level():
         if val != None:
             val = int(val)
             if size == -1 or val < size:
                 return
-            
+
     if size >= 0:
         if val != size:
             _interactive and log(_('Setting shell history size to %s') % size)
@@ -315,7 +315,7 @@ def set_shell_history_size(size):
 def set_win_parts_umask(umask):
     '''  Set umask option for mounting vfat and ntfs partitions. A value of None means default umask.'''
     fstab = ConfigFile.get_config_file(FSTAB)
-        
+
     # don't lower security when not changing security level
     if same_level():
         if umask != None:
@@ -327,8 +327,8 @@ def set_win_parts_umask(umask):
         fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+\S+),umask=\d+(.*)", "@1@3", 0, 1)
     else:
         fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+\S*)umask=\d+(.*)", "@1umask=0@3", 0, 1)
-        fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+)(?!.*umask=)(\S+)(.*)", "@1@3,umask=0@4", 0, 1)       
-        
+        fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+)(?!.*umask=)(\S+)(.*)", "@1@3,umask=0@4", 0, 1)
+
 ################################################################################
 
 def get_index(val, array):
@@ -349,7 +349,7 @@ def allow_reboot(arg):
     kdmrc = ConfigFile.get_config_file(KDMRC)
     gdmconf = ConfigFile.get_config_file(GDMCONF)
     inittab = ConfigFile.get_config_file(INITTAB)
-    
+
     val_shutdownallow = shutdownallow.exists()
     val_sysctlconf = sysctlconf.exists() and sysctlconf.get_shell_variable('kernel.sysrq')
     val_inittab = inittab.exists() and inittab.get_match(CTRALTDEL_REGEXP)
@@ -367,14 +367,14 @@ def allow_reboot(arg):
         val_kdmrc = 0
     else:
         val_kdmrc = 2
-        
+
     # don't lower security when not changing security level
     if same_level():
         if val_shutdownallow and val_sysctlconf == '0' and num == 0 and oldval_kdmrc >= val_kdmrc and val_gdmconf == 'false' and not val_inittab:
             return
         if oldval_kdmrc > val_kdmrc:
             val_kdmrc = oldval_kdmrc
-            
+
     if arg:
         _interactive and log(_('Allowing reboot to the console user'))
         if not (same_level() and val_shutdownallow):
@@ -409,7 +409,7 @@ def allow_user_list(arg):
     '''  Allow/Forbid the list of users on the system on display managers (kdm and gdm).'''
     kdmrc = ConfigFile.get_config_file(KDMRC)
     gdmconf = ConfigFile.get_config_file(GDMCONF)
-    
+
     oldval_gdmconf = gdmconf.exists() and gdmconf.get_shell_variable('Browser')
     oldval_kdmrc = kdmrc.exists() and kdmrc.get_shell_variable('ShowUsers', 'X-\*-Greeter', '^\s*$')
     if oldval_kdmrc:
@@ -432,7 +432,7 @@ def allow_user_list(arg):
             val_kdmrc = oldval_kdmrc
         if oldval_gdmconf == 'false':
             val_gdmconf = 'false'
-    
+
     if (gdmconf.exists() and oldval_gdmconf != val_gdmconf) or (kdmrc.exists() and oldval_kdmrc != val_kdmrc):
         _interactive and log(_(msg))
         oldval_kdmrc != val_gdmconf and kdmrc.exists() and kdmrc.set_shell_variable('ShowUsers', SHOW_USERS_VALUES[val_kdmrc], 'X-\*-Greeter', '^\s*$')
@@ -468,7 +468,7 @@ def allow_root_login(arg):
             val[s] = 1
         else:
             val[s] = 0
-    
+
     # don't lower security when not changing security level
     if same_level():
         if (not kde.exists() or val[kde]) and (not gdm.exists() or val[gdm]) and (not xdm.exists() or val[xdm]) and num == 12:
@@ -479,11 +479,11 @@ def allow_root_login(arg):
             _interactive and log(_('Allowing direct root login'))
             gdmconf.exists() and gdmconf.set_shell_variable('ConfigAvailable', 'true', '\[greeter\]', '^\s*')
 
-        
+
             for cnf in (kde, gdm, xdm):
                 if not (same_level() and val[cnf]):
                     cnf.exists() and cnf.remove_line_matching('^auth\s*required\s*(?:/lib/security/)?pam_listfile.so.*bastille-no-login', 1)
-        
+
             for n in range(1, 7):
                 s = 'tty' + str(n)
                 if not (same_level() and not val[s]):
@@ -495,13 +495,13 @@ def allow_root_login(arg):
         gdmconf.exists() and gdmconf.set_shell_variable('ConfigAvailable', 'false', '\[greeter\]', '^\s*')
         if (kde.exists() and not val[kde]) or (gdm.exists() and not val[gdm]) or (xdm.exists() and not val[xdm]) or num > 0:
             _interactive and log(_('Forbidding direct root login'))
-        
+
             bastillenologin = ConfigFile.get_config_file(BASTILLENOLOGIN)
             bastillenologin.replace_line_matching('^\s*root', 'root', 1)
-        
+
             for cnf in (kde, gdm, xdm):
                 cnf.exists() and (cnf.replace_line_matching('^auth\s*required\s*(?:/lib/security/)?pam_listfile.so.*bastille-no-login', 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login') or \
-                                  cnf.insert_at(0, 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login'))                                        
+                                  cnf.insert_at(0, 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login'))
             securetty.remove_line_matching('.+', 1)
 
 allow_root_login.arg_trans = YES_NO_TRANS
@@ -536,7 +536,7 @@ information.'''
         val = without_password
     else:
         val = yes
-        
+
     if val != arg:
         if arg == yes:
             _interactive and log(_('Allowing remote root login'))
@@ -560,7 +560,7 @@ def enable_pam_wheel_for_su(arg):
     su = ConfigFile.get_config_file(SU)
 
     val = su.exists() and su.get_match('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$')
-    
+
     # don't lower security when not changing security level
     if same_level():
         if val:
@@ -592,13 +592,13 @@ enable_pam_wheel_for_su.arg_trans = YES_NO_TRANS
 ################################################################################
 
 SUCCEED_MATCH = '^auth\s+sufficient\s+pam_succeed_if.so\s+use_uid\s+user\s+ingroup\s+wheel\s*$'
-SUCCEED_LINE = 'auth	   sufficient   pam_succeed_if.so use_uid user ingroup wheel'
+SUCCEED_LINE = 'auth       sufficient   pam_succeed_if.so use_uid user ingroup wheel'
 
 def enable_pam_root_from_wheel(arg):
     '''   Allow root access without password for the members of the wheel group.'''
     su = ConfigFile.get_config_file(SU)
     simple = ConfigFile.get_config_file(SIMPLE_ROOT_AUTHEN)
-    
+
     if not su.exists():
         return
 
@@ -608,7 +608,7 @@ def enable_pam_root_from_wheel(arg):
         val_simple = simple.get_match(SUCCEED_MATCH)
     else:
         val_simple = False
-        
+
     # don't lower security when not changing security level
     if same_level():
         if not val and not val_simple:
@@ -651,7 +651,7 @@ allowed else only /etc/issue is allowed.'''
 
     if arg == ALL:
         if not (val and valnet):
-            _interactive and log(_('Allowing network pre-login messages'))    
+            _interactive and log(_('Allowing network pre-login messages'))
             issue.exists() and issue.get_lines()
             issuenet.exists() and issuenet.get_lines()
     else:
@@ -679,7 +679,7 @@ def allow_autologin(arg):
         val = autologin.get_shell_variable('AUTOLOGIN')
     else:
         val = None
-        
+
     # don't lower security when not changing security level
     if same_level():
         if val == 'no':
@@ -711,7 +711,7 @@ def password_loader(value):
                           menulst.insert_at(0, 'password "' + value + '"')) and \
                           Perms.chmod(menulst.path, 0600)
     # TODO add yaboot support
-        
+
 ################################################################################
 
 def nopassword_loader():
@@ -728,7 +728,7 @@ def enable_console_log(arg, expr='*.*', dev='tty12'):
     '''  Enable/Disable syslog reports to console 12. \\fIexpr\\fP is the
 expression describing what to log (see syslog.conf(5) for more details) and
 dev the device to report the log.'''
-    
+
     syslogconf = ConfigFile.get_config_file(SYSLOGCONF)
 
     if syslogconf.exists():
@@ -740,7 +740,7 @@ dev the device to report the log.'''
     if same_level():
         if val:
             return
-        
+
     if arg:
         if dev != val:
             _interactive and log(_('Enabling log on console'))
@@ -760,14 +760,14 @@ CRON_REGEX = '[^#]+/usr/share/msec/promisc_check.sh'
 def enable_promisc_check(arg):
     '''  Activate/Disable ethernet cards promiscuity check.'''
     cron = ConfigFile.get_config_file(CRON)
-    
+
     val = cron.exists() and cron.get_match(CRON_REGEX)
-    
+
     # don't lower security when not changing security level
     if same_level():
         if val == CRON_ENTRY:
             return
-        
+
     if arg:
         if val != CRON_ENTRY:
             _interactive and log(_('Activating periodic promiscuity check'))
@@ -789,12 +789,12 @@ def enable_security_check(arg):
     securitycron = ConfigFile.get_config_file(SECURITYCRON)
 
     val = securitycron.exists()
-    
+
     # don't lower security when not changing security level
     if same_level():
         if val:
             return
-        
+
     if arg:
         if not val:
             _interactive and log(_('Activating daily security check'))
@@ -815,7 +815,7 @@ def authorize_services(arg):
 if \\fIarg\\fP = LOCAL and none if \\fIarg\\fP = NONE. To authorize the services you need, use /etc/hosts.allow
 (see hosts.allow(5)).'''
     hostsdeny = ConfigFile.get_config_file(HOSTSDENY)
-    
+
     if hostsdeny.exists():
         if hostsdeny.get_match(ALL_REGEXP):
             val = NONE
@@ -825,12 +825,12 @@ if \\fIarg\\fP = LOCAL and none if \\fIarg\\fP = NONE. To authorize the services
             val = ALL
     else:
         val = ALL
-        
+
     # don't lower security when not changing security level
     if same_level():
         if val == NONE or (val == LOCAL and arg == ALL):
             return
-        
+
     if arg == ALL:
         if arg != val:
             _interactive and log(_('Authorizing all services'))
@@ -858,7 +858,7 @@ def boolean2bit(bool):
         return 1
     else:
         return 0
-    
+
 # helper function for enable_ip_spoofing_protection, accept_icmp_echo, accept_broadcasted_icmp_echo,
 # accept_bogus_error_responses and enable_log_strange_packets.
 def set_zero_one_variable(file, variable, value, secure_value, one_msg, zero_msg):
@@ -871,18 +871,18 @@ def set_zero_one_variable(file, variable, value, secure_value, one_msg, zero_msg
             val = int(val)
     else:
         val = None
-        
+
     # don't lower security when not changing security level
     if same_level():
         if val == secure_value:
             return
-    
+
     if value != val:
         if value:
             msg = _(one_msg)
         else:
             msg = _(zero_msg)
-        
+
         _interactive and log(msg)
         f.set_shell_variable(variable, boolean2bit(value))
 
@@ -904,12 +904,12 @@ def enable_dns_spoofing_protection(arg, alert=1):
     hostconf = ConfigFile.get_config_file(HOSTCONF)
 
     val = hostconf.exists() and hostconf.get_match('nospoof\s+on')
-    
+
     # don't lower security when not changing security level
     if same_level():
         if val:
             return
-        
+
     if arg:
         if not val:
             _interactive and log(_('Enabling name resolution spoofing protection'))
@@ -968,7 +968,7 @@ def enable_libsafe(arg):
     if same_level():
         if val:
             return
-    
+
     if arg:
         if not val:
             if os.path.exists(Config.get_config('root', '') + '/lib/libsafe.so.2'):
@@ -977,7 +977,7 @@ def enable_libsafe(arg):
     else:
         if val:
             _interactive and log(_('Disabling libsafe'))
-            ldsopreload.remove_line_matching('[^#]*libsafe')        
+            ldsopreload.remove_line_matching('[^#]*libsafe')
 
 enable_libsafe.arg_trans = YES_NO_TRANS
 
@@ -993,12 +993,12 @@ def password_length(length, ndigits=0, nupper=0):
     passwd = ConfigFile.get_config_file(SYSTEM_AUTH)
 
     val_length = val_ndigits = val_ucredit = 999999
-    
+
     if passwd.exists():
         val_length  = passwd.get_match(LENGTH_REGEXP, '@2')
         if val_length:
             val_length = int(val_length)
-        
+
         val_ndigits = passwd.get_match(NDIGITS_REGEXP, '@2')
         if val_ndigits:
             val_ndigits = int(val_ndigits)
@@ -1006,15 +1006,15 @@ def password_length(length, ndigits=0, nupper=0):
         val_ucredit = passwd.get_match(UCREDIT_REGEXP, '@2')
         if val_ucredit:
             val_ucredit = int(val_ucredit)
-            
+
     # don't lower security when not changing security level
     if same_level():
         if val_length > length and val_ndigits > ndigits and val_ucredit > nupper:
             return
-        
+
         if val_length > length:
             length = val_length
-            
+
         if val_ndigits > ndigits:
             ndigits = val_ndigits
 
@@ -1027,12 +1027,12 @@ def password_length(length, ndigits=0, nupper=0):
                                       '@1 minlen=%s @3' % length) or \
          passwd.replace_line_matching('^password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*',
                                       '@0 minlen=%s ' % length))
-    
+
         (passwd.replace_line_matching(NDIGITS_REGEXP,
                                       '@1 dcredit=%s @3' % ndigits) or \
          passwd.replace_line_matching('^password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*',
                                       '@0 dcredit=%s ' % ndigits))
-    
+
         (passwd.replace_line_matching(UCREDIT_REGEXP,
                                       '@1 ucredit=%s @3' % nupper) or \
          passwd.replace_line_matching('^password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*',
@@ -1046,12 +1046,12 @@ def enable_password(arg):
     system_auth = ConfigFile.get_config_file(SYSTEM_AUTH)
 
     val = system_auth.exists() and system_auth.get_match(PASSWORD_REGEXP)
-    
+
     # don't lower security when not changing security level
     if same_level():
         if not val:
             return
-        
+
     if arg:
         if val:
             _interactive and log(_('Using password to authenticate users'))
@@ -1086,7 +1086,7 @@ def password_history(arg):
     if same_level():
         if val >= arg:
             return
-    
+
     if arg != val:
         if arg > 0:
             _interactive and log(_('Setting password history to %d.') % arg)
@@ -1106,12 +1106,12 @@ def enable_sulogin(arg):
     inittab = ConfigFile.get_config_file(INITTAB)
 
     val = inittab.exists() and inittab.get_match(SULOGIN_REGEXP)
-    
+
     # don't lower security when not changing security level
     if same_level():
         if val:
             return
-        
+
     if arg:
         if not val:
             _interactive and log(_('Enabling sulogin in single user runlevel'))
@@ -1130,12 +1130,12 @@ def enable_msec_cron(arg):
     mseccron = ConfigFile.get_config_file(MSECCRON)
 
     val = mseccron.exists()
-    
+
     # don't lower security when not changing security level
     if same_level():
         if val:
             return
-        
+
     if arg:
         if arg != val:
             _interactive and log(_('Enabling msec periodic runs'))
@@ -1157,7 +1157,7 @@ def enable_at_crontab(arg):
 
     val_cronallow = cronallow.exists() and cronallow.get_match('root')
     val_atallow = atallow.exists() and atallow.get_match('root')
-    
+
     # don't lower security when not changing security level
     if same_level():
         if val_cronallow and val_atallow:
@@ -1189,7 +1189,7 @@ def no_password_aging_for(name):
 Name must be put between '. Msec will then no more manage password aging for
 name so you have to use chage(1) to manage it by hand.'''
     no_aging_list.append(name)
-    
+
 def password_aging(max, inactive=-1):
     '''  Set password aging to \\fImax\\fP days and delay to change to \\fIinactive\\fP.'''
     uid_min = 500
@@ -1240,7 +1240,7 @@ def password_aging(max, inactive=-1):
                     cmd = 'LC_ALL=C /usr/bin/chage -M %d -I %d -d %s \'%s\'' % (new_max, new_inactive, time.strftime('%Y-%m-%d'), entry[0])
                     ret = commands.getstatusoutput(cmd)
                     log(_('changed maximum password aging for user \'%s\' with command %s') % (entry[0], cmd))
-                
+
 ################################################################################
 
 def allow_xauth_from_root(arg):

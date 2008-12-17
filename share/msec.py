@@ -9,11 +9,11 @@
 # Created On      : Wed Dec  5 20:20:21 2001
 #---------------------------------------------------------------
 
-from mseclib import *
-from Log import *
-from Log import _name
-import Config
-import ConfigFile
+#from mseclib import *
+#from Log import *
+#from Log import _name
+#import Config
+#import ConfigFile
 
 import sys
 import os
@@ -37,6 +37,28 @@ try:
 except IOError:
     _ = str
 
+# default parameters
+#                                       security level
+#               OPTION               none   default secure
+SETTINGS =    {'CHECK_SECURITY' :   ('yes', 'yes',  'yes'),
+               'CHECK_PERMS' :      ('no',  'yes',  'yes'),
+               'CHECK_SUID_ROOT' :  ('yes', 'yes',  'yes'),
+               'CHECK_SUID_MD5' :   ('yes', 'yes',  'yes'),
+               'CHECK_SGID' :       ('yes', 'yes',  'yes'),
+               'CHECK_WRITABLE' :   ('yes', 'yes',  'yes'),
+               'CHECK_UNOWNED' :    ('no',  'no',   'yes'),
+               'CHECK_PROMISC' :    ('no',  'no',   'yes'),
+               'CHECK_OPEN_PORT' :  ('no',  'yes',  'yes'),
+               'CHECK_PASSWD' :     ('no',  'yes',  'yes'),
+               'CHECK_SHADOW' :     ('no',  'yes',  'yes'),
+               'TTY_WARN' :         ('no',  'no',   'yes'),
+               'MAIL_WARN' :        ('no',  'yes',  'yes'),
+               'MAIL_EMPTY_CONTENT':('no',  'no',   'yes'),
+               'SYSLOG_WARN' :      ('yes', 'yes',  'yes'),
+               'RPM_CHECK' :        ('no',  'yes',  'yes'),
+               'CHKROOTKIT_CHECK' : ('no',  'yes',  'yes'),
+               }
+
 # {{{ Log
 class Log:
     """Logging class. Logs to both syslog and log file"""
@@ -45,9 +67,8 @@ class Log:
                 log_file=True,
                 log_facility=SysLogHandler.LOG_AUTHPRIV,
                 syslog_address="/dev/log",
-                log_path="/var/log/msec.log"):
-        self.log_syslog = log_syslog
-        self.log_file = log_file
+                log_path="/var/log/msec.log",
+                interactive=True):
         self.log_facility = log_facility
         self.log_path = log_path
 
@@ -55,18 +76,25 @@ class Log:
         self.logger = logging.getLogger(APP_NAME)
 
         # syslog
-        if self.log_syslog:
+        if log_syslog:
             self.syslog_h = SysLogHandler(facility=log_facility, address=syslog_address)
             formatter = logging.Formatter('%(name)s: %(levelname)s: %(message)s')
             self.syslog_h.setFormatter(formatter)
             self.logger.addHandler(self.syslog_h)
 
         # log to file
-        if self.log_file:
+        if log_file:
             self.file_h = logging.FileHandler(self.log_path)
             formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
             self.file_h.setFormatter(formatter)
             self.logger.addHandler(self.file_h)
+
+        # interactive logging
+        if interactive:
+            self.interactive_h = logging.StreamHandler(sys.stderr)
+            formatter = logging.Formatter('%(levelname)s: %(message)s')
+            self.interactive_h.setFormatter(formatter)
+            self.logger.addHandler(self.interactive_h)
 
         self.logger.setLevel(logging.INFO)
 
@@ -91,39 +119,73 @@ class Log:
         self.logger.warn(message)
 # }}}
 
+class MsecConfig:
+    """Msec configuration parser"""
+    def __init__(self, log, config="/etc/security/msec/msec.conf"):
+        self.config = config
+        self.options = {}
+        self.comments = []
+        self.log = log
 
-# Eval a file
-import mseclib
-def import_only_mseclib(name, globals = None, locals = None, fromlist = None):
-    """ Import hook to allow only the mseclib module to be imported. """
+    def load(self):
+        """Loads and parses configuration file"""
+        try:
+            fd = open(self.config)
+        except:
+            self.log.error(_("Unable to load configuration file %s: %s") % (self.config, sys.exc_value))
+            return False
+        for line in fd.readlines():
+            line = line.strip()
+            if line[0] == "#":
+                # comment
+                self.comments.append(line)
+                continue
+            try:
+                option, val = line.split("=", 1)
+                self.options[option] = val
+            except:
+                self.log.warn(_("Bad config option: %s") % line)
+                continue
+        fd.close()
+        return True
 
-    if name == 'mseclib':
-        return mseclib
-    else:
-        raise ImportError, '%s cannot be imported' % name
-    
-def eval_file(name):
-    """ Eval level.local file.  Only allow mseclib to be imported for
-    backward compatibility. """
-    
-    globals = {}
-    locals = {}
-    builtins = {}
+    def get(self, option, default=None):
+        """Gets a configuration option"""
+        return self.options.get(option, default)
 
-    # Insert symbols from mseclib into globals
-    non_exported_names = ['FAKE', 'indirect', 'commit_changes', 'print_changes', 'get_translation']
-    for attrib_name in dir(mseclib):
-        if attrib_name[0] != '_' and attrib_name not in non_exported_names:
-            globals[attrib_name] = getattr(mseclib, attrib_name)
-            
-    # Set import hook -- it needs to be in globals['__builtins'] so we make
-    # a copy of builtins to put there
-    builtins.update(__builtins__.__dict__)
-    builtins['__import__'] = import_only_mseclib
-    globals['__builtins__'] = builtins
+    def set(self, option, value):
+        """Sets a configuration option"""
+        self.options[option] = value
 
-    # Exec file
-    execfile(os.path.expanduser(name), globals, locals)
+    def save(self):
+        """Saves configuration. Comments go on top"""
+        try:
+            fd = open(self.config, "w")
+        except:
+            self.log.error(_("Unable to save %s: %s") % (self.config, sys.exc_value))
+            return False
+        for comment in self.comments:
+            print >>fd, comment
+        for option in self.options:
+            print >>fd, "%s=%s" % (option, self.options[option])
+        return True
+
+
+if __name__ == "__main__":
+    log = Log(log_path="/tmp/msec.log")
+    config = MsecConfig(log, config="/tmp/msec.conf")
+    if not config.load():
+        log.info(_("Unable to load config, using default values"))
+    CHECK_SUID_ROOT = config.get("CHECK_SUID_ROOT")
+    if not CHECK_SUID_ROOT:
+        config.set("CHECK_SUID_ROOT", "yes")
+    if not config.save():
+        log.error(_("Unable to save config!"))
+    sys.exit(0)
+
+
+############
+
 
 sys.argv[0] = os.path.basename(sys.argv[0])
 
@@ -146,15 +208,6 @@ for o in opt:
 
 set_interactive(interactive)
 
-# initlog must be done after processing the option because we can change
-# the way to report log with options...
-if interactive:
-    import syslog
-    
-    initlog('msec', syslog.LOG_LOCAL1)
-else:
-    initlog('msec')
-    
 if len(args) == 0:
     level = get_secure_level()
     if level == None:

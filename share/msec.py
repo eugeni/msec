@@ -9,12 +9,6 @@
 # Created On      : Wed Dec  5 20:20:21 2001
 #---------------------------------------------------------------
 
-#from mseclib import *
-#from Log import *
-#from Log import _name
-#import Config
-#import ConfigFile
-
 import sys
 import os
 import string
@@ -28,18 +22,18 @@ from logging.handlers import SysLogHandler
 
 # configuration variables
 APP_NAME="msec"
-interactive = sys.stdin.isatty()
 
-# localization
-try:
-    cat = gettext.Catalog('msec')
-    _ = cat.gettext
-except IOError:
-    _ = str
+# security levels
+SECURITY = {
+            "none": 0,
+            "default": 1,
+            "secure": 2
+        }
+DEFAULT_LEVEL="default"
 
 # default parameters
-#                                       security level
-#               OPTION               none   default secure
+#                                                   security level
+#               OPTION                           none   default secure
 SETTINGS =    {'CHECK_SECURITY' :               ('yes', 'yes',  'yes'),
                'CHECK_PERMS' :                  ('no',  'yes',  'yes'),
                'CHECK_SUID_ROOT' :              ('yes', 'yes',  'yes'),
@@ -67,7 +61,7 @@ SETTINGS =    {'CHECK_SECURITY' :               ('yes', 'yes',  'yes'),
                'ALLOW_AUTOLOGIN':               ('yes', 'yes',  'no' ),
                'ALLOW_ISSUES':                  ('yes', 'yes',  'yes'),
                'ALLOW_REBOOT':                  ('yes', 'yes',  'yes'),
-               'ALLOW_REMOTE_ROOT_LOGIN':       ('yes', 'WITHOUT_PASSWORD', 'no' ),
+               'ALLOW_REMOTE_ROOT_LOGIN':       ('yes', 'NOPW', 'no' ), # was: WITHOUT_PASSWORD
                'ALLOW_ROOT_LOGIN':              ('yes', 'yes',  'no' ),
                'ALLOW_USER_LIST':               ('yes', 'yes',  'no' ),
                'ALLOW_X_CONNECTIONS':           ('yes', 'LOCAL','no' ),
@@ -94,6 +88,13 @@ SETTINGS =    {'CHECK_SECURITY' :               ('yes', 'yes',  'yes'),
                'SHELL_HISTORY_SIZE':            ('-1',  '-1',   '100'),
                'SHELL_TIMEOUT':                 ('0',   '0',    '600'),
                }
+
+# localization
+try:
+    cat = gettext.Catalog('msec')
+    _ = cat.gettext
+except IOError:
+    _ = str
 
 # {{{ Log
 class Log:
@@ -155,6 +156,7 @@ class Log:
         self.logger.warn(message)
 # }}}
 
+# {{{ MsecConfig
 class MsecConfig:
     """Msec configuration parser"""
     def __init__(self, log, config="/etc/security/msec/msec.conf"):
@@ -205,10 +207,15 @@ class MsecConfig:
         for option in self.options:
             print >>fd, "%s=%s" % (option, self.options[option])
         return True
-
+# }}}
 
 if __name__ == "__main__":
-    log = Log(log_path="/tmp/msec.log")
+    interactive = sys.stdin.isatty()
+    if interactive:
+        # logs to file and to terminal
+        log = Log(log_path="/tmp/msec.log", interactive=True, log_syslog=False)
+    else:
+        log = Log(log_path="/tmp/msec.log", interactive=False)
     config = MsecConfig(log, config="/tmp/msec.conf")
     if not config.load():
         log.info(_("Unable to load config, using default values"))

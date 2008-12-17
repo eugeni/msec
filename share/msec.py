@@ -33,61 +33,61 @@ DEFAULT_LEVEL="default"
 
 # default parameters
 #                                                   security level
-#               OPTION                           none   default secure
-SETTINGS =    {'CHECK_SECURITY' :               ['yes', 'yes',  'yes'],
-               'CHECK_PERMS' :                  ['no',  'yes',  'yes'],
-               'CHECK_SUID_ROOT' :              ['yes', 'yes',  'yes'],
-               'CHECK_SUID_MD5' :               ['yes', 'yes',  'yes'],
-               'CHECK_SGID' :                   ['yes', 'yes',  'yes'],
-               'CHECK_WRITABLE' :               ['yes', 'yes',  'yes'],
-               'CHECK_UNOWNED' :                ['no',  'no',   'yes'],
-               'CHECK_PROMISC' :                ['no',  'no',   'yes'],
-               'CHECK_OPEN_PORT' :              ['no',  'yes',  'yes'],
-               'CHECK_PASSWD' :                 ['no',  'yes',  'yes'],
-               'CHECK_SHADOW' :                 ['no',  'yes',  'yes'],
-               'CHECK_CHKROOTKIT' :             ['no',  'yes',  'yes'], # was: CHKROOTKIT_CHECK
-               'CHECK_RPM' :                    ['no',  'yes',  'yes'], # was: RPM_CHECK
-               'TTY_WARN' :                     ['no',  'no',   'yes'],
-               'MAIL_WARN' :                    ['no',  'yes',  'yes'],
-               'MAIL_EMPTY_CONTENT':            ['no',  'no',   'yes'],
-               'SYSLOG_WARN' :                  ['yes', 'yes',  'yes'],
+#               OPTION                           none   default secure  callback
+SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], None),
+               'CHECK_PERMS' :                  (['no',  'yes',  'yes'], None),
+               'CHECK_SUID_ROOT' :              (['yes', 'yes',  'yes'], None),
+               'CHECK_SUID_MD5' :               (['yes', 'yes',  'yes'], None),
+               'CHECK_SGID' :                   (['yes', 'yes',  'yes'], None),
+               'CHECK_WRITABLE' :               (['yes', 'yes',  'yes'], None),
+               'CHECK_UNOWNED' :                (['no',  'no',   'yes'], None),
+               'CHECK_PROMISC' :                (['no',  'no',   'yes'], None),
+               'CHECK_OPEN_PORT' :              (['no',  'yes',  'yes'], None),
+               'CHECK_PASSWD' :                 (['no',  'yes',  'yes'], None),
+               'CHECK_SHADOW' :                 (['no',  'yes',  'yes'], None),
+               'CHECK_CHKROOTKIT' :             (['no',  'yes',  'yes'], None), # was: CHKROOTKIT_CHECK
+               'CHECK_RPM' :                    (['no',  'yes',  'yes'], None), # was: RPM_CHECK
+               'TTY_WARN' :                     (['no',  'no',   'yes'], None),
+               'MAIL_WARN' :                    (['no',  'yes',  'yes'], None),
+               'MAIL_EMPTY_CONTENT':            (['no',  'no',   'yes'], None),
+               'SYSLOG_WARN' :                  (['yes', 'yes',  'yes'], None),
                # security options
-               'USER_UMASK':                    ['022', '022',  '077'],
-               'ROOT_UMASK':                    ['022', '022',  '077'],
-               'WIN_PARTS_UMASK':               ['no',  'no',   '0'  ],
-               'ACCEPT_BOGUS_ERROR_RESPONSES':  ['no',  'no',   'no' ],
-               'ACCEPT_BROADCASTED_ICMP_ECHO':  ['yes', 'yes',  'no' ],
-               'ACCEPT_ICMP_ECHO':              ['yes', 'yes',  'yes'],
-               'ALLOW_AUTOLOGIN':               ['yes', 'yes',  'no' ],
-               'ALLOW_ISSUES':                  ['yes', 'yes',  'yes'],
-               'ALLOW_REBOOT':                  ['yes', 'yes',  'yes'],
-               'ALLOW_REMOTE_ROOT_LOGIN':       ['yes', 'NOPW', 'no' ], # was: WITHOUT_PASSWORD
-               'ALLOW_ROOT_LOGIN':              ['yes', 'yes',  'no' ],
-               'ALLOW_USER_LIST':               ['yes', 'yes',  'no' ],
-               'ALLOW_X_CONNECTIONS':           ['yes', 'LOCAL','no' ],
-               'ALLOW_XAUTH_FROM_ROOT':         ['yes', 'yes',  'no' ],
-               'ALLOW_XSERVER_TO_LISTEN':       ['yes', 'no',   'no' ],
-               'AUTHORIZE_SERVICES':            ['ALL', 'LOCAL','NONE'],
-               'CREATE_SERVER_LINK':            ['no',  'no',   'yes'],
-               'ENABLE_AT_CRONTAB':             ['no',  'yes',  'no' ],
-               'ENABLE_CONSOLE_LOG':            ['yes', 'yes',  'no' ],
-               'ENABLE_DNS_SPOOFING_PROTECTION':['yes', 'yes',  'yes'],
-               'ENABLE_IP_SPOOFING_PROTECTION': ['yes', 'yes',  'yes'],
-               'ENABLE_LOG_STRANGE_PACKETS':    ['no',  'yes',  'yes'],
-               'ENABLE_MSEC_CRON':              ['no',  'yes',  'yes'],
-               'ENABLE_PAM_ROOT_FROM_WHEEL':    ['no',  'no',   'no' ],
-               'ENABLE_PAM_WHEEL_FOR_SU':       ['no',  'no',   'yes'],
-               'ENABLE_PASSWORD':               ['yes', 'yes',  'yes'],
-               'ENABLE_SULOGIN':                ['no',  'no',   'yes'],
-               'ENABLE_APPARMOR':               ['no',  'no',   'yes'],
+               'USER_UMASK':                    (['022', '022',  '077'], None),
+               'ROOT_UMASK':                    (['022', '022',  '077'], None),
+               'WIN_PARTS_UMASK':               (['no',  'no',   '0'  ], None),
+               'ACCEPT_BOGUS_ERROR_RESPONSES':  (['no',  'no',   'no' ], None),
+               'ACCEPT_BROADCASTED_ICMP_ECHO':  (['yes', 'yes',  'no' ], None),
+               'ACCEPT_ICMP_ECHO':              (['yes', 'yes',  'yes'], None),
+               'ALLOW_AUTOLOGIN':               (['yes', 'yes',  'no' ], None),
+               'ALLOW_ISSUES':                  (['yes', 'yes',  'yes'], None),
+               'ALLOW_REBOOT':                  (['yes', 'yes',  'yes'], None),
+               'ALLOW_REMOTE_ROOT_LOGIN':       (['yes', 'NOPW', 'no' ], None), # was: WITHOUT_PASSWORD
+               'ALLOW_ROOT_LOGIN':              (['yes', 'yes',  'no' ], None),
+               'ALLOW_USER_LIST':               (['yes', 'yes',  'no' ], None),
+               'ALLOW_X_CONNECTIONS':           (['yes', 'LOCAL','no' ], None),
+               'ALLOW_XAUTH_FROM_ROOT':         (['yes', 'yes',  'no' ], None),
+               'ALLOW_XSERVER_TO_LISTEN':       (['yes', 'no',   'no' ], None),
+               'AUTHORIZE_SERVICES':            (['ALL', 'LOCAL','NONE'],None),
+               'CREATE_SERVER_LINK':            (['no',  'no',   'yes'], None),
+               'ENABLE_AT_CRONTAB':             (['no',  'yes',  'no' ], None),
+               'ENABLE_CONSOLE_LOG':            (['yes', 'yes',  'no' ], None),
+               'ENABLE_DNS_SPOOFING_PROTECTION':(['yes', 'yes',  'yes'], None),
+               'ENABLE_IP_SPOOFING_PROTECTION': (['yes', 'yes',  'yes'], None),
+               'ENABLE_LOG_STRANGE_PACKETS':    (['no',  'yes',  'yes'], None),
+               'ENABLE_MSEC_CRON':              (['no',  'yes',  'yes'], None),
+               'ENABLE_PAM_ROOT_FROM_WHEEL':    (['no',  'no',   'no' ], None),
+               'ENABLE_PAM_WHEEL_FOR_SU':       (['no',  'no',   'yes'], None),
+               'ENABLE_PASSWORD':               (['yes', 'yes',  'yes'], None),
+               'ENABLE_SULOGIN':                (['no',  'no',   'yes'], None),
+               'ENABLE_APPARMOR':               (['no',  'no',   'yes'], None),
                # password aging - do we need that at all??
-               'NO_PASSWORD_AGING_FOR':         ['no',  'no',   'no' ],
-               'PASSWORD_AGING':                ['no',  'no',   'no' ],
-               'PASSWORD_HISTORY':              ['no',  'no',   '2'  ],
+               'NO_PASSWORD_AGING_FOR':         (['no',  'no',   'no' ], None),
+               'PASSWORD_AGING':                (['no',  'no',   'no' ], None),
+               'PASSWORD_HISTORY':              (['no',  'no',   '2'  ], None),
                #                                length, ndigits, nupper
-               'PASSWORD_LENGTH':               ['no',  'no',   '6,1,1'],
-               'SHELL_HISTORY_SIZE':            ['-1',  '-1',   '100'],
-               'SHELL_TIMEOUT':                 ['0',   '0',    '600'],
+               'PASSWORD_LENGTH':               (['no',  'no', '6,1,1'], None),
+               'SHELL_HISTORY_SIZE':            (['-1',  '-1',   '100'], None),
+               'SHELL_TIMEOUT':                 (['0',   '0',    '600'], None),
                }
 
 def load_defaults(levelname):
@@ -97,9 +97,12 @@ def load_defaults(levelname):
         return None
     level = SECURITY_LEVELS[levelname]
     params = {}
+    callbacks = {}
     for item in SETTINGS:
-        params[item] = SETTINGS[item][level]
-    return params
+        levels, callback = SETTINGS[item]
+        params[item] = levels[level]
+        callbacks[item] = callback
+    return params, callbacks
 
 # localization
 try:
@@ -277,7 +280,7 @@ if __name__ == "__main__":
         # list
         elif o[0] == '-l' or o[0] == '--list':
             level = o[1]
-            params = load_defaults(level)
+            params, callbacks = load_defaults(level)
             if not params:
                 sys.exit(1)
             print _("Default configuration for '%s' level") % level
@@ -298,7 +301,7 @@ if __name__ == "__main__":
         log.debug(_("Using security level %s") % level)
 
     # loading default configuration
-    params = load_defaults(level)
+    params, callbacks = load_defaults(level)
     if not params:
         sys.exit(1)
 
@@ -315,9 +318,15 @@ if __name__ == "__main__":
         else:
             # only forcing new value when undefined
             config.get(opt, params[opt])
-
+    # saving updated config
     if not config.save():
         log.error(_("Unable to save config!"))
+
+    # ok, now the main msec functionality begins. For each
+    # security action we call the correspondent callback with
+    # right parameter (either default, or specified by user)
+    for opt in config.list_options():
+        print "%s: -> %s(%s)" % (opt, callbacks[opt], config.get(opt))
     sys.exit(0)
 
 ############

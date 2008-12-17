@@ -4,7 +4,8 @@
 # Module          : msec/share
 # File            : msec.py
 # Version         : $Id$
-# Author          : Frederic Lepied
+# Author          : Eugeni Dodonov
+# Original Author : Frederic Lepied
 # Created On      : Wed Dec  5 20:20:21 2001
 #---------------------------------------------------------------
 
@@ -21,11 +22,75 @@ import getopt
 import gettext
 import imp
 
+# logging
+import logging
+from logging.handlers import SysLogHandler
+
+# configuration variables
+APP_NAME="msec"
+interactive = sys.stdin.isatty()
+
+# localization
 try:
     cat = gettext.Catalog('msec')
     _ = cat.gettext
 except IOError:
     _ = str
+
+# {{{ Log
+class Log:
+    """Logging class. Logs to both syslog and log file"""
+    def __init__(self,
+                log_syslog=True,
+                log_file=True,
+                log_facility=SysLogHandler.LOG_AUTHPRIV,
+                syslog_address="/dev/log",
+                log_path="/var/log/msec.log"):
+        self.log_syslog = log_syslog
+        self.log_file = log_file
+        self.log_facility = log_facility
+        self.log_path = log_path
+
+        # common logging stuff
+        self.logger = logging.getLogger(APP_NAME)
+
+        # syslog
+        if self.log_syslog:
+            self.syslog_h = SysLogHandler(facility=log_facility, address=syslog_address)
+            formatter = logging.Formatter('%(name)s: %(levelname)s: %(message)s')
+            self.syslog_h.setFormatter(formatter)
+            self.logger.addHandler(self.syslog_h)
+
+        # log to file
+        if self.log_file:
+            self.file_h = logging.FileHandler(self.log_path)
+            formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
+            self.file_h.setFormatter(formatter)
+            self.logger.addHandler(self.file_h)
+
+        self.logger.setLevel(logging.INFO)
+
+    def info(self, message):
+        """Informative message (normal msec operation)"""
+        self.logger.info(message)
+
+    def error(self, message):
+        """Error message (security has changed: authentication, passwords, etc)"""
+        self.logger.error(message)
+
+    def debug(self, message):
+        """Debugging message"""
+        self.logger.debug(message)
+
+    def critical(self, message):
+        """Critical message (big security risk, e.g., rootkit, etc)"""
+        self.logger.critical(message)
+
+    def warn(self, message):
+        """Warning message (slight security change, permissions change, etc)"""
+        self.logger.warn(message)
+# }}}
+
 
 # Eval a file
 import mseclib
@@ -60,16 +125,13 @@ def eval_file(name):
     # Exec file
     execfile(os.path.expanduser(name), globals, locals)
 
-# program
-_name = 'msec'
-
 sys.argv[0] = os.path.basename(sys.argv[0])
 
 try:
     (opt, args) = getopt.getopt(sys.argv[1:], 'o:',
                                 ['option'])
 except getopt.error:
-    error(_('Invalid option. Use %s (-o var=<val>...) ([0-5])') % _name)
+    error(_('Invalid option. Use %s (-o var=<val>...) ([0-5])') % APP_NAME)
     sys.exit(1)
 
 
@@ -82,7 +144,6 @@ for o in opt:
         else:
             Config.set_config(pair[0], pair[1])
 
-interactive = sys.stdin.isatty()
 set_interactive(interactive)
 
 # initlog must be done after processing the option because we can change
@@ -97,7 +158,7 @@ else:
 if len(args) == 0:
     level = get_secure_level()
     if level == None:
-        error(_('Secure level not set. Use %s <secure level> to set it.') % _name)
+        error(_('Secure level not set. Use %s <secure level> to set it.') % APP_NAME)
         sys.exit(1)
 else:
     level = args[0]
@@ -106,11 +167,11 @@ else:
 try:
     level = int(level)
 except ValueError:
-    error(_('Invalid secure level %s.  Use %s [0-5] to set it.') % (level, _name))
+    error(_('Invalid secure level %s.  Use %s [0-5] to set it.') % (level, APP_NAME))
     sys.exit(1)
 
 if level < 0 or level > 5:
-    error(_('Invalid secure level %s.  Use %s [0-5] to set it.') % (level, _name))
+    error(_('Invalid secure level %s.  Use %s [0-5] to set it.') % (level, APP_NAME))
     sys.exit(1)
 
 interactive and log(_('### Program is starting ###'))

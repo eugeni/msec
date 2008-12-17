@@ -233,6 +233,7 @@ class MsecConfig:
         return True
 # }}}
 
+# {{{ usage
 def usage():
     """Prints help message"""
     print """Msec usage:
@@ -246,7 +247,9 @@ Arguments to msec:
     -h, --help              displays this helpful message.
     -l, --level <level>     displays configuration for specified security
                             level.
+    -f                      force new level, overwriting user settings.
 """
+# }}}
 
 if __name__ == "__main__":
     # configuring logging

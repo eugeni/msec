@@ -957,32 +957,6 @@ enable_log_strange_packets.arg_trans = YES_NO_TRANS
 
 ################################################################################
 
-def enable_libsafe(arg):
-    '''  Enable/Disable libsafe if libsafe is found on the system.'''
-
-    ldsopreload = ConfigFile.get_config_file(LDSOPRELOAD)
-
-    val = ldsopreload.exists() and ldsopreload.get_match('/lib/libsafe.so.2')
-
-    # don't lower security when not changing security level
-    if same_level():
-        if val:
-            return
-
-    if arg:
-        if not val:
-            if os.path.exists(Config.get_config('root', '') + '/lib/libsafe.so.2'):
-                _interactive and log(_('Enabling libsafe'))
-                ldsopreload.replace_line_matching('[^#]*libsafe', '/lib/libsafe.so.2', 1)
-    else:
-        if val:
-            _interactive and log(_('Disabling libsafe'))
-            ldsopreload.remove_line_matching('[^#]*libsafe')
-
-enable_libsafe.arg_trans = YES_NO_TRANS
-
-################################################################################
-
 LENGTH_REGEXP = re.compile('^(password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*?)\sminlen=([0-9]+)\s(.*)')
 NDIGITS_REGEXP = re.compile('^(password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*?)\sdcredit=([0-9]+)\s(.*)')
 UCREDIT_REGEXP = re.compile('^(password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*?)\sucredit=([0-9]+)\s(.*)')

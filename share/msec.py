@@ -64,7 +64,7 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'ALLOW_AUTOLOGIN':               (['yes', 'yes',  'no' ], "allow_autologin"),
                'ALLOW_ISSUES':                  (['yes', 'yes',  'yes'], "allow_issues"),
                'ALLOW_REBOOT':                  (['yes', 'yes',  'yes'], "allow_reboot"),
-               'ALLOW_REMOTE_ROOT_LOGIN':       (['yes', 'NOPW', 'no' ], "allow_remote_root_login"), # was: WITHOUT_PASSWORD
+               'ALLOW_REMOTE_ROOT_LOGIN':       (['yes', 'without_password', 'no' ], "allow_remote_root_login"), # was: WITHOUT_PASSWORD
                'ALLOW_ROOT_LOGIN':              (['yes', 'yes',  'no' ], "allow_root_login"),
                'ALLOW_USER_LIST':               (['yes', 'yes',  'no' ], "allow_user_list"),
                'ALLOW_X_CONNECTIONS':           (['yes', 'LOCAL','no' ], "allow_x_connections"),

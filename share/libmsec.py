@@ -134,14 +134,12 @@ maximum_regex = re.compile('^Maximum.*:\s*([0-9]+|-1)', re.MULTILINE)
 inactive_regex = re.compile('^(Inactive|Password inactive\s*):\s*(-?[0-9]+|never)', re.MULTILINE)
 
 
-
 # helper functions
 def get_index(val, array):
     return array.index(val) if val in array else -1
 
 def boolean2bit(bool):
     return 1 if bool else 0
-
 
 
 class MSEC:
@@ -545,26 +543,16 @@ class MSEC:
             if val == 'forced-commands-only':
                 return
 
-        if val == 'yes':
-            val = yes
-        elif val == 'no':
-            val = no
-        elif val == 'without-password':
-            val = without_password
-        else:
-            val = yes
-
-        # OMG.. TODO: fix
         if val != arg:
-            if arg == yes:
+            if arg == "yes":
                 self.log.info(_('Allowing remote root login'))
                 sshd_config.exists() and sshd_config.replace_line_matching(PERMIT_ROOT_LOGIN_REGEXP,
                                                                            'PermitRootLogin yes', 1)
-            elif arg == no:
+            elif arg == "no":
                 self.log.info(_('Forbidding remote root login'))
                 sshd_config.exists() and sshd_config.replace_line_matching(PERMIT_ROOT_LOGIN_REGEXP,
                                                                            'PermitRootLogin no', 1)
-            elif arg == without_password:
+            elif arg == "without_password":
                 self.log.info(_('Allowing remote root login only by passphrase'))
                 sshd_config.exists() and sshd_config.replace_line_matching(PERMIT_ROOT_LOGIN_REGEXP,
                                                                            'PermitRootLogin without-password', 1)

@@ -11,7 +11,6 @@
 #---------------------------------------------------------------
 
 import ConfigFile
-import Config
 from Log import *
 
 import os

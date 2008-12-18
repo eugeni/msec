@@ -13,7 +13,6 @@ import re
 import string
 import os
 import stat
-import Config
 import commands
 from Log import *
 import gettext
@@ -67,9 +66,9 @@ def move(old, new):
         error('rename %s %s: %s' % (old, new, str(sys.exc_value)))
 
 class ConfigFile:
-    def __init__(self, path, suffix=None, meta=all_files):
+    def __init__(self, path, root='', suffix=None, meta=all_files):
         self.meta=meta
-        self.path = Config.get_config('root', '') + path
+        self.path = root + path
         self.is_modified = 0
         self.is_touched = 0
         self.is_deleted = 0
@@ -78,7 +77,7 @@ class ConfigFile:
         self.lines = None
         self.sym_link = None
         self.meta.add(self, path)
-        
+
     def get_lines(self):
         if self.lines == None:
             file=None
@@ -108,11 +107,11 @@ class ConfigFile:
         else:
             lines.append(value)
             lines.append('')
-            
+
     def modified(self):
         self.is_modified = 1
         return self
-    
+
     def touch(self):
         self.is_touched = 1
         return self
@@ -120,19 +119,19 @@ class ConfigFile:
     def symlink(self, link):
         self.sym_link = link
         return self
-    
+
     def exists(self, really=0):
         return os.path.exists(self.path) or (not really and self.suffix and os.path.exists(self.path + self.suffix))
 
     def move(self, suffix):
         self.suffix = suffix
         self.is_moved = 1
-        
+
     def unlink(self):
         self.is_deleted = 1
         self.lines=[]
         return self
-    
+
     def write(self):
         if self.is_deleted:
             if self.exists():
@@ -165,7 +164,7 @@ class ConfigFile:
                 self.is_modified = 1
                 file = open(self.path, 'w')
                 file.close()
-                log(_('touched file %s') % (self.path,))            
+                log(_('touched file %s') % (self.path,))
         elif self.sym_link:
             done = 0
             if self.exists():
@@ -186,7 +185,7 @@ class ConfigFile:
                 except:
                     error('symlink %s %s: %s' % (self.sym_link, self.path, str(sys.exc_value)))
                 log(_('made symbolic link from %s to %s') % (self.sym_link, self.path))
-                
+
         if self.is_moved:
             move(self.path, self.path + self.suffix)
             log(_('moved file %s to %s') % (self.path, self.path + self.suffix))
@@ -248,7 +247,7 @@ class ConfigFile:
         self.modified()
         log(_('set variable %s to %s in %s') % (var, value, self.path,))
         return self
-    
+
     def get_shell_variable(self, var, start=None, end=None):
         if end:
             end=re.compile(end)
@@ -405,7 +404,7 @@ class ConfigFile:
                 if not all:
                     return matches
         return matches
-    
+
 # utility funtions
 
 def substitute_re_result(res, s):
@@ -414,10 +413,9 @@ def substitute_re_result(res, s):
         s = string.replace(s, '@' + str(idx), subst)
     return s
 
-def write_files():
+def write_files(run_commands=True):
     global all_files
 
-    run_commands = Config.get_config('run_commands', 0)
     for f in all_files.files.values():
         f.write()
 
@@ -435,7 +433,7 @@ def write_files():
                         error(cmd[1])
                 else:
                     log(_('%s modified so should have run command: %s') % (f, s))
-                    
+
 def get_config_file(path, suffix=None):
     global all_files
 
@@ -449,5 +447,5 @@ def add_config_assoc(regex, action):
 def mkdir_p(path):
     if not os.path.exists(path):
         os.makedirs(path)
-    
+
 # ConfigFile.py ends here

@@ -17,7 +17,7 @@ import gettext
 import imp
 
 # libmsec
-#from libmsec import *
+from libmsec import MSEC
 
 # logging
 import logging
@@ -82,7 +82,7 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'ENABLE_PAM_WHEEL_FOR_SU':       (['no',  'no',   'yes'], "enable_pam_wheel_for_su"),
                'ENABLE_PASSWORD':               (['yes', 'yes',  'yes'], "enable_password"),
                'ENABLE_SULOGIN':                (['no',  'no',   'yes'], "enable_sulogin"),
-               'ENABLE_APPARMOR':               (['no',  'no',   'yes'], None),
+               'ENABLE_APPARMOR':               (['no',  'no',   'yes'], "enable_apparmor"),
                # password aging - do we need that at all??
                'NO_PASSWORD_AGING_FOR':         (['no',  'no',   'no' ], "no_password_aging_for"),
                'PASSWORD_AGING':                (['no',  'no',   'no' ], "password_aging"),
@@ -324,11 +324,15 @@ if __name__ == "__main__":
     if not config.save():
         log.error(_("Unable to save config!"))
 
+    # load the msec library
+    msec = MSEC(log)
+
     # ok, now the main msec functionality begins. For each
     # security action we call the correspondent callback with
     # right parameter (either default, or specified by user)
     for opt in config.list_options():
         print "%s: -> %s(%s)" % (opt, callbacks[opt], config.get(opt))
+        msec.run_action(callbacks[opt], config.get(opt))
     sys.exit(0)
 
 ############

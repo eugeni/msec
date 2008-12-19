@@ -23,6 +23,13 @@ import stat
 import traceback
 import sys
 
+# localization
+try:
+    cat = gettext.Catalog('msec')
+    _ = cat.gettext
+except IOError:
+    _ = str
+
 # list of config files
 
 ATALLOW = '/etc/at.allow'
@@ -132,7 +139,7 @@ maximum_regex = re.compile('^Maximum.*:\s*([0-9]+|-1)', re.MULTILINE)
 inactive_regex = re.compile('^(Inactive|Password inactive\s*):\s*(-?[0-9]+|never)', re.MULTILINE)
 
 
-# helper functions
+# {{{  helper functions
 def get_index(val, array):
     return array.index(val) if val in array else -1
 
@@ -158,7 +165,7 @@ def substitute_re_result(res, s):
 def mkdir_p(path):
     if not os.path.exists(path):
         os.makedirs(path)
-
+# }}}
 
 # {{{ ConfigFiles - stores references to all configuration files
 class ConfigFiles:
@@ -578,6 +585,15 @@ class MSEC:
         self.configfiles.add_config_assoc(LILOCONF, '[ `/usr/sbin/detectloader` = LILO ] && /sbin/lilo')
         self.configfiles.add_config_assoc(SYSLOGCONF, '[ -f /var/lock/subsys/syslog ] && service syslog reload')
         self.configfiles.add_config_assoc('^/etc/issue$', '/usr/bin/killall mingetty')
+
+    def run_action(self, name, params):
+        """Executes a callback function, eventually validating its results"""
+        try:
+            func = getattr(self, name)
+        except:
+            self.log.info(_("Function %s is not available in this version") % name)
+            return None
+        print func
 
     def create_server_link(self):
         '''  If SERVER_LEVEL (or SECURE_LEVEL if absent) is greater than 3

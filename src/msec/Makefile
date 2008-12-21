@@ -7,19 +7,13 @@
 # Created On      : Sat Jan 26 20:17:55 2002
 #---------------------------------------------------------------
 
-MAN=../man/C/mseclib.3
-PFILES=Config.py ConfigFile.py Log.py Perms.py compile.py draksec_help.py libmsec.py man.py
+MAN=../../man/C/mseclib.3
+PFILES=Perms.py compile.py draksec_help.py libmsec.py man.py
 
 all: mseclib.py compile man help.pm
 
 compile:
 	./compile.py '/usr/share/msec/' *.py
-	rm -f msec.pyo
-	@for f in $(PFILES); do if grep -q print $$f; then echo "print statement in $$f:"; grep -Hn print $$f; exit 1; fi; done
-
-mseclib.py: libmsec.py shadow.py
-	rm -f $@
-	./shadow.py libmsec > $@
 
 man: $(MAN) levels
 

@@ -2,7 +2,7 @@ CC=gcc
 NAME=msec_find
 
 CFLAGS = -ggdb -Wall -Wmissing-prototypes -Wmissing-declarations \
--Wpointer-arith -m486 -O2 -finline-functions -fkeep-inline-functions \
+-Wpointer-arith -O2 -finline-functions -fkeep-inline-functions \
 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
 
 OBJ=find.o

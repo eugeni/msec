@@ -13,13 +13,13 @@ clean:
 	cd share; make clean
 
 promisc_check: 
-	(cd src/promisc_check && make)
+	make -C src/promisc_check
 
 msec_find:
-	(cd src/msec_find && make)
+	make -C src/msec_find
 
 python:
-	-cd share; make
+	make -C src/msec
 
 install:
 	mkdir -p $(RPM_BUILD_ROOT)/etc/security/msec

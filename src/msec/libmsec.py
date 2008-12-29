@@ -12,7 +12,6 @@
 
 import os
 import grp
-#import Perms
 import gettext
 import pwd
 import re
@@ -112,9 +111,7 @@ space = re.compile('\s')
 # X server
 STARTX_REGEXP = '(\s*serverargs=".*) -nolisten tcp(.*")'
 XSERVERS_REGEXP = '(\s*[^#]+/usr/bin/X .*) -nolisten tcp(.*)'
-# TODO: new gdm config specifies DisallowTCP=false/true!
 GDMCONF_REGEXP = '(\s*command=.*/X.*?) -nolisten tcp(.*)$'
-GDMCONF_REGEXP2 = 'DisallowTCP='
 KDMRC_REGEXP = re.compile('(.*?)-nolisten tcp(.*)$')
 # ctrl-alt-del
 CTRALTDEL_REGEXP = '^ca::ctrlaltdel:/sbin/shutdown.*'
@@ -213,11 +210,12 @@ class ConfigFiles:
         self.log.debug("Adding custom command '%s' for '%s'" % (action, regex))
         self.action_assoc.append((re.compile(regex), action))
 
-    def write_files(self, run_commands=True):
+    def write_files(self, commit=True):
         """Writes all files back to disk"""
         for f in self.files.values():
             self.log.debug("Attempting to write %s" % f.path)
-            f.write()
+            if commit:
+                f.write()
 
         if len(self.modified_files) > 0:
             self.log.info("Modified files: %s" % " ".join(self.modified_files))
@@ -229,10 +227,9 @@ class ConfigFiles:
                 res = a[0].search(f)
                 if res:
                     s = substitute_re_result(res, a[1])
-                    print 'Found action %s for %s' % (s, f)
-                    if run_commands != '0':
+                    if commit:
                         self.log.info(_('%s modified so launched command: %s') % (f, s))
-                        #cmd = commands.getstatusoutput(s)
+                        cmd = commands.getstatusoutput(s)
                         cmd = [0, '']
                         if cmd[0] == 0:
                             if cmd[1]:
@@ -626,9 +623,10 @@ class MSEC:
             return None
         return func(params)
 
-    def commit(self):
+    def commit(self, really_commit=True):
         """Commits changes"""
-        self.configfiles.write_files()
+        self.log.info(_("In check-only mode, nothing is written back to disk."))
+        self.configfiles.write_files(really_commit)
 
     def create_server_link(self, param):
         '''  If SERVER_LEVEL (or SECURE_LEVEL if absent) is greater than 3

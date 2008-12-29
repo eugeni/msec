@@ -50,6 +50,7 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'CHECK_SHADOW' :                 (['no',  'yes',  'yes'], "check_shadow"),
                'CHECK_CHKROOTKIT' :             (['no',  'yes',  'yes'], "check_chkrootkit"), # was: CHKROOTKIT_CHECK
                'CHECK_RPM' :                    (['no',  'yes',  'yes'], "check_rpm"), # was: RPM_CHECK
+               'CHECK_SHOSTS' :                 (['no',  'yes',  'yes'], "check_shosts"),
                'TTY_WARN' :                     (['no',  'no',   'yes'], "tty_warn"),
                'MAIL_WARN' :                    (['no',  'yes',  'yes'], "mail_warn"),
                'MAIL_EMPTY_CONTENT':            (['no',  'no',   'yes'], "mail_empty_content"),
@@ -254,6 +255,8 @@ Arguments to msec:
     -l, --level <level>     displays configuration for specified security
                             level.
     -f                      force new level, overwriting user settings.
+    -d                      enable debugging messages.
+    -c, --check             check for changes in system configuration.
 """
 # }}}
 
@@ -261,10 +264,11 @@ if __name__ == "__main__":
     # default options
     force_level = False
     log_level = logging.INFO
+    commit = True
 
     # parse command line
     try:
-        opt, args = getopt.getopt(sys.argv[1:], 'hl:fd', ['help', 'list', 'force', 'debug'])
+        opt, args = getopt.getopt(sys.argv[1:], 'hl:fdc', ['help', 'list', 'force', 'debug', 'check'])
     except getopt.error:
         usage()
         sys.exit(1)
@@ -288,6 +292,8 @@ if __name__ == "__main__":
             force_level = True
         elif o[0] == '-d' or o[0] == '--debug':
             log_level = logging.DEBUG
+        elif o[0] == '-c' or o[0] == '--check':
+            commit = False
 
     # verifying use id
     if os.geteuid() != 0:
@@ -343,5 +349,5 @@ if __name__ == "__main__":
         log.debug("Processing action %s: %s(%s)" % (opt, callbacks[opt], config.get(opt)))
         msec.run_action(callbacks[opt], config.get(opt))
     # writing back changes
-    msec.commit()
+    msec.commit(commit)
     sys.exit(0)

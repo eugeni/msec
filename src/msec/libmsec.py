@@ -217,9 +217,9 @@ class ConfigFiles:
         """Writes all files back to disk"""
         for f in self.files.values():
             self.log.debug("Attempting to write %s" % f.path)
-            #f.write()
+            f.write()
 
-        print self.modified_files
+        self.log.info("Modified files: %s." % ", ".join(self.modified_files))
 
         for f in self.modified_files:
             for a in self.action_assoc:
@@ -728,7 +728,8 @@ class MSEC:
                     gdmconf.replace_line_matching('(\s*command=.*/X.*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
                     gdmconf.set_shell_variable('DisallowTCP', 'true')
                 if val_kdmrc:
-                    kdmrc.replace_line_matching('^(ServerArgsLocal=.*)( -nolisten tcp)?$', '@1 -nolisten tcp', 'ServerArgsLocal=-nolisten tcp', 0, 'X-\*-Core', '^\s*$')
+                    if not kdmrc.get_match('^ServerArgsLocal=.* -nolisten tcp'):
+                        kdmrc.replace_line_matching('^(ServerArgsLocal=.*)$', '@1 -nolisten tcp', 'ServerArgsLocal=-nolisten tcp', 0, 'X-\*-Core', '^\s*$')
 
     def set_shell_timeout(self, val):
         '''  Set the shell timeout. A value of zero means no timeout.'''

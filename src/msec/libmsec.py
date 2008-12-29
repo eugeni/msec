@@ -205,28 +205,34 @@ class ConfigFiles:
 
     def add_config_assoc(self, regex, action):
         """Adds association between a file and an action"""
+        self.log.debug("Adding custom command '%s' for '%s'" % (action, regex))
         self.action_assoc.append((re.compile(regex), action))
 
-    def write_files(all_files, run_commands=True):
+    def write_files(self, run_commands=True):
         """Writes all files back to disk"""
         for f in self.files.values():
-            print "Attempting to write %s" % f
+            self.log.debug("Attempting to write %s" % f.path)
             #f.write()
+
+        print self.modified_files
 
         for f in self.modified_files:
             for a in self.action_assoc:
                 res = a[0].search(f)
                 if res:
                     s = substitute_re_result(res, a[1])
+                    print 'Found action %s for %s' % (s, f)
                     if run_commands != '0':
-                        log(_('%s modified so launched command: %s') % (f, s))
+                        self.log.info(_('%s modified so launched command: %s') % (f, s))
                         #cmd = commands.getstatusoutput(s)
+                        cmd = [0, '']
                         if cmd[0] == 0:
-                            log(cmd[1])
+                            if cmd[1]:
+                                self.log.info(cmd[1])
                         else:
-                            error(cmd[1])
+                            self.log.error(cmd[1])
                     else:
-                        log(_('%s modified so should have run command: %s') % (f, s))
+                        self.log.info(_('%s modified so should have run command: %s') % (f, s))
 
 # }}}
 
@@ -283,6 +289,7 @@ class ConfigFile:
 
     def modified(self):
         self.is_modified = 1
+        self.meta.modified(self.path)
         return self
 
     def touch(self):
@@ -606,6 +613,10 @@ class MSEC:
             self.log.info(_("Function %s is not available in this version") % name)
             return None
         func(params)
+
+    def commit(self):
+        """Commits changes"""
+        self.configfiles.write_files()
 
     def create_server_link(self, param):
         '''  If SERVER_LEVEL (or SECURE_LEVEL if absent) is greater than 3
@@ -1000,14 +1011,17 @@ class MSEC:
                 self.log.info(_('Allowing remote root login'))
                 sshd_config.exists() and sshd_config.replace_line_matching(PERMIT_ROOT_LOGIN_REGEXP,
                                                                            'PermitRootLogin yes', 1)
+                sshd_config.modified()
             elif arg == "no":
                 self.log.info(_('Forbidding remote root login'))
                 sshd_config.exists() and sshd_config.replace_line_matching(PERMIT_ROOT_LOGIN_REGEXP,
                                                                            'PermitRootLogin no', 1)
+                sshd_config.modified()
             elif arg == "without_password":
                 self.log.info(_('Allowing remote root login only by passphrase'))
                 sshd_config.exists() and sshd_config.replace_line_matching(PERMIT_ROOT_LOGIN_REGEXP,
                                                                            'PermitRootLogin without-password', 1)
+                sshd_config.modified()
 
     #allow_remote_root_login.arg_trans = ALLOW_ROOT_LOGIN_TRANS
 

@@ -119,6 +119,7 @@ class Log:
     def __init__(self,
                 log_syslog=True,
                 log_file=True,
+                log_level = logging.INFO,
                 log_facility=SysLogHandler.LOG_AUTHPRIV,
                 syslog_address="/dev/log",
                 log_path="/var/log/msec.log",
@@ -150,7 +151,7 @@ class Log:
             self.interactive_h.setFormatter(formatter)
             self.logger.addHandler(self.interactive_h)
 
-        self.logger.setLevel(logging.INFO)
+        self.logger.setLevel(log_level)
 
     def info(self, message):
         """Informative message (normal msec operation)"""
@@ -257,20 +258,13 @@ Arguments to msec:
 # }}}
 
 if __name__ == "__main__":
-    # configuring logging
-    interactive = sys.stdin.isatty()
-    if interactive:
-        # logs to file and to terminal
-        log = Log(log_path="/tmp/msec.log", interactive=True, log_syslog=False)
-    else:
-        log = Log(log_path="/tmp/msec.log", interactive=False)
-
-    # configurable options
+    # default options
     force_level = False
+    log_level = logging.INFO
 
     # parse command line
     try:
-        opt, args = getopt.getopt(sys.argv[1:], 'hl:f', ['help', 'list', 'force'])
+        opt, args = getopt.getopt(sys.argv[1:], 'hl:fd', ['help', 'list', 'force', 'debug'])
     except getopt.error:
         usage()
         sys.exit(1)
@@ -292,6 +286,16 @@ if __name__ == "__main__":
         # force new level
         elif o[0] == '-f' or o[0] == '--force':
             force_level = True
+        elif o[0] == '-d' or o[0] == '--debug':
+            log_level = logging.DEBUG
+
+    # configuring logging
+    interactive = sys.stdin.isatty()
+    if interactive:
+        # logs to file and to terminal
+        log = Log(log_path="/tmp/msec.log", interactive=True, log_syslog=False, log_level=log_level)
+    else:
+        log = Log(log_path="/tmp/msec.log", interactive=False, log_level=log_level)
 
 
     # ok, let's if user specified a security level
@@ -331,8 +335,10 @@ if __name__ == "__main__":
     # security action we call the correspondent callback with
     # right parameter (either default, or specified by user)
     for opt in config.list_options():
-        print "%s: -> %s(%s)" % (opt, callbacks[opt], config.get(opt))
+        log.debug("Processing action %s: %s(%s)" % (opt, callbacks[opt], config.get(opt)))
         msec.run_action(callbacks[opt], config.get(opt))
+    # writing back changes
+    msec.commit()
     sys.exit(0)
 
 ############

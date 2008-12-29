@@ -619,7 +619,7 @@ class MSEC:
         except:
             self.log.info(_("Function %s is not available in this version") % name)
             return None
-        func(params)
+        return func(params)
 
     def commit(self):
         """Commits changes"""
@@ -642,11 +642,6 @@ class MSEC:
             self.log.info(_('Restricting chkconfig --add from rpm'))
             server.symlink(SERVER + '.' + str(level))
 
-    #create_server_link.arg_trans = YES_NO_TRANS
-
-    # helper function for set_root_umask and set_user_umask
-    def set_umask(self, variable, umask, msg):
-        'D'
         msec = self.configfiles.get_config_file(SHELLCONF)
 
         val = msec.get_shell_variable(variable)
@@ -657,36 +652,40 @@ class MSEC:
 
     def set_root_umask(self, umask):
         '''  Set the root umask.'''
-        self.set_umask('UMASK_ROOT', umask, 'root')
+        msec = self.configfiles.get_config_file(SHELLCONF)
+
+        val = msec.get_shell_variable('UMASK_ROOT')
+
+        if val != umask:
+            self.log.info(_('Setting root umask to %s') % (umask))
+            msec.set_shell_variable('UMASK_ROOT', umask)
 
     def set_user_umask(self, umask):
         '''  Set the user umask.'''
-        self.set_umask('UMASK_USER', umask, 'users')
+        msec = self.configfiles.get_config_file(SHELLCONF)
 
-    ################################################################################
+        val = msec.get_shell_variable('UMASK_USERS')
 
-    # the listen_tcp argument is kept for backward compatibility
-    def allow_x_connections(self, arg, listen_tcp=None):
+        if val != umask:
+            self.log.info(_('Setting users umask to %s') % (umask))
+            msec.set_shell_variable('UMASK_USER', umask)
+
+    def allow_x_connections(self, arg):
         '''  Allow/Forbid X connections. First arg specifies what is done
     on the client side: ALL (all connections are allowed), LOCAL (only
     local connection) and NONE (no connection).'''
 
-        msec = self.configfiles.get_config_file(MSEC_XINIT)
-
-        val = msec.exists() and msec.get_match('/usr/bin/xhost\s*\+\s*([^#]*)')
+        xinit = self.configfiles.get_config_file(MSEC_XINIT)
 
         if arg == "ALL":
-            if val != arg:
-                self.log.info(_('Allowing users to connect X server from everywhere'))
-                msec.exists() and msec.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost +', 1)
+            self.log.info(_('Allowing users to connect X server from everywhere'))
+            xinit.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost +', 1)
         elif arg == "LOCAL":
-            if val != arg:
-                self.log.info(_('Allowing users to connect X server from localhost'))
-                msec.exists() and msec.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost + localhost', 1)
+            self.log.info(_('Allowing users to connect X server from localhost'))
+            xinit.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost + localhost', 1)
         elif arg == "NONE":
-            if val != arg:
-                self.log.info(_('Restricting X server connection to the console user'))
-                msec.exists() and msec.remove_line_matching('/usr/bin/xhost', 1)
+            self.log.info(_('Restricting X server connection to the console user'))
+            xinit.remove_line_matching('/usr/bin/xhost', 1)
         else:
             self.log.error(_('invalid allow_x_connections arg: %s') % arg)
             return

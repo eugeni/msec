@@ -30,6 +30,9 @@ try:
 except IOError:
     _ = str
 
+# backup file suffix
+SUFFIX = '.msec'
+
 # list of config files
 
 ATALLOW = '/etc/at.allow'
@@ -52,7 +55,7 @@ LDSOPRELOAD = '/etc/ld.so.preload'
 LILOCONF = '/etc/lilo.conf'
 LOGINDEFS = '/etc/login.defs'
 MENULST = '/boot/grub/menu.lst'
-MSEC = '/etc/sysconfig/msec'
+SHELLCONF = '/etc/sysconfig/shell'
 MSECBIN = '/usr/sbin/msec'
 MSECCRON = '/etc/cron.hourly/msec'
 MSEC_XINIT = '/etc/X11/xinit.d/msec'
@@ -141,7 +144,13 @@ inactive_regex = re.compile('^(Inactive|Password inactive\s*):\s*(-?[0-9]+|never
 
 # {{{  helper functions
 def get_index(val, array):
-    return array.index(val) if val in array else -1
+    # works with python 2.6
+    #return array.index(val) if val in array else -1
+    for loop in range(0, len(array)):
+        if val == array[loop]:
+            return loop
+    return -1
+
 
 def boolean2bit(bool):
     return 1 if bool else 0
@@ -171,11 +180,12 @@ def mkdir_p(path):
 class ConfigFiles:
     """This class is responsible to store references to all configuration files,
         mark them as changed, and update on disk when necessary"""
-    def __init__(self):
+    def __init__(self, log):
         """Initializes list of ConfigFiles"""
         self.files = {}
         self.modified_files = []
         self.action_assoc = []
+        self.log = log
 
     def add(self, file, path):
         """Appends a path to list of files"""
@@ -186,12 +196,12 @@ class ConfigFiles:
         if not path in self.modified_files:
             self.modified_files.append(path)
 
-    def get_config_file(self, path, suffix):
+    def get_config_file(self, path, suffix=None):
         """Retreives corresponding config file"""
         try:
             return self.files[path]
         except KeyError:
-            return ConfigFile(path, suffix, self)
+            return ConfigFile(path, self, self.log, suffix=suffix)
 
     def add_config_assoc(self, regex, action):
         """Adds association between a file and an action"""
@@ -200,16 +210,17 @@ class ConfigFiles:
     def write_files(all_files, run_commands=True):
         """Writes all files back to disk"""
         for f in self.files.values():
-            f.write()
+            print "Attempting to write %s" % f
+            #f.write()
 
-        for f in all_files.modified_files:
-            for a in all_files.action_assoc:
+        for f in self.modified_files:
+            for a in self.action_assoc:
                 res = a[0].search(f)
                 if res:
                     s = substitute_re_result(res, a[1])
                     if run_commands != '0':
                         log(_('%s modified so launched command: %s') % (f, s))
-                        cmd = commands.getstatusoutput(s)
+                        #cmd = commands.getstatusoutput(s)
                         if cmd[0] == 0:
                             log(cmd[1])
                         else:
@@ -226,7 +237,7 @@ class ConfigFile:
     """This class represents an individual config file.
        All config files are stored in meta (which is ConfigFiles).
        All operations are performed in memory, and written when required"""
-    def __init__(self, path, meta, root='', suffix=None):
+    def __init__(self, path, meta, log, root='', suffix=None):
         """Initializes a config file, and put reference to meta (ConfigFiles)"""
         self.meta=meta
         self.path = root + path
@@ -237,6 +248,7 @@ class ConfigFile:
         self.suffix = suffix
         self.lines = None
         self.sym_link = None
+        self.log = log
         self.meta.add(self, path)
 
     def get_lines(self):
@@ -406,7 +418,7 @@ class ConfigFile:
             lines.insert(idx, s)
 
         self.modified()
-        log(_('set variable %s to %s in %s') % (var, value, self.path,))
+        self.log.info(_('set variable %s to %s in %s') % (var, value, self.path,))
         return self
 
     def get_shell_variable(self, var, start=None, end=None):
@@ -482,7 +494,7 @@ class ConfigFile:
                 s = substitute_re_result(res, value)
                 matches = matches + 1
                 if s != line:
-                    log(_("replaced in %s the line %d:\n%s\nwith the line:\n%s") % (self.path, idx, line, s))
+                    self.log.info(_("replaced in %s the line %d:\n%s\nwith the line:\n%s") % (self.path, idx, line, s))
                     lines[idx] = s
                     self.modified()
                 if not all:
@@ -490,7 +502,7 @@ class ConfigFile:
         if matches == 0 and at_end_if_not_found:
             if type(at_end_if_not_found) == STRING_TYPE:
                 value = at_end_if_not_found
-            log(_("appended in %s the line:\n%s") % (self.path, value))
+            self.log.info(_("appended in %s the line:\n%s") % (self.path, value))
             if idx == None or idx == len(lines):
                 self.append(value)
             else:
@@ -545,7 +557,7 @@ class ConfigFile:
         lines = self.get_lines()
         try:
             lines.insert(idx, value)
-            log(_("inserted in %s at the line %d:\n%s") % (self.path, idx, value))
+            self.log.info(_("inserted in %s at the line %d:\n%s") % (self.path, idx, value))
             self.modified()
             return 1
         except KeyError:
@@ -558,7 +570,7 @@ class ConfigFile:
         for idx in range(len(lines) - 1, -1, -1):
             res = r.search(lines[idx])
             if res:
-                log(_("removing in %s the line %d:\n%s") % (self.path, idx, lines[idx]))
+                self.log.info(_("removing in %s the line %d:\n%s") % (self.path, idx, lines[idx]))
                 lines.pop(idx)
                 self.modified()
                 matches = matches + 1
@@ -574,7 +586,7 @@ class MSEC:
         """Initializes config files and associations"""
         # all config files
         self.log = log
-        self.configfiles = ConfigFiles()
+        self.configfiles = ConfigFiles(log)
         self.no_aging_list = []
 
         # associate helper commands with files
@@ -593,14 +605,16 @@ class MSEC:
         except:
             self.log.info(_("Function %s is not available in this version") % name)
             return None
-        print func
+        func(params)
 
-    def create_server_link(self):
+    def create_server_link(self, param):
         '''  If SERVER_LEVEL (or SECURE_LEVEL if absent) is greater than 3
     in /etc/security/msec/security.conf, creates the symlink /etc/security/msec/server
     to point to /etc/security/msec/server.<SERVER_LEVEL>. The /etc/security/msec/server
     is used by chkconfig --add to decide to add a service if it is present in the file
     during the installation of packages.'''
+        self.log.error("WARNING WARNING! In create_server_link!")
+        return
         level = get_server_level()
         server = self.configfiles.get_config_file(SERVER)
         if level in ('0', '1', '2', '3'):
@@ -615,7 +629,7 @@ class MSEC:
     # helper function for set_root_umask and set_user_umask
     def set_umask(self, variable, umask, msg):
         'D'
-        msec = self.configfiles.get_config_file(MSEC)
+        msec = self.configfiles.get_config_file(SHELLCONF)
 
         if type(umask) == STRING_TYPE:
             umask = int(umask, 8)
@@ -625,11 +639,11 @@ class MSEC:
         else:
             val = None
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val:
-                octal = umask | int(val, 8)
-                umask = '0%o' % octal
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val:
+        #        octal = umask | int(val, 8)
+        #        umask = '0%o' % octal
 
         if type(umask) != STRING_TYPE:
             umask = '0%o' % umask
@@ -668,10 +682,11 @@ class MSEC:
         else:
             val = NONE
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val == NONE or (val == LOCAL and arg == ALL):
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val == NONE or (val == LOCAL and arg == ALL):
+        #        return
+        # TODO: FIX
 
         if arg == ALL:
             if val != arg:
@@ -686,7 +701,7 @@ class MSEC:
                 self.log.info(_('Restricting X server connection to the console user'))
                 msec.exists() and msec.remove_line_matching('/usr/bin/xhost', 1)
         else:
-            error(_('invalid allow_x_connections arg: %s') % arg)
+            self.log.error(_('invalid allow_x_connections arg: %s') % arg)
             return
 
     #allow_x_connections.arg_trans=ALL_LOCAL_NONE_TRANS
@@ -713,10 +728,10 @@ class MSEC:
         else:
             val_kdmrc = None
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val_startx and val_xservers and val_gdmconf and val_kdmrc:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val_startx and val_xservers and val_gdmconf and val_kdmrc:
+        #        return
 
         if arg:
             if val_startx or val_xservers or val_gdmconf or val_kdmrc:
@@ -742,7 +757,7 @@ class MSEC:
     def set_shell_timeout(self, val):
         '''  Set the shell timeout. A value of zero means no timeout.'''
 
-        msec = self.configfiles.get_config_file(MSEC)
+        msec = self.configfiles.get_config_file(SHELLCONF)
 
         if msec.exists():
             old = msec.get_shell_variable('TMOUT')
@@ -751,10 +766,10 @@ class MSEC:
         else:
             old = None
 
-        # don't lower security when not changing security level
-        if same_level():
-            if old != None and old > val:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if old != None and old > val:
+        #        return
 
         if old != val:
             self.log.info(_('Setting shell timeout to %s') % val)
@@ -762,19 +777,19 @@ class MSEC:
 
     def set_shell_history_size(self, size):
         '''  Set shell commands history size. A value of -1 means unlimited.'''
-        msec = self.configfiles.get_config_file(MSEC)
+        msec = self.configfiles.get_config_file(SHELLCONF)
 
         if msec.exists():
             val = msec.get_shell_variable('HISTFILESIZE')
         else:
             val = None
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val != None:
-                val = int(val)
-                if size == -1 or val < size:
-                    return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val != None:
+        #        val = int(val)
+        #        if size == -1 or val < size:
+        #            return
 
         if size >= 0:
             if val != size:
@@ -789,10 +804,10 @@ class MSEC:
         '''  Set umask option for mounting vfat and ntfs partitions. A value of None means default umask.'''
         fstab = self.configfiles.get_config_file(FSTAB)
 
-        # don't lower security when not changing security level
-        if same_level():
-            if umask != None:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if umask != None:
+        #        return
 
         if umask == None:
             fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+)umask=\d+(\s.*)", "@1defaults@3", 0, 1)
@@ -829,25 +844,27 @@ class MSEC:
             val_kdmrc = 2
 
         # don't lower security when not changing security level
-        if same_level():
-            if val_shutdownallow and val_sysctlconf == '0' and num == 0 and oldval_kdmrc >= val_kdmrc and val_gdmconf == 'false' and not val_inittab:
-                return
-            if oldval_kdmrc > val_kdmrc:
-                val_kdmrc = oldval_kdmrc
+        #if same_level():
+        #    if val_shutdownallow and val_sysctlconf == '0' and num == 0 and oldval_kdmrc >= val_kdmrc and val_gdmconf == 'false' and not val_inittab:
+        #        return
+        #    if oldval_kdmrc > val_kdmrc:
+        #        val_kdmrc = oldval_kdmrc
 
         if arg:
             self.log.info(_('Allowing reboot to the console user'))
-            if not (same_level() and val_shutdownallow):
+            #if not (same_level() and val_shutdownallow):
+            if not (val_shutdownallow):
                 shutdownallow.exists() and shutdownallow.move(SUFFIX)
             for f in [SHUTDOWN, POWEROFF, REBOOT, HALT]:
                 cfg = self.configfiles.get_config_file(f)
-                if not (same_level() and not val[f]):
+                #if not (same_level() and not val[f]):
+                if val[f]:
                     cfg.exists() or cfg.symlink(CONSOLE_HELPER)
-            if not (same_level() and val_sysctlconf == '0'):
+            if not (val_sysctlconf == '0'):
                 sysctlconf.set_shell_variable('kernel.sysrq', 1)
-            if not same_level() and val_gdmconf == 'false':
+            if val_gdmconf == 'false':
                 gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'true', '\[greeter\]', '^\s*$')
-            if not (same_level() and not val_inittab):
+            if val_inittab:
                 inittab.replace_line_matching(CTRALTDEL_REGEXP, 'ca::ctrlaltdel:/sbin/shutdown -t3 -r now', 1)
         else:
             self.log.info(_('Forbidding reboot to the console user'))
@@ -881,14 +898,14 @@ class MSEC:
             val_kdmrc = 1
             val_gdmconf = 'false'
 
-        # don't lower security when not changing security level
-        if same_level():
-            if oldval_kdmrc >= val_kdmrc  and oldval_gdmconf == 'false':
-                return
-            if oldval_kdmrc > val_kdmrc:
-                val_kdmrc = oldval_kdmrc
-            if oldval_gdmconf == 'false':
-                val_gdmconf = 'false'
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if oldval_kdmrc >= val_kdmrc  and oldval_gdmconf == 'false':
+        #        return
+        #    if oldval_kdmrc > val_kdmrc:
+        #        val_kdmrc = oldval_kdmrc
+        #    if oldval_gdmconf == 'false':
+        #        val_gdmconf = 'false'
 
         if (gdmconf.exists() and oldval_gdmconf != val_gdmconf) or (kdmrc.exists() and oldval_kdmrc != val_kdmrc):
             self.log.info(_(msg))
@@ -924,10 +941,10 @@ class MSEC:
             else:
                 val[s] = 0
 
-        # don't lower security when not changing security level
-        if same_level():
-            if (not kde.exists() or val[kde]) and (not gdm.exists() or val[gdm]) and (not xdm.exists() or val[xdm]) and num == 12:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if (not kde.exists() or val[kde]) and (not gdm.exists() or val[gdm]) and (not xdm.exists() or val[xdm]) and num == 12:
+        #        return
 
         if arg:
             if val[kde] or val[gdm] or val[xdm] or num != 12:
@@ -971,12 +988,12 @@ class MSEC:
         else:
             val = None
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val == 'no':
-                return
-            if val == 'forced-commands-only':
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val == 'no':
+        #        return
+        #    if val == 'forced-commands-only':
+        #        return
 
         if val != arg:
             if arg == "yes":
@@ -1000,10 +1017,10 @@ class MSEC:
 
         val = su.exists() and su.get_match('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$')
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val:
+        #        return
 
         if arg:
             if not val:
@@ -1015,7 +1032,7 @@ class MSEC:
                     return
                 members = ent[3]
                 if members == [] or members == ['root']:
-                    _interactive and error(_('wheel group is empty'))
+                    self.log.error(_('wheel group is empty'))
                     return
                 # TODO: fix
                 su.exists() and (su.replace_line_matching('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$',
@@ -1044,10 +1061,10 @@ class MSEC:
         else:
             val_simple = False
 
-        # don't lower security when not changing security level
-        if same_level():
-            if not val and not val_simple:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if not val and not val_simple:
+        #        return
 
         if arg:
             if not val or (simple.exists() and not val_simple):
@@ -1075,12 +1092,12 @@ class MSEC:
         val = issue.exists(1)
         valnet = issuenet.exists(1)
 
-        # don't lower security when not changing security level
-        if same_level():
-            if not val and not valnet:
-                return
-            if arg == ALL and not valnet:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if not val and not valnet:
+        #        return
+        #    if arg == ALL and not valnet:
+        #        return
 
         if arg == ALL:
             if not (val and valnet):
@@ -1111,10 +1128,10 @@ class MSEC:
         else:
             val = None
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val == 'no':
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val == 'no':
+        #        return
 
         if arg:
             if val != 'yes':
@@ -1161,10 +1178,10 @@ class MSEC:
         else:
             val = None
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val:
+        #        return
 
         if arg:
             if dev != val:
@@ -1240,10 +1257,12 @@ class MSEC:
         else:
             val = ALL
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val == NONE or (val == LOCAL and arg == ALL):
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val == NONE or (val == LOCAL and arg == ALL):
+        #        return
+
+        # TODO: FIX
 
         if arg == ALL:
             if arg != val:
@@ -1261,7 +1280,7 @@ class MSEC:
                 hostsdeny.remove_line_matching(ALL_REGEXP, 1)
                 hostsdeny.replace_line_matching(ALL_LOCAL_REGEXP, 'ALL:ALL EXCEPT 127.0.0.1:DENY', 1)
         else:
-            error(_('authorize_services invalid argument: %s') % arg)
+            self.log.error(_('authorize_services invalid argument: %s') % arg)
 
     # authorize_services.arg_trans = ALL_LOCAL_NONE_TRANS
 
@@ -1278,10 +1297,10 @@ class MSEC:
         else:
             val = None
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val == secure_value:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val == secure_value:
+        #        return
 
         if value != val:
             if value:
@@ -1307,10 +1326,10 @@ class MSEC:
 
         val = hostconf.exists() and hostconf.get_match('nospoof\s+on')
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val:
+        #        return
 
         if arg:
             if not val:
@@ -1349,8 +1368,18 @@ class MSEC:
 
     #enable_log_strange_packets.arg_trans = YES_NO_TRANS
 
-    def password_length(self, length, ndigits=0, nupper=0):
+    def password_length(self, arg):
         '''  Set the password minimum length and minimum number of digit and minimum number of capitalized letters.'''
+
+        # TODO: check for valid values
+        try:
+            length, ndigits, nupper = arg.split(",")
+            length = int(length)
+            ndigits = int(ndigits)
+            nupper = int(nupper)
+        except:
+            self.log.error(_('Invalid password length "%s". Use "length,ndigits,nupper" as parameter') % arg)
+            return
 
         passwd = self.configfiles.get_config_file(SYSTEM_AUTH)
 
@@ -1369,19 +1398,19 @@ class MSEC:
             if val_ucredit:
                 val_ucredit = int(val_ucredit)
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val_length > length and val_ndigits > ndigits and val_ucredit > nupper:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val_length > length and val_ndigits > ndigits and val_ucredit > nupper:
+        #        return
 
-            if val_length > length:
-                length = val_length
+        #    if val_length > length:
+        #        length = val_length
 
-            if val_ndigits > ndigits:
-                ndigits = val_ndigits
+        #    if val_ndigits > ndigits:
+        #        ndigits = val_ndigits
 
-            if val_ucredit > nupper:
-                nupper = val_ucredit
+        #    if val_ucredit > nupper:
+        #        nupper = val_ucredit
 
         if passwd.exists() and (val_length != length or val_ndigits != ndigits or val_ucredit != nupper):
             self.log.info(_('Setting minimum password length %d') % length)
@@ -1403,14 +1432,16 @@ class MSEC:
     # TODO: remove this, too dangerous
     def enable_password(self, arg):
         '''  Use password to authenticate users.'''
+        self.log.error("WARNING WARNING! In enable_password!!")
+        return
         system_auth = self.configfiles.get_config_file(SYSTEM_AUTH)
 
         val = system_auth.exists() and system_auth.get_match(PASSWORD_REGEXP)
 
-        # don't lower security when not changing security level
-        if same_level():
-            if not val:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if not val:
+        #        return
 
         if arg:
             if val:
@@ -1428,6 +1459,14 @@ class MSEC:
         '''  Set the password history length to prevent password reuse.'''
         system_auth = self.configfiles.get_config_file(SYSTEM_AUTH)
 
+        # verify parameter validity
+        # max
+        try:
+            history = int(arg)
+        except:
+            self.log.error(_('Invalid maximum password age: "%s"') % arg)
+            return
+
         if system_auth.exists():
             val = system_auth.get_match(UNIX_REGEXP, '@2')
 
@@ -1438,16 +1477,16 @@ class MSEC:
         else:
             val = 0
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val >= arg:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val >= arg:
+        #        return
 
-        if arg != val:
-            if arg > 0:
-                self.log.info(_('Setting password history to %d.') % arg)
-                system_auth.replace_line_matching(UNIX_REGEXP, '@1 remember=%d@3' % arg) or \
-                system_auth.replace_line_matching('(^\s*password\s+sufficient\s+(?:/lib/security/)?pam_unix.so.*)', '@1 remember=%d' % arg)
+        if history != val:
+            if history > 0:
+                self.log.info(_('Setting password history to %d.') % history)
+                system_auth.replace_line_matching(UNIX_REGEXP, '@1 remember=%d@3' % history) or \
+                system_auth.replace_line_matching('(^\s*password\s+sufficient\s+(?:/lib/security/)?pam_unix.so.*)', '@1 remember=%d' % history)
                 opasswd = self.configfiles.get_config_file(OPASSWD)
                 opasswd.exists() or opasswd.touch()
             else:
@@ -1460,10 +1499,10 @@ class MSEC:
 
         val = inittab.exists() and inittab.get_match(SULOGIN_REGEXP)
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val:
+        #        return
 
         if arg:
             if not val:
@@ -1482,10 +1521,10 @@ class MSEC:
 
         val = mseccron.exists()
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val:
+        #        return
 
         if arg:
             if arg != val:
@@ -1507,10 +1546,10 @@ class MSEC:
         val_cronallow = cronallow.exists() and cronallow.get_match('root')
         val_atallow = atallow.exists() and atallow.get_match('root')
 
-        # don't lower security when not changing security level
-        if same_level():
-            if val_cronallow and val_atallow:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if val_cronallow and val_atallow:
+        #        return
 
         if arg:
             if val_cronallow or val_atallow:
@@ -1536,7 +1575,20 @@ class MSEC:
     def password_aging(self, max, inactive=-1):
         '''  Set password aging to \\fImax\\fP days and delay to change to \\fIinactive\\fP.'''
         uid_min = 500
-        self.log.info(_('Setting password maximum aging for new user to %d') % max)
+        # verify parameter validity
+        # max
+        try:
+            max = int(max)
+        except:
+            self.log.error(_('Invalid maximum password age: "%s"]') % max)
+            return
+        # inactive
+        try:
+            inactive = int(inactive)
+        except:
+            self.log.error(_('Invalid inactive password age: "%s"]') % inactive)
+            return
+        self.log.info(_('Setting password maximum aging for new user to %s') % max)
         logindefs = self.configfiles.get_config_file(LOGINDEFS)
         if logindefs.exists():
             logindefs.replace_line_matching('^\s*PASS_MAX_DAYS', 'PASS_MAX_DAYS ' + str(max), 1)
@@ -1591,10 +1643,10 @@ class MSEC:
 
         allow = export.exists() and export.get_match('^\*$')
 
-        # don't lower security when not changing security level
-        if same_level():
-            if not allow:
-                return
+        ## don't lower security when not changing security level
+        #if same_level():
+        #    if not allow:
+        #        return
 
         if arg:
             if not allow:
@@ -1649,55 +1701,55 @@ class MSEC:
         securityconf = self.configfiles.get_config_file(SECURITYCONF)
         securityconf.set_shell_variable(var, value)
 
-    def check_security(self):
+    def check_security(self, param):
         pass
 
-    def check_perms(self):
+    def check_perms(self, param):
         pass
 
-    def check_suid_root(self):
+    def check_suid_root(self, param):
         pass
 
-    def check_suid_md5(self):
+    def check_suid_md5(self, param):
         pass
 
-    def check_sgid(self):
+    def check_sgid(self, param):
         pass
 
-    def check_writable(self):
+    def check_writable(self, param):
         pass
 
-    def check_unowned(self):
+    def check_unowned(self, param):
         pass
 
-    def check_promisc(self):
+    def check_promisc(self, param):
         pass
 
-    def check_open_port(self):
+    def check_open_port(self, param):
         pass
 
-    def check_passwd(self):
+    def check_passwd(self, param):
         pass
 
-    def check_shadow(self):
+    def check_shadow(self, param):
         pass
 
-    def check_chkrootkit(self):
+    def check_chkrootkit(self, param):
         pass
 
-    def check_rpm(self):
+    def check_rpm(self, param):
         pass
 
-    def tty_warn(self):
+    def tty_warn(self, param):
         pass
 
-    def mail_warn(self):
+    def mail_warn(self, param):
         pass
 
-    def mail_empty_content(self):
+    def mail_empty_content(self, param):
         pass
 
-    def syslog_warn(self):
+    def syslog_warn(self, param):
         pass
 # }}}
 

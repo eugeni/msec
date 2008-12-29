@@ -153,7 +153,10 @@ def get_index(val, array):
 
 
 def boolean2bit(bool):
-    return 1 if bool else 0
+    if bool == "yes":
+        return 1
+    else:
+        return 0
 
 def move(old, new):
     try:
@@ -235,8 +238,6 @@ class ConfigFiles:
                         self.log.info(_('%s modified so should have run command: %s') % (f, s))
 
 # }}}
-
-#all_files=ConfigFiles()
 
 # {{{ ConfigFile - an individual config file
 class ConfigFile:
@@ -409,7 +410,7 @@ class ConfigFile:
                     else:
                         lines[idx] = var + '=' + value + res.group(2)
                     self.modified()
-                    log(_('set variable %s to %s in %s') % (var, value, self.path,))
+                    self.log.debug(_('set variable %s to %s in %s') % (var, value, self.path,))
                 return self
         if status == BEFORE:
             # never found the start delimiter
@@ -429,6 +430,9 @@ class ConfigFile:
         return self
 
     def get_shell_variable(self, var, start=None, end=None):
+        # if file does not exists, fail quickly
+        if not self.exists():
+            return None
         if end:
             end=re.compile(end)
         if start:
@@ -459,6 +463,9 @@ class ConfigFile:
         return None
 
     def get_match(self, regex, replace=None):
+        # if file does not exists, fail quickly
+        if not self.exists():
+            return None
         r=re.compile(regex)
         lines = self.get_lines()
         for idx in range(0, len(lines)):
@@ -642,22 +649,7 @@ class MSEC:
         'D'
         msec = self.configfiles.get_config_file(SHELLCONF)
 
-        if type(umask) == STRING_TYPE:
-            umask = int(umask, 8)
-
-        if msec.exists():
-            val = msec.get_shell_variable(variable)
-        else:
-            val = None
-
-        ## don't lower security when not changing security level
-        #if same_level():
-        #    if val:
-        #        octal = umask | int(val, 8)
-        #        umask = '0%o' % octal
-
-        if type(umask) != STRING_TYPE:
-            umask = '0%o' % umask
+        val = msec.get_shell_variable(variable)
 
         if val != umask:
             self.log.info(_('Setting %s umask to %s') % (msg, umask))
@@ -683,31 +675,15 @@ class MSEC:
 
         val = msec.exists() and msec.get_match('/usr/bin/xhost\s*\+\s*([^#]*)')
 
-        if val:
-            if val == '':
-                val = ALL
-            elif val == 'localhost':
-                val = LOCAL
-            else:
-                val = NONE
-        else:
-            val = NONE
-
-        ## don't lower security when not changing security level
-        #if same_level():
-        #    if val == NONE or (val == LOCAL and arg == ALL):
-        #        return
-        # TODO: FIX
-
-        if arg == ALL:
+        if arg == "ALL":
             if val != arg:
                 self.log.info(_('Allowing users to connect X server from everywhere'))
                 msec.exists() and msec.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost +', 1)
-        elif arg == LOCAL:
+        elif arg == "LOCAL":
             if val != arg:
                 self.log.info(_('Allowing users to connect X server from localhost'))
                 msec.exists() and msec.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost + localhost', 1)
-        elif arg == NONE:
+        elif arg == "NONE":
             if val != arg:
                 self.log.info(_('Restricting X server connection to the console user'))
                 msec.exists() and msec.remove_line_matching('/usr/bin/xhost', 1)
@@ -1208,28 +1184,6 @@ class MSEC:
 
     enable_console_log.arg_trans = YES_NO_TRANS
 
-    def enable_promisc_check(self, arg):
-        '''  Activate/Disable ethernet cards promiscuity check.'''
-        cron = self.configfiles.get_config_file(CRON)
-
-        val = cron.exists() and cron.get_match(CRON_REGEX)
-
-        # don't lower security when not changing security level
-        if same_level():
-            if val == CRON_ENTRY:
-                return
-
-        if arg:
-            if val != CRON_ENTRY:
-                self.log.info(_('Activating periodic promiscuity check'))
-                cron.replace_line_matching(CRON_REGEX, CRON_ENTRY, 1)
-        else:
-            if val:
-                self.log.info(_('Disabling periodic promiscuity check'))
-                cron.remove_line_matching('[^#]+/usr/share/msec/promisc_check.sh')
-
-    #enable_promisc_check.arg_trans = YES_NO_TRANS
-
     def enable_security_check(self, arg):
         '''   Activate/Disable daily security check.'''
         cron = self.configfiles.get_config_file(CRON)
@@ -1256,82 +1210,42 @@ class MSEC:
     #enable_security_check.arg_trans = YES_NO_TRANS
 
     def authorize_services(self, arg):
-        '''  Authorize all services controlled by tcp_wrappers (see hosts.deny(5)) if \\fIarg\\fP = ALL. Only local ones
+        '''Authorize all services controlled by tcp_wrappers (see hosts.deny(5)) if \\fIarg\\fP = ALL. Only local ones
     if \\fIarg\\fP = LOCAL and none if \\fIarg\\fP = NONE. To authorize the services you need, use /etc/hosts.allow
     (see hosts.allow(5)).'''
+
         hostsdeny = self.configfiles.get_config_file(HOSTSDENY)
 
-        if hostsdeny.exists():
-            if hostsdeny.get_match(ALL_REGEXP):
-                val = NONE
-            elif hostsdeny.get_match(ALL_LOCAL_REGEXP):
-                val = LOCAL
-            else:
-                val = ALL
-        else:
-            val = ALL
-
-        ## don't lower security when not changing security level
-        #if same_level():
-        #    if val == NONE or (val == LOCAL and arg == ALL):
-        #        return
-
-        # TODO: FIX
-
-        if arg == ALL:
-            if arg != val:
-                self.log.info(_('Authorizing all services'))
-                hostsdeny.remove_line_matching(ALL_REGEXP, 1)
-                hostsdeny.remove_line_matching(ALL_LOCAL_REGEXP, 1)
-        elif arg == NONE:
-            if arg != val:
-                self.log.info(_('Disabling all services'))
-                hostsdeny.remove_line_matching('^ALL:ALL EXCEPT 127\.0\.0\.1:DENY', 1)
-                hostsdeny.replace_line_matching('^ALL:ALL:DENY', 'ALL:ALL:DENY', 1)
-        elif arg == LOCAL:
-            if arg != val:
-                self.log.info(_('Disabling non local services'))
-                hostsdeny.remove_line_matching(ALL_REGEXP, 1)
-                hostsdeny.replace_line_matching(ALL_LOCAL_REGEXP, 'ALL:ALL EXCEPT 127.0.0.1:DENY', 1)
+        if arg == "ALL":
+            self.log.info(_('Authorizing all services'))
+            hostsdeny.remove_line_matching(ALL_REGEXP, 1)
+            hostsdeny.remove_line_matching(ALL_LOCAL_REGEXP, 1)
+        elif arg == "NONE":
+            self.log.info(_('Disabling all services'))
+            hostsdeny.remove_line_matching('^ALL:ALL EXCEPT 127\.0\.0\.1:DENY', 1)
+            hostsdeny.replace_line_matching('^ALL:ALL:DENY', 'ALL:ALL:DENY', 1)
+        elif arg == "LOCAL":
+            self.log.info(_('Disabling non local services'))
+            hostsdeny.remove_line_matching(ALL_REGEXP, 1)
+            hostsdeny.replace_line_matching(ALL_LOCAL_REGEXP, 'ALL:ALL EXCEPT 127.0.0.1:DENY', 1)
         else:
             self.log.error(_('authorize_services invalid argument: %s') % arg)
 
-    # authorize_services.arg_trans = ALL_LOCAL_NONE_TRANS
-
-    def set_zero_one_variable(self, file, variable, value, secure_value, one_msg, zero_msg):
+    def set_zero_one_variable(self, file, variable, value, one_msg, zero_msg):
         # helper function for enable_ip_spoofing_protection, accept_icmp_echo, accept_broadcasted_icmp_echo,
         # accept_bogus_error_responses and enable_log_strange_packets.
-        'D'
         f = self.configfiles.get_config_file(file)
-
-        if f.exists():
-            val = f.get_shell_variable(variable)
-            if val:
-                val = int(val)
+        if value == "yes":
+            self.log.info(one_msg)
+            f.set_shell_variable(variable, 1)
         else:
-            val = None
-
-        ## don't lower security when not changing security level
-        #if same_level():
-        #    if val == secure_value:
-        #        return
-
-        if value != val:
-            if value:
-                msg = _(one_msg)
-            else:
-                msg = _(zero_msg)
-
-            self.log.info(msg)
-            f.set_shell_variable(variable, boolean2bit(value))
+            self.log.info(zero_msg)
+            f.set_shell_variable(variable, 0)
 
     def enable_ip_spoofing_protection(self, arg, alert=1):
         '''  Enable/Disable IP spoofing protection.'''
         # the alert argument is kept for backward compatibility
-        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.rp_filter', arg, 1, 'Enabling ip spoofing protection', 'Disabling ip spoofing protection')
-
-    #enable_ip_spoofing_protection.arg_trans = YES_NO_TRANS
-    #enable_ip_spoofing_protection.one_arg = 1
+        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.rp_filter', arg, 'Enabling ip spoofing protection', 'Disabling ip spoofing protection')
 
     def enable_dns_spoofing_protection(self, arg, alert=1):
         '''  Enable/Disable name resolution spoofing protection.  If
@@ -1360,25 +1274,25 @@ class MSEC:
 
     def accept_icmp_echo(self, arg):
         '''   Accept/Refuse icmp echo.'''
-        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_all', not arg, 1, 'Ignoring icmp echo', 'Accepting icmp echo')
+        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_all', arg, 'Ignoring icmp echo', 'Accepting icmp echo')
 
     #accept_icmp_echo.arg_trans = YES_NO_TRANS
 
     def accept_broadcasted_icmp_echo(self, arg):
         '''   Accept/Refuse broadcasted icmp echo.'''
-        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_broadcasts', not arg, 1, 'Ignoring broadcasted icmp echo', 'Accepting broadcasted icmp echo')
+        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_broadcasts', arg, 'Ignoring broadcasted icmp echo', 'Accepting broadcasted icmp echo')
 
     #accept_broadcasted_icmp_echo.arg_trans = YES_NO_TRANS
 
     def accept_bogus_error_responses(self, arg):
         '''  Accept/Refuse bogus IPv4 error messages.'''
-        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_ignore_bogus_error_responses', not arg, 1, 'Ignoring bogus icmp error responses', 'Accepting bogus icmp error responses')
+        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_ignore_bogus_error_responses', arg, 'Ignoring bogus icmp error responses', 'Accepting bogus icmp error responses')
 
     #accept_bogus_error_responses.arg_trans = YES_NO_TRANS
 
     def enable_log_strange_packets(self, arg):
         '''  Enable/Disable the logging of IPv4 strange packets.'''
-        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.log_martians', arg, 1, 'Enabling logging of strange packets', 'Disabling logging of strange packets')
+        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.log_martians', arg, 'Enabling logging of strange packets', 'Disabling logging of strange packets')
 
     #enable_log_strange_packets.arg_trans = YES_NO_TRANS
 
@@ -1737,7 +1651,19 @@ class MSEC:
         pass
 
     def check_promisc(self, param):
-        pass
+        '''  Activate/Disable ethernet cards promiscuity check.'''
+        cron = self.configfiles.get_config_file(CRON)
+
+        val = cron.get_match(CRON_REGEX)
+
+        if param == "yes":
+            if val != CRON_ENTRY:
+                self.log.info(_('Activating periodic promiscuity check'))
+                cron.replace_line_matching(CRON_REGEX, CRON_ENTRY, 1)
+        else:
+            if val:
+                self.log.info(_('Disabling periodic promiscuity check'))
+                cron.remove_line_matching('[^#]+/usr/share/msec/promisc_check.sh')
 
     def check_open_port(self, param):
         pass

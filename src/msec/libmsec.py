@@ -219,7 +219,10 @@ class ConfigFiles:
             self.log.debug("Attempting to write %s" % f.path)
             f.write()
 
-        self.log.info("Modified files: %s." % ", ".join(self.modified_files))
+        if len(self.modified_files) > 0:
+            self.log.info("Modified files: %s" % " ".join(self.modified_files))
+        else:
+            self.log.info(_("No changes in configuration."))
 
         for f in self.modified_files:
             for a in self.action_assoc:

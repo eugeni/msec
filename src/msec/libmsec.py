@@ -619,7 +619,6 @@ class MSEC:
             func = getattr(self, name)
             return func
         except:
-            self.log.info(_("Function %s is not available in this version") % name)
             return None
 
     def commit(self, really_commit=True):

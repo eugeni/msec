@@ -42,7 +42,7 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'ALLOW_REMOTE_ROOT_LOGIN':       (['yes', 'without_password', 'no' ], "allow_remote_root_login"), # was: WITHOUT_PASSWORD
                'ALLOW_ROOT_LOGIN':              (['yes', 'yes',  'no' ], "allow_root_login"),
                'ALLOW_USER_LIST':               (['yes', 'yes',  'no' ], "allow_user_list"),
-               'ALLOW_X_CONNECTIONS':           (['yes', 'LOCAL','no' ], "allow_x_connections"),
+               'ALLOW_X_CONNECTIONS':           (['yes', 'local','no' ], "allow_x_connections"),
                'ALLOW_XAUTH_FROM_ROOT':         (['yes', 'yes',  'no' ], "allow_xauth_from_root"),
                'ALLOW_XSERVER_TO_LISTEN':       (['yes', 'no',   'no' ], "allow_xserver_to_listen"),
                'AUTHORIZE_SERVICES':            (['ALL', 'LOCAL','NONE'], "authorize_services"),
@@ -54,6 +54,7 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'ENABLE_LOG_STRANGE_PACKETS':    (['no',  'yes',  'yes'], "enable_log_strange_packets"),
                'ENABLE_MSEC_CRON':              (['no',  'yes',  'yes'], "enable_msec_cron"),
                'ENABLE_PAM_ROOT_FROM_WHEEL':    (['no',  'no',   'no' ], "enable_pam_root_from_wheel"),
+               'ENABLE_SUDO':                   (['yes',  'wheel','no'], "enable_sudo"),
                'ENABLE_PAM_WHEEL_FOR_SU':       (['no',  'no',   'yes'], "enable_pam_wheel_for_su"),
                'ENABLE_SULOGIN':                (['no',  'no',   'yes'], "enable_sulogin"),
                'ENABLE_APPARMOR':               (['no',  'no',   'yes'], "enable_apparmor"),

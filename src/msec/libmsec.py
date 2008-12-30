@@ -673,19 +673,19 @@ class MSEC:
             msec.set_shell_variable('UMASK_USER', umask)
 
     def allow_x_connections(self, arg):
-        '''  Allow/Forbid X connections. Accepted arguments: ALL (all
-        connections are allowed), LOCAL (only local connection), NONE (no
+        '''  Allow/Forbid X connections. Accepted arguments: yes (all
+        connections are allowed), local (only local connection), no (no
         connection).'''
 
         xinit = self.configfiles.get_config_file(MSEC_XINIT)
 
-        if arg == "ALL":
+        if arg == "yes":
             self.log.info(_('Allowing users to connect X server from everywhere'))
             xinit.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost +', 1)
-        elif arg == "LOCAL":
+        elif arg == "local":
             self.log.info(_('Allowing users to connect X server from localhost'))
             xinit.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost + localhost', 1)
-        elif arg == "NONE":
+        elif arg == "no":
             self.log.info(_('Restricting X server connection to the console user'))
             xinit.remove_line_matching('/usr/bin/xhost', 1)
         else:
@@ -700,34 +700,38 @@ class MSEC:
         gdmconf = self.configfiles.get_config_file(GDMCONF)
         kdmrc = self.configfiles.get_config_file(KDMRC)
 
-        val_startx = startx.exists()
-        val_xservers = xservers.exists()
-        val_gdmconf = gdmconf.exists()
-        val_kdmrc = kdmrc.exists()
+        val_startx = startx.get_match(STARTX_REGEXP)
+        val_xservers = xservers.get_match(XSERVERS_REGEXP)
+        val_gdmconf = gdmconf.get_shell_variable('DisallowTCP')
+        str = kdmrc.get_shell_variable('ServerArgsLocal', 'X-\*-Core', '^\s*$')
+        if str:
+            val_kdmrc = KDMRC_REGEXP.search(str)
+        else:
+            val_kdmrc = None
+
+        # TODO: better check for file existance
 
         if arg == "yes":
-            if val_startx or val_xservers or val_gdmconf or val_kdmrc:
+            if val_startx or val_xservers or val_kdmrc or val_gdmconf != 'false':
                 self.log.info(_('Allowing the X server to listen to tcp connections'))
-                if val_startx:
+                if startx.exists():
                     startx.replace_line_matching(STARTX_REGEXP, '@1@2')
-                if val_xservers:
+                if xservers.exists():
                     xservers.replace_line_matching(XSERVERS_REGEXP, '@1@2', 0, 1)
-                if val_gdmconf:
-                    gdmconf.replace_line_matching(GDMCONF_REGEXP, '@1@2', 0, 1)
+                if gdmconf.exists():
                     gdmconf.set_shell_variable('DisallowTCP', 'false', '\[security\]', '^\s*$')
-                if val_kdmrc:
+                if kdmrc.exists():
                     kdmrc.replace_line_matching('^(ServerArgsLocal=.*?)-nolisten tcp(.*)$', '@1@2', 0, 0, 'X-\*-Core', '^\s*$')
         else:
-            if val_startx or val_xservers or val_gdmconf or val_kdmrc:
+            if not val_startx or not val_xservers or not val_kdmrc or val_gdmconf != 'true':
                 self.log.info(_('Forbidding the X server to listen to tcp connection'))
-                if val_startx:
+                if startx.exists():
                     startx.replace_line_matching('serverargs="(.*?)( -nolisten tcp)?"', 'serverargs="@1 -nolisten tcp"')
-                if val_xservers:
+                if xservers.exists():
                     xservers.replace_line_matching('(\s*[^#]+/usr/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
-                if val_gdmconf:
-                    gdmconf.replace_line_matching('(\s*command=.*/X.*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
+                if gdmconf.exists():
                     gdmconf.set_shell_variable('DisallowTCP', 'true', '\[security\]', '^\s*$')
-                if val_kdmrc:
+                if kdmrc.exists():
                     if not kdmrc.get_match('^ServerArgsLocal=.* -nolisten tcp'):
                         kdmrc.replace_line_matching('^(ServerArgsLocal=.*)$', '@1 -nolisten tcp', 'ServerArgsLocal=-nolisten tcp', 0, 'X-\*-Core', '^\s*$')
 
@@ -941,10 +945,7 @@ class MSEC:
     information.'''
         sshd_config = self.configfiles.get_config_file(SSHDCONFIG)
 
-        if sshd_config.exists():
-            val = sshd_config.get_match(PERMIT_ROOT_LOGIN_REGEXP, '@1')
-        else:
-            val = None
+        val = sshd_config.get_match(PERMIT_ROOT_LOGIN_REGEXP, '@1')
 
         if val != arg:
             if arg == "yes":
@@ -1019,12 +1020,13 @@ class MSEC:
 
         val = autologin.get_shell_variable('AUTOLOGIN')
 
-        if arg == "yes":
-            self.log.info(_('Allowing autologin'))
-            autologin.set_shell_variable('AUTOLOGIN', 'yes')
-        else:
-            self.log.info(_('Forbidding autologin'))
-            autologin.set_shell_variable('AUTOLOGIN', 'no')
+        if val != arg:
+            if arg == "yes":
+                self.log.info(_('Allowing autologin'))
+                autologin.set_shell_variable('AUTOLOGIN', 'yes')
+            else:
+                self.log.info(_('Forbidding autologin'))
+                autologin.set_shell_variable('AUTOLOGIN', 'no')
 
     def password_loader(self, value):
         '''Unused'''

@@ -1002,17 +1002,20 @@ class MSEC:
         val_simple = simple.get_match(SUCCEED_MATCH)
 
         if arg == "yes":
-            self.log.info(_('Allowing transparent root access for wheel group members'))
-            if not val:
-                su.insert_before('^auth\s+required', SUCCEED_LINE)
-            if simple.exists() and not val_simple:
-                simple.insert_before('^auth\s+required', SUCCEED_LINE)
+            if not val or not val_simple:
+                self.log.info(_('Allowing transparent root access for wheel group members'))
+                if not val:
+                    print "here2"
+                    su.insert_before('^auth\s+sufficient', SUCCEED_LINE)
+                if simple.exists() and not val_simple:
+                    simple.insert_before('^auth\s+sufficient', SUCCEED_LINE)
         else:
-            self.log.info(_('Disabling transparent root access for wheel group members'))
-            if val:
-                su.remove_line_matching(SUCCEED_MATCH)
-            if simple.exists() and val_simple:
-                simple.remove_line_matching(SUCCEED_MATCH)
+            if val or val_simple:
+                self.log.info(_('Disabling transparent root access for wheel group members'))
+                if val:
+                    su.remove_line_matching(SUCCEED_MATCH)
+                if simple.exists() and val_simple:
+                    simple.remove_line_matching(SUCCEED_MATCH)
 
     def allow_autologin(self, arg):
         '''  Allow/Forbid autologin.'''

@@ -970,7 +970,7 @@ class MSEC:
         '''   Enabling su only from members of the wheel group or allow su from any user.'''
         su = self.configfiles.get_config_file(SU)
 
-        val = su.exists() and su.get_match('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$')
+        val = su.get_match('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$')
 
         if arg == "yes":
             if not val:
@@ -984,15 +984,16 @@ class MSEC:
                 if members == [] or members == ['root']:
                     self.log.error(_('wheel group is empty'))
                     return
-                # TODO: fix
                 if su.exists():
-                    (su.replace_line_matching('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$',
+                    (su.replace_line_matching('^[#\s]*auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$',
                                                           'auth       required     pam_wheel.so use_uid') or \
                                  su.insert_after('^auth\s+required', 'auth       required     pam_wheel.so use_uid'))
         else:
             if val:
                 self.log.info(_('Allowing su for all'))
-                su.exists() and su.remove_line_matching('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$')
+                if su.exists():
+                    su.replace_line_matching('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$',
+                                                          '# auth       required     pam_wheel.so use_uid')
 
     def enable_pam_root_from_wheel(self, arg):
         '''   Allow root access without password for the members of the wheel group.'''
@@ -1132,7 +1133,7 @@ class MSEC:
         else:
             value = "0"
         if value != curvalue:
-            if value == "yes":
+            if value == "1":
                 self.log.info(one_msg)
                 f.set_shell_variable(variable, 1)
             else:
@@ -1225,12 +1226,12 @@ class MSEC:
                                           '@0 ucredit=%s ' % nupper))
 
     def enable_password(self, arg):
-        '''  Use password to authenticate users.'''
-        self.log.error("WARNING WARNING! In enable_password!!")
-        return
+        '''  Use password to authenticate users. Take EXTREMELY care when
+        disabling passwords, as it will leave the machine COMPLETELY vulnerable.
+        '''
         system_auth = self.configfiles.get_config_file(SYSTEM_AUTH)
 
-        val = system_auth.exists() and system_auth.get_match(PASSWORD_REGEXP)
+        val = system_auth.get_match(PASSWORD_REGEXP)
 
         if arg == "yes":
             if val:

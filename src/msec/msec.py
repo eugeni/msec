@@ -18,6 +18,7 @@ import imp
 
 # config
 import config
+
 # version
 try:
     from version import version
@@ -244,7 +245,8 @@ if __name__ == "__main__":
 
     # verifying use id
     if os.geteuid() != 0:
-        print >>sys.stderr, _("Error: This application must be run by root!")
+        print >>sys.stderr, _("Msec: Mandriva Security Center (%s)\n") % version
+        print >>sys.stderr, _("Error: This application must be executed by root!")
         print >>sys.stderr, _("Run with --help to get help.")
         sys.exit(1)
 

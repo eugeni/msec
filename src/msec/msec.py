@@ -289,13 +289,15 @@ if __name__ == "__main__":
     # right parameter (either default, or specified by user)
     for opt in config.list_options():
         # Determines correspondent function
+        action = None
         if opt in callbacks:
             action = msec.get_action(callbacks[opt])
-            if action:
-                log.debug("Processing action %s: %s(%s)" % (opt, callbacks[opt], config.get(opt)))
-                action(config.get(opt))
-        else:
-            log.info(_("Unsupported action: %s") % opt)
+        if not action:
+            # The required functionality is not supported
+            log.info(_("'%s' is not available in this version") % opt)
+            continue
+        log.debug("Processing action %s: %s(%s)" % (opt, callbacks[opt], config.get(opt)))
+        action(config.get(opt))
     # writing back changes
     msec.commit(commit)
     sys.exit(0)

@@ -1088,26 +1088,36 @@ class MSEC:
                 securitycron.unlink()
 
     def authorize_services(self, arg):
-        '''Authorize all services controlled by tcp_wrappers (see hosts.deny(5)) if \\fIarg\\fP = ALL. Only local ones
-    if \\fIarg\\fP = LOCAL and none if \\fIarg\\fP = NONE. To authorize the services you need, use /etc/hosts.allow
-    (see hosts.allow(5)).'''
+        ''' Configure access to tcp_wrappers services (see hosts.deny(5)).  If
+        arg = yes, all services are authorized. If arg = local, only local ones
+        are, and if arg = no, no services are authorized. In this case, To
+        authorize the services you need, use /etc/hosts.allow (see
+        hosts.allow(5)).'''
+
+        # TODO: add a common function to check parameters
 
         hostsdeny = self.configfiles.get_config_file(HOSTSDENY)
 
-        if arg == "ALL":
-            self.log.info(_('Authorizing all services'))
-            hostsdeny.remove_line_matching(ALL_REGEXP, 1)
-            hostsdeny.remove_line_matching(ALL_LOCAL_REGEXP, 1)
-        elif arg == "NONE":
-            self.log.info(_('Disabling all services'))
-            hostsdeny.remove_line_matching('^ALL:ALL EXCEPT 127\.0\.0\.1:DENY', 1)
-            hostsdeny.replace_line_matching('^ALL:ALL:DENY', 'ALL:ALL:DENY', 1)
-        elif arg == "LOCAL":
-            self.log.info(_('Disabling non local services'))
-            hostsdeny.remove_line_matching(ALL_REGEXP, 1)
-            hostsdeny.replace_line_matching(ALL_LOCAL_REGEXP, 'ALL:ALL EXCEPT 127.0.0.1:DENY', 1)
+        if hostsdeny.get_match(ALL_REGEXP):
+            val = "no"
+        elif hostsdeny.get_match(ALL_LOCAL_REGEXP):
+            val = "local"
         else:
-            self.log.error(_('authorize_services invalid argument: %s') % arg)
+            val = "yes"
+
+        if val != arg:
+            if arg == "yes":
+                self.log.info(_('Authorizing all services'))
+                hostsdeny.remove_line_matching(ALL_REGEXP, 1)
+                hostsdeny.remove_line_matching(ALL_LOCAL_REGEXP, 1)
+            elif arg == "no":
+                self.log.info(_('Disabling all services'))
+                hostsdeny.remove_line_matching('^ALL:ALL EXCEPT 127\.0\.0\.1:DENY', 1)
+                hostsdeny.replace_line_matching('^ALL:ALL:DENY', 'ALL:ALL:DENY', 1)
+            elif arg == "local":
+                self.log.info(_('Disabling non local services'))
+                hostsdeny.remove_line_matching(ALL_REGEXP, 1)
+                hostsdeny.replace_line_matching(ALL_LOCAL_REGEXP, 'ALL:ALL EXCEPT 127.0.0.1:DENY', 1)
 
     def set_zero_one_variable(self, file, variable, value, one_msg, zero_msg):
         ''' Helper function for enable_ip_spoofing_protection, accept_icmp_echo, accept_broadcasted_icmp_echo,

@@ -45,7 +45,7 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'ALLOW_X_CONNECTIONS':           (['yes', 'local','no' ], "allow_x_connections"),
                'ALLOW_XAUTH_FROM_ROOT':         (['yes', 'yes',  'no' ], "allow_xauth_from_root"),
                'ALLOW_XSERVER_TO_LISTEN':       (['yes', 'no',   'no' ], "allow_xserver_to_listen"),
-               'AUTHORIZE_SERVICES':            (['ALL', 'LOCAL','NONE'], "authorize_services"),
+               'AUTHORIZE_SERVICES':            (['yes', 'yes','local'], "authorize_services"),
                'CREATE_SERVER_LINK':            (['no',  'yes',  'local'], "create_server_link"),
                'ENABLE_AT_CRONTAB':             (['no',  'yes',  'no' ], "enable_at_crontab"),
                'ENABLE_CONSOLE_LOG':            (['yes', 'yes',  'no' ], "enable_console_log"),

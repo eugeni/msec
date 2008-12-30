@@ -22,6 +22,10 @@ import stat
 import traceback
 import sys
 
+# logging
+import logging
+from logging.handlers import SysLogHandler
+
 # localization
 try:
     cat = gettext.Catalog('msec')
@@ -175,6 +179,68 @@ def substitute_re_result(res, s):
 def mkdir_p(path):
     if not os.path.exists(path):
         os.makedirs(path)
+# }}}
+
+# {{{ Log
+class Log:
+    """Logging class. Logs to both syslog and log file"""
+    def __init__(self,
+                app_name="msec",
+                log_syslog=True,
+                log_file=True,
+                log_level = logging.INFO,
+                log_facility=SysLogHandler.LOG_AUTHPRIV,
+                syslog_address="/dev/log",
+                log_path="/var/log/msec.log",
+                interactive=True):
+        self.log_facility = log_facility
+        self.log_path = log_path
+
+        # common logging stuff
+        self.logger = logging.getLogger(app_name)
+
+        # syslog
+        if log_syslog:
+            self.syslog_h = SysLogHandler(facility=log_facility, address=syslog_address)
+            formatter = logging.Formatter('%(name)s: %(levelname)s: %(message)s')
+            self.syslog_h.setFormatter(formatter)
+            self.logger.addHandler(self.syslog_h)
+
+        # log to file
+        if log_file:
+            self.file_h = logging.FileHandler(self.log_path)
+            formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
+            self.file_h.setFormatter(formatter)
+            self.logger.addHandler(self.file_h)
+
+        # interactive logging
+        if interactive:
+            self.interactive_h = logging.StreamHandler(sys.stderr)
+            formatter = logging.Formatter('%(levelname)s: %(message)s')
+            self.interactive_h.setFormatter(formatter)
+            self.logger.addHandler(self.interactive_h)
+
+        self.logger.setLevel(log_level)
+
+    def info(self, message):
+        """Informative message (normal msec operation)"""
+        self.logger.info(message)
+
+    def error(self, message):
+        """Error message (security has changed: authentication, passwords, etc)"""
+        self.logger.error(message)
+
+    def debug(self, message):
+        """Debugging message"""
+        self.logger.debug(message)
+
+    def critical(self, message):
+        """Critical message (big security risk, e.g., rootkit, etc)"""
+        self.logger.critical(message)
+
+    def warn(self, message):
+        """Warning message (slight security change, permissions change, etc)"""
+        self.logger.warn(message)
 # }}}
 
 # {{{ ConfigFiles - stores references to all configuration files

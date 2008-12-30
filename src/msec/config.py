@@ -38,7 +38,7 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'ACCEPT_BROADCASTED_ICMP_ECHO':  (['yes', 'yes',  'no' ], "accept_broadcasted_icmp_echo"),
                'ACCEPT_ICMP_ECHO':              (['yes', 'yes',  'yes'], "accept_icmp_echo"),
                'ALLOW_AUTOLOGIN':               (['yes', 'yes',  'no' ], "allow_autologin"),
-               'ALLOW_REBOOT':                  (['yes', 'yes',  'yes'], "allow_reboot"),
+               'ALLOW_REBOOT':                  (['yes', 'yes',  'no' ], "allow_reboot"),
                'ALLOW_REMOTE_ROOT_LOGIN':       (['yes', 'without_password', 'no' ], "allow_remote_root_login"), # was: WITHOUT_PASSWORD
                'ALLOW_ROOT_LOGIN':              (['yes', 'yes',  'no' ], "allow_root_login"),
                'ALLOW_USER_LIST':               (['yes', 'yes',  'no' ], "allow_user_list"),

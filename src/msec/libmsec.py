@@ -790,49 +790,64 @@ class MSEC:
         kdmrc = self.configfiles.get_config_file(KDMRC)
         gdmconf = self.configfiles.get_config_file(GDMCONF)
         inittab = self.configfiles.get_config_file(INITTAB)
+        shutdown = self.configfiles.get_config_file(SHUTDOWN)
+        poweroff = self.configfiles.get_config_file(POWEROFF)
+        reboot = self.configfiles.get_config_file(REBOOT)
+        halt = self.configfiles.get_config_file(HALT)
 
         val_shutdownallow = shutdownallow.exists()
+        val_shutdown = shutdown.exists()
+        val_poweroff = poweroff.exists()
+        val_reboot = reboot.exists()
+        val_halt = halt.exists()
         val_sysctlconf = sysctlconf.get_shell_variable('kernel.sysrq')
         val_inittab = inittab.get_match(CTRALTDEL_REGEXP)
-        num = 0
-        val = {}
-        for f in [SHUTDOWN, POWEROFF, REBOOT, HALT]:
-            val[f] = self.configfiles.get_config_file(f).exists()
-            if val[f]:
-                num = num + 1
         val_gdmconf = gdmconf.get_shell_variable('SystemMenu')
         oldval_kdmrc = kdmrc.get_shell_variable('AllowShutdown', 'X-:\*-Core', '^\s*$')
-        if oldval_kdmrc:
-            oldval_kdmrc = get_index(oldval_kdmrc, ALLOW_SHUTDOWN_VALUES)
-        if arg == "yes":
-            val_kdmrc = 0
-        else:
-            val_kdmrc = 2
 
         if arg == "yes":
-            self.log.info(_('Allowing reboot to the console user'))
-            if val_shutdownallow:
+            if val_shutdownallow or not val_shutdown or not val_poweroff or not val_reboot or not val_halt:
+                self.log.info(_('Allowing reboot and shutdown to the console user'))
                 shutdownallow.exists() and shutdownallow.move(SUFFIX)
-            for f in [SHUTDOWN, POWEROFF, REBOOT, HALT]:
-                cfg = self.configfiles.get_config_file(f)
-                if val[f]:
-                    cfg.exists() or cfg.symlink(CONSOLE_HELPER)
-            if val_sysctlconf != '0':
+                shutdown.exists() or shutdown.symlink(CONSOLE_HELPER)
+                poweroff.exists() or poweroff.symlink(CONSOLE_HELPER)
+                reboot.exists() or reboot.symlink(CONSOLE_HELPER)
+                halt.exists() or halt.symlink(CONSOLE_HELPER)
+            if val_sysctlconf == '0':
+                self.log.info(_('Allowing SysRq key to the console user'))
                 sysctlconf.set_shell_variable('kernel.sysrq', 1)
             if val_gdmconf == 'false':
+                self.log.info(_('Allowing Shutdown/Reboot in GDM'))
                 gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'true', '\[greeter\]', '^\s*$')
-            if val_inittab:
+            if kdmrc.exists():
+                if oldval_kdmrc != 'All':
+                    self.log.info(_('Allowing Shutdown/Reboot in KDM'))
+                    kdmrc.set_shell_variable('AllowShutdown', 'All', 'X-:\*-Core', '^\s*$')
+            if not val_inittab:
+                self.log.info(_('Allowing Ctrl-Alt-Del from console'))
                 inittab.replace_line_matching(CTRALTDEL_REGEXP, 'ca::ctrlaltdel:/sbin/shutdown -t3 -r now', 1)
         else:
-            self.log.info(_('Forbidding reboot to the console user'))
-            self.configfiles.get_config_file(SHUTDOWNALLOW, SUFFIX).touch()
-            for f in [SHUTDOWN, POWEROFF, REBOOT, HALT]:
-                self.configfiles.get_config_file(f).unlink()
-            sysctlconf.set_shell_variable('kernel.sysrq', 0)
-            gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'false', '\[greeter\]', '^\s*$')
-            inittab.remove_line_matching(CTRALTDEL_REGEXP)
-
-        kdmrc.exists() and kdmrc.set_shell_variable('AllowShutdown', ALLOW_SHUTDOWN_VALUES[val_kdmrc], 'X-:\*-Core', '^\s*$')
+            if not val_shutdownallow or val_shutdown or val_poweroff or val_reboot or val_halt:
+                self.log.info(_('Forbidding reboot and shutdown to the console user'))
+                if not shutdownallow.exists():
+                    self.configfiles.get_config_file(SHUTDOWNALLOW, SUFFIX).touch()
+                shutdown.exists() and shutdown.unlink()
+                poweroff.exists() and poweroff.unlink()
+                reboot.exists() and reboot.unlink()
+                halt.exists() and halt.unlink()
+            if val_sysctlconf != '0':
+                self.log.info(_('Forbidding SysRq key to the console user'))
+                sysctlconf.set_shell_variable('kernel.sysrq', 0)
+            if val_gdmconf != 'false':
+                self.log.info(_('Forbidding Shutdown/Reboot in GDM'))
+                gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'false', '\[greeter\]', '^\s*$')
+            if kdmrc.exists():
+                if oldval_kdmrc != 'None':
+                    self.log.info(_('Forbidding Shutdown/Reboot in KDM'))
+                    kdmrc.set_shell_variable('AllowShutdown', 'None', 'X-:\*-Core', '^\s*$')
+            if val_inittab:
+                self.log.info(_('Forbidding Ctrl-Alt-Del from console'))
+                inittab.remove_line_matching(CTRALTDEL_REGEXP)
 
     def allow_user_list(self, arg):
         '''  Allow/Forbid the list of users on the system on display managers (kdm and gdm).'''

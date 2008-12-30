@@ -18,6 +18,11 @@ import imp
 
 # config
 import config
+# version
+try:
+    from version import version
+except:
+    version = "development version"
 
 # libmsec
 from libmsec import MSEC
@@ -179,11 +184,12 @@ class MsecConfig:
 # {{{ usage
 def usage():
     """Prints help message"""
-    print """Msec usage:
-The configuration is stored to /etc/security/msec/msec.conf.
-If no configuration file is found on the system, the specified
-security level is used to create one. If no security level is specified
-on the command line, "default" level is used.
+    print """Msec: Mandriva Security Center (%s).
+
+When run without parameters, msec will read the configuration from
+/etc/security/msec/msec.conf, and enforce the specified security settings.
+If no configuration file is found on the system, a default configuration
+will be created.
 
 Arguments to msec:
     -h, --help              displays this helpful message.
@@ -194,7 +200,7 @@ Arguments to msec:
     -p, --pretend           only pretend to change the level, perform no real
                             actions. Use this to see what operations msec
                             will perform.
-"""
+""" % version
 # }}}
 
 if __name__ == "__main__":
@@ -269,8 +275,9 @@ if __name__ == "__main__":
             # only forcing new value when undefined
             config.get(opt, params[opt])
     # saving updated config
-    if not config.save():
-        log.error(_("Unable to save config!"))
+    if force_level:
+        if not config.save():
+            log.error(_("Unable to save config!"))
 
     # load the msec library
     msec = MSEC(log)

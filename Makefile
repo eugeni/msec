@@ -1,9 +1,12 @@
 PACKAGE = msec
-VERSION = 0.50.11
+VERSION = 0.60.1
 SVNPATH = svn+ssh://svn.mandriva.com/svn/soft/msec
 
-all: promisc_check msec_find python
+all: version promisc_check msec_find python
 	make -C cron-sh
+
+version:
+	echo "version='$(VERSION)'" > src/msec/version.py
 
 clean:
 	-find . -name '*.o' -o -name '*.py[oc]' -o -name '*~' | xargs rm -f

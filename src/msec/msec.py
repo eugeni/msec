@@ -86,9 +86,10 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'ENABLE_APPARMOR':               (['no',  'no',   'yes'], "enable_apparmor"),
                # password aging - do we need that at all??
                'NO_PASSWORD_AGING_FOR':         (['no',  'no',   'no' ], "no_password_aging_for"),
-               'PASSWORD_AGING':                (['no',  'no',   'no' ], "password_aging"),
+               'PASSWORD_AGING':                (['99999',  '99999',   '60' ], "password_aging"),
                'PASSWORD_HISTORY':              (['no',  'no',   '2'  ], "password_history"),
-               'PASSWORD_LENGTH':               (['no',  'no', '6,1,1'], "password_length"),
+               #                                format: min length, num upper, num digits
+               'PASSWORD_LENGTH':               (['0,0,0',  '0,0,0', '6,1,1'], "password_length"),
                'SHELL_HISTORY_SIZE':            (['-1',  '-1',   '100'], "set_shell_history_size"),
                'SHELL_TIMEOUT':                 (['0',   '0',    '600'], "set_shell_timeout"),
                }

@@ -911,6 +911,7 @@ class MSEC:
                 bastillenologin = self.configfiles.get_config_file(BASTILLENOLOGIN)
                 bastillenologin.replace_line_matching('^\s*root', 'root', 1)
 
+                # TODO: simplify this
                 for cnf in (kde, gdm, xdm):
                     cnf.exists() and (cnf.replace_line_matching('^auth\s*required\s*(?:/lib/security/)?pam_listfile.so.*bastille-no-login', 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login') or \
                                       cnf.insert_at(0, 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login'))
@@ -1166,9 +1167,6 @@ class MSEC:
     def password_length(self, arg):
         '''  Set the password minimum length and minimum number of digit and minimum number of capitalized letters.'''
 
-        if arg == "no":
-            return
-
         try:
             length, ndigits, nupper = arg.split(",")
             length = int(length)
@@ -1308,7 +1306,7 @@ class MSEC:
                 self.log.info(_('Enabling crontab and at'))
                 if not val_cronallow:
                     cronallow.exists() and cronallow.move(SUFFIX)
-                if not (same_level() and val_atallow):
+                if not val_atallow:
                     atallow.exists() and atallow.move(SUFFIX)
         else:
             if not val_cronallow or not val_atallow:
@@ -1320,10 +1318,14 @@ class MSEC:
         '''D Add the name as an exception to the handling of password aging by msec.
     Name must be put between '. Msec will then no more manage password aging for
     name so you have to use chage(1) to manage it by hand.'''
+        self.log.error("WARNING WARNING WARNING! Attempting to mess with password aging!")
+        return
         self.no_aging_list.append(name)
 
     def password_aging(self, max, inactive=-1):
         '''  Set password aging to \\fImax\\fP days and delay to change to \\fIinactive\\fP.'''
+        self.log.error("WARNING WARNING WARNING! Attempting to mess with password aging!")
+        return
         uid_min = 500
         # verify parameter validity
         # max

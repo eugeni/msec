@@ -291,8 +291,10 @@ if __name__ == "__main__":
         # force new level
         elif o[0] == '-f' or o[0] == '--force':
             force_level = True
+        # debugging
         elif o[0] == '-d' or o[0] == '--debug':
             log_level = logging.DEBUG
+        # check-only mode
         elif o[0] == '-c' or o[0] == '--check':
             commit = False
 

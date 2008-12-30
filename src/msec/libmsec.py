@@ -322,7 +322,7 @@ class ConfigFile:
                     os.unlink(self.path)
                 except:
                     error('unlink %s: %s' % (self.path, str(sys.exc_value)))
-                log(_('deleted %s') % (self.path,))
+                self.log.info(_('deleted %s') % (self.path,))
         elif self.is_modified:
             content = string.join(self.lines, "\n")
             mkdir_p(os.path.dirname(self.path))
@@ -335,19 +335,19 @@ class ConfigFile:
                 try:
                     os.utime(self.path, None)
                 except:
-                    error('utime %s: %s' % (self.path, str(sys.exc_value)))
+                    self.log.error('utime %s: %s' % (self.path, str(sys.exc_value)))
             elif self.suffix and os.path.exists(self.path + self.suffix):
                 move(self.path + self.suffix, self.path)
                 try:
                     os.utime(self.path, None)
                 except:
-                    error('utime %s: %s' % (self.path, str(sys.exc_value)))
+                    self.log.error('utime %s: %s' % (self.path, str(sys.exc_value)))
             else:
                 self.lines = []
                 self.is_modified = 1
                 file = open(self.path, 'w')
                 file.close()
-                log(_('touched file %s') % (self.path,))
+                self.log.info(_('touched file %s') % (self.path,))
         elif self.sym_link:
             done = 0
             if self.exists():
@@ -360,18 +360,18 @@ class ConfigFile:
                    try:
                        os.unlink(self.path)
                    except:
-                       error('unlink %s: %s' % (self.path, str(sys.exc_value)))
-                   log(_('deleted %s') % (self.path,))
+                       self.log.error('unlink %s: %s' % (self.path, str(sys.exc_value)))
+                   self.log.info(_('deleted %s') % (self.path,))
             if not done:
                 try:
                     os.symlink(self.sym_link, self.path)
                 except:
-                    error('symlink %s %s: %s' % (self.sym_link, self.path, str(sys.exc_value)))
-                log(_('made symbolic link from %s to %s') % (self.sym_link, self.path))
+                    self.log.error('symlink %s %s: %s' % (self.sym_link, self.path, str(sys.exc_value)))
+                self.log.info(_('made symbolic link from %s to %s') % (self.sym_link, self.path))
 
         if self.is_moved:
             move(self.path, self.path + self.suffix)
-            log(_('moved file %s to %s') % (self.path, self.path + self.suffix))
+            self.log.info(_('moved file %s to %s') % (self.path, self.path + self.suffix))
             self.meta.modified(self.path)
         self.is_touched = 0
         self.is_modified = 0
@@ -416,7 +416,7 @@ class ConfigFile:
                 return self
         if status == BEFORE:
             # never found the start delimiter
-            log(_('WARNING: never found regexp %s in %s, not writing changes') % (start_regexp, self.path))
+            self.log.warning(_('WARNING: never found regexp %s in %s, not writing changes') % (start_regexp, self.path))
             return self
         if space.search(value):
             s = var + '="' + value + '"'
@@ -510,7 +510,7 @@ class ConfigFile:
                 s = substitute_re_result(res, value)
                 matches = matches + 1
                 if s != line:
-                    self.log.info(_("replaced in %s the line %d:\n%s\nwith the line:\n%s") % (self.path, idx, line, s))
+                    self.log.debug(_("replaced in %s the line %d:\n%s\nwith the line:\n%s") % (self.path, idx, line, s))
                     lines[idx] = s
                     self.modified()
                 if not all:
@@ -518,7 +518,7 @@ class ConfigFile:
         if matches == 0 and at_end_if_not_found:
             if type(at_end_if_not_found) == STRING_TYPE:
                 value = at_end_if_not_found
-            self.log.info(_("appended in %s the line:\n%s") % (self.path, value))
+            self.log.debug(_("appended in %s the line:\n%s") % (self.path, value))
             if idx == None or idx == len(lines):
                 self.append(value)
             else:
@@ -535,14 +535,14 @@ class ConfigFile:
             res = r.search(lines[idx])
             if res:
                 s = substitute_re_result(res, value)
-                log(_("inserted in %s after the line %d:\n%s\nthe line:\n%s") % (self.path, idx, lines[idx], s))
+                self.log.debug(_("inserted in %s after the line %d:\n%s\nthe line:\n%s") % (self.path, idx, lines[idx], s))
                 lines.insert(idx+1, s)
                 self.modified()
                 matches = matches + 1
                 if not all:
                     return matches
         if matches == 0 and at_end_if_not_found:
-            log(_("appended in %s the line:\n%s") % (self.path, value))
+            self.log.debug(_("appended in %s the line:\n%s") % (self.path, value))
             self.append(value)
             self.modified()
             matches = matches + 1
@@ -556,14 +556,14 @@ class ConfigFile:
             res = r.search(lines[idx])
             if res:
                 s = substitute_re_result(res, value)
-                log(_("inserted in %s before the line %d:\n%s\nthe line:\n%s") % (self.path, idx, lines[idx], s))
+                self.log.debug(_("inserted in %s before the line %d:\n%s\nthe line:\n%s") % (self.path, idx, lines[idx], s))
                 lines.insert(idx, s)
                 self.modified()
                 matches = matches + 1
                 if not all:
                     return matches
         if matches == 0 and at_top_if_not_found:
-            log(_("inserted at the top of %s the line:\n%s") % (self.path, value))
+            self.log.debug(_("inserted at the top of %s the line:\n%s") % (self.path, value))
             lines.insert(0, value)
             self.modified()
             matches = matches + 1
@@ -573,7 +573,7 @@ class ConfigFile:
         lines = self.get_lines()
         try:
             lines.insert(idx, value)
-            self.log.info(_("inserted in %s at the line %d:\n%s") % (self.path, idx, value))
+            self.log.debug(_("inserted in %s at the line %d:\n%s") % (self.path, idx, value))
             self.modified()
             return 1
         except KeyError:
@@ -586,7 +586,7 @@ class ConfigFile:
         for idx in range(len(lines) - 1, -1, -1):
             res = r.search(lines[idx])
             if res:
-                self.log.info(_("removing in %s the line %d:\n%s") % (self.path, idx, lines[idx]))
+                self.log.debug(_("removing in %s the line %d:\n%s") % (self.path, idx, lines[idx]))
                 lines.pop(idx)
                 self.modified()
                 matches = matches + 1
@@ -625,7 +625,8 @@ class MSEC:
 
     def commit(self, really_commit=True):
         """Commits changes"""
-        self.log.info(_("In check-only mode, nothing is written back to disk."))
+        if not really_commit:
+            self.log.info(_("In check-only mode, nothing is written back to disk."))
         self.configfiles.write_files(really_commit)
 
     def create_server_link(self, param):
@@ -715,7 +716,7 @@ class MSEC:
                     xservers.replace_line_matching(XSERVERS_REGEXP, '@1@2', 0, 1)
                 if val_gdmconf:
                     gdmconf.replace_line_matching(GDMCONF_REGEXP, '@1@2', 0, 1)
-                    gdmconf.set_shell_variable('DisallowTCP', 'false')
+                    gdmconf.set_shell_variable('DisallowTCP', 'false', '\[security\]', '^\s*$')
                 if val_kdmrc:
                     kdmrc.replace_line_matching('^(ServerArgsLocal=.*?)-nolisten tcp(.*)$', '@1@2', 0, 0, 'X-\*-Core', '^\s*$')
         else:
@@ -727,7 +728,7 @@ class MSEC:
                     xservers.replace_line_matching('(\s*[^#]+/usr/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
                 if val_gdmconf:
                     gdmconf.replace_line_matching('(\s*command=.*/X.*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
-                    gdmconf.set_shell_variable('DisallowTCP', 'true')
+                    gdmconf.set_shell_variable('DisallowTCP', 'true', '\[security\]', '^\s*$')
                 if val_kdmrc:
                     if not kdmrc.get_match('^ServerArgsLocal=.* -nolisten tcp'):
                         kdmrc.replace_line_matching('^(ServerArgsLocal=.*)$', '@1 -nolisten tcp', 'ServerArgsLocal=-nolisten tcp', 0, 'X-\*-Core', '^\s*$')
@@ -890,7 +891,8 @@ class MSEC:
         if arg == "yes":
             if val[kde] or val[gdm] or val[xdm] or num != 12:
                 self.log.info(_('Allowing direct root login'))
-                gdmconf.exists() and gdmconf.set_shell_variable('ConfigAvailable', 'true', '\[greeter\]', '^\s*')
+                if gdmconf.exists():
+                    gdmconf.set_shell_variable('ConfigAvailable', 'true', '\[greeter\]', '^\s*$')
 
                 for cnf in (kde, gdm, xdm):
                     if val[cnf]:
@@ -904,7 +906,8 @@ class MSEC:
                     if val[s]:
                         securetty.replace_line_matching(s, s, 1)
         else:
-            gdmconf.exists() and gdmconf.set_shell_variable('ConfigAvailable', 'false', '\[greeter\]', '^\s*')
+            if gdmconf.exists():
+                gdmconf.set_shell_variable('ConfigAvailable', 'false', '\[greeter\]', '^\s*$')
             if (kde.exists() and not val[kde]) or (gdm.exists() and not val[gdm]) or (xdm.exists() and not val[xdm]) or num > 0:
                 self.log.info(_('Forbidding direct root login'))
 
@@ -1386,7 +1389,7 @@ class MSEC:
                     if new_max != current_max or current_inactive != new_inactive:
                         cmd = 'LC_ALL=C /usr/bin/chage -M %d -I %d -d %s \'%s\'' % (new_max, new_inactive, time.strftime('%Y-%m-%d'), entry[0])
                         ret = commands.getstatusoutput(cmd)
-                        log(_('changed maximum password aging for user \'%s\' with command %s') % (entry[0], cmd))
+                        self.log.info(_('changed maximum password aging for user \'%s\' with command %s') % (entry[0], cmd))
 
     def allow_xauth_from_root(self, arg):
         ''' Allow/forbid to export display when passing from the root account

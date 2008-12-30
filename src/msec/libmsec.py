@@ -303,8 +303,12 @@ class ConfigFile:
         self.sym_link = link
         return self
 
-    def exists(self, really=0):
-        return os.path.exists(self.path) or (not really and self.suffix and os.path.exists(self.path + self.suffix))
+    def exists(self):
+        return os.path.lexists(self.path)
+        #return os.path.exists(self.path) or (self.suffix and os.path.exists(self.path + self.suffix))
+
+    def realpath(self):
+        return os.path.realpath(self.path)
 
     def move(self, suffix):
         self.suffix = suffix
@@ -613,6 +617,8 @@ class MSEC:
         self.configfiles.add_config_assoc(SYSLOGCONF, '[ -f /var/lock/subsys/syslog ] && service syslog reload')
         self.configfiles.add_config_assoc('^/etc/issue$', '/usr/bin/killall mingetty')
 
+        # TODO: add a common function to check parameters
+
     def get_action(self, name):
         """Determines correspondent function for requested action."""
         try:
@@ -628,29 +634,22 @@ class MSEC:
         self.configfiles.write_files(really_commit)
 
     def create_server_link(self, param):
-        '''  If SERVER_LEVEL (or SECURE_LEVEL if absent) is greater than 3
-    in /etc/security/msec/security.conf, creates the symlink /etc/security/msec/server
-    to point to /etc/security/msec/server.<SERVER_LEVEL>. The /etc/security/msec/server
-    is used by chkconfig --add to decide to add a service if it is present in the file
-    during the installation of packages.'''
-        self.log.error("WARNING WARNING! In create_server_link!")
-        return
-        level = get_server_level()
+        '''  Creates the symlink /etc/security/msec/server to point to
+        /etc/security/msec/server.<SERVER_LEVEL>. The /etc/security/msec/server
+        is used by chkconfig --add to decide to add a service if it is present
+        in the file during the installation of packages.'''
+
         server = self.configfiles.get_config_file(SERVER)
-        if level in ('0', '1', '2', '3'):
-            self.log.info(_('Allowing chkconfig --add from rpm'))
-            server.exists() and server.unlink()
+
+        if param == "no":
+            if server.exists():
+                self.log.info(_('Allowing unrestricted chkconfig for packages'))
+                server.unlink()
         else:
-            self.log.info(_('Restricting chkconfig --add from rpm'))
-            server.symlink(SERVER + '.' + str(level))
-
-        msec = self.configfiles.get_config_file(SHELLCONF)
-
-        val = msec.get_shell_variable(variable)
-
-        if val != umask:
-            self.log.info(_('Setting %s umask to %s') % (msg, umask))
-            msec.set_shell_variable(variable, umask)
+            newpath = "%s.%s" % (SERVER, param)
+            if server.realpath() != newpath:
+                self.log.info(_('Restricting chkconfig for packages according to "%s" profile') % param)
+                server.symlink(newpath)
 
     def set_root_umask(self, umask):
         '''  Set the root umask.'''
@@ -666,7 +665,7 @@ class MSEC:
         '''  Set the user umask.'''
         msec = self.configfiles.get_config_file(SHELLCONF)
 
-        val = msec.get_shell_variable('UMASK_USERS')
+        val = msec.get_shell_variable('UMASK_USER')
 
         if val != umask:
             self.log.info(_('Setting users umask to %s') % (umask))
@@ -678,18 +677,30 @@ class MSEC:
         connection).'''
 
         xinit = self.configfiles.get_config_file(MSEC_XINIT)
+        val = xinit.get_match('/usr/bin/xhost\s*(\+\s*[^#]*)', '@1')
 
-        if arg == "yes":
-            self.log.info(_('Allowing users to connect X server from everywhere'))
-            xinit.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost +', 1)
-        elif arg == "local":
-            self.log.info(_('Allowing users to connect X server from localhost'))
-            xinit.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost + localhost', 1)
-        elif arg == "no":
-            self.log.info(_('Restricting X server connection to the console user'))
-            xinit.remove_line_matching('/usr/bin/xhost', 1)
+        if val:
+            if val == '+':
+                val = "yes"
+            elif val == "+ localhost":
+                val = "local"
+            else:
+                val = "no"
         else:
-            self.log.error(_('invalid allow_x_connections arg: %s') % arg)
+            val = "no"
+
+        if val != arg:
+            if arg == "yes":
+                self.log.info(_('Allowing users to connect X server from everywhere'))
+                xinit.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost +', 1)
+            elif arg == "local":
+                self.log.info(_('Allowing users to connect X server from localhost'))
+                xinit.replace_line_matching('/usr/bin/xhost', '/usr/bin/xhost + localhost', 1)
+            elif arg == "no":
+                self.log.info(_('Restricting X server connection to the console user'))
+                xinit.remove_line_matching('/usr/bin/xhost', 1)
+            else:
+                self.log.error(_('invalid allow_x_connections arg: %s') % arg)
 
     def allow_xserver_to_listen(self, arg):
         '''  The argument specifies if clients are authorized to connect
@@ -748,9 +759,9 @@ class MSEC:
         if old:
             old = int(old)
 
-        if old != val:
-            self.log.info(_('Setting shell timeout to %s') % val)
-            msec.set_shell_variable('TMOUT', val)
+        if old != timeout:
+            self.log.info(_('Setting shell timeout to %s') % timeout)
+            msec.set_shell_variable('TMOUT', timeout)
 
     def set_shell_history_size(self, size):
         '''  Set shell commands history size. A value of -1 means unlimited.'''
@@ -889,54 +900,48 @@ class MSEC:
         xdm = self.configfiles.get_config_file(XDM)
 
         val = {}
-        val[kde] = kde.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
-        val[gdm] = gdm.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
-        val[xdm] = xdm.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+        val_kde = kde.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+        val_gdm = gdm.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+        val_xdm = xdm.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
         num = 0
         for n in range(1, 7):
             s = 'tty' + str(n)
             if securetty.get_match(s):
                 num = num + 1
-                val[s] = 1
-            else:
-                val[s] = 0
             s = 'vc/' + str(n)
             if securetty.get_match(s):
                 num = num + 1
-                val[s] = 1
-            else:
-                val[s] = 0
 
         if arg == "yes":
-            if val[kde] or val[gdm] or val[xdm] or num != 12:
+            if val_kde or val_gdm or val_xdm or num != 12:
                 self.log.info(_('Allowing direct root login'))
                 if gdmconf.exists():
                     gdmconf.set_shell_variable('ConfigAvailable', 'true', '\[greeter\]', '^\s*$')
 
-                for cnf in (kde, gdm, xdm):
-                    if val[cnf]:
-                        cnf.exists() and cnf.remove_line_matching('^auth\s*required\s*(?:/lib/security/)?pam_listfile.so.*bastille-no-login', 1)
+                for cnf in [kde, gdm, xdm]:
+                    if cnf.exists():
+                        cnf.remove_line_matching('^auth\s*required\s*(?:/lib/security/)?pam_listfile.so.*bastille-no-login', 1)
 
                 for n in range(1, 7):
                     s = 'tty' + str(n)
-                    if val[s]:
-                        securetty.replace_line_matching(s, s, 1)
+                    securetty.replace_line_matching(s, s, 1)
                     s = 'vc/' + str(n)
-                    if val[s]:
-                        securetty.replace_line_matching(s, s, 1)
+                    securetty.replace_line_matching(s, s, 1)
         else:
             if gdmconf.exists():
                 gdmconf.set_shell_variable('ConfigAvailable', 'false', '\[greeter\]', '^\s*$')
-            if (kde.exists() and not val[kde]) or (gdm.exists() and not val[gdm]) or (xdm.exists() and not val[xdm]) or num > 0:
+            if (kde.exists() and not val_kde) or (gdm.exists() and not val_gdm) or (xdm.exists() and not val_xdm) or num > 0:
                 self.log.info(_('Forbidding direct root login'))
 
                 bastillenologin = self.configfiles.get_config_file(BASTILLENOLOGIN)
                 bastillenologin.replace_line_matching('^\s*root', 'root', 1)
 
                 # TODO: simplify this
-                for cnf in (kde, gdm, xdm):
-                    cnf.exists() and (cnf.replace_line_matching('^auth\s*required\s*(?:/lib/security/)?pam_listfile.so.*bastille-no-login', 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login') or \
-                                      cnf.insert_at(0, 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login'))
+                for cnf in [kde, gdm, xdm]:
+                    if cnf.exists():
+                        (cnf.replace_line_matching('^auth\s*required\s*(?:/lib/security/)?pam_listfile.so.*bastille-no-login',
+                            'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login') or
+                          cnf.insert_at(0, 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login'))
                 securetty.remove_line_matching('.+', 1)
 
     def allow_remote_root_login(self, arg):
@@ -1094,8 +1099,6 @@ class MSEC:
         authorize the services you need, use /etc/hosts.allow (see
         hosts.allow(5)).'''
 
-        # TODO: add a common function to check parameters
-
         hostsdeny = self.configfiles.get_config_file(HOSTSDENY)
 
         if hostsdeny.get_match(ALL_REGEXP):
@@ -1242,7 +1245,7 @@ class MSEC:
         try:
             history = int(arg)
         except:
-            self.log.error(_('Invalid maximum password age: "%s"') % arg)
+            self.log.error(_('Invalid maximum password history length: "%s"') % arg)
             return
 
         if system_auth.exists():
@@ -1289,11 +1292,11 @@ class MSEC:
         val = mseccron.exists()
 
         if arg == "yes":
-            if arg != val:
+            if not val:
                 self.log.info(_('Enabling msec periodic runs'))
                 mseccron.symlink(MSECBIN)
         else:
-            if arg != val:
+            if val:
                 self.log.info(_('Disabling msec periodic runs'))
                 mseccron.unlink()
 

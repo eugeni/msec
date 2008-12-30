@@ -46,7 +46,7 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'ALLOW_XAUTH_FROM_ROOT':         (['yes', 'yes',  'no' ], "allow_xauth_from_root"),
                'ALLOW_XSERVER_TO_LISTEN':       (['yes', 'no',   'no' ], "allow_xserver_to_listen"),
                'AUTHORIZE_SERVICES':            (['yes', 'yes','local'], "authorize_services"),
-               'CREATE_SERVER_LINK':            (['no',  'yes',  'local'], "create_server_link"),
+               'CREATE_SERVER_LINK':            (['no',  'default','secure'], "create_server_link"),
                'ENABLE_AT_CRONTAB':             (['no',  'yes',  'no' ], "enable_at_crontab"),
                'ENABLE_CONSOLE_LOG':            (['yes', 'yes',  'no' ], "enable_console_log"),
                'ENABLE_DNS_SPOOFING_PROTECTION':(['yes', 'yes',  'yes'], "enable_ip_spoofing_protection"),
@@ -61,7 +61,7 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'ENABLE_POLICYKIT':              (['no',  'yes', 'local'], "enable_policykit"),
                # password stuff
                'ENABLE_PASSWORD':               (['yes', 'yes',  'yes'], "enable_password"),
-               'PASSWORD_HISTORY':              (['no',  'no',   '2'  ], "password_history"),
+               'PASSWORD_HISTORY':              (['0',   '0',    '2'  ], "password_history"),
                #                                format: min length, num upper, num digits
                'PASSWORD_LENGTH':               (['0,0,0',  '4,0,0', '6,1,1'], "password_length"),
                'SHELL_HISTORY_SIZE':            (['-1',  '-1',   '100'], "set_shell_history_size"),

@@ -4,15 +4,11 @@
 # Written by Vandoorselaere Yoann, <yoann@mandrakesoft.com>
 #
 
-if [[ -f /var/lib/msec/security.conf ]]; then
-    . /var/lib/msec/security.conf
-else
-    echo "/var/lib/msec/security.conf don't exist."
-    exit 1
-fi
-
 if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
+else
+    echo "/etc/security/msec/security.conf don't exist."
+    exit 1
 fi
 
 if [[ ${CHECK_SECURITY} != yes ]]; then
@@ -213,28 +209,31 @@ for file in $list ; do
         fi
 done > ${TMP}
 
-# TODO: do not check on remote shares (#41709)
-getent passwd | awk -F: '{print $1" "$6}' |
-    while read username homedir; do
-	if ! expr "$homedir" : "$FILTER"  > /dev/null; then
-	    for file in .rhosts .shosts; do
-		if [[ -s ${homedir}/${file} ]] ; then
-		    awk '{
-			    if ($0 ~ /^\+@.*$/)
-				next;
-			    if ($0 ~ /^\+.*$/)
-				printf("\t\t- %s: %s\n", FILENAME, $0);
-		    }' ${homedir}/${file}
+### Passwd file check
+if [[ ${CHECK_SHOSTS} == yes ]]; then    
+	# TODO: do not check on remote shares (#41709)
+	getent passwd | awk -F: '{print $1" "$6}' |
+	while read username homedir; do
+		if ! expr "$homedir" : "$FILTER"  > /dev/null; then
+			for file in .rhosts .shosts; do
+				if [[ -s ${homedir}/${file} ]] ; then
+					awk '{
+					if ($0 ~ /^\+@.*$/)
+						next;
+						if ($0 ~ /^\+.*$/)
+							printf("\t\t- %s: %s\n", FILENAME, $0);
+						}' ${homedir}/${file}
+					fi
+				done >> ${TMP}
+			fi
+		done
+
+		if [[ -s ${TMP} ]]; then
+			printf "\nSecurity Warning: '+' character found in hosts trusting files,\n" >> ${SECURITY}
+			printf "\tthis probably mean that you trust certains users/domain\n" >> ${SECURITY}
+			printf "\tto connect on this host without proper authentication :\n" >> ${SECURITY}
+			cat ${TMP} >> ${SECURITY}
 		fi
-	    done >> ${TMP}
-	fi
-    done
-	
-if [[ -s ${TMP} ]]; then
-    printf "\nSecurity Warning: '+' character found in hosts trusting files,\n" >> ${SECURITY}
-    printf "\tthis probably mean that you trust certains users/domain\n" >> ${SECURITY}
-    printf "\tto connect on this host without proper authentication :\n" >> ${SECURITY}
-    cat ${TMP} >> ${SECURITY}
 fi
 
 ### executables should not be in the aliases file.

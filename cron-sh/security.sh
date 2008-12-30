@@ -24,10 +24,11 @@ if [[ ! -f /var/lib/msec/security.conf ]]; then
     exit 1
 fi
 
-. /var/lib/msec/security.conf
-
-if [ -r /etc/security/msec/security.conf ]; then
+if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
+else
+    echo "/etc/security/msec/security.conf don't exist."
+    exit 1
 fi
 
 if [ -r /etc/sysconfig/msec ]; then

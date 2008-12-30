@@ -614,14 +614,14 @@ class MSEC:
         self.configfiles.add_config_assoc(SYSLOGCONF, '[ -f /var/lock/subsys/syslog ] && service syslog reload')
         self.configfiles.add_config_assoc('^/etc/issue$', '/usr/bin/killall mingetty')
 
-    def run_action(self, name, params):
-        """Executes a callback function, eventually validating its results"""
+    def get_action(self, name):
+        """Determines correspondent function for requested action."""
         try:
             func = getattr(self, name)
+            return func
         except:
             self.log.info(_("Function %s is not available in this version") % name)
             return None
-        return func(params)
 
     def commit(self, really_commit=True):
         """Commits changes"""

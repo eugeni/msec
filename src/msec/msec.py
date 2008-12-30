@@ -33,7 +33,7 @@ def load_defaults(levelname):
     """Loads default configuration for given level"""
     if levelname not in config.SECURITY_LEVELS:
         print >>sys.stderr, _("Error: unknown level '%s'!") % levelname
-        return None
+        return None, None
     level = config.SECURITY_LEVELS[levelname]
     params = {}
     callbacks = {}
@@ -180,7 +180,6 @@ class MsecConfig:
 def usage():
     """Prints help message"""
     print """Msec usage:
-msec [[-l] security level]
 The configuration is stored to /etc/security/msec/msec.conf.
 If no configuration file is found on the system, the specified
 security level is used to create one. If no security level is specified
@@ -190,9 +189,11 @@ Arguments to msec:
     -h, --help              displays this helpful message.
     -l, --level <level>     displays configuration for specified security
                             level.
-    -f                      force new level, overwriting user settings.
+    -f, --force <level>     force new level, overwriting user settings.
     -d                      enable debugging messages.
-    -c, --check             check for changes in system configuration.
+    -p, --pretend           only pretend to change the level, perform no real
+                            actions. Use this to see what operations msec
+                            will perform.
 """
 # }}}
 
@@ -201,16 +202,17 @@ if __name__ == "__main__":
     force_level = False
     log_level = logging.INFO
     commit = True
+    level = config.DEFAULT_LEVEL
 
     # parse command line
     try:
-        opt, args = getopt.getopt(sys.argv[1:], 'hl:fdc', ['help', 'list', 'force', 'debug', 'check'])
+        opt, args = getopt.getopt(sys.argv[1:], 'hl:f:dc', ['help', 'list', 'force', 'debug', 'check'])
     except getopt.error:
         usage()
         sys.exit(1)
     for o in opt:
         # help
-        if o[0] == '-h' or o[0] == '--option':
+        if o[0] == '-h' or o[0] == '--help':
             usage()
             sys.exit(0)
         # list
@@ -225,6 +227,7 @@ if __name__ == "__main__":
             sys.exit(0)
         # force new level
         elif o[0] == '-f' or o[0] == '--force':
+            level = o[1]
             force_level = True
         # debugging
         elif o[0] == '-d' or o[0] == '--debug':
@@ -235,7 +238,8 @@ if __name__ == "__main__":
 
     # verifying use id
     if os.geteuid() != 0:
-        print >>sys.stderr, _("This application must be run by root")
+        print >>sys.stderr, _("Error: This application must be run by root!")
+        print >>sys.stderr, _("Run with --help to get help.")
         sys.exit(1)
 
     # configuring logging
@@ -246,16 +250,7 @@ if __name__ == "__main__":
     else:
         log = Log(log_path="/tmp/msec.log", interactive=False, log_level=log_level)
 
-
-    # ok, let's if user specified a security level
-    if len(args) == 0:
-        log.debug(_("No security level specified, using %s") % config.DEFAULT_LEVEL)
-        level = config.DEFAULT_LEVEL
-    else:
-        level = args[0]
-        log.debug(_("Using security level %s") % level)
-
-    # loading default configuration
+    # first load the default configuration for level
     params, callbacks = load_defaults(level)
     if not params:
         sys.exit(1)
@@ -285,7 +280,10 @@ if __name__ == "__main__":
     # right parameter (either default, or specified by user)
     for opt in config.list_options():
         log.debug("Processing action %s: %s(%s)" % (opt, callbacks[opt], config.get(opt)))
-        msec.run_action(callbacks[opt], config.get(opt))
+        # Determines correspondent function
+        action = msec.get_action(callbacks[opt])
+        if action:
+            action(config.get(opt))
     # writing back changes
     msec.commit(commit)
     sys.exit(0)

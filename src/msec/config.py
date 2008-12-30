@@ -1,6 +1,5 @@
 #!/usr/bin/python -O
-# Mandriva Linux - MSEC
-# Configuration file for msec
+# Mandriva Linux - MSEC - configuration
 
 # security levels
 SECURITY_LEVELS = {

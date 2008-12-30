@@ -154,6 +154,11 @@ class MsecConfig:
             self.options[option] = default
         return self.options[option]
 
+    def remove(self, option):
+        """Removes a configuration option."""
+        if option in self.options:
+            del self.options[option]
+
     def set(self, option, value):
         """Sets a configuration option"""
         self.options[option] = value
@@ -276,10 +281,6 @@ if __name__ == "__main__":
         else:
             # only forcing new value when undefined
             config.get(opt, params[opt])
-    # saving updated config
-    if force_level:
-        if not config.save():
-            log.error(_("Unable to save config!"))
 
     # load the msec library
     msec = MSEC(log)
@@ -295,9 +296,14 @@ if __name__ == "__main__":
         if not action:
             # The required functionality is not supported
             log.info(_("'%s' is not available in this version") % opt)
+            config.remove(opt)
             continue
         log.debug("Processing action %s: %s(%s)" % (opt, callbacks[opt], config.get(opt)))
         action(config.get(opt))
     # writing back changes
     msec.commit(commit)
+    # saving updated config
+    if force_level:
+        if not config.save():
+            log.error(_("Unable to save config!"))
     sys.exit(0)

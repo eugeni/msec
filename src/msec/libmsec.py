@@ -1445,6 +1445,11 @@ class MSEC:
     def mail_user(self, param):
         """ Defines email to receive security notifications."""
         self.set_security_conf("MAIL_USER", param)
+
+    def check_shosts(self, param):
+        """ Enables checking for dangerous options in users' .rhosts/.shosts
+        files."""
+        self.set_security_conf("CHECK_SHOSTS", param)
 # }}}
 
 if __name__ == "__main__":

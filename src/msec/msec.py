@@ -259,9 +259,9 @@ if __name__ == "__main__":
     interactive = sys.stdin.isatty()
     if interactive:
         # logs to file and to terminal
-        log = Log(log_path="/tmp/msec.log", interactive=True, log_syslog=False, log_level=log_level)
+        log = Log(log_path=config.SECURITYLOG, interactive=True, log_syslog=False, log_level=log_level)
     else:
-        log = Log(log_path="/tmp/msec.log", interactive=False, log_level=log_level)
+        log = Log(log_path=config.SECURITYLOG, interactive=False, log_level=log_level)
 
     # first load the default configuration for level
     params, callbacks = load_defaults(level)
@@ -269,7 +269,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # loading initial config
-    config = MsecConfig(log, config="/tmp/msec.conf")
+    config = MsecConfig(log, config=config.SECURITYCONF)
     if not config.load():
         log.info(_("Unable to load config, using default values"))
 
@@ -303,7 +303,6 @@ if __name__ == "__main__":
     # writing back changes
     msec.commit(commit)
     # saving updated config
-    if force_level:
-        if not config.save():
-            log.error(_("Unable to save config!"))
+    if not config.save():
+        log.error(_("Unable to save config!"))
     sys.exit(0)

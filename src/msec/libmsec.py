@@ -63,7 +63,6 @@ PASSWD = '/etc/pam.d/passwd'
 POWEROFF = '/usr/bin/poweroff'
 REBOOT = '/usr/bin/reboot'
 SECURETTY = '/etc/securetty'
-SECURITYCONF = '/etc/security/msec/security.conf'
 SECURITYCRON = '/etc/cron.daily/msec'
 SECURITYSH = '/usr/share/msec/security.sh'
 SERVER = '/etc/security/msec/server'
@@ -1326,9 +1325,9 @@ class MSEC:
         if arg == "yes":
             if val_cronallow or val_atallow:
                 self.log.info(_('Enabling crontab and at'))
-                if not val_cronallow:
+                if val_cronallow:
                     cronallow.exists() and cronallow.move(SUFFIX)
-                if not val_atallow:
+                if val_atallow:
                     atallow.exists() and atallow.move(SUFFIX)
         else:
             if not val_cronallow or not val_atallow:
@@ -1352,44 +1351,6 @@ class MSEC:
                 self.log.info(_('Forbidding export display from root'))
                 export.remove_line_matching('^\*$')
 
-    def set_security_conf(self, var, value):
-        '''Helper function to configure security variables in
-        /etc/security/msec/security.conf, used in periodical security checks.
-        '''
-        securityconf = self.configfiles.get_config_file(SECURITYCONF)
-        curvalue = securityconf.get_shell_variable(var)
-        if curvalue != value:
-            self.log.info(_("Enabling security check: '%s'") % var)
-            securityconf.set_shell_variable(var, value)
-
-    def check_security(self, param):
-        """ Enables daily security checks."""
-        self.set_security_conf("CHECK_SECURITY", param)
-
-    def check_perms(self, param):
-        """ Enables permission checking in users' home."""
-        self.set_security_conf("CHECK_PERMS", param)
-
-    def check_suid_root(self, param):
-        """ Enables checking for additions/removals of suid root files."""
-        self.set_security_conf("CHECK_SUID_ROOT", param)
-
-    def check_suid_md5(self, param):
-        """ Enables checksum verification for suid files."""
-        self.set_security_conf("CHECK_SUID_MD5", param)
-
-    def check_sgid(self, param):
-        """ Enables checking for additions/removals of sgid files."""
-        self.set_security_conf("CHECK_SGID", param)
-
-    def check_writable(self, param):
-        """ Enables checking for files/directories writable by everybody."""
-        self.set_security_conf("CHECK_WRITABLE", param)
-
-    def check_unowned(self, param):
-        """ Enables checking for unowned files."""
-        self.set_security_conf("CHECK_UNOWNED", param)
-
     def check_promisc(self, param):
         '''  Activate/Disable ethernet cards promiscuity check.'''
         cron = self.configfiles.get_config_file(CRON)
@@ -1405,51 +1366,82 @@ class MSEC:
                 self.log.info(_('Disabling periodic promiscuity check'))
                 cron.remove_line_matching('[^#]+/usr/share/msec/promisc_check.sh')
 
+    # The following checks are run from crontab. We only have these functions here
+    # to get their descriptions.
+
+    def check_security(self, param):
+        """ Enables daily security checks."""
+        pass
+
+    def check_perms(self, param):
+        """ Enables permission checking in users' home."""
+        pass
+
+    def check_suid_root(self, param):
+        """ Enables checking for additions/removals of suid root files."""
+        pass
+
+    def check_suid_md5(self, param):
+        """ Enables checksum verification for suid files."""
+        pass
+
+    def check_sgid(self, param):
+        """ Enables checking for additions/removals of sgid files."""
+        pass
+
+    def check_writable(self, param):
+        """ Enables checking for files/directories writable by everybody."""
+        pass
+
+    def check_unowned(self, param):
+        """ Enables checking for unowned files."""
+        pass
+
     def check_open_port(self, param):
         """ Enables checking for open network ports."""
-        self.set_security_conf("CHECK_OPEN_PORT", param)
+        pass
 
     def check_passwd(self, param):
         """ Enables password-related checks, such as empty passwords and
         strange super-user accounts."""
-        self.set_security_conf("CHECK_PASSWD", param)
+        pass
 
     def check_shadow(self, param):
         """ Enables checking for empty passwords."""
-        self.set_security_conf("CHECK_SHADOW", param)
+        pass
 
     def check_chkrootkit(self, param):
         """ Enables checking for known rootkits using chkrootkit."""
-        self.set_security_conf("CHECK_CHKROOTKIT", param)
+        pass
 
     def check_rpm(self, param):
         """ Enables verification of installed packages."""
-        self.set_security_conf("CHECK_RPM", param)
+        pass
 
     def tty_warn(self, param):
         """ Enables periodic security check results to terminal."""
-        self.set_security_conf("TTY_WARN", param)
+        pass
 
     def mail_warn(self, param):
         """ Enables security results submission by email."""
-        self.set_security_conf("MAIL_WARN", param)
+        pass
 
     def mail_empty_content(self, param):
         """ Enables sending of empty mail reports."""
-        self.set_security_conf("MAIL_EMPTY_CONTENT", param)
+        pass
 
     def syslog_warn(self, param):
         """ Enables logging to system log."""
-        self.set_security_conf("SYSLOG_WARN", param)
+        pass
 
     def mail_user(self, param):
         """ Defines email to receive security notifications."""
-        self.set_security_conf("MAIL_USER", param)
+        pass
 
     def check_shosts(self, param):
         """ Enables checking for dangerous options in users' .rhosts/.shosts
         files."""
-        self.set_security_conf("CHECK_SHOSTS", param)
+        pass
 # }}}
 
 if __name__ == "__main__":

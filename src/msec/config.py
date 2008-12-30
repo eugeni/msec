@@ -9,6 +9,10 @@ SECURITY_LEVELS = {
         }
 DEFAULT_LEVEL="default"
 
+# msec configuration file
+SECURITYCONF = '/etc/security/msec/security.conf'
+SECURITYLOG = '/var/log/msec.log'
+
 # default parameters
 #                                                   security level
 #               OPTION                           none   default secure   callback
@@ -48,7 +52,7 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'ALLOW_XSERVER_TO_LISTEN':       (['yes', 'no',   'no' ], "allow_xserver_to_listen"),
                'AUTHORIZE_SERVICES':            (['yes', 'yes','local'], "authorize_services"),
                'CREATE_SERVER_LINK':            (['no',  'default','secure'], "create_server_link"),
-               'ENABLE_AT_CRONTAB':             (['no',  'yes',  'no' ], "enable_at_crontab"),
+               'ENABLE_AT_CRONTAB':             (['yes',  'yes',  'no' ], "enable_at_crontab"),
                'ENABLE_CONSOLE_LOG':            (['yes', 'yes',  'no' ], "enable_console_log"),
                'ENABLE_DNS_SPOOFING_PROTECTION':(['yes', 'yes',  'yes'], "enable_ip_spoofing_protection"),
                'ENABLE_IP_SPOOFING_PROTECTION': (['yes', 'yes',  'yes'], "enable_dns_spoofing_protection"),

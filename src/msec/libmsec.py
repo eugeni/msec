@@ -1126,12 +1126,18 @@ class MSEC:
         ''' Helper function for enable_ip_spoofing_protection, accept_icmp_echo, accept_broadcasted_icmp_echo,
         # accept_bogus_error_responses and enable_log_strange_packets.'''
         f = self.configfiles.get_config_file(file)
+        curvalue = f.get_shell_variable(variable)
         if value == "yes":
-            self.log.info(one_msg)
-            f.set_shell_variable(variable, 1)
+            value = "1"
         else:
-            self.log.info(zero_msg)
-            f.set_shell_variable(variable, 0)
+            value = "0"
+        if value != curvalue:
+            if value == "yes":
+                self.log.info(one_msg)
+                f.set_shell_variable(variable, 1)
+            else:
+                self.log.info(zero_msg)
+                f.set_shell_variable(variable, 0)
 
     def enable_ip_spoofing_protection(self, arg, alert=1):
         '''  Enable/Disable IP spoofing protection.'''

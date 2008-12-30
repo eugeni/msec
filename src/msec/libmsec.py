@@ -784,7 +784,7 @@ class MSEC:
             fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+)(?!.*umask=)(\S+)(.*)", "@1@3,umask=0@4", 0, 1)
 
     def allow_reboot(self, arg):
-        '''  Allow/Forbid reboot by the console user.'''
+        '''  Allow/Forbid system reboot and shutdown to local users.'''
         shutdownallow = self.configfiles.get_config_file(SHUTDOWNALLOW)
         sysctlconf = self.configfiles.get_config_file(SYSCTLCONF)
         kdmrc = self.configfiles.get_config_file(KDMRC)
@@ -856,23 +856,25 @@ class MSEC:
 
         oldval_gdmconf = gdmconf.get_shell_variable('Browser')
         oldval_kdmrc = kdmrc.get_shell_variable('ShowUsers', 'X-\*-Greeter', '^\s*$')
-        if oldval_kdmrc:
-            oldval_kdmrc = get_index(oldval_kdmrc, SHOW_USERS_VALUES)
 
         if arg == "yes":
-            msg = 'Allowing the listing of users in display managers'
-            val_kdmrc = 0
-            val_gdmconf = 'true'
+            if kdmrc.exists():
+                if oldval_kdmrc != 'NotHidden':
+                    self.log.info(_("Allowing list of users in KDM"))
+                    kdmrc.set_shell_variable('ShowUsers', 'NotHidden', 'X-\*-Greeter', '^\s*$')
+            if gdmconf.exists():
+                if oldval_gdmconf != 'true':
+                    self.log.info(_("Allowing list of users in GDM"))
+                    gdmconf.set_shell_variable('Browser', 'true')
         else:
-            msg = 'Disabling the listing of users in display managers'
-            val_kdmrc = 1
-            val_gdmconf = 'false'
-
-        # TODO: fix the code mess
-        if (gdmconf.exists() and oldval_gdmconf != val_gdmconf) or (kdmrc.exists() and oldval_kdmrc != val_kdmrc):
-            self.log.info(_(msg))
-            oldval_kdmrc != val_gdmconf and kdmrc.exists() and kdmrc.set_shell_variable('ShowUsers', SHOW_USERS_VALUES[val_kdmrc], 'X-\*-Greeter', '^\s*$')
-            oldval_gdmconf != val_gdmconf and gdmconf.exists() and gdmconf.set_shell_variable('Browser', val_gdmconf)
+            if kdmrc.exists():
+                if oldval_kdmrc != 'Selected':
+                    self.log.info(_("Forbidding list of users in KDM"))
+                    kdmrc.set_shell_variable('ShowUsers', 'Selected', 'X-\*-Greeter', '^\s*$')
+            if gdmconf.exists():
+                if oldval_gdmconf != 'false':
+                    self.log.info(_("Forbidding list of users in GDM"))
+                    gdmconf.set_shell_variable('Browser', 'false')
 
     def allow_root_login(self, arg):
         '''  Allow/Forbid direct root login.'''

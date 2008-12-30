@@ -11,7 +11,7 @@ DEFAULT_LEVEL="default"
 
 # default parameters
 #                                                   security level
-#               OPTION                           none   default secure  callback
+#               OPTION                           none   default secure   callback
 SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_security"),
                'CHECK_PERMS' :                  (['no',  'yes',  'yes'], "check_perms"),
                'CHECK_SUID_ROOT' :              (['yes', 'yes',  'yes'], "check_suid_root"),
@@ -38,7 +38,6 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'ACCEPT_BROADCASTED_ICMP_ECHO':  (['yes', 'yes',  'no' ], "accept_broadcasted_icmp_echo"),
                'ACCEPT_ICMP_ECHO':              (['yes', 'yes',  'yes'], "accept_icmp_echo"),
                'ALLOW_AUTOLOGIN':               (['yes', 'yes',  'no' ], "allow_autologin"),
-               'ALLOW_ISSUES':                  (['yes', 'yes',  'yes'], "allow_issues"),
                'ALLOW_REBOOT':                  (['yes', 'yes',  'yes'], "allow_reboot"),
                'ALLOW_REMOTE_ROOT_LOGIN':       (['yes', 'without_password', 'no' ], "allow_remote_root_login"), # was: WITHOUT_PASSWORD
                'ALLOW_ROOT_LOGIN':              (['yes', 'yes',  'no' ], "allow_root_login"),
@@ -47,7 +46,7 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'ALLOW_XAUTH_FROM_ROOT':         (['yes', 'yes',  'no' ], "allow_xauth_from_root"),
                'ALLOW_XSERVER_TO_LISTEN':       (['yes', 'no',   'no' ], "allow_xserver_to_listen"),
                'AUTHORIZE_SERVICES':            (['ALL', 'LOCAL','NONE'], "authorize_services"),
-               'CREATE_SERVER_LINK':            (['no',  'no',   'yes'], "create_server_link"),
+               'CREATE_SERVER_LINK':            (['no',  'yes',  'local'], "create_server_link"),
                'ENABLE_AT_CRONTAB':             (['no',  'yes',  'no' ], "enable_at_crontab"),
                'ENABLE_CONSOLE_LOG':            (['yes', 'yes',  'no' ], "enable_console_log"),
                'ENABLE_DNS_SPOOFING_PROTECTION':(['yes', 'yes',  'yes'], "enable_ip_spoofing_protection"),
@@ -56,15 +55,14 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'ENABLE_MSEC_CRON':              (['no',  'yes',  'yes'], "enable_msec_cron"),
                'ENABLE_PAM_ROOT_FROM_WHEEL':    (['no',  'no',   'no' ], "enable_pam_root_from_wheel"),
                'ENABLE_PAM_WHEEL_FOR_SU':       (['no',  'no',   'yes'], "enable_pam_wheel_for_su"),
-               'ENABLE_PASSWORD':               (['yes', 'yes',  'yes'], "enable_password"),
                'ENABLE_SULOGIN':                (['no',  'no',   'yes'], "enable_sulogin"),
                'ENABLE_APPARMOR':               (['no',  'no',   'yes'], "enable_apparmor"),
-               # password aging - do we need that at all??
-               'NO_PASSWORD_AGING_FOR':         (['no',  'no',   'no' ], "no_password_aging_for"),
-               'PASSWORD_AGING':                (['99999',  '99999',   '60' ], "password_aging"),
+               'ENABLE_POLICYKIT':              (['no',  'yes', 'local'], "enable_policykit"),
+               # password stuff
+               'ENABLE_PASSWORD':               (['yes', 'yes',  'yes'], "enable_password"),
                'PASSWORD_HISTORY':              (['no',  'no',   '2'  ], "password_history"),
                #                                format: min length, num upper, num digits
-               'PASSWORD_LENGTH':               (['0,0,0',  '0,0,0', '6,1,1'], "password_length"),
+               'PASSWORD_LENGTH':               (['0,0,0',  '4,0,0', '6,1,1'], "password_length"),
                'SHELL_HISTORY_SIZE':            (['-1',  '-1',   '100'], "set_shell_history_size"),
                'SHELL_TIMEOUT':                 (['0',   '0',    '600'], "set_shell_timeout"),
                }

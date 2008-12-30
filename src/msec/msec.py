@@ -288,11 +288,14 @@ if __name__ == "__main__":
     # security action we call the correspondent callback with
     # right parameter (either default, or specified by user)
     for opt in config.list_options():
-        log.debug("Processing action %s: %s(%s)" % (opt, callbacks[opt], config.get(opt)))
         # Determines correspondent function
-        action = msec.get_action(callbacks[opt])
-        if action:
-            action(config.get(opt))
+        if opt in callbacks:
+            action = msec.get_action(callbacks[opt])
+            if action:
+                log.debug("Processing action %s: %s(%s)" % (opt, callbacks[opt], config.get(opt)))
+                action(config.get(opt))
+        else:
+            log.info(_("Unsupported action: %s") % opt)
     # writing back changes
     msec.commit(commit)
     sys.exit(0)

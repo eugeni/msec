@@ -603,7 +603,6 @@ class MSEC:
         # all config files
         self.log = log
         self.configfiles = ConfigFiles(log)
-        self.no_aging_list = []
 
         # associate helper commands with files
         self.configfiles.add_config_assoc(INITTAB, '/sbin/telinit q')
@@ -998,34 +997,6 @@ class MSEC:
             if simple.exists() and val_simple:
                 simple.remove_line_matching(SUCCEED_MATCH)
 
-    # TODO: remove
-    def allow_issues(self, arg):
-        '''  If \\fIarg\\fP = ALL allow /etc/issue and /etc/issue.net to exist. If \\fIarg\\fP = NONE no issues are
-    allowed else only /etc/issue is allowed.'''
-        issue = self.configfiles.get_config_file(ISSUE, SUFFIX)
-        issuenet = self.configfiles.get_config_file(ISSUENET, SUFFIX)
-
-        val = issue.exists(1)
-        valnet = issuenet.exists(1)
-
-        if arg == ALL:
-            if not (val and valnet):
-                self.log.info(_('Allowing network pre-login messages'))
-                issue.exists() and issue.get_lines()
-                issuenet.exists() and issuenet.get_lines()
-        else:
-            if arg == NONE:
-                if val:
-                    self.log.info(_('Disabling pre-login message'))
-                    issue.exists(1) and issue.move(SUFFIX) and issue.modified()
-            else:
-                if not val:
-                    self.log.info(_('Allowing pre-login message'))
-                    issue.exists() and issue.get_lines()
-            if valnet:
-                self.log.info(_('Disabling network pre-login message'))
-                issuenet.exists(1) and issuenet.move(SUFFIX)
-
     def allow_autologin(self, arg):
         '''  Allow/Forbid autologin.'''
         autologin = self.configfiles.get_config_file(AUTOLOGIN)
@@ -1316,80 +1287,6 @@ class MSEC:
                 self.log.info(_('Disabling crontab and at'))
                 cronallow.replace_line_matching('root', 'root', 1)
                 atallow.replace_line_matching('root', 'root', 1)
-
-    def no_password_aging_for(self, name):
-        '''D Add the name as an exception to the handling of password aging by msec.
-    Name must be put between '. Msec will then no more manage password aging for
-    name so you have to use chage(1) to manage it by hand.'''
-        self.log.error("WARNING WARNING WARNING! Attempting to mess with password aging!")
-        return
-        self.no_aging_list.append(name)
-
-    def password_aging(self, max, inactive=-1):
-        '''  Set password aging to \\fImax\\fP days and delay to change to \\fIinactive\\fP.'''
-        self.log.error("WARNING WARNING WARNING! Attempting to mess with password aging!")
-        return
-        uid_min = 500
-        # verify parameter validity
-        # max
-        try:
-            max = int(max)
-        except:
-            self.log.error(_('Invalid maximum password age: "%s"]') % max)
-            return
-        # inactive
-        try:
-            inactive = int(inactive)
-        except:
-            self.log.error(_('Invalid inactive password age: "%s"]') % inactive)
-            return
-        self.log.info(_('Setting password maximum aging for new user to %s') % max)
-        logindefs = self.configfiles.get_config_file(LOGINDEFS)
-        if logindefs.exists():
-            logindefs.replace_line_matching('^\s*PASS_MAX_DAYS', 'PASS_MAX_DAYS ' + str(max), 1)
-            uid_min = logindefs.get_match('^\s*UID_MIN\s+([0-9]+)', '@1')
-            if uid_min:
-                uid_min = int(uid_min)
-        shadow = self.configfiles.get_config_file(SHADOW)
-        if shadow.exists():
-            self.log.info(_('Setting password maximum aging for root and users with id greater than %d to %d and delay to %d days') % (uid_min, max, inactive))
-            for line in shadow.get_lines():
-                field = string.split(line, ':')
-                if len(field) < 2:
-                    continue
-                name = field[0]
-                password = field[1]
-                if name in self.no_aging_list:
-                    self.log.info(_('User %s in password aging exception list') % (name,))
-                    continue
-                try:
-                    entry = pwd.getpwnam(name)
-                except KeyError:
-                    error(_('User %s in shadow but not in passwd file') % name)
-                    continue
-                if (len(password) > 0 and password[0] != '!') and password != '*' and password != 'x' and (entry[2] >= uid_min or entry[2] == 0):
-                    if field[4] == '':
-                        current_max = 99999
-                    else:
-                        current_max = int(field[4])
-                    if field[6] == '':
-                        current_inactive = -1
-                    else:
-                        current_inactive = int(field[6])
-                    new_max = max
-                    new_inactive = inactive
-                    # don't lower security when not changing security level
-                    if same_level():
-                        if current_max < max and current_inactive < inactive:
-                            continue
-                        if current_max < max:
-                            new_max = current_max
-                        if current_inactive < inactive:
-                            new_inactive = current_inactive
-                    if new_max != current_max or current_inactive != new_inactive:
-                        cmd = 'LC_ALL=C /usr/bin/chage -M %d -I %d -d %s \'%s\'' % (new_max, new_inactive, time.strftime('%Y-%m-%d'), entry[0])
-                        ret = commands.getstatusoutput(cmd)
-                        self.log.info(_('changed maximum password aging for user \'%s\' with command %s') % (entry[0], cmd))
 
     def allow_xauth_from_root(self, arg):
         ''' Allow/forbid to export display when passing from the root account

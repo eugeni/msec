@@ -1112,8 +1112,8 @@ class MSEC:
                 hostsdeny.remove_line_matching(ALL_LOCAL_REGEXP, 1)
             elif arg == "no":
                 self.log.info(_('Disabling all services'))
-                hostsdeny.remove_line_matching('^ALL:ALL EXCEPT 127\.0\.0\.1:DENY', 1)
-                hostsdeny.replace_line_matching('^ALL:ALL:DENY', 'ALL:ALL:DENY', 1)
+                hostsdeny.remove_line_matching(ALL_LOCAL_REGEXP, 1)
+                hostsdeny.replace_line_matching(ALL_REGEXP, 'ALL:ALL:DENY', 1)
             elif arg == "local":
                 self.log.info(_('Disabling non local services'))
                 hostsdeny.remove_line_matching(ALL_REGEXP, 1)

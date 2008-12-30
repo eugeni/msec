@@ -10,7 +10,7 @@
 MAN=../../man/C/mseclib.3
 PFILES=Perms.py compile.py draksec_help.py libmsec.py man.py
 
-all: mseclib.py compile man help.pm
+all: compile man help.pm
 
 compile:
 	./compile.py '/usr/share/msec/' *.py

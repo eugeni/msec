@@ -30,21 +30,6 @@ from libmsec import MSEC, Log
 
 import logging
 
-# helper functions
-def load_defaults(levelname):
-    """Loads default configuration for given level"""
-    if levelname not in config.SECURITY_LEVELS:
-        print >>sys.stderr, _("Error: unknown level '%s'!") % levelname
-        return None, None
-    level = config.SECURITY_LEVELS[levelname]
-    params = {}
-    callbacks = {}
-    for item in config.SETTINGS:
-        levels, callback = config.SETTINGS[item]
-        params[item] = levels[level]
-        callbacks[item] = callback
-    return params, callbacks
-
 # localization
 try:
     cat = gettext.Catalog('msec')
@@ -165,7 +150,7 @@ if __name__ == "__main__":
         # list
         elif o[0] == '-l' or o[0] == '--list':
             level = o[1]
-            params, callbacks = load_defaults(level)
+            params, callbacks, values = config.load_defaults(level)
             if not params:
                 sys.exit(1)
             print _("Default configuration for '%s' level") % level
@@ -199,23 +184,23 @@ if __name__ == "__main__":
         log = Log(log_path=config.SECURITYLOG, interactive=False, log_level=log_level)
 
     # first load the default configuration for level
-    params, callbacks = load_defaults(level)
+    params, callbacks, valid_values = config.load_defaults(level)
     if not params:
         sys.exit(1)
 
     # loading initial config
-    config = MsecConfig(log, config=config.SECURITYCONF)
-    if not config.load():
+    msec_config = MsecConfig(log, config=config.SECURITYCONF)
+    if not msec_config.load():
         log.info(_("Unable to load config, using default values"))
 
     # overriding defined parameters from config file
     for opt in params:
         if force_level:
             # forcing new value as user requested it
-            config.set(opt, params[opt])
+            msec_config.set(opt, params[opt])
         else:
             # only forcing new value when undefined
-            config.get(opt, params[opt])
+            msec_config.get(opt, params[opt])
 
     # load the msec library
     msec = MSEC(log)
@@ -223,7 +208,7 @@ if __name__ == "__main__":
     # ok, now the main msec functionality begins. For each
     # security action we call the correspondent callback with
     # right parameter (either default, or specified by user)
-    for opt in config.list_options():
+    for opt in msec_config.list_options():
         # Determines correspondent function
         action = None
         if opt in callbacks:
@@ -231,13 +216,16 @@ if __name__ == "__main__":
         if not action:
             # The required functionality is not supported
             log.info(_("'%s' is not available in this version") % opt)
-            config.remove(opt)
+            msec_config.remove(opt)
             continue
-        log.debug("Processing action %s: %s(%s)" % (opt, callbacks[opt], config.get(opt)))
-        action(config.get(opt))
+        log.debug("Processing action %s: %s(%s)" % (opt, callbacks[opt], msec_config.get(opt)))
+        # validating parameters
+        param = msec_config.get(opt)
+        print valid_values[opt]
+        action(msec_config.get(opt))
     # writing back changes
     msec.commit(commit)
     # saving updated config
-    if not config.save():
+    if not msec_config.save():
         log.error(_("Unable to save config!"))
     sys.exit(0)

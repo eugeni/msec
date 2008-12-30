@@ -700,6 +700,7 @@ class MSEC:
 
     def create_server_link(self, param):
         '''  Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.<SERVER_LEVEL>. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages.'''
+        __params__ = ["no", "default", "secure"]
 
         server = self.configfiles.get_config_file(SERVER)
 

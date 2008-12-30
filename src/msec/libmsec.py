@@ -633,10 +633,7 @@ class MSEC:
         self.configfiles.write_files(really_commit)
 
     def create_server_link(self, param):
-        '''  Creates the symlink /etc/security/msec/server to point to
-        /etc/security/msec/server.<SERVER_LEVEL>. The /etc/security/msec/server
-        is used by chkconfig --add to decide to add a service if it is present
-        in the file during the installation of packages.'''
+        '''  Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.<SERVER_LEVEL>. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages.'''
 
         server = self.configfiles.get_config_file(SERVER)
 
@@ -671,9 +668,7 @@ class MSEC:
             msec.set_shell_variable('UMASK_USER', umask)
 
     def allow_x_connections(self, arg):
-        '''  Allow/Forbid X connections. Accepted arguments: yes (all
-        connections are allowed), local (only local connection), no (no
-        connection).'''
+        '''  Allow/Forbid X connections. Accepted arguments: yes (all connections are allowed), local (only local connection), no (no connection).'''
 
         xinit = self.configfiles.get_config_file(MSEC_XINIT)
         val = xinit.get_match('/usr/bin/xhost\s*(\+\s*[^#]*)', '@1')
@@ -702,8 +697,7 @@ class MSEC:
                 self.log.error(_('invalid allow_x_connections arg: %s') % arg)
 
     def allow_xserver_to_listen(self, arg):
-        '''  The argument specifies if clients are authorized to connect
-    to the X server on the tcp port 6000 or not.'''
+        '''  The argument specifies if clients are authorized to connect to the X server on the tcp port 6000 or not.'''
 
         startx = self.configfiles.get_config_file(STARTX)
         xservers = self.configfiles.get_config_file(XSERVERS)
@@ -944,9 +938,7 @@ class MSEC:
                 securetty.remove_line_matching('.+', 1)
 
     def allow_remote_root_login(self, arg):
-        '''  Allow/Forbid remote root login via sshd. You can specify
-    yes, no and without-password. See sshd_config(5) man page for more
-    information.'''
+        '''  Allow/Forbid remote root login via sshd. You can specify yes, no and without-password. See sshd_config(5) man page for more information.'''
         sshd_config = self.configfiles.get_config_file(SSHDCONFIG)
 
         val = sshd_config.get_match(PERMIT_ROOT_LOGIN_REGEXP, '@1')
@@ -1059,9 +1051,7 @@ class MSEC:
         menulst.exists() and menulst.remove_line_matching('^password\s')
 
     def enable_console_log(self, arg, expr='*.*', dev='tty12'):
-        '''  Enable/Disable syslog reports to console 12. \\fIexpr\\fP is the
-    expression describing what to log (see syslog.conf(5) for more details) and
-    dev the device to report the log.'''
+        '''  Enable/Disable syslog reports to console 12. \\fIexpr\\fP is the expression describing what to log (see syslog.conf(5) for more details) and dev the device to report the log.'''
 
         syslogconf = self.configfiles.get_config_file(SYSLOGCONF)
 
@@ -1093,11 +1083,7 @@ class MSEC:
                 securitycron.unlink()
 
     def authorize_services(self, arg):
-        ''' Configure access to tcp_wrappers services (see hosts.deny(5)).  If
-        arg = yes, all services are authorized. If arg = local, only local ones
-        are, and if arg = no, no services are authorized. In this case, To
-        authorize the services you need, use /etc/hosts.allow (see
-        hosts.allow(5)).'''
+        ''' Configure access to tcp_wrappers services (see hosts.deny(5)).  If arg = yes, all services are authorized. If arg = local, only local ones are, and if arg = no, no services are authorized. In this case, To authorize the services you need, use /etc/hosts.allow (see hosts.allow(5)).'''
 
         hostsdeny = self.configfiles.get_config_file(HOSTSDENY)
 
@@ -1145,8 +1131,7 @@ class MSEC:
         self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.rp_filter', arg, 'Enabling ip spoofing protection', 'Disabling ip spoofing protection')
 
     def enable_dns_spoofing_protection(self, arg, alert=1):
-        '''  Enable/Disable name resolution spoofing protection.  If
-    \\fIalert\\fP is true, also reports to syslog.'''
+        '''  Enable/Disable name resolution spoofing protection.  If \\fIalert\\fP is true, also reports to syslog.'''
         hostconf = self.configfiles.get_config_file(HOSTCONF)
 
         val = hostconf.get_match('nospoof\s+on')
@@ -1225,9 +1210,7 @@ class MSEC:
                                           '@0 ucredit=%s ' % nupper))
 
     def enable_password(self, arg):
-        '''  Use password to authenticate users. Take EXTREMELY care when
-        disabling passwords, as it will leave the machine COMPLETELY vulnerable.
-        '''
+        '''  Use password to authenticate users. Take EXTREMELY care when disabling passwords, as it will leave the machine COMPLETELY vulnerable.'''
         system_auth = self.configfiles.get_config_file(SYSTEM_AUTH)
 
         val = system_auth.get_match(PASSWORD_REGEXP)
@@ -1243,8 +1226,7 @@ class MSEC:
                 system_auth.insert_before('auth\s+sufficient', 'auth        sufficient    pam_permit.so')
 
     def password_history(self, arg):
-        '''  Set the password history length to prevent password reuse. This is
-        not supported by pam_tcb. '''
+        '''  Set the password history length to prevent password reuse. This is not supported by pam_tcb. '''
 
         system_auth = self.configfiles.get_config_file(SYSTEM_AUTH)
 
@@ -1314,8 +1296,7 @@ class MSEC:
                 mseccron.unlink()
 
     def enable_at_crontab(self, arg):
-        '''  Enable/Disable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow
-    (see man at(1) and crontab(1)).'''
+        '''  Enable/Disable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow (see man at(1) and crontab(1)).'''
         cronallow = self.configfiles.get_config_file(CRONALLOW)
         atallow = self.configfiles.get_config_file(ATALLOW)
 
@@ -1336,8 +1317,7 @@ class MSEC:
                 atallow.replace_line_matching('root', 'root', 1)
 
     def allow_xauth_from_root(self, arg):
-        ''' Allow/forbid to export display when passing from the root account
-    to the other users. See pam_xauth(8) for more details.'''
+        ''' Allow/forbid to export display when passing from the root account to the other users. See pam_xauth(8) for more details.'''
         export = self.configfiles.get_config_file(EXPORT)
 
         allow = export.get_match('^\*$')
@@ -1402,8 +1382,7 @@ class MSEC:
         pass
 
     def check_passwd(self, param):
-        """ Enables password-related checks, such as empty passwords and
-        strange super-user accounts."""
+        """ Enables password-related checks, such as empty passwords and strange super-user accounts."""
         pass
 
     def check_shadow(self, param):
@@ -1439,8 +1418,7 @@ class MSEC:
         pass
 
     def check_shosts(self, param):
-        """ Enables checking for dangerous options in users' .rhosts/.shosts
-        files."""
+        """ Enables checking for dangerous options in users' .rhosts/.shosts files."""
         pass
 # }}}
 

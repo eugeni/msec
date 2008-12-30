@@ -63,8 +63,7 @@ PASSWD = '/etc/pam.d/passwd'
 POWEROFF = '/usr/bin/poweroff'
 REBOOT = '/usr/bin/reboot'
 SECURETTY = '/etc/securetty'
-SECURITYCONF = '/var/lib/msec/security.conf'
-SECURITYCONF2 = '/etc/security/msec/security.conf'
+SECURITYCONF = '/etc/security/msec/security.conf'
 SECURITYCRON = '/etc/cron.daily/msec'
 SECURITYSH = '/usr/share/msec/security.sh'
 SERVER = '/etc/security/msec/server'
@@ -134,6 +133,7 @@ NDIGITS_REGEXP = re.compile('^(password\s+required\s+(?:/lib/security/)?pam_crac
 UCREDIT_REGEXP = re.compile('^(password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*?)\sucredit=([0-9]+)\s(.*)')
 PASSWORD_REGEXP = '^\s*auth\s+sufficient\s+(?:/lib/security/)?pam_permit.so'
 UNIX_REGEXP = re.compile('(^\s*password\s+sufficient\s+(?:/lib/security/)?pam_unix.so.*)\sremember=([0-9]+)(.*)')
+PAM_TCB_REGEXP = re.compile('(^\s*password\s+sufficient\s+(?:/lib/security/)?pam_tcb.so.*)')
 # sulogin
 SULOGIN_REGEXP = '~~:S:wait:/sbin/sulogin'
 # password aging
@@ -1244,8 +1244,15 @@ class MSEC:
                 system_auth.insert_before('auth\s+sufficient', 'auth        sufficient    pam_permit.so')
 
     def password_history(self, arg):
-        '''  Set the password history length to prevent password reuse.'''
+        '''  Set the password history length to prevent password reuse. This is
+        not supported by pam_tcb. '''
+
         system_auth = self.configfiles.get_config_file(SYSTEM_AUTH)
+
+        pam_tcb = system_auth.get_match(PAM_TCB_REGEXP)
+        if pam_tcb:
+            self.log.info(_('Password history not supported with pam_tcb.'))
+            return
 
         # verify parameter validity
         # max
@@ -1346,69 +1353,42 @@ class MSEC:
                 export.remove_line_matching('^\*$')
 
     def set_security_conf(self, var, value):
-        '''1 Set the variable \\fIvar\\fP to the value \\fIvalue\\fP in /var/lib/msec/security.conf.
-    The best way to override the default setting is to create /etc/security/msec/security.conf
-    with the value you want. These settings are used to configure the daily check run each night.
-
-    The following variables are currentrly recognized by msec:
-
-    CHECK_UNOWNED if set to yes, report unowned files.
-
-    CHECK_SHADOW if set to yes, check empty password in /etc/shadow.
-
-    CHECK_SUID_MD5 if set to yes, verify checksum of the suid/sgid files.
-
-    CHECK_SECURITY if set to yes, run the daily security checks.
-
-    CHECK_PASSWD if set to yes, check for empty passwords, for no password in /etc/shadow and for users with the 0 id other than root.
-
-    SYSLOG_WARN if set to yes, report check result to syslog.
-
-    CHECK_SUID_ROOT if set to yes, check additions/removals of suid root files.
-
-    CHECK_PERMS if set to yes, check permissions of files in the users' home.
-
-    CHKROOTKIT_CHECK if set to yes, run chkrootkit checks.
-
-    CHECK_PROMISC if set to yes, check if the network devices are in promiscuous mode.
-
-    RPM_CHECK if set to yes, run some checks against the rpm database.
-
-    TTY_WARN if set to yes, reports check result to tty.
-
-    CHECK_WRITABLE if set to yes, check files/directories writable by everybody.
-
-    MAIL_WARN if set to yes, report check result by mail.
-
-    MAIL_USER if set, send the mail report to this email address else send it to root.
-
-    CHECK_OPEN_PORT if set to yes, check open ports.
-
-    CHECK_SGID if set to yes, check additions/removals of sgid files.
-    '''
+        '''Helper function to configure security variables in
+        /etc/security/msec/security.conf, used in periodical security checks.
+        '''
         securityconf = self.configfiles.get_config_file(SECURITYCONF)
-        securityconf.set_shell_variable(var, value)
+        curvalue = securityconf.get_shell_variable(var)
+        if curvalue != value:
+            self.log.info(_("Enabling security check: '%s'") % var)
+            securityconf.set_shell_variable(var, value)
 
     def check_security(self, param):
-        pass
+        """ Enables daily security checks."""
+        self.set_security_conf("CHECK_SECURITY", param)
 
     def check_perms(self, param):
-        pass
+        """ Enables permission checking in users' home."""
+        self.set_security_conf("CHECK_PERMS", param)
 
     def check_suid_root(self, param):
-        pass
+        """ Enables checking for additions/removals of suid root files."""
+        self.set_security_conf("CHECK_SUID_ROOT", param)
 
     def check_suid_md5(self, param):
-        pass
+        """ Enables checksum verification for suid files."""
+        self.set_security_conf("CHECK_SUID_MD5", param)
 
     def check_sgid(self, param):
-        pass
+        """ Enables checking for additions/removals of sgid files."""
+        self.set_security_conf("CHECK_SGID", param)
 
     def check_writable(self, param):
-        pass
+        """ Enables checking for files/directories writable by everybody."""
+        self.set_security_conf("CHECK_WRITABLE", param)
 
     def check_unowned(self, param):
-        pass
+        """ Enables checking for unowned files."""
+        self.set_security_conf("CHECK_UNOWNED", param)
 
     def check_promisc(self, param):
         '''  Activate/Disable ethernet cards promiscuity check.'''
@@ -1426,31 +1406,45 @@ class MSEC:
                 cron.remove_line_matching('[^#]+/usr/share/msec/promisc_check.sh')
 
     def check_open_port(self, param):
-        pass
+        """ Enables checking for open network ports."""
+        self.set_security_conf("CHECK_OPEN_PORT", param)
 
     def check_passwd(self, param):
-        pass
+        """ Enables password-related checks, such as empty passwords and
+        strange super-user accounts."""
+        self.set_security_conf("CHECK_PASSWD", param)
 
     def check_shadow(self, param):
-        pass
+        """ Enables checking for empty passwords."""
+        self.set_security_conf("CHECK_SHADOW", param)
 
     def check_chkrootkit(self, param):
-        pass
+        """ Enables checking for known rootkits using chkrootkit."""
+        self.set_security_conf("CHECK_CHKROOTKIT", param)
 
     def check_rpm(self, param):
-        pass
+        """ Enables verification of installed packages."""
+        self.set_security_conf("CHECK_RPM", param)
 
     def tty_warn(self, param):
-        pass
+        """ Enables periodic security check results to terminal."""
+        self.set_security_conf("TTY_WARN", param)
 
     def mail_warn(self, param):
-        pass
+        """ Enables security results submission by email."""
+        self.set_security_conf("MAIL_WARN", param)
 
     def mail_empty_content(self, param):
-        pass
+        """ Enables sending of empty mail reports."""
+        self.set_security_conf("MAIL_EMPTY_CONTENT", param)
 
     def syslog_warn(self, param):
-        pass
+        """ Enables logging to system log."""
+        self.set_security_conf("SYSLOG_WARN", param)
+
+    def mail_user(self, param):
+        """ Defines email to receive security notifications."""
+        self.set_security_conf("MAIL_USER", param)
 # }}}
 
 if __name__ == "__main__":

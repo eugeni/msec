@@ -28,6 +28,7 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'CHECK_SHOSTS' :                 (['no',  'yes',  'yes'], "check_shosts"),
                'TTY_WARN' :                     (['no',  'no',   'yes'], "tty_warn"),
                'MAIL_WARN' :                    (['no',  'yes',  'yes'], "mail_warn"),
+               'MAIL_USER' :                    (['root','root','root'], "mail_user"),
                'MAIL_EMPTY_CONTENT':            (['no',  'no',   'yes'], "mail_empty_content"),
                'SYSLOG_WARN' :                  (['yes', 'yes',  'yes'], "syslog_warn"),
                # security options

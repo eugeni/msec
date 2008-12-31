@@ -13,7 +13,7 @@ clean:
 	rm -f src/promisc_check/promisc_check
 	rm -f src/msec_find/msec_find
 	rm -f *.bz2
-	cd share; make clean
+	make -C src/msec clean
 
 promisc_check: 
 	make -C src/promisc_check

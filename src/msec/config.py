@@ -1,5 +1,14 @@
 #!/usr/bin/python -O
-# Mandriva Linux - MSEC - configuration
+"""This is the configuration file for msec.
+The following variables are defined here:
+    SECURITY_LEVELS: list of supported security levels
+    SECURITYCONF: location of msec configuration file
+    SECURITYLOG: log file for msec messages
+    SETTINGS: all security settings, with correspondent options for each
+              level, callback functions, and regexp of valid parameters.
+
+A helper function load_defaults parses the SETTINGS variable.
+"""
 
 # security levels
 SECURITY_LEVELS = {
@@ -16,12 +25,12 @@ SECURITYLOG = '/var/log/msec.log'
 # default parameters
 #                                                   security level
 #               OPTION                           none   default secure   callback         valid values
-SETTINGS =    {'CHECK_SECURITY' :               (['no', 'yes',  'yes'], "check_security", r'^(yes|no)$'),
+SETTINGS =    {'CHECK_SECURITY' :               (['no',  'yes',  'yes'], "check_security", r'^(yes|no)$'),
                'CHECK_PERMS' :                  (['no',  'yes',  'yes'], "check_perms", r'^(yes|no)$'),
-               'CHECK_SUID_ROOT' :              (['no', 'yes',  'yes'], "check_suid_root", r'^(yes|no)$'),
-               'CHECK_SUID_MD5' :               (['no', 'yes',  'yes'], "check_suid_md5", r'^(yes|no)$'),
-               'CHECK_SGID' :                   (['no', 'yes',  'yes'], "check_sgid", r'^(yes|no)$'),
-               'CHECK_WRITABLE' :               (['no', 'yes',  'yes'], "check_writable", r'^(yes|no)$'),
+               'CHECK_SUID_ROOT' :              (['no',  'yes',  'yes'], "check_suid_root", r'^(yes|no)$'),
+               'CHECK_SUID_MD5' :               (['no',  'yes',  'yes'], "check_suid_md5", r'^(yes|no)$'),
+               'CHECK_SGID' :                   (['no',  'yes',  'yes'], "check_sgid", r'^(yes|no)$'),
+               'CHECK_WRITABLE' :               (['no',  'yes',  'yes'], "check_writable", r'^(yes|no)$'),
                'CHECK_UNOWNED' :                (['no',  'no',   'yes'], "check_unowned", r'^(yes|no)$'),
                'CHECK_PROMISC' :                (['no',  'no',   'yes'], "check_promisc", r'^(yes|no)$'),
                'CHECK_OPEN_PORT' :              (['no',  'yes',  'yes'], "check_open_port", r'^(yes|no)$'),
@@ -34,12 +43,12 @@ SETTINGS =    {'CHECK_SECURITY' :               (['no', 'yes',  'yes'], "check_s
                'MAIL_WARN' :                    (['no',  'yes',  'yes'], "mail_warn", r'^(yes|no)$'),
                'MAIL_USER' :                    (['root','root','root'], "mail_user", r'^([a-zA-Z0-9@\.]*)$'),
                'MAIL_EMPTY_CONTENT':            (['no',  'no',   'yes'], "mail_empty_content", r'^(yes|no)$'),
-               'SYSLOG_WARN' :                  (['no', 'yes',  'yes'], "syslog_warn", r'^(yes|no)$'),
+               'SYSLOG_WARN' :                  (['no',  'yes',  'yes'], "syslog_warn", r'^(yes|no)$'),
                # security options
                'USER_UMASK':                    (['022', '022',  '077'], "set_user_umask", r'^(\d\d\d)$'),
                'ROOT_UMASK':                    (['022', '022',  '077'], "set_root_umask", r'^(\d\d\d)$'),
                'WIN_PARTS_UMASK':               (['no',  'no',   '0'  ], "set_win_parts_umask", r'^(no|\d\d?\d?)$'),
-               'ACCEPT_BOGUS_ERROR_RESPONSES':  (['yes',  'no',   'no' ], "accept_bogus_error_responses", r'^(yes|no)$'),
+               'ACCEPT_BOGUS_ERROR_RESPONSES':  (['yes', 'no',   'no' ], "accept_bogus_error_responses", r'^(yes|no)$'),
                'ACCEPT_BROADCASTED_ICMP_ECHO':  (['yes', 'yes',  'no' ], "accept_broadcasted_icmp_echo", r'^(yes|no)$'),
                'ACCEPT_ICMP_ECHO':              (['yes', 'yes',  'yes'], "accept_icmp_echo", r'^(yes|no)$'),
                'ALLOW_AUTOLOGIN':               (['yes', 'yes',  'no' ], "allow_autologin", r'^(yes|no)$'),
@@ -52,18 +61,18 @@ SETTINGS =    {'CHECK_SECURITY' :               (['no', 'yes',  'yes'], "check_s
                'ALLOW_XSERVER_TO_LISTEN':       (['yes', 'no',   'no' ], "allow_xserver_to_listen", r'^(yes|no)$'),
                'AUTHORIZE_SERVICES':            (['yes', 'yes','local'], "authorize_services", r'^(yes|no|local)$'),
                'CREATE_SERVER_LINK':            (['no',  'default','secure'], "create_server_link", r'^(no|default|secure)$'),
-               'ENABLE_AT_CRONTAB':             (['yes',  'yes',  'no' ], "enable_at_crontab", r'^(yes|no)$'),
+               'ENABLE_AT_CRONTAB':             (['yes', 'yes',  'no' ], "enable_at_crontab", r'^(yes|no)$'),
                'ENABLE_CONSOLE_LOG':            (['yes', 'yes',  'no' ], "enable_console_log", r'^(yes|no)$'),
                'ENABLE_DNS_SPOOFING_PROTECTION':(['yes', 'yes',  'yes'], "enable_ip_spoofing_protection", r'^(yes|no)$'),
                'ENABLE_IP_SPOOFING_PROTECTION': (['yes', 'yes',  'yes'], "enable_dns_spoofing_protection", r'^(yes|no)$'),
                'ENABLE_LOG_STRANGE_PACKETS':    (['no',  'yes',  'yes'], "enable_log_strange_packets", r'^(yes|no)$'),
                'ENABLE_MSEC_CRON':              (['no',  'yes',  'yes'], "enable_msec_cron", r'^(yes|no)$'),
                'ENABLE_PAM_ROOT_FROM_WHEEL':    (['no',  'no',   'no' ], "enable_pam_root_from_wheel", r'^(yes|no)$'),
-               'ENABLE_SUDO':                   (['yes',  'wheel','no'], "enable_sudo", r'^(yes|no|wheel)$'),
+               'ENABLE_SUDO':                   (['yes', 'wheel','no' ], "enable_sudo", r'^(yes|no|wheel)$'),
                'ENABLE_PAM_WHEEL_FOR_SU':       (['no',  'no',   'yes'], "enable_pam_wheel_for_su", r'^(yes|no)$'),
                'ENABLE_SULOGIN':                (['no',  'no',   'yes'], "enable_sulogin", r'^(yes|no)$'),
                'ENABLE_APPARMOR':               (['no',  'no',   'yes'], "enable_apparmor", r'^(yes|no)$'),
-               'ENABLE_POLICYKIT':              (['no',  'yes', 'local'], "enable_policykit", r'^(yes|no|local)$'),
+               'ENABLE_POLICYKIT':              (['no',  'yes','local'], "enable_policykit", r'^(yes|no|local)$'),
                # password stuff
                'ENABLE_PASSWORD':               (['yes', 'yes',  'yes'], "enable_password", r'^(yes|no)$'),
                'PASSWORD_HISTORY':              (['0',   '0',    '2'  ], "password_history", r'^(\d+)$'),
@@ -76,7 +85,10 @@ SETTINGS =    {'CHECK_SECURITY' :               (['no', 'yes',  'yes'], "check_s
 
 # helper functions
 def load_defaults(levelname):
-    """Loads default configuration for given level"""
+    """Loads default configuration for given level, returning 3 dicts:
+        params: list of default options for level
+        callbacks: list of callback functions for each option
+        values: list of valid option values."""
     if levelname not in SECURITY_LEVELS:
         print >>sys.stderr, _("Error: unknown level '%s'!") % levelname
         return None, None, None

@@ -154,7 +154,6 @@ if __name__ == "__main__":
             params, callbacks, values = config.load_defaults(level)
             if not params:
                 sys.exit(1)
-            print _("Default configuration for '%s' level") % level
             for item in params:
                 print "%s: %s" % (item, params[item])
             sys.exit(0)

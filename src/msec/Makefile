@@ -26,8 +26,8 @@ $(MAN): libmsec.py man.py
 	./man.py libmsec > $@
 
 levels:
-	for l in 0 1 2 3 4 5; do rm -f level.$$l; \
-	  ./msec.py -o log=stderr -o print=1 -o nolocal=1 $$l < /dev/null | sort > level.$$l; \
+	for l in none default secure; do rm -f level.$$l; \
+	  ./msec.py -l $$l < /dev/null | sort > level.$$l; \
 	done
 clean:
 	rm -f *.pyc *.pyo mseclib.py *~ level.[0-5] help.pm

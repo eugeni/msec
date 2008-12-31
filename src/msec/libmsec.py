@@ -125,13 +125,6 @@ no=0
 yes=1
 without_password=2
 
-ALL_LOCAL_NONE_TRANS = {ALL : 'ALL', NONE: 'NONE', LOCAL : 'LOCAL'}
-YES_NO_TRANS = {yes : 'yes', no : 'no'}
-ALLOW_ROOT_LOGIN_TRANS = {no : 'no', yes : 'yes', without_password : 'without_password'}
-
-ALLOW_SHUTDOWN_VALUES = ('All', 'Root', 'None')
-SHOW_USERS_VALUES = ('NotHidden', 'Selected')
-
 # regexps
 space = re.compile('\s')
 # X server
@@ -163,10 +156,6 @@ UNIX_REGEXP = re.compile('(^\s*password\s+sufficient\s+(?:/lib/security/)?pam_un
 PAM_TCB_REGEXP = re.compile('(^\s*password\s+sufficient\s+(?:/lib/security/)?pam_tcb.so.*)')
 # sulogin
 SULOGIN_REGEXP = '~~:S:wait:/sbin/sulogin'
-# password aging
-maximum_regex = re.compile('^Maximum.*:\s*([0-9]+|-1)', re.MULTILINE)
-inactive_regex = re.compile('^(Inactive|Password inactive\s*):\s*(-?[0-9]+|never)', re.MULTILINE)
-
 
 # {{{  helper functions
 def move(old, new):
@@ -809,9 +798,9 @@ class MSEC:
                     xservers.exists() and xservers.replace_line_matching('(\s*[^#]+/usr/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
                 if val_gdmconf != 'true':
                     gdmconf.exists() and gdmconf.set_shell_variable('DisallowTCP', 'true', '\[security\]', '^\s*$')
-                if kdmrc.exists():
+                if val_kdmrc:
                     if not val_kdmrc.get_match('^ServerArgsLocal=.* -nolisten tcp'):
-                        kdmrc.replace_line_matching('^(ServerArgsLocal=.*)$', '@1 -nolisten tcp', 'ServerArgsLocal=-nolisten tcp', 0, 'X-\*-Core', '^\s*$')
+                        kdmrc.exists() and kdmrc.replace_line_matching('^(ServerArgsLocal=.*)$', '@1 -nolisten tcp', 'ServerArgsLocal=-nolisten tcp', 0, 'X-\*-Core', '^\s*$')
 
     def set_shell_timeout(self, val):
         '''  Set the shell timeout. A value of zero means no timeout.'''

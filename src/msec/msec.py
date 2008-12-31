@@ -139,7 +139,7 @@ if __name__ == "__main__":
 
     # parse command line
     try:
-        opt, args = getopt.getopt(sys.argv[1:], 'hl:f:dc', ['help', 'list', 'force', 'debug', 'check'])
+        opt, args = getopt.getopt(sys.argv[1:], 'hl:f:dp', ['help', 'list', 'force', 'debug', 'pretend'])
     except getopt.error:
         usage()
         sys.exit(1)
@@ -165,7 +165,7 @@ if __name__ == "__main__":
         elif o[0] == '-d' or o[0] == '--debug':
             log_level = logging.DEBUG
         # check-only mode
-        elif o[0] == '-c' or o[0] == '--check':
+        elif o[0] == '-p' or o[0] == '--pretend':
             commit = False
 
     # verifying use id
@@ -221,17 +221,17 @@ if __name__ == "__main__":
         log.debug("Processing action %s: %s(%s)" % (opt, callbacks[opt], msec_config.get(opt)))
         # validating parameters
         param = msec_config.get(opt)
-	valid_params = re.compile(valid_values[opt])
-	if not valid_params.match(param):
-		log.error(_("Invalid parameter for %s: '%s'. Valid parameters: '%s'.") % (opt,
-					param,
-					valid_values[opt]))
-		continue
+        valid_params = re.compile(valid_values[opt])
+        if not valid_params.match(param):
+            log.error(_("Invalid parameter for %s: '%s'. Valid parameters: '%s'.") % (opt,
+                        param,
+                        valid_values[opt]))
+            continue
         action(msec_config.get(opt))
     # writing back changes
     msec.commit(commit)
     # saving updated config
-    if force_level:
-	    if not msec_config.save():
-		log.error(_("Unable to save config!"))
+    if force_level and commit:
+        if not msec_config.save():
+            log.error(_("Unable to save config!"))
     sys.exit(0)

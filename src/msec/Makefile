@@ -30,7 +30,7 @@ levels:
 	  ./msec.py -l $$l < /dev/null | sort > level.$$l; \
 	done
 clean:
-	rm -f *.pyc *.pyo mseclib.py *~ level.[0-5] help.pm
+	rm -f *.pyc *.pyo mseclib.py *~ level.* help.pm
 
 # Local variables:
 # mode: makefile

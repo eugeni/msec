@@ -1,4 +1,28 @@
 #!/usr/bin/python -O
+"""This is the main msec module, responsible for all msec operations.
+
+The following classes are defined here:
+
+    ConfigFile: an individual config file. This class is responsible for
+            configuration modification, variable searching and replacing,
+            and so on.
+
+    ConfigFiles: this file contains the entire set of modifications performed
+            by msec, stored in list of ConfigFile instances. When required, all
+            changes are commited back to physical files. This way, no real
+            change occurs on the system until the msec app explicitly tells
+            to do so.
+
+    Log: logging class, that supports logging to terminal, a fixed log file,
+            and syslog. A single log instance can be shared by all other
+            classes.
+
+    MSEC: main msec class. It contains the callback functions for all msec
+            operations.
+
+All configuration variables, and config file names are defined here as well.
+"""
+
 #---------------------------------------------------------------
 # Project         : Mandriva Linux
 # Module          : mseclib
@@ -145,21 +169,6 @@ inactive_regex = re.compile('^(Inactive|Password inactive\s*):\s*(-?[0-9]+|never
 
 
 # {{{  helper functions
-def get_index(val, array):
-    # works with python 2.6
-    #return array.index(val) if val in array else -1
-    for loop in range(0, len(array)):
-        if val == array[loop]:
-            return loop
-    return -1
-
-
-def boolean2bit(bool):
-    if bool == "yes":
-        return 1
-    else:
-        return 0
-
 def move(old, new):
     try:
         os.unlink(new)
@@ -175,10 +184,6 @@ def substitute_re_result(res, s):
         subst = res.group(idx) or ''
         s = string.replace(s, '@' + str(idx), subst)
     return s
-
-def mkdir_p(path):
-    if not os.path.exists(path):
-        os.makedirs(path)
 # }}}
 
 # {{{ Log
@@ -394,7 +399,9 @@ class ConfigFile:
                 self.log.info(_('deleted %s') % (self.path,))
         elif self.is_modified:
             content = string.join(self.lines, "\n")
-            mkdir_p(os.path.dirname(self.path))
+            dirname = os.path.dirname(self.path)
+            if not os.path.exists(dirname):
+                os.makedirs(dirname)
             file = open(self.path, 'w')
             file.write(content)
             file.close()

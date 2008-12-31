@@ -15,6 +15,7 @@ import string
 import getopt
 import gettext
 import imp
+import re
 
 # config
 import config
@@ -221,11 +222,17 @@ if __name__ == "__main__":
         log.debug("Processing action %s: %s(%s)" % (opt, callbacks[opt], msec_config.get(opt)))
         # validating parameters
         param = msec_config.get(opt)
-        print valid_values[opt]
+	valid_params = re.compile(valid_values[opt])
+	if not valid_params.match(param):
+		log.error(_("Invalid parameter for %s: '%s'. Valid parameters: '%s'.") % (opt,
+					param,
+					valid_values[opt]))
+		continue
         action(msec_config.get(opt))
     # writing back changes
     msec.commit(commit)
     # saving updated config
-    if not msec_config.save():
-        log.error(_("Unable to save config!"))
+    if force_level:
+	    if not msec_config.save():
+		log.error(_("Unable to save config!"))
     sys.exit(0)

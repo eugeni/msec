@@ -32,7 +32,7 @@ SETTINGS =    {'CHECK_SECURITY' :               (['yes', 'yes',  'yes'], "check_
                'CHECK_SHOSTS' :                 (['no',  'yes',  'yes'], "check_shosts", r'^(yes|no)$'),
                'TTY_WARN' :                     (['no',  'no',   'yes'], "tty_warn", r'^(yes|no)$'),
                'MAIL_WARN' :                    (['no',  'yes',  'yes'], "mail_warn", r'^(yes|no)$'),
-               'MAIL_USER' :                    (['root','root','root'], "mail_user", r'^(a-zA-Z0-9@\.)$'),
+               'MAIL_USER' :                    (['root','root','root'], "mail_user", r'^([a-zA-Z0-9@\.]*)$'),
                'MAIL_EMPTY_CONTENT':            (['no',  'no',   'yes'], "mail_empty_content", r'^(yes|no)$'),
                'SYSLOG_WARN' :                  (['yes', 'yes',  'yes'], "syslog_warn", r'^(yes|no)$'),
                # security options

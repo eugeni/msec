@@ -796,14 +796,14 @@ class MSEC:
         else:
             if not val_startx or not val_xservers or not val_kdmrc or val_gdmconf != 'true':
                 self.log.info(_('Forbidding the X server to listen to tcp connection'))
-                if startx.exists():
-                    startx.replace_line_matching('serverargs="(.*?)( -nolisten tcp)?"', 'serverargs="@1 -nolisten tcp"')
-                if xservers.exists():
-                    xservers.replace_line_matching('(\s*[^#]+/usr/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
-                if gdmconf.exists():
-                    gdmconf.set_shell_variable('DisallowTCP', 'true', '\[security\]', '^\s*$')
+                if not val_startx:
+                    startx.exists() and startx.replace_line_matching('serverargs="(.*?)( -nolisten tcp)?"', 'serverargs="@1 -nolisten tcp"')
+                if not val_xservers:
+                    xservers.exists() and xservers.replace_line_matching('(\s*[^#]+/usr/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
+                if val_gdmconf != 'true':
+                    gdmconf.exists() and gdmconf.set_shell_variable('DisallowTCP', 'true', '\[security\]', '^\s*$')
                 if kdmrc.exists():
-                    if not kdmrc.get_match('^ServerArgsLocal=.* -nolisten tcp'):
+                    if not val_kdmrc.get_match('^ServerArgsLocal=.* -nolisten tcp'):
                         kdmrc.replace_line_matching('^(ServerArgsLocal=.*)$', '@1 -nolisten tcp', 'ServerArgsLocal=-nolisten tcp', 0, 'X-\*-Core', '^\s*$')
 
     def set_shell_timeout(self, val):

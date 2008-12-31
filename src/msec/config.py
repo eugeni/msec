@@ -8,6 +8,8 @@ The following variables are defined here:
               level, callback functions, and regexp of valid parameters.
 
 A helper function load_defaults parses the SETTINGS variable.
+
+The MsecConfig class processes the main msec configuration file.
 """
 
 # security levels
@@ -102,4 +104,74 @@ def load_defaults(levelname):
         callbacks[item] = callback
         values[item] = value
     return params, callbacks, values
+
+# {{{ MsecConfig
+class MsecConfig:
+    """Msec configuration parser"""
+    def __init__(self, log, config="/etc/security/msec/msec.conf"):
+        self.config = config
+        self.options = {}
+        self.comments = []
+        self.log = log
+
+    def load(self):
+        """Loads and parses configuration file"""
+        try:
+            fd = open(self.config)
+        except:
+            self.log.error(_("Unable to load configuration file %s: %s") % (self.config, sys.exc_value))
+            return False
+        for line in fd.readlines():
+            line = line.strip()
+            if line[0] == "#":
+                # comment
+                self.comments.append(line)
+                continue
+            try:
+                option, val = line.split("=", 1)
+                self.options[option] = val
+            except:
+                self.log.warn(_("Bad config option: %s") % line)
+                continue
+        fd.close()
+        return True
+
+    def get(self, option, default=None):
+        """Gets a configuration option, or defines it if not defined"""
+        if option not in self.options:
+            self.options[option] = default
+        return self.options[option]
+
+    def remove(self, option):
+        """Removes a configuration option."""
+        if option in self.options:
+            del self.options[option]
+
+    def set(self, option, value):
+        """Sets a configuration option"""
+        self.options[option] = value
+
+    def list_options(self):
+        """Sorts and returns configuration parameters"""
+        sortedparams = self.options.keys()
+        if sortedparams:
+            sortedparams.sort()
+        return sortedparams
+
+    def save(self):
+        """Saves configuration. Comments go on top"""
+        try:
+            fd = open(self.config, "w")
+        except:
+            self.log.error(_("Unable to save %s: %s") % (self.config, sys.exc_value))
+            return False
+        for comment in self.comments:
+            print >>fd, comment
+        # sorting keys
+        sortedparams = self.options.keys()
+        sortedparams.sort()
+        for option in sortedparams:
+            print >>fd, "%s=%s" % (option, self.options[option])
+        return True
+# }}}
 

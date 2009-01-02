@@ -22,7 +22,7 @@ Allow/Forbid X connections. Accepted arguments: yes (all connections are allowed
 
 MSEC parameter: \fIALLOW_X_CONNECTIONS\fP
 
-Accepted values: \fI'^(yes|no|local)$'\fP
+Accepted values: \fIyes, no, local\fP
 
 
 .TP 4
@@ -31,7 +31,7 @@ Enables checking for files/directories writable by everybody.
 
 MSEC parameter: \fICHECK_WRITABLE\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -40,7 +40,7 @@ Enable/Disable syslog reports to console 12. \fIexpr\fP is the expression descri
 
 MSEC parameter: \fIENABLE_CONSOLE_LOG\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -49,7 +49,7 @@ Enables sending of empty mail reports.
 
 MSEC parameter: \fIMAIL_EMPTY_CONTENT\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -58,7 +58,7 @@ Accept/Refuse broadcasted icmp echo.
 
 MSEC parameter: \fIACCEPT_BROADCASTED_ICMP_ECHO\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -67,7 +67,7 @@ Enables permission checking in users' home.
 
 MSEC parameter: \fICHECK_PERMS\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -76,7 +76,7 @@ The argument specifies if clients are authorized to connect to the X server on t
 
 MSEC parameter: \fIALLOW_XSERVER_TO_LISTEN\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -85,7 +85,7 @@ Enables checking for known rootkits using chkrootkit.
 
 MSEC parameter: \fICHECK_CHKROOTKIT\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -94,7 +94,7 @@ Set shell commands history size. A value of -1 means unlimited.
 
 MSEC parameter: \fISHELL_HISTORY_SIZE\fP
 
-Accepted values: \fI'^(-?\\d+)$'\fP
+Accepted values: \fI*\fP
 
 
 .TP 4
@@ -103,7 +103,7 @@ Allow/Forbid system reboot and shutdown to local users.
 
 MSEC parameter: \fIALLOW_REBOOT\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -112,7 +112,7 @@ Enables checking for additions/removals of suid root files.
 
 MSEC parameter: \fICHECK_SUID_ROOT\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -121,7 +121,7 @@ Enables logging to system log.
 
 MSEC parameter: \fISYSLOG_WARN\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -130,7 +130,7 @@ Enable/Disable crontab and at for users. Put allowed users in /etc/cron.allow an
 
 MSEC parameter: \fIENABLE_AT_CRONTAB\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -139,7 +139,7 @@ Enables checking for dangerous options in users' .rhosts/.shosts files.
 
 MSEC parameter: \fICHECK_SHOSTS\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -148,7 +148,7 @@ Enables password-related checks, such as empty passwords and strange super-user 
 
 MSEC parameter: \fICHECK_PASSWD\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -157,7 +157,7 @@ Set the password history length to prevent password reuse. This is not supported
 
 MSEC parameter: \fIPASSWORD_HISTORY\fP
 
-Accepted values: \fI'^(\\d+)$'\fP
+Accepted values: \fI*\fP
 
 
 .TP 4
@@ -166,25 +166,7 @@ Enables checksum verification for suid files.
 
 MSEC parameter: \fICHECK_SUID_MD5\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
-
-
-.TP 4
-.B \fImail_user\fP
-Defines email to receive security notifications.
-
-MSEC parameter: \fIMAIL_USER\fP
-
-Accepted values: \fI'^([a-zA-Z0-9@\\.]*)$'\fP
-
-
-.TP 4
-.B \fIset_user_umask\fP
-Set the user umask.
-
-MSEC parameter: \fIUSER_UMASK\fP
-
-Accepted values: \fI'^(\\d\\d\\d)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -193,7 +175,25 @@ Enabling su only from members of the wheel group or allow su from any user.
 
 MSEC parameter: \fIENABLE_PAM_WHEEL_FOR_SU\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fImail_user\fP
+Defines email to receive security notifications.
+
+MSEC parameter: \fIMAIL_USE\fP
+
+Accepted values: \fI*\fP
+
+
+.TP 4
+.B \fIset_user_umask\fP
+Set the user umask.
+
+MSEC parameter: \fIUSER_UMASK\fP
+
+Accepted values: \fI*\fP
 
 
 .TP 4
@@ -202,7 +202,7 @@ Enables checking for empty passwords.
 
 MSEC parameter: \fICHECK_SHADOW\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -211,7 +211,7 @@ Allow/Forbid autologin.
 
 MSEC parameter: \fIALLOW_AUTOLOGIN\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -220,7 +220,7 @@ Enables checking for unowned files.
 
 MSEC parameter: \fICHECK_UNOWNED\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -229,7 +229,7 @@ Enable/Disable name resolution spoofing protection.  If \fIalert\fP is true, als
 
 MSEC parameter: \fIENABLE_IP_SPOOFING_PROTECTION\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -238,7 +238,7 @@ Allow/Forbid the list of users on the system on display managers (kdm and gdm).
 
 MSEC parameter: \fIALLOW_USER_LIST\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -247,7 +247,7 @@ Enable/Disable IP spoofing protection.
 
 MSEC parameter: \fIENABLE_DNS_SPOOFING_PROTECTION\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -256,7 +256,7 @@ Creates the symlink /etc/security/msec/server to point to /etc/security/msec/ser
 
 MSEC parameter: \fICREATE_SERVER_LINK\fP
 
-Accepted values: \fI'^(no|default|secure)$'\fP
+Accepted values: \fIno, default, secure\fP
 
 
 .TP 4
@@ -265,7 +265,7 @@ Use password to authenticate users. Take EXTREMELY care when disabling passwords
 
 MSEC parameter: \fIENABLE_PASSWORD\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -274,7 +274,7 @@ Set umask option for mounting vfat and ntfs partitions. A value of None means de
 
 MSEC parameter: \fIWIN_PARTS_UMASK\fP
 
-Accepted values: \fI'^(no|\\d\\d?\\d?)$'\fP
+Accepted values: \fIno, *\fP
 
 
 .TP 4
@@ -283,7 +283,7 @@ Enables checking for open network ports.
 
 MSEC parameter: \fICHECK_OPEN_PORT\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -292,7 +292,7 @@ Allow/Forbid direct root login.
 
 MSEC parameter: \fIALLOW_ROOT_LOGIN\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -301,7 +301,7 @@ Accept/Refuse bogus IPv4 error messages.
 
 MSEC parameter: \fIACCEPT_BOGUS_ERROR_RESPONSES\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -310,7 +310,7 @@ Allow/Forbid remote root login via sshd. You can specify yes, no and without-pas
 
 MSEC parameter: \fIALLOW_REMOTE_ROOT_LOGIN\fP
 
-Accepted values: \fI'^(yes|no|without_password)$'\fP
+Accepted values: \fIyes, no, without_password\fP
 
 
 .TP 4
@@ -319,7 +319,7 @@ Enable/Disable the logging of IPv4 strange packets.
 
 MSEC parameter: \fIENABLE_LOG_STRANGE_PACKETS\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -328,7 +328,7 @@ Enables verification of installed packages.
 
 MSEC parameter: \fICHECK_RPM\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -337,7 +337,7 @@ Enable/Disable sulogin(8) in single user level.
 
 MSEC parameter: \fIENABLE_SULOGIN\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -346,7 +346,7 @@ Allow root access without password for the members of the wheel group.
 
 MSEC parameter: \fIENABLE_PAM_ROOT_FROM_WHEEL\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -355,7 +355,7 @@ Enables security results submission by email.
 
 MSEC parameter: \fIMAIL_WARN\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -364,7 +364,7 @@ Allow/forbid to export display when passing from the root account to the other u
 
 MSEC parameter: \fIALLOW_XAUTH_FROM_ROOT\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -373,7 +373,7 @@ Set the shell timeout. A value of zero means no timeout.
 
 MSEC parameter: \fISHELL_TIMEOUT\fP
 
-Accepted values: \fI'^(\\d+)$'\fP
+Accepted values: \fI*\fP
 
 
 .TP 4
@@ -382,7 +382,7 @@ Enables daily security checks.
 
 MSEC parameter: \fICHECK_SECURITY\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -391,7 +391,7 @@ Accept/Refuse icmp echo.
 
 MSEC parameter: \fIACCEPT_ICMP_ECHO\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -400,7 +400,7 @@ Set the password minimum length and minimum number of digit and minimum number o
 
 MSEC parameter: \fIPASSWORD_LENGTH\fP
 
-Accepted values: \fI'^(\\d+,\\d+,\\d+)$'\fP
+Accepted values: \fI*\fP
 
 
 .TP 4
@@ -409,7 +409,7 @@ Configure access to tcp_wrappers services (see hosts.deny(5)).  If arg = yes, al
 
 MSEC parameter: \fIAUTHORIZE_SERVICES\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no, local\fP
 
 
 .TP 4
@@ -418,7 +418,7 @@ Set the root umask.
 
 MSEC parameter: \fIROOT_UMASK\fP
 
-Accepted values: \fI'^(\\d\\d\\d)$'\fP
+Accepted values: \fI*\fP
 
 
 .TP 4
@@ -427,7 +427,7 @@ Enable/Disable msec hourly security check.
 
 MSEC parameter: \fIENABLE_MSEC_CRON\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -436,7 +436,7 @@ Enables periodic security check results to terminal.
 
 MSEC parameter: \fITTY_WARN\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -445,7 +445,7 @@ Enables checking for additions/removals of sgid files.
 
 MSEC parameter: \fICHECK_SGID\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -454,7 +454,7 @@ Activate/Disable ethernet cards promiscuity check.
 
 MSEC parameter: \fICHECK_PROMISC\fP
 
-Accepted values: \fI'^(yes|no)$'\fP
+Accepted values: \fIyes, no\fP
 
 .RE
 .SH "SEE ALSO"

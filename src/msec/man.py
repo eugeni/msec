@@ -73,7 +73,7 @@ for variable in config.SETTINGS:
     levels, callback, params = config.SETTINGS[variable]
     func = msec.get_action(callback)
     if func:
-        print function_str % (callback, func.__doc__.strip(), variable, repr(params))
+        print function_str % (callback, func.__doc__.strip(), variable, ", ".join(params))
 
 print footer
 

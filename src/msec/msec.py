@@ -151,8 +151,8 @@ if __name__ == "__main__":
         log.debug("Processing action %s: %s(%s)" % (opt, callbacks[opt], msec_config.get(opt)))
         # validating parameters
         param = msec_config.get(opt)
-        valid_params = re.compile(valid_values[opt])
-        if not valid_params.match(param):
+        valid_params = valid_values[opt]
+        if param not in valid_params and '*' not in valid_params:
             log.error(_("Invalid parameter for %s: '%s'. Valid parameters: '%s'.") % (opt,
                         param,
                         valid_values[opt]))

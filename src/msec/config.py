@@ -42,11 +42,13 @@ SETTINGS =    {'CHECK_SECURITY' :               (['no',  'yes',  'yes'], "check_
                'CHECK_CHKROOTKIT' :             (['no',  'yes',  'yes'], "check_chkrootkit", ['yes', 'no']), # was: CHKROOTKIT_CHECK
                'CHECK_RPM' :                    (['no',  'yes',  'yes'], "check_rpm", ['yes', 'no']), # was: RPM_CHECK
                'CHECK_SHOSTS' :                 (['no',  'yes',  'yes'], "check_shosts", ['yes', 'no']),
+               # notifications
                'TTY_WARN' :                     (['no',  'no',   'yes'], "tty_warn", ['yes', 'no']),
                'MAIL_WARN' :                    (['no',  'yes',  'yes'], "mail_warn", ['yes', 'no']),
                'MAIL_USER' :                    (['root','root','root'], "mail_user", ['*']),
                'MAIL_EMPTY_CONTENT':            (['no',  'no',   'yes'], "mail_empty_content", ['yes', 'no']),
                'SYSLOG_WARN' :                  (['no',  'yes',  'yes'], "syslog_warn", ['yes', 'no']),
+               'NOTIFY_WARN' :                  (['yes', 'yes',  'no' ], "notify_warn", ['yes', 'no']),
                # security options
                'USER_UMASK':                    (['022', '022',  '077'], "set_user_umask", ['*']),
                'ROOT_UMASK':                    (['022', '022',  '077'], "set_root_umask", ['*']),

@@ -115,16 +115,6 @@ BEFORE=0
 INSIDE=1
 AFTER=2
 
-# constants
-# constants to keep in sync with shadow.py
-NONE=0
-ALL=1
-LOCAL=2
-
-no=0
-yes=1
-without_password=2
-
 # regexps
 space = re.compile('\s')
 # X server

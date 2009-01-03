@@ -66,6 +66,12 @@ password configurations, integration with other security tools, and default file
 permissions.
 """)
 
+NETWORK_SECURITY_TEXT=_("""Network security options.
+
+These options define the network security agains remote treats, unauthorized accesses,
+and breakin attempts.
+""")
+
 NOTIFICATIONS_TEXT=_("""Security notifications.
 
 This page allows to configure the different ways the security notifications can be
@@ -268,8 +274,10 @@ class MsecGui:
                                             "ENABLE_SUDO", "ENABLE_MSEC_CRON", "ENABLE_PAM_WHEEL_FOR_SU",
                                             "ENABLE_SULOGIN", "CREATE_SERVER_LINK", "ENABLE_AT_CRONTAB",
                                             "ALLOW_ROOT_LOGIN", "ALLOW_USER_LIST", "ENABLE_PASSWORD",
+                                            "ALLOW_AUTOLOGIN", "ENABLE_CONSOLE_LOG",
                                             "ENABLE_PAM_WHEEL_FOR_SU", "CREATE_SERVER_LINK", "ALLOW_XAUTH_FROM_ROOT",
-                                            "ALLOW_REBOOT", "USER_UMASK", "ROOT_UMASK",
+                                            "ALLOW_REBOOT", "SHELL_HISTORY_SIZE", "SHELL_TIMEOUT", "PASSWORD_LENGTH",
+                                            "PASSWORD_HISTORY", "USER_UMASK", "ROOT_UMASK",
                                             ])
         vbox.pack_start(options_view)
 
@@ -279,8 +287,18 @@ class MsecGui:
         """Builds the network security page"""
         vbox = gtk.VBox(homogeneous=False)
 
-        entry = gtk.Label("Hello world!")
+        entry = gtk.Label(NETWORK_SECURITY_TEXT)
+        entry.set_use_markup(True)
         vbox.pack_start(entry, False, False)
+
+        # network security options
+        options_view = self.create_treeview(["ACCEPT_BOGUS_ERROR_RESPONSES", "ACCEPT_BROADCASTED_ICMP_ECHO",
+                                            "ACCEPT_ICMP_ECHO", "ALLOW_REMOTE_ROOT_LOGIN",
+                                            "ALLOW_X_CONNECTIONS", "ALLOW_XSERVER_TO_LISTEN",
+                                            "AUTHORIZE_SERVICES", "ENABLE_DNS_SPOOFING_PROTECTION",
+                                            "ENABLE_IP_SPOOFING_PROTECTION", "ENABLE_LOG_STRANGE_PACKETS",
+                                            ])
+        vbox.pack_start(options_view)
 
         return vbox
 
@@ -290,6 +308,18 @@ class MsecGui:
 
         entry = gtk.Label("Hello world!")
         vbox.pack_start(entry, False, False)
+
+        self.periodic_checks = gtk.CheckButton(_("Enable periodic security checks"))
+        vbox.pack_start(self.periodic_checks, False, False)
+
+        # network security options
+        options_view = self.create_treeview(["CHECK_PERMS", "CHECK_SUID_ROOT", "CHECK_SUID_MD5",
+                                            "CHECK_SGID", "CHECK_WRITABLE", "CHECK_UNOWNED",
+                                            "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_PASSWD",
+                                            "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM",
+                                            "CHECK_SHOSTS"
+                                            ])
+        vbox.pack_start(options_view)
 
         return vbox
 

@@ -1,4 +1,4 @@
-# Welcome in Level 3
+# Welcome in Level 2
 ###
 /						root.adm		755
 /bin/						root.root		755
@@ -39,7 +39,7 @@
 /etc/profile.d/*				root.root		755
 /etc/rc.d/					root.root		755
 /etc/rc.d/init.d/				root.root		755
-/etc/rc.d/init.d/*				root.root		700
+/etc/rc.d/init.d/*				root.root		744
 /etc/rc.d/init.d/functions			root.root		644
 /etc/rc.d/init.d/mandrake_consmap		root.root		644
 /etc/rc.d/init.d/xprint				root.root		755
@@ -51,10 +51,10 @@
 /etc/ssh/ssh_host_*key.pub			root.root		644
 /etc/ssh/sshd_config				root.root		644
 /etc/sysconfig					root.root		755
-/etc/syslog.conf				root.adm		640
+/etc/syslog.conf				root.root		644
 /etc/updatedb.conf				root.root		644
 /home/						root.root		755
-/home/*						current			711
+/home/*						current			755
 /lib/						root.root		755
 /mnt/						root.root		755
 /proc						root.root		555
@@ -84,7 +84,7 @@
 /var/lib/rpm/Packages				rpm.rpm			644
 /var/lock/subsys				root.root		755
 /var/log/					root.root		755
-/var/log/*					root.root		640
+/var/log/*					root.adm		640
 /var/log/Xorg.0.log				current			current
 /var/log/lp-errs				lp.lp			600
 /var/log/*/*					current			640

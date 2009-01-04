@@ -53,7 +53,7 @@
 /etc/syslog.conf				root.root		644
 /etc/updatedb.conf				root.root		644
 /home/						root.root		755
-/home/*						current			755
+/home/*						current.current		755
 /lib/						root.root		755
 /mnt/						root.root		755
 /proc						root.root		555
@@ -85,9 +85,9 @@
 /var/log/					root.root		755
 /var/log/*					root.adm		644
 /var/log/lp-errs				lp.lp			600
-/var/log/*/*					current			644
-/var/log/*/*/*					current			644
-/var/log/*/.					current			755
+/var/log/*/*					current.current		644
+/var/log/*/*/*					current.current		644
+/var/log/*/.					current.current		755
 /var/log/mailman/				root.mail		2775
 /var/log/mailman/*				root.mail		664
 /var/spool/mail/				root.mail		2775

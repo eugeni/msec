@@ -1,13 +1,8 @@
 #!/usr/bin/python -O
-#---------------------------------------------------------------
-# Project         : Mandriva Linux
-# Module          : msec/share
-# File            : msec.py
-# Version         : $Id$
-# Author          : Eugeni Dodonov
-# Original Author : Frederic Lepied
-# Created On      : Wed Dec  5 20:20:21 2001
-#---------------------------------------------------------------
+"""This is the main msec module.
+It checks/sets the security levels, configures security variables,
+and works as a frontend to libmsec.
+"""
 
 import sys
 import os
@@ -118,8 +113,8 @@ if __name__ == "__main__":
 
     # loading initial config
     msec_config = config.MsecConfig(log, config=config.SECURITYCONF)
-    if not msec_config.load():
-        log.info(_("Unable to load config, using default values"))
+    if not msec_config.load() and not force_level:
+        log.error(_("Level configuration not found, please run '%s -f <level>' to initialize.") % sys.argv[0])
 
     # forcing new level
     if force_level:

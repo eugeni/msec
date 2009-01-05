@@ -206,6 +206,7 @@ class PermConfig(MsecConfig):
     def __init__(self, log, config=PERMCONF):
         self.config = config
         self.options = {}
+        self.options_order = []
         self.comments = []
         self.log = log
         self.regexp = re.compile("^([^\s]*)\s*([a-z]*)\.([a-z]*)\s*([\d]?\d\d\d)\s*(force)?$")
@@ -232,6 +233,7 @@ class PermConfig(MsecConfig):
                         force = None
                         file, user, group, perm = res[0]
                     self.options[file] = (user, group, perm, force)
+                    self.options_order.append(file)
             except:
                 traceback.print_exc()
                 self.log.warn(_("Bad config option: %s") % line)
@@ -241,10 +243,7 @@ class PermConfig(MsecConfig):
 
     def list_options(self):
         """Sorts and returns configuration parameters"""
-        sortedparams = self.options.keys()
-        if sortedparams:
-            sortedparams.sort()
-        return sortedparams
+        return self.options_order
 
     def save(self):
         """Saves configuration. Comments go on top"""
@@ -256,7 +255,7 @@ class PermConfig(MsecConfig):
         for comment in self.comments:
             print >>fd, comment
         # sorting keys
-        for file in self.list_options():
+        for file in self.options_order:
             user, group, perm, force = self.options[file]
             if force:
                 force = "\tforce"

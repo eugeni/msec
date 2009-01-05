@@ -1575,28 +1575,29 @@ class PERMS:
             if enforce:
                 force = True
 
-            # should we change this file?
-            if not force:
-                continue
-
-            if newperm:
-                self.log.info(_("Enforcing permissions on %s to %o") % (file, newperm))
-                try:
-                    os.chmod(file, newperm)
-                except:
-                    self.log.error(_("Error changing permissions on %s: %s") % (file, sys.exc_value))
-            if newuser:
+            if newuser != None:
                 self.log.info(_("Enforcing user on %s to %s") % (file, self.get_user_name(newuser)))
-                try:
-                    os.chown(file, newuser, -1)
-                except:
-                    self.log.error(_("Error changing user on %s: %s") % (file, sys.exc_value))
-            if newgroup:
+                if force and really_commit:
+                    try:
+                        os.chown(file, newuser, -1)
+                    except:
+                        self.log.error(_("Error changing user on %s: %s") % (file, sys.exc_value))
+            if newgroup != None:
                 self.log.info(_("Enforcing group on %s to %s") % (file, self.get_group_name(newgroup)))
-                try:
-                    os.chown(file, -1, newgroup)
-                except:
-                    self.log.error(_("Error changing group on %s: %s") % (file, sys.exc_value))
+                if force and really_commit:
+                    try:
+                        os.chown(file, -1, newgroup)
+                    except:
+                        self.log.error(_("Error changing group on %s: %s") % (file, sys.exc_value))
+            # permissions should be last, as chown resets them
+            # on suid files
+            if newperm != None:
+                self.log.info(_("Enforcing permissions on %s to %o") % (file, newperm))
+                if force and really_commit:
+                    try:
+                        os.chmod(file, newperm)
+                    except:
+                        self.log.error(_("Error changing permissions on %s: %s") % (file, sys.exc_value))
 
 
     def check_perms(self, perms):
@@ -1653,7 +1654,8 @@ class PERMS:
 
                 curuser = full[stat.ST_UID]
                 curgroup = full[stat.ST_GID]
-                curperm = curperm & mode
+                curperm = mode
+                # checking for subdirectory permissions
                 if f != '/' and f[-1] == '/':
                     f = f[:-1]
                 if f[-2:] == '/.':
@@ -1663,16 +1665,19 @@ class PERMS:
                 newuser = None
                 newgroup = None
                 if perm != -1 and perm != curperm:
-                    self.log.info(_("Permission changed on %s (%s): %o->%o") % (f, file, perm, curperm))
                     newperm = perm
                 if user != -1 and user != curuser:
-                    self.log.info(_("User changed on %s (%s): %s->%s") % (f, file, user_s, self.get_user_name(curuser)))
                     newuser = user
                 if group != -1 and group != curgroup:
-                    self.log.info(_("Group changed on %s (%s): %s->%s") % (f, file, group_s, self.get_group_name(curgroup)))
                     newgroup = group
-                if newperm or newuser or newgroup:
+                if newperm != None or newuser != None or newgroup != None:
                     self.files[f] = (newperm, newuser, newgroup, force)
+                    self.log.debug("Updating %s (matched by '%s')" % (f, file))
+                else:
+                    # see if any other rule put this file into the list
+                    if f in self.files:
+                        self.log.debug("Removing previously selected %s (matched by '%s')" % (f, file))
+                        del self.files[f]
         return self.files
 
 

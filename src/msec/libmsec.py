@@ -1630,9 +1630,6 @@ class PERMS:
             # now check the permissions
             for f in glob.glob(file):
                 # get file properties
-                realpath = os.path.realpath(f)
-                if f != realpath:
-                    print "%s --- %s" % (f, realpath)
                 f = os.path.realpath(f)
                 try:
                     full = os.lstat(f)

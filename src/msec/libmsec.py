@@ -45,6 +45,7 @@ import time
 import stat
 import traceback
 import sys
+import glob
 
 # logging
 import logging
@@ -149,6 +150,7 @@ SULOGIN_REGEXP = '~~:S:wait:/sbin/sulogin'
 
 # {{{  helper functions
 def move(old, new):
+    """Renames files, deleting existent ones when necessary."""
     try:
         os.unlink(new)
     except OSError:
@@ -1474,6 +1476,208 @@ class MSEC:
         """ Enables checking for dangerous options in users' .rhosts/.shosts files."""
         pass
 # }}}
+
+class PERMS:
+    """Permission checking/enforcing."""
+    def __init__(self, log):
+        """Initializes internal variables"""
+        self.log = log
+        self.USER = {}
+        self.GROUP = {}
+        self.USERID = {}
+        self.GROUPID = {}
+        self.files = {}
+        self.fs_regexp = self.build_non_localfs_regexp()
+
+    def get_user_id(self, name):
+        '''Caches and retreives user id correspondent to name'''
+        try:
+            return self.USER[name]
+        except KeyError:
+            try:
+                self.USER[name] = pwd.getpwnam(name)[2]
+            except KeyError:
+                error(_('user name %s not found') % name)
+                self.USER[name] = -1
+        return self.USER[name]
+
+    def get_user_name(self, id):
+        '''Caches and retreives user name correspondent to id'''
+        try:
+            return self.USERID[id]
+        except KeyError:
+            try:
+                self.USERID[id] = pwd.getpwuid(id)[0]
+            except KeyError:
+                error(_('user name not found for id %d') % id)
+                self.USERID[id] = str(id)
+        return self.USERID[id]
+
+    def get_group_id(self, name):
+        '''Caches and retreives group id correspondent to name'''
+        try:
+            return self.GROUP[name]
+        except KeyError:
+            try:
+                self.GROUP[name] = grp.getgrnam(name)[2]
+            except KeyError:
+                error(_('group name %s not found') % name)
+                self.GROUP[name] = -1
+        return self.GROUP[name]
+
+    def get_group_name(self, id):
+        '''Caches and retreives group name correspondent to id'''
+        try:
+            return self.GROUPID[id]
+        except KeyError:
+            try:
+                self.GROUPID[id] = grp.getgrgid(id)[0]
+            except KeyError:
+                error(_('group name not found for id %d') % id)
+                self.GROUPID[id] = str(id)
+        return self.GROUPID[id]
+
+    def build_non_localfs_regexp(self,
+            non_localfs = ['nfs', 'codafs', 'smbfs', 'cifs', 'autofs']):
+        """Build a regexp that matches all the non local filesystems"""
+        try:
+            file = open('/proc/mounts', 'r')
+        except IOError:
+            self.log.error(_('Unable to check /proc/mounts. Assuming all file systems are local.'))
+            return None
+
+        regexp = None
+
+        for line in file.readlines():
+            fields = string.split(line)
+            if fields[2] in non_localfs:
+                if regexp:
+                    regexp = regexp + '|' + fields[1]
+                else:
+                    regexp = '^(' + fields[1]
+
+        file.close()
+
+        if not regexp:
+            return None
+        else:
+            return re.compile(regexp + ')')
+
+    def commit(self, really_commit=True, enforce=False):
+        """Commits changes.
+        If enforce is True, the permissions on all files are enforced."""
+        if not really_commit:
+            self.log.info(_("In check-only mode, nothing is written back to disk."))
+
+        for file in self.files:
+            newperm, newuser, newgroup, force = self.files[file]
+            # are we in enforcing mode?
+            if enforce:
+                force = True
+
+            # should we change this file?
+            if not force:
+                continue
+
+            if newperm:
+                self.log.info(_("Enforcing permissions on %s to %o") % (file, newperm))
+                try:
+                    os.chmod(file, newperm)
+                except:
+                    self.log.error(_("Error changing permissions on %s: %s") % (file, sys.exc_value))
+            if newuser:
+                self.log.info(_("Enforcing user on %s to %s") % (file, self.get_user_name(newuser)))
+                try:
+                    os.chown(file, newuser, -1)
+                except:
+                    self.log.error(_("Error changing user on %s: %s") % (file, sys.exc_value))
+            if newgroup:
+                self.log.info(_("Enforcing group on %s to %s") % (file, self.get_group_name(newgroup)))
+                try:
+                    os.chown(file, -1, newgroup)
+                except:
+                    self.log.error(_("Error changing group on %s: %s") % (file, sys.exc_value))
+
+
+    def check_perms(self, perms):
+        '''Checks permissions for all entries in perms (PermConfig).'''
+
+        for file in perms.list_options():
+            user_s, group_s, perm_s, force = perms.get(file)
+
+            # permission
+            if perm_s == 'current':
+                perm = -1
+            else:
+                try:
+                    perm = int(perm_s, 8)
+                except ValueError:
+                    self.log.error(_("bad permissions for '%s': '%s'") % (file, perm_s))
+                    continue
+
+            # user
+            if user_s == 'current':
+                user = -1
+            else:
+                user = self.get_user_id(user_s)
+
+            # group
+            if group_s == 'current':
+                group = -1
+            else:
+                group = self.get_group_id(group_s)
+
+            # now check the permissions
+            for f in glob.glob(file):
+                # get file properties
+                realpath = os.path.realpath(f)
+                if f != realpath:
+                    print "%s --- %s" % (f, realpath)
+                f = os.path.realpath(f)
+                try:
+                    full = os.lstat(f)
+                except OSError:
+                    continue
+
+                if self.fs_regexp and self.fs_regexp.search(f):
+                    self.log.info(_('Non local file: "%s". Nothing changed.') % fields[0])
+                    continue
+
+                curperm = perm
+                mode = stat.S_IMODE(full[stat.ST_MODE])
+
+                if perm != -1 and stat.S_ISDIR(full[stat.ST_MODE]):
+                    if curperm & 0400:
+                        curperm = curperm | 0100
+                    if curperm & 0040:
+                        curperm = curperm | 0010
+                    if curperm & 0004:
+                        curperm = curperm | 0001
+
+                curuser = full[stat.ST_UID]
+                curgroup = full[stat.ST_GID]
+                curperm = curperm & mode
+                if f != '/' and f[-1] == '/':
+                    f = f[:-1]
+                if f[-2:] == '/.':
+                    f = f[:-2]
+                # check for changes
+                newperm = None
+                newuser = None
+                newgroup = None
+                if perm != -1 and perm != curperm:
+                    self.log.info(_("Permission changed on %s (%s): %o->%o") % (f, file, perm, curperm))
+                    newperm = perm
+                if user != -1 and user != curuser:
+                    self.log.info(_("User changed on %s (%s): %s->%s") % (f, file, user_s, self.get_user_name(curuser)))
+                    newuser = user
+                if group != -1 and group != curgroup:
+                    self.log.info(_("Group changed on %s (%s): %s->%s") % (f, file, group_s, self.get_group_name(curgroup)))
+                    newgroup = group
+                if newperm or newuser or newgroup:
+                    self.files[f] = (newperm, newuser, newgroup, force)
+        return self.files
+
 
 if __name__ == "__main__":
     # this should never ever be run directly

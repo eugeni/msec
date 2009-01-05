@@ -28,7 +28,7 @@ SECURITYLOG = '/var/log/msec.log'
 
 # permissions
 PERMCONF = '/etc/security/msec/perms.conf'
-DEFAULTPERMCONF = '/etc/security/msec/perms.%s' # for level
+PERMISSIONS_LEVEL = '/etc/security/msec/perm.%s' # for level
 
 # TODO: more strict checking for numbers and text
 # default parameters
@@ -124,10 +124,18 @@ def load_defaults(log, level):
     config.load()
     return config
 
+def load_default_perms(log, level):
+    """Loads default permissions for given security level, returning a
+        MsecConfig instance.
+        """
+    config = PermConfig(log, config=PERMISSIONS_LEVEL % level)
+    config.load()
+    return config
+
 # {{{ MsecConfig
 class MsecConfig:
     """Msec configuration parser"""
-    def __init__(self, log, config="/etc/security/msec/msec.conf"):
+    def __init__(self, log, config=SECURITYCONF):
         self.config = config
         self.options = {}
         self.comments = []
@@ -195,12 +203,12 @@ class MsecConfig:
 # {{{ PermConfig
 class PermConfig(MsecConfig):
     """Msec file permission parser"""
-    def __init__(self, log, config="/etc/security/msec/msec.conf"):
+    def __init__(self, log, config=PERMCONF):
         self.config = config
         self.options = {}
         self.comments = []
         self.log = log
-        self.regexp = re.compile("^([^\s]*)\s*([a-z]*)\.([a-z]*)\s*([\d]?\d\d\d)$")
+        self.regexp = re.compile("^([^\s]*)\s*([a-z]*)\.([a-z]*)\s*([\d]?\d\d\d)\s*(force)?$")
 
     def load(self):
         """Loads and parses configuration file"""
@@ -218,8 +226,12 @@ class PermConfig(MsecConfig):
             try:
                 res = self.regexp.findall(line)
                 if res:
-                    file, user, group, perm = res[0]
-                    self.options[file] = (user, group, perm)
+                    if len(res[0]) == 5:
+                        file, user, group, perm, force = res[0]
+                    else:
+                        force = None
+                        file, user, group, perm = res[0]
+                    self.options[file] = (user, group, perm, force)
             except:
                 traceback.print_exc()
                 self.log.warn(_("Bad config option: %s") % line)
@@ -244,10 +256,13 @@ class PermConfig(MsecConfig):
         for comment in self.comments:
             print >>fd, comment
         # sorting keys
-        sortedparams = self.options.keys()
-        sortedparams.sort()
-        for option in sortedparams:
-            print >>fd, "%s\t%s" % (option, "\t".join(self.options[option]))
+        for file in self.list_options():
+            user, group, perm, force = self.options[file]
+            if force:
+                force = "\tforce"
+            else:
+                force = ""
+            print >>fd, "%s\t%s.%s\t%s%s" % (file, user, group, perm, force)
         return True
 # }}}
 

@@ -1569,6 +1569,12 @@ class PERMS:
         if not really_commit:
             self.log.info(_("In check-only mode, nothing is written back to disk."))
 
+        if len(self.files) > 0:
+            self.log.info("Modified files: %s" % " ".join(self.files))
+        else:
+            self.log.info(_("No changes in configuration."))
+
+
         for file in self.files:
             newperm, newuser, newgroup, force = self.files[file]
             # are we in enforcing mode?

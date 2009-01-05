@@ -148,7 +148,6 @@ if __name__ == "__main__":
         if not action:
             # The required functionality is not supported
             log.info(_("'%s' is not available in this version") % opt)
-            msec_config.remove(opt)
             continue
         log.debug("Processing action %s: %s(%s)" % (opt, callback, msec_config.get(opt)))
         # validating parameters

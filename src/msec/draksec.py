@@ -7,7 +7,6 @@ import os
 import sys
 import string
 import getopt
-import gettext
 
 # PyGTK
 import gtk
@@ -31,6 +30,7 @@ from libmsec import MSEC, Log
 import logging
 
 # localization
+import gettext
 try:
     cat = gettext.Catalog('msec')
     _ = cat.gettext
@@ -194,7 +194,7 @@ class MsecGui:
                 self.log.error(_("Invalid option '%s'!") % option)
                 continue
             # getting level settings, callback and valid params
-            levels, callback, params = config.SETTINGS[option]
+            callback, params = config.SETTINGS[option]
             # getting the function and description
             func = msec.get_action(callback)
             if func:
@@ -213,6 +213,9 @@ class MsecGui:
                 entry = gtk.combo_box_new_text()
                 for item in params:
                     entry.append_text(item)
+                if value not in params:
+                    entry.append_text(value)
+                    params.append(value)
                 active = params.index(value)
                 entry.set_active(active)
 
@@ -388,10 +391,10 @@ if __name__ == "__main__":
         log.info(_("Unable to load config, using default values"))
 
     # overriding defined parameters from config file
-    params, callbacks, valid_values = config.load_defaults(config.DEFAULT_LEVEL)
-    for opt in params:
-            # only forcing new value when undefined
-            msec_config.get(opt, params[opt])
+    params = config.load_defaults(log, config.DEFAULT_LEVEL)
+    for opt in params.list_options():
+        # only forcing new value when undefined
+        msec_config.get(opt, params.get(opt))
 
 
     # creating an msec instance

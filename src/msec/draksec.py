@@ -37,6 +37,12 @@ try:
 except IOError:
     _ = str
 
+# localized help
+try:
+    from help import HELP
+except:
+    HELP = {}
+
 # text strings
 BASIC_SECURITY_TEXT=_("""Basic security options.
 
@@ -195,12 +201,17 @@ class MsecGui:
                 continue
             # getting level settings, callback and valid params
             callback, params = config.SETTINGS[option]
-            # getting the function and description
-            func = msec.get_action(callback)
-            if func:
-                doc = func.__doc__.strip()
+            # getting the function description
+            if option in HELP:
+                self.log.debug("found localized help for %s" % option)
+                doc = HELP[option]
             else:
-                doc = callback
+                # get description from function comments
+                func = msec.get_action(callback)
+                if func:
+                    doc = func.__doc__.strip()
+                else:
+                    doc = callback
 
             # now for the value
             value = self.config.get(option)

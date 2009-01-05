@@ -130,13 +130,16 @@ class MsecGui:
 
         # control buttons
         # TODO: improve spacing
-        cancel = gtk.Button(_("Cancel"))
+        cancel = gtk.Button(gtk.STOCK_CANCEL)
+        cancel.set_use_stock(True)
         cancel.connect('clicked', self.cancel)
         hbox.pack_start(cancel, expand=True, fill=True)
-        help = gtk.Button(_("Help"))
+        help = gtk.Button(gtk.STOCK_HELP)
+        help.set_use_stock(True)
         help.connect('clicked', self.help)
         hbox.pack_start(help, expand=True, fill=True)
-        ok = gtk.Button(_("Ok"))
+        ok = gtk.Button(gtk.STOCK_OK)
+        ok.set_use_stock(True)
         ok.connect('clicked', self.ok)
         hbox.pack_start(ok, expand=True, fill=True)
 
@@ -289,7 +292,7 @@ class MsecGui:
         vbox.pack_start(entry, False, False)
 
         # system security options
-        options_view = self.create_treeview(["ENABLE_APPARMOR", "ENABLE_POLICYKIT", "AUTHORIZE_SERVICES",
+        options_view = self.create_treeview(["ENABLE_APPARMOR", "ENABLE_POLICYKIT",
                                             "ENABLE_SUDO", "ENABLE_MSEC_CRON", "ENABLE_PAM_WHEEL_FOR_SU",
                                             "ENABLE_SULOGIN", "CREATE_SERVER_LINK", "ENABLE_AT_CRONTAB",
                                             "ALLOW_ROOT_LOGIN", "ALLOW_USER_LIST", "ENABLE_PASSWORD",
@@ -373,13 +376,51 @@ class MsecGui:
         print path
         iter = model.get_iter(path)
         param = model.get_value(iter, self.COLUMN_OPTION)
+        descr = model.get_value(iter, self.COLUMN_DESCR)
         value = model.get_value(iter, self.COLUMN_VALUE)
 
-        print param
+        callback, params = config.SETTINGS[param]
 
-        new_value = "*" + value
+        # asks for new parameter value
+        dialog = gtk.Dialog(_("Select new value for %s") % (param),
+                self.window, 0,
+                (gtk.STOCK_OK, gtk.RESPONSE_OK,
+                gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL))
+        label = gtk.Label(_("Modifying <b>%s</b>.\n<i>%s</i>\nCurrent value: <b>%s</b>") % (param, descr, value))
+        label.set_line_wrap(True)
+        label.set_use_markup(True)
+        dialog.vbox.pack_start(label)
+        if '*' in params:
+            # string parameter
+            entry = gtk.Entry()
+            entry.set_text(value)
+            dialog.vbox.pack_start(entry)
+        else:
+            # combobox parameter
+            entry = gtk.combo_box_new_text()
+            for item in params:
+                entry.append_text(item)
+            if value not in params:
+                entry.append_text(value)
+                params.append(value)
+            active = params.index(value)
+            entry.set_active(active)
+            dialog.vbox.pack_start(entry)
 
-        model.set(iter, self.COLUMN_VALUE, new_value)
+        dialog.show_all()
+        response = dialog.run()
+        if response != gtk.RESPONSE_OK:
+            dialog.destroy()
+            return
+
+        # process new parameter
+        if '*' in params:
+            newval = entry.get_text()
+        else:
+            newval = entry.get_active_text()
+        dialog.destroy()
+
+        model.set(iter, self.COLUMN_VALUE, newval)
 
 
     def quit(self, param):

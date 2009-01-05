@@ -20,7 +20,7 @@ import re
 # security levels
 SECURITY_LEVELS = [ "none", "default", "secure" ]
 DEFAULT_LEVEL="default"
-SECURITY_LEVEL="/etc/security/msec/security.%s"
+SECURITY_LEVEL="/etc/security/msec/level.%s"
 
 # msec configuration file
 SECURITYCONF = '/etc/security/msec/security.conf'

@@ -78,6 +78,11 @@ These options define the network security agains remote treats, unauthorized acc
 and breakin attempts.
 """)
 
+PERIODIC_SECURITY_TEXT=_("""Periodic security checks.
+
+These options configure the security checks that should be executed periodically.
+""")
+
 NOTIFICATIONS_TEXT=_("""Security notifications.
 
 This page allows to configure the different ways the security notifications can be
@@ -320,7 +325,7 @@ class MsecGui:
         """Builds the network security page"""
         vbox = gtk.VBox(homogeneous=False)
 
-        entry = gtk.Label("Hello world!")
+        entry = gtk.Label(PERIODIC_SECURITY_TEXT)
         vbox.pack_start(entry, False, False)
 
         self.periodic_checks = gtk.CheckButton(_("Enable periodic security checks"))
@@ -335,7 +340,24 @@ class MsecGui:
                                             ])
         vbox.pack_start(options_view)
 
+        # see if these tests are enabled
+        self.periodic_checks.connect('clicked', self.periodic_tests, options_view)
+        periodic_checks = self.config.get("CHECK_SECURITY")
+        if periodic_checks == 'no':
+            # disable all periodic tests
+            options_view.set_sensitive(False)
+
         return vbox
+
+    def periodic_tests(self, widget, options):
+        '''Enables/disables periodic security tests.'''
+        status = widget.get_active()
+        if status:
+            self.config.set("CHECK_SECURITY", "yes")
+            options.set_sensitive(True)
+        else:
+            self.config.set("CHECK_SECURITY", "no")
+            options.set_sensitive(False)
 
     def permissions_security_page(self):
         """Builds the network security page"""

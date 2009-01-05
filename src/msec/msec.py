@@ -88,7 +88,7 @@ if __name__ == "__main__":
                 print >>sys.stderr, _("Invalid security level '%s'.") % level
                 sys.exit(1)
             for item in params:
-                print "%s: %s" % (item, level_conf.get(item) )
+                print "%s=%s" % (item, levelconf.get(item) )
             sys.exit(0)
         # force new level
         elif o[0] == '-f' or o[0] == '--force':

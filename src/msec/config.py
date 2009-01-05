@@ -121,6 +121,7 @@ def load_defaults(log, level):
         MsecConfig instance.
         """
     config = MsecConfig(log, config=SECURITY_LEVEL % level)
+    config.load()
     return config
 
 # {{{ MsecConfig

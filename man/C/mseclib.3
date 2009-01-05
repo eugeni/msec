@@ -17,6 +17,240 @@ except when specified otherwise.
 
 
 .TP 4
+.B \fIenable_dns_spoofing_protection\fP
+Enable/Disable name resolution spoofing protection.  If \fIalert\fP is true, also reports to syslog.
+
+MSEC parameter: \fIENABLE_IP_SPOOFING_PROTECTION\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fImail_empty_content\fP
+Enables sending of empty mail reports.
+
+MSEC parameter: \fIMAIL_EMPTY_CONTENT\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIaccept_broadcasted_icmp_echo\fP
+Accept/Refuse broadcasted icmp echo.
+
+MSEC parameter: \fIACCEPT_BROADCASTED_ICMP_ECHO\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIallow_xserver_to_listen\fP
+The argument specifies if clients are authorized to connect to the X server on the tcp port 6000 or not.
+
+MSEC parameter: \fIALLOW_XSERVER_TO_LISTEN\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIcheck_chkrootkit\fP
+Enables checking for known rootkits using chkrootkit.
+
+MSEC parameter: \fICHECK_CHKROOTKIT\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIcheck_suid_root\fP
+Enables checking for additions/removals of suid root files.
+
+MSEC parameter: \fICHECK_SUID_ROOT\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIenable_at_crontab\fP
+Enable/Disable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow (see man at(1) and crontab(1)).
+
+MSEC parameter: \fIENABLE_AT_CRONTAB\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIaccept_bogus_error_responses\fP
+Accept/Refuse bogus IPv4 error messages.
+
+MSEC parameter: \fIACCEPT_BOGUS_ERROR_RESPONSES\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIcheck_suid_md5\fP
+Enables checksum verification for suid files.
+
+MSEC parameter: \fICHECK_SUID_MD5\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fImail_user\fP
+Defines email to receive security notifications.
+
+MSEC parameter: \fIMAIL_USER\fP
+
+Accepted values: \fI*\fP
+
+
+.TP 4
+.B \fIallow_autologin\fP
+Allow/Forbid autologin.
+
+MSEC parameter: \fIALLOW_AUTOLOGIN\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIenable_pam_wheel_for_su\fP
+Enabling su only from members of the wheel group or allow su from any user.
+
+MSEC parameter: \fIENABLE_PAM_WHEEL_FOR_SU\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIcreate_server_link\fP
+Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.<SERVER_LEVEL>. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages.
+
+MSEC parameter: \fICREATE_SERVER_LINK\fP
+
+Accepted values: \fIno, default, secure\fP
+
+
+.TP 4
+.B \fIset_shell_timeout\fP
+Set the shell timeout. A value of zero means no timeout.
+
+MSEC parameter: \fISHELL_TIMEOUT\fP
+
+Accepted values: \fI*\fP
+
+
+.TP 4
+.B \fIcheck_shadow\fP
+Enables checking for empty passwords.
+
+MSEC parameter: \fICHECK_SHADOW\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIenable_password\fP
+Use password to authenticate users. Take EXTREMELY care when disabling passwords, as it will leave the machine COMPLETELY vulnerable.
+
+MSEC parameter: \fIENABLE_PASSWORD\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIset_win_parts_umask\fP
+Set umask option for mounting vfat and ntfs partitions. A value of None means default umask.
+
+MSEC parameter: \fIWIN_PARTS_UMASK\fP
+
+Accepted values: \fIno, *\fP
+
+
+.TP 4
+.B \fIcheck_open_port\fP
+Enables checking for open network ports.
+
+MSEC parameter: \fICHECK_OPEN_PORT\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIenable_log_strange_packets\fP
+Enable/Disable the logging of IPv4 strange packets.
+
+MSEC parameter: \fIENABLE_LOG_STRANGE_PACKETS\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIcheck_rpm\fP
+Enables verification of installed packages.
+
+MSEC parameter: \fICHECK_RPM\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIenable_pam_root_from_wheel\fP
+Allow root access without password for the members of the wheel group.
+
+MSEC parameter: \fIENABLE_PAM_ROOT_FROM_WHEEL\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fImail_warn\fP
+Enables security results submission by email.
+
+MSEC parameter: \fIMAIL_WARN\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIpassword_length\fP
+Set the password minimum length and minimum number of digit and minimum number of capitalized letters.
+
+MSEC parameter: \fIPASSWORD_LENGTH\fP
+
+Accepted values: \fI*\fP
+
+
+.TP 4
+.B \fIset_root_umask\fP
+Set the root umask.
+
+MSEC parameter: \fIROOT_UMASK\fP
+
+Accepted values: \fI*\fP
+
+
+.TP 4
+.B \fIcheck_sgid\fP
+Enables checking for additions/removals of sgid files.
+
+MSEC parameter: \fICHECK_SGID\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIcheck_promisc\fP
+Activate/Disable ethernet cards promiscuity check.
+
+MSEC parameter: \fICHECK_PROMISC\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
 .B \fIallow_x_connections\fP
 Allow/Forbid X connections. Accepted arguments: yes (all connections are allowed), local (only local connection), no (no connection).
 
@@ -44,19 +278,10 @@ Accepted values: \fIyes, no\fP
 
 
 .TP 4
-.B \fImail_empty_content\fP
-Enables sending of empty mail reports.
+.B \fIenable_ip_spoofing_protection\fP
+Enable/Disable IP spoofing protection.
 
-MSEC parameter: \fIMAIL_EMPTY_CONTENT\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIaccept_broadcasted_icmp_echo\fP
-Accept/Refuse broadcasted icmp echo.
-
-MSEC parameter: \fIACCEPT_BROADCASTED_ICMP_ECHO\fP
+MSEC parameter: \fIENABLE_DNS_SPOOFING_PROTECTION\fP
 
 Accepted values: \fIyes, no\fP
 
@@ -66,24 +291,6 @@ Accepted values: \fIyes, no\fP
 Enables permission checking in users' home.
 
 MSEC parameter: \fICHECK_PERMS\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIallow_xserver_to_listen\fP
-The argument specifies if clients are authorized to connect to the X server on the tcp port 6000 or not.
-
-MSEC parameter: \fIALLOW_XSERVER_TO_LISTEN\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIcheck_chkrootkit\fP
-Enables checking for known rootkits using chkrootkit.
-
-MSEC parameter: \fICHECK_CHKROOTKIT\fP
 
 Accepted values: \fIyes, no\fP
 
@@ -107,28 +314,10 @@ Accepted values: \fIyes, no\fP
 
 
 .TP 4
-.B \fIcheck_suid_root\fP
-Enables checking for additions/removals of suid root files.
-
-MSEC parameter: \fICHECK_SUID_ROOT\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
 .B \fIsyslog_warn\fP
 Enables logging to system log.
 
 MSEC parameter: \fISYSLOG_WARN\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIenable_at_crontab\fP
-Enable/Disable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow (see man at(1) and crontab(1)).
-
-MSEC parameter: \fIENABLE_AT_CRONTAB\fP
 
 Accepted values: \fIyes, no\fP
 
@@ -161,127 +350,10 @@ Accepted values: \fI*\fP
 
 
 .TP 4
-.B \fIcheck_suid_md5\fP
-Enables checksum verification for suid files.
+.B \fIcheck_security\fP
+Enables daily security checks.
 
-MSEC parameter: \fICHECK_SUID_MD5\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIenable_pam_wheel_for_su\fP
-Enabling su only from members of the wheel group or allow su from any user.
-
-MSEC parameter: \fIENABLE_PAM_WHEEL_FOR_SU\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fImail_user\fP
-Defines email to receive security notifications.
-
-MSEC parameter: \fIMAIL_USE\fP
-
-Accepted values: \fI*\fP
-
-
-.TP 4
-.B \fIset_user_umask\fP
-Set the user umask.
-
-MSEC parameter: \fIUSER_UMASK\fP
-
-Accepted values: \fI*\fP
-
-
-.TP 4
-.B \fIcheck_shadow\fP
-Enables checking for empty passwords.
-
-MSEC parameter: \fICHECK_SHADOW\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIallow_autologin\fP
-Allow/Forbid autologin.
-
-MSEC parameter: \fIALLOW_AUTOLOGIN\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIcheck_unowned\fP
-Enables checking for unowned files.
-
-MSEC parameter: \fICHECK_UNOWNED\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIenable_dns_spoofing_protection\fP
-Enable/Disable name resolution spoofing protection.  If \fIalert\fP is true, also reports to syslog.
-
-MSEC parameter: \fIENABLE_IP_SPOOFING_PROTECTION\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIallow_user_list\fP
-Allow/Forbid the list of users on the system on display managers (kdm and gdm).
-
-MSEC parameter: \fIALLOW_USER_LIST\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIenable_ip_spoofing_protection\fP
-Enable/Disable IP spoofing protection.
-
-MSEC parameter: \fIENABLE_DNS_SPOOFING_PROTECTION\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIcreate_server_link\fP
-Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.<SERVER_LEVEL>. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages.
-
-MSEC parameter: \fICREATE_SERVER_LINK\fP
-
-Accepted values: \fIno, default, secure\fP
-
-
-.TP 4
-.B \fIenable_password\fP
-Use password to authenticate users. Take EXTREMELY care when disabling passwords, as it will leave the machine COMPLETELY vulnerable.
-
-MSEC parameter: \fIENABLE_PASSWORD\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIset_win_parts_umask\fP
-Set umask option for mounting vfat and ntfs partitions. A value of None means default umask.
-
-MSEC parameter: \fIWIN_PARTS_UMASK\fP
-
-Accepted values: \fIno, *\fP
-
-
-.TP 4
-.B \fIcheck_open_port\fP
-Enables checking for open network ports.
-
-MSEC parameter: \fICHECK_OPEN_PORT\fP
+MSEC parameter: \fICHECK_SECURITY\fP
 
 Accepted values: \fIyes, no\fP
 
@@ -296,10 +368,19 @@ Accepted values: \fIyes, no\fP
 
 
 .TP 4
-.B \fIaccept_bogus_error_responses\fP
-Accept/Refuse bogus IPv4 error messages.
+.B \fIcheck_unowned\fP
+Enables checking for unowned files.
 
-MSEC parameter: \fIACCEPT_BOGUS_ERROR_RESPONSES\fP
+MSEC parameter: \fICHECK_UNOWNED\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIallow_user_list\fP
+Allow/Forbid the list of users on the system on display managers (kdm and gdm).
+
+MSEC parameter: \fIALLOW_USER_LIST\fP
 
 Accepted values: \fIyes, no\fP
 
@@ -314,19 +395,10 @@ Accepted values: \fIyes, no, without_password\fP
 
 
 .TP 4
-.B \fIenable_log_strange_packets\fP
-Enable/Disable the logging of IPv4 strange packets.
+.B \fIenable_msec_cron\fP
+Enable/Disable msec hourly security check.
 
-MSEC parameter: \fIENABLE_LOG_STRANGE_PACKETS\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIcheck_rpm\fP
-Enables verification of installed packages.
-
-MSEC parameter: \fICHECK_RPM\fP
+MSEC parameter: \fIENABLE_MSEC_CRON\fP
 
 Accepted values: \fIyes, no\fP
 
@@ -341,24 +413,6 @@ Accepted values: \fIyes, no\fP
 
 
 .TP 4
-.B \fIenable_pam_root_from_wheel\fP
-Allow root access without password for the members of the wheel group.
-
-MSEC parameter: \fIENABLE_PAM_ROOT_FROM_WHEEL\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fImail_warn\fP
-Enables security results submission by email.
-
-MSEC parameter: \fIMAIL_WARN\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
 .B \fIallow_xauth_from_root\fP
 Allow/forbid to export display when passing from the root account to the other users. See pam_xauth(8) for more details.
 
@@ -368,21 +422,12 @@ Accepted values: \fIyes, no\fP
 
 
 .TP 4
-.B \fIset_shell_timeout\fP
-Set the shell timeout. A value of zero means no timeout.
+.B \fIset_user_umask\fP
+Set the user umask.
 
-MSEC parameter: \fISHELL_TIMEOUT\fP
+MSEC parameter: \fIUSER_UMASK\fP
 
 Accepted values: \fI*\fP
-
-
-.TP 4
-.B \fIcheck_security\fP
-Enables daily security checks.
-
-MSEC parameter: \fICHECK_SECURITY\fP
-
-Accepted values: \fIyes, no\fP
 
 
 .TP 4
@@ -395,15 +440,6 @@ Accepted values: \fIyes, no\fP
 
 
 .TP 4
-.B \fIpassword_length\fP
-Set the password minimum length and minimum number of digit and minimum number of capitalized letters.
-
-MSEC parameter: \fIPASSWORD_LENGTH\fP
-
-Accepted values: \fI*\fP
-
-
-.TP 4
 .B \fIauthorize_services\fP
 Configure access to tcp_wrappers services (see hosts.deny(5)).  If arg = yes, all services are authorized. If arg = local, only local ones are, and if arg = no, no services are authorized. In this case, To authorize the services you need, use /etc/hosts.allow (see hosts.allow(5)).
 
@@ -413,46 +449,10 @@ Accepted values: \fIyes, no, local\fP
 
 
 .TP 4
-.B \fIset_root_umask\fP
-Set the root umask.
-
-MSEC parameter: \fIROOT_UMASK\fP
-
-Accepted values: \fI*\fP
-
-
-.TP 4
-.B \fIenable_msec_cron\fP
-Enable/Disable msec hourly security check.
-
-MSEC parameter: \fIENABLE_MSEC_CRON\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
 .B \fItty_warn\fP
 Enables periodic security check results to terminal.
 
 MSEC parameter: \fITTY_WARN\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIcheck_sgid\fP
-Enables checking for additions/removals of sgid files.
-
-MSEC parameter: \fICHECK_SGID\fP
-
-Accepted values: \fIyes, no\fP
-
-
-.TP 4
-.B \fIcheck_promisc\fP
-Activate/Disable ethernet cards promiscuity check.
-
-MSEC parameter: \fICHECK_PROMISC\fP
 
 Accepted values: \fIyes, no\fP
 

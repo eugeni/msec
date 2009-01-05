@@ -35,7 +35,7 @@ msec = MSEC(log)
 print header
 
 for variable in config.SETTINGS:
-    levels, callback, params = config.SETTINGS[variable]
+    callback, params = config.SETTINGS[variable]
     func = msec.get_action(callback)
     if func:
         print function_str % (variable, func.__doc__.strip())

@@ -24,14 +24,18 @@ msec_find:
 python:
 	make -C src/msec
 
-install:
+install: all
 	mkdir -p $(RPM_BUILD_ROOT)/etc/security/msec
 	mkdir -p $(RPM_BUILD_ROOT)/usr/share/msec
 	mkdir -p $(RPM_BUILD_ROOT)/usr/sbin
 	cp init-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec
 	cp cron-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec
-	cp init-sh/msec $(RPM_BUILD_ROOT)/usr/sbin
-	cp conf/perm.* conf/server.* $(RPM_BUILD_ROOT)/etc/security/msec
+	# install main msec files
+	for i in libmsec.py config.py msec.py draksec.py; do \
+	    install -m755 src/msec/$$i /usr/share/msec ; \
+	done
+	cp src/msec/msec $(RPM_BUILD_ROOT)/usr/sbin
+	cp conf/perm.* conf/server.* conf/level.* $(RPM_BUILD_ROOT)/etc/security/msec
 
 	mkdir -p $(RPM_BUILD_ROOT)/var/log
 	mkdir -p $(RPM_BUILD_ROOT)/var/log/security

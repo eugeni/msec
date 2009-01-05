@@ -8,27 +8,23 @@
 #---------------------------------------------------------------
 
 MAN=../../man/C/mseclib.3
-PFILES=Perms.py compile.py draksec_help.py libmsec.py man.py
+PFILES=Perms.py compile.py help_draksec.py libmsec.py man.py
 
 all: compile man help.pm
 
 compile:
 	./compile.py '/usr/share/msec/' *.py
 
-man: $(MAN) levels
+man: $(MAN)
 
-help.pm: libmsec.py draksec_help.py
+help.pm: libmsec.py help_draksec.py
 	rm -f $@
-	./draksec_help.py libmsec > $@
+	./help_draksec.py > $@
 
 $(MAN): libmsec.py man.py
 	rm -f $@
 	./man.py libmsec > $@
 
-levels:
-	for l in none default secure; do rm -f level.$$l; \
-	  ./msec.py -l $$l < /dev/null | sort > level.$$l; \
-	done
 clean:
 	rm -f *.pyc *.pyo mseclib.py *~ level.* help.pm
 

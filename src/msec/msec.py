@@ -130,10 +130,7 @@ if __name__ == "__main__":
             log.error(_("Default configuration for level '%s' not found, aborting.") % level)
             sys.exit(1)
         for opt in params:
-            msec_config.set(opt, params[opt])
-
-    # printing current conf
-    print msec_config.list_options()
+            msec_config.set(opt, levelconf.get(opt))
 
     # load the msec library
     msec = MSEC(log)

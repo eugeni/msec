@@ -92,6 +92,15 @@ It is possible to receive notifications by e-mail, using syslog, using an exclus
 log file, or using desktop environment notification system.
 """)
 
+PERMISSIONS_SECURITY_TEXT=_("""File permissions.
+
+These options allow to fine-tune system permissions for important files and directores.
+
+The following permissions are checked periodically, and any change to the owner, group,
+or current permission is reported. The permissions can be enforced, automatically
+changing them to the specified values when a change is detected.
+""")
+
 class MsecGui:
     """Msec GUI"""
     # common columns
@@ -354,7 +363,7 @@ class MsecGui:
         """Builds the network security page"""
         vbox = gtk.VBox(homogeneous=False)
 
-        entry = gtk.Label("Hello world!")
+        entry = gtk.Label(PERMISSIONS_SECURITY_TEXT)
         vbox.pack_start(entry, False, False)
 
         sw = gtk.ScrolledWindow()

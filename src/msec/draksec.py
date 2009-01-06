@@ -57,9 +57,9 @@ The following security profiles are defined in this version:
   - <b>Default</b>: this is the default profile, which configures a reasonably
     safe set of security features. It activates several periodic system checks,
     and mails their results daily to the selected email (by default, the local
-    'root' account is used to receive such emails.
+    'root' account is used to receive such emails).
 
-  - <b>Secure</b>: this profile is configure to provide maximum security, even
+  - <b>Secure</b>: this profile is configured to provide maximum security, even
     at the cost of limiting the remote access to the system. It also runs a wider
     set of periodic checks, enforces the local password settings, and periodically
     checks if the system security settings, configured here, were modified.
@@ -673,6 +673,17 @@ class MsecGui:
         gtk.main_quit()
 
 
+# {{{ usage
+def usage():
+    """Prints help message"""
+    print """Msec: Mandriva Security Center (%s).
+
+Arguments to draksec:
+    -h, --help              displays this helpful message.
+    -d                      enable debugging messages.
+""" % version
+# }}}
+
 if __name__ == "__main__":
     log_level = logging.INFO
 
@@ -690,9 +701,6 @@ if __name__ == "__main__":
         # list
         elif o[0] == '-d' or o[0] == '--debug':
             log_level = logging.DEBUG
-        # check-only mode
-        elif o[0] == '-p' or o[0] == '--pretend':
-            commit = False
 
     # configuring logging
     log = Log(interactive=True, log_syslog=False, log_file=True, log_level=log_level, log_path=config.SECURITYLOG)

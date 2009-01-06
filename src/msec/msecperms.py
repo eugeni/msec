@@ -50,6 +50,7 @@ Available parameters:
     -l, --level <level>     displays configuration for specified security
                             level.
     -f, --force <level>     force new level, overwriting user settings.
+    -e, --enforce <level>   enforce permissions on all files.
     -d                      enable debugging messages.
     -p, --pretend           only pretend to change the level, perform no real
                             actions. Use this to see what operations msec

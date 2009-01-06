@@ -7,7 +7,7 @@
 # Created On      : Sat Jan 26 20:17:55 2002
 #---------------------------------------------------------------
 
-MAN=../../man/C/mseclib.3
+MAN=../../man/C/msec.8
 PFILES=msecperms.py compile.py libmsec.py man.py
 
 all: compile man help.pm

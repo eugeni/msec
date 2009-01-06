@@ -55,6 +55,10 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
 fi
 
 if [[ ${CHECK_PERMS} == yes ]]; then
+	# running msec_perms
+fi
+
+if [[ ${CHECK_USER_FILES} == yes ]]; then
 # Files that should not be owned by someone else or readable.
 list=".netrc .rhosts .shosts .Xauthority .gnupg/secring.gpg \
 .pgp/secring.pgp .ssh/identity .ssh/id_dsa .ssh/id_rsa .ssh/random_seed"
@@ -135,7 +139,7 @@ if [[ -s $TMP ]] ; then
         printf "\nSecurity Warning: these home directory should not be owned by someone else or writable :\n" >> ${SECURITY}
         cat ${TMP} >> ${SECURITY}
 fi
-fi # End of check perms
+fi # End of CHECK_USER_FILES
 
 ### Passwd file check
 if [[ ${CHECK_PASSWD} == yes ]]; then    

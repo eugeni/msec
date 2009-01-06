@@ -1473,7 +1473,11 @@ class MSEC:
         pass
 
     def check_perms(self, param):
-        """ Enables permission checking in users' home."""
+        """ Enables periodic permission checking for system files."""
+        pass
+
+    def check_user_files(self, param):
+        """ Enables permission checking on users' files that should not be owned by someone else, or writable."""
         pass
 
     def check_suid_root(self, param):

@@ -47,6 +47,7 @@ MODIFICATIONS_NOT_FOUND = _('No changes in system files')
 #               OPTION                           callback                            valid values
 SETTINGS =    {'CHECK_SECURITY' :               ("check_security",                  ['yes', 'no']),
                'CHECK_PERMS' :                  ("check_perms",                     ['yes', 'no']),
+               'CHECK_USER_FILES' :             ("check_user_files",                ['yes', 'no']),
                'CHECK_SUID_ROOT' :              ("check_suid_root",                 ['yes', 'no']),
                'CHECK_SUID_MD5' :               ("check_suid_md5",                  ['yes', 'no']),
                'CHECK_SGID' :                   ("check_sgid",                      ['yes', 'no']),

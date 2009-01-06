@@ -60,7 +60,7 @@ install: all
 
 	# logrotate
 	mkdir -p $(RPM_BUILD_ROOT)/etc/logrotate.d
-	install -m644 msec.logrotate $(RPM_BUILD_ROOT)/etc/logrotate.d
+	install -m644 msec.logrotate $(RPM_BUILD_ROOT)/etc/logrotate.d/msec
 
 cleandist:
 	rm -rf $(PACKAGE)-$(VERSION) $(PACKAGE)-$(VERSION).tar.bz2

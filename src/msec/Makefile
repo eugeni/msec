@@ -10,15 +10,14 @@
 MAN=../../man/C/msec.8
 PFILES=msecperms.py compile.py libmsec.py man.py
 
-all: compile man help.pm
+all: compile man help
 
 compile:
 	./compile.py '/usr/share/msec/' *.py
 
 man: $(MAN)
 
-help.pm: libmsec.py help_draksec.py
-	rm -f $@
+help: libmsec.py help_draksec.py
 	./help_draksec.py
 
 $(MAN): libmsec.py man.py
@@ -26,7 +25,7 @@ $(MAN): libmsec.py man.py
 	./man.py libmsec > $@
 
 clean:
-	rm -f *.pyc *.pyo mseclib.py *~ help.pm help.py
+	rm -f *.pyc *.pyo mseclib.py *~ help.*
 
 # Local variables:
 # mode: makefile

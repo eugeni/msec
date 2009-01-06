@@ -260,6 +260,15 @@ Accepted values: \fI*\fP
 
 
 .TP 4
+.B \fIcheck_user_files\fP
+Enables permission checking on users' files that should not be owned by someone else, or writable.
+
+MSEC parameter: \fICHECK_USER_FILES\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
 .B \fIcheck_shadow\fP
 Enables checking for empty passwords.
 
@@ -405,7 +414,7 @@ Accepted values: \fIyes, no\fP
 
 .TP 4
 .B \fIcheck_perms\fP
-Enables permission checking in users' home.
+Enables periodic permission checking for system files.
 
 MSEC parameter: \fICHECK_PERMS\fP
 

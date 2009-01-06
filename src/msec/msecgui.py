@@ -492,7 +492,7 @@ class MsecGui:
         vbox.pack_start(self.periodic_checks, False, False)
 
         # network security options
-        options_view = self.create_treeview(["CHECK_PERMS", "CHECK_SUID_ROOT", "CHECK_SUID_MD5",
+        options_view = self.create_treeview(["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5",
                                             "CHECK_SGID", "CHECK_WRITABLE", "CHECK_UNOWNED",
                                             "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_PASSWD",
                                             "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM",

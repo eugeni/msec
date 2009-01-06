@@ -8,7 +8,7 @@
 #---------------------------------------------------------------
 
 MAN=../../man/C/mseclib.3
-PFILES=Perms.py compile.py libmsec.py man.py
+PFILES=msecperms.py compile.py libmsec.py man.py
 
 all: compile man help.pm
 

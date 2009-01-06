@@ -51,6 +51,9 @@ import glob
 import logging
 from logging.handlers import SysLogHandler
 
+# configuration
+import config
+
 # localization
 try:
     cat = gettext.Catalog('msec')
@@ -720,6 +723,32 @@ class MSEC:
         if not really_commit:
             self.log.info(_("In check-only mode, nothing is written back to disk."))
         self.configfiles.write_files(really_commit)
+
+    def apply(self, curconfig):
+        '''Applies configuration from a MsecConfig instance'''
+        # first, reset previous msec data
+        self.reset()
+        # process all options
+        for opt in curconfig.list_options():
+            # Determines correspondent function
+            action = None
+            callback = config.find_callback(opt)
+            valid_params = config.find_valid_params(opt)
+            if callback:
+                action = self.get_action(callback)
+            if not action:
+                # The required functionality is not supported
+                self.log.info(_("'%s' is not available in this version") % opt)
+                continue
+            self.log.debug("Processing action %s: %s(%s)" % (opt, callback, curconfig.get(opt)))
+            # validating parameters
+            param = curconfig.get(opt)
+            if param not in valid_params and '*' not in valid_params:
+                self.log.error(_("Invalid parameter for %s: '%s'. Valid parameters: '%s'.") % (opt,
+                            param,
+                            valid_values[opt]))
+                continue
+            action(curconfig.get(opt))
 
     def create_server_link(self, param):
         '''  Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.<SERVER_LEVEL>. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages.'''

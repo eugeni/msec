@@ -117,6 +117,10 @@ class MsecGui:
         self.window.set_default_size(640, 480)
         self.window.connect('destroy', self.quit)
 
+        # are we enforcing a level
+        self.enforced_level = None
+        self.enforcing_level = False
+
         main_vbox = gtk.VBox(homogeneous=False, spacing=5)
         self.window.add(main_vbox)
 
@@ -170,29 +174,22 @@ class MsecGui:
         print "Ok clicked."
         # first, let's reset previous msec data
         self.msec.reset()
-        # let's try to commit everything
-        for opt in self.config.list_options():
-            # Determines correspondent function
-            action = None
-            callback = config.find_callback(opt)
-            valid_params = config.find_valid_params(opt)
-            if callback:
-                action = msec.get_action(callback)
-            if not action:
-                # The required functionality is not supported
-                log.info(_("'%s' is not available in this version") % opt)
-                continue
-            log.debug("Processing action %s: %s(%s)" % (opt, callback, msec_config.get(opt)))
-            # validating parameters
-            param = msec_config.get(opt)
-            if param not in valid_params and '*' not in valid_params:
-                log.error(_("Invalid parameter for %s: '%s'. Valid parameters: '%s'.") % (opt,
-                            param,
-                            valid_values[opt]))
-                continue
-            action(msec_config.get(opt))
+        # start buffered logging
+        self.log.start_buffer()
+        # are we enforcing a level?
+        if self.enforcing_level:
+            print ">> Enforcing level %s" % self.enforced_level
+            curconfig = config.load_defaults(self.log, self.enforced_level)
+        else:
+            curconfig = self.config
+        # apply config
+        self.msec.apply(curconfig)
         # preview changes
         msec.commit(False)
+        # get messages
+        messages = self.log.get_buffer()
+        for msg in messages["info"]:
+            print msg
 
     def create_treeview(self, options):
         """Creates a treeview from given list of options"""
@@ -314,6 +311,8 @@ class MsecGui:
         """Enforces a new security level"""
         frame = options
         if widget.get_active():
+            # we are enforcing a level
+            self.enforcing_level = True
             frame.set_sensitive(True)
             # disable notebook pages
             npages = self.notebook.get_n_pages()
@@ -331,10 +330,13 @@ class MsecGui:
                 curpage.set_sensitive(True)
                 label = self.notebook.get_tab_label(curpage)
                 label.set_sensitive(True)
+            # disable level enforcing
+            self.enforcing_level = False
 
     def force_level(self, widget, level):
         """Defines a given security level"""
         if widget.get_active():
+            self.enforced_level = level
             print level
 
     def notifications_page(self):
@@ -608,13 +610,7 @@ if __name__ == "__main__":
             commit = False
 
     # configuring logging
-    interactive = sys.stdin.isatty()
-    if interactive:
-        # logs to file and to terminal
-        #log = Log(log_path=config.SECURITYLOG, interactive=True, log_syslog=False, log_level=log_level)
-        log = Log(interactive=True, log_syslog=False, log_file = False, log_level=log_level)
-    else:
-        log = Log(log_path=config.SECURITYLOG, interactive=False, log_level=log_level)
+    log = Log(interactive=True, log_syslog=False, log_file=True, log_level=log_level, log_path=config.SECURITYLOG)
 
     # loading initial config
     msec_config = config.MsecConfig(log, config=config.SECURITYCONF)

@@ -130,29 +130,8 @@ if __name__ == "__main__":
     # load the msec library
     msec = MSEC(log)
 
-    # ok, now the main msec functionality begins. For each
-    # security action we call the correspondent callback with
-    # right parameter (either default, or specified by user)
-    for opt in msec_config.list_options():
-        # Determines correspondent function
-        action = None
-        callback = config.find_callback(opt)
-        valid_params = config.find_valid_params(opt)
-        if callback:
-            action = msec.get_action(callback)
-        if not action:
-            # The required functionality is not supported
-            log.info(_("'%s' is not available in this version") % opt)
-            continue
-        log.debug("Processing action %s: %s(%s)" % (opt, callback, msec_config.get(opt)))
-        # validating parameters
-        param = msec_config.get(opt)
-        if param not in valid_params and '*' not in valid_params:
-            log.error(_("Invalid parameter for %s: '%s'. Valid parameters: '%s'.") % (opt,
-                        param,
-                        valid_values[opt]))
-            continue
-        action(msec_config.get(opt))
+    # apply the config to msec
+    msec.apply(msec_config)
     # writing back changes
     msec.commit(commit)
     # saving updated config

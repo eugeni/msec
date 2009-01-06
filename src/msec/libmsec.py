@@ -302,9 +302,9 @@ class ConfigFiles:
                 f.write()
 
         if len(self.modified_files) > 0:
-            self.log.info("Modified files: %s" % " ".join(self.modified_files))
+            self.log.info("%s: %s" % (config.MODIFICATIONS_FOUND, " ".join(self.modified_files)))
         else:
-            self.log.info(_("No changes in configuration."))
+            self.log.info(config.MODIFICATIONS_NOT_FOUND)
 
         for f in self.modified_files:
             for a in self.action_assoc:
@@ -1635,9 +1635,9 @@ class PERMS:
             self.log.info(_("In check-only mode, nothing is written back to disk."))
 
         if len(self.files) > 0:
-            self.log.info("Modified files: %s" % " ".join(self.files))
+            self.log.info("%s: %s" % (config.MODIFICATIONS_FOUND, " ".join(self.files)))
         else:
-            self.log.info(_("No changes in configuration."))
+            self.log.info(config.MODIFICATIONS_NOT_FOUND)
 
 
         for file in self.files:

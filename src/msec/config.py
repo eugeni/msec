@@ -32,6 +32,17 @@ PERMISSIONS_LEVEL = '/etc/security/msec/perm.%s' # for level
 # logging
 SECURITYLOG = '/var/log/msec.log'
 
+# localization
+try:
+    cat = gettext.Catalog('msec')
+    _ = cat.gettext
+except IOError:
+    _ = str
+
+# shared strings
+MODIFICATIONS_FOUND = _('Modified files')
+MODIFICATIONS_NOT_FOUND = _('No changes in configuration')
+
 # msec callbacks and valid values
 #               OPTION                           callback                            valid values
 SETTINGS =    {'CHECK_SECURITY' :               ("check_security",                  ['yes', 'no']),
@@ -108,13 +119,6 @@ def find_valid_params(param):
     else:
         callback, valid_params = SETTINGS[param]
         return valid_params
-
-# localization
-try:
-    cat = gettext.Catalog('msec')
-    _ = cat.gettext
-except IOError:
-    _ = str
 
 # helper functions
 def load_defaults(log, level):

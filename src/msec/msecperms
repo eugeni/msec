@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Wrapper for msec.py
+# Wrapper for msecperms.py
 #
 
 if [ "`whoami`" != "root" ]; then
@@ -26,7 +26,7 @@ echo -n $$ > $LCK
 
 trap cleanup 0
 
-MSEC=/usr/share/msec/msec.py
+MSEC=/usr/share/msec/msecperms.py
 OPT="$@"
 
 $MSEC $OPT

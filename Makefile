@@ -31,16 +31,18 @@ install: all
 	cp init-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec
 	cp cron-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec
 	# install main msec files
-	for i in libmsec.py config.py msec.py msecperms.py draksec.py help.py; do \
-	    install -m755 src/msec/$$i /usr/share/msec ; \
+	for i in libmsec.py config.py msec.py msecperms.py msecgui.py help.py; do \
+	    install -m755 src/msec/$$i $(RPM_BUILD_ROOT)/usr/share/msec ; \
 	done
-	cp src/msec/msec $(RPM_BUILD_ROOT)/usr/sbin
+	for i in msec msecperms msecgui; do \
+		install -m755 src/msec/$$i $(RPM_BUILD_ROOT)/usr/sbin ; \
+	done
 	cp conf/perm.* conf/server.* conf/level.* $(RPM_BUILD_ROOT)/etc/security/msec
 
 	mkdir -p $(RPM_BUILD_ROOT)/var/log
 	mkdir -p $(RPM_BUILD_ROOT)/var/log/security
-	touch $(RPM_BUILD_ROOT)/etc/security/msec/security.conf
 	touch $(RPM_BUILD_ROOT)/var/log/security.log
+	touch $(RPM_BUILD_ROOT)/var/log/msec.log
 	cd src/promisc_check && make install
 	cd src/msec_find && make install
 	mkdir -p $(RPM_BUILD_ROOT)/usr/share/man/man8/

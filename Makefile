@@ -53,6 +53,11 @@ install: all
 	    install -m 644 $$i/*.8 $(RPM_BUILD_ROOT)/usr/share/man/`basename $$i`/man8 ; \
 	done	
 
+	# profile.d config
+	mkdir -p $(RPM_BUILD_ROOT)/etc/profile.d/
+	install -m755 profile.d/msec.sh $(RPM_BUILD_ROOT)/etc/profile.d/
+	install -m755 profile.d/msec.csh $(RPM_BUILD_ROOT)/etc/profile.d/
+
 cleandist:
 	rm -rf $(PACKAGE)-$(VERSION) $(PACKAGE)-$(VERSION).tar.bz2
 

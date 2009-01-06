@@ -1,39 +1,48 @@
 PACKAGE = msec
-VERSION = 0.50.11
+VERSION = 0.60.1
 SVNPATH = svn+ssh://svn.mandriva.com/svn/soft/msec
 
-all: promisc_check msec_find python
+all: version promisc_check msec_find python
 	make -C cron-sh
+
+version:
+	echo "version='$(VERSION)'" > src/msec/version.py
 
 clean:
 	-find . -name '*.o' -o -name '*.py[oc]' -o -name '*~' | xargs rm -f
 	rm -f src/promisc_check/promisc_check
 	rm -f src/msec_find/msec_find
 	rm -f *.bz2
-	cd share; make clean
+	make -C src/msec clean
 
 promisc_check: 
-	(cd src/promisc_check && make)
+	make -C src/promisc_check
 
 msec_find:
-	(cd src/msec_find && make)
+	make -C src/msec_find
 
 python:
-	-cd share; make
+	make -C src/msec
 
-install:
+install: all
 	mkdir -p $(RPM_BUILD_ROOT)/etc/security/msec
 	mkdir -p $(RPM_BUILD_ROOT)/usr/share/msec
 	mkdir -p $(RPM_BUILD_ROOT)/usr/sbin
 	cp init-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec
 	cp cron-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec
-	cp init-sh/msec $(RPM_BUILD_ROOT)/usr/sbin
-	cp conf/perm.* conf/server.* $(RPM_BUILD_ROOT)/etc/security/msec
+	# install main msec files
+	for i in libmsec.py config.py msec.py msecperms.py msecgui.py help.py version.py; do \
+	    install -m755 src/msec/$$i $(RPM_BUILD_ROOT)/usr/share/msec ; \
+	done
+	for i in msec msecperms msecgui; do \
+		install -m755 src/msec/$$i $(RPM_BUILD_ROOT)/usr/sbin ; \
+	done
+	cp conf/perm.* conf/server.* conf/level.* $(RPM_BUILD_ROOT)/etc/security/msec
 
 	mkdir -p $(RPM_BUILD_ROOT)/var/log
 	mkdir -p $(RPM_BUILD_ROOT)/var/log/security
-	touch $(RPM_BUILD_ROOT)/etc/security/msec/security.conf
 	touch $(RPM_BUILD_ROOT)/var/log/security.log
+	touch $(RPM_BUILD_ROOT)/var/log/msec.log
 	cd src/promisc_check && make install
 	cd src/msec_find && make install
 	mkdir -p $(RPM_BUILD_ROOT)/usr/share/man/man8/

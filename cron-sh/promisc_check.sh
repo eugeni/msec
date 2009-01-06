@@ -28,15 +28,11 @@ LogPromisc() {
 
 }
     
-if [[ -f /var/lib/msec/security.conf ]]; then
-    . /var/lib/msec/security.conf
-else
-    echo "/var/lib/msec/security.conf doesn't exist."
-    exit 1
-fi
-
 if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
+else
+    echo "/etc/security/msec/security.conf don't exist."
+    exit 1
 fi
 
 if tail /var/log/security.log | grep -q "promiscuous"; then

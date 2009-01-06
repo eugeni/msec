@@ -1,4 +1,4 @@
-# Welcome in Level 2
+# Welcome in Level 1
 ###
 /						root.root		755
 /bin/						root.root		755
@@ -42,7 +42,6 @@
 /etc/rc.d/init.d/*				root.root		744
 /etc/rc.d/init.d/functions			root.root		644
 /etc/rc.d/init.d/mandrake_consmap		root.root		644
-/etc/rc.d/init.d/xprint				root.root		755
 /etc/securetty					root.root		644
 /etc/sendmail.cf				root.mail		644
 /etc/shutdown.allow				root.root		644
@@ -54,11 +53,11 @@
 /etc/syslog.conf				root.root		644
 /etc/updatedb.conf				root.root		644
 /home/						root.root		755
-/home/*						current			755
+/home/*						current.current		755
 /lib/						root.root		755
 /mnt/						root.root		755
 /proc						root.root		555
-/root/						root.root		700
+/root/						root.root		755
 /sbin/						root.root		755
 /tmp/						root.root		1777
 /usr/						root.root		755
@@ -84,12 +83,11 @@
 /var/lib/rpm/Packages				rpm.rpm			644
 /var/lock/subsys				root.root		755
 /var/log/					root.root		755
-/var/log/*					root.adm		640
-/var/log/Xorg.0.log				current			current
+/var/log/*					root.adm		644
 /var/log/lp-errs				lp.lp			600
-/var/log/*/*					current			640
-/var/log/*/*/*					current			640
-/var/log/*/.					current			755
+/var/log/*/*					current.current		644
+/var/log/*/*/*					current.current		644
+/var/log/*/.					current.current		755
 /var/log/mailman/				root.mail		2775
 /var/log/mailman/*				root.mail		664
 /var/spool/mail/				root.mail		2775

@@ -4,15 +4,11 @@
 # Written by Vandoorselaere Yoann, <yoann@mandrakesoft.com>
 #
 
-if [[ -f /var/lib/msec/security.conf ]]; then
-    . /var/lib/msec/security.conf
-else
-    echo "/var/lib/msec/security.conf don't exist."
-    exit 1
-fi
-
 if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
+else
+    echo "/etc/security/msec/security.conf don't exist."
+    exit 1
 fi
 
 if [[ ${CHECK_SECURITY} != yes ]]; then
@@ -59,6 +55,10 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
 fi
 
 if [[ ${CHECK_PERMS} == yes ]]; then
+	# running msec_perms
+fi
+
+if [[ ${CHECK_USER_FILES} == yes ]]; then
 # Files that should not be owned by someone else or readable.
 list=".netrc .rhosts .shosts .Xauthority .gnupg/secring.gpg \
 .pgp/secring.pgp .ssh/identity .ssh/id_dsa .ssh/id_rsa .ssh/random_seed"
@@ -139,7 +139,7 @@ if [[ -s $TMP ]] ; then
         printf "\nSecurity Warning: these home directory should not be owned by someone else or writable :\n" >> ${SECURITY}
         cat ${TMP} >> ${SECURITY}
 fi
-fi # End of check perms
+fi # End of CHECK_USER_FILES
 
 ### Passwd file check
 if [[ ${CHECK_PASSWD} == yes ]]; then    
@@ -213,28 +213,31 @@ for file in $list ; do
         fi
 done > ${TMP}
 
-# TODO: do not check on remote shares (#41709)
-getent passwd | awk -F: '{print $1" "$6}' |
-    while read username homedir; do
-	if ! expr "$homedir" : "$FILTER"  > /dev/null; then
-	    for file in .rhosts .shosts; do
-		if [[ -s ${homedir}/${file} ]] ; then
-		    awk '{
-			    if ($0 ~ /^\+@.*$/)
-				next;
-			    if ($0 ~ /^\+.*$/)
-				printf("\t\t- %s: %s\n", FILENAME, $0);
-		    }' ${homedir}/${file}
+### Passwd file check
+if [[ ${CHECK_SHOSTS} == yes ]]; then    
+	# TODO: do not check on remote shares (#41709)
+	getent passwd | awk -F: '{print $1" "$6}' |
+	while read username homedir; do
+		if ! expr "$homedir" : "$FILTER"  > /dev/null; then
+			for file in .rhosts .shosts; do
+				if [[ -s ${homedir}/${file} ]] ; then
+					awk '{
+					if ($0 ~ /^\+@.*$/)
+						next;
+						if ($0 ~ /^\+.*$/)
+							printf("\t\t- %s: %s\n", FILENAME, $0);
+						}' ${homedir}/${file}
+					fi
+				done >> ${TMP}
+			fi
+		done
+
+		if [[ -s ${TMP} ]]; then
+			printf "\nSecurity Warning: '+' character found in hosts trusting files,\n" >> ${SECURITY}
+			printf "\tthis probably mean that you trust certains users/domain\n" >> ${SECURITY}
+			printf "\tto connect on this host without proper authentication :\n" >> ${SECURITY}
+			cat ${TMP} >> ${SECURITY}
 		fi
-	    done >> ${TMP}
-	fi
-    done
-	
-if [[ -s ${TMP} ]]; then
-    printf "\nSecurity Warning: '+' character found in hosts trusting files,\n" >> ${SECURITY}
-    printf "\tthis probably mean that you trust certains users/domain\n" >> ${SECURITY}
-    printf "\tto connect on this host without proper authentication :\n" >> ${SECURITY}
-    cat ${TMP} >> ${SECURITY}
 fi
 
 ### executables should not be in the aliases file.

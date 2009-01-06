@@ -58,6 +58,10 @@ install: all
 	install -m755 profile.d/msec.sh $(RPM_BUILD_ROOT)/etc/profile.d/
 	install -m755 profile.d/msec.csh $(RPM_BUILD_ROOT)/etc/profile.d/
 
+	# logrotate
+	mkdir -p $(RPM_BUILD_ROOT)/etc/logrotate.d
+	install -m644 msec.logrotate $(RPM_BUILD_ROOT)/etc/logrotate.d
+
 cleandist:
 	rm -rf $(PACKAGE)-$(VERSION) $(PACKAGE)-$(VERSION).tar.bz2
 

@@ -40,8 +40,8 @@ except IOError:
     _ = str
 
 # shared strings
-MODIFICATIONS_FOUND = _('Modified files')
-MODIFICATIONS_NOT_FOUND = _('No changes in configuration')
+MODIFICATIONS_FOUND = _('Modified system files')
+MODIFICATIONS_NOT_FOUND = _('No changes in system files')
 
 # msec callbacks and valid values
 #               OPTION                           callback                            valid values

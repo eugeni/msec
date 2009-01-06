@@ -112,6 +112,10 @@ class MsecGui:
         self.log = log
         self.msec = msec
         self.config = config
+        # save original configuration
+        self.oldconfig = {}
+        for opt in config.list_options():
+            self.oldconfig[opt] = config.get(opt)
         self.perms = perms
         self.window = gtk.Window()
         self.window.set_default_size(640, 480)
@@ -182,14 +186,92 @@ class MsecGui:
             curconfig = config.load_defaults(self.log, self.enforced_level)
         else:
             curconfig = self.config
-        # apply config
+        # apply config and preview changes
         self.msec.apply(curconfig)
-        # preview changes
         msec.commit(False)
-        # get messages
         messages = self.log.get_buffer()
-        for msg in messages["info"]:
-            print msg
+
+        # creating preview window
+        dialog = gtk.Dialog(_("Preview changes"),
+                self.window, 0,
+                (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                gtk.STOCK_OK, gtk.RESPONSE_OK)
+                )
+        sw = gtk.ScrolledWindow()
+        sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
+        sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+        dialog.vbox.add(sw)
+
+        vbox = gtk.VBox()
+        dialog.vbox.set_size_request(640, 300)
+        sw.add_with_viewport(vbox)
+        label = gtk.Label(_("Click OK to commit changes, or CANCEL to leave current configuration unmodified."))
+        vbox.pack_start(label, False, False)
+
+        # informative label
+        label = gtk.Label(_('<b>New msec configuration:</b>'))
+        label.set_use_markup(True)
+        vbox.pack_start(label, False, False)
+
+        # check for changed options
+        opt_changes = []
+        for opt in self.oldconfig:
+            if curconfig.get(opt) != self.oldconfig[opt]:
+                opt_changes.append(opt)
+
+        if len(opt_changes) > 0:
+            # some configuration parameters were changed
+            label = gtk.Label(_('<b>MSEC option changed:</b> <i>%s</i>') % ", ".join(opt_changes))
+            label.set_use_markup(True)
+            vbox.pack_start(label, False, False)
+        else:
+            label = gtk.Label(_('<b>No changes in MSEC options.</b>'))
+            label.set_use_markup(True)
+            vbox.pack_start(label, False, False)
+
+        # see if there were any changes to system files
+        for msg in messages['info']:
+            if msg.find(config.MODIFICATIONS_FOUND) != -1 or msg.find(config.MODIFICATIONS_NOT_FOUND) != -1:
+                label = gtk.Label('<i>%s</i>' % msg)
+                label.set_line_wrap(True)
+                label.set_use_markup(True)
+                vbox.pack_start(label, False, False)
+                break
+        # a separator
+        vbox.pack_start(gtk.HSeparator(), False, False)
+        # adding specific messages
+        for cat in ['info', 'critical', 'error', 'warn', 'debug']:
+            msgs = messages[cat]
+            expander = gtk.Expander(_('Verbose information (%s): %d') % (cat, len(msgs)))
+            textview = gtk.TextView()
+            textview.set_wrap_mode(gtk.WRAP_WORD_CHAR)
+            textview.set_editable(False)
+            expander.add(textview)
+            count = 1
+            for msg in msgs:
+                buffer = textview.get_buffer()
+                end = buffer.get_end_iter()
+                buffer.insert(end, "%d: %s\n" % (count, msg))
+                count += 1
+            vbox.pack_start(expander, False, False)
+
+        dialog.show_all()
+        response = dialog.run()
+        if response != gtk.RESPONSE_OK:
+            dialog.destroy()
+            return
+        dialog.destroy()
+
+        # well, let's commit it!
+        if self.enforcing_level:
+            # rewriting configuration
+            for opt in curconfig.list_options():
+                self.config.set(opt, curconfig.get(opt))
+        # saving the configuration
+        self.config.save()
+        msec.apply(self.config)
+        msec.commit(True)
+        self.quit(widget)
 
     def create_treeview(self, options):
         """Creates a treeview from given list of options"""
@@ -404,6 +486,8 @@ class MsecGui:
         vbox.pack_start(entry, False, False)
 
         self.periodic_checks = gtk.CheckButton(_("Enable periodic security checks"))
+        if self.config.get("CHECK_SECURITY") == "yes":
+            self.periodic_checks.set_active(True)
         vbox.pack_start(self.periodic_checks, False, False)
 
         # network security options

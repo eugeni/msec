@@ -182,6 +182,9 @@ class Log:
         self.log_facility = log_facility
         self.log_path = log_path
 
+        # buffer
+        self.buffer = None
+
         # common logging stuff
         self.logger = logging.getLogger(app_name)
 
@@ -210,23 +213,50 @@ class Log:
 
     def info(self, message):
         """Informative message (normal msec operation)"""
-        self.logger.info(message)
+        if self.buffer:
+            self.buffer["info"].append(message)
+        else:
+            self.logger.info(message)
 
     def error(self, message):
         """Error message (security has changed: authentication, passwords, etc)"""
-        self.logger.error(message)
+        if self.buffer:
+            self.buffer["error"].append(message)
+        else:
+            self.logger.error(message)
 
     def debug(self, message):
         """Debugging message"""
-        self.logger.debug(message)
+        if self.buffer:
+            self.buffer["debug"].append(message)
+        else:
+            self.logger.debug(message)
 
     def critical(self, message):
         """Critical message (big security risk, e.g., rootkit, etc)"""
-        self.logger.critical(message)
+        if self.buffer:
+            self.buffer["critical"].append(message)
+        else:
+            self.logger.critical(message)
 
     def warn(self, message):
         """Warning message (slight security change, permissions change, etc)"""
-        self.logger.warn(message)
+        if self.buffer:
+            self.buffer["warn"].append(message)
+        else:
+            self.logger.warn(message)
+
+    def start_buffer(self):
+        """Beginns message buffering"""
+        self.buffer = {"info": [], "error": [], "debug": [], "critical": [], "warn": []}
+
+    def get_buffer(self):
+        """Returns buffered messages"""
+        messages = self.buffer.copy()
+        del self.buffer
+        self.buffer = None
+        return messages
+
 # }}}
 
 # {{{ ConfigFiles - stores references to all configuration files

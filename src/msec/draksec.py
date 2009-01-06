@@ -221,8 +221,9 @@ class MsecGui:
 
         if len(opt_changes) > 0:
             # some configuration parameters were changed
-            label = gtk.Label(_('<b>MSEC option changed:</b> <i>%s</i>') % ", ".join(opt_changes))
+            label = gtk.Label(_('<b>MSEC option changed:</b> <i>%s</i>\n') % ", ".join(opt_changes))
             label.set_use_markup(True)
+            label.set_line_wrap(True)
             vbox.pack_start(label, False, False)
         else:
             label = gtk.Label(_('<b>No changes in MSEC options.</b>'))

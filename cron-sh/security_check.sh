@@ -56,7 +56,11 @@ fi
 
 if [[ ${CHECK_PERMS} == yes ]]; then
 	# running msec_perms
-	printf "\tChecking permissions on system files"
+	test -x /usr/bin/msecperms && /usr/sbin/msecperms 2>&1 > ${TMP}
+	if [[ -s ${TMP} ]]; then
+		printf "\tPermissions changes on system files:\n" >> ${SECURITY}
+		cat ${TMP} >> ${SECURITY}
+	fi
 fi
 
 if [[ ${CHECK_USER_FILES} == yes ]]; then

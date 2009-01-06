@@ -24,14 +24,15 @@ SECURITY_LEVEL="/etc/security/msec/level.%s"
 
 # msec configuration file
 SECURITYCONF = '/etc/security/msec/security.conf'
-SECURITYLOG = '/var/log/msec.log'
 
 # permissions
 PERMCONF = '/etc/security/msec/perms.conf'
 PERMISSIONS_LEVEL = '/etc/security/msec/perm.%s' # for level
 
-# TODO: more strict checking for numbers and text
-# default parameters
+# logging
+SECURITYLOG = '/var/log/msec.log'
+
+# msec callbacks and valid values
 #               OPTION                           callback                            valid values
 SETTINGS =    {'CHECK_SECURITY' :               ("check_security",                  ['yes', 'no']),
                'CHECK_PERMS' :                  ("check_perms",                     ['yes', 'no']),

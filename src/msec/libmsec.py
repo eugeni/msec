@@ -1651,28 +1651,34 @@ class PERMS:
                 force = True
 
             if newuser != None:
-                self.log.info(_("Enforcing user on %s to %s") % (file, self.get_user_name(newuser)))
                 if force and really_commit:
+                    self.log.warn(_("Enforcing user on %s to %s") % (file, self.get_user_name(newuser)))
                     try:
                         os.chown(file, newuser, -1)
                     except:
                         self.log.error(_("Error changing user on %s: %s") % (file, sys.exc_value))
+                else:
+                    self.log.warn(_("Bad owner of %s: should be %s") % (file, self.get_user_name(newuser)))
             if newgroup != None:
-                self.log.info(_("Enforcing group on %s to %s") % (file, self.get_group_name(newgroup)))
                 if force and really_commit:
+                    self.log.warn(_("Enforcing group on %s to %s") % (file, self.get_group_name(newgroup)))
                     try:
                         os.chown(file, -1, newgroup)
                     except:
                         self.log.error(_("Error changing group on %s: %s") % (file, sys.exc_value))
+                else:
+                    self.log.warn(_("Bad group of %s: should be %s") % (file, self.get_group_name(newgroup)))
             # permissions should be last, as chown resets them
             # on suid files
             if newperm != None:
-                self.log.info(_("Enforcing permissions on %s to %o") % (file, newperm))
                 if force and really_commit:
+                    self.log.warn(_("Enforcing permissions on %s to %o") % (file, newperm))
                     try:
                         os.chmod(file, newperm)
                     except:
                         self.log.error(_("Error changing permissions on %s: %s") % (file, sys.exc_value))
+                else:
+                    self.log.warn(_("Bad permissions of %s: should be %o") % (file, newperm))
 
 
     def check_perms(self, perms):

@@ -56,6 +56,7 @@ fi
 
 if [[ ${CHECK_PERMS} == yes ]]; then
 	# running msec_perms
+	printf "\tChecking permissions on system files"
 fi
 
 if [[ ${CHECK_USER_FILES} == yes ]]; then

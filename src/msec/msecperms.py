@@ -119,7 +119,8 @@ if __name__ == "__main__":
         # logs to file and to terminal
         log = Log(log_path=config.SECURITYLOG, interactive=True, log_syslog=False, log_level=log_level)
     else:
-        log = Log(log_path=config.SECURITYLOG, interactive=False, log_level=log_level)
+        log_level = logging.WARN
+        log = Log(log_path=config.SECURITYLOG, interactive=True, log_syslog=False, log_level=log_level)
 
     # loading permissions
     permconf = config.PermConfig(log, config=config.PERMCONF)

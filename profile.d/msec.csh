@@ -1,15 +1,7 @@
-#---------------------------------------------------------------
-# Project         : Mandriva Linux
-# Module          : msec
-# File            : msec.csh
-# Version         : $Id$
-# Author          : Yoann Vandoorselaere
-# Created On      : Wed Feb 13 18:35:58 2002
-# Purpose         : settings according to security level
-#---------------------------------------------------------------
+# shell security options
 
-if ( -r /etc/sysconfig/msec ) then
-	eval `sed -n 's/^\([^#]*\)=\([^#]*\)/set \1=\2;/p' < /etc/sysconfig/msec`
+if ( -r /etc/security/shell ) then
+	eval `sed -n 's/^\([^#]*\)=\([^#]*\)/set \1=\2;/p' < /etc/security/shell`
 endif
 
 if ( $uid >= 500 ) then
@@ -32,6 +24,10 @@ endif
 # using unhash *after modifying PATH* fixes the pb
 # So while modifying the PATH, do not rely on the PATH until unhash is done
 
+if ! { (echo "${PATH}" | /bin/grep -q /usr/X11R6/bin) } then
+	setenv PATH "${PATH}:/usr/X11R6/bin"
+endif
+
 if ! { (echo "${PATH}" | /bin/grep -q /usr/games) } then
 	setenv PATH "${PATH}:/usr/games"
 endif
@@ -50,7 +46,7 @@ if (! -r /usr/bin) then
 endif
 
 
-# translate sh variables from /etc/sysconfig/msec to their equivalent in csh
+# translate sh variables from /etc/security/shell to their equivalent in csh
 if ( ${?TMOUT} ) then
     set autologout=`expr $TMOUT / 60`
 endif

@@ -672,6 +672,11 @@ class MSEC:
 
         # TODO: add a common function to check parameters
 
+    def reset(self):
+        """Resets the configuration"""
+        self.log.debug("Resetting msec data.")
+        self.configfiles = ConfigFiles(self.log)
+
     def get_action(self, name):
         """Determines correspondent function for requested action."""
         try:
@@ -1377,7 +1382,7 @@ class MSEC:
 
         allow = export.get_match('^\*$')
 
-        if arg:
+        if arg == 'yes':
             if not allow:
                 self.log.info(_('Allowing export display from root'))
                 export.insert_at(0, '*')
@@ -1477,6 +1482,7 @@ class MSEC:
         pass
 # }}}
 
+# {{{ PERMS - permissions handling
 class PERMS:
     """Permission checking/enforcing."""
     def __init__(self, log):
@@ -1685,6 +1691,7 @@ class PERMS:
                         self.log.debug("Removing previously selected %s (matched by '%s')" % (f, file))
                         del self.files[f]
         return self.files
+# }}}
 
 
 if __name__ == "__main__":

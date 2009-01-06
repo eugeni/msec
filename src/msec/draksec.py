@@ -168,6 +168,31 @@ class MsecGui:
     def ok(self, widget):
         """Ok button"""
         print "Ok clicked."
+        # first, let's reset previous msec data
+        self.msec.reset()
+        # let's try to commit everything
+        for opt in self.config.list_options():
+            # Determines correspondent function
+            action = None
+            callback = config.find_callback(opt)
+            valid_params = config.find_valid_params(opt)
+            if callback:
+                action = msec.get_action(callback)
+            if not action:
+                # The required functionality is not supported
+                log.info(_("'%s' is not available in this version") % opt)
+                continue
+            log.debug("Processing action %s: %s(%s)" % (opt, callback, msec_config.get(opt)))
+            # validating parameters
+            param = msec_config.get(opt)
+            if param not in valid_params and '*' not in valid_params:
+                log.error(_("Invalid parameter for %s: '%s'. Valid parameters: '%s'.") % (opt,
+                            param,
+                            valid_values[opt]))
+                continue
+            action(msec_config.get(opt))
+        # preview changes
+        msec.commit(False)
 
     def create_treeview(self, options):
         """Creates a treeview from given list of options"""
@@ -213,7 +238,6 @@ class MsecGui:
 
         for option in options:
             # retreiving option description
-            print config.SETTINGS[option]
             if not config.SETTINGS.has_key(option):
                 # invalid option
                 self.log.error(_("Invalid option '%s'!") % option)
@@ -252,17 +276,66 @@ class MsecGui:
 
         levels = config.SECURITY_LEVELS
 
-        print levels
-
         entry = gtk.Label(BASIC_SECURITY_TEXT)
         entry.set_use_markup(True)
         vbox.pack_start(entry, False, False)
 
-        # basic security options
-        options_view = self.create_treeview(["MAIL_WARN", "MAIL_USER", "MAIL_EMPTY_CONTENT"])
-        vbox.pack_start(options_view)
+        # Are we enforcing a new security level
+        entry = gtk.CheckButton(_("Enforce a new security level"))
+
+        # security levels
+        frame = gtk.Frame()
+        frame.set_sensitive(False)
+        levels_vbox = gtk.VBox()
+        frame.add(levels_vbox)
+        # none
+        button = gtk.RadioButton(group=None, label=_("Pre-defined security level: NONE"))
+        button.connect('clicked', self.force_level, 'none')
+        levels_vbox.pack_start(button)
+        # default
+        button = gtk.RadioButton(group=button, label=_("Pre-defined security level: DEFAULT"))
+        button.connect('clicked', self.force_level, 'default')
+        button.set_active(True)
+        levels_vbox.pack_start(button)
+        # secure
+        button = gtk.RadioButton(group=button, label=_("Pre-defined security level: SECURE"))
+        button.connect('clicked', self.force_level, 'secure')
+        levels_vbox.pack_start(button)
+
+        # adding callback for enable button
+        entry.connect('clicked', self.enforce_level, frame)
+        vbox.pack_start(entry, False, False)
+        # putting levels to vbox
+        vbox.pack_start(frame)
 
         return vbox
+
+    def enforce_level(self, widget, options):
+        """Enforces a new security level"""
+        frame = options
+        if widget.get_active():
+            frame.set_sensitive(True)
+            # disable notebook pages
+            npages = self.notebook.get_n_pages()
+            for page in range(1, npages):
+                curpage = self.notebook.get_nth_page(page)
+                curpage.set_sensitive(False)
+                label = self.notebook.get_tab_label(curpage)
+                label.set_sensitive(False)
+        else:
+            frame.set_sensitive(False)
+            # enable notebook pages
+            npages = self.notebook.get_n_pages()
+            for page in range(1, npages):
+                curpage = self.notebook.get_nth_page(page)
+                curpage.set_sensitive(True)
+                label = self.notebook.get_tab_label(curpage)
+                label.set_sensitive(True)
+
+    def force_level(self, widget, level):
+        """Defines a given security level"""
+        if widget.get_active():
+            print level
 
     def notifications_page(self):
         """Builds the notifications page"""
@@ -500,6 +573,9 @@ class MsecGui:
         else:
             newval = entry.get_active_text()
         dialog.destroy()
+
+        # update options
+        self.config.set(param, newval)
 
         model.set(iter, self.COLUMN_VALUE, newval)
 

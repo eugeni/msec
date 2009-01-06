@@ -678,7 +678,7 @@ def usage():
     """Prints help message"""
     print """Msec: Mandriva Security Center (%s).
 
-Arguments to draksec:
+Arguments to msecgui:
     -h, --help              displays this helpful message.
     -d                      enable debugging messages.
 """ % version

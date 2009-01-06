@@ -29,7 +29,7 @@ msec \- Mandriva Linux security tools
 .nf
 .B msec [options]
 .B msecperms [options]
-.B draksec [options]
+.B msecgui [options]
 .fi
 .SH DESCRIPTION
 .B msec
@@ -139,7 +139,7 @@ doing anything to the system. In this mode of operation, msec performs all the
 required tasks, except effectively writting data back to disk.
 
 .TP
-\\fBdraksec\\fR:
+\\fBmsecgui\\fR:
 .PP
 
 This is the GTK version of msec. It acts as frontend to all msec functionalities.

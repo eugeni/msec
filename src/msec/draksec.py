@@ -96,12 +96,14 @@ class MsecGui:
     """Msec GUI"""
     # common columns
     (COLUMN_OPTION, COLUMN_DESCR, COLUMN_VALUE) = range(3)
+    (COLUMN_PATH, COLUMN_USER, COLUMN_GROUP, COLUMN_PERM, COLUMN_FORCE) = range(5)
 
-    def __init__(self, log, msec, config):
+    def __init__(self, log, msec, config, perms):
         """Initializes gui"""
         self.log = log
         self.msec = msec
         self.config = config
+        self.perms = perms
         self.window = gtk.Window()
         self.window.set_default_size(640, 480)
         self.window.connect('destroy', self.quit)
@@ -223,20 +225,6 @@ class MsecGui:
 
             # now for the value
             value = self.config.get(option)
-            if not value:
-                value = ""
-            if '*' in params:
-                entry = gtk.Entry()
-                entry.set_text(value)
-            else:
-                entry = gtk.combo_box_new_text()
-                for item in params:
-                    entry.append_text(item)
-                if value not in params:
-                    entry.append_text(value)
-                    params.append(value)
-                active = params.index(value)
-                entry.set_active(active)
 
             # building the option
             iter = lstore.append()
@@ -369,7 +357,91 @@ class MsecGui:
         entry = gtk.Label("Hello world!")
         vbox.pack_start(entry, False, False)
 
+        sw = gtk.ScrolledWindow()
+        sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
+        sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+
+        # list of options
+        lstore = gtk.ListStore(
+            gobject.TYPE_STRING,
+            gobject.TYPE_STRING,
+            gobject.TYPE_STRING,
+            gobject.TYPE_STRING,
+            gobject.TYPE_BOOLEAN)
+
+        # treeview
+        treeview = gtk.TreeView(lstore)
+        treeview.set_rules_hint(True)
+        treeview.set_search_column(self.COLUMN_DESCR)
+
+        # TODO: fix
+        treeview.connect('row-activated', self.option_changed, lstore)
+
+        # configuring columns
+
+        # column for path mask
+        column = gtk.TreeViewColumn(_('Path'), gtk.CellRendererText(), text=self.COLUMN_PATH)
+        column.set_sort_column_id(self.COLUMN_PATH)
+        treeview.append_column(column)
+
+        # column for user
+        column = gtk.TreeViewColumn(_('User'), gtk.CellRendererText(), text=self.COLUMN_USER)
+        column.set_sort_column_id(self.COLUMN_USER)
+        treeview.append_column(column)
+
+        # column for group
+        column = gtk.TreeViewColumn(_('Group'), gtk.CellRendererText(), text=self.COLUMN_GROUP)
+        column.set_sort_column_id(self.COLUMN_GROUP)
+        treeview.append_column(column)
+
+        # column for permissions
+        column = gtk.TreeViewColumn(_('Permissions'), gtk.CellRendererText(), text=self.COLUMN_PERM)
+        column.set_sort_column_id(self.COLUMN_VALUE)
+        treeview.append_column(column)
+
+        # column for force option
+        renderer = gtk.CellRendererToggle()
+        renderer.connect('toggled', self.toggle_enforced, lstore)
+        column = gtk.TreeViewColumn(_('Enforce'), renderer, active=self.COLUMN_FORCE)
+        column.set_sort_column_id(self.COLUMN_FORCE)
+        column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+        column.set_fixed_width(50)
+
+        treeview.append_column(column)
+
+        sw.add(treeview)
+
+        for file in self.perms.list_options():
+            user_s, group_s, perm_s, force = self.perms.get(file)
+
+            # convert to boolean
+            if force:
+                force = True
+            else:
+                force = False
+
+            # building the option
+            iter = lstore.append()
+            lstore.set(iter,
+                    self.COLUMN_PATH, file,
+                    self.COLUMN_USER, user_s,
+                    self.COLUMN_GROUP, group_s,
+                    self.COLUMN_PERM, perm_s,
+                    self.COLUMN_FORCE, force,
+                    )
+        vbox.pack_start(sw)
         return vbox
+
+    def toggle_enforced(self, cell, path, model):
+        '''Toggles a forced permission on an item'''
+        iter = model.get_iter((int(path),))
+        fixed = model.get_value(iter, self.COLUMN_FORCE)
+
+        # do something with the value
+        fixed = not fixed
+
+        # set new value
+        model.set(iter, self.COLUMN_FORCE, fixed)
 
     def option_changed(self, treeview, path, col, model):
         """Processes an option change"""
@@ -464,18 +536,16 @@ if __name__ == "__main__":
     if not msec_config.load():
         log.info(_("Unable to load config, using default values"))
 
-    # overriding defined parameters from config file
-    params = config.load_defaults(log, config.DEFAULT_LEVEL)
-    for opt in params.list_options():
-        # only forcing new value when undefined
-        msec_config.get(opt, params.get(opt))
-
+    # loading permissions config
+    perm_conf = config.PermConfig(log, config=config.PERMCONF)
+    if not perm_conf.load():
+        log.info(_("Unable to load permissions, using default values"))
 
     # creating an msec instance
     msec = MSEC(log)
 
     log.info("Starting gui..")
 
-    gui = MsecGui(log, msec, msec_config)
+    gui = MsecGui(log, msec, msec_config, perm_conf)
     gtk.main()
 

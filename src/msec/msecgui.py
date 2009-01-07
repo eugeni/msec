@@ -25,7 +25,7 @@ except:
     version = "development version"
 
 # libmsec
-from libmsec import MSEC, PERMS, Log
+from libmsec import MSEC, PERMS, AUTH, Log
 
 import logging
 
@@ -63,6 +63,11 @@ The following security profiles are defined in this version:
     at the cost of limiting the remote access to the system. It also runs a wider
     set of periodic checks, enforces the local password settings, and periodically
     checks if the system security settings, configured here, were modified.
+""")
+
+AUTH_SECURITY_TEXT=_("""System authentication.
+
+These options control the authentication for different Mandriva tools.
 """)
 
 SYSTEM_SECURITY_TEXT=_("""System security options.
@@ -106,21 +111,28 @@ class MsecGui:
     # common columns
     (COLUMN_OPTION, COLUMN_DESCR, COLUMN_VALUE) = range(3)
     (COLUMN_PATH, COLUMN_USER, COLUMN_GROUP, COLUMN_PERM, COLUMN_FORCE) = range(5)
+    (COLUMN_APP, COLUMN_DESCR, COLUMN_AUTH) = range(3)
 
-    def __init__(self, log, msec, perms, config, permconfig):
+    def __init__(self, log, msec, perms, auth, config, permconfig, authconfig):
         """Initializes gui"""
         self.log = log
         self.msec = msec
         self.config = config
         self.perms = perms
+        self.authconfig = authconfig
         self.permconfig = permconfig
-        # save original configuration
+        # msec settings
         self.oldconfig = {}
         for opt in config.list_options():
             self.oldconfig[opt] = config.get(opt)
+        # permissions
         self.oldperms = {}
         for opt in permconfig.list_options():
             self.oldperms[opt] = permconfig.get(opt)
+        # auth
+        self.oldauth = {}
+        for opt in authconfig.list_options():
+            self.oldauth[opt] = authconfig.get(opt)
 
         self.window = gtk.Window()
         self.window.set_default_size(640, 480)
@@ -142,6 +154,7 @@ class MsecGui:
         frame.add(self.notebook)
 
         self.notebook.append_page(self.basic_security_page(), gtk.Label(_("Basic security")))
+        self.notebook.append_page(self.auth_security_page(), gtk.Label(_("Authentication")))
         self.notebook.append_page(self.system_security_page(), gtk.Label(_("System security")))
         self.notebook.append_page(self.network_security_page(), gtk.Label(_("Network security")))
         self.notebook.append_page(self.periodic_security_page(), gtk.Label(_("Periodic checks")))
@@ -180,11 +193,13 @@ class MsecGui:
 
     def ok(self, widget):
         """Ok button"""
+        # TODO: split in smaller functions
         # first, let's reset previous msec data
         self.msec.reset()
         # start buffered logging
         self.log.start_buffer()
         # are we enforcing a level?
+        # TODO: copy and merge options
         if self.enforcing_level:
             self.log.debug(">> Enforcing level %s" % self.enforced_level)
             curconfig = config.load_defaults(self.log, self.enforced_level)
@@ -220,45 +235,32 @@ class MsecGui:
         vbox.pack_start(label, False, False)
 
         # check for changed options
-        opt_changes = []
-        for opt in self.oldconfig:
-            if curconfig.get(opt) != self.oldconfig[opt]:
-                opt_changes.append(opt)
-
-        if len(opt_changes) > 0:
-            # some configuration parameters were changed
-            label = gtk.Label(_('<b>MSEC option changed:</b> <i>%s</i>\n') % ", ".join(opt_changes))
+        for name, oldconf, curconf in [ (_("MSEC option changes"), self.oldconfig, curconfig),
+                                        (_("System permissions changes"), self.oldperms, curperms),
+                                        (_("System authentication changes"), self.oldauth, self.authconfig),
+                                        ]:
+            # check for changes
+            opt_changes = []
+            for opt in oldconf:
+                if curconf.get(opt) != oldconf.get(opt):
+                    opt_changes.append(opt)
+            if len(opt_changes) > 0:
+                changes = "\n\t" + "\n\t".join(["<b>%s</b> (%s -> %s)" % (param, oldconf.get(param), curconf.get(param)) for param in opt_changes])
+            else:
+                changes = _("no changes")
+            label = gtk.Label(_('<b>%s:</b> <i>%s</i>\n') % (name, changes))
             label.set_use_markup(True)
-            label.set_line_wrap(True)
-            vbox.pack_start(label, False, False)
-        else:
-            label = gtk.Label(_('<i>No changes in MSEC options.</i>'))
-            label.set_use_markup(True)
-            vbox.pack_start(label, False, False)
-
-        # now checking for permission changes
-        perm_changes = []
-        for opt in self.oldperms:
-            if curperms.get(opt) != self.oldperms[opt]:
-                perm_changes.append(opt)
-
-        if len(perm_changes) > 0:
-            # some configuration parameters were changed
-            label = gtk.Label(_('<b>System permissions changed:</b> <i>%s</i>\n') % ", ".join(perm_changes))
-            label.set_use_markup(True)
-            label.set_line_wrap(True)
-            vbox.pack_start(label, False, False)
-        else:
-            label = gtk.Label(_('<i>No changes in system permissions.</i>'))
-            label.set_use_markup(True)
+#            label.set_line_wrap(True)
+            label.set_property("xalign", 0.0)
             vbox.pack_start(label, False, False)
 
         # see if there were any changes to system files
         for msg in messages['info']:
             if msg.find(config.MODIFICATIONS_FOUND) != -1 or msg.find(config.MODIFICATIONS_NOT_FOUND) != -1:
-                label = gtk.Label('<i>%s</i>' % msg)
+                label = gtk.Label(_("<b>MSEC test run results:</b> <i>%s</i>") % msg)
                 label.set_line_wrap(True)
                 label.set_use_markup(True)
+                label.set_property("xalign", 0.0)
                 vbox.pack_start(label, False, False)
                 break
 
@@ -296,12 +298,17 @@ class MsecGui:
                 self.config.set(opt, curconfig.get(opt))
             for perm in curperms.list_options():
                 self.permconfig.set(perm, curperms.get(perm))
+
         # saving the configuration
         self.config.save()
         self.msec.apply(self.config)
         self.msec.commit(True)
+
         # saving permissions
         self.permconfig.save()
+
+        # saving authentication
+        self.authconfig.save()
         # this is done periodically
         #self.perms.check_perms(self.permconfig)
         #self.perms.commit(True)
@@ -381,6 +388,75 @@ class MsecGui:
                     )
         return sw
 
+    def create_auth_treeview(self, options):
+        """Creates a treeview for authentication options"""
+        sw = gtk.ScrolledWindow()
+        sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
+        sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+
+        # list of options
+        lstore = gtk.TreeStore(
+            gobject.TYPE_STRING,
+            gobject.TYPE_STRING,
+            gobject.TYPE_STRING)
+
+        # treeview
+        treeview = gtk.TreeView(lstore)
+        treeview.set_rules_hint(True)
+        treeview.set_search_column(self.COLUMN_DESCR)
+        treeview.connect('realize', lambda tv: tv.expand_all())
+
+        treeview.connect('row-activated', self.auth_changed, lstore)
+
+        # configuring columns
+
+        # column for option names
+        column = gtk.TreeViewColumn(_('Application'), gtk.CellRendererText(), text=self.COLUMN_APP)
+        column.set_sort_column_id(self.COLUMN_APP)
+        treeview.append_column(column)
+
+        # column for descriptions
+        renderer = gtk.CellRendererText()
+        renderer.set_property('wrap-width', 400)
+        renderer.set_property('wrap-mode', pango.WRAP_WORD_CHAR)
+        column = gtk.TreeViewColumn(_('Description'), renderer, text=self.COLUMN_DESCR)
+        column.set_sort_column_id(self.COLUMN_DESCR)
+        treeview.append_column(column)
+
+        # column for values
+        column = gtk.TreeViewColumn(_('Auth'), gtk.CellRendererText(), text=self.COLUMN_AUTH)
+        column.set_sort_column_id(self.COLUMN_AUTH)
+        treeview.append_column(column)
+
+        sw.add(treeview)
+
+        for name, items in options:
+            # building the option
+            iter = lstore.append(None)
+            lstore.set(iter,
+                    self.COLUMN_APP, name,
+                    self.COLUMN_DESCR, None,
+                    self.COLUMN_AUTH, None,
+                    )
+            for option in items:
+                # retreiving option description
+                if not config.MANDRIVA_TOOLS.has_key(option):
+                    # invalid option
+                    self.log.error(_("Invalid option '%s'!") % option)
+                    continue
+                descr = config.MANDRIVA_TOOLS[option]
+                value = self.authconfig.get(option)
+
+                # building the option
+                child_iter = lstore.append(iter)
+                lstore.set(child_iter,
+                        self.COLUMN_APP, option,
+                        self.COLUMN_DESCR, descr,
+                        self.COLUMN_AUTH, value,
+                        )
+        return sw
+
+
     def basic_security_page(self):
         """Builds the basic security page"""
         vbox = gtk.VBox(homogeneous=False)
@@ -420,6 +496,29 @@ class MsecGui:
         vbox.pack_start(entry, False, False)
         # putting levels to vbox
         vbox.pack_start(frame)
+
+        return vbox
+
+    def auth_security_page(self):
+        """Builds the authentication page"""
+        vbox = gtk.VBox(homogeneous=False)
+
+        entry = gtk.Label(AUTH_SECURITY_TEXT)
+        entry.set_use_markup(True)
+        vbox.pack_start(entry, False, False)
+
+        sw = gtk.ScrolledWindow()
+        sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
+        sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+
+        auth_vbox = gtk.VBox()
+
+        # security levels
+        sw.add_with_viewport(auth_vbox)
+        vbox.add(sw)
+
+        apps = self.create_auth_treeview(config.MANDRIVA_TOOL_GROUPS)
+        auth_vbox.pack_start(apps)
 
         return vbox
 
@@ -758,15 +857,50 @@ class MsecGui:
             dialog.destroy()
             return
 
+    def auth_changed(self, treeview, path, col, model):
+        """Processes an option change"""
+        iter = model.get_iter(path)
+        param = model.get_value(iter, self.COLUMN_APP)
+        descr = model.get_value(iter, self.COLUMN_DESCR)
+        value = model.get_value(iter, self.COLUMN_AUTH)
+
+        if len(path) < 2:
+            # We are clicking on an option group
+            return
+
+        # asks for new parameter value
+        dialog = gtk.Dialog(_("Specify new authentication for %s") % (param),
+                self.window, 0,
+                (gtk.STOCK_OK, gtk.RESPONSE_OK,
+                gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL))
+        label = gtk.Label(_("Modifying <b>%s</b> authentication.\n<i>%s</i>\nCurrent value: <b>%s</b>") % (param, descr, value))
+        label.set_line_wrap(True)
+        label.set_use_markup(True)
+        dialog.vbox.pack_start(label)
+        # combobox parameter
+        entry = gtk.combo_box_new_text()
+        params = [config.AUTH_NO_PASSWD, config.AUTH_ROOT_PASSWD, config.AUTH_USER_PASSWD]
+        for item in params:
+            entry.append_text(item)
+        if value not in params:
+            entry.append_text(value)
+            params.append(value)
+        active = params.index(value)
+        entry.set_active(active)
+        dialog.vbox.pack_start(entry)
+
+        dialog.show_all()
+        response = dialog.run()
+        if response != gtk.RESPONSE_OK:
+            dialog.destroy()
+            return
+
         # process new parameter
-        if '*' in params:
-            newval = entry.get_text()
-        else:
-            newval = entry.get_active_text()
+        newval = entry.get_active_text()
         dialog.destroy()
 
         # update options
-        self.config.set(param, newval)
+        self.authconfig.set(param, newval)
 
         model.set(iter, self.COLUMN_VALUE, newval)
 
@@ -812,19 +946,25 @@ if __name__ == "__main__":
     # loading initial config
     msec_config = config.MsecConfig(log, config=config.SECURITYCONF)
     if not msec_config.load():
-        log.info(_("Unable to load config, using default values"))
+        log.info(_("Unable to load config."))
 
     # loading permissions config
     perm_conf = config.PermConfig(log, config=config.PERMCONF)
     if not perm_conf.load():
-        log.info(_("Unable to load permissions, using default values"))
+        log.info(_("Unable to load permissions."))
+
+    # loading auth config
+    auth_conf = config.AuthConfig(log)
+    if not auth_conf.load():
+        log.info(_("Unable to load auth config."))
 
     # creating an msec instance
     msec = MSEC(log)
     perms = PERMS(log)
+    auth = AUTH(log)
 
     log.info("Starting gui..")
 
-    gui = MsecGui(log, msec, perms, msec_config, perm_conf)
+    gui = MsecGui(log, msec, perms, auth, msec_config, perm_conf, auth_conf)
     gtk.main()
 

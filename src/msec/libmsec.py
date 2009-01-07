@@ -750,6 +750,10 @@ class MSEC:
                 continue
             action(curconfig.get(opt))
 
+    def base_level(self, param):
+        """Specify a base security level"""
+        pass
+
     def create_server_link(self, param):
         '''  Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.<SERVER_LEVEL>. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages.'''
         __params__ = ["no", "default", "secure"]
@@ -1761,6 +1765,11 @@ class PERMS:
         return self.files
 # }}}
 
+class AUTH:
+    """Mandriva security tools authentication"""
+    def __init__(self, log):
+        """Initializes configuration"""
+        self.log = log
 
 if __name__ == "__main__":
     # this should never ever be run directly

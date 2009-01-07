@@ -16,6 +16,7 @@ import gettext
 import sys
 import traceback
 import re
+import os
 
 # security levels
 SECURITY_LEVELS = [ "none", "default", "secure" ]
@@ -105,6 +106,46 @@ SETTINGS =    {'CHECK_SECURITY' :               ("check_security",              
                'SHELL_TIMEOUT':                 ("set_shell_timeout",               ['*']),
                }
 
+# mandriva security tools
+AUTH_NO_PASSWD = _("No password")
+AUTH_ROOT_PASSWD = _("Root password")
+AUTH_USER_PASSWD = _("User password")
+
+# mandriva drakx tools
+MANDRIVA_TOOLS = {
+            "rpmdrake":  _("Software Management"),
+            "mandrivaupdate":  _("Mandriva Update"),
+            "drakrpm-edit-media":  _("Software Media Manager"),
+            "drak3d":  _("Configure 3D Desktop effects"),
+            "xfdrake":  _("Graphical Server Configuration"),
+            "drakmouse":  _("Mouse Configuration"),
+            "drakkeyboard":  _("Keyboard Configuration"),
+            "drakups":  _("UPS Configuration"),
+            "drakconnect":  _("Network Configuration"),
+            "drakhosts":  _("Hosts definitions"),
+            "draknetcenter":  _("Network Center"),
+            "drakvpn":  _("VPN"),
+            "drakproxy":  _("Proxy Configuration"),
+            "drakgw":  _("Connection Sharing"),
+            "drakauth":  _("Authentication"),
+            "drakbackup":  _("Backups"),
+            "drakfont":  _("Import fonts"),
+            "draklog":  _("Logs"),
+            "drakxservices":  _("Services"),
+            "userdrake":  _("Users"),
+            "drakclock":  _("Date, Clock & Time Zone Settings"),
+            "drakboot":  _("Boot Configuration"),
+    }
+
+# drakx tool groups
+MANDRIVA_TOOL_GROUPS = [
+            ( _("Software Management"), ['rpmdrake', 'mandrivaupdate', 'drakrpm-edit-media'] ),
+            ( _("Hardware"), ['drak3d', 'xfdrake', 'drakmouse', 'drakkeyboard', 'drakups'] ),
+            ( _("Network"), ['drakconnect', 'drakhosts', 'draknetcenter', 'drakvpn', 'drakproxy', 'drakgw'] ),
+            ( _("System"), ['drakauth', 'drakbackup', 'drakfont', 'draklog', 'drakxservices', 'userdrake', 'drakclock'] ),
+            ( _("Boot"), ['drakboot'] ),
+        ]
+
 def find_callback(param):
     '''Finds a callback for security option'''
     if param not in SETTINGS:
@@ -147,8 +188,19 @@ class MsecConfig:
         self.comments = []
         self.log = log
 
+    def merge(self, newconfig, overwrite=False):
+        """Merges parameters from newconfig to current config"""
+        for opt in newconfig.list_options():
+            if overwrite:
+                self.set(opt, newconfig.get(opt))
+            else:
+                self.get(opt, newconfig.get(opt))
+
     def load(self):
         """Loads and parses configuration file"""
+        if not self.config:
+            # No associated file
+            return True
         try:
             fd = open(self.config)
         except:
@@ -193,6 +245,9 @@ class MsecConfig:
 
     def save(self):
         """Saves configuration. Comments go on top"""
+        if not self.config:
+            # No associated file
+            return True
         try:
             fd = open(self.config, "w")
         except:
@@ -275,5 +330,125 @@ class PermConfig(MsecConfig):
                 force = ""
             print >>fd, "%s\t%s.%s\t%s%s" % (file, user, group, perm, force)
         return True
+# }}}
+
+# {{{ AuthConfig
+class AuthConfig(MsecConfig):
+    """Msec auth configuration config"""
+    def __init__(self, log, config=MANDRIVA_TOOLS):
+        self.config = config
+        self.options = {}
+        self.log = log
+        self.user_r = re.compile("USER=(.*)")
+        self.auth_root = "USER=root"
+        self.auth_user = "USER=<user>"
+
+    def load(self):
+        """Loads Mandriva auth configuration"""
+        # TODO: this should probably go to libmsec..
+        for app in self.config:
+            # first, lets see if file exists
+            try:
+                link = os.readlink("/etc/pam.d/%s" % app)
+            except:
+                self.log.error(_("Unable to access /etc/pam.d/%s: %s") % (app, sys.exc_value))
+                self.set(app, None)
+                continue
+
+            auth = None
+            # checking auth
+            if link.find("mandriva-console-auth") != -1:
+                auth = AUTH_NO_PASSWD
+            elif link.find("mandriva-simple-auth") != -1:
+                try:
+                    # read console.apps data
+                    fd = open("/etc/security/console.apps/%s" % app)
+                    data = fd.read()
+                    fd.close()
+                    # locate correspondent user
+                    res = self.user_r.findall(data)
+                    if res:
+                        user = res[0]
+                        if user == "root":
+                            auth = AUTH_ROOT_PASSWD
+                        elif user == "<user>":
+                            auth = AUTH_USER_PASSWD
+                        else:
+                            # unknown authentication
+                            self.log.error(_("Unknown authentication scheme for %s: %s") % (app, link))
+                except:
+                    self.log.error(_("Error parsing /etc/security/console.apps/%s: %s") % (app, sys.exc_value))
+            else:
+                # unknown pam parameter?
+                self.log.error(_("Unknown authentication scheme for %s: %s") % (app, link))
+            self.set(app, auth)
+        return True
+
+    def list_options(self):
+        """Sorts and returns configuration parameters"""
+        sortedparams = self.options.keys()
+        if sortedparams:
+            sortedparams.sort()
+        return sortedparams
+
+
+    def symlinkf(self, src, target, create=True):
+        """Check if correct symlink exists and creates when necessary."""
+        try:
+            link = os.readlink(target)
+        except:
+            self.log.error(_("Unable to handle symlink from %s to %s: %s") % (src, target, sys.exc_value))
+            link = ""
+        if link == target:
+            return True
+        else:
+            if create:
+                os.unlink(target)
+                os.symlink(src, target)
+            return False
+
+    def replace_auth(self, file, auth):
+        """Replaces PAM authentication in file"""
+        try:
+            lines = []
+            changed = False
+            fd = open(file)
+            for line in fd.readlines():
+                line = line.strip()
+                res = self.user_r.search(line)
+                if res:
+                    if line.find(auth) == -1:
+                        self.log.debug("Changing <%s> to <%s> in %s" % (line, auth, file))
+                        changed = True
+                        line = auth
+                lines.append(line)
+            fd.close()
+            if changed:
+                fd = open(file, "w")
+                print >>fd, "\n".join(lines)
+                fd.close()
+        except:
+            traceback.print_exc()
+
+    def save(self):
+        """Saves configuration. Comments go on top"""
+        # TODO: this should probably go to libmsec..
+        link_console_auth = "/etc/pam.d/mandriva-console-auth"
+        link_simple_auth = "/etc/pam.d/mandriva-simple-auth"
+        for app in self.config:
+            auth = self.get(app)
+            file_pam = "/etc/pam.d/%s" % app
+            file_console = "/etc/security/console.apps/%s" % app
+            # well, let's rock
+            if auth == AUTH_NO_PASSWD:
+                self.symlinkf(link_console_auth, file_pam)
+            elif auth == AUTH_ROOT_PASSWD:
+                self.symlinkf(link_simple_auth, file_pam)
+                self.replace_auth(file_console, self.auth_root)
+            elif auth == AUTH_USER_PASSWD:
+                self.symlinkf(link_simple_auth, file_pam)
+                self.replace_auth(file_console, self.auth_user)
+            else:
+                self.log.error(_("Invalid authentication %s for %s!") % (auth, app))
 # }}}
 

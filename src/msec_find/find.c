@@ -2,7 +2,7 @@
  * Written by Thierry Vignaud,
  * heavilly modified for msec purpose by Vandoorselaere Yoann.
  *
- * This code is copyrighted by Mandrakesoft [(c) 2000] and is released under
+ * This code is copyrighted by Mandriva [(c) 2000] and is released under
  *  the GPL licence
  */
 

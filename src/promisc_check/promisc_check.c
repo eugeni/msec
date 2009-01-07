@@ -1,12 +1,12 @@
 /*****************************************************************************
  * Mandriva Linux Security                                                         *
  * Written by Vandoorselaere Yoann                                           *
- * (C) 1999-2005, Mandrakesoft		                                             *
+ * (C) 1999-2005, Mandriva		                                             *
  *****************************************************************************/
 
 /*****
 *
-* Copyright (C) 1999-2005 Mandrakesoft
+* Copyright (C) 1999-2005 Mandriva
 * All Rights Reserved
 *
 * This file is part of the Mandrake Security program.

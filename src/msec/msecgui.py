@@ -25,7 +25,7 @@ except:
     version = "development version"
 
 # libmsec
-from libmsec import MSEC, Log
+from libmsec import MSEC, PERMS, Log
 
 import logging
 
@@ -107,19 +107,20 @@ class MsecGui:
     (COLUMN_OPTION, COLUMN_DESCR, COLUMN_VALUE) = range(3)
     (COLUMN_PATH, COLUMN_USER, COLUMN_GROUP, COLUMN_PERM, COLUMN_FORCE) = range(5)
 
-    def __init__(self, log, msec, config, perms):
+    def __init__(self, log, msec, perms, config, permconfig):
         """Initializes gui"""
         self.log = log
         self.msec = msec
         self.config = config
         self.perms = perms
+        self.permconfig = permconfig
         # save original configuration
         self.oldconfig = {}
         for opt in config.list_options():
             self.oldconfig[opt] = config.get(opt)
         self.oldperms = {}
-        for opt in perms.list_options():
-            self.oldperms[opt] = perms.get(opt)
+        for opt in permconfig.list_options():
+            self.oldperms[opt] = permconfig.get(opt)
 
         self.window = gtk.Window()
         self.window.set_default_size(640, 480)
@@ -189,10 +190,10 @@ class MsecGui:
             curperms = config.load_default_perms(self.log, self.enforced_level)
         else:
             curconfig = self.config
-            curperms = self.perms
+            curperms = self.permconfig
         # apply config and preview changes
         self.msec.apply(curconfig)
-        msec.commit(False)
+        self.msec.commit(False)
         messages = self.log.get_buffer()
 
         # creating preview window
@@ -292,10 +293,17 @@ class MsecGui:
             # rewriting configuration
             for opt in curconfig.list_options():
                 self.config.set(opt, curconfig.get(opt))
+            for perm in curperms.list_options():
+                self.permconfig.set(perm, curperms.get(perm))
         # saving the configuration
         self.config.save()
-        msec.apply(self.config)
-        msec.commit(True)
+        self.msec.apply(self.config)
+        self.msec.commit(True)
+        # saving permissions
+        self.permconfig.save()
+        # this is done periodically
+        #self.perms.check_perms(self.permconfig)
+        #self.perms.commit(True)
         self.quit(widget)
 
     def create_treeview(self, options):
@@ -354,7 +362,7 @@ class MsecGui:
                 doc = HELP[option]
             else:
                 # get description from function comments
-                func = msec.get_action(callback)
+                func = self.msec.get_action(callback)
                 if func:
                     doc = func.__doc__.strip()
                 else:
@@ -603,8 +611,8 @@ class MsecGui:
 
         sw.add(treeview)
 
-        for file in self.perms.list_options():
-            user_s, group_s, perm_s, force = self.perms.get(file)
+        for file in self.permconfig.list_options():
+            user_s, group_s, perm_s, force = self.permconfig.get(file)
 
             # convert to boolean
             if force:
@@ -680,7 +688,7 @@ class MsecGui:
         newperm = entry_perm.get_text()
         dialog.destroy()
 
-        self.perms.set(file, (newuser, newgroup, newperm))
+        self.permconfig.set(file, (newuser, newgroup, newperm))
         model.set(iter, self.COLUMN_USER, newuser)
         model.set(iter, self.COLUMN_GROUP, newgroup)
         model.set(iter, self.COLUMN_PERM, newperm)
@@ -789,9 +797,10 @@ if __name__ == "__main__":
 
     # creating an msec instance
     msec = MSEC(log)
+    perms = PERMS(log)
 
     log.info("Starting gui..")
 
-    gui = MsecGui(log, msec, msec_config, perm_conf)
+    gui = MsecGui(log, msec, perms, msec_config, perm_conf)
     gtk.main()
 

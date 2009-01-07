@@ -160,7 +160,7 @@ footer = '''.RE
 .SH NOTES
 Msec applications must be run by root.
 .SH AUTHORS
-Frederic Lepied <flepied@mandriva.com>
+Frederic Lepied
 
 Eugeni Dodonov <eugeni@mandriva.com>
 '''

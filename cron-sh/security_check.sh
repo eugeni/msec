@@ -56,10 +56,10 @@ fi
 
 if [[ ${CHECK_PERMS} == yes ]]; then
 	# running msec_perms
-	test -x /usr/bin/msecperms && /usr/sbin/msecperms 2>&1 > ${TMP}
+	/usr/sbin/msecperms > ${TMP} 2>&1
 	if [[ -s ${TMP} ]]; then
-		printf "\tPermissions changes on system files:\n" >> ${SECURITY}
-		cat ${TMP} >> ${SECURITY}
+		printf "\nPermissions changes on system files:\n" >> ${SECURITY}
+		cat ${TMP} | sed -e 's/WARNING: //g' >> ${SECURITY}
 	fi
 fi
 

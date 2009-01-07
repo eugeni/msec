@@ -470,7 +470,7 @@ class MsecGui:
         vbox.pack_start(entry, False, False)
 
         # Are we enforcing a new security level
-        entry = gtk.CheckButton(_("Enforce a new security level"))
+        entry = gtk.CheckButton(_("Enforce a new security level, overwriting all local changes"))
 
         # security levels
         frame = gtk.Frame()

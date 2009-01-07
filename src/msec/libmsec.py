@@ -1170,7 +1170,7 @@ class MSEC:
         menulst.exists() and menulst.remove_line_matching('^password\s')
 
     def enable_console_log(self, arg, expr='*.*', dev='tty12'):
-        '''  Enable/Disable syslog reports to console 12. \\fIexpr\\fP is the expression describing what to log (see syslog.conf(5) for more details) and dev the device to report the log.'''
+        '''  Enable/Disable syslog reports to console terminal 12.'''
 
         syslogconf = self.configfiles.get_config_file(SYSLOGCONF)
 

@@ -31,8 +31,8 @@ else
     exit 1
 fi
 
-if [ -r /etc/sysconfig/msec ]; then
-    . /etc/sysconfig/msec
+if [ -r /etc/security/shell ]; then
+    . /etc/security/shell
 fi
 
 umask ${UMASK_ROOT=077}

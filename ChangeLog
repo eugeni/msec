@@ -1,255 +1,403 @@
-2009-01-07 15:08  eugeni
-	
-	* Complete redesign of msec for Mandriva 2009.1.
+2009-01-07 02:34  Eugeni Dodonov <eugeni at mandriva.com>
 
-2008-03-25 15:08  pixel
+	* ChangeLog: Updated ChangeLog.
+
+2009-01-07 01:57  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* man/C/msec.8, src/msec/libmsec.py: Updated terminal log option.
+
+2009-01-07 01:36  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/config.py, src/msec/msecgui.py: More informative system
+	  permission changes.
+
+2009-01-07 01:16  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/msecgui.py: Implemented permissions saving.
+
+2009-01-07 01:15  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/msecgui.py: Implemented system permission changes.
+
+2009-01-07 01:15  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/msecgui.py: Initial support for permission changes.
+
+2009-01-07 00:25  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/msecgui.py: Removed (a few) debugging messages.
+
+2009-01-07 00:25  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* cron-sh/security_check.sh: Improved system permissions check.
+
+2009-01-07 00:11  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/msec.py: Disabled logging to syslog from msec.py.
+
+2009-01-06 23:53  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* cron-sh/security_check.sh: Support for system files permission
+	  checks.
+
+2009-01-06 23:53  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* cron-sh/security_check.sh, src/msec/libmsec.py,
+	  src/msec/msecperms.py: Non-interactive permissions checking.
+
+2009-01-06 23:35  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile: Fixed typo for logrotate installation.
+
+2009-01-06 22:31  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile: Support for installing logrotate file.
+
+2009-01-06 22:31  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/README: Re-created README from man.
+
+2009-01-06 22:31  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile: Support for profile.d stuff installation.
+
+2009-01-06 22:30  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* msec.csh, msec.sh, profile.d, profile.d/msec.csh,
+	  profile.d/msec.sh: Added updated profile.d files.
+
+2009-01-06 22:30  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* AUTHORS: Updated AUTHORS file.
+
+2009-01-06 22:30  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/libmsec.py: Now saving shell security variables in
+	  /etc/security/shell.
+
+2009-01-06 22:04  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* man/C/msecgui.8, man/C/msecperm.8: Added man page for msecgui and
+	  msecperm (link to msec.8).
+
+2009-01-06 21:31  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile, conf/level.default, conf/level.none, conf/level.secure,
+	  conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
+	  conf/perm.5, conf/perm.default, conf/perm.none, conf/perm.secure,
+	  conf/server.4, conf/server.5, conf/server.default,
+	  conf/server.secure, cron-sh/diff_check.sh,
+	  cron-sh/promisc_check.sh, cron-sh/security.sh,
+	  cron-sh/security_check.sh, man/C/msec.8, man/C/mseclib.3,
+	  share/.svnignore, share/CHANGES, share/Config.py,
+	  share/ConfigFile.py, share/Log.py, share/Makefile,
+	  share/Perms.py, share/README, share/compile.py,
+	  share/draksec_help.py, share/libmsec.py, share/man.py,
+	  share/msec, share/msec.py, share/shadow.py, src/msec,
+	  src/msec/.svnignore, src/msec/CHANGES, src/msec/Makefile,
+	  src/msec/README, src/msec/compile.py, src/msec/config.py,
+	  src/msec/help_draksec.py, src/msec/libmsec.py, src/msec/man.py,
+	  src/msec/msec, src/msec/msec.py, src/msec/msecgui,
+	  src/msec/msecgui.py, src/msec/msecperms, src/msec/msecperms.py,
+	  src/msec/version.py, src/msec_find/Makefile,
+	  src/promisc_check/Makefile: Updated to working version of new
+	  msec.
+	  
+	  Conflicts:
+	  Makefile
+	  cron-sh/security_check.sh
+	  share/msec.py
+
+2009-01-06 21:31  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* cron-sh/security_check.sh: Added a note for bug #41709.
+
+2008-12-16 19:29  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* cron-sh/security.sh: Simplified rpm database check (#14361).
+
+2008-12-16 12:04  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile: 0.50.11
+
+2008-12-16 12:04  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* cron-sh/security.sh: Fixed invalid characters in security.sh
+	  (#26773).
+
+2008-12-16 12:04  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* share/msec.py: Fixed sshd_config PermitRootLogin check (#19726).
+
+2008-09-30 12:46  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* Makefile: 0.50.10
+
+2008-09-30 12:46  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* cron-sh/security.sh: run with idle IOnice priority (#42795)
+
+2008-09-30 12:19  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* cron-sh/security.sh: blacklist cifs instead of only smbfs for
+	  samba
+
+2008-09-30 12:18  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* cron-sh/security.sh: exclude /media from searching like /mnt is
+
+2008-03-25 15:08  Pixel <pixel at mandriva.com>
+
+	* ChangeLog: sync
+
+2008-03-25 15:08  Pixel <pixel at mandriva.com>
 
 	* Makefile: 0.50.9: do not allow msec to mess with umask=xxx for
 	  vfat in level 3 (#37222)
 
-2008-03-25 15:06  pixel
+2008-03-25 15:06  Pixel <pixel at mandriva.com>
 
 	* share/msec.py: do not allow msec to mess with umask=xxx for vfat
 	  in level 3 (#37222)
 
-2008-03-07 10:04  tv
+2008-03-07 10:04  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* ChangeLog: update
 
-2008-03-07 10:00  tv
+2008-03-07 10:00  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: (tar) no need to be verbose
 
-2008-03-07 10:00  tv
+2008-03-07 10:00  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: add space
 
-2008-03-07 09:59  tv
+2008-03-07 09:59  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: (tar) prevent using a large & useless temporary file
 
-2008-03-07 09:59  tv
+2008-03-07 09:59  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: (dir) kill it since it would break svn export which
 	  need to remove it
 	  before operating
 
-2008-03-07 09:58  tv
+2008-03-07 09:58  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: (localdist) kill it since it performs the same stuff as
 	  (dist)
 
-2008-03-07 09:58  tv
+2008-03-07 09:58  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: (localcopy) kill it; it's useless with SVN, svn export
 	  does a better job
 
-2008-03-07 09:57  tv
+2008-03-07 09:57  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: (tar) no need to copy again the files through (export)
 	  since both
 	  (dist) & (localdist) already did it
 
-2008-03-07 09:55  tv
+2008-03-07 09:55  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: (export) do not package uncommited local diff (if any)
 
-2008-03-07 09:55  tv
+2008-03-07 09:55  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: (export) let's be not verbose
 
-2008-03-07 09:54  tv
+2008-03-07 09:54  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: (export) simplify
 
-2008-03-07 09:54  tv
+2008-03-07 09:54  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: (export) fix it when using a locale != C
 
-2008-03-07 09:50  tv
+2008-03-07 09:50  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/.cvsignore, share/.svnignore: rename .cvsignore as
 	  .svnignore
 
-2008-03-07 09:49  tv
+2008-03-07 09:49  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: (localcopy) we no more have CVS/ but .svn
 
-2008-03-07 09:45  tv
+2008-03-07 09:45  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: 0.50.8
 
-2008-03-07 09:45  tv
+2008-03-07 09:45  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* cron-sh/security.sh: reduce I/O priority
 
-2008-01-25 12:23  andreas
+2008-01-25 12:23  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* Makefile, src/msec_find/Makefile: - use large file support in
 	  msec_find (#36047)
 
-2008-01-25 11:17  andreas
+2008-01-25 11:17  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* Makefile, cron-sh/security.sh: - remove non-printable characters
 	  from email report
 	  (#36848)
 
-2008-01-11 20:11  andreas
+2008-01-11 20:11  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* man/C/mseclib.3: - add EXCLUDE_REGEXP to mseclib.3 manpage
 
-2008-01-11 18:40  andreas
+2008-01-11 18:40  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* ChangeLog: - update ChangeLog
 
-2008-01-11 18:08  andreas
+2008-01-11 18:08  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* Makefile, share/ConfigFile.py: - fix infinitely growing kdmrc
 	  with set variable AllowShutdown to None (#12821)
 
-2008-01-11 17:28  andreas
+2008-01-11 17:28  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* Makefile: - typo fix in makefile
 
-2008-01-11 17:06  andreas
+2008-01-11 17:06  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* Makefile: - prepare 0.50.4
 
-2008-01-11 17:03  andreas
+2008-01-11 17:03  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* ChangeLog: - update ChangeLog
 
-2008-01-11 17:00  andreas
+2008-01-11 17:00  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* cron-sh/security.sh: - don't place too many packages in the
 	  command line (#36656)
 
-2008-01-11 13:35  andreas
+2008-01-11 13:35  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* src/msec_find/find.c: - exclude pipes and sockets from
 	  world-writable report (#27530)
 
-2008-01-11 13:34  andreas
+2008-01-11 13:34  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* share/Perms.py: - properly dereference symlinks when checking for
 	  remote filesystem (#14387)
 
-2008-01-11 13:31  andreas
+2008-01-11 13:31  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* ChangeLog, cron-sh/security.sh, share/Perms.py,
 	  src/msec_find/find.c: - oops, revert 232939, more changes got
 	  into that commit than I wanted
 
-2008-01-11 13:28  andreas
+2008-01-11 13:28  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* ChangeLog, cron-sh/security.sh, share/Perms.py,
 	  src/msec_find/find.c: - properly dereference symlinks when
 	  checking for remote filesystem (#14387)
 
-2008-01-10 20:32  andreas
+2008-01-10 20:32  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* Makefile: - do an svn up before svn2cl to make sure log messages
 	  are current
 
-2008-01-10 20:30  andreas
+2008-01-10 20:30  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* cron-sh/security.sh: - include rpc_pipefs and securityfs in the
 	  list of filesystems that should
 	  be skipped for msec_find
 
-2008-01-10 19:30  andreas
+2008-01-10 19:30  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* cron-sh/diff_check.sh, cron-sh/security.sh: - include chkrootkit
 	  diff report (#21369)
 
-2008-01-10 19:09  andreas
+2008-01-10 19:09  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* cron-sh/security.sh: - include ipv6 in the report (#19486)
 
-2008-01-10 17:13  andreas
+2008-01-10 17:13  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* share/libmsec.py: - gdm.conf is now called custom.conf
 
-2008-01-10 17:12  andreas
+2008-01-10 17:12  Andreas Hasenack <andreas at mandriva.com.br>
 
 	* conf/perm.2, conf/perm.3: - don't change X's log file permissions
 	  (#2778)
 
-2007-08-18 16:11  nanardon
+2007-08-18 16:11  Olivier Thauvin <thauvin at aerov.jussieu.fr>
 
 	* man/C/mseclib.3, share/libmsec.py, share/msec.py: - add
 	  set_user_umask() for fs (pixel)
 
-2007-03-05 10:23  guillomovitch
+2007-03-05 10:23  Guillaume Rousse <guillomovitch at mandriva.org>
 
 	* Makefile: bump release
 
-2007-03-05 10:22  guillomovitch
+2007-03-05 10:22  Guillaume Rousse <guillomovitch at mandriva.org>
 
 	* Makefile: svntag target
 
-2007-03-05 10:13  guillomovitch
+2007-03-05 10:13  Guillaume Rousse <guillomovitch at mandriva.org>
 
 	* ChangeLog, Makefile: bump release
 
-2007-03-05 10:10  guillomovitch
+2007-03-05 10:10  Guillaume Rousse <guillomovitch at mandriva.org>
 
 	* cron-sh/security.sh: use /proc/mounts instead of mount output for
 	  filtering filesystem, because of autofs v5 (fix #27284)
 
-2007-03-02 00:22  nanardon
+2007-03-02 00:22  Olivier Thauvin <thauvin at aerov.jussieu.fr>
 
 	* share/libmsec.py: - fixing #12353 according solution found in dup
 	  #29016
 
-2007-03-02 00:13  nanardon
+2007-03-02 00:13  Olivier Thauvin <thauvin at aerov.jussieu.fr>
 
 	* share/libmsec.py: - fix #27956
 
-2006-12-09 02:38  pablo
+2006-12-09 02:38  Pablo Saratxaga
 
 	* man/cs/msec.8, man/et/msec.8, man/fi/msec.8, man/fr/msec.8,
 	  man/it/msec.8, man/pl/msec.8, man/ru/msec.8, man/uk/msec.8:
 	  converted to utf-8
 
-2006-08-25 10:15  nanardon
+2006-08-25 10:15  Olivier Thauvin <thauvin at aerov.jussieu.fr>
 
 	* share/libmsec.py: - hopefully fix #12190
 
-2006-08-25 10:14  nanardon
+2006-08-25 10:14  Olivier Thauvin <thauvin at aerov.jussieu.fr>
 
 	* Makefile: - 0.50.1
 
-2006-08-11 02:55  nanardon
+2006-08-11 02:55  Olivier Thauvin <thauvin at aerov.jussieu.fr>
 
 	* ChangeLog, cron-sh/promisc_check.sh, cron-sh/security.sh: - add
 	  -- to logger before message, fixing #24261
 
-2006-08-04 14:48  nanardon
+2006-08-04 14:48  Olivier Thauvin <thauvin at aerov.jussieu.fr>
 
 	* msec.spec: - remove now useless spec file
 
-2006-08-04 14:15  nanardon
+2006-08-04 14:15  Olivier Thauvin <thauvin at aerov.jussieu.fr>
 
 	* ChangeLog, Makefile, man/C/mseclib.3, msec.spec: - split rpm
 	  generation from software, cleanup, svn adaptation
 
-2006-08-04 14:01  nanardon
+2006-08-04 14:01  Olivier Thauvin <thauvin at aerov.jussieu.fr>
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5, msec.csh, share/libmsec.py: - remove X11R6 reference
 
-2006-05-04 14:11  mscherer
+2006-05-04 14:11  Michael Scherer <misc at mandriva.org>
 
 	* src/msec_find/find.c: revert last spurious commit
 
-2006-05-04 14:03  mscherer
+2006-05-04 14:03  Michael Scherer <misc at mandriva.org>
 
 	* cron-sh/promisc_check.sh, cron-sh/security.sh,
 	  src/msec_find/find.c: fix bug #21090, by using logger instead of
 	  deprecated initlog, thanks blino
 
-2005-11-21 10:21  flepied
+2005-11-21 10:21  Frederic Lepied
 
 	* init-sh/custom.sh, init-sh/file_perm.sh, init-sh/grpuser.sh,
 	  init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
@@ -257,443 +405,443 @@
 	  init-sh/levelsnf.sh, init-sh/lib.sh, init-sh/lib.sh.usermode,
 	  init-sh/msec: no longer needed (since the switch to python)
 
-2005-11-18 11:16  flepied
+2005-11-18 11:16  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 18_Nov
 
-2005-11-18 11:15  flepied
+2005-11-18 11:15  Frederic Lepied
 
 	* msec.spec: 0.49.1-1mdk
 
-2005-11-18 11:10  flepied
+2005-11-18 11:10  Frederic Lepied
 
 	* cron-sh/security_check.sh: fix bug #17921 by parsing correctly
 	  the output of ls.
 
-2005-11-14 15:20  flepied
+2005-11-14 15:20  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 14_Nov
 
-2005-11-14 15:20  flepied
+2005-11-14 15:20  Frederic Lepied
 
 	* msec.spec: real 0.49-1mdk
 
-2005-11-14 15:18  flepied
+2005-11-14 15:18  Frederic Lepied
 
 	* msec.spec: 0.49-1mdk
 
-2005-11-14 15:16  flepied
+2005-11-14 15:16  Frederic Lepied
 
 	* Makefile: fix version gathering
 
-2005-11-14 15:04  flepied
+2005-11-14 15:04  Frederic Lepied
 
 	* share/libmsec.py: fix #19206 by really generating
 	  /var/lib/msec/security.conf
 
-2005-09-19 14:50  flepied
+2005-09-19 14:50  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 19_Sep
 
-2005-09-19 14:50  flepied
+2005-09-19 14:50  Frederic Lepied
 
 	* msec.spec: 0.48-1mdk
 
-2005-09-19 14:50  flepied
+2005-09-19 14:50  Frederic Lepied
 
 	* share/libmsec.py: enable_pam_root_from_wheel: fixed too laxist
 	  config in level 2 (bug #18403).
 
-2005-09-08 22:46  flepied
+2005-09-08 22:46  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 09_Sep
 
-2005-09-08 22:45  flepied
+2005-09-08 22:45  Frederic Lepied
 
 	* msec.spec: 0.47.5-1mdk
 
-2005-09-08 22:44  flepied
+2005-09-08 22:44  Frederic Lepied
 
 	* share/Makefile: add a check to be sure to avoid print statements
 	  in python files
 
-2005-09-08 22:32  flepied
+2005-09-08 22:32  Frederic Lepied
 
 	* share/libmsec.py: removed print statement.
 
-2005-09-08 14:14  flepied
+2005-09-08 14:14  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 08_Sep
 
-2005-09-08 14:14  flepied
+2005-09-08 14:14  Frederic Lepied
 
 	* msec.spec: 0.47.4-1mdk
 
-2005-09-08 14:10  flepied
+2005-09-08 14:10  Frederic Lepied
 
 	* share/shadow.py: print_changes: make an exception for
 	  set_shell_history_size.
 
-2005-09-08 14:08  flepied
+2005-09-08 14:08  Frederic Lepied
 
 	* share/ConfigFile.py: replace_line_matching: allow to pass the
 	  string to insert at the end if nothing
 	  is found.
 
-2005-09-08 14:07  flepied
+2005-09-08 14:07  Frederic Lepied
 
 	* share/libmsec.py: allow_xserver_to_listen: adapt to new way of
 	  specifying X server arguments for kdm (bug #15759).
 
-2005-09-08 10:19  flepied
+2005-09-08 10:19  Frederic Lepied
 
 	* share/libmsec.py: fixed security.conf path (bug #18271).
 
-2005-09-08 09:41  flepied
+2005-09-08 09:41  Frederic Lepied
 
 	* share/msec.py: fix allow_xserver_to_listen in level 0 (bug
 	  #18271).
 
-2005-09-08 09:31  flepied
+2005-09-08 09:31  Frederic Lepied
 
 	* man/C/mseclib.3: regenerated with the right email
 
-2005-09-08 09:31  flepied
+2005-09-08 09:31  Frederic Lepied
 
 	* share/man.py: fix email
 
-2005-09-08 09:27  flepied
+2005-09-08 09:27  Frederic Lepied
 
 	* msec.sh: bourne shell compatible
 
-2005-09-08 09:25  flepied
+2005-09-08 09:25  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 08_Sep
 
-2005-09-08 09:20  flepied
+2005-09-08 09:20  Frederic Lepied
 
 	* cron-sh/security.sh: fix parsing of rpm -Va (bug #18326 , Michael
 	  Reinsch).
 
-2005-09-06 05:45  flepied
+2005-09-06 05:45  Frederic Lepied
 
 	* cron-sh/security.sh: don't check sysfs and usbfs file system (bug
 	  #14359).
 
-2005-09-01 13:05  flepied
+2005-09-01 13:05  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 01_Sep
 
-2005-09-01 13:04  flepied
+2005-09-01 13:04  Frederic Lepied
 
 	* msec.spec: 0.47.3-1mdk
 
-2005-09-01 12:53  flepied
+2005-09-01 12:53  Frederic Lepied
 
 	* conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4, conf/perm.5:
 	  make /etc/rc.d/init.d/functions always readable (bug #18080)
 
-2005-08-17 06:53  flepied
+2005-08-17 06:53  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 17_Aug
 
-2005-08-17 06:52  flepied
+2005-08-17 06:52  Frederic Lepied
 
 	* msec.spec: 0.47.2-1mdk
 
-2005-08-17 06:51  flepied
+2005-08-17 06:51  Frederic Lepied
 
 	* share/libmsec.py: password_aging: fix for empty max field.
 
-2005-08-16 08:15  flepied
+2005-08-16 08:15  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 16_Aug
 
-2005-08-16 08:14  flepied
+2005-08-16 08:14  Frederic Lepied
 
 	* msec.spec: 0.47.1-1mdk
 
-2005-08-16 08:13  flepied
+2005-08-16 08:13  Frederic Lepied
 
 	* share/libmsec.py: password_aging: really fix bug #17477 by not
 	  parsing the output of chage anymore.
 
-2005-08-13 22:16  tvignaud
+2005-08-13 22:16  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* man/fr/msec.8: sync last missing bits with english version
 
-2005-08-13 13:42  tvignaud
+2005-08-13 13:42  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* man/fr/msec.8: sync the outdated fr translation with the en
 	  version
 
-2005-08-13 13:41  tvignaud
+2005-08-13 13:41  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* man/C/msec.8: add manpage link
 
-2005-08-12 08:27  flepied
+2005-08-12 08:27  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 12_Aug
 
-2005-08-12 08:26  flepied
+2005-08-12 08:26  Frederic Lepied
 
 	* msec.spec: fixed PreReq
 
-2005-08-12 08:20  flepied
+2005-08-12 08:20  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 12_Aug
 
-2005-08-12 08:17  flepied
+2005-08-12 08:17  Frederic Lepied
 
 	* msec.spec: 0.47-1mdk
 
-2005-08-12 08:10  flepied
+2005-08-12 08:10  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 12_Aug
 
-2005-08-12 08:07  flepied
+2005-08-12 08:07  Frederic Lepied
 
 	* cron-sh/security_check.sh: fix user or homedir with spaces in
 	  (bug #16237).
 
-2005-08-12 07:20  flepied
+2005-08-12 07:20  Frederic Lepied
 
 	* share/libmsec.py: password_aging: never means -1
 
-2005-08-12 06:18  flepied
+2005-08-12 06:18  Frederic Lepied
 
 	* conf/perm.2, conf/perm.3, conf/perm.4, conf/perm.5: added
 	  /etc/rc.d/init.d/xprint exception
 
-2005-08-12 06:07  flepied
+2005-08-12 06:07  Frederic Lepied
 
 	* share/libmsec.py: allow_user_list: fixed kdmrc settings.
 	  support new inittab syntax for single user mode.
 	  fix parsing of new chage output (bug #17477).
 
-2005-08-10 06:33  flepied
+2005-08-10 06:33  Frederic Lepied
 
 	* Makefile, cron-sh/security_check.sh, msec.spec, share/Config.py,
 	  share/ConfigFile.py, share/Log.py, share/Makefile,
 	  share/Perms.py, share/README, share/draksec_help.py,
 	  share/man.py, share/msec, share/shadow.py: Mandriva Linux
 
-2005-08-10 06:27  flepied
+2005-08-10 06:27  Frederic Lepied
 
 	* share/Perms.py: more robust parsing
 
-2005-08-10 06:26  flepied
+2005-08-10 06:26  Frederic Lepied
 
 	* src/promisc_check/promisc_check.c: fixed compilation warnings
 
-2005-08-09 22:41  flepied
+2005-08-09 22:41  Frederic Lepied
 
 	* share/libmsec.py: fixed wrong kdmrc values (bug #16268).
 	  follow new Single user need in inittab.
 
-2005-07-14 04:00  flepied
+2005-07-14 04:00  Frederic Lepied
 
 	* cron-sh/security_check.sh: shell variable protection (Frederic
 	  Marmond).
 
-2005-06-30 06:54  flepied
+2005-06-30 06:54  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5: manage apache files (Guillaume Rousse) (bug #12183)
 
-2005-06-17 10:01  flepied
+2005-06-17 10:01  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 17_Jun
 
-2005-06-17 10:00  flepied
+2005-06-17 10:00  Frederic Lepied
 
 	* msec.spec: 0.46-1mdk
 
-2005-06-17 09:59  flepied
+2005-06-17 09:59  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 17_Jun
 
-2005-06-17 09:58  flepied
+2005-06-17 09:58  Frederic Lepied
 
 	* man/C/msec.8, man/C/mseclib.3, man/cs/msec.8, man/et/msec.8,
 	  man/eu/msec.8, man/fi/msec.8, man/fr/msec.8, man/it/msec.8,
 	  man/nl/msec.8, man/pl/msec.8, man/ru/msec.8, man/uk/msec.8,
 	  msec.csh: mandriva
 
-2005-06-17 09:16  flepied
+2005-06-17 09:16  Frederic Lepied
 
 	* msec.spec: mandriva
 
-2005-06-17 09:14  flepied
+2005-06-17 09:14  Frederic Lepied
 
 	* share/msec.py: call enable_pam_root_from_wheel
 
-2005-06-17 09:13  flepied
+2005-06-17 09:13  Frederic Lepied
 
 	* share/libmsec.py: new function enable_pam_root_from_wheel to
 	  allow transparent root access
 	  for the wheel group members.
 
-2005-06-17 09:13  flepied
+2005-06-17 09:13  Frederic Lepied
 
 	* Makefile: clean after build.
 
-2005-03-21 16:06  flepied
+2005-03-21 16:06  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 21_Mar
 
-2005-03-21 16:05  flepied
+2005-03-21 16:05  Frederic Lepied
 
 	* msec.spec: 0.45.1-1mdk
 
-2005-03-21 16:01  flepied
+2005-03-21 16:01  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 21_Mar
 
-2005-03-21 15:00  flepied
+2005-03-21 15:00  Frederic Lepied
 
 	* share/libmsec.py: password_history: touch opasswd to have it
 	  work.
 
-2005-03-21 14:59  flepied
+2005-03-21 14:59  Frederic Lepied
 
 	* share/README: documented allow xauth from root.
 	  added current to authorized permissions.
 
-2005-03-21 11:31  flepied
+2005-03-21 11:31  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 21_Mar
 
-2005-03-21 11:31  flepied
+2005-03-21 11:31  Frederic Lepied
 
 	* cron-sh/security.sh: added a CHKROOTKIT_OPTION variable used to
 	  pass arguments to chkrootkit.
 
-2005-03-11 14:41  tvignaud
+2005-03-11 14:41  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* ChangeLog: Generated by cvs2cl the 11_Meu
 
-2005-02-23 18:00  pablo
+2005-02-23 18:00  Pablo Saratxaga
 
 	* ChangeLog: converted to UTF-8
 
-2005-02-21 17:06  flepied
+2005-02-21 17:06  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 21_Feb
 
-2005-02-21 17:05  flepied
+2005-02-21 17:05  Frederic Lepied
 
 	* msec.spec: 0.45-1mdk
 
-2005-02-21 17:05  flepied
+2005-02-21 17:05  Frederic Lepied
 
 	* src/msec_find/find.c: use the EXCLUDE_REGEXP to be able to
 	  exclude files or directory from the
 	  reports.
 
-2005-02-21 14:51  flepied
+2005-02-21 14:51  Frederic Lepied
 
 	* share/libmsec.py: better doc for allow_remote_root_login.
 
-2005-02-21 14:16  flepied
+2005-02-21 14:16  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 21_Feb
 
-2005-02-21 13:34  flepied
+2005-02-21 13:34  Frederic Lepied
 
 	* cron-sh/security.sh, cron-sh/security_check.sh: filter home dir
 	  too (Guillaume Rousse, bug #12335)
 
-2005-02-21 13:25  flepied
+2005-02-21 13:25  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5: fixed sendmail perms (bug #13515).
 
-2005-02-21 10:44  flepied
+2005-02-21 10:44  Frederic Lepied
 
 	* conf/perm.4: fix ld.so.conf perm wrt compilation (bug #13718).
 
-2004-09-30 05:15  flepied
+2004-09-30 05:15  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 30_Sep
 
-2004-09-30 05:09  flepied
+2004-09-30 05:09  Frederic Lepied
 
 	* msec.spec: 0.44.2-1mdk
 
-2004-09-30 05:08  flepied
+2004-09-30 05:08  Frederic Lepied
 
 	* share/libmsec.py: allow_reboot: remove consolehelper links
 	  instead of files in
 	  /etc/security/console.apps.
 
-2004-09-30 02:50  flepied
+2004-09-30 02:50  Frederic Lepied
 
 	* share/libmsec.py: control CTRL+ALT-DEL in allow_reboot
 
-2004-09-08 15:24  reinouts
+2004-09-08 15:24  Reinout van Schouwen <reinout at gmail.com>
 
 	* man/nl, man/nl/msec.8: Updated Dutch (nl) translation
 	  by Reinout van Schouwen <reinout@cs.vu.nl>
 	  * msec manpage
 
-2004-09-07 08:38  pablo
+2004-09-07 08:38  Pablo Saratxaga
 
 	* man/it, man/it/msec.8: Added Italian man page
 
-2004-07-30 02:03  flepied
+2004-07-30 02:03  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 30_Jul
 
-2004-07-30 02:03  flepied
+2004-07-30 02:03  Frederic Lepied
 
 	* msec.spec: 0.44.1-1mdk
 
-2004-07-30 02:03  flepied
+2004-07-30 02:03  Frederic Lepied
 
 	* share/ConfigFile.py: fix directory creation code
 
-2004-07-29 23:53  flepied
+2004-07-29 23:53  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 30_Jul
 
-2004-07-29 23:51  flepied
+2004-07-29 23:51  Frederic Lepied
 
 	* msec.spec: 0.44-1mdk
 
-2004-07-29 23:50  flepied
+2004-07-29 23:50  Frederic Lepied
 
 	* doc/security.txt: document allow_xauth_from_root levels
 
-2004-07-29 23:48  flepied
+2004-07-29 23:48  Frederic Lepied
 
 	* share/msec.py: call allow_xauth_from_root
 
-2004-07-29 23:43  flepied
+2004-07-29 23:43  Frederic Lepied
 
 	* man/C/msec.8, man/cs/msec.8, man/et/msec.8, man/eu/msec.8,
 	  man/fi/msec.8, man/fr/msec.8, man/pl/msec.8, man/ru/msec.8,
 	  man/uk/msec.8: remove yoann@mandrakesoft.com no more valid
 	  address
 
-2004-07-29 23:40  flepied
+2004-07-29 23:40  Frederic Lepied
 
 	* man/C/mseclib.3: first version
 
-2004-07-29 23:38  flepied
+2004-07-29 23:38  Frederic Lepied
 
 	* share/Makefile: generate mseclib.3 in man directory
 
-2004-07-29 23:37  flepied
+2004-07-29 23:37  Frederic Lepied
 
 	* share/Perms.py: the config file is now forcing permissions even
 	  if it's lowering the security.
 
-2004-07-29 23:31  flepied
+2004-07-29 23:31  Frederic Lepied
 
 	* msec.spec: 0.44-1mdk
 
-2004-07-29 23:28  flepied
+2004-07-29 23:28  Frederic Lepied
 
 	* man/C/msec.8, man/cs/msec.8, man/et/msec.8, man/eu/msec.8,
 	  man/fi/msec.8, man/fr/msec.8, man/pl/msec.8, man/ru/msec.8,
@@ -702,228 +850,228 @@
 	  share/libmsec.py, share/man.py, share/msec, share/msec.py,
 	  share/shadow.py: Mandrakelinux
 
-2004-07-29 23:16  flepied
+2004-07-29 23:16  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 30_Jul
 
-2004-07-29 23:16  flepied
+2004-07-29 23:16  Frederic Lepied
 
 	* share/ConfigFile.py: mkdir_p: corrected test of existence
 
-2004-07-29 23:11  flepied
+2004-07-29 23:11  Frederic Lepied
 
 	* share/libmsec.py: added allow_xauth_from_root
 
-2004-07-29 23:10  flepied
+2004-07-29 23:10  Frederic Lepied
 
 	* share/ConfigFile.py: create the intermediate directories before
 	  writing a file
 
-2004-07-07 08:40  flepied
+2004-07-07 08:40  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 07_Jul
 
-2004-07-07 08:40  flepied
+2004-07-07 08:40  Frederic Lepied
 
 	* msec.spec: 0.43-1mdk
 
-2004-07-07 08:38  flepied
+2004-07-07 08:38  Frederic Lepied
 
 	* msec.spec: 0.43-1mdk
 
-2004-07-07 08:35  flepied
+2004-07-07 08:35  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 07_Jul
 
-2004-07-07 08:34  flepied
+2004-07-07 08:34  Frederic Lepied
 
 	* conf/perm.3: fixed mailman permissions on files
 
-2004-06-22 09:11  prigaux
+2004-06-22 09:11  Pixel <pixel at mandriva.com>
 
 	* msec.csh: you can't do
 	  if ( ${?SECURE_LEVEL} && ${SECURE_LEVEL} <= 1 ) then
 	  in csh
 
-2004-06-17 23:52  flepied
+2004-06-17 23:52  Frederic Lepied
 
 	* cron-sh/security_check.sh: use getent
 
-2004-06-08 16:33  florin
+2004-06-08 16:33  Florin Grad
 
 	* conf/server.4: add ospfd
 
-2004-06-08 16:31  florin
+2004-06-08 16:31  Florin Grad
 
 	* conf/server.4: add some version
 
-2004-04-23 10:00  flepied
+2004-04-23 10:00  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 23_Apr
 
-2004-04-23 10:00  flepied
+2004-04-23 10:00  Frederic Lepied
 
 	* msec.spec: 0.42.2-1mdk
 
-2004-04-23 09:59  flepied
+2004-04-23 09:59  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 23_Apr
 
-2004-04-23 09:58  flepied
+2004-04-23 09:58  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5: corrected mailman log permissions (bug #9319)
 
-2004-03-22 05:51  flepied
+2004-03-22 05:51  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 22_Mar
 
-2004-03-22 05:50  flepied
+2004-03-22 05:50  Frederic Lepied
 
 	* msec.spec: Mandrake => Mandrakelinux
 
-2004-03-21 15:56  flepied
+2004-03-21 15:56  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 21_Mar
 
-2004-03-21 15:56  flepied
+2004-03-21 15:56  Frederic Lepied
 
 	* msec.spec: 0.42.1-1mdk
 
-2004-03-21 15:50  flepied
+2004-03-21 15:50  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 21_Mar
 
-2004-03-21 15:45  flepied
+2004-03-21 15:45  Frederic Lepied
 
 	* src/msec_find/find.c: workaround bug #9121 by not passing
 	  FTW_CHDIR to ntfw.
 
-2004-02-27 11:44  flepied
+2004-02-27 11:44  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 27_Feb
 
-2004-02-27 11:44  flepied
+2004-02-27 11:44  Frederic Lepied
 
 	* msec.spec: 0.42-1mdk
 
-2004-02-27 11:41  flepied
+2004-02-27 11:41  Frederic Lepied
 
 	* share/README: document perm file syntax
 
-2004-02-27 11:35  flepied
+2004-02-27 11:35  Frederic Lepied
 
 	* share/Perms.py: - allow to specify only group or user in perm
 	  files (Bill Shirley)
 	  - allow the force keyword in perm files to be able to lower
 	  security (Bill Shirley)
 
-2004-02-27 11:08  flepied
+2004-02-27 11:08  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5: mailman log dir fix (Guillaume Rousse)
 
-2004-02-14 21:13  flepied
+2004-02-14 21:13  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 14_Feb
 
-2004-02-14 21:13  flepied
+2004-02-14 21:13  Frederic Lepied
 
 	* msec.spec: 0.41.1-1mdk
 
-2004-02-14 19:24  flepied
+2004-02-14 19:24  Frederic Lepied
 
 	* cron-sh/diff_check.sh: allow % in file names [bug #6144] (Sven
 	  Hoexter)
 
-2004-02-14 19:19  flepied
+2004-02-14 19:19  Frederic Lepied
 
 	* share/libmsec.py: fixed system-auth growing line forever (bug
 	  #7853) (Michael Scherer)
 
-2004-02-12 16:13  flepied
+2004-02-12 16:13  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 12_Feb
 
-2004-02-12 16:13  flepied
+2004-02-12 16:13  Frederic Lepied
 
 	* share/libmsec.py: make it lib64 aware wrt pam files rewriting
 
-2004-02-12 16:12  flepied
+2004-02-12 16:12  Frederic Lepied
 
 	* msec.spec: 0.41-1mdk
 
-2004-02-12 16:08  flepied
+2004-02-12 16:08  Frederic Lepied
 
 	* man/C/msec.8: add pointers to perm files and draksec/drakperm
 
-2004-02-12 14:56  flepied
+2004-02-12 14:56  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 12_Feb
 
-2004-01-29 13:00  flepied
+2004-01-29 13:00  Frederic Lepied
 
 	* share/README: fixed location of perm files
 
-2004-01-06 10:56  prigaux
+2004-01-06 10:56  Pixel <pixel at mandriva.com>
 
 	* msec.csh, msec.spec: more csh-ish msec.csh
 
-2003-11-28 11:55  flepied
+2003-11-28 11:55  Frederic Lepied
 
 	* msec.csh: only set SECURE_LEVEL whenever it already exists
 	  locally
 
-2003-11-18 09:59  flepied
+2003-11-18 09:59  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 18_Nov
 
-2003-11-18 09:13  flepied
+2003-11-18 09:13  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5: fixed typo rpp => rpm
 
-2003-11-18 08:46  flepied
+2003-11-18 08:46  Frederic Lepied
 
 	* share/libmsec.py: allow_xserver_to_listen: corrected startx
 	  modifications (Gavin Porter)
 
-2003-11-18 08:45  flepied
+2003-11-18 08:45  Frederic Lepied
 
 	* cron-sh/security.sh: removed xfs from remote filesystems and
 	  added hfs in foreign filesystems (Stefaan Simoens)
 
-2003-10-30 15:10  flepied
+2003-10-30 15:10  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 30_Oct
 
-2003-10-30 15:00  flepied
+2003-10-30 15:00  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5: handle /var/lib/rpm/Packages
 
-2003-10-15 20:38  tvignaud
+2003-10-15 20:38  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* AUTHORS: list tv too
 
-2003-10-15 20:36  tvignaud
+2003-10-15 20:36  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* AUTHORS, README, TODO: fix #6145 (list current maintainer instead
 	  of old one)
 
-2003-10-15 20:36  tvignaud
+2003-10-15 20:36  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* Makefile: enable to build srpm only
 
-2003-10-09 05:59  flepied
+2003-10-09 05:59  Frederic Lepied
 
 	* share/libmsec.py: document same_level
 
-2003-10-08 21:15  flepied
+2003-10-08 21:15  Frederic Lepied
 
 	* share/msec.py: use local_config
 
-2003-10-08 21:15  flepied
+2003-10-08 21:15  Frederic Lepied
 
 	* share/shadow.py: Added local_config to say that the calls are now
 	  coming from the config file.
@@ -931,90 +1079,90 @@
 	  function need
 	  to be used even if the security is lowered.
 
-2003-10-08 21:10  flepied
+2003-10-08 21:10  Frederic Lepied
 
 	* share/libmsec.py: Rework same_level to be able to put the
 	  priority on the config file.
 	  This is realized by inspecting the stack trace and using a global
 	  associative array.
 
-2003-10-08 19:33  flepied
+2003-10-08 19:33  Frederic Lepied
 
 	* man/cs/msec.8, man/et/msec.8, man/fr/msec.8, man/ru/msec.8:
 	  Linux-Mandrake => Mandrake Linux
 
-2003-09-08 13:09  pablo
+2003-09-08 13:09  Pablo Saratxaga
 
 	* man/cs/msec.8: updated Czech man page
 
-2003-09-03 15:46  flepied
+2003-09-03 15:46  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 03_Sep
 
-2003-09-03 15:45  flepied
+2003-09-03 15:45  Frederic Lepied
 
 	* msec.spec: 0.40-1mdk
 
-2003-09-03 15:39  flepied
+2003-09-03 15:39  Frederic Lepied
 
 	* share/shadow.py: make an exception for set_shell_history_size
 	  that accept -1 as a normal argument
 
-2003-09-03 15:36  flepied
+2003-09-03 15:36  Frederic Lepied
 
 	* share/Perms.py: correct broken code in fix_perms which add +x for
 	  all files
 	  when it finds a directory in a glob.
 
-2003-08-22 12:54  flepied
+2003-08-22 12:54  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 22_Aug
 
-2003-08-22 12:54  flepied
+2003-08-22 12:54  Frederic Lepied
 
 	* msec.spec: 0.39-1mdk
 
-2003-08-22 12:53  flepied
+2003-08-22 12:53  Frederic Lepied
 
 	* msec.spec: 0.40-1mdk
 
-2003-08-22 09:56  flepied
+2003-08-22 09:56  Frederic Lepied
 
 	* share/Perms.py: better support for symlinks
 
-2003-08-22 09:53  flepied
+2003-08-22 09:53  Frederic Lepied
 
 	* share/shadow.py: don't use apply anymore (Olivier Blin)
 
-2003-08-22 09:50  flepied
+2003-08-22 09:50  Frederic Lepied
 
 	* share/libmsec.py: better doc for no_password_aging_for and
 	  set_security_conf
 	  allow to pass a number in set_umask
 
-2003-08-22 08:52  flepied
+2003-08-22 08:52  Frederic Lepied
 
 	* share/libmsec.py: be carefull to use 1 or 0 instead of True and
 	  False in set_zero_one_variable
 
-2003-07-24 17:25  tvignaud
+2003-07-24 17:25  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* msec.spec: resync with cooker
 
-2003-07-24 17:22  tvignaud
+2003-07-24 17:22  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* ChangeLog: Generated by cvs2cl the 24_Gou
 
-2003-07-24 17:22  tvignaud
+2003-07-24 17:22  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* msec.spec: fix upgrade (spotted by new draksec localization
 	  scheme)
 
-2003-07-24 17:15  tvignaud
+2003-07-24 17:15  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* ChangeLog: Generated by cvs2cl the 24_Gou
 
-2003-05-08 09:50  pablo
+2003-05-08 09:50  Pablo Saratxaga
 
 	* man/cs/init.sh.8, man/et/init.sh.8, man/eu/init.sh.8, man/fi,
 	  man/fi/msec.8, man/fr/init.sh.8, man/fr/msec.8, man/ru/init.sh.8,
@@ -1022,61 +1170,61 @@
 	  removed "init.sh" man page
 	  from translations
 
-2003-05-06 19:55  alus
+2003-05-06 19:55  Arkadiusz Lipiec <alipiec at elka.pw.edu.pl>
 
 	* man/pl/msec.8: Changes
 
-2003-05-06 19:42  alus
+2003-05-06 19:42  Arkadiusz Lipiec <alipiec at elka.pw.edu.pl>
 
 	* man/pl, man/pl/msec.8: Polish version of msec manual
 
-2003-03-07 14:28  flepied
+2003-03-07 14:28  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 07_Mar
 
-2003-03-07 14:27  flepied
+2003-03-07 14:27  Frederic Lepied
 
 	* msec.spec: 0.38-3mdk
 
-2003-03-07 14:25  flepied
+2003-03-07 14:25  Frederic Lepied
 
 	* share/libmsec.py: corrected inverted descriptions
 
-2003-02-17 17:36  flepied
+2003-02-17 17:36  Frederic Lepied
 
 	* share/libmsec.py: put description on one line not to modify
 	  draksec_help.py
 
-2003-02-17 14:37  flepied
+2003-02-17 14:37  Frederic Lepied
 
 	* share/libmsec.py: reworded CHECK_PASSWD description
 
-2003-02-03 15:22  tvignaud
+2003-02-03 15:22  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/draksec_help.py: help
 	  draksec::set_default_tip->formatAlaTeX() to have nicer tooltips
 
-2003-02-03 14:48  tvignaud
+2003-02-03 14:48  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/draksec_help.py: enforce gi policy for modules (it's the
 	  standalone tools job to provide a good
 	  @INC)
 
-2003-02-03 13:41  flepied
+2003-02-03 13:41  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 03_Feb
 
-2003-02-03 08:17  tvignaud
+2003-02-03 08:17  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/draksec_help.py: let this statement be more precise
 
-2003-02-03 08:15  tvignaud
+2003-02-03 08:15  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* msec.spec: move security::help from msec to drakxtools so that it
 	  get
 	  translated
 
-2003-02-03 08:15  tvignaud
+2003-02-03 08:15  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/draksec_help.py: - produce a perl module that pass strict
 	  mode checking
@@ -1088,149 +1236,149 @@
 	  perl
 	  rulez!)
 
-2003-02-03 08:14  tvignaud
+2003-02-03 08:14  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/libmsec.py: fix mseclib man page and draksec help (parsers
 	  drop first two bytes... :-()
 
-2003-01-31 12:10  pablo
+2003-01-31 12:10  Pablo Saratxaga
 
 	* man/et, man/et/init.sh.8, man/et/msec.8: Added Estonian files
 
-2003-01-20 13:07  flepied
+2003-01-20 13:07  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 20_Jan
 
-2003-01-20 13:06  flepied
+2003-01-20 13:06  Frederic Lepied
 
 	* Makefile: use rpm to find version and release
 
-2003-01-20 11:50  tvignaud
+2003-01-20 11:50  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* msec.spec: - bump version
 	  - install draksec help
 
-2003-01-20 11:50  tvignaud
+2003-01-20 11:50  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/Makefile: - add the drakesec help target
 	  - sanitize make rules through std macros to ease creating new
 	  rules
 
-2003-01-20 11:36  tvignaud
+2003-01-20 11:36  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* share/draksec_help.py: help generator for draksec gui
 
-2002-11-20 19:57  flepied
+2002-11-20 19:57  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 20_Nov
 
-2002-11-20 19:57  flepied
+2002-11-20 19:57  Frederic Lepied
 
 	* msec.spec: 0.37-1mdk
 
-2002-11-20 19:57  flepied
+2002-11-20 19:57  Frederic Lepied
 
 	* share/libmsec.py: password_aging: chage is l10n now so use
 	  LC_ALL=C before calling it.
 
-2002-11-07 10:29  tvignaud
+2002-11-07 10:29  Thierry Vignaud <tvignaud at mandriva.com>
 
 	* msec.spec: requires s/(sh-|text|file)utils/coreutils/
 
-2002-09-17 14:13  flepied
+2002-09-17 14:13  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 17_Sep
 
-2002-09-17 14:12  flepied
+2002-09-17 14:12  Frederic Lepied
 
 	* msec.spec: X-\*-Core => X-:\*-Core
 
-2002-09-17 14:12  flepied
+2002-09-17 14:12  Frederic Lepied
 
 	* share/libmsec.py: allow_reboot: X-\*-Core => X-:\*-Core
 
-2002-09-17 13:38  flepied
+2002-09-17 13:38  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 17_Sep
 
-2002-09-17 13:38  flepied
+2002-09-17 13:38  Frederic Lepied
 
 	* msec.spec: better wording
 
-2002-09-17 13:09  flepied
+2002-09-17 13:09  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 17_Sep
 
-2002-09-17 13:08  flepied
+2002-09-17 13:08  Frederic Lepied
 
 	* msec.spec: 0.36-1mdk
 
-2002-09-17 13:08  flepied
+2002-09-17 13:08  Frederic Lepied
 
 	* share/libmsec.py: - allow_user_list handles Selected when not
 	  changing security level.
 	  - allow_reboot handles Root when not changing security level.
 
-2002-09-09 18:51  flepied
+2002-09-09 18:51  Frederic Lepied
 
 	* conf/server.4: removed double network entry
 
-2002-09-06 13:37  flepied
+2002-09-06 13:37  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 06_Sep
 
-2002-09-06 13:37  flepied
+2002-09-06 13:37  Frederic Lepied
 
 	* msec.spec: 0.34.5-2mdk
 
-2002-09-06 12:51  flepied
+2002-09-06 12:51  Frederic Lepied
 
 	* src/msec_find/find.c: SUID_GROUP_TODAY => SGID_TODAY
 
-2002-09-05 12:15  flepied
+2002-09-05 12:15  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 05_Sep
 
-2002-09-05 12:14  flepied
+2002-09-05 12:14  Frederic Lepied
 
 	* msec.spec: 0.34.5-1mdk
 
-2002-09-05 12:12  flepied
+2002-09-05 12:12  Frederic Lepied
 
 	* share/libmsec.py: allow_user_list: lookup ShowUsers in the
 	  X-*-Greeter section of kdmrc.
 
-2002-09-05 08:51  flepied
+2002-09-05 08:51  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 05_Sep
 
-2002-09-05 08:50  flepied
+2002-09-05 08:50  Frederic Lepied
 
 	* msec.spec: 0.34.4-2mdk
 
-2002-09-05 08:50  flepied
+2002-09-05 08:50  Frederic Lepied
 
 	* share/libmsec.py: removed debug output
 
-2002-09-03 07:01  flepied
+2002-09-03 07:01  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 03_Sep
 
-2002-09-03 06:57  flepied
+2002-09-03 06:57  Frederic Lepied
 
 	* cron-sh/diff_check.sh, cron-sh/security.sh, msec.spec,
 	  share/README, share/libmsec.py, share/msec.py: CHECK_SUID_GROUP
 	  => CHECK_SGID
 
-2002-08-30 12:22  flepied
+2002-08-30 12:22  Frederic Lepied
 
 	* msec.spec: 0.34.3-1mdk
 
-2002-08-30 12:21  flepied
+2002-08-30 12:21  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 30_Aug
 
-2002-08-30 12:20  flepied
+2002-08-30 12:20  Frederic Lepied
 
 	* cron-sh/diff_check.sh, cron-sh/security.sh,
 	  cron-sh/security_check.sh, doc/msec.lyx, doc/security.txt,
@@ -1238,108 +1386,108 @@
 	  share/libmsec.py, share/msec.py, src/msec_find/find.c: writeable
 	  => writable
 
-2002-08-30 12:18  flepied
+2002-08-30 12:18  Frederic Lepied
 
 	* share/Makefile: clean generated files
 
-2002-08-29 18:53  flepied
+2002-08-29 18:53  Frederic Lepied
 
 	* share/shadow.py: call function with no argument in
 	  commit_changes.
 
-2002-08-27 20:27  flepied
+2002-08-27 20:27  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 27_Aug
 
-2002-08-27 20:26  flepied
+2002-08-27 20:26  Frederic Lepied
 
 	* msec.spec: 0.34.2-1mdk
 
-2002-08-27 20:25  flepied
+2002-08-27 20:25  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5: fix /boot with a better way
 
-2002-08-27 14:13  flepied
+2002-08-27 14:13  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 27_Aug
 
-2002-08-27 14:13  flepied
+2002-08-27 14:13  Frederic Lepied
 
 	* msec.spec: 0.34.1-1mdk
 
-2002-08-27 14:10  flepied
+2002-08-27 14:10  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5: correct permissions for /boot/kernel.h*
 
-2002-08-27 14:03  flepied
+2002-08-27 14:03  Frederic Lepied
 
 	* Makefile: launch make in cron-sh to check shell script syntax
 
-2002-08-27 14:03  flepied
+2002-08-27 14:03  Frederic Lepied
 
 	* cron-sh/security.sh: correct syntax error
 
-2002-08-27 14:02  flepied
+2002-08-27 14:02  Frederic Lepied
 
 	* cron-sh/Makefile: check the syntax of the shell scripts
 
-2002-08-26 21:05  flepied
+2002-08-26 21:05  Frederic Lepied
 
 	* conf/server.4, conf/server.5: added dm
 
-2002-08-26 15:18  pablo
+2002-08-26 15:18  Pablo Saratxaga
 
 	* man/cs, man/cs/init.sh.8, man/cs/msec.8, man/ru,
 	  man/ru/init.sh.8, man/ru/msec.8: Added Czech and Russian man
 	  pages
 
-2002-08-25 19:56  flepied
+2002-08-25 19:56  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 25_Aug
 
-2002-08-25 19:55  flepied
+2002-08-25 19:55  Frederic Lepied
 
 	* msec.spec: 0.34-1mdk
 
-2002-08-25 19:49  flepied
+2002-08-25 19:49  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 25_Aug
 
-2002-08-25 19:48  flepied
+2002-08-25 19:48  Frederic Lepied
 
 	* msec.spec: security_check.sh and diff_check.sh installed 644 to
 	  prevent direct execution.
 
-2002-08-25 19:47  flepied
+2002-08-25 19:47  Frederic Lepied
 
 	* conf/perm.4, conf/perm.5: let hosts.{allow,deny} be readable by
 	  everyone (to allow all the daemons to
 	  access them).
 
-2002-08-25 19:43  flepied
+2002-08-25 19:43  Frederic Lepied
 
 	* cron-sh/diff_check.sh: emptiness is tested in Maillog now
 
-2002-08-25 19:41  flepied
+2002-08-25 19:41  Frederic Lepied
 
 	* cron-sh/security.sh: implement MAIL_EMPTY_CONTENT
 
-2002-08-25 19:39  flepied
+2002-08-25 19:39  Frederic Lepied
 
 	* doc/security.txt: documented daily mailing of security checks
 
-2002-08-25 19:38  flepied
+2002-08-25 19:38  Frederic Lepied
 
 	* share/msec.py: added MAIL_EMPTY_CONTENT
 
-2002-08-25 19:30  flepied
+2002-08-25 19:30  Frederic Lepied
 
 	* share/ConfigFile.py: enhanced get_shell_variable to be able to
 	  specify a region to do the search.
 
-2002-08-25 19:29  flepied
+2002-08-25 19:29  Frederic Lepied
 
 	* share/libmsec.py: allow_reboot: used section X-:0-Core instead of
 	  X-:*-Greeter for kdmrc.
@@ -1347,186 +1495,186 @@
 	  password_history: create /etc/security/opasswd if it doesn't
 	  exist.
 
-2002-08-19 21:10  flepied
+2002-08-19 21:10  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 19_Aug
 
-2002-08-19 21:09  flepied
+2002-08-19 21:09  Frederic Lepied
 
 	* msec.spec: 0.33-1mdk
 
-2002-08-19 21:09  flepied
+2002-08-19 21:09  Frederic Lepied
 
 	* Makefile: use $(RPM_BUILD_ROOT) instead of $RPM_BUILD_ROOT
 
-2002-08-19 21:08  flepied
+2002-08-19 21:08  Frederic Lepied
 
 	* cron-sh/diff_check.sh, cron-sh/security_check.sh: corrected
 	  wording
 
-2002-08-19 21:07  flepied
+2002-08-19 21:07  Frederic Lepied
 
 	* share/msec: added missing "not"
 
-2002-08-11 19:08  flepied
+2002-08-11 19:08  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 11_Aug
 
-2002-08-11 18:49  flepied
+2002-08-11 18:49  Frederic Lepied
 
 	* msec.spec: 0.32-1mdk
 
-2002-08-11 18:48  flepied
+2002-08-11 18:48  Frederic Lepied
 
 	* Makefile: corrected the compilation of the python part.
 
-2002-08-11 18:44  flepied
+2002-08-11 18:44  Frederic Lepied
 
 	* share/msec.py: replace 0 => no and 1 => yes.
 	  
 	  call password_history according to the levels.
 
-2002-08-11 18:43  flepied
+2002-08-11 18:43  Frederic Lepied
 
 	* share/libmsec.py: corrected without_password
 
-2002-08-11 18:42  flepied
+2002-08-11 18:42  Frederic Lepied
 
 	* share/shadow.py: added without_password
 
-2002-08-11 18:41  flepied
+2002-08-11 18:41  Frederic Lepied
 
 	* share/libmsec.py: password_length use system-auth instead of
 	  passwd pam file.
 	  
 	  new function: password_history.
 
-2002-08-11 18:39  flepied
+2002-08-11 18:39  Frederic Lepied
 
 	* share/Perms.py: do not change non local files/directories.
 
-2002-08-11 18:38  flepied
+2002-08-11 18:38  Frederic Lepied
 
 	* doc/security.txt: documented password history and root logins.
 
-2002-08-11 18:34  flepied
+2002-08-11 18:34  Frederic Lepied
 
 	* man/C/msec.8: document options
 
-2002-07-31 15:41  flepied
+2002-07-31 15:41  Frederic Lepied
 
 	* msec.spec: 0.31.1-1mdk
 
-2002-07-31 15:40  flepied
+2002-07-31 15:40  Frederic Lepied
 
 	* share/msec.py: correct the test for processing level.local.
 
-2002-07-30 18:52  flepied
+2002-07-30 18:52  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 30_Jul
 
-2002-07-30 18:51  flepied
+2002-07-30 18:51  Frederic Lepied
 
 	* msec.spec: 0.31-1mdk
 
-2002-07-30 18:50  flepied
+2002-07-30 18:50  Frederic Lepied
 
 	* share, share/.cvsignore: added level.*
 
-2002-07-30 18:50  flepied
+2002-07-30 18:50  Frederic Lepied
 
 	* share/libmsec.py: added fields to describe how arguments are used
 	  (to be used by shadow.py)
 
-2002-07-30 18:48  flepied
+2002-07-30 18:48  Frederic Lepied
 
 	* share/msec.py: added print and nolocal options
 
-2002-07-30 18:47  flepied
+2002-07-30 18:47  Frederic Lepied
 
 	* share/shadow.py: added print_changes and get_translation
 
-2002-07-30 18:46  flepied
+2002-07-30 18:46  Frederic Lepied
 
 	* share/Makefile: added rules for level.*
 
-2002-07-29 07:37  flepied
+2002-07-29 07:37  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 29_Jul
 
-2002-07-29 07:36  flepied
+2002-07-29 07:36  Frederic Lepied
 
 	* msec.spec: 0.30.2-1mdk
 
-2002-07-29 07:36  flepied
+2002-07-29 07:36  Frederic Lepied
 
 	* share/libmsec.py: fixed typo in allow_root_login
 
-2002-07-28 20:54  flepied
+2002-07-28 20:54  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 28_Jul
 
-2002-07-28 20:53  flepied
+2002-07-28 20:53  Frederic Lepied
 
 	* msec.spec: 0.30.1-1mdk
 
-2002-07-28 20:53  flepied
+2002-07-28 20:53  Frederic Lepied
 
 	* share/libmsec.py: (set_zero_one_variable): corrected bug when the
 	  variable doesn't exist before
 	  setting it.
 
-2002-07-27 20:49  flepied
+2002-07-27 20:49  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 27_Jul
 
-2002-07-27 20:47  flepied
+2002-07-27 20:47  Frederic Lepied
 
 	* msec.spec: 0.30
 
-2002-07-27 20:46  flepied
+2002-07-27 20:46  Frederic Lepied
 
 	* share/CHANGES: added 0.30 changes
 
-2002-07-27 20:40  flepied
+2002-07-27 20:40  Frederic Lepied
 
 	* share/libmsec.py: finalized no security lowering feature.
 
-2002-07-27 19:27  flepied
+2002-07-27 19:27  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 27_jui
 
-2002-07-27 19:26  flepied
+2002-07-27 19:26  Frederic Lepied
 
 	* share/msec: corrected last argument processing.
 
-2002-07-27 19:23  flepied
+2002-07-27 19:23  Frederic Lepied
 
 	* share/README: corrected splitted functions.
 
-2002-07-27 19:13  flepied
+2002-07-27 19:13  Frederic Lepied
 
 	* man/C/msec.8: descibed differences between interactive and
 	  non-interactive calls.
 	  added a paragraph on the logs.
 
-2002-07-27 19:12  flepied
+2002-07-27 19:12  Frederic Lepied
 
 	* share/libmsec.py: * (more functions): don't lower security when
 	  not changing secure level.
 
-2002-07-24 23:16  flepied
+2002-07-24 23:16  Frederic Lepied
 
 	* doc/security.txt: * describe file permissions according to the
 	  levels.
 	  * correct description of X server security.
 
-2002-07-24 23:14  flepied
+2002-07-24 23:14  Frederic Lepied
 
 	* cron-sh/promisc_check.sh: * use TTY_WARN instead of TTYLOG_WARN
 	  (David Harris).
 
-2002-07-24 23:07  flepied
+2002-07-24 23:07  Frederic Lepied
 
 	* share/libmsec.py: * (set_zero_one_variable): factorize
 	  sysctl.conf manipulation functions.
@@ -1544,120 +1692,120 @@
 	  protection put back net.ipv4.conf.all.rp_filter to 0 (David
 	  Harris).
 
-2002-07-24 23:06  flepied
+2002-07-24 23:06  Frederic Lepied
 
 	* share/msec.py: call splitted function with the same args.
 
-2002-07-24 23:02  flepied
+2002-07-24 23:02  Frederic Lepied
 
 	* share/ConfigFile.py: * (ConfigFile.get_match): return the whole
 	  line if replace is None.
 
-2002-07-06 13:36  flepied
+2002-07-06 13:36  Frederic Lepied
 
 	* share/libmsec.py: if sysctl.conf is modified reload its content
 	  with sysctl but do not restart
 	  network.
 
-2002-07-04 17:02  flepied
+2002-07-04 17:02  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 04_Jul
 
-2002-07-04 17:02  flepied
+2002-07-04 17:02  Frederic Lepied
 
 	* msec.spec: 0.25-1mdk
 
-2002-07-04 16:57  flepied
+2002-07-04 16:57  Frederic Lepied
 
 	* share/libmsec.py: allow_root_login: corrected regexp to avoid
 	  adding the string at every run.
 
-2002-07-04 16:38  flepied
+2002-07-04 16:38  Frederic Lepied
 
 	* conf/perm.snf, conf/server.snf: *** empty log message ***
 
-2002-07-04 16:37  flepied
+2002-07-04 16:37  Frederic Lepied
 
 	* conf/server.4: added entry for MNF
 
-2002-07-04 07:30  flepied
+2002-07-04 07:30  Frederic Lepied
 
 	* share/libmsec.py: insert changes when no match is found for
 	  logindefs and sshd_config.
 
-2002-06-27 07:58  flepied
+2002-06-27 07:58  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 27_Jun
 
-2002-06-27 07:58  flepied
+2002-06-27 07:58  Frederic Lepied
 
 	* msec.spec: 0.24-1mdk
 
-2002-06-27 07:57  flepied
+2002-06-27 07:57  Frederic Lepied
 
 	* share/msec: pass -c to Perms.py if the level is given on the
 	  command line.
 
-2002-06-27 07:56  flepied
+2002-06-27 07:56  Frederic Lepied
 
 	* share/Perms.py: if we don't change the security level, try not to
 	  lower the security
 	  if the user has changed it manually (added -c option).
 
-2002-06-27 07:54  flepied
+2002-06-27 07:54  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 27_Jun
 
-2002-06-04 18:24  cbelisle
+2002-06-04 18:24  Christian Belisle
 
 	* share/libmsec.py: corrected typo
 
-2002-05-31 03:36  flepied
+2002-05-31 03:36  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 30_May
 
-2002-05-31 03:35  flepied
+2002-05-31 03:35  Frederic Lepied
 
 	* msec.spec: 0.23-1mdk
 
-2002-05-31 03:34  flepied
+2002-05-31 03:34  Frederic Lepied
 
 	* share/ConfigFile.py, share/Perms.py: report more complete error
 	  messages.
 
-2002-05-31 03:31  flepied
+2002-05-31 03:31  Frederic Lepied
 
 	* share/msec: check that the root is running the process
 
-2002-05-29 20:40  flepied
+2002-05-29 20:40  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 29_May
 
-2002-05-29 20:39  flepied
+2002-05-29 20:39  Frederic Lepied
 
 	* share/libmsec.py: corrected typo
 
-2002-05-29 20:38  flepied
+2002-05-29 20:38  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 29_May
 
-2002-05-29 20:38  flepied
+2002-05-29 20:38  Frederic Lepied
 
 	* msec.spec: 0.22-1mdk
 
-2002-05-29 20:37  flepied
+2002-05-29 20:37  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 29_May
 
-2002-05-29 20:35  flepied
+2002-05-29 20:35  Frederic Lepied
 
 	* share/libmsec.py: added no_password_aging_for
 
-2002-05-14 17:04  flepied
+2002-05-14 17:04  Frederic Lepied
 
 	* conf/server.4, conf/server.5: added shorewall
 
-2002-04-29 17:52  flepied
+2002-04-29 17:52  Frederic Lepied
 
 	* cron-sh/security_check.sh: corrected alias files loop (J�r�me
 	  UZEL).
@@ -1672,256 +1820,256 @@
 	  CVS:
 	  ----------------------------------------------------------------------
 
-2002-04-19 18:17  flepied
+2002-04-19 18:17  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 19_Apr
 
-2002-04-19 18:17  flepied
+2002-04-19 18:17  Frederic Lepied
 
 	* msec.spec: 0.21-1mdk
 
-2002-04-19 18:17  flepied
+2002-04-19 18:17  Frederic Lepied
 
 	* share/msec.py: load the config file using the context of mseclib.
 
-2002-04-19 18:15  flepied
+2002-04-19 18:15  Frederic Lepied
 
 	* man/C/msec.8: don't specify a version for the doc path.
 
-2002-03-27 21:23  flepied
+2002-03-27 21:23  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 27_Mar
 
-2002-03-27 21:23  flepied
+2002-03-27 21:23  Frederic Lepied
 
 	* msec.spec: 0.20-2mdk
 
-2002-03-27 21:16  flepied
+2002-03-27 21:16  Frederic Lepied
 
 	* share/libmsec.py: allow_reboot: only touch the shutdown,
 	  poweroff, reboot and halt files if
 	  they don't exist.
 
-2002-03-26 05:03  flepied
+2002-03-26 05:03  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 26_Mar
 
-2002-03-26 05:03  flepied
+2002-03-26 05:03  Frederic Lepied
 
 	* msec.spec: 0.20-1mdk
 
-2002-03-26 04:55  flepied
+2002-03-26 04:55  Frederic Lepied
 
 	* share, share/.cvsignore: added *.flog
 
-2002-03-26 04:55  flepied
+2002-03-26 04:55  Frederic Lepied
 
 	* share/shadow.py: handle ignore case.
 
-2002-03-26 04:54  flepied
+2002-03-26 04:54  Frederic Lepied
 
 	* share/man.py: document ignore argument.
 
-2002-03-26 04:54  flepied
+2002-03-26 04:54  Frederic Lepied
 
 	* share/libmsec.py: removed yes/no declarations as they are used
 	  only from mseclib.py.
 	  Maximum password aging can be -1.
 
-2002-03-09 00:24  flepied
+2002-03-09 00:24  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 08_Mar
 
-2002-03-09 00:24  flepied
+2002-03-09 00:24  Frederic Lepied
 
 	* msec.spec: 0.19-8mdk
 
-2002-03-09 00:22  flepied
+2002-03-09 00:22  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3:
 	  /var/log/lp-errs must be 600
 
-2002-03-08 18:56  flepied
+2002-03-08 18:56  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 08_Mar
 
-2002-03-08 18:56  flepied
+2002-03-08 18:56  Frederic Lepied
 
 	* msec.spec: 0.19-7mdk
 
-2002-03-08 18:42  flepied
+2002-03-08 18:42  Frederic Lepied
 
 	* share/shadow.py: export yes/no to be in sync with libmsec.
 
-2002-03-08 18:41  flepied
+2002-03-08 18:41  Frederic Lepied
 
 	* share/man.py: document the value of arguments.
 
-2002-03-08 18:41  flepied
+2002-03-08 18:41  Frederic Lepied
 
 	* share/libmsec.py: added yes and no to be used as argument to the
 	  functions.
 
-2002-03-08 18:40  flepied
+2002-03-08 18:40  Frederic Lepied
 
 	* man/C/msec.8: ponts to security.txt
 
-2002-03-08 18:37  flepied
+2002-03-08 18:37  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5: fix permissions of /var/log/lp-errs for LPRng
 
-2002-03-06 04:13  flepied
+2002-03-06 04:13  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 05_Mar
 
-2002-03-06 04:12  flepied
+2002-03-06 04:12  Frederic Lepied
 
 	* msec.spec: 0.19-6mdk
 
-2002-03-06 04:11  flepied
+2002-03-06 04:11  Frederic Lepied
 
 	* cron-sh/security.sh, share/msec: don't run twice
 
-2002-03-04 19:19  flepied
+2002-03-04 19:19  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 04_Mar
 
-2002-03-04 19:19  flepied
+2002-03-04 19:19  Frederic Lepied
 
 	* msec.spec: 0.19-5mdk
 
-2002-03-04 19:19  flepied
+2002-03-04 19:19  Frederic Lepied
 
 	* msec.sh: more robust if SECURE_LEVEL isn't set.
 
-2002-03-04 19:18  flepied
+2002-03-04 19:18  Frederic Lepied
 
 	* share/libmsec.py: use 127.0.0.1 instead of localhost in
 	  hosts.deny
 
-2002-02-26 21:16  prigaux
+2002-02-26 21:16  Pixel <pixel at mandriva.com>
 
 	* msec.csh, msec.spec: msec.csh: "unhash" workaround for /usr/bin
 	  non-readable (msec 5) applied
 	  after modifying PATH (eurk!)
 
-2002-02-25 21:16  flepied
+2002-02-25 21:16  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 25_Feb
 
-2002-02-25 21:15  flepied
+2002-02-25 21:15  Frederic Lepied
 
 	* msec.spec: 0.19-4mdk
 
-2002-02-25 21:14  flepied
+2002-02-25 21:14  Frederic Lepied
 
 	* msec.sh: don't manage /usr/games and /usr/X11R6/bin, this has
 	  nothing to do with security
 
-2002-02-25 21:13  flepied
+2002-02-25 21:13  Frederic Lepied
 
 	* share/libmsec.py: don't restart network on sysctl.conf change.
 
-2002-02-25 21:12  flepied
+2002-02-25 21:12  Frederic Lepied
 
 	* cron-sh/diff_check.sh, cron-sh/security.sh,
 	  cron-sh/security_check.sh: split rpm-va check in 2: config files
 	  and other files
 
-2002-02-25 21:07  flepied
+2002-02-25 21:07  Frederic Lepied
 
 	* doc/security.txt: resync with current code
 
-2002-02-24 00:38  pablo
+2002-02-24 00:38  Pablo Saratxaga
 
 	* man/fr, man/fr/init.sh.8: added French man page
 
-2002-02-22 21:56  flepied
+2002-02-22 21:56  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 22_Feb
 
-2002-02-22 21:56  flepied
+2002-02-22 21:56  Frederic Lepied
 
 	* msec.spec: 0.19-3mdk
 
-2002-02-22 21:55  flepied
+2002-02-22 21:55  Frederic Lepied
 
 	* share/msec.py: do not use enable_libsafe anymore.
 
-2002-02-22 20:13  pablo
+2002-02-22 20:13  Pablo Saratxaga
 
 	* man/eu, man/eu/init.sh.8, man/eu/msec.8: Added Basque files
 
-2002-02-22 19:38  flepied
+2002-02-22 19:38  Frederic Lepied
 
 	* cron-sh/diff_check.sh: security.conf from /etc/security/msec/ to
 	  /var/lib/msec/.
 
-2002-02-22 18:42  flepied
+2002-02-22 18:42  Frederic Lepied
 
 	* cron-sh/security_check.sh: check uid and not gid
 
-2002-02-22 13:23  flepied
+2002-02-22 13:23  Frederic Lepied
 
 	* cron-sh/promisc_check.sh: use security.conf from /var/lib/msec
 
-2002-02-21 13:52  flepied
+2002-02-21 13:52  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5, conf/perm.snf: let drakx handle lilo.conf perm
 
-2002-02-20 21:51  flepied
+2002-02-20 21:51  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 20_Feb
 
-2002-02-20 21:51  flepied
+2002-02-20 21:51  Frederic Lepied
 
 	* msec.spec: 0.19-2mdk
 
-2002-02-20 21:50  flepied
+2002-02-20 21:50  Frederic Lepied
 
 	* share/msec.py: implement no password in level 0
 	  
 	  X listens to tcp connections in level 3
 
-2002-02-20 21:50  flepied
+2002-02-20 21:50  Frederic Lepied
 
 	* share/libmsec.py: added enable_password
 
-2002-02-20 21:49  flepied
+2002-02-20 21:49  Frederic Lepied
 
 	* share/CHANGES: documented changes in versions 0.18 and 0.19
 
-2002-02-20 21:47  flepied
+2002-02-20 21:47  Frederic Lepied
 
 	* share/ConfigFile.py: added insert_before.
 
-2002-02-20 21:40  flepied
+2002-02-20 21:40  Frederic Lepied
 
 	* conf/perm.4, conf/perm.5: kmem => adm
 
-2002-02-19 20:18  flepied
+2002-02-19 20:18  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 19_Feb
 
-2002-02-19 20:18  flepied
+2002-02-19 20:18  Frederic Lepied
 
 	* cron-sh/security.sh: corrected typo msec/msec.
 
-2002-02-19 20:16  flepied
+2002-02-19 20:16  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 19_Feb
 
-2002-02-19 20:15  flepied
+2002-02-19 20:15  Frederic Lepied
 
 	* msec.spec: 0.19-1mdk
 
-2002-02-19 20:11  flepied
+2002-02-19 20:11  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 19_Feb
 
-2002-02-19 20:10  flepied
+2002-02-19 20:10  Frederic Lepied
 
 	* share/libmsec.py: /etc/security/msec/security.conf =>
 	  /var/lib/msec/security.conf
@@ -1930,143 +2078,143 @@
 	  
 	  catch inconsistency between /etc/shadow and /etc/passwd.
 
-2002-02-19 20:00  flepied
+2002-02-19 20:00  Frederic Lepied
 
 	* man/C/msec.8: /etc/security/msec/security.conf =>
 	  /var/lib/msec/security.conf
 
-2002-02-19 19:17  flepied
+2002-02-19 19:17  Frederic Lepied
 
 	* conf/perm.4, conf/perm.5: corrected permissions for
 	  /var/log/intraline
 
-2002-02-19 19:12  flepied
+2002-02-19 19:12  Frederic Lepied
 
 	* share/msec: use perm file from /usr/share/msec/
 
-2002-02-19 19:08  flepied
+2002-02-19 19:08  Frederic Lepied
 
 	* cron-sh/security.sh: use /var/lib/msec/msec/security.conf
 
-2002-02-19 19:05  flepied
+2002-02-19 19:05  Frederic Lepied
 
 	* msec.csh: corrected id test.
 
-2002-02-15 22:59  flepied
+2002-02-15 22:59  Frederic Lepied
 
 	* share, share/.cvsignore: added generated files
 
-2002-02-15 05:22  flepied
+2002-02-15 05:22  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 15_Feb
 
-2002-02-15 05:22  flepied
+2002-02-15 05:22  Frederic Lepied
 
 	* msec.spec: 0.18-6mdk
 
-2002-02-15 05:21  flepied
+2002-02-15 05:21  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 15_Feb
 
-2002-02-15 05:21  flepied
+2002-02-15 05:21  Frederic Lepied
 
 	* msec.sh: test SECURE_LEVEL before using it as a number
 
-2002-02-15 05:20  flepied
+2002-02-15 05:20  Frederic Lepied
 
 	* share/msec.py: use the right string for the prog name
 
-2002-02-15 05:19  flepied
+2002-02-15 05:19  Frederic Lepied
 
 	* share/libmsec.py: allow an extra arg to specify the log to do in
 	  enable_console_log
 
-2002-02-15 05:18  flepied
+2002-02-15 05:18  Frederic Lepied
 
 	* cron-sh/security.sh: use umask from the secure level setting
 
-2002-02-15 04:36  flepied
+2002-02-15 04:36  Frederic Lepied
 
 	* cron-sh/promisc_check.sh: use complete path for the ip command.
 
-2002-02-14 02:59  flepied
+2002-02-14 02:59  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 13_Feb
 
-2002-02-14 02:59  flepied
+2002-02-14 02:59  Frederic Lepied
 
 	* msec.spec: 0.18-5mdk
 
-2002-02-14 02:58  flepied
+2002-02-14 02:58  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 13_Feb
 
-2002-02-14 01:50  flepied
+2002-02-14 01:50  Frederic Lepied
 
 	* share/libmsec.py: only reports an error for an empty wheel group
 	  when run interactively.
 
-2002-02-14 00:54  flepied
+2002-02-14 00:54  Frederic Lepied
 
 	* share/Config.py, share/ConfigFile.py, share/Perms.py: corrected
 	  warnings reported by pychecker
 
-2002-02-14 00:53  flepied
+2002-02-14 00:53  Frederic Lepied
 
 	* cron-sh/promisc_check.sh: use ip to detect promiscuous mode with
 	  2.4 kernels.
 
-2002-02-14 00:52  flepied
+2002-02-14 00:52  Frederic Lepied
 
 	* msec.csh, msec.sh: handle umask and . in path
 
-2002-02-11 14:44  flepied
+2002-02-11 14:44  Frederic Lepied
 
 	* conf/perm.5: /etc/sendmail.cf 640 to sendmail to work.
 
-2002-02-05 20:10  flepied
+2002-02-05 20:10  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 05_Feb
 
-2002-02-05 20:10  flepied
+2002-02-05 20:10  Frederic Lepied
 
 	* msec.spec: 0.18-4mdk
 
-2002-02-05 20:07  flepied
+2002-02-05 20:07  Frederic Lepied
 
 	* share/msec.py: add a delay in passowrd change before desactiving.
 
-2002-02-05 19:52  flepied
+2002-02-05 19:52  Frederic Lepied
 
 	* share/libmsec.py: handle allowed delay in password changing.
 
-2002-02-05 16:48  flepied
+2002-02-05 16:48  Frederic Lepied
 
 	* share/libmsec.py: use true/false for Browser value in gdm.conf
 
-2002-02-05 04:19  flepied
+2002-02-05 04:19  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 04_Feb
 
-2002-02-05 04:19  flepied
+2002-02-05 04:19  Frederic Lepied
 
 	* msec.spec: 0.18-3mdk
 
-2002-02-05 04:14  flepied
+2002-02-05 04:14  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 04_Feb
 
-2002-02-05 04:14  flepied
+2002-02-05 04:14  Frederic Lepied
 
 	* share/ConfigFile.py: (exists): add an extra arg to really test if
 	  the file exists (without testing
 	  if the file + suffix exists).
 
-2002-02-05 04:12  flepied
+2002-02-05 04:12  Frederic Lepied
 
 	* share/msec.py: handle the extra arg for allow_x_connections.
 
-2002-02-05 04:11  flepied
+2002-02-05 04:11  Frederic Lepied
 
 	* share/libmsec.py: corrected issue moving (only when really
 	  present).
@@ -2076,97 +2224,97 @@
 	  (allow_x_connections): add an extra argument to control if the X
 	  server listens on tcp port.
 
-2002-02-05 03:53  flepied
+2002-02-05 03:53  Frederic Lepied
 
 	* share/Perms.py: removed debugging trace.
 
-2002-02-05 03:09  flepied
+2002-02-05 03:09  Frederic Lepied
 
 	* share/msec: pass the same options used for msec.py to Perms.py
 
-2002-02-05 03:07  flepied
+2002-02-05 03:07  Frederic Lepied
 
 	* conf/perm.4: put /etc/hosts.{allow,deny,equiv} in the daemon
 	  group
 
-2002-02-05 03:06  flepied
+2002-02-05 03:06  Frederic Lepied
 
 	* Makefile: don't commit in the Makefile
 
-2002-02-05 03:05  flepied
+2002-02-05 03:05  Frederic Lepied
 
 	* conf/perm.5: put /etc/hosts.{allow,deny,equiv}
 
-2002-02-05 03:04  flepied
+2002-02-05 03:04  Frederic Lepied
 
 	* share/Perms.py: process the options like msec to be able to log
 	  the same way.
 
-2002-02-05 03:03  flepied
+2002-02-05 03:03  Frederic Lepied
 
 	* man/C/msec.8: Linux-Mandrake => Mandrake Linux
 	  
 	  remove references to the custom level
 
-2002-02-05 02:37  flepied
+2002-02-05 02:37  Frederic Lepied
 
 	* cron-sh/security_check.sh: corrected typo
 
-2002-02-05 02:34  flepied
+2002-02-05 02:34  Frederic Lepied
 
 	* cron-sh/security_check.sh: back to nogroup
 
-2002-02-05 01:23  flepied
+2002-02-05 01:23  Frederic Lepied
 
 	* cron-sh/security_check.sh: use nobody instead of nogroup
 
-2002-02-04 03:27  flepied
+2002-02-04 03:27  Frederic Lepied
 
 	* cron-sh/security_check.sh: added .ssh/id_dsa .ssh/id_rsa to the
 	  list of files to check.
 
-2002-02-04 03:26  flepied
+2002-02-04 03:26  Frederic Lepied
 
 	* cron-sh/security.sh: don't report /tmp and /var/tmp as word
 	  writable dirs (it's normal)
 
-2002-02-02 05:20  flepied
+2002-02-02 05:20  Frederic Lepied
 
 	* share/Makefile: create the man page for mseclib
 
-2002-02-02 05:20  flepied
+2002-02-02 05:20  Frederic Lepied
 
 	* share/man.py: first version
 
-2002-01-29 05:23  flepied
+2002-01-29 05:23  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 29_Jan
 
-2002-01-29 05:22  flepied
+2002-01-29 05:22  Frederic Lepied
 
 	* msec.spec: 0.18-2mdk
 
-2002-01-29 05:22  flepied
+2002-01-29 05:22  Frederic Lepied
 
 	* share/libmsec.py: password aging for root too.
 
-2002-01-29 03:32  flepied
+2002-01-29 03:32  Frederic Lepied
 
 	* cron-sh/diff_check.sh: changed the wording for the rpm-va
 	  changes.
 
-2002-01-29 02:20  flepied
+2002-01-29 02:20  Frederic Lepied
 
 	* conf/perm.4: the snf mod are not needed
 
-2002-01-29 02:19  flepied
+2002-01-29 02:19  Frederic Lepied
 
 	* share/msec.py: new option: server_level to set a different
 	  server_level from the
 	  secure_level. For example the snf will be in secure_level 4 and
 	  server_level snf.
 
-2002-01-29 02:19  flepied
+2002-01-29 02:19  Frederic Lepied
 
 	* share/libmsec.py: handle /etc/security/msec/server symlink
 	  through create_server_link().
@@ -2174,184 +2322,184 @@
 	  enable_security_check: register daily cron in /etc/cron.daily
 	  instead of /etc/cron.d.
 
-2002-01-28 18:41  flepied
+2002-01-28 18:41  Frederic Lepied
 
 	* share/msec.py: report msec instead of msec.py in the error
 	  messages.
 
-2002-01-28 18:09  flepied
+2002-01-28 18:09  Frederic Lepied
 
 	* conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.5,
 	  conf/perm.snf: made mandrake_consmap 644 (Andrej)
 
-2002-01-28 18:08  flepied
+2002-01-28 18:08  Frederic Lepied
 
 	* conf/perm.4: merged diff with snf.
 
-2002-01-28 16:25  florin
+2002-01-28 16:25  Florin Grad
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5, conf/perm.snf: change sendmail ownership
 
-2002-01-28 14:52  flepied
+2002-01-28 14:52  Frederic Lepied
 
 	* cron-sh/diff_check.sh: report too the date and the hostname when
 	  the report is empty.
 
-2002-01-27 07:07  flepied
+2002-01-27 07:07  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 27_Jan
 
-2002-01-27 07:07  flepied
+2002-01-27 07:07  Frederic Lepied
 
 	* msec.spec: 0.18-1mdk
 
-2002-01-27 07:06  flepied
+2002-01-27 07:06  Frederic Lepied
 
 	* Makefile: clean in share too
 
-2002-01-27 03:09  flepied
+2002-01-27 03:09  Frederic Lepied
 
 	* share/msec.py: use mseclib to have a way to process a config file
 	  before really doing the
 	  changes.
 
-2002-01-27 03:08  flepied
+2002-01-27 03:08  Frederic Lepied
 
 	* share/libmsec.py: regroup the on/off funtions in uniq ones with
 	  an arg to decide on/off.
 
-2002-01-27 03:05  flepied
+2002-01-27 03:05  Frederic Lepied
 
 	* share/Makefile, share/shadow.py: first version
 
-2002-01-22 20:28  flepied
+2002-01-22 20:28  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 22_Jan
 
-2002-01-22 20:28  flepied
+2002-01-22 20:28  Frederic Lepied
 
 	* msec.spec: clean before installing and don't install init.sh man
 	  pages anymore.
 
-2002-01-22 20:27  flepied
+2002-01-22 20:27  Frederic Lepied
 
 	* Makefile: don't put .bz2 archive in source for localcopy.
 
-2002-01-22 20:15  flepied
+2002-01-22 20:15  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 22_Jan
 
-2002-01-22 20:14  flepied
+2002-01-22 20:14  Frederic Lepied
 
 	* msec.spec: 0.17-15mdk
 
-2002-01-22 20:14  flepied
+2002-01-22 20:14  Frederic Lepied
 
 	* share/CHANGES: more doc
 
-2002-01-22 20:13  flepied
+2002-01-22 20:13  Frederic Lepied
 
 	* cron-sh/security.sh, cron-sh/security_check.sh, share/msec.py:
 	  experimental chkrootkit check.
 
-2002-01-22 19:23  flepied
+2002-01-22 19:23  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5, conf/perm.snf: corrected errors reported by Pierre
 	  Fortin's script
 
-2002-01-22 19:21  flepied
+2002-01-22 19:21  Frederic Lepied
 
 	* man/C/init.sh.8, man/fr: removed init-sh man page
 
-2002-01-22 02:58  flepied
+2002-01-22 02:58  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3: corrected
 	  /bin/rpm path & perms
 
-2002-01-21 16:24  flepied
+2002-01-21 16:24  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 21_Jan
 
-2002-01-21 16:23  flepied
+2002-01-21 16:23  Frederic Lepied
 
 	* msec.spec: 0.17-14mdk
 
-2002-01-21 16:19  flepied
+2002-01-21 16:19  Frederic Lepied
 
 	* conf/perm.3, conf/perm.4, conf/perm.5, conf/perm.snf: make
 	  mandrake_consmap 755 because we it needs to be readable by
 	  everyone
 
-2002-01-21 04:19  flepied
+2002-01-21 04:19  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 20_Jan
 
-2002-01-21 04:18  flepied
+2002-01-21 04:18  Frederic Lepied
 
 	* msec.spec: 0.17-13mdk
 
-2002-01-21 04:16  flepied
+2002-01-21 04:16  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5, conf/perm.snf: corrected mandrake_consmap
 	  permissions and ping path/permissions.
 
-2002-01-21 04:14  flepied
+2002-01-21 04:14  Frederic Lepied
 
 	* share/CHANGES: document 0.17-13mdk changes
 
-2002-01-21 04:11  flepied
+2002-01-21 04:11  Frederic Lepied
 
 	* cron-sh/diff_check.sh: mail even when the log is empty to signify
 	  that the check is fine.
 
-2002-01-21 04:07  flepied
+2002-01-21 04:07  Frederic Lepied
 
 	* share/msec.py: log the start of the program in interactive mode.
 
-2002-01-21 04:06  flepied
+2002-01-21 04:06  Frederic Lepied
 
 	* share/Perms.py: allow current to be specified for permissions
 	  too.
 	  
 	  protect and log errors in os calls.
 
-2002-01-21 04:05  flepied
+2002-01-21 04:05  Frederic Lepied
 
 	* share/Log.py: log errors.
 
-2002-01-21 04:04  flepied
+2002-01-21 04:04  Frederic Lepied
 
 	* share/ConfigFile.py: protect and log errors on os calls.
 
-2002-01-21 04:03  flepied
+2002-01-21 04:03  Frederic Lepied
 
 	* Makefile: corrected clean rule
 
-2002-01-21 04:03  flepied
+2002-01-21 04:03  Frederic Lepied
 
 	* init-sh/cleanold.sh: don't create groups (rely on setup).
 
-2002-01-17 23:33  siegel
+2002-01-17 23:33  Stefan Siegel <siegel at linux-mandrake.com>
 
 	* init-sh/cleanold.sh: use "groupadd -g" to ensure the groupid
 	  provided by latest setup package
 
-2002-01-17 21:21  flepied
+2002-01-17 21:21  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 17_Jan
 
-2002-01-17 21:21  flepied
+2002-01-17 21:21  Frederic Lepied
 
 	* share/msec.py: corrected password_length mismatch.
 
-2002-01-17 19:58  flepied
+2002-01-17 19:58  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 17_Jan
 
-2002-01-17 19:56  flepied
+2002-01-17 19:56  Frederic Lepied
 
 	* Makefile, conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3,
 	  conf/perm.4, conf/perm.5, conf/perm.snf, cron-sh/diff_check.sh,
@@ -2361,481 +2509,481 @@
 	  share/Log.py, share/Perms.py, share/README, share/compile.py,
 	  share/libmsec.py, share/msec, share/msec.py: 0.17
 
-2002-01-17 17:22  siegel
+2002-01-17 17:22  Stefan Siegel <siegel at linux-mandrake.com>
 
 	* init-sh/lib.sh, init-sh/lib.sh.usermode: use "groupadd -g" to
 	  ensure the groupid provided by latest setup package
 
-2001-12-05 11:32  florin
+2001-12-05 11:32  Florin Grad
 
 	* msec.spec: typo error
 
-2001-12-05 11:09  florin
+2001-12-05 11:09  Florin Grad
 
 	* msec.spec: create the /etc/sysconfig/ directory
 
-2001-12-05 11:06  florin
+2001-12-05 11:06  Florin Grad
 
 	* msec.csh: fix the tests, thx to Konrad Bernlohr
 
-2001-12-05 11:01  florin
+2001-12-05 11:01  Florin Grad
 
 	* msec.spec: changelog for 4mdk and use
 	  %{_sysconfdir}/sysconfig/msec instead of %{_sysconfdir}/msec
 
-2001-12-05 03:52  flepied
+2001-12-05 03:52  Frederic Lepied
 
 	* msec.sh: test the existence of /etc/sysconfig/msec before
 	  sourcing it.
 
-2001-12-03 20:46  flepied
+2001-12-03 20:46  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 03_Dec
 
-2001-12-02 06:52  flepied
+2001-12-02 06:52  Frederic Lepied
 
 	* conf/server.4, conf/server.5: snort => snortd
 
-2001-12-02 06:52  flepied
+2001-12-02 06:52  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5, conf/perm.snf: added default owners of
 	  /var/log/{news,snort,uucp}
 
-2001-12-02 06:03  flepied
+2001-12-02 06:03  Frederic Lepied
 
 	* msec.spec: 0.16-3mdk
 
-2001-12-02 06:03  flepied
+2001-12-02 06:03  Frederic Lepied
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
 	  init-sh/levelsnf.sh: added sysctl.conf, host.conf and
 	  /etc/issue{.net} customization.
 
-2001-12-02 05:59  flepied
+2001-12-02 05:59  Frederic Lepied
 
 	* conf/server.4, conf/server.5: added firewall and IDS to the list.
 
-2001-12-02 05:58  flepied
+2001-12-02 05:58  Frederic Lepied
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5, conf/perm.snf: customize rpm progs and
 	  /usr/share/doc permissions.
 
-2001-12-02 05:56  flepied
+2001-12-02 05:56  Frederic Lepied
 
 	* msec.csh: sed black magic to read /etc/sysconfig/msec and
 	  translate sh variables
 	  in csh ones.
 
-2001-12-02 05:55  flepied
+2001-12-02 05:55  Frederic Lepied
 
 	* init-sh/custom.sh: libsafe.so.1.3 => libsafe.so.2
 
-2001-12-02 05:54  flepied
+2001-12-02 05:54  Frederic Lepied
 
 	* init-sh/lib.sh: added LoadSysctl, RemoveIssue, RemoveIssueNet,
 	  RestoreIssues functions.
 
-2001-12-02 04:32  flepied
+2001-12-02 04:32  Frederic Lepied
 
 	* Makefile: corrected clean rule
 
-2001-11-30 13:22  florin
+2001-11-30 13:22  Florin Grad
 
 	* msec.spec: 0.16-3mdk Changelog
 
-2001-11-30 13:21  florin
+2001-11-30 13:21  Florin Grad
 
 	* ChangeLog: oups, forgot to update the ChangeLog for some time
 
-2001-11-30 13:15  florin
+2001-11-30 13:15  Florin Grad
 
 	* msec.spec: update the changelog message in the 0.16-3mdk
 
-2001-11-30 13:13  florin
+2001-11-30 13:13  Florin Grad
 
 	* msec.spec: update the post message
 
-2001-11-30 12:32  florin
+2001-11-30 12:32  Florin Grad
 
 	* init-sh/levelsnf.sh: allow the ssh connexions from everywhere
 
-2001-11-29 17:33  florin
+2001-11-29 17:33  Florin Grad
 
 	* msec.csh: sysconfig file
 
-2001-11-29 17:32  florin
+2001-11-29 17:32  Florin Grad
 
 	* msec.sh: source the sysconfig file
 
-2001-11-29 17:30  florin
+2001-11-29 17:30  Florin Grad
 
 	* msec.sh: add SECURE LEVEL
 
-2001-11-29 17:23  florin
+2001-11-29 17:23  Florin Grad
 
 	* init-sh/lib.sh: bring back the cleaning of the profile files in
 	  order to make an update work
 
-2001-11-29 17:11  florin
+2001-11-29 17:11  Florin Grad
 
 	* init-sh/level5.sh: fix a typo error space in ldpreload condition
 	  if
 
-2001-11-29 17:04  florin
+2001-11-29 17:04  Florin Grad
 
 	* init-sh/levelsnf.sh: typo error in SECURE_LEVEL
 
-2001-11-29 16:56  florin
+2001-11-29 16:56  Florin Grad
 
 	* msec.spec: create the entries for the %{_sysconfdir}/%{name} file
 
-2001-11-29 16:50  florin
+2001-11-29 16:50  Florin Grad
 
 	* msec.csh: remove the sysconfig/source
 
-2001-11-29 16:50  florin
+2001-11-29 16:50  Florin Grad
 
 	* msec.sh: remove the source of sysconfig/msec
 
-2001-11-29 14:24  florin
+2001-11-29 14:24  Florin Grad
 
 	* init-sh/lib.sh: clean sysconfig/msec
 
-2001-11-29 14:15  florin
+2001-11-29 14:15  Florin Grad
 
 	* init-sh/custom.sh: remove the profile.d comment
 
-2001-11-29 14:12  florin
+2001-11-29 14:12  Florin Grad
 
 	* msec.spec: fix changelog for 3mdk
 
-2001-11-29 14:12  florin
+2001-11-29 14:12  Florin Grad
 
 	* msec.spec: 3mdk
 
-2001-11-29 13:39  florin
+2001-11-29 13:39  Florin Grad
 
 	* init-sh/lib.sh: clean the entries related to the
 	  profile.d/msec*sh files
 
-2001-11-29 13:38  florin
+2001-11-29 13:38  Florin Grad
 
 	* init-sh/levelsnf.sh: clean the comment related to the profile.d
 	  dir
 
-2001-11-29 13:37  florin
+2001-11-29 13:37  Florin Grad
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: remove
 	  the comments related to profile.d
 
-2001-11-29 13:33  florin
+2001-11-29 13:33  Florin Grad
 
 	* init-sh/level5.sh: sysconfig/msec support
 
-2001-11-29 13:30  florin
+2001-11-29 13:30  Florin Grad
 
 	* init-sh/custom.sh: add the sysconfig/msec support
 
-2001-11-29 13:26  florin
+2001-11-29 13:26  Florin Grad
 
 	* init-sh/levelsnf.sh: add sysconfig/msec support
 
-2001-11-28 15:39  florin
+2001-11-28 15:39  Florin Grad
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: add the
 	  /etc/sysconfig/mesc support for UMASK
 
-2001-11-28 15:14  florin
+2001-11-28 15:14  Florin Grad
 
 	* msec.csh, msec.sh: source the /etc/sysconfig/msec file
 
-2001-11-28 14:16  florin
+2001-11-28 14:16  Florin Grad
 
 	* init-sh/custom.sh: add the support to the profile.d files
 
-2001-11-08 16:35  florin
+2001-11-08 16:35  Florin Grad
 
 	* msec.spec: typo error in post script
 
-2001-11-08 16:23  florin
+2001-11-08 16:23  Florin Grad
 
 	* msec.spec: update post section and modify the changelog
 
-2001-11-08 15:37  florin
+2001-11-08 15:37  Florin Grad
 
 	* init-sh/msec: typo error
 
-2001-11-08 15:26  florin
+2001-11-08 15:26  Florin Grad
 
 	* init-sh/msec: new entries for snf
 
-2001-11-08 15:25  florin
+2001-11-08 15:25  Florin Grad
 
 	* msec.spec: new version
 
-2001-11-08 15:23  florin
+2001-11-08 15:23  Florin Grad
 
 	* init-sh/grpuser.sh: new support for snf
 
-2001-11-08 11:21  florin
+2001-11-08 11:21  Florin Grad
 
 	* msec.spec: 32 mdk
 
-2001-11-08 11:17  florin
+2001-11-08 11:17  Florin Grad
 
 	* init-sh/lib.sh: add snf in RootSshLogin function
 
-2001-11-08 11:15  florin
+2001-11-08 11:15  Florin Grad
 
 	* conf/perm.snf, init-sh/levelsnf.sh: *** empty log message ***
 
-2001-11-07 15:38  florin
+2001-11-07 15:38  Florin Grad
 
 	* msec.spec: make rpmlint happy and add Url tag
 
-2001-11-07 15:36  florin
+2001-11-07 15:36  Florin Grad
 
 	* msec.spec: Mandrake Linux
 
-2001-11-07 15:28  florin
+2001-11-07 15:28  Florin Grad
 
 	* conf/server.snf: new snf level
 
-2001-11-07 15:28  florin
+2001-11-07 15:28  Florin Grad
 
 	* conf/server.4: back to the old 4 level
 
-2001-11-07 15:26  florin
+2001-11-07 15:26  Florin Grad
 
 	* msec.spec: changelog enrtry in 31mdk
 
-2001-11-07 15:25  florin
+2001-11-07 15:25  Florin Grad
 
 	* init-sh/levelsnf.sh: nex snf level
 
-2001-11-07 15:15  florin
+2001-11-07 15:15  Florin Grad
 
 	* init-sh/msec: add snf entry in usage
 
-2001-11-07 15:11  florin
+2001-11-07 15:11  Florin Grad
 
 	* conf/perm.3, conf/perm.4, conf/perm.5, conf/perm.snf: new entry
 
-2001-11-07 14:31  florin
+2001-11-07 14:31  Florin Grad
 
 	* conf/server.4: add named in authorized servers for level 4
 
-2001-11-07 14:29  florin
+2001-11-07 14:29  Florin Grad
 
 	* msec.spec: changelog for 31mdk
 
-2001-11-07 14:26  florin
+2001-11-07 14:26  Florin Grad
 
 	* conf/server.4: add some servers in level 4
 
-2001-11-07 14:03  florin
+2001-11-07 14:03  Florin Grad
 
 	* msec.spec: new modifs
 
-2001-11-07 14:02  florin
+2001-11-07 14:02  Florin Grad
 
 	* conf/perm.3, conf/perm.4, conf/perm.5: add monitoring permissions
 
-2001-11-07 13:58  florin
+2001-11-07 13:58  Florin Grad
 
 	* conf/perm.3, conf/perm.4, conf/perm.5: add the right permissions
 	  for naat packages
 
-2001-11-07 13:33  florin
+2001-11-07 13:33  Florin Grad
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5, conf/server.4: modify the squid permissions and add
 	  naat-backend permissions
 
-2001-10-03 13:07  florin
+2001-10-03 13:07  Florin Grad
 
 	* init-sh/level4.sh, init-sh/level5.sh: remove the touch
 	  ld.so.preload as we're doing it in lib.sh
 
-2001-10-03 13:06  florin
+2001-10-03 13:06  Florin Grad
 
 	* init-sh/lib.sh: touch ld.so.preload before cleaning
 
-2001-10-03 12:58  florin
+2001-10-03 12:58  Florin Grad
 
 	* msec.csh, msec.sh: first add
 
-2001-10-03 12:55  florin
+2001-10-03 12:55  Florin Grad
 
 	* ChangeLog, init-sh/level4.sh, init-sh/level5.sh, msec.spec:
 	  libsafe.so.2
 
-2001-10-03 12:51  florin
+2001-10-03 12:51  Florin Grad
 
 	* init-sh/lib.sh: add print in CleanRules
 
-2001-10-03 12:50  florin
+2001-10-03 12:50  Florin Grad
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh:
 	  libsafe.so.2 in levels 4/5 and remove the . in PATH
 
-2001-09-29 14:05  florin
+2001-09-29 14:05  Florin Grad
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: add \n
 
-2001-09-29 13:58  florin
+2001-09-29 13:58  Florin Grad
 
 	* init-sh/lib.sh: remove or print
 
-2001-09-29 13:46  florin
+2001-09-29 13:46  Florin Grad
 
 	* man/C/init.sh.8, man/C/msec.8: date
 
-2001-09-29 13:44  florin
+2001-09-29 13:44  Florin Grad
 
 	* msec.spec: date in 30mdk
 
-2001-09-29 13:42  florin
+2001-09-29 13:42  Florin Grad
 
 	* init-sh/lib.sh: add the E in grep in AddRules
 
-2001-09-29 13:41  florin
+2001-09-29 13:41  Florin Grad
 
 	* msec.spec: 30mdk man changelog
 
-2001-09-29 13:40  florin
+2001-09-29 13:40  Florin Grad
 
 	* msec.spec: 30mdk changelog
 
-2001-09-29 13:38  florin
+2001-09-29 13:38  Florin Grad
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: PATH
 	  modifs
 
-2001-09-29 13:34  florin
+2001-09-29 13:34  Florin Grad
 
 	* init-sh/lib.sh: bring back the or print in CleanRules
 
-2001-09-29 13:23  florin
+2001-09-29 13:23  Florin Grad
 
 	* man/C/init.sh.8, man/C/msec.8: update the doc path
 
-2001-09-27 15:23  florin
+2001-09-27 15:23  Florin Grad
 
 	* init-sh/lib.sh: remove the or print part in the perl line in
 	  CleanRules
 
-2001-09-27 15:22  florin
+2001-09-27 15:22  Florin Grad
 
 	* msec.spec: date in 30mdk changelog
 
-2001-09-27 15:21  florin
+2001-09-27 15:21  Florin Grad
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: move
 	  from profile ro the profile.d/msec.{sh,csh} entries
 
-2001-09-27 15:14  florin
+2001-09-27 15:14  Florin Grad
 
 	* msec.spec: add a changelog entry in the 30mdk
 
-2001-09-26 14:25  florin
+2001-09-26 14:25  Florin Grad
 
 	* msec.spec: add an entry in the 30 mdk changelog
 
-2001-09-26 14:24  florin
+2001-09-26 14:24  Florin Grad
 
 	* init-sh/lib.sh: remove the -E option in the AddRules grep
 
-2001-09-26 13:48  florin
+2001-09-26 13:48  Florin Grad
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: typo
 	  errors
 
-2001-09-26 12:35  florin
+2001-09-26 12:35  Florin Grad
 
 	* init-sh/lib.sh: CleanRules for /etc/profile and /etc/zprofile
 
-2001-09-26 12:20  florin
+2001-09-26 12:20  Florin Grad
 
 	* msec.spec: 30mdk
 
-2001-09-26 12:10  florin
+2001-09-26 12:10  Florin Grad
 
 	* init-sh/level1.sh, init-sh/level2.sh, init-sh/level3.sh,
 	  init-sh/level4.sh, init-sh/level5.sh: comment for profile.d
 	  section
 
-2001-09-26 12:07  florin
+2001-09-26 12:07  Florin Grad
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: use
 	  profile.d/* files instead of /etc/{z}profile
 
-2001-09-26 10:03  florin
+2001-09-26 10:03  Florin Grad
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5: use profile.d/ files instead of profile
 
-2001-09-20 16:05  florin
+2001-09-20 16:05  Florin Grad
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: typo for
 	  /etc/profile.d/*csh
 
-2001-09-20 15:54  florin
+2001-09-20 15:54  Florin Grad
 
 	* init-sh/level2.sh: typo in profile.d entries
 
-2001-09-20 15:46  florin
+2001-09-20 15:46  Florin Grad
 
 	* ChangeLog, init-sh/level0.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
 	  init-sh/level5.sh: profile.d entries
 
-2001-09-20 15:36  florin
+2001-09-20 15:36  Florin Grad
 
 	* init-sh/lib.sh.usermode: remove the /etc/profile entries
 
-2001-09-20 15:35  florin
+2001-09-20 15:35  Florin Grad
 
 	* init-sh/lib.sh: remove the /etc/profile entries and use
 	  /etc/profile.d/msec*sh|csh instead
 
-2001-09-20 15:28  florin
+2001-09-20 15:28  Florin Grad
 
 	* msec.spec: /etc/profile.d*sh|csh entries
 
-2001-09-20 13:44  florin
+2001-09-20 13:44  Florin Grad
 
 	* conf/server.4, conf/server.5: add the usb service
 
-2001-09-20 13:42  florin
+2001-09-20 13:42  Florin Grad
 
 	* msec.spec: authorize the usb service in 4/5 levels of security
 
-2001-09-19 17:00  yoann
+2001-09-19 17:00  Yoann Vandoorselaere
 
 	* msec.spec: Require /bin/touch
 
-2001-09-19 17:00  yoann
+2001-09-19 17:00  Yoann Vandoorselaere
 
 	* ChangeLog: Generated by cvs2cl the 19_Sep
 
-2001-09-19 13:37  florin
+2001-09-19 13:37  Florin Grad
 
 	* msec.spec: source2 is msec.logrotate and not msec
 
-2001-09-19 12:32  yoann
+2001-09-19 12:32  Yoann Vandoorselaere
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
@@ -2844,146 +2992,146 @@
 	  - Keep the output of the SECURE_LEVEL in /etc/profile and
 	  /etc/zprofile.
 
-2001-09-19 12:31  yoann
+2001-09-19 12:31  Yoann Vandoorselaere
 
 	* ChangeLog: Generated by cvs2cl the 19_Sep
 
-2001-09-19 12:28  florin
+2001-09-19 12:28  Florin Grad
 
 	* msec.spec: 25mdk
 
-2001-09-19 12:24  florin
+2001-09-19 12:24  Florin Grad
 
 	* ChangeLog: squidGuard, sshd, RootSshLogin entries
 
-2001-09-19 12:21  florin
+2001-09-19 12:21  Florin Grad
 
 	* conf/server.4: sshd entry
 
-2001-09-19 12:21  florin
+2001-09-19 12:21  Florin Grad
 
 	* conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3, conf/perm.4,
 	  conf/perm.5: squidGuard entries
 
-2001-09-19 12:18  florin
+2001-09-19 12:18  Florin Grad
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
 	  init-sh/lib.sh, init-sh/lib.sh.usermode: RootSshLogin
 
-2001-09-19 12:00  florin
+2001-09-19 12:00  Florin Grad
 
 	* doc/security.txt: there are no */init-sh/ directories in the rpm
 	  msec
 
-2001-09-19 11:32  yoann
+2001-09-19 11:32  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-2001-09-19 11:31  yoann
+2001-09-19 11:31  Yoann Vandoorselaere
 
 	* ChangeLog: Generated by cvs2cl the 19_Sep
 
-2001-09-19 11:30  yoann
+2001-09-19 11:30  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-2001-09-19 11:19  yoann
+2001-09-19 11:19  Yoann Vandoorselaere
 
 	* ChangeLog: *** empty log message ***
 
-2001-09-19 11:18  yoann
+2001-09-19 11:18  Yoann Vandoorselaere
 
 	* ChangeLog, msec.spec: *** empty log message ***
 
-2001-09-19 09:37  yoann
+2001-09-19 09:37  Yoann Vandoorselaere
 
 	* init-sh/level0.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
 	  init-sh/lib.sh: *** empty log message ***
 
-2001-09-17 17:18  daouda
+2001-09-17 17:18  Daouda Lo
 
 	* ChangeLog: Generated by cvs2cl the 17_sep
 
-2001-09-17 17:14  daouda
+2001-09-17 17:14  Daouda Lo
 
 	* msec.logrotate: logrotate file
 
-2001-09-17 16:50  flepied
+2001-09-17 16:50  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 17_Sep
 
-2001-09-17 16:45  daouda
+2001-09-17 16:45  Daouda Lo
 
 	* ChangeLog: Generated by cvs2cl the 17_sep
 
-2001-09-17 16:44  daouda
+2001-09-17 16:44  Daouda Lo
 
 	* msec.spec: del doc/*
 
-2001-09-17 16:43  daouda
+2001-09-17 16:43  Daouda Lo
 
 	* ChangeLog: Generated by cvs2cl the 17_sep
 
-2001-09-17 16:42  daouda
+2001-09-17 16:42  Daouda Lo
 
 	* msec.spec: comment doc/*.8
 
-2001-09-17 16:35  daouda
+2001-09-17 16:35  Daouda Lo
 
 	* ChangeLog: Generated by cvs2cl the 17_sep
 
-2001-09-17 16:35  daouda
+2001-09-17 16:35  Daouda Lo
 
 	* msec.spec: fix kdm sec hole at level 4 (displayin users)
 
-2001-09-17 16:32  daouda
+2001-09-17 16:32  Daouda Lo
 
 	* init-sh/lib.sh: -fix users display in level up to 4 (kdm)
 
-2001-09-14 16:14  florin
+2001-09-14 16:14  Florin Grad
 
 	* conf/perm.2, conf/perm.3, conf/perm.5: /var/log/squid
 	  permisssions
 
-2001-09-14 16:14  florin
+2001-09-14 16:14  Florin Grad
 
 	* conf/perm.0, conf/perm.1, conf/perm.4: /var/log/squid permisssion
 
-2001-09-14 16:12  florin
+2001-09-14 16:12  Florin Grad
 
 	* msec.spec: /var/log/squid permissions
 
-2001-09-03 01:24  pablo
+2001-09-03 01:24  Pablo Saratxaga
 
 	* Makefile, doc/init.sh.8, doc/msec.8, man, man/C, man/C/init.sh.8,
 	  man/C/msec.8, man/fr, man/fr/init.sh.8, msec.spec: moved man
 	  pages to man/C, added French man page
 
-2001-08-09 09:02  flepied
+2001-08-09 09:02  Frederic Lepied
 
 	* ChangeLog: Generated by cvs2cl the 09_Aug
 
-2001-08-09 09:02  flepied
+2001-08-09 09:02  Frederic Lepied
 
 	* msec.spec: 0.15-18mdk
 
-2001-08-09 09:00  flepied
+2001-08-09 09:00  Frederic Lepied
 
 	* Makefile: add rules to build test and release rpms.
 
-2001-08-09 08:48  flepied
+2001-08-09 08:48  Frederic Lepied
 
 	* init-sh/custom.sh, init-sh/level0.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh: added
 	  vc/[1-6] to securetty (devfs)
 
-2001-08-09 08:47  flepied
+2001-08-09 08:47  Frederic Lepied
 
 	* conf/perm.4: made securetty entry compliant with other perm.*
 
-2001-08-09 08:10  flepied
+2001-08-09 08:10  Frederic Lepied
 
 	* ChangeLog, Makefile, TODO, conf/perm.0, conf/perm.1, conf/perm.2,
 	  conf/perm.3, conf/perm.4, conf/perm.5, conf/server.4,
@@ -2993,191 +3141,191 @@
 	  init-sh/level5.sh, init-sh/lib.sh, init-sh/lib.sh.usermode,
 	  msec.spec: merge back 0.15-17mdk in CVS
 
-2000-05-17 13:38  yoann
+2000-05-17 13:38  Yoann Vandoorselaere
 
 	* init-sh/custom.sh, init-sh/level4.sh, init-sh/level5.sh: ***
 	  empty log message ***
 
-2000-05-17 10:45  yoann
+2000-05-17 10:45  Yoann Vandoorselaere
 
 	* init-sh/custom.sh, init-sh/level4.sh, init-sh/level5.sh: ***
 	  empty log message ***
 
-2000-05-03 12:42  yoann
+2000-05-03 12:42  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-2000-05-03 12:42  yoann
+2000-05-03 12:42  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-2000-05-03 12:41  yoann
+2000-05-03 12:41  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-2000-05-03 12:41  yoann
+2000-05-03 12:41  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/custom.sh, init-sh/level4.sh,
 	  init-sh/level5.sh, init-sh/lib.sh, msec.spec: *** empty log
 	  message ***
 
-2000-04-25 12:04  yoann
+2000-04-25 12:04  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-2000-04-25 12:04  yoann
+2000-04-25 12:04  Yoann Vandoorselaere
 
 	* Makefile, msec.spec: *** empty log message ***
 
-2000-04-25 12:01  yoann
+2000-04-25 12:01  Yoann Vandoorselaere
 
 	* ChangeLog, Makefile, init-sh/lib.sh, msec.spec: *** empty log
 	  message ***
 
-2000-04-24 21:01  prigaux
+2000-04-24 21:01  Pixel <pixel at mandriva.com>
 
 	* ChangeLog, conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3,
 	  conf/perm.4, msec.spec: no_comment
 
-2000-04-19 11:04  yoann
+2000-04-19 11:04  Yoann Vandoorselaere
 
 	* ChangeLog, Makefile, init-sh/lib.sh, msec.spec: *** empty log
 	  message ***
 
-2000-04-19 10:07  yoann
+2000-04-19 10:07  Yoann Vandoorselaere
 
 	* init-sh/lib.sh: *** empty log message ***
 
-2000-04-19 10:07  yoann
+2000-04-19 10:07  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/lib.sh, msec.spec: *** empty log message ***
 
-2000-04-19 09:54  yoann
+2000-04-19 09:54  Yoann Vandoorselaere
 
 	* init-sh/custom.sh, init-sh/level0.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
 	  init-sh/level5.sh, init-sh/lib.sh: *** empty log message ***
 
-2000-04-18 16:32  yoann
+2000-04-18 16:32  Yoann Vandoorselaere
 
 	* init-sh/custom.sh, msec.spec, src/msec_find/find.c: *** empty log
 	  message ***
 
-2000-04-18 14:36  yoann
+2000-04-18 14:36  Yoann Vandoorselaere
 
 	* init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: ***
 	  empty log message ***
 
-2000-04-17 16:19  yoann
+2000-04-17 16:19  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-2000-04-17 15:25  yoann
+2000-04-17 15:25  Yoann Vandoorselaere
 
 	* ChangeLog, msec.spec, src/msec_find/find.c: *** empty log message
 	  ***
 
-2000-04-17 14:27  yoann
+2000-04-17 14:27  Yoann Vandoorselaere
 
 	* ChangeLog, conf/perm.0, conf/perm.1, conf/perm.2, conf/perm.3,
 	  conf/perm.4, conf/perm.5, init-sh/file_perm.sh, msec.spec: ***
 	  empty log message ***
 
-2000-04-17 14:14  yoann
+2000-04-17 14:14  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/file_perm.sh, msec.spec: *** empty log message
 	  ***
 
-2000-04-17 14:07  yoann
+2000-04-17 14:07  Yoann Vandoorselaere
 
 	* conf/perm.5: *** empty log message ***
 
-2000-04-17 13:55  yoann
+2000-04-17 13:55  Yoann Vandoorselaere
 
 	* ChangeLog, Makefile, doc/msec.8, doc/msec.lyx, msec.spec: ***
 	  empty log message ***
 
-2000-04-14 16:35  yoann
+2000-04-14 16:35  Yoann Vandoorselaere
 
 	* init-sh/custom.sh, init-sh/level0.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
 	  init-sh/level5.sh: *** empty log message ***
 
-2000-03-22 17:44  yoann
+2000-03-22 17:44  Yoann Vandoorselaere
 
 	* init-sh/custom.sh: *** empty log message ***
 
-2000-03-22 17:44  yoann
+2000-03-22 17:44  Yoann Vandoorselaere
 
 	* Makefile, README, init-sh/custom.sh, msec.spec: *** empty log
 	  message ***
 
-2000-03-22 17:39  yoann
+2000-03-22 17:39  Yoann Vandoorselaere
 
 	* ChangeLog, README, init-sh/custom.sh, init-sh/level5.sh,
 	  init-sh/lib.sh: *** empty log message ***
 
-2000-03-22 16:59  yoann
+2000-03-22 16:59  Yoann Vandoorselaere
 
 	* conf/perm.5: *** empty log message ***
 
-2000-03-19 18:41  yoann
+2000-03-19 18:41  Yoann Vandoorselaere
 
 	* ChangeLog, cron-sh/security.sh, src/msec_find/find.c: *** empty
 	  log message ***
 
-2000-03-19 16:10  yoann
+2000-03-19 16:10  Yoann Vandoorselaere
 
 	* ChangeLog, cron-sh/security.sh, msec.spec, src/msec_find/find.c:
 	  *** empty log message ***
 
-2000-03-09 13:52  yoann
+2000-03-09 13:52  Yoann Vandoorselaere
 
 	* ChangeLog, msec.spec: *** empty log message ***
 
-2000-03-09 13:42  yoann
+2000-03-09 13:42  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/custom.sh, msec.spec, src/msec_find/find.c:
 	  *** empty log message ***
 
-2000-03-08 14:44  yoann
+2000-03-08 14:44  Yoann Vandoorselaere
 
 	* Makefile, msec.spec, src/msec_find/Makefile,
 	  src/promisc_check/Makefile: *** empty log message ***
 
-2000-03-08 14:26  yoann
+2000-03-08 14:26  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-2000-03-08 14:26  yoann
+2000-03-08 14:26  Yoann Vandoorselaere
 
 	* Makefile, msec.spec: *** empty log message ***
 
-2000-03-08 14:19  yoann
+2000-03-08 14:19  Yoann Vandoorselaere
 
 	* Makefile, init-sh/msec: *** empty log message ***
 
-2000-03-08 14:01  yoann
+2000-03-08 14:01  Yoann Vandoorselaere
 
 	* ChangeLog, Makefile, cron-sh/security.sh, init-sh/custom.sh,
 	  init-sh/level4.sh, init-sh/level5.sh, init-sh/msec, msec.spec,
 	  src/msec_find, src/msec_find/Makefile, src/msec_find/find.c: ***
 	  empty log message ***
 
-2000-03-07 17:03  yoann
+2000-03-07 17:03  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/msec, msec.spec: *** empty log message ***
 
-2000-03-07 16:51  yoann
+2000-03-07 16:51  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-2000-03-07 16:50  yoann
+2000-03-07 16:50  Yoann Vandoorselaere
 
 	* ChangeLog, Makefile, init-sh/level0.sh, msec.spec: *** empty log
 	  message ***
 
-2000-03-07 16:45  yoann
+2000-03-07 16:45  Yoann Vandoorselaere
 
 	* Makefile, conf, conf/perm.0, conf/perm.1, conf/perm.2,
 	  conf/perm.3, conf/perm.4, conf/perm.5, conf/server.4,
@@ -3189,131 +3337,131 @@
 	  init-sh/perm.3, init-sh/perm.4, init-sh/perm.5, init-sh/server.4,
 	  init-sh/server.5: *** empty log message ***
 
-2000-03-07 14:39  yoann
+2000-03-07 14:39  Yoann Vandoorselaere
 
 	* ChangeLog, cron-sh/security_check.sh, init-sh/perm.4,
 	  init-sh/perm.5: *** empty log message ***
 
-2000-02-17 11:29  yoann
+2000-02-17 11:29  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/perm.4, init-sh/perm.5: *** empty log message
 	  ***
 
-2000-02-17 10:07  yoann
+2000-02-17 10:07  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/perm.4, init-sh/perm.5: *** empty log message
 	  ***
 
-2000-01-21 00:46  yoann
+2000-01-21 00:46  Yoann Vandoorselaere
 
 	* init-sh/grpuser.sh: *** empty log message ***
 
-2000-01-18 08:57  yoann
+2000-01-18 08:57  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-2000-01-13 09:08  yoann
+2000-01-13 09:08  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/custom.sh, msec.spec: *** empty log message
 	  ***
 
-2000-01-06 14:27  yoann
+2000-01-06 14:27  Yoann Vandoorselaere
 
 	* ChangeLog, cron-sh/security.sh, init-sh/level3.sh,
 	  init-sh/level4.sh, init-sh/level5.sh, msec.spec: *** empty log
 	  message ***
 
-2000-01-06 13:35  camille
+2000-01-06 13:35  Camille Bégnis <camille at mandriva.com>
 
 	* doc/msec.lyx, doc/msec.ps: re-mistake...
 
-2000-01-06 13:24  camille
+2000-01-06 13:24  Camille Bégnis <camille at mandriva.com>
 
 	* doc/msec.lyx, doc/msec.ps: Added friendly level names
 	  Corrected a mistake
 
-2000-01-06 13:17  yoann
+2000-01-06 13:17  Yoann Vandoorselaere
 
 	* ChangeLog: *** empty log message ***
 
-2000-01-06 13:17  yoann
+2000-01-06 13:17  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/level0.sh, msec.spec: *** empty log message
 	  ***
 
-2000-01-04 13:10  camille
+2000-01-04 13:10  Camille Bégnis <camille at mandriva.com>
 
 	* doc/msec.lyx, doc/msec.ps: Added "root shutdown" feature.
 
-2000-01-04 12:40  yoann
+2000-01-04 12:40  Yoann Vandoorselaere
 
 	* ChangeLog, msec.spec: *** empty log message ***
 
-2000-01-04 12:37  yoann
+2000-01-04 12:37  Yoann Vandoorselaere
 
 	* ChangeLog, doc/security.txt, init-sh/custom.sh: *** empty log
 	  message ***
 
-2000-01-04 10:25  yoann
+2000-01-04 10:25  Yoann Vandoorselaere
 
 	* ChangeLog: *** empty log message ***
 
-2000-01-04 10:25  yoann
+2000-01-04 10:25  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/level0.sh, init-sh/perm.0, init-sh/perm.1,
 	  init-sh/perm.2, init-sh/perm.3, init-sh/perm.4, init-sh/perm.5:
 	  *** empty log message ***
 
-2000-01-03 10:43  yoann
+2000-01-03 10:43  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/level0.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
 	  init-sh/level5.sh: *** empty log message ***
 
-1999-12-29 13:24  yoann
+1999-12-29 13:24  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-1999-12-29 13:21  chmouel
+1999-12-29 13:21  Chmouel Boudjnah
 
 	* ChangeLog, Makefile, msec.spec: "Seethechangelog"
 
-1999-12-29 13:18  yoann
+1999-12-29 13:18  Yoann Vandoorselaere
 
 	* ChangeLog, doc/grpuser.8: *** empty log message ***
 
-1999-12-28 18:28  chmouel
+1999-12-28 18:28  Chmouel Boudjnah
 
 	* doc/msec.lyx, doc/msec.ps: "Seethechangelog"
 
-1999-12-28 18:15  chmouel
+1999-12-28 18:15  Chmouel Boudjnah
 
 	* doc/grpuser.8, doc/grpuser.8.bz2, doc/init.sh.8,
 	  doc/init.sh.8.bz2, doc/msec.8, doc/msec.8.bz2: "Seethechangelog"
 
-1999-12-28 16:13  camille
+1999-12-28 16:13  Camille Bégnis <camille at mandriva.com>
 
 	* doc/grpuser.8.bz2, doc/init.sh.8.bz2, doc/msec.8.bz2: Added man
 	  pages
 
-1999-12-28 15:32  camille
+1999-12-28 15:32  Camille Bégnis <camille at mandriva.com>
 
 	* doc/msec.lyx: Added latest enhancement: mail warning
 
-1999-12-28 08:47  yoann
+1999-12-28 08:47  Yoann Vandoorselaere
 
 	* init-sh/level3.sh: *** empty log message ***
 
-1999-12-27 17:03  yoann
+1999-12-27 17:03  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-1999-12-27 16:33  yoann
+1999-12-27 16:33  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh, cron-sh/security.sh: *** empty log message
 	  ***
 
-1999-12-27 16:29  yoann
+1999-12-27 16:29  Yoann Vandoorselaere
 
 	* ChangeLog, cron-sh/diff_check.sh, cron-sh/security.sh,
 	  cron-sh/security_check.sh, init-sh/level0.sh, init-sh/level1.sh,
@@ -3322,299 +3470,299 @@
 	  init-sh/perm.2, init-sh/perm.3, init-sh/perm.4, init-sh/perm.5,
 	  msec.spec: *** empty log message ***
 
-1999-12-24 09:32  yoann
+1999-12-24 09:32  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-1999-12-23 13:05  yoann
+1999-12-23 13:05  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh: typo
 
-1999-12-22 09:28  yoann
+1999-12-22 09:28  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/perm.0, init-sh/perm.1, init-sh/perm.2,
 	  init-sh/perm.3, init-sh/perm.4, init-sh/perm.5: *** empty log
 	  message ***
 
-1999-12-22 08:57  yoann
+1999-12-22 08:57  Yoann Vandoorselaere
 
 	* ChangeLog: *** empty log message ***
 
-1999-12-22 02:41  camille
+1999-12-22 02:41  Camille Bégnis <camille at mandriva.com>
 
 	* doc/msec.lyx: Added comprehensive level descriptions
 
-1999-12-21 22:17  prigaux
+1999-12-21 22:17  Pixel <pixel at mandriva.com>
 
 	* ChangeLog: no_comment
 
-1999-12-21 22:17  prigaux
+1999-12-21 22:17  Pixel <pixel at mandriva.com>
 
 	* ChangeLog, init-sh/perm.4, msec.spec: no_comment
 
-1999-12-21 22:10  prigaux
+1999-12-21 22:10  Pixel <pixel at mandriva.com>
 
 	* ChangeLog, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
 	  msec.spec: no_comment
 
-1999-12-21 22:02  prigaux
+1999-12-21 22:02  Pixel <pixel at mandriva.com>
 
 	* ChangeLog, init-sh/lib.sh, msec.spec: no_comment
 
-1999-12-20 18:28  yoann
+1999-12-20 18:28  Yoann Vandoorselaere
 
 	* init-sh/level5.sh: *** empty log message ***
 
-1999-12-20 18:04  yoann
+1999-12-20 18:04  Yoann Vandoorselaere
 
 	* init-sh/lib.sh, msec.spec: *** empty log message ***
 
-1999-12-20 17:14  yoann
+1999-12-20 17:14  Yoann Vandoorselaere
 
 	* init-sh/perm.1, init-sh/perm.2, init-sh/perm.3: *** empty log
 	  message ***
 
-1999-12-20 16:56  yoann
+1999-12-20 16:56  Yoann Vandoorselaere
 
 	* Makefile, cron-sh/security.sh, cron-sh/security_check.sh,
 	  msec.spec: *** empty log message ***
 
-1999-12-20 11:52  yoann
+1999-12-20 11:52  Yoann Vandoorselaere
 
 	* cron-sh/security.sh, init-sh/grpuser.sh: *** empty log message
 	  ***
 
-1999-12-20 08:34  yoann
+1999-12-20 08:34  Yoann Vandoorselaere
 
 	* Makefile, init-sh/level4.sh, init-sh/level5.sh: *** empty log
 	  message ***
 
-1999-12-20 08:06  yoann
+1999-12-20 08:06  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/perm.0, init-sh/perm.1, init-sh/perm.2,
 	  init-sh/perm.3, init-sh/perm.4, init-sh/perm.5: *** empty log
 	  message ***
 
-1999-12-19 23:51  yoann
+1999-12-19 23:51  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/lib.sh, init-sh/perm.0, init-sh/perm.1,
 	  init-sh/perm.2, init-sh/perm.3, init-sh/perm.4, init-sh/perm.5:
 	  *** empty log message ***
 
-1999-12-19 22:39  prigaux
+1999-12-19 22:39  Pixel <pixel at mandriva.com>
 
 	* ChangeLog, init-sh/lib.sh: *** empty log message ***
 
-1999-12-19 22:16  prigaux
+1999-12-19 22:16  Pixel <pixel at mandriva.com>
 
 	* init-sh/lib.sh: *** empty log message ***
 
-1999-12-19 22:15  prigaux
+1999-12-19 22:15  Pixel <pixel at mandriva.com>
 
 	* init-sh/lib.sh: *** empty log message ***
 
-1999-12-19 22:14  prigaux
+1999-12-19 22:14  Pixel <pixel at mandriva.com>
 
 	* init-sh/lib.sh: *** empty log message ***
 
-1999-12-19 22:09  yoann
+1999-12-19 22:09  Yoann Vandoorselaere
 
 	* init-sh/level1.sh, init-sh/level2.sh: *** empty log message ***
 
-1999-12-19 22:01  yoann
+1999-12-19 22:01  Yoann Vandoorselaere
 
 	* Makefile, cron-sh/security.sh, init-sh/security.conf: *** empty
 	  log message ***
 
-1999-12-19 21:53  prigaux
+1999-12-19 21:53  Pixel <pixel at mandriva.com>
 
 	* init-sh/lib.sh: *** empty log message ***
 
-1999-12-19 21:36  yoann
+1999-12-19 21:36  Yoann Vandoorselaere
 
 	* cron-sh/security_check.sh: *** empty log message ***
 
-1999-12-19 21:12  prigaux
+1999-12-19 21:12  Pixel <pixel at mandriva.com>
 
 	* ChangeLog, init-sh/lib.sh: *** empty log message ***
 
-1999-12-19 20:44  yoann
+1999-12-19 20:44  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh, cron-sh/security_check.sh: *** empty log
 	  message ***
 
-1999-12-19 20:20  yoann
+1999-12-19 20:20  Yoann Vandoorselaere
 
 	* cron-sh/security.sh, init-sh/custom.sh, init-sh/level3.sh,
 	  init-sh/level4.sh, init-sh/level5.sh: *** empty log message ***
 
-1999-12-19 20:19  yoann
+1999-12-19 20:19  Yoann Vandoorselaere
 
 	* cron-sh/find.sh, cron-sh/security.sh: *** empty log message ***
 
-1999-12-19 20:05  yoann
+1999-12-19 20:05  Yoann Vandoorselaere
 
 	* ChangeLog, cron-sh/diff_check.sh, cron-sh/find.sh,
 	  cron-sh/security_check.sh, init-sh/security.conf: *** empty log
 	  message ***
 
-1999-12-19 00:35  prigaux
+1999-12-19 00:35  Pixel <pixel at mandriva.com>
 
 	* ChangeLog, msec.spec: no_comment
 
-1999-12-19 00:31  prigaux
+1999-12-19 00:31  Pixel <pixel at mandriva.com>
 
 	* ChangeLog, msec.spec: no_comment
 
-1999-12-19 00:31  prigaux
+1999-12-19 00:31  Pixel <pixel at mandriva.com>
 
 	* ChangeLog, Makefile, msec.spec: no_comment
 
-1999-12-18 16:08  prigaux
+1999-12-18 16:08  Pixel <pixel at mandriva.com>
 
 	* init-sh/init.sh, init-sh/lib.sh, msec.spec: no_comment
 
-1999-12-17 15:23  yoann
+1999-12-17 15:23  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/security.conf: *** empty log message ***
 
-1999-12-17 15:22  yoann
+1999-12-17 15:22  Yoann Vandoorselaere
 
 	* ChangeLog, Makefile, cron-sh/diff_check.sh,
 	  cron-sh/security_check.sh, init-sh/lib.sh: *** empty log message
 	  ***
 
-1999-12-17 14:17  yoann
+1999-12-17 14:17  Yoann Vandoorselaere
 
 	* ChangeLog, cron-sh/security_check.sh: *** empty log message ***
 
-1999-12-16 22:21  camille
+1999-12-16 22:21  Camille Bégnis <camille at mandriva.com>
 
 	* doc/msec.lyx: Added level 0
 	  minor changes
 
-1999-12-16 17:48  yoann
+1999-12-16 17:48  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/level0.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
 	  init-sh/level5.sh, init-sh/lib.sh, msec.spec: *** empty log
 	  message ***
 
-1999-12-16 16:43  yoann
+1999-12-16 16:43  Yoann Vandoorselaere
 
 	* ChangeLog: *** empty log message ***
 
-1999-12-16 16:42  yoann
+1999-12-16 16:42  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/level0.sh, init-sh/lib.sh, msec.spec: ***
 	  empty log message ***
 
-1999-12-16 16:21  yoann
+1999-12-16 16:21  Yoann Vandoorselaere
 
 	* Makefile, TODO, cron-sh/diff_check.sh, cron-sh/security_check.sh,
 	  init-sh/group.conf, init-sh/grpuser.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/lib.sh, msec.spec: *** empty log
 	  message ***
 
-1999-12-16 10:37  yoann
+1999-12-16 10:37  Yoann Vandoorselaere
 
 	* init-sh/grpuser.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/lib.sh: *** empty log message ***
 
-1999-12-16 02:08  chmouel
+1999-12-16 02:08  Chmouel Boudjnah
 
 	* ChangeLog, doc/msec.lyx: *** empty log message ***
 
-1999-12-15 18:04  yoann
+1999-12-15 18:04  Yoann Vandoorselaere
 
 	* init-sh/level0.sh: *** empty log message ***
 
-1999-12-15 17:35  yoann
+1999-12-15 17:35  Yoann Vandoorselaere
 
 	* ChangeLog, TODO, init-sh/lib.sh: *** empty log message ***
 
-1999-12-15 17:22  yoann
+1999-12-15 17:22  Yoann Vandoorselaere
 
 	* TODO, init-sh/grpuser: *** empty log message ***
 
-1999-12-15 17:21  yoann
+1999-12-15 17:21  Yoann Vandoorselaere
 
 	* ChangeLog, Makefile, init-sh/group.conf, init-sh/grpuser,
 	  init-sh/grpuser.sh, init-sh/lib.sh: *** empty log message ***
 
-1999-12-15 11:13  yoann
+1999-12-15 11:13  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/level0.sh: *** empty log message ***
 
-1999-12-15 11:05  yoann
+1999-12-15 11:05  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/level0.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
 	  init-sh/level5.sh: *** empty log message ***
 
-1999-12-15 10:48  yoann
+1999-12-15 10:48  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/level0.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
 	  init-sh/level5.sh, init-sh/lib.sh: *** empty log message ***
 
-1999-12-15 09:39  yoann
+1999-12-15 09:39  Yoann Vandoorselaere
 
 	* ChangeLog, cron-sh/diff_check.sh, cron-sh/security_check.sh,
 	  init-sh/custom.sh, init-sh/level4.sh, init-sh/level5.sh,
 	  init-sh/lib.sh: *** empty log message ***
 
-1999-12-15 08:10  yoann
+1999-12-15 08:10  Yoann Vandoorselaere
 
 	* doc/security.txt, init-sh/level2.sh, init-sh/perm.1,
 	  init-sh/perm.2, init-sh/perm.4, init-sh/perm.5: *** empty log
 	  message ***
 
-1999-12-14 17:24  yoann
+1999-12-14 17:24  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/level1.sh, init-sh/level2.sh, init-sh/lib.sh,
 	  msec.spec: *** empty log message ***
 
-1999-12-14 16:35  yoann
+1999-12-14 16:35  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/level1.sh, init-sh/level2.sh, init-sh/lib.sh:
 	  *** empty log message ***
 
-1999-12-14 13:40  yoann
+1999-12-14 13:40  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/lib.sh: *** empty log message ***
 
-1999-12-14 13:11  yoann
+1999-12-14 13:11  Yoann Vandoorselaere
 
 	* doc/security.txt, init-sh/level0.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/lib.sh, msec.spec: *** empty log
 	  message ***
 
-1999-12-13 11:47  yoann
+1999-12-13 11:47  Yoann Vandoorselaere
 
 	* ChangeLog, cron-sh/diff_check.sh, msec.spec: *** empty log
 	  message ***
 
-1999-12-10 15:28  yoann
+1999-12-10 15:28  Yoann Vandoorselaere
 
 	* init-sh/level0.sh, init-sh/level2.sh, init-sh/level3.sh,
 	  init-sh/level4.sh, init-sh/level5.sh: *** empty log message ***
 
-1999-12-10 15:22  yoann
+1999-12-10 15:22  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/custom.sh, msec.spec: *** empty log message
 	  ***
 
-1999-12-09 17:17  yoann
+1999-12-09 17:17  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-1999-12-09 17:17  yoann
+1999-12-09 17:17  Yoann Vandoorselaere
 
 	* ChangeLog, msec.spec: *** empty log message ***
 
-1999-12-09 17:16  yoann
+1999-12-09 17:16  Yoann Vandoorselaere
 
 	* Makefile, cron-sh/diff_check.sh, cron-sh/promisc_check.sh,
 	  cron-sh/security_check.sh, init-sh/custom.sh,
@@ -3623,85 +3771,85 @@
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
 	  init-sh/lib.sh: Should really be stable now.
 
-1999-12-09 16:44  yoann
+1999-12-09 16:44  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/level0.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/lib.sh: *** empty log message ***
 
-1999-12-09 16:28  yoann
+1999-12-09 16:28  Yoann Vandoorselaere
 
 	* ChangeLog: *** empty log message ***
 
-1999-12-09 16:20  yoann
+1999-12-09 16:20  Yoann Vandoorselaere
 
 	* init-sh/level0.sh, init-sh/perm.0: *** empty log message ***
 
-1999-12-09 15:48  yoann
+1999-12-09 15:48  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-1999-12-09 15:46  yoann
+1999-12-09 15:46  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-1999-12-09 15:46  yoann
+1999-12-09 15:46  Yoann Vandoorselaere
 
 	* ChangeLog, cron-sh/diff_check.sh, cron-sh/promisc_check.sh,
 	  cron-sh/security_check.sh, init-sh/custom.sh, init-sh/level4.sh,
 	  init-sh/lib.sh, msec.spec: *** empty log message ***
 
-1999-12-09 14:48  yoann
+1999-12-09 14:48  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh, cron-sh/promisc_check.sh,
 	  cron-sh/security_check.sh, init-sh/lib.sh: *** empty log message
 	  ***
 
-1999-12-09 10:20  yoann
+1999-12-09 10:20  Yoann Vandoorselaere
 
 	* cron-sh/promisc_check.sh: *** empty log message ***
 
-1999-12-09 10:07  yoann
+1999-12-09 10:07  Yoann Vandoorselaere
 
 	* ChangeLog, cron-sh/diff_check.sh, cron-sh/security_check.sh: ***
 	  empty log message ***
 
-1999-12-08 17:16  yoann
+1999-12-08 17:16  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh, cron-sh/promisc_check.sh: *** empty log
 	  message ***
 
-1999-12-08 16:13  yoann
+1999-12-08 16:13  Yoann Vandoorselaere
 
 	* ChangeLog, cron-sh/security_check.sh, msec.spec: *** empty log
 	  message ***
 
-1999-12-08 14:55  yoann
+1999-12-08 14:55  Yoann Vandoorselaere
 
 	* msec.spec: *** empty log message ***
 
-1999-12-08 12:58  yoann
+1999-12-08 12:58  Yoann Vandoorselaere
 
 	* init-sh/lib.sh: *** empty log message ***
 
-1999-12-08 12:49  yoann
+1999-12-08 12:49  Yoann Vandoorselaere
 
 	* init-sh/lib.sh: *** empty log message ***
 
-1999-12-08 12:44  yoann
+1999-12-08 12:44  Yoann Vandoorselaere
 
 	* init-sh/custom.sh, init-sh/level5.sh: *** empty log message ***
 
-1999-12-08 12:08  yoann
+1999-12-08 12:08  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh: *** empty log message ***
 
-1999-12-08 12:08  yoann
+1999-12-08 12:08  Yoann Vandoorselaere
 
 	* cron-sh/diff_check.sh, cron-sh/promisc_check.sh,
 	  cron-sh/security_check.sh, init-sh/level5.sh, init-sh/lib.sh,
 	  msec.spec: *** empty log message ***
 
-1999-12-08 12:00  yoann
+1999-12-08 12:00  Yoann Vandoorselaere
 
 	* ChangeLog, cron-sh/diff_check.sh, cron-sh/file_check.sh,
 	  cron-sh/security_check.sh, init-sh/custom.sh, init-sh/level1.sh,
@@ -3709,11 +3857,11 @@
 	  init-sh/level5.sh, init-sh/lib.sh, msec.spec: *** empty log
 	  message ***
 
-1999-12-08 10:24  yoann
+1999-12-08 10:24  Yoann Vandoorselaere
 
 	* init-sh/file_perm.sh: *** empty log message ***
 
-1999-12-08 10:04  yoann
+1999-12-08 10:04  Yoann Vandoorselaere
 
 	* ChangeLog, init-sh/file_perm.sh, init-sh/level3.sh,
 	  init-sh/level4.sh, init-sh/level5.sh, msec.spec: *** empty log
@@ -3728,36 +3876,36 @@
 	* cron-sh/security_check.sh: Handle usernames longer than 8 chars
 	  uses ls -n and moves a couple $1 to $3 and such blah blah
 
-1999-12-08 02:49  chmouel
+1999-12-08 02:49  Chmouel Boudjnah
 
 	* ChangeLog, Makefile, msec.spec: "See_The_Changelog"
 
-1999-12-08 02:43  chmouel
+1999-12-08 02:43  Chmouel Boudjnah
 
 	* ChangeLog, Makefile, doc/msec.spec, msec.spec:
 	  "See_The_Changelog"
 
-1999-12-08 02:33  chmouel
+1999-12-08 02:33  Chmouel Boudjnah
 
 	* ChangeLog: *** empty log message ***
 
-1999-12-08 02:33  chmouel
+1999-12-08 02:33  Chmouel Boudjnah
 
 	* Makefile: "See_The_Changelog"
 
-1999-12-08 02:15  chmouel
+1999-12-08 02:15  Chmouel Boudjnah
 
 	* doc/msec.spec: "See_The_Changelog"
 
-1999-12-08 02:15  chmouel
+1999-12-08 02:15  Chmouel Boudjnah
 
 	* ChangeLog: *** empty log message ***
 
-1999-12-08 02:12  chmouel
+1999-12-08 02:12  Chmouel Boudjnah
 
 	* ChangeLog: "See_The_Changelog"
 
-1999-12-08 02:11  chmouel
+1999-12-08 02:11  Chmouel Boudjnah
 
 	* ChangeLog, cron-sh/promisc_check.sh: "See_The_Changelog"
 
@@ -3765,114 +3913,114 @@
 
 	* cron-sh/file_check.sh: Fix the typo
 
-1999-12-06 18:11  yoann
+1999-12-06 18:11  Yoann Vandoorselaere
 
 	* doc/msec.spec, init-sh/level2.sh, init-sh/level3.sh,
 	  init-sh/level4.sh, init-sh/level5.sh: *** empty log message ***
 
-1999-12-06 18:11  yoann
+1999-12-06 18:11  Yoann Vandoorselaere
 
 	* cron-sh/file_check.sh, cron-sh/security_check.sh, doc/msec.spec,
 	  init-sh/custom.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
 	  init-sh/lib.sh: *** empty log message ***
 
-1999-12-06 09:01  yoann
+1999-12-06 09:01  Yoann Vandoorselaere
 
 	* cron-sh/file_check.sh, init-sh/perm.1, init-sh/perm.2,
 	  init-sh/perm.3, init-sh/perm.4, init-sh/perm.5: Added permission
 	  for /var/log/ and it's subdirectory
 
-1999-12-03 14:05  yoann
+1999-12-03 14:05  Yoann Vandoorselaere
 
 	* init-sh/level1.sh, init-sh/level2.sh, init-sh/level3.sh,
 	  init-sh/level4.sh, init-sh/level5.sh: Added /usr/games in PATH
 
-1999-12-01 16:30  yoann
+1999-12-01 16:30  Yoann Vandoorselaere
 
 	* doc/msec.spec, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/lib.sh: *** empty log message ***
 
-1999-12-01 15:52  yoann
+1999-12-01 15:52  Yoann Vandoorselaere
 
 	* doc/msec.spec: *** empty log message ***
 
-1999-12-01 15:51  yoann
+1999-12-01 15:51  Yoann Vandoorselaere
 
 	* doc/msec.spec, init-sh/file_perm.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/lib.sh: Ok now add the user list to
 	  audio group ( level 1 & 2 ).
 	  lib.sh delete user list from audio group
 
-1999-12-01 14:55  yoann
+1999-12-01 14:55  Yoann Vandoorselaere
 
 	* init-sh/level1.sh, init-sh/level2.sh, init-sh/level3.sh: Bug fix
 
-1999-12-01 11:40  yoann
+1999-12-01 11:40  Yoann Vandoorselaere
 
 	* doc/msec.spec: *** empty log message ***
 
-1999-12-01 11:39  yoann
+1999-12-01 11:39  Yoann Vandoorselaere
 
 	* init-sh/level4.sh, init-sh/lib.sh: Now preserve file indentation
 
-1999-12-01 11:10  yoann
+1999-12-01 11:10  Yoann Vandoorselaere
 
 	* init-sh/level4.sh, init-sh/lib.sh: *** empty log message ***
 
-1999-12-01 11:02  yoann
+1999-12-01 11:02  Yoann Vandoorselaere
 
 	* doc/msec.spec, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
 	  init-sh/lib.sh: Bug fix
 
-1999-11-30 15:47  yoann
+1999-11-30 15:47  Yoann Vandoorselaere
 
 	* cron-sh/file_check.sh, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh: Many
 	  cron security check added.
 	  Now report what it does ( msec ).
 
-1999-11-29 15:07  yoann
+1999-11-29 15:07  Yoann Vandoorselaere
 
 	* doc/msec.spec: *** empty log message ***
 
-1999-11-29 15:06  yoann
+1999-11-29 15:06  Yoann Vandoorselaere
 
 	* Makefile, doc/msec.spec, init-sh/custom.sh, init-sh/init.sh,
 	  init-sh/lib.sh: *** empty log message ***
 
-1999-11-29 14:18  yoann
+1999-11-29 14:18  Yoann Vandoorselaere
 
 	* init-sh/custom.sh, init-sh/init.sh, init-sh/level1.sh,
 	  init-sh/level2.sh, init-sh/level3.sh, init-sh/level4.sh,
 	  init-sh/level5.sh, init-sh/lib.sh: Uhh custom security will
 	  always be a good idea.
 
-1999-11-29 10:09  yoann
+1999-11-29 10:09  Yoann Vandoorselaere
 
 	* doc/msec.spec, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh, init-sh/level4.sh, init-sh/level5.sh,
 	  init-sh/lib.sh: Fix a few bug.
 
-1999-11-26 17:23  yoann
+1999-11-26 17:23  Yoann Vandoorselaere
 
 	* doc/msec.spec: *** empty log message ***
 
-1999-11-26 00:21  yoann
+1999-11-26 00:21  Yoann Vandoorselaere
 
 	* doc/msec.spec, init-sh/level1.sh, init-sh/level2.sh,
 	  init-sh/level3.sh: msec.spec: updated revision / changelog.
 	  level[12].sh: removed some unused code.
 	  level3.sh: fixed a bug
 
-1999-11-25 20:24  yoann
+1999-11-25 20:24  Yoann Vandoorselaere
 
 	* doc/msec.spec, init-sh/level4.sh, init-sh/level5.sh: level[45].sh
 	  : use the new --msec option when calling chkconfig
 	  msec.spec : updated release version number
 
-1999-11-25 19:44  yoann
+1999-11-25 19:44  Yoann Vandoorselaere
 
 	* AUTHORS, COPYING, Makefile, README, cron-sh, cron-sh/Makefile,
 	  cron-sh/file_check.sh, cron-sh/promisc_check.sh, doc,

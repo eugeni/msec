@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# Written by Vandoorselaere Yoann, <yoann@mandrakesoft.com>
+# Written by Vandoorselaere Yoann
 #
 
 if [[ -f /etc/security/msec/security.conf ]]; then

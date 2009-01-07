@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Writen by Vandoorselaere Yoann, 
-# <yoann@mandrakesoft.com>
+# Writen by Vandoorselaere Yoann
 
 Syslog() {
     if [[ ${SYSLOG_WARN} == yes ]]; then

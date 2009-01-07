@@ -506,7 +506,7 @@ class ConfigFile:
                 return self
         if status == BEFORE:
             # never found the start delimiter
-            self.log.warning(_('WARNING: never found regexp %s in %s, not writing changes') % (start_regexp, self.path))
+            self.log.warn(_('WARNING: never found regexp %s in %s, not writing changes') % (start_regexp, self.path))
             return self
         if space.search(value):
             s = var + '="' + value + '"'

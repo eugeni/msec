@@ -74,7 +74,7 @@ dist: cleandist export tar
 changelog: 
 	svn up
 	svn2cl --accum --authors=../common/username.xml -o ChangeLog || : 
-	rù -f ChangeLog.bak
+	rm -f ChangeLog.bak
 
 export:
 	rm -fr $(PACKAGE)-$(VERSION)

@@ -251,6 +251,12 @@ class PermConfig(MsecConfig):
         """Sorts and returns configuration parameters"""
         return self.options_order
 
+    def set(self, option, value):
+        """Sets a configuration option"""
+        self.options[option] = value
+        if option not in self.options_order:
+            self.options_order.append(option)
+
     def save(self):
         """Saves configuration. Comments go on top"""
         try:

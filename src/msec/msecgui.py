@@ -159,6 +159,7 @@ class MsecGui:
         cancel.connect('clicked', self.cancel)
         hbox.pack_start(cancel, expand=True, fill=True)
         help = gtk.Button(gtk.STOCK_HELP)
+        help.set_sensitive(False)
         help.set_use_stock(True)
         help.connect('clicked', self.help)
         hbox.pack_start(help, expand=True, fill=True)
@@ -638,11 +639,19 @@ class MsecGui:
         file = model.get_value(iter, self.COLUMN_PATH)
         fixed = model.get_value(iter, self.COLUMN_FORCE)
 
+        user, group, perm, force = self.permconfig.get(file)
+
         # do something with the value
         fixed = not fixed
 
         # set new value
         model.set(iter, self.COLUMN_FORCE, fixed)
+        if fixed:
+            force = "force"
+        else:
+            force = ""
+        self.permconfig.set(file, (user, group, perm, force))
+
 
     def permission_changed(self, treeview, path, col, model):
         """Processes a permission change"""
@@ -651,31 +660,46 @@ class MsecGui:
         user = model.get_value(iter, self.COLUMN_USER)
         group = model.get_value(iter, self.COLUMN_GROUP)
         perm = model.get_value(iter, self.COLUMN_PERM)
+        force = model.get_value(iter, self.COLUMN_FORCE)
+
+        if not force:
+            force = ""
+        else:
+            force = "force"
 
         # asks for new parameter value
         dialog = gtk.Dialog(_("Changing permissions for %s") % (file),
                 self.window, 0,
                 (gtk.STOCK_OK, gtk.RESPONSE_OK,
                 gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL))
-        label = gtk.Label(_("Changing permissions on <b>%s</b>\nPlease specify new permissions, or use 'current' to disable checks.") % (file))
+        label = gtk.Label(_("Changing permissions on <b>%s</b>\nPlease specify new permissions, or use 'current' to keep current permissions.\n") % (file))
         label.set_line_wrap(True)
         label.set_use_markup(True)
-        dialog.vbox.pack_start(label)
+        dialog.vbox.pack_start(label, False, False)
 
         # user
+        hbox = gtk.HBox()
+        hbox.pack_start(gtk.Label(_("User: ")))
         entry_user = gtk.Entry()
         entry_user.set_text(user)
-        dialog.vbox.pack_start(entry_user)
+        hbox.pack_start(entry_user)
+        dialog.vbox.pack_start(hbox, False, False)
 
         # group
+        hbox = gtk.HBox()
+        hbox.pack_start(gtk.Label(_("Group: ")))
         entry_group = gtk.Entry()
         entry_group.set_text(group)
-        dialog.vbox.pack_start(entry_group)
+        hbox.pack_start(entry_group)
+        dialog.vbox.pack_start(hbox, False, False)
 
         # perm
+        hbox = gtk.HBox()
+        hbox.pack_start(gtk.Label(_("Permissions: ")))
         entry_perm = gtk.Entry()
         entry_perm.set_text(perm)
-        dialog.vbox.pack_start(entry_perm)
+        hbox.pack_start(entry_perm)
+        dialog.vbox.pack_start(hbox, False, False)
 
         dialog.show_all()
         response = dialog.run()
@@ -688,7 +712,7 @@ class MsecGui:
         newperm = entry_perm.get_text()
         dialog.destroy()
 
-        self.permconfig.set(file, (newuser, newgroup, newperm))
+        self.permconfig.set(file, (newuser, newgroup, newperm, force))
         model.set(iter, self.COLUMN_USER, newuser)
         model.set(iter, self.COLUMN_GROUP, newgroup)
         model.set(iter, self.COLUMN_PERM, newperm)

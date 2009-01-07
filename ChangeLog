@@ -1,3 +1,7 @@
+2009-01-07 15:08  eugeni
+	
+	* Complete redesign of msec for Mandriva 2009.1.
+
 2008-03-25 15:08  pixel
 
 	* Makefile: 0.50.9: do not allow msec to mess with umask=xxx for

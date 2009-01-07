@@ -857,6 +857,21 @@ class MsecGui:
             dialog.destroy()
             return
 
+        # process new parameter
+        if '*' in params:
+            newval = entry.get_text()
+        else:
+            newval = entry.get_active_text()
+        newval = entry.get_active_text()
+        dialog.destroy()
+
+        # update options
+        self.config.set(param, newval)
+        self.authconfig.set(param, newval)
+
+        model.set(iter, self.COLUMN_VALUE, newval)
+
+
     def auth_changed(self, treeview, path, col, model):
         """Processes an option change"""
         iter = model.get_iter(path)

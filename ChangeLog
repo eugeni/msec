@@ -1,3 +1,77 @@
+2009-01-07 03:48  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* Makefile: (changelog) autocommit
+
+2009-01-07 03:46  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* Makefile: typo fix
+
+2009-01-07 03:45  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* AUTHORS, doc/msec.lyx, src/msec_find/find.c,
+	  src/promisc_check/promisc_check.c: MandrakeSoft was renamed as
+	  Mandriva years ago
+
+2009-01-07 03:43  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* man/C/msec.8, src/msec/README, src/msec/man.py: kill dead fred's
+	  email
+
+2009-01-07 03:42  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* cron-sh/diff_check.sh, cron-sh/promisc_check.sh,
+	  cron-sh/security_check.sh, doc/msec.lyx, init-sh/cleanold.sh:
+	  kill dead yoann's email
+
+2009-01-07 03:42  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* Makefile: (changelog) kill backup file
+
+2009-01-07 03:40  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* README: let's try to redirect people to right man
+
+2009-01-07 03:39  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* AUTHORS: kill dead email (fred doesn't work for us for years)
+
+2009-01-07 03:22  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* Makefile: (changelog) use --accum
+
+2009-01-07 03:21  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* ChangeLog: update
+
+2009-01-07 03:20  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* NEWS: log next releases
+
+2009-01-07 03:19  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* NEWS: commit NEWS that I forgot to commit monthes ago
+
+2009-01-07 03:18  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* Makefile: (changelog) use common/username.xml
+
+2009-01-07 02:34  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* ChangeLog: Updated ChangeLog.
+
+2009-01-07 01:57  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* man/C/msec.8, src/msec/libmsec.py: Updated terminal log option.
+
+2009-01-07 01:36  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/config.py, src/msec/msecgui.py: More informative system
+	  permission changes.
+
+2009-01-07 01:16  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/msecgui.py: Implemented permissions saving.
+
 2009-01-07 02:34  Eugeni Dodonov <eugeni at mandriva.com>
 
 	* ChangeLog: Updated ChangeLog.

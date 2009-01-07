@@ -60,7 +60,6 @@ if __name__ == "__main__":
     force_level = False
     log_level = logging.INFO
     commit = True
-    level = config.DEFAULT_LEVEL
 
     # parse command line
     try:

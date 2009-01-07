@@ -166,7 +166,6 @@ class MsecGui:
 
     def cancel(self, widget):
         """Cancel button"""
-        print "Cancel clicked."
         self.quit(widget)
 
     def help(self, widget):
@@ -175,7 +174,6 @@ class MsecGui:
 
     def ok(self, widget):
         """Ok button"""
-        print "Ok clicked."
         # first, let's reset previous msec data
         self.msec.reset()
         # start buffered logging
@@ -420,7 +418,6 @@ class MsecGui:
         """Defines a given security level"""
         if widget.get_active():
             self.enforced_level = level
-            print level
 
     def notifications_page(self):
         """Builds the notifications page"""

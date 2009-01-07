@@ -1,0 +1,6 @@
+Version 0.50.10 - 01 October 2008, Thierry Vignaud
+
+- cron entry:
+  o blacklist cifs instead of only smbfs for samba
+  o exclude /media from searching like /mnt is
+  o run with idle IOnice priority (#42795)

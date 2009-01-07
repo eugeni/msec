@@ -73,7 +73,7 @@ dist: cleandist export tar
 
 changelog: 
 	svn up
-	svn2cl -o ChangeLog || : 
+	svn2cl --authors=../common/username.xml -o ChangeLog || : 
 
 export:
 	rm -fr $(PACKAGE)-$(VERSION)

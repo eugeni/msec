@@ -112,11 +112,15 @@ class MsecGui:
         self.log = log
         self.msec = msec
         self.config = config
+        self.perms = perms
         # save original configuration
         self.oldconfig = {}
         for opt in config.list_options():
             self.oldconfig[opt] = config.get(opt)
-        self.perms = perms
+        self.oldperms = {}
+        for opt in perms.list_options():
+            self.oldperms[opt] = perms.get(opt)
+
         self.window = gtk.Window()
         self.window.set_default_size(640, 480)
         self.window.connect('destroy', self.quit)
@@ -182,8 +186,10 @@ class MsecGui:
         if self.enforcing_level:
             print ">> Enforcing level %s" % self.enforced_level
             curconfig = config.load_defaults(self.log, self.enforced_level)
+            permconfig = config.load_default_perms(self.log, self.enforced_level)
         else:
             curconfig = self.config
+            permconfig = self.perms
         # apply config and preview changes
         self.msec.apply(curconfig)
         msec.commit(False)
@@ -207,7 +213,7 @@ class MsecGui:
         vbox.pack_start(label, False, False)
 
         # informative label
-        label = gtk.Label(_('<b>New msec configuration:</b>'))
+        label = gtk.Label(_('<b>MSEC configuration:</b>'))
         label.set_use_markup(True)
         vbox.pack_start(label, False, False)
 
@@ -224,7 +230,24 @@ class MsecGui:
             label.set_line_wrap(True)
             vbox.pack_start(label, False, False)
         else:
-            label = gtk.Label(_('<b>No changes in MSEC options.</b>'))
+            label = gtk.Label(_('<i>No changes in MSEC options.</i>'))
+            label.set_use_markup(True)
+            vbox.pack_start(label, False, False)
+
+        # now checking for permission changes
+        perm_changes = []
+        for opt in self.oldconfig:
+            if curconfig.get(opt) != self.oldconfig[opt]:
+                perm_changes.append(opt)
+
+        if len(perm_changes) > 0:
+            # some configuration parameters were changed
+            label = gtk.Label(_('<b>System permissions changed:</b> <i>%s</i>\n') % ", ".join(perm_changes))
+            label.set_use_markup(True)
+            label.set_line_wrap(True)
+            vbox.pack_start(label, False, False)
+        else:
+            label = gtk.Label(_('<i>No changes in system permissions.</i>'))
             label.set_use_markup(True)
             vbox.pack_start(label, False, False)
 
@@ -236,12 +259,15 @@ class MsecGui:
                 label.set_use_markup(True)
                 vbox.pack_start(label, False, False)
                 break
-        # a separator
-        vbox.pack_start(gtk.HSeparator(), False, False)
+
         # adding specific messages
+        advanced = gtk.Expander(_("Details"))
+        vbox_advanced = gtk.VBox()
+        advanced.add(vbox_advanced)
+        vbox.pack_start(advanced, False, False)
         for cat in ['info', 'critical', 'error', 'warn', 'debug']:
             msgs = messages[cat]
-            expander = gtk.Expander(_('Verbose information (%s): %d') % (cat, len(msgs)))
+            expander = gtk.Expander(_('MSEC messages (%s): %d') % (cat, len(msgs)))
             textview = gtk.TextView()
             textview.set_wrap_mode(gtk.WRAP_WORD_CHAR)
             textview.set_editable(False)
@@ -252,7 +278,7 @@ class MsecGui:
                 end = buffer.get_end_iter()
                 buffer.insert(end, "%d: %s\n" % (count, msg))
                 count += 1
-            vbox.pack_start(expander, False, False)
+            vbox_advanced.pack_start(expander, False, False)
 
         dialog.show_all()
         response = dialog.run()

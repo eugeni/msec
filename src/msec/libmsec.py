@@ -854,9 +854,8 @@ class MSEC:
                     xservers.exists() and xservers.replace_line_matching('(\s*[^#]+/usr/bin/X .*?)( -nolisten tcp)?$', '@1 -nolisten tcp', 0, 1)
                 if val_gdmconf != 'true':
                     gdmconf.exists() and gdmconf.set_shell_variable('DisallowTCP', 'true', '\[security\]', '^\s*$')
-                if val_kdmrc:
-                    if not val_kdmrc.get_match('^ServerArgsLocal=.* -nolisten tcp'):
-                        kdmrc.exists() and kdmrc.replace_line_matching('^(ServerArgsLocal=.*)$', '@1 -nolisten tcp', 'ServerArgsLocal=-nolisten tcp', 0, 'X-\*-Core', '^\s*$')
+                if not val_kdmrc:
+                    kdmrc.exists() and kdmrc.replace_line_matching('^(ServerArgsLocal=.*)$', '@1 -nolisten tcp', 'ServerArgsLocal=-nolisten tcp', 0, 'X-\*-Core', '^\s*$')
 
     def set_shell_timeout(self, val):
         '''  Set the shell timeout. A value of zero means no timeout.'''

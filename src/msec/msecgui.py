@@ -184,12 +184,12 @@ class MsecGui:
         self.log.start_buffer()
         # are we enforcing a level?
         if self.enforcing_level:
-            print ">> Enforcing level %s" % self.enforced_level
+            self.log.debug(">> Enforcing level %s" % self.enforced_level)
             curconfig = config.load_defaults(self.log, self.enforced_level)
-            permconfig = config.load_default_perms(self.log, self.enforced_level)
+            curperms = config.load_default_perms(self.log, self.enforced_level)
         else:
             curconfig = self.config
-            permconfig = self.perms
+            curperms = self.perms
         # apply config and preview changes
         self.msec.apply(curconfig)
         msec.commit(False)
@@ -236,8 +236,8 @@ class MsecGui:
 
         # now checking for permission changes
         perm_changes = []
-        for opt in self.oldconfig:
-            if curconfig.get(opt) != self.oldconfig[opt]:
+        for opt in self.oldperms:
+            if curperms.get(opt) != self.oldperms[opt]:
                 perm_changes.append(opt)
 
         if len(perm_changes) > 0:
@@ -567,7 +567,7 @@ class MsecGui:
         treeview.set_search_column(self.COLUMN_DESCR)
 
         # TODO: fix
-        treeview.connect('row-activated', self.option_changed, lstore)
+        treeview.connect('row-activated', self.permission_changed, lstore)
 
         # configuring columns
 
@@ -627,6 +627,7 @@ class MsecGui:
     def toggle_enforced(self, cell, path, model):
         '''Toggles a forced permission on an item'''
         iter = model.get_iter((int(path),))
+        file = model.get_value(iter, self.COLUMN_PATH)
         fixed = model.get_value(iter, self.COLUMN_FORCE)
 
         # do something with the value
@@ -635,9 +636,57 @@ class MsecGui:
         # set new value
         model.set(iter, self.COLUMN_FORCE, fixed)
 
+    def permission_changed(self, treeview, path, col, model):
+        """Processes a permission change"""
+        iter = model.get_iter(path)
+        file = model.get_value(iter, self.COLUMN_PATH)
+        user = model.get_value(iter, self.COLUMN_USER)
+        group = model.get_value(iter, self.COLUMN_GROUP)
+        perm = model.get_value(iter, self.COLUMN_PERM)
+
+        # asks for new parameter value
+        dialog = gtk.Dialog(_("Changing permissions for %s") % (file),
+                self.window, 0,
+                (gtk.STOCK_OK, gtk.RESPONSE_OK,
+                gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL))
+        label = gtk.Label(_("Changing permissions on <b>%s</b>\nPlease specify new permissions, or use 'current' to disable checks.") % (file))
+        label.set_line_wrap(True)
+        label.set_use_markup(True)
+        dialog.vbox.pack_start(label)
+
+        # user
+        entry_user = gtk.Entry()
+        entry_user.set_text(user)
+        dialog.vbox.pack_start(entry_user)
+
+        # group
+        entry_group = gtk.Entry()
+        entry_group.set_text(group)
+        dialog.vbox.pack_start(entry_group)
+
+        # perm
+        entry_perm = gtk.Entry()
+        entry_perm.set_text(perm)
+        dialog.vbox.pack_start(entry_perm)
+
+        dialog.show_all()
+        response = dialog.run()
+        if response != gtk.RESPONSE_OK:
+            dialog.destroy()
+            return
+
+        newuser = entry_user.get_text()
+        newgroup = entry_group.get_text()
+        newperm = entry_perm.get_text()
+        dialog.destroy()
+
+        self.perms.set(file, (newuser, newgroup, newperm))
+        model.set(iter, self.COLUMN_USER, newuser)
+        model.set(iter, self.COLUMN_GROUP, newgroup)
+        model.set(iter, self.COLUMN_PERM, newperm)
+
     def option_changed(self, treeview, path, col, model):
         """Processes an option change"""
-        print path
         iter = model.get_iter(path)
         param = model.get_value(iter, self.COLUMN_OPTION)
         descr = model.get_value(iter, self.COLUMN_DESCR)

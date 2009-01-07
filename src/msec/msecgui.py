@@ -948,7 +948,6 @@ if __name__ == "__main__":
     PlugWindowID = None
 
     # parse command line
-    print sys.argv
     try:
         opt, args = getopt.getopt(sys.argv[1:], 'hde:', ['help', 'debug', 'embedded='])
     except getopt.error:

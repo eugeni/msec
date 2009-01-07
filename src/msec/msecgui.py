@@ -113,7 +113,7 @@ class MsecGui:
     (COLUMN_PATH, COLUMN_USER, COLUMN_GROUP, COLUMN_PERM, COLUMN_FORCE) = range(5)
     (COLUMN_APP, COLUMN_DESCR, COLUMN_AUTH) = range(3)
 
-    def __init__(self, log, msec, perms, auth, config, permconfig, authconfig):
+    def __init__(self, log, msec, perms, auth, config, permconfig, authconfig, embed=None):
         """Initializes gui"""
         self.log = log
         self.msec = msec
@@ -134,8 +134,13 @@ class MsecGui:
         for opt in authconfig.list_options():
             self.oldauth[opt] = authconfig.get(opt)
 
-        self.window = gtk.Window()
-        self.window.set_default_size(640, 480)
+        if embed:
+            # embedding in MCC
+            self.window = gtk.Plug(embed)
+        else:
+            # running standalone
+            self.window = gtk.Window()
+            self.window.set_default_size(640, 480)
         self.window.connect('destroy', self.quit)
 
         # are we enforcing a level
@@ -214,7 +219,7 @@ class MsecGui:
 
         # creating preview window
         dialog = gtk.Dialog(_("Preview changes"),
-                self.window, 0,
+                self.window, gtk.DIALOG_MODAL,
                 (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
                 gtk.STOCK_OK, gtk.RESPONSE_OK)
                 )
@@ -934,15 +939,18 @@ def usage():
 Arguments to msecgui:
     -h, --help              displays this helpful message.
     -d                      enable debugging messages.
+    -e, --embedded <XID>    embed in MCC.
 """ % version
 # }}}
 
 if __name__ == "__main__":
     log_level = logging.INFO
+    PlugWindowID = None
 
     # parse command line
+    print sys.argv
     try:
-        opt, args = getopt.getopt(sys.argv[1:], 'hd', ['help', 'debug'])
+        opt, args = getopt.getopt(sys.argv[1:], 'hde:', ['help', 'debug', 'embedded='])
     except getopt.error:
         usage()
         sys.exit(1)
@@ -954,6 +962,12 @@ if __name__ == "__main__":
         # list
         elif o[0] == '-d' or o[0] == '--debug':
             log_level = logging.DEBUG
+        elif o[0] == '-e' or o[0] == '--embedded':
+            try:
+                PlugWindowID = long(o[1])
+            except:
+                print >>sys.stderr, "Error: bad master window XID (%s)!" % o[1]
+                sys.exit(1)
 
     # configuring logging
     log = Log(interactive=True, log_syslog=False, log_file=True, log_level=log_level, log_path=config.SECURITYLOG)
@@ -980,6 +994,6 @@ if __name__ == "__main__":
 
     log.info("Starting gui..")
 
-    gui = MsecGui(log, msec, perms, auth, msec_config, perm_conf, auth_conf)
+    gui = MsecGui(log, msec, perms, auth, msec_config, perm_conf, auth_conf, embed=PlugWindowID)
     gtk.main()
 

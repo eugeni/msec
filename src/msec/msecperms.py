@@ -68,7 +68,7 @@ if __name__ == "__main__":
 
     # parse command line
     try:
-        opt, args = getopt.getopt(sys.argv[1:], 'hel:f:dp', ['help', 'enforce', 'list', 'force', 'debug', 'pretend'])
+        opt, args = getopt.getopt(sys.argv[1:], 'hel:f:dp', ['help', 'enforce', 'list=', 'force=', 'debug', 'pretend'])
     except getopt.error:
         usage()
         sys.exit(1)

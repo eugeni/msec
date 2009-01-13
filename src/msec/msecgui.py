@@ -44,7 +44,7 @@ except:
     HELP = {}
 
 # text strings
-BASIC_SECURITY_TEXT=_("""Basic security options.
+LEVEL_SECURITY_TEXT=_("""<big><b>Security level</b></big>
 
 These options control the basic aspects of system security. You may select
 a pre-defined profile, or customize the options.
@@ -113,18 +113,36 @@ class MsecGui:
     (COLUMN_PATH, COLUMN_USER, COLUMN_GROUP, COLUMN_PERM, COLUMN_FORCE) = range(5)
     (COLUMN_APP, COLUMN_DESCR, COLUMN_AUTH) = range(3)
 
-    def __init__(self, log, msec, perms, auth, config, permconfig, authconfig, embed=None):
+    def __init__(self, log, msec, perms, auth, msecconfig, permconfig, authconfig, embed=None):
         """Initializes gui"""
         self.log = log
         self.msec = msec
-        self.config = config
         self.perms = perms
+        self.auth = auth
+        # current configuration
+        self.msecconfig = msecconfig
         self.authconfig = authconfig
         self.permconfig = permconfig
-        # msec settings
+        # pre-defined default configurations
+        self.defaults = {
+                config.NONE_LEVEL: (
+                    config.load_defaults(log, config.NONE_LEVEL),
+                    config.load_default_perms(log, config.NONE_LEVEL)
+                    ),
+                config.DEFAULT_LEVEL: (
+                    config.load_defaults(log, config.DEFAULT_LEVEL),
+                    config.load_default_perms(log, config.DEFAULT_LEVEL)
+                    ),
+                config.SECURE_LEVEL: (
+                    config.load_defaults(log, config.SECURE_LEVEL),
+                    config.load_default_perms(log, config.SECURE_LEVEL)
+                    )
+                }
+
+        # saving old config
         self.oldconfig = {}
-        for opt in config.list_options():
-            self.oldconfig[opt] = config.get(opt)
+        for opt in msecconfig.list_options():
+            self.oldconfig[opt] = msecconfig.get(opt)
         # permissions
         self.oldperms = {}
         for opt in permconfig.list_options():
@@ -133,6 +151,20 @@ class MsecGui:
         self.oldauth = {}
         for opt in authconfig.list_options():
             self.oldauth[opt] = authconfig.get(opt)
+
+        # what level are we?
+        level = msecconfig.get("BASE_LEVEL")
+        if not level:
+            self.log.info(_("No base msec level specified, using '%s'") % config.DEFAULT_LEVEL)
+            self.base_level = config.DEFAULT_LEVEL
+        elif level == config.NONE_LEVEL or level == config.DEFAULT_LEVEL or level == config.SECURE_LEVEL:
+            self.log.info(_("Detected base msec level '%s'") % level)
+            self.base_level = level
+        else:
+            # custom level?
+            # TODO: notify user about this
+            self.log.info(_("Custom base config level found. Will default to '%s'") % (level, config.DEFAULT_LEVEL))
+            self.base_level = config.DEFAULT_LEVEL
 
         if embed:
             # embedding in MCC
@@ -154,11 +186,11 @@ class MsecGui:
         frame = gtk.Frame()
         main_vbox.pack_start(frame)
 
-        # notebook
+        # creating tabs
         self.notebook = gtk.Notebook()
         frame.add(self.notebook)
 
-        self.notebook.append_page(self.basic_security_page(), gtk.Label(_("Basic security")))
+        self.notebook.append_page(self.level_security_page(), gtk.Label(_("Basic security")))
         self.notebook.append_page(self.auth_security_page(), gtk.Label(_("Authentication")))
         self.notebook.append_page(self.system_security_page(), gtk.Label(_("System security")))
         self.notebook.append_page(self.network_security_page(), gtk.Label(_("Network security")))
@@ -166,7 +198,7 @@ class MsecGui:
         self.notebook.append_page(self.notifications_page(), gtk.Label(_("Security notifications")))
         self.notebook.append_page(self.permissions_security_page(), gtk.Label(_("Permissions")))
 
-        # control hbox
+        # menu
         hbox = gtk.HBox(homogeneous=False, spacing=10)
         main_vbox.pack_start(hbox, False, False)
 
@@ -199,20 +231,16 @@ class MsecGui:
     def ok(self, widget):
         """Ok button"""
         # TODO: split in smaller functions
-        # first, let's reset previous msec data
-        self.msec.reset()
-        # start buffered logging
-        self.log.start_buffer()
-        # are we enforcing a level?
-        # TODO: copy and merge options
+        print self.base_level
         if self.enforcing_level:
             self.log.debug(">> Enforcing level %s" % self.enforced_level)
-            curconfig = config.load_defaults(self.log, self.enforced_level)
-            curperms = config.load_default_perms(self.log, self.enforced_level)
+            if self.enforced_level in self.defaults:
+                curconfig, curperms = self.defaults[self.enforced_level]
         else:
-            curconfig = self.config
+            curconfig = self.msecconfig
             curperms = self.permconfig
         # apply config and preview changes
+        self.log.start_buffer()
         self.msec.apply(curconfig)
         self.msec.commit(False)
         messages = self.log.get_buffer()
@@ -240,22 +268,31 @@ class MsecGui:
         vbox.pack_start(label, False, False)
 
         # check for changed options
-        for name, oldconf, curconf in [ (_("MSEC option changes"), self.oldconfig, curconfig),
-                                        (_("System permissions changes"), self.oldperms, curperms),
-                                        (_("System authentication changes"), self.oldauth, self.authconfig),
+        for name, type, oldconf, curconf in [ (_("MSEC option changes"), _("option"), self.oldconfig, curconfig),
+                                        (_("System permissions changes"), _("permission check"), self.oldperms, curperms),
+                                        (_("System authentication changes"), _("authentication check"), self.oldauth, self.authconfig),
                                         ]:
             # check for changes
             opt_changes = []
-            for opt in oldconf:
-                if curconf.get(opt) != oldconf.get(opt):
-                    opt_changes.append(opt)
+            opt_adds = []
+            opt_dels = []
+            # changed options
+            opt_changes = [opt for opt in oldconf if (curconf.get(opt) != oldconf.get(opt) and curconf.get(opt) != None and curconf.get(opt) != None)]
             if len(opt_changes) > 0:
-                changes = "\n\t" + "\n\t".join(["<b>%s</b> (%s -> %s)" % (param, oldconf.get(param), curconf.get(param)) for param in opt_changes])
+                changes = "\n\t" + "\n\t".join([_("changed %s <b>%s</b> (%s -> %s)") % (type, param, oldconf.get(param), curconf.get(param)) for param in opt_changes])
             else:
                 changes = _("no changes")
+            # new options
+            opt_adds = [opt for opt in curconf.list_options() if (opt not in oldconf and curconf.get(opt))]
+            if len(opt_adds) > 0:
+                changes += "\n\t" + "\n\t".join([_("added %s <b>%s</b> (%s)") % (type, param, curconf.get(param)) for param in opt_adds])
+            # removed options
+            opt_dels = [opt for opt in oldconf if (opt not in curconf.list_options() and oldconf.get(opt))]
+            if len(opt_dels) > 0:
+                changes += "\n\t" + "\n\t".join([_("removed %s <b>%s</b>") % (type, param) for param in opt_dels])
+            # adding labels
             label = gtk.Label(_('<b>%s:</b> <i>%s</i>\n') % (name, changes))
             label.set_use_markup(True)
-#            label.set_line_wrap(True)
             label.set_property("xalign", 0.0)
             vbox.pack_start(label, False, False)
 
@@ -300,13 +337,13 @@ class MsecGui:
         if self.enforcing_level:
             # rewriting configuration
             for opt in curconfig.list_options():
-                self.config.set(opt, curconfig.get(opt))
+                self.msecconfig.set(opt, curconfig.get(opt))
             for perm in curperms.list_options():
                 self.permconfig.set(perm, curperms.get(perm))
 
         # saving the configuration
-        self.config.save()
-        self.msec.apply(self.config)
+        self.msecconfig.save()
+        self.msec.apply(self.msecconfig)
         self.msec.commit(True)
 
         # saving permissions
@@ -382,7 +419,7 @@ class MsecGui:
                     doc = callback
 
             # now for the value
-            value = self.config.get(option)
+            value = self.msecconfig.get(option)
 
             # building the option
             iter = lstore.append()
@@ -462,15 +499,11 @@ class MsecGui:
         return sw
 
 
-    def basic_security_page(self):
+    def level_security_page(self):
         """Builds the basic security page"""
         vbox = gtk.VBox(homogeneous=False)
 
-        # security levels
-
-        levels = config.SECURITY_LEVELS
-
-        entry = gtk.Label(BASIC_SECURITY_TEXT)
+        entry = gtk.Label(LEVEL_SECURITY_TEXT)
         entry.set_use_markup(True)
         vbox.pack_start(entry, False, False)
 
@@ -623,7 +656,7 @@ class MsecGui:
         vbox.pack_start(entry, False, False)
 
         self.periodic_checks = gtk.CheckButton(_("Enable periodic security checks"))
-        if self.config.get("CHECK_SECURITY") == "yes":
+        if self.msecconfig.get("CHECK_SECURITY") == "yes":
             self.periodic_checks.set_active(True)
         vbox.pack_start(self.periodic_checks, False, False)
 
@@ -638,7 +671,7 @@ class MsecGui:
 
         # see if these tests are enabled
         self.periodic_checks.connect('clicked', self.periodic_tests, options_view)
-        periodic_checks = self.config.get("CHECK_SECURITY")
+        periodic_checks = self.msecconfig.get("CHECK_SECURITY")
         if periodic_checks == 'no':
             # disable all periodic tests
             options_view.set_sensitive(False)
@@ -649,10 +682,10 @@ class MsecGui:
         '''Enables/disables periodic security tests.'''
         status = widget.get_active()
         if status:
-            self.config.set("CHECK_SECURITY", "yes")
+            self.msecconfig.set("CHECK_SECURITY", "yes")
             options.set_sensitive(True)
         else:
-            self.config.set("CHECK_SECURITY", "no")
+            self.msecconfig.set("CHECK_SECURITY", "no")
             options.set_sensitive(False)
 
     def permissions_security_page(self):
@@ -871,7 +904,7 @@ class MsecGui:
         dialog.destroy()
 
         # update options
-        self.config.set(param, newval)
+        self.msecconfig.set(param, newval)
         self.authconfig.set(param, newval)
 
         model.set(iter, self.COLUMN_VALUE, newval)

@@ -19,8 +19,9 @@ import re
 import os
 
 # security levels
-SECURITY_LEVELS = [ "none", "default", "secure" ]
+NONE_LEVEL="none"
 DEFAULT_LEVEL="default"
+SECURE_LEVEL="secure"
 SECURITY_LEVEL="/etc/security/msec/level.%s"
 
 # msec configuration file
@@ -258,7 +259,13 @@ class MsecConfig:
             print >>fd, comment
         # sorting keys
         for option in self.list_options():
-            print >>fd, "%s=%s" % (option, self.options[option])
+            value = self.options[option]
+            # prevent saving empty options
+            # TODO: integrate with remove()
+            if not value:
+                self.log.debug("Skipping %s" % option)
+            else:
+                print >>fd, "%s=%s" % (option, self.options[option])
         return True
 # }}}
 

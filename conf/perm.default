@@ -1,4 +1,4 @@
-# Welcome in Level 2
+# default permissions level
 ###
 /						root.adm		755
 /bin/						root.root		755
@@ -90,6 +90,7 @@
 /var/log/*/*					current.current		640
 /var/log/*/*/*					current.current		640
 /var/log/*/.					current.current		755
+/var/log/*/*/.					current.current		755
 /var/log/mailman/				root.mail		2775
 /var/log/mailman/*				root.mail		660
 /var/spool/mail/				root.mail		2775

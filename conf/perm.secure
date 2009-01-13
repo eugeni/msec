@@ -1,4 +1,4 @@
-# Welcome in Level 2
+# secure permissions level
 ###
 /						root.adm		755
 /bin/						root.adm		755
@@ -90,6 +90,7 @@
 /var/log/*/*					current.current		600
 /var/log/*/*/*					current.current		600
 /var/log/*/.					current.current		700
+/var/log/*/*/.					current.current		700
 /var/log/intraline/.				current.current		750
 /var/log/mailman/				root.mail		2770
 /var/log/mailman/*				root.mail		660

@@ -1,4 +1,4 @@
-# Welcome in Level 1
+# msec not enabled, so reset permissions to unsecure
 ###
 /						root.root		755
 /bin/						root.root		755

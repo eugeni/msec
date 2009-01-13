@@ -327,6 +327,13 @@ class PermConfig(MsecConfig):
         del self.options_order
         self.options_order = []
 
+    def remove(self, option):
+        """Removes a configuration option."""
+        MsecConfig.remove(self, option)
+        if option in self.options_order:
+            pos = self.options_order.index(option)
+            del self.options_order[pos]
+
     def load(self):
         """Loads and parses configuration file"""
         try:

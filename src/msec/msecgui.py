@@ -115,19 +115,17 @@ class MsecGui:
         self.authconfig = authconfig
         self.permconfig = permconfig
         # pre-defined default configurations
-        self.defaults = {
-                config.NONE_LEVEL: (
-                    config.load_defaults(log, config.NONE_LEVEL),
-                    config.load_default_perms(log, config.NONE_LEVEL)
-                    ),
-                config.DEFAULT_LEVEL: (
-                    config.load_defaults(log, config.DEFAULT_LEVEL),
-                    config.load_default_perms(log, config.DEFAULT_LEVEL)
-                    ),
-                config.SECURE_LEVEL: (
-                    config.load_defaults(log, config.SECURE_LEVEL),
-                    config.load_default_perms(log, config.SECURE_LEVEL)
-                    )
+        self.msec_defaults = {
+                config.NONE_LEVEL: config.load_defaults(log, config.NONE_LEVEL),
+                config.DEFAULT_LEVEL: config.load_defaults(log, config.DEFAULT_LEVEL),
+                config.SECURE_LEVEL: config.load_defaults(log, config.SECURE_LEVEL),
+                }
+
+        # pre-defined permissions
+        self.perm_defaults = {
+                config.NONE_LEVEL: config.load_default_perms(log, config.NONE_LEVEL),
+                config.DEFAULT_LEVEL: config.load_default_perms(log, config.DEFAULT_LEVEL),
+                config.SECURE_LEVEL: config.load_default_perms(log, config.SECURE_LEVEL),
                 }
 
         # pre-load documentation for all possible options
@@ -234,7 +232,9 @@ class MsecGui:
             self.notebook.append_page(callback(id), gtk.Label(label))
 
         # are we enabled?
+        print "here1"
         self.toggle_level(self.base_level)
+        print "here2"
 
         self.window.show_all()
 
@@ -254,7 +254,6 @@ class MsecGui:
         """Ok button"""
         curconfig = self.msecconfig
         curperms = self.permconfig
-        print curperms.list_options()
         # apply config and preview changes
         self.log.start_buffer()
         self.msec.apply(curconfig)
@@ -298,23 +297,23 @@ class MsecGui:
             opt_adds = []
             opt_dels = []
             # changed options
-            changes = None
+            changes = ""
             opt_changes = [opt for opt in oldconf if (curconf.get(opt) != oldconf.get(opt) and curconf.get(opt) != None and curconf.get(opt) != None)]
             if len(opt_changes) > 0:
-                changes = "\n\t" + "\n\t".join([_("changed %s <b>%s</b> (%s -> %s)") % (type, param, oldconf.get(param), curconf.get(param)) for param in opt_changes])
+                changes += "\n\t" + "\n\t".join([_("changed %s <b>%s</b> (%s -> %s)") % (type, param, oldconf.get(param), curconf.get(param)) for param in opt_changes])
                 num_changes += len(opt_changes)
             # new options
             opt_adds = [opt for opt in curconf.list_options() if (opt not in oldconf and curconf.get(opt))]
             if len(opt_adds) > 0:
                 changes += "\n\t" + "\n\t".join([_("added %s <b>%s</b> (%s)") % (type, param, curconf.get(param)) for param in opt_adds])
-                num_changes += len(opt_changes)
+                num_changes += len(opt_adds)
             # removed options
-            opt_dels = [opt for opt in oldconf if (opt not in curconf.list_options() and oldconf.get(opt))]
+            opt_dels = [opt for opt in oldconf if ((opt not in curconf.list_options() or curconf.get(opt) == None) and oldconf.get(opt))]
             if len(opt_dels) > 0:
                 changes += "\n\t" + "\n\t".join([_("removed %s <b>%s</b>") % (type, param) for param in opt_dels])
-                num_changes += len(opt_changes)
+                num_changes += len(opt_dels)
             # adding labels
-            if changes == None:
+            if changes == "":
                 changes = _("no changes")
             label = gtk.Label(_('<b>%s:</b> <i>%s</i>\n') % (name, changes))
             label.set_use_markup(True)
@@ -467,11 +466,9 @@ class MsecGui:
         """Checks if the option is different from one specified by base level"""
         if not level:
             level = self.base_level
-        conf, perms = self.defaults[level]
+        conf = self.msec_defaults[level]
         if conf.get(option) != value:
             # it was changed
-            print value
-            print conf.get(option)
             return True
         else:
             return False
@@ -607,6 +604,7 @@ class MsecGui:
 
     def toggle_level(self, level, force=False):
         """Enables/disables graphical items for msec"""
+
         if level != config.NONE_LEVEL:
             enabled = True
         else:
@@ -620,11 +618,14 @@ class MsecGui:
             label = self.notebook.get_tab_label(curpage)
             label.set_sensitive(enabled)
 
+        if level == self.base_level:
+            # Not changing anything
+            return
+
         # what is the current level?
-        defconfig, defperms = self.defaults[level]
+        defconfig = self.msec_defaults[level]
 
         for z in self.current_options_view:
-            print z
             options, curconfig = self.current_options_view[z]
             iter = options.get_iter_root()
             # what options are we changing
@@ -637,8 +638,10 @@ class MsecGui:
                     if curvalue != newvalue:
                         # changing option
                         if force:
-                            print "%s: %s -> %s" % (option, curvalue, newvalue)
+                            self.log.debug("%s: %s -> %s" % (option, curvalue, newvalue))
                             options.set(iter, self.COLUMN_VALUE, newvalue)
+                            # reset customization
+                            options.set(iter, self.COLUMN_CUSTOM, False)
                             curconfig.set(option, newvalue)
                     ## skip custom options
                     #print "Base level: %s" % self.base_level
@@ -647,31 +650,11 @@ class MsecGui:
                     #    print "Custom option detected: %s" % option
                     iter = options.iter_next(iter)
             elif curconfig.__class__ == config.PermConfig:
-                # for now, just reset permissions for this level
-                # TODO: custom permissions
-                options.clear()
-                for file in defperms.list_options():
-                    user_s, group_s, perm_s, force_s = defperms.get(file)
-
-                    # convert to boolean
-                    if force_s:
-                        force_val = True
-                    else:
-                        force_val = False
-
-                    # building the option
-                    iter = options.append()
-                    options.set(iter,
-                            self.COLUMN_PATH, file,
-                            self.COLUMN_USER, user_s,
-                            self.COLUMN_GROUP, group_s,
-                            self.COLUMN_PERM, perm_s,
-                            self.COLUMN_FORCE, force_val,
-                            )
-                    # changing back force value
-                    curconfig.set(file, (user_s, group_s, perm_s, force_s))
+                # Use should enforce it in the Permission tab
+                pass
             else:
-                print curconfig.__class__
+                #print curconfig.__class__
+                pass
         # finally, change new base_level
         self.base_level = level
 
@@ -680,7 +663,7 @@ class MsecGui:
         if widget.get_active():
             #self.base_level = level
             # update everything
-            print "Forcing level %s" % level
+            "Forcing level %s" % level
             self.toggle_level(level, force=True)
 
     def notifications_page(self, id):
@@ -867,7 +850,80 @@ class MsecGui:
                     )
         vbox.pack_start(sw)
         self.current_options_view[id] = (lstore, self.permconfig)
+
+        # buttons hbox
+        hbox = gtk.HBox(homogeneous=True, spacing=10)
+
+        # # up
+        # button = gtk.Button(_("Up"))
+        # button.connect('clicked', self.move_rule_up, lstore)
+        # hbox.pack_start(button, False)
+
+        # # down
+        # button = gtk.Button(_("Down"))
+        # button.connect('clicked', self.move_rule_up, lstore)
+        # hbox.pack_start(button, False)
+
+        # default
+        button = gtk.Button(_("Reset to default permissions"))
+        button.connect('clicked', self.reset_permissions, lstore)
+        hbox.pack_start(button, False)
+
+        # add
+        button = gtk.Button(_("Add a rule"))
+        button.connect('clicked', self.add_permission_check, lstore)
+        hbox.pack_start(button, False)
+
+        # delete
+        button = gtk.Button(_("Delete"))
+        button.connect('clicked', self.remove_permission_check, treeview)
+        hbox.pack_start(button, False)
+
+        ## edit
+        #button = gtk.Button(_("Edit"))
+        #button.connect('clicked', self.move_rule_up, lstore)
+        #hbox.pack_start(button, False)
+
+        vbox.pack_start(hbox, False, False)
+
         return vbox
+
+    def reset_permissions(self, widget, model):
+        """Reset permissions to default specified by level"""
+        model.clear()
+        self.permconfig.reset()
+        defperms = self.perm_defaults[self.base_level]
+        for file in defperms.list_options():
+            user_s, group_s, perm_s, force_s = defperms.get(file)
+
+            # convert to boolean
+            if force_s:
+                force_val = True
+            else:
+                force_val = False
+
+            # building the option
+            iter = model.append()
+            model.set(iter,
+                    self.COLUMN_PATH, file,
+                    self.COLUMN_USER, user_s,
+                    self.COLUMN_GROUP, group_s,
+                    self.COLUMN_PERM, perm_s,
+                    self.COLUMN_FORCE, force_val,
+                    )
+            # changing back force value
+            self.permconfig.set(file, (user_s, group_s, perm_s, force_s))
+
+
+    def remove_permission_check(self, widget, treeview):
+        """Removes a permission check for file"""
+        model, iter = treeview.get_selection().get_selected()
+        if not iter:
+            # nothing selected
+            return
+        file = model.get_value(iter, self.COLUMN_PATH)
+        self.permconfig.remove(file)
+        model.remove(iter)
 
     def toggle_enforced(self, cell, path, model):
         '''Toggles a forced permission on an item'''
@@ -888,15 +944,28 @@ class MsecGui:
             force = ""
         self.permconfig.set(file, (user, group, perm, force))
 
+    def add_permission_check(self, widget, model):
+        """Adds a permission check"""
+        return self.permission_changed(None, None, None, model)
+
 
     def permission_changed(self, treeview, path, col, model):
-        """Processes a permission change"""
-        iter = model.get_iter(path)
-        file = model.get_value(iter, self.COLUMN_PATH)
-        user = model.get_value(iter, self.COLUMN_USER)
-        group = model.get_value(iter, self.COLUMN_GROUP)
-        perm = model.get_value(iter, self.COLUMN_PERM)
-        force = model.get_value(iter, self.COLUMN_FORCE)
+        """Processes a permission change. If path is None, adds a new item."""
+        if path:
+            iter = model.get_iter(path)
+            file = model.get_value(iter, self.COLUMN_PATH)
+            user = model.get_value(iter, self.COLUMN_USER)
+            group = model.get_value(iter, self.COLUMN_GROUP)
+            perm = model.get_value(iter, self.COLUMN_PERM)
+            force = model.get_value(iter, self.COLUMN_FORCE)
+            title = _("Changing permissions for %s") % file
+        else:
+            file = ""
+            user = ""
+            group = ""
+            perm = ""
+            force = ""
+            title = _("Adding new permission check")
 
         if not force:
             force = ""
@@ -904,7 +973,7 @@ class MsecGui:
             force = "force"
 
         # asks for new parameter value
-        dialog = gtk.Dialog(_("Changing permissions for %s") % (file),
+        dialog = gtk.Dialog(title,
                 self.window, 0,
                 (gtk.STOCK_OK, gtk.RESPONSE_OK,
                 gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL))
@@ -912,6 +981,15 @@ class MsecGui:
         label.set_line_wrap(True)
         label.set_use_markup(True)
         dialog.vbox.pack_start(label, False, False)
+
+        if not path:
+            # file
+            hbox = gtk.HBox()
+            hbox.pack_start(gtk.Label(_("File: ")))
+            entry_file = gtk.Entry()
+            entry_file.set_text(file)
+            hbox.pack_start(entry_file)
+            dialog.vbox.pack_start(hbox, False, False)
 
         # user
         hbox = gtk.HBox()
@@ -943,12 +1021,20 @@ class MsecGui:
             dialog.destroy()
             return
 
+        if not path:
+            newfile = entry_file.get_text()
+        else:
+            newfile = file
         newuser = entry_user.get_text()
         newgroup = entry_group.get_text()
         newperm = entry_perm.get_text()
         dialog.destroy()
 
-        self.permconfig.set(file, (newuser, newgroup, newperm, force))
+        self.permconfig.set(newfile, (newuser, newgroup, newperm, force))
+        if not path:
+            # adding new entry
+            iter = model.append()
+        model.set(iter, self.COLUMN_PATH, newfile)
         model.set(iter, self.COLUMN_USER, newuser)
         model.set(iter, self.COLUMN_GROUP, newgroup)
         model.set(iter, self.COLUMN_PERM, newperm)
@@ -965,8 +1051,8 @@ class MsecGui:
             value = config.OPTION_DISABLED
 
         callback, params = config.SETTINGS[param]
-        conf_def, perms = self.defaults[config.DEFAULT_LEVEL]
-        conf_sec, perms = self.defaults[config.SECURE_LEVEL]
+        conf_def = self.msec_defaults[config.DEFAULT_LEVEL]
+        conf_sec = self.msec_defaults[config.SECURE_LEVEL]
 
         val_def = conf_def.get(param)
         val_sec = conf_sec.get(param)

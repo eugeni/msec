@@ -34,13 +34,14 @@ msec \- Mandriva Linux security tools
 .SH DESCRIPTION
 .B msec
 is responsible to maintain system security in Mandriva. It supports different security
-configurations, which can be organized into several security levels. Currently, three
-preconfigured security levels are provided:
+configurations, which can be organized into several security levels, stored in
+/etc/security/msec/level.LEVELNAME. Currently, three preconfigured security levels are
+provided with Mandriva Linux:
 
 .TP
 \\fBnone\\fR
-this level aims to provide the most basic security. It should be used when you want to
-manage all aspects of system security on your own.
+this level disables all msec options. It should be used when you want to manage
+all aspects of system security on your own.
 
 .TP
 \\fBdefault\\fR
@@ -55,6 +56,9 @@ the remote access to the system, and local user permissions. It also runs a wide
 periodic checks, enforces the local password settings, and periodically checks if the
 system security settings, configured by msec, were modified directly or by some other
 application.
+
+.TP
+Note that besides those levels you may create as many levels as necessary.
 
 .PP
 
@@ -92,9 +96,10 @@ by run as root.
     List the default configuration for given security level.
 
 \\fB\-f, --force <level>\\fR
-    Apply the specified security level to the system, overwritting all
-local changes. This is necessary to initialize a security level, either on first
-install, on when a change to a different level is required.
+
+    Apply the specified security level to the system, overwritting all local
+changes in /etc/security/msec/security.conf. This usually should be performed
+either on first install, on when a transition to a different level is required.
 
 \\fB\-d\\fR
     Enable debugging messages.
@@ -123,9 +128,9 @@ should by run as root.
     List the default configuration for given security level.
 
 \\fB\-f, --force <level>\\fR
-    Apply the specified security level to the system, overwritting all
-local changes. This is necessary to initialize a security level, either on first
-install, on when a change to a different level is required.
+    Apply the specified security level to the system, overwritting all local
+changes in /etc/security/msec/perms.conf. This usually should be performed
+either on first install, on when a transition to a different level is required.
 
 \\fB\-e, --enforce\\fR
     Enforce the default permissions on all files.
@@ -149,6 +154,42 @@ This is the GTK version of msec. It acts as frontend to all msec functionalities
 
 \\fB\-d\\fR
     Enable debugging messages.
+
+.SH EXAMPLES
+
+\\fBEnforce system configuration according to /etc/security/msec/security.conf file:\\fP
+    msec
+
+\\fBDisplay system configuration changes without enforcing anything:\\fP
+    msec -p
+
+\\fBInstall predefined security level 'default':\\fP
+    msec -f default
+
+\\fBPreview changes inflicted by change to 'default' level:\\fP
+    msec -p -f default
+
+\\fBCreate a custom security level based on 'default':\\fP
+    cp /etc/security/msec/level.default /etc/security/msec/level.my
+    edit /etc/security/msec/level.my
+    msec -f my
+
+\\fBEnforce system permissions according to /etc/security/msec/perms.conf file:\\fP
+    msecperms
+
+\\fBDisplay permissions changes without enforcing anything:\\fP
+    msecperms -p
+
+\\fBInstall predefined permissions for level 'default':\\fP
+    msecperms -f default
+
+\\fBPreview changes inflicted by change to 'default' level:\\fP
+    msecperms -p -f default
+
+\\fBCreate a custom permissions level based on 'secure':\\fP
+    cp /etc/security/msec/perm.secure /etc/security/msec/perm.my
+    edit /etc/security/msec/level.my
+    msecperms -f my
 
 .SH "SECURITY OPTIONS"
 

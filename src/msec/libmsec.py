@@ -745,8 +745,7 @@ class MSEC:
             param = curconfig.get(opt)
             if param not in valid_params and '*' not in valid_params:
                 self.log.error(_("Invalid parameter for %s: '%s'. Valid parameters: '%s'.") % (opt,
-                            param,
-                            valid_values[opt]))
+                            param, valid_params))
                 continue
             action(curconfig.get(opt))
 
@@ -867,7 +866,7 @@ class MSEC:
         try:
             timeout = int(val)
         except:
-            self.log.error(_('Invalid shell timeout "%s"') % size)
+            self.log.error(_('Invalid shell timeout "%s"') % val)
             return
 
         old = msec.get_shell_variable('TMOUT')

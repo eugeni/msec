@@ -905,7 +905,6 @@ class MsecGui:
 
         # update options
         self.msecconfig.set(param, newval)
-        self.authconfig.set(param, newval)
 
         model.set(iter, self.COLUMN_VALUE, newval)
 

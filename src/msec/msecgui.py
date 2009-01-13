@@ -273,12 +273,8 @@ class MsecGui:
 
         dialog.set_resizable(False)
 
-        # hide all information in an expander
-        expander = gtk.Expander(_("Details.."))
+        # detailed information
         exp_vbox = gtk.VBox()
-        expander.add(exp_vbox)
-        dialog.vbox.pack_start(expander, False, False)
-
 
         # scrolledwindow
         sw = gtk.ScrolledWindow()
@@ -292,6 +288,7 @@ class MsecGui:
         sw.add_with_viewport(vbox)
 
         # check for changed options
+        num_changes = 0
         for name, type, oldconf, curconf in [ (_("MSEC option changes"), _("option"), self.oldconfig, curconfig),
                                         (_("System permissions changes"), _("permission check"), self.oldperms, curperms),
                                         (_("System authentication changes"), _("authentication check"), self.oldauth, self.authconfig),
@@ -301,20 +298,24 @@ class MsecGui:
             opt_adds = []
             opt_dels = []
             # changed options
+            changes = None
             opt_changes = [opt for opt in oldconf if (curconf.get(opt) != oldconf.get(opt) and curconf.get(opt) != None and curconf.get(opt) != None)]
             if len(opt_changes) > 0:
                 changes = "\n\t" + "\n\t".join([_("changed %s <b>%s</b> (%s -> %s)") % (type, param, oldconf.get(param), curconf.get(param)) for param in opt_changes])
-            else:
-                changes = _("no changes")
+                num_changes += len(opt_changes)
             # new options
             opt_adds = [opt for opt in curconf.list_options() if (opt not in oldconf and curconf.get(opt))]
             if len(opt_adds) > 0:
                 changes += "\n\t" + "\n\t".join([_("added %s <b>%s</b> (%s)") % (type, param, curconf.get(param)) for param in opt_adds])
+                num_changes += len(opt_changes)
             # removed options
             opt_dels = [opt for opt in oldconf if (opt not in curconf.list_options() and oldconf.get(opt))]
             if len(opt_dels) > 0:
                 changes += "\n\t" + "\n\t".join([_("removed %s <b>%s</b>") % (type, param) for param in opt_dels])
+                num_changes += len(opt_changes)
             # adding labels
+            if changes == None:
+                changes = _("no changes")
             label = gtk.Label(_('<b>%s:</b> <i>%s</i>\n') % (name, changes))
             label.set_use_markup(True)
             label.set_property("xalign", 0.0)
@@ -349,6 +350,11 @@ class MsecGui:
                 buffer.insert(end, "%d: %s\n" % (count, msg))
                 count += 1
             vbox_advanced.pack_start(expander, False, False)
+
+        # hide all information in an expander
+        expander = gtk.Expander(_("Details (%d changes)..") % num_changes)
+        expander.add(exp_vbox)
+        dialog.vbox.pack_start(expander, False, False)
 
         dialog.show_all()
         response = dialog.run()
@@ -630,9 +636,10 @@ class MsecGui:
                     newvalue = defconfig.get(option)
                     if curvalue != newvalue:
                         # changing option
-                        print "%s: %s -> %s" % (option, curvalue, newvalue)
-                        options.set(iter, self.COLUMN_VALUE, newvalue)
-                        curconfig.set(option, newvalue)
+                        if force:
+                            print "%s: %s -> %s" % (option, curvalue, newvalue)
+                            options.set(iter, self.COLUMN_VALUE, newvalue)
+                            curconfig.set(option, newvalue)
                     ## skip custom options
                     #print "Base level: %s" % self.base_level
                     #if self.option_is_changed(option, curvalue):
@@ -648,9 +655,9 @@ class MsecGui:
 
                     # convert to boolean
                     if force_s:
-                        force = True
+                        force_val = True
                     else:
-                        force = False
+                        force_val = False
 
                     # building the option
                     iter = options.append()
@@ -659,10 +666,10 @@ class MsecGui:
                             self.COLUMN_USER, user_s,
                             self.COLUMN_GROUP, group_s,
                             self.COLUMN_PERM, perm_s,
-                            self.COLUMN_FORCE, force,
+                            self.COLUMN_FORCE, force_val,
                             )
                     # changing back force value
-                    curconfig.set(file, (user_s, group_s, perm_s, force))
+                    curconfig.set(file, (user_s, group_s, perm_s, force_s))
             else:
                 print curconfig.__class__
         # finally, change new base_level

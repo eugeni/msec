@@ -1736,6 +1736,24 @@ class MSEC:
         """Authentication for drakboot"""
         pass
 
+    # TODO: unfinished
+    def enable_apparmor(self, param):
+        """Enables support for AppArmor security framework"""
+        pass
+
+    def enable_policykit(self, param):
+        """Enables support for PolicyKit framework, which allows ordinary users to run system application"""
+        pass
+
+    def enable_sudo(self, param):
+        """Enables support for sudo application, which allows users to run applications using system account. If yes, users must autenticate themselves using password. If this parameter is set to 'wheel', users must belong to the 'wheel' group to be able to use sudo"""
+        pass
+
+    def notify_warn(self, param):
+        """Enables support for security notifications using libnotify. This allows the security notifications to be delivered directly to the users' desktop"""
+        pass
+
+
 # }}}
 
 # {{{ PERMS - permissions handling

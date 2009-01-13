@@ -254,6 +254,7 @@ class MsecGui:
         """Ok button"""
         curconfig = self.msecconfig
         curperms = self.permconfig
+        print curperms.list_options()
         # apply config and preview changes
         self.log.start_buffer()
         self.msec.apply(curconfig)
@@ -638,6 +639,30 @@ class MsecGui:
                     #    # custom option
                     #    print "Custom option detected: %s" % option
                     iter = options.iter_next(iter)
+            elif curconfig.__class__ == config.PermConfig:
+                # for now, just reset permissions for this level
+                # TODO: custom permissions
+                options.clear()
+                for file in defperms.list_options():
+                    user_s, group_s, perm_s, force_s = defperms.get(file)
+
+                    # convert to boolean
+                    if force_s:
+                        force = True
+                    else:
+                        force = False
+
+                    # building the option
+                    iter = options.append()
+                    options.set(iter,
+                            self.COLUMN_PATH, file,
+                            self.COLUMN_USER, user_s,
+                            self.COLUMN_GROUP, group_s,
+                            self.COLUMN_PERM, perm_s,
+                            self.COLUMN_FORCE, force,
+                            )
+                    # changing back force value
+                    curconfig.set(file, (user_s, group_s, perm_s, force))
             else:
                 print curconfig.__class__
         # finally, change new base_level

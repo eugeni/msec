@@ -62,7 +62,6 @@ if __name__ == "__main__":
     # default options
     log_level = logging.INFO
     force_level = False
-    level = config.DEFAULT_LEVEL
     commit = True
     enforce = False
 

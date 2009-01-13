@@ -751,7 +751,7 @@ class MSEC:
             action(curconfig.get(opt))
 
     def base_level(self, param):
-        """Specify a base security level"""
+        """Defines the base security level, on top of which the current configuration is based."""
         pass
 
     def create_server_link(self, param):

@@ -106,6 +106,8 @@ or current permission is reported. The permissions can be enforced, automaticall
 changing them to the specified values when a change is detected.
 """)
 
+SAVE_SETTINGS_TEXT=_("""Save and apply new configuration?""")
+
 class MsecGui:
     """Msec GUI"""
     # common columns
@@ -182,13 +184,44 @@ class MsecGui:
         main_vbox = gtk.VBox(homogeneous=False, spacing=5)
         self.window.add(main_vbox)
 
-        # main frame
-        frame = gtk.Frame()
-        main_vbox.pack_start(frame)
+        # menu
+        menubar = gtk.MenuBar()
+        main_vbox.pack_start(menubar)
+        menus = [
+                    (_("File"),
+                    [
+                        (_("Save configuration"), self.ok),
+                        (None, None),
+                        (_("Import configuration"), None),
+                        (_("Export configuration"), None),
+                        (None, None),
+                        (_("Quit"), self.quit),
+                    ]),
+                    (_("Help"),
+                    [
+                        (_("Help"), self.quit),
+                        (_("About"), self.ok),
+                    ]),
+                ]
+        # building menus
+        for topmenu, items in menus:
+            # file menu
+            filemenu = gtk.MenuItem(topmenu)
+            menubar.add(filemenu)
+            menu = gtk.Menu()
+            filemenu.set_submenu(menu)
+            group = None
+            for submenu, callback in items:
+                menuitem = gtk.MenuItem(submenu)
+                if callback:
+                    menuitem.connect('activate', callback)
+                else:
+                    menuitem.set_sensitive(False)
+                menu.add(menuitem)
 
         # creating tabs
         self.notebook = gtk.Notebook()
-        frame.add(self.notebook)
+        main_vbox.add(self.notebook)
 
         self.notebook.append_page(self.level_security_page(), gtk.Label(_("Basic security")))
         self.notebook.append_page(self.auth_security_page(), gtk.Label(_("Authentication")))
@@ -197,26 +230,6 @@ class MsecGui:
         self.notebook.append_page(self.periodic_security_page(), gtk.Label(_("Periodic checks")))
         self.notebook.append_page(self.notifications_page(), gtk.Label(_("Security notifications")))
         self.notebook.append_page(self.permissions_security_page(), gtk.Label(_("Permissions")))
-
-        # menu
-        hbox = gtk.HBox(homogeneous=False, spacing=10)
-        main_vbox.pack_start(hbox, False, False)
-
-        # control buttons
-        # TODO: improve spacing
-        cancel = gtk.Button(gtk.STOCK_CANCEL)
-        cancel.set_use_stock(True)
-        cancel.connect('clicked', self.cancel)
-        hbox.pack_start(cancel, expand=True, fill=True)
-        help = gtk.Button(gtk.STOCK_HELP)
-        help.set_sensitive(False)
-        help.set_use_stock(True)
-        help.connect('clicked', self.help)
-        hbox.pack_start(help, expand=True, fill=True)
-        ok = gtk.Button(gtk.STOCK_OK)
-        ok.set_use_stock(True)
-        ok.connect('clicked', self.ok)
-        hbox.pack_start(ok, expand=True, fill=True)
 
         self.window.show_all()
 
@@ -246,26 +259,34 @@ class MsecGui:
         messages = self.log.get_buffer()
 
         # creating preview window
-        dialog = gtk.Dialog(_("Preview changes"),
+        dialog = gtk.Dialog(_("Saving changes.."),
                 self.window, gtk.DIALOG_MODAL,
                 (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
                 gtk.STOCK_OK, gtk.RESPONSE_OK)
                 )
+
+        label = gtk.Label(SAVE_SETTINGS_TEXT)
+        dialog.vbox.pack_start(label, False, False)
+
+        dialog.set_resizable(False)
+
+        # hide all information in an expander
+        expander = gtk.Expander(_("Details.."))
+        exp_vbox = gtk.VBox()
+        expander.add(exp_vbox)
+        dialog.vbox.pack_start(expander, False, False)
+
+
+        # scrolledwindow
         sw = gtk.ScrolledWindow()
         sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
         sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
-        dialog.vbox.add(sw)
+        exp_vbox.pack_start(sw)
+
 
         vbox = gtk.VBox()
-        dialog.vbox.set_size_request(640, 300)
+        exp_vbox.set_size_request(640, 300)
         sw.add_with_viewport(vbox)
-        label = gtk.Label(_("Click OK to commit changes, or CANCEL to leave current configuration unmodified."))
-        vbox.pack_start(label, False, False)
-
-        # informative label
-        label = gtk.Label(_('<b>MSEC configuration:</b>'))
-        label.set_use_markup(True)
-        vbox.pack_start(label, False, False)
 
         # check for changed options
         for name, type, oldconf, curconf in [ (_("MSEC option changes"), _("option"), self.oldconfig, curconfig),

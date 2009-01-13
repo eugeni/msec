@@ -181,19 +181,19 @@ class MsecGui:
         menubar = gtk.MenuBar()
         main_vbox.pack_start(menubar, False, False)
         menus = [
-                    (_("File"),
+                    (_("_File"),
                     [
-                        (_("Save configuration"), self.ok),
+                        (_("_Save configuration"), self.ok),
                         (None, None),
-                        (_("Import configuration"), None),
-                        (_("Export configuration"), None),
+                        (_("_Import configuration"), None),
+                        (_("_Export configuration"), None),
                         (None, None),
-                        (_("Quit"), self.quit),
+                        (_("_Quit"), self.quit),
                     ]),
-                    (_("Help"),
+                    (_("_Help"),
                     [
-                        (_("Help"), None),
-                        (_("About"), None),
+                        (_("_Help"), None),
+                        (_("_About"), None),
                     ]),
                 ]
         # building menus
@@ -232,9 +232,7 @@ class MsecGui:
             self.notebook.append_page(callback(id), gtk.Label(label))
 
         # are we enabled?
-        print "here1"
         self.toggle_level(self.base_level)
-        print "here2"
 
         self.window.show_all()
 

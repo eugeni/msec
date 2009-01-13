@@ -37,12 +37,6 @@ try:
 except IOError:
     _ = str
 
-# localized help
-try:
-    from help import HELP
-except:
-    HELP = {}
-
 # text strings
 LEVEL_SECURITY_TEXT=_("""<big><b>Choose security level</b></big>
 
@@ -106,7 +100,7 @@ SAVE_SETTINGS_TEXT=_("""Save and apply new configuration?""")
 class MsecGui:
     """Msec GUI"""
     # common columns
-    (COLUMN_OPTION, COLUMN_DESCR, COLUMN_VALUE) = range(3)
+    (COLUMN_OPTION, COLUMN_DESCR, COLUMN_VALUE, COLUMN_CUSTOM) = range(4)
     (COLUMN_PATH, COLUMN_USER, COLUMN_GROUP, COLUMN_PERM, COLUMN_FORCE) = range(5)
     (COLUMN_APP, COLUMN_DESCR, COLUMN_AUTH) = range(3)
 
@@ -135,6 +129,12 @@ class MsecGui:
                     config.load_default_perms(log, config.SECURE_LEVEL)
                     )
                 }
+
+        # pre-load documentation for all possible options
+        self.descriptions = {}
+        for option in config.SETTINGS:
+            # get documentation for item
+            config.find_doc(msec, option, cached=self.descriptions)
 
         # saving old config
         self.oldconfig = {}
@@ -218,18 +218,29 @@ class MsecGui:
         self.notebook = gtk.Notebook()
         main_vbox.add(self.notebook)
 
-        self.notebook.append_page(self.level_security_page(), gtk.Label(_("Basic security")))
-        self.notebook.append_page(self.auth_security_page(), gtk.Label(_("Authentication")))
-        self.notebook.append_page(self.system_security_page(), gtk.Label(_("System security")))
-        self.notebook.append_page(self.network_security_page(), gtk.Label(_("Network security")))
-        self.notebook.append_page(self.periodic_security_page(), gtk.Label(_("Periodic checks")))
-        self.notebook.append_page(self.notifications_page(), gtk.Label(_("Security notifications")))
-        self.notebook.append_page(self.permissions_security_page(), gtk.Label(_("Permissions")))
+        # tabs to create in the intrerface
+        tabs = [
+            (1, self.level_security_page, _("Basic security")),
+            (2, self.auth_security_page, _("Authentication")),
+            (3, self.system_security_page, _("System security")),
+            (4, self.network_security_page, _("Network security")),
+            (5, self.periodic_security_page, _("Periodic checks")),
+            (6, self.notifications_page, _("Security notifications")),
+            (7, self.permissions_security_page, _("Permissions")),
+            ]
+        # data to change the values
+        self.current_options_view = {}
+        for id, callback, label in tabs:
+            self.notebook.append_page(callback(id), gtk.Label(label))
 
         # are we enabled?
         self.toggle_level(self.base_level)
 
         self.window.show_all()
+
+    def recreate_tabs(self, notebook, tabs):
+        """Creates tabs and initializes options values"""
+        pass
 
     def cancel(self, widget):
         """Cancel button"""
@@ -241,13 +252,8 @@ class MsecGui:
 
     def ok(self, widget):
         """Ok button"""
-        # TODO: split in smaller functions
-        print self.base_level
-        self.log.debug(">> Enforcing level %s" % self.base_level)
-        if self.base_level in self.defaults:
-            curconfig, curperms = self.defaults[self.base_level]
-            print curconfig.list_options()
-            curperms = self.permconfig
+        curconfig = self.msecconfig
+        curperms = self.permconfig
         # apply config and preview changes
         self.log.start_buffer()
         self.msec.apply(curconfig)
@@ -350,12 +356,8 @@ class MsecGui:
             return
         dialog.destroy()
 
-        # rewriting configuration
-        self.msecconfig.reset()
-        self.msecconfig.merge(curconfig)
-        self.permconfig.reset()
-        self.permconfig.merge(curconfig)
-
+        # new base level
+        self.msecconfig.set("BASE_LEVEL", self.base_level)
         # saving the configuration
         self.msecconfig.save()
         self.msec.apply(self.msecconfig)
@@ -382,7 +384,7 @@ class MsecGui:
             gobject.TYPE_STRING,
             gobject.TYPE_STRING,
             gobject.TYPE_STRING,
-            gobject.TYPE_STRING)
+            gobject.TYPE_BOOLEAN)
 
         # treeview
         treeview = gtk.TreeView(lstore)
@@ -411,6 +413,13 @@ class MsecGui:
         column.set_sort_column_id(self.COLUMN_VALUE)
         treeview.append_column(column)
 
+        # column for custom settings
+        column = gtk.TreeViewColumn(_('Customized'), gtk.CellRendererToggle(), active=self.COLUMN_CUSTOM)
+        column.set_sort_column_id(self.COLUMN_CUSTOM)
+        column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+        column.set_fixed_width(50)
+        treeview.append_column(column)
+
         sw.add(treeview)
 
         for option in options:
@@ -421,30 +430,44 @@ class MsecGui:
                 continue
             # getting level settings, callback and valid params
             callback, params = config.SETTINGS[option]
-            # getting the function description
-            if option in HELP:
-                self.log.debug("found localized help for %s" % option)
-                doc = HELP[option]
-            else:
-                # get description from function comments
-                func = self.msec.get_action(callback)
-                if func:
-                    doc = func.__doc__.strip()
-                else:
-                    doc = callback
 
             # now for the value
             value = self.msecconfig.get(option)
+            # check for disabled options
+            if not value:
+                value = config.OPTION_DISABLED
+
+            # description
+            doc = config.find_doc(self.msec, option, self.descriptions)
+
+            # was it changed? if yes, change description to italic
+            if self.option_is_changed(option, value):
+                custom = True
+            else:
+                custom = False
 
             # building the option
             iter = lstore.append()
-            print iter
             lstore.set(iter,
                     self.COLUMN_OPTION, option,
                     self.COLUMN_DESCR, doc,
                     self.COLUMN_VALUE, value,
+                    self.COLUMN_CUSTOM, custom,
                     )
-        return sw
+        return sw, lstore
+
+    def option_is_changed(self, option, value, level=None):
+        """Checks if the option is different from one specified by base level"""
+        if not level:
+            level = self.base_level
+        conf, perms = self.defaults[level]
+        if conf.get(option) != value:
+            # it was changed
+            print value
+            print conf.get(option)
+            return True
+        else:
+            return False
 
     def create_auth_treeview(self, options):
         """Creates a treeview for authentication options"""
@@ -512,10 +535,10 @@ class MsecGui:
                         self.COLUMN_DESCR, descr,
                         self.COLUMN_AUTH, value,
                         )
-        return sw
+        return sw, lstore
 
 
-    def level_security_page(self):
+    def level_security_page(self, id):
         """Builds the basic security page"""
         vbox = gtk.VBox(homogeneous=False)
 
@@ -551,7 +574,7 @@ class MsecGui:
 
         return vbox
 
-    def auth_security_page(self):
+    def auth_security_page(self, id):
         """Builds the authentication page"""
         vbox = gtk.VBox(homogeneous=False)
 
@@ -569,12 +592,13 @@ class MsecGui:
         sw.add_with_viewport(auth_vbox)
         vbox.add(sw)
 
-        apps = self.create_auth_treeview(config.MANDRIVA_TOOL_GROUPS)
+        apps, model = self.create_auth_treeview(config.MANDRIVA_TOOL_GROUPS)
         auth_vbox.pack_start(apps)
+        self.current_options_view[id] = (model, self.authconfig)
 
         return vbox
 
-    def toggle_level(self, level):
+    def toggle_level(self, level, force=False):
         """Enables/disables graphical items for msec"""
         if level != config.NONE_LEVEL:
             enabled = True
@@ -589,17 +613,45 @@ class MsecGui:
             label = self.notebook.get_tab_label(curpage)
             label.set_sensitive(enabled)
 
-        # TODO: update all widgets
+        # what is the current level?
+        defconfig, defperms = self.defaults[level]
+
+        for z in self.current_options_view:
+            print z
+            options, curconfig = self.current_options_view[z]
+            iter = options.get_iter_root()
+            # what options are we changing
+            if curconfig.__class__ == config.MsecConfig:
+                # main msec options
+                while iter:
+                    option = options.get_value(iter, self.COLUMN_OPTION)
+                    curvalue = options.get_value(iter, self.COLUMN_VALUE)
+                    newvalue = defconfig.get(option)
+                    if curvalue != newvalue:
+                        # changing option
+                        print "%s: %s -> %s" % (option, curvalue, newvalue)
+                        options.set(iter, self.COLUMN_VALUE, newvalue)
+                        curconfig.set(option, newvalue)
+                    ## skip custom options
+                    #print "Base level: %s" % self.base_level
+                    #if self.option_is_changed(option, curvalue):
+                    #    # custom option
+                    #    print "Custom option detected: %s" % option
+                    iter = options.iter_next(iter)
+            else:
+                print curconfig.__class__
+        # finally, change new base_level
+        self.base_level = level
 
     def force_level(self, widget, level):
         """Defines a given security level"""
         if widget.get_active():
-            self.base_level = level
+            #self.base_level = level
             # update everything
-            print level
-            self.toggle_level(level)
+            print "Forcing level %s" % level
+            self.toggle_level(level, force=True)
 
-    def notifications_page(self):
+    def notifications_page(self, id):
         """Builds the notifications page"""
         vbox = gtk.VBox(homogeneous=False)
 
@@ -610,12 +662,15 @@ class MsecGui:
         vbox.pack_start(entry, False, False)
 
         # basic security options
-        options_view = self.create_treeview(["TTY_WARN", "SYSLOG_WARN", "NOTIFY_WARN", "MAIL_WARN", "MAIL_USER", "MAIL_EMPTY_CONTENT"])
+        options_view, model = self.create_treeview(["TTY_WARN", "SYSLOG_WARN", "NOTIFY_WARN", "MAIL_WARN", "MAIL_USER", "MAIL_EMPTY_CONTENT"])
+
+        # save those options
+        self.current_options_view[id] = (model, self.msecconfig)
         vbox.pack_start(options_view)
 
         return vbox
 
-    def system_security_page(self):
+    def system_security_page(self, id):
         """Builds the network security page"""
         vbox = gtk.VBox(homogeneous=False)
 
@@ -624,7 +679,7 @@ class MsecGui:
         vbox.pack_start(entry, False, False)
 
         # system security options
-        options_view = self.create_treeview(["ENABLE_APPARMOR", "ENABLE_POLICYKIT",
+        options_view, model = self.create_treeview(["ENABLE_APPARMOR", "ENABLE_POLICYKIT",
                                             "ENABLE_SUDO", "ENABLE_MSEC_CRON", "ENABLE_PAM_WHEEL_FOR_SU",
                                             "ENABLE_SULOGIN", "CREATE_SERVER_LINK", "ENABLE_AT_CRONTAB",
                                             "ALLOW_ROOT_LOGIN", "ALLOW_USER_LIST", "ENABLE_PASSWORD",
@@ -633,11 +688,12 @@ class MsecGui:
                                             "ALLOW_REBOOT", "SHELL_HISTORY_SIZE", "SHELL_TIMEOUT", "PASSWORD_LENGTH",
                                             "PASSWORD_HISTORY", "USER_UMASK", "ROOT_UMASK",
                                             ])
+        self.current_options_view[id] = (model, self.msecconfig)
         vbox.pack_start(options_view)
 
         return vbox
 
-    def network_security_page(self):
+    def network_security_page(self, id):
         """Builds the network security page"""
         vbox = gtk.VBox(homogeneous=False)
 
@@ -646,17 +702,18 @@ class MsecGui:
         vbox.pack_start(entry, False, False)
 
         # network security options
-        options_view = self.create_treeview(["ACCEPT_BOGUS_ERROR_RESPONSES", "ACCEPT_BROADCASTED_ICMP_ECHO",
+        options_view, model = self.create_treeview(["ACCEPT_BOGUS_ERROR_RESPONSES", "ACCEPT_BROADCASTED_ICMP_ECHO",
                                             "ACCEPT_ICMP_ECHO", "ALLOW_REMOTE_ROOT_LOGIN",
                                             "ALLOW_X_CONNECTIONS", "ALLOW_XSERVER_TO_LISTEN",
                                             "AUTHORIZE_SERVICES", "ENABLE_DNS_SPOOFING_PROTECTION",
                                             "ENABLE_IP_SPOOFING_PROTECTION", "ENABLE_LOG_STRANGE_PACKETS",
                                             ])
+        self.current_options_view[id] = (model, self.msecconfig)
         vbox.pack_start(options_view)
 
         return vbox
 
-    def periodic_security_page(self):
+    def periodic_security_page(self, id):
         """Builds the network security page"""
         vbox = gtk.VBox(homogeneous=False)
 
@@ -669,7 +726,7 @@ class MsecGui:
         vbox.pack_start(self.periodic_checks, False, False)
 
         # network security options
-        options_view = self.create_treeview(["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5",
+        options_view, model = self.create_treeview(["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5",
                                             "CHECK_SGID", "CHECK_WRITABLE", "CHECK_UNOWNED",
                                             "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_PASSWD",
                                             "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM",
@@ -683,6 +740,8 @@ class MsecGui:
         if periodic_checks == 'no':
             # disable all periodic tests
             options_view.set_sensitive(False)
+        # TODO: CHECK_SECURITY??
+        self.current_options_view[id] = (model, self.msecconfig)
 
         return vbox
 
@@ -696,7 +755,7 @@ class MsecGui:
             self.msecconfig.set("CHECK_SECURITY", "no")
             options.set_sensitive(False)
 
-    def permissions_security_page(self):
+    def permissions_security_page(self, id):
         """Builds the network security page"""
         vbox = gtk.VBox(homogeneous=False)
 
@@ -752,7 +811,6 @@ class MsecGui:
         column.set_sort_column_id(self.COLUMN_FORCE)
         column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
         column.set_fixed_width(50)
-
         treeview.append_column(column)
 
         sw.add(treeview)
@@ -776,6 +834,7 @@ class MsecGui:
                     self.COLUMN_FORCE, force,
                     )
         vbox.pack_start(sw)
+        self.current_options_view[id] = (lstore, self.permconfig)
         return vbox
 
     def toggle_enforced(self, cell, path, model):
@@ -869,25 +928,45 @@ class MsecGui:
         descr = model.get_value(iter, self.COLUMN_DESCR)
         value = model.get_value(iter, self.COLUMN_VALUE)
 
+        # option is disabled?
+        if not value:
+            value = config.OPTION_DISABLED
+
         callback, params = config.SETTINGS[param]
+        conf_def, perms = self.defaults[config.DEFAULT_LEVEL]
+        conf_sec, perms = self.defaults[config.SECURE_LEVEL]
+
+        val_def = conf_def.get(param)
+        val_sec = conf_sec.get(param)
 
         # asks for new parameter value
         dialog = gtk.Dialog(_("Select new value for %s") % (param),
                 self.window, 0,
                 (gtk.STOCK_OK, gtk.RESPONSE_OK,
                 gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL))
-        label = gtk.Label(_("Modifying <b>%s</b>.\n<i>%s</i>\nCurrent value: <b>%s</b>") % (param, descr, value))
+        # option title
+        label = gtk.Label("<b>%s</b>\n" % param)
+        label.set_use_markup(True)
+        # description
+        dialog.vbox.pack_start(label)
+        label = gtk.Label(_("<i>%s</i>\n\n\tCurrent value: <b>%s</b>\n\tDefault level value: <b>%s</b>\n\tSecure level value: <b>%s</b>\n") % (descr, value, val_def, val_sec))
         label.set_line_wrap(True)
         label.set_use_markup(True)
         dialog.vbox.pack_start(label)
+        dialog.vbox.pack_start(gtk.HSeparator())
+
+        # new value
+        hbox = gtk.HBox()
+        hbox.pack_start(gtk.Label(_("New value:")))
         if '*' in params:
             # string parameter
             entry = gtk.Entry()
             entry.set_text(value)
-            dialog.vbox.pack_start(entry)
         else:
             # combobox parameter
             entry = gtk.combo_box_new_text()
+            # add an item to disable a check
+            params.append(config.OPTION_DISABLED)
             for item in params:
                 entry.append_text(item)
             if value not in params:
@@ -895,7 +974,8 @@ class MsecGui:
                 params.append(value)
             active = params.index(value)
             entry.set_active(active)
-            dialog.vbox.pack_start(entry)
+        hbox.pack_start(entry)
+        dialog.vbox.pack_start(hbox)
 
         dialog.show_all()
         response = dialog.run()
@@ -908,13 +988,21 @@ class MsecGui:
             newval = entry.get_text()
         else:
             newval = entry.get_active_text()
-        newval = entry.get_active_text()
         dialog.destroy()
 
         # update options
         self.msecconfig.set(param, newval)
 
+        # is it different from default? if yes, change description to italic
+        doc = config.find_doc(self.msec, param, self.descriptions)
+        if self.option_is_changed(param, newval):
+            custom = True
+        else:
+            custom = False
+
         model.set(iter, self.COLUMN_VALUE, newval)
+        model.set(iter, self.COLUMN_DESCR, doc)
+        model.set(iter, self.COLUMN_CUSTOM, custom)
 
 
     def auth_changed(self, treeview, path, col, model):

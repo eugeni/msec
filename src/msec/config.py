@@ -107,6 +107,41 @@ SETTINGS =    {'BASE_LEVEL':                    ("base_level",                  
                'SHELL_HISTORY_SIZE':            ("set_shell_history_size",          ['*']),
                'SHELL_TIMEOUT':                 ("set_shell_timeout",               ['*']),
                }
+# text for disabled options
+OPTION_DISABLED=_("Disabled")
+
+# localized help
+try:
+    from help import HELP
+except:
+    HELP = {}
+
+# helper function to find documentation for an option
+def find_doc(msec, option, cached=None):
+    """Helper function to find documentation for an option."""
+    if option not in SETTINGS:
+        # invalid option ?
+        return None
+    callback, values = SETTINGS[option]
+    # is it already cached?
+    if option in cached:
+        return cached[option]
+    if option in HELP:
+        doc = HELP[option]
+    else:
+        # option not found in HELP, lets look in docstring
+        # get description from function comments
+        func = msec.get_action(callback)
+        if func:
+            doc = func.__doc__.strip()
+        else:
+            # well, no luck. Just use the callback then
+            doc = callback
+    # updated cached values
+    if cached:
+        cached[option] = doc
+    return doc
+
 
 # mandriva security tools
 AUTH_NO_PASSWD = _("No password")
@@ -269,7 +304,7 @@ class MsecConfig:
             value = self.options[option]
             # prevent saving empty options
             # TODO: integrate with remove()
-            if value == None:
+            if value == None or value == OPTION_DISABLED:
                 self.log.debug("Skipping %s" % option)
             else:
                 print >>fd, "%s=%s" % (option, self.options[option])

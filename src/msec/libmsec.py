@@ -112,6 +112,12 @@ XDM = '/etc/pam.d/xdm'
 XSERVERS = '/etc/X11/xdm/Xservers'
 EXPORT = '/root/.xauth/export'
 
+# auth
+AUTH_PAM='/etc/pam.d/'
+AUTH_CONSOLE='/etc/security/console.apps/'
+AUTH_LINK_CONSOLE="mandriva-console-auth"
+AUTH_LINK_SIMPLE="mandriva-simple-auth"
+
 # ConfigFile constants
 STRING_TYPE = type('')
 
@@ -402,6 +408,15 @@ class ConfigFile:
         self.is_deleted = 1
         self.lines=[]
         return self
+
+    def is_link(self):
+        '''Checks if file is a symlink and, if yes, returns the real path'''
+        full = os.stat(self.path)
+        if stat.S_ISLNK(full[stat.ST_MODE]):
+            link = os.readlink(self.path)
+        else:
+            link = None
+        return link
 
     def write(self):
         if self.is_deleted:
@@ -1545,6 +1560,178 @@ class MSEC:
     def check_shosts(self, param):
         """ Enables checking for dangerous options in users' .rhosts/.shosts files."""
         pass
+
+    def get_app_auth(self, app):
+        ''' Determine PAM authentication scheme for an application. Returns:
+            - None: if file is not found, or unknown authentication scheme
+            - without_password: if no password is required
+            - <user>: if user password is required
+            - root: if root password is required'''
+        authfile = self.configfiles.get_config_file("%s/%s" % (AUTH_PAM, app))
+
+        if not authfile.exists():
+            # file not found
+            self.log.error(_("Unable to find PAM authentication for: %s") % app)
+            return None
+
+        # what kind of link is if
+        link = authfile.is_link()
+
+        if not link:
+            # It is not a symlink...
+            self.log.error(_("Unknown PAM authentication for: %s") % app)
+            return None
+
+        # no password
+        if link.find(AUTH_LINK_CONSOLE) != -1:
+            return "without_password"
+
+        if link.find(AUTH_LINK_SIMPLE) != -1:
+            authfile_console = self.configfiles.get_config_file("%s/%s" % (AUTH_CONSOLE, app))
+            if not authfile_console.exists():
+                self.log.error(_("Unable to find console authentication for: %s") % app)
+                return None
+            auth = authfile_console.get_shell_variable("USER")
+            if auth:
+                return auth
+
+        # if we got here, no authentication was discovered
+        self.log.error(_("Unknown authentication for: %s") % app)
+
+    def set_app_auth(self, app, auth):
+        ''' Configures PAM authentication scheme for an application. Valid schemes:
+            - without_password: if no password is required
+            - user: if user password is required
+            - root: if root password is required'''
+        authfile = self.configfiles.get_config_file("%s/%s" % (AUTH_PAM, app))
+
+        if not authfile.exists():
+            # file not found
+            self.log.error(_("Unable to find PAM authentication for: %s") % app)
+            return None
+
+        # what kind of link is if
+        link = authfile.is_link()
+
+        if not link:
+            # It is not a symlink...
+            self.log.error(_("Unknown PAM authentication for: %s") % app)
+            return None
+
+        # let's set auth
+        if auth == "without_password":
+            if link.find(AUTH_LINK_CONSOLE) != -1:
+                self.log.info(_("Configuring %s for password-less authentication") % app)
+                authfile.symlink("%s/%s" % (AUTH_PAM, AUTH_LINK_CONSOLE))
+        elif auth == "user" or auth == "root":
+            if link.find(AUTH_LINK_SIMPLE) != -1:
+                authfile.symlink("%s/%s" % (AUTH_PAM, AUTH_LINK_SIMPLE))
+
+            authfile_console = self.configfiles.get_config_file("%s/%s" % (AUTH_CONSOLE, app))
+            curauth = authfile.get_shell_variable("USER")
+            if not curauth:
+                # file not created? something wrong with the file
+                self.log.error(_("Unable to find console authentication for: %s") % app)
+                return None
+            if auth == "user":
+                newauth = "<user>"
+            else:
+                newauth = auth
+            if newauth != curauth:
+                self.log.info(_("Configuring %s for %s authentication") % (app, auth))
+                authfile_console.set_shell_variable("USER", newauth)
+        else:
+            # if we got here, no authentication was discovered
+            self.log.error(_("Unknown authentication for: %s") % app)
+
+    def auth_rpmdrake(self, param):
+        """Authentication for rpmdrake"""
+        pass
+
+    def auth_mandrivaupdate(self, param):
+        """Authentication for MandrivaUpdate"""
+        pass
+
+    def auth_drakrpm_edit_media(self, param):
+        """Authentication for drakrpm-edit-media"""
+        pass
+
+    def auth_drak3d(self, param):
+        """Authentication for drak3d"""
+        pass
+
+    def auth_xfdrake(self, param):
+        """Authentication for xfdrake"""
+        pass
+
+    def auth_drakmouse(self, param):
+        """Authentication for drakmouse"""
+        pass
+
+    def auth_drakkeyboard(self, param):
+        """Authentication for drakkeyboard"""
+        pass
+
+    def auth_drakups(self, param):
+        """Authentication for drakups"""
+        pass
+
+    def auth_drakconnect(self, param):
+        """Authentication for drakconnect"""
+        pass
+
+    def auth_drakhosts(self, param):
+        """Authentication for drakhosts"""
+        pass
+
+    def auth_draknetcenter(self, param):
+        """Authentication for draknetcenter"""
+        pass
+
+    def auth_drakvpn(self, param):
+        """Authentication for drakvpn"""
+        pass
+
+    def auth_drakproxy(self, param):
+        """Authentication for drakproxy"""
+        pass
+
+    def auth_drakgw(self, param):
+        """Authentication for drakgw"""
+        pass
+
+    def auth_drakauth(self, param):
+        """Authentication for drakauth"""
+        pass
+
+    def auth_drakbackup(self, param):
+        """Authentication for drakbackup"""
+        pass
+
+    def auth_drakfont(self, param):
+        """Authentication for drakfont"""
+        pass
+
+    def auth_draklog(self, param):
+        """Authentication for draklog"""
+        pass
+
+    def auth_drakxservices(self, param):
+        """Authentication for drakxservices"""
+        pass
+
+    def auth_userdrake(self, param):
+        """Authentication for userdrake"""
+        pass
+
+    def auth_drakclock(self, param):
+        """Authentication for drakclock"""
+        pass
+
+    def auth_drakboot(self, param):
+        """Authentication for drakboot"""
+        pass
+
 # }}}
 
 # {{{ PERMS - permissions handling
@@ -1763,12 +1950,6 @@ class PERMS:
                         del self.files[f]
         return self.files
 # }}}
-
-class AUTH:
-    """Mandriva security tools authentication"""
-    def __init__(self, log):
-        """Initializes configuration"""
-        self.log = log
 
 if __name__ == "__main__":
     # this should never ever be run directly

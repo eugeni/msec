@@ -25,7 +25,7 @@ except:
     version = "development version"
 
 # libmsec
-from libmsec import MSEC, PERMS, AUTH, Log
+from libmsec import MSEC, PERMS, Log
 
 import logging
 
@@ -44,15 +44,10 @@ except:
     HELP = {}
 
 # text strings
-LEVEL_SECURITY_TEXT=_("""<big><b>Security level</b></big>
+LEVEL_SECURITY_TEXT=_("""<big><b>Choose security level</b></big>
 
-These options control the basic aspects of system security. You may select
-a pre-defined profile, or customize the options.
-
-The following security profiles are defined in this version:
-
-  - <b>None</b>: this profile disables additional system security, and it should
-    be used when you want to fine-tune the system on your own.
+This application allows you to configure your system security. If you wish
+to activate it, choose the appropriate security level:
 
   - <b>Default</b>: this is the default profile, which configures a reasonably
     safe set of security features. It activates several periodic system checks,
@@ -186,7 +181,7 @@ class MsecGui:
 
         # menu
         menubar = gtk.MenuBar()
-        main_vbox.pack_start(menubar)
+        main_vbox.pack_start(menubar, False, False)
         menus = [
                     (_("File"),
                     [
@@ -199,8 +194,8 @@ class MsecGui:
                     ]),
                     (_("Help"),
                     [
-                        (_("Help"), self.quit),
-                        (_("About"), self.ok),
+                        (_("Help"), None),
+                        (_("About"), None),
                     ]),
                 ]
         # building menus
@@ -245,10 +240,12 @@ class MsecGui:
         """Ok button"""
         # TODO: split in smaller functions
         print self.base_level
+        print self.enforced_level
         if self.enforcing_level:
             self.log.debug(">> Enforcing level %s" % self.enforced_level)
             if self.enforced_level in self.defaults:
                 curconfig, curperms = self.defaults[self.enforced_level]
+                print curconfig.list_options()
         else:
             curconfig = self.msecconfig
             curperms = self.permconfig
@@ -529,7 +526,7 @@ class MsecGui:
         vbox.pack_start(entry, False, False)
 
         # Are we enforcing a new security level
-        entry = gtk.CheckButton(_("Enforce a new security level, overwriting all local changes"))
+        entry = gtk.CheckButton(_("Enable msec tool"))
 
         # security levels
         frame = gtk.Frame()
@@ -1042,10 +1039,9 @@ if __name__ == "__main__":
     # creating an msec instance
     msec = MSEC(log)
     perms = PERMS(log)
-    auth = AUTH(log)
 
     log.info("Starting gui..")
 
-    gui = MsecGui(log, msec, perms, auth, msec_config, perm_conf, auth_conf, embed=PlugWindowID)
+    gui = MsecGui(log, msec, perms, None, msec_config, perm_conf, auth_conf, embed=PlugWindowID)
     gtk.main()
 

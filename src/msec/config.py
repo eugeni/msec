@@ -198,6 +198,13 @@ class MsecConfig:
             else:
                 self.get(opt, newconfig.get(opt))
 
+    def reset(self):
+        """Resets all configuration"""
+        del self.options
+        self.options = {}
+        del self.comments
+        self.comments = []
+
     def load(self):
         """Loads and parses configuration file"""
         if not self.config:
@@ -262,7 +269,7 @@ class MsecConfig:
             value = self.options[option]
             # prevent saving empty options
             # TODO: integrate with remove()
-            if not value:
+            if value == None:
                 self.log.debug("Skipping %s" % option)
             else:
                 print >>fd, "%s=%s" % (option, self.options[option])
@@ -279,6 +286,11 @@ class PermConfig(MsecConfig):
         self.comments = []
         self.log = log
         self.regexp = re.compile("^([^\s]*)\s*([a-z]*)\.([a-z]*)\s*([\d]?\d\d\d|current)\s*(force)?$")
+
+    def reset(self):
+        MsecConfig.reset(self)
+        del self.options_order
+        self.options_order = []
 
     def load(self):
         """Loads and parses configuration file"""

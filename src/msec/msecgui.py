@@ -226,6 +226,9 @@ class MsecGui:
         self.notebook.append_page(self.notifications_page(), gtk.Label(_("Security notifications")))
         self.notebook.append_page(self.permissions_security_page(), gtk.Label(_("Permissions")))
 
+        # are we enabled?
+        self.toggle_level(self.base_level)
+
         self.window.show_all()
 
     def cancel(self, widget):
@@ -240,14 +243,10 @@ class MsecGui:
         """Ok button"""
         # TODO: split in smaller functions
         print self.base_level
-        print self.enforced_level
-        if self.enforcing_level:
-            self.log.debug(">> Enforcing level %s" % self.enforced_level)
-            if self.enforced_level in self.defaults:
-                curconfig, curperms = self.defaults[self.enforced_level]
-                print curconfig.list_options()
-        else:
-            curconfig = self.msecconfig
+        self.log.debug(">> Enforcing level %s" % self.base_level)
+        if self.base_level in self.defaults:
+            curconfig, curperms = self.defaults[self.base_level]
+            print curconfig.list_options()
             curperms = self.permconfig
         # apply config and preview changes
         self.log.start_buffer()
@@ -351,13 +350,11 @@ class MsecGui:
             return
         dialog.destroy()
 
-        # well, let's commit it!
-        if self.enforcing_level:
-            # rewriting configuration
-            for opt in curconfig.list_options():
-                self.msecconfig.set(opt, curconfig.get(opt))
-            for perm in curperms.list_options():
-                self.permconfig.set(perm, curperms.get(perm))
+        # rewriting configuration
+        self.msecconfig.reset()
+        self.msecconfig.merge(curconfig)
+        self.permconfig.reset()
+        self.permconfig.merge(curconfig)
 
         # saving the configuration
         self.msecconfig.save()
@@ -441,6 +438,7 @@ class MsecGui:
 
             # building the option
             iter = lstore.append()
+            print iter
             lstore.set(iter,
                     self.COLUMN_OPTION, option,
                     self.COLUMN_DESCR, doc,
@@ -525,33 +523,31 @@ class MsecGui:
         entry.set_use_markup(True)
         vbox.pack_start(entry, False, False)
 
-        # Are we enforcing a new security level
-        entry = gtk.CheckButton(_("Enable msec tool"))
-
         # security levels
-        frame = gtk.Frame()
-        frame.set_sensitive(False)
+        self.levels_frame = gtk.Frame(_("Base security level"))
         levels_vbox = gtk.VBox()
-        frame.add(levels_vbox)
+        self.levels_frame.add(levels_vbox)
         # none
-        button = gtk.RadioButton(group=None, label=_("Pre-defined security level: NONE"))
-        button.connect('clicked', self.force_level, 'none')
+        button = gtk.RadioButton(group=None, label=_("Disable MSEC"))
+        button.connect('clicked', self.force_level, config.NONE_LEVEL)
+        if self.base_level == config.NONE_LEVEL:
+            button.set_active(True)
         levels_vbox.pack_start(button)
         # default
-        button = gtk.RadioButton(group=button, label=_("Pre-defined security level: DEFAULT"))
-        button.connect('clicked', self.force_level, 'default')
-        button.set_active(True)
+        button = gtk.RadioButton(group=button, label=_("Enable MSEC with DEFAULT security level"))
+        button.connect('clicked', self.force_level, config.DEFAULT_LEVEL)
+        if self.base_level == config.DEFAULT_LEVEL:
+            button.set_active(True)
         levels_vbox.pack_start(button)
         # secure
-        button = gtk.RadioButton(group=button, label=_("Pre-defined security level: SECURE"))
-        button.connect('clicked', self.force_level, 'secure')
+        button = gtk.RadioButton(group=button, label=_("Enable MSEC with SECURE security level"))
+        button.connect('clicked', self.force_level, config.SECURE_LEVEL)
+        if self.base_level == config.SECURE_LEVEL:
+            button.set_active(True)
         levels_vbox.pack_start(button)
 
-        # adding callback for enable button
-        entry.connect('clicked', self.enforce_level, frame)
-        vbox.pack_start(entry, False, False)
         # putting levels to vbox
-        vbox.pack_start(frame)
+        vbox.pack_start(self.levels_frame)
 
         return vbox
 
@@ -578,36 +574,30 @@ class MsecGui:
 
         return vbox
 
-    def enforce_level(self, widget, options):
-        """Enforces a new security level"""
-        frame = options
-        if widget.get_active():
-            # we are enforcing a level
-            self.enforcing_level = True
-            frame.set_sensitive(True)
-            # disable notebook pages
-            npages = self.notebook.get_n_pages()
-            for page in range(1, npages):
-                curpage = self.notebook.get_nth_page(page)
-                curpage.set_sensitive(False)
-                label = self.notebook.get_tab_label(curpage)
-                label.set_sensitive(False)
+    def toggle_level(self, level):
+        """Enables/disables graphical items for msec"""
+        if level != config.NONE_LEVEL:
+            enabled = True
         else:
-            frame.set_sensitive(False)
-            # enable notebook pages
-            npages = self.notebook.get_n_pages()
-            for page in range(1, npages):
-                curpage = self.notebook.get_nth_page(page)
-                curpage.set_sensitive(True)
-                label = self.notebook.get_tab_label(curpage)
-                label.set_sensitive(True)
-            # disable level enforcing
-            self.enforcing_level = False
+            enabled = False
+
+        # update notebook pages
+        npages = self.notebook.get_n_pages()
+        for page in range(1, npages):
+            curpage = self.notebook.get_nth_page(page)
+            curpage.set_sensitive(enabled)
+            label = self.notebook.get_tab_label(curpage)
+            label.set_sensitive(enabled)
+
+        # TODO: update all widgets
 
     def force_level(self, widget, level):
         """Defines a given security level"""
         if widget.get_active():
-            self.enforced_level = level
+            self.base_level = level
+            # update everything
+            print level
+            self.toggle_level(level)
 
     def notifications_page(self):
         """Builds the notifications page"""

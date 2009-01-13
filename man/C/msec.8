@@ -1,5 +1,5 @@
 .ds q \N'34'
-.TH msec 0.60.3 msec "Mandriva Linux"
+.TH msec 0.60.4 msec "Mandriva Linux"
 .SH NAME
 msec \- Mandriva Linux security tools
 .SH SYNOPSIS
@@ -199,6 +199,15 @@ Accept/Refuse broadcasted icmp echo.
 MSEC parameter: \fIACCEPT_BROADCASTED_ICMP_ECHO\fP
 
 Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIenable_sudo\fP
+Enables support for sudo application, which allows users to run applications using system account. If yes, users must autenticate themselves using password. If this parameter is set to 'wheel', users must belong to the 'wheel' group to be able to use sudo
+
+MSEC parameter: \fIENABLE_SUDO\fP
+
+Accepted values: \fIyes, no, wheel\fP
 
 
 .TP 4
@@ -418,6 +427,15 @@ Accepted values: \fIyes, no\fP
 
 
 .TP 4
+.B \fIenable_apparmor\fP
+Enables support for AppArmor security framework
+
+MSEC parameter: \fIENABLE_APPARMOR\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
 .B \fIallow_x_connections\fP
 Allow/Forbid X connections. Accepted arguments: yes (all connections are allowed), local (only local connection), no (no connection).
 
@@ -562,6 +580,15 @@ Accepted values: \fIyes, no\fP
 
 
 .TP 4
+.B \fInotify_warn\fP
+Enables support for security notifications using libnotify. This allows the security notifications to be delivered directly to the users' desktop
+
+MSEC parameter: \fINOTIFY_WARN\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
 .B \fIallow_remote_root_login\fP
 Allow/Forbid remote root login via sshd. You can specify yes, no and without-password. See sshd_config(5) man page for more information.
 
@@ -629,6 +656,15 @@ Accepted values: \fIyes, no, local\fP
 Enables periodic security check results to terminal.
 
 MSEC parameter: \fITTY_WARN\fP
+
+Accepted values: \fIyes, no\fP
+
+
+.TP 4
+.B \fIenable_policykit\fP
+Enables support for PolicyKit framework, which allows ordinary users to run system application
+
+MSEC parameter: \fIENABLE_POLICYKIT\fP
 
 Accepted values: \fIyes, no\fP
 

@@ -1661,7 +1661,7 @@ class PERMS:
                     except:
                         self.log.error(_("Error changing user on %s: %s") % (file, sys.exc_value))
                 else:
-                    self.log.warn(_("Bad owner of %s: should be %s") % (file, self.get_user_name(newuser)))
+                    self.log.warn(_("Wrong owner of %s: should be %s") % (file, self.get_user_name(newuser)))
             if newgroup != None:
                 if force and really_commit:
                     self.log.warn(_("Enforcing group on %s to %s") % (file, self.get_group_name(newgroup)))
@@ -1670,7 +1670,7 @@ class PERMS:
                     except:
                         self.log.error(_("Error changing group on %s: %s") % (file, sys.exc_value))
                 else:
-                    self.log.warn(_("Bad group of %s: should be %s") % (file, self.get_group_name(newgroup)))
+                    self.log.warn(_("Wrong group of %s: should be %s") % (file, self.get_group_name(newgroup)))
             # permissions should be last, as chown resets them
             # on suid files
             if newperm != None:
@@ -1681,7 +1681,7 @@ class PERMS:
                     except:
                         self.log.error(_("Error changing permissions on %s: %s") % (file, sys.exc_value))
                 else:
-                    self.log.warn(_("Bad permissions of %s: should be %o") % (file, newperm))
+                    self.log.warn(_("Wrong permissions of %s: should be %o") % (file, newperm))
 
 
     def check_perms(self, perms):

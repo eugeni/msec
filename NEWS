@@ -1,13 +1,18 @@
-Version 0.60.3 January 07 2009 Eugeni Dodonov
+Version 0.60.4 - January 13 2009, Eugeni Dodonov
+- Updated gui to allow immediate preview of options on level change.
+- New permissions control GUI.
+- Added support for custom security levels.
+
+Version 0.60.3 - January 07 2009, Eugeni Dodonov
 - Bugfixes for gdm config handling.
 - Implemented authentication gui.
 - Added support for --embedded.
 - Now using /etc/security/shell instead of /etc/sysconfig/msec.
 
-Version 0.60.2 January 07 2009 Eugeni Dodonov
+Version 0.60.2 - January 07 2009, Eugeni Dodonov
 - Bugfixes for kdmrc handling.
 
-Version 0.60.1 January 07 2009 Eugeni Dodonov
+Version 0.60.1 - January 07 2009, Eugeni Dodonov
 
 - Complete msec redesign for Mandriva 2009.1.
 

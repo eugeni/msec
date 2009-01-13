@@ -114,8 +114,6 @@ if __name__ == "__main__":
 
     # loading initial config
     msec_config = config.MsecConfig(log, config=config.SECURITYCONF)
-    if not msec_config.load() and not force_level:
-        log.error(_("Level configuration not found, please run '%s -f <level>' to initialize.") % sys.argv[0])
 
     # forcing new level
     if force_level:
@@ -123,10 +121,13 @@ if __name__ == "__main__":
         levelconf = config.load_defaults(log, level)
         params = levelconf.list_options()
         if not params:
-            log.error(_("Default configuration for level '%s' not found, aborting.") % level)
+            log.error(_("Level '%s' not found, aborting.") % level)
             sys.exit(1)
+        log.info(_("Switching to '%s' level.") % level)
         for opt in params:
             msec_config.set(opt, levelconf.get(opt))
+    else:
+        msec_config.load()
 
     # load the msec library
     msec = MSEC(log)

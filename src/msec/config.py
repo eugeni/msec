@@ -46,7 +46,8 @@ MODIFICATIONS_NOT_FOUND = _('No changes in system files')
 
 # msec callbacks and valid values
 #               OPTION                           callback                            valid values
-SETTINGS =    {'CHECK_SECURITY' :               ("check_security",                  ['yes', 'no']),
+SETTINGS =    {'BASE_LEVEL':                    ("base_level",                      ['*']),
+               'CHECK_SECURITY' :               ("check_security",                  ['yes', 'no']),
                'CHECK_PERMS' :                  ("check_perms",                     ['yes', 'no']),
                'CHECK_USER_FILES' :             ("check_user_files",                ['yes', 'no']),
                'CHECK_SUID_ROOT' :              ("check_suid_root",                 ['yes', 'no']),
@@ -270,7 +271,7 @@ class PermConfig(MsecConfig):
         self.options_order = []
         self.comments = []
         self.log = log
-        self.regexp = re.compile("^([^\s]*)\s*([a-z]*)\.([a-z]*)\s*([\d]?\d\d\d)\s*(force)?$")
+        self.regexp = re.compile("^([^\s]*)\s*([a-z]*)\.([a-z]*)\s*([\d]?\d\d\d|current)\s*(force)?$")
 
     def load(self):
         """Loads and parses configuration file"""

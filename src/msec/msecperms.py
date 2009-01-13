@@ -124,8 +124,6 @@ if __name__ == "__main__":
 
     # loading permissions
     permconf = config.PermConfig(log, config=config.PERMCONF)
-    if not permconf.load() and not force_level:
-        log.error(_("Permissions configuration not found, please run '%s -f <level>' to initialize.") % sys.argv[0])
 
     # forcing new level
     if force_level:
@@ -133,10 +131,13 @@ if __name__ == "__main__":
         default_permconf = config.load_default_perms(log, level)
         params = default_permconf.list_options()
         if not params:
-            log.error(_("Default configuration for level '%s' not found, aborting.") % level)
+            log.error(_("Level '%s' not found, aborting.") % level)
             sys.exit(1)
+        log.info(_("Switching to '%s' level.") % level)
         for opt in params:
             permconf.set(opt, default_permconf.get(opt))
+    else:
+        permconf.load()
 
     # load the main permission class
     perm = PERMS(log)

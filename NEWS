@@ -1,3 +1,6 @@
+Version 0.60.5 - January 14 2009, Eugeni Dodonov
+- Fixed msecperms -e (setting default permissions to files).
+
 Version 0.60.4 - January 13 2009, Eugeni Dodonov
 - Updated gui to allow immediate preview of options on level change.
 - New permissions control GUI.

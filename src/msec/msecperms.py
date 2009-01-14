@@ -145,7 +145,7 @@ if __name__ == "__main__":
     changed_files = perm.check_perms(permconf)
 
     # writing back changes
-    perm.commit(really_commit=commit, enforce=force_level)
+    perm.commit(really_commit=commit, enforce=enforce)
     # saving updated config
     if force_level and commit:
         if not permconf.save():

@@ -1854,7 +1854,6 @@ class PERMS:
         else:
             self.log.info(config.MODIFICATIONS_NOT_FOUND)
 
-
         for file in self.files:
             newperm, newuser, newgroup, force = self.files[file]
             # are we in enforcing mode?

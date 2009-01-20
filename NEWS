@@ -1,3 +1,18 @@
+Version 0.60.6 - January 20 2009, Eugeni Dodonov
+- Removed Authentication tab (now handled by a separate application)
+- Now it is possible to save settings without quitting.
+- Better detection for file modifications (such as symlinks, moves, etc)
+- Now asking to save changes before quitting when necessary.
+- Highlighting default option value according to current level.
+- Level selection improvements.
+- Checking for $DISPLAY variable.
+- Added HAL to list of save services.
+- Now highlighting options which are different from default values for level.
+- Improved GUI spacing between options.
+- Removed Notifications tab (merged with initial screen and periodic
+  checks screen).
+- Better handling of non-existent files (inittab and sysctl).
+
 Version 0.60.5 - January 14 2009, Eugeni Dodonov
 - Fixed msecperms -e (setting default permissions to files).
 

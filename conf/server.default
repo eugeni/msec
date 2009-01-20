@@ -10,6 +10,7 @@ ez-ipupdate
 ftwall
 fwlogwatch
 gpm
+haldaemon
 httpd
 httpd-naat
 httpd2-naat

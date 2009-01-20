@@ -2,6 +2,7 @@ bastille-firewall
 crond
 dm
 gpm
+haldaemon
 ipchains
 keytable
 network

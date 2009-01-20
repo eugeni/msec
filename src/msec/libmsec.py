@@ -387,10 +387,12 @@ class ConfigFile:
 
     def touch(self):
         self.is_touched = 1
+        self.modified()
         return self
 
     def symlink(self, link):
         self.sym_link = link
+        self.modified()
         return self
 
     def exists(self):
@@ -403,10 +405,12 @@ class ConfigFile:
     def move(self, suffix):
         self.suffix = suffix
         self.is_moved = 1
+        self.modified()
 
     def unlink(self):
         self.is_deleted = 1
         self.lines=[]
+        self.modified()
         return self
 
     def is_link(self):

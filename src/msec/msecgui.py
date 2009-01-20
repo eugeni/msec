@@ -973,6 +973,18 @@ class MsecGui:
         conf_def = self.msec_defaults[config.DEFAULT_LEVEL]
         conf_sec = self.msec_defaults[config.SECURE_LEVEL]
 
+        # Highlighting default options
+        def_start=""
+        def_end=""
+        sec_start=""
+        sec_end=""
+        if self.base_level == config.DEFAULT_LEVEL:
+            def_start="<b>"
+            def_end="</b>"
+        elif self.base_level == config.SECURE_LEVEL:
+            sec_start="<b>"
+            sec_end="</b>"
+
         val_def = conf_def.get(param)
         val_sec = conf_sec.get(param)
 
@@ -986,7 +998,10 @@ class MsecGui:
         label.set_use_markup(True)
         # description
         dialog.vbox.pack_start(label)
-        label = gtk.Label(_("<i>%s</i>\n\n\tCurrent value: <b>%s</b>\n\tDefault level value: <b>%s</b>\n\tSecure level value: <b>%s</b>\n") % (descr, value, val_def, val_sec))
+        label = gtk.Label(_("<i>%s</i>\n\n\tCurrent value:\t\t\t<i>%s</i>\n\t%sDefault level value:\t<i>%s</i>%s\n\t%sSecure level value:\t\t<i>%s</i>%s\n") %
+                (descr, value,
+                    def_start, val_def, def_end,
+                    sec_start, val_sec, sec_end))
         label.set_line_wrap(True)
         label.set_use_markup(True)
         dialog.vbox.pack_start(label)

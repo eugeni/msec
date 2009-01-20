@@ -430,15 +430,6 @@ class ConfigFile:
                 except:
                     error('unlink %s: %s' % (self.path, str(sys.exc_value)))
                 self.log.info(_('deleted %s') % (self.path,))
-        elif self.is_modified:
-            content = string.join(self.lines, "\n")
-            dirname = os.path.dirname(self.path)
-            if not os.path.exists(dirname):
-                os.makedirs(dirname)
-            file = open(self.path, 'w')
-            file.write(content)
-            file.close()
-            self.meta.modified(self.path)
         elif self.is_touched:
             if os.path.exists(self.path):
                 try:
@@ -477,10 +468,18 @@ class ConfigFile:
                 except:
                     self.log.error('symlink %s %s: %s' % (self.sym_link, self.path, str(sys.exc_value)))
                 self.log.info(_('made symbolic link from %s to %s') % (self.sym_link, self.path))
-
-        if self.is_moved:
+        elif self.is_moved:
             move(self.path, self.path + self.suffix)
             self.log.info(_('moved file %s to %s') % (self.path, self.path + self.suffix))
+            self.meta.modified(self.path)
+        elif self.is_modified:
+            content = string.join(self.lines, "\n")
+            dirname = os.path.dirname(self.path)
+            if not os.path.exists(dirname):
+                os.makedirs(dirname)
+            file = open(self.path, 'w')
+            file.write(content)
+            file.close()
             self.meta.modified(self.path)
         self.is_touched = 0
         self.is_modified = 0

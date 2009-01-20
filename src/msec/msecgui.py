@@ -192,6 +192,11 @@ class MsecGui:
         self.notebook = gtk.Notebook()
         main_vbox.add(self.notebook)
 
+        # data to change the values
+        self.current_options_view = {}
+        # checkboxes callbacks
+        self.checkboxes_callbacks = {}
+
         # tabs to create in the intrerface
         tabs = [
             (1, self.level_security_page, _("Basic security")),
@@ -201,8 +206,6 @@ class MsecGui:
             (5, self.notifications_page, _("Security notifications")),
             (6, self.permissions_security_page, _("Permissions")),
             ]
-        # data to change the values
-        self.current_options_view = {}
         for id, callback, label in tabs:
             self.notebook.append_page(callback(id), gtk.Label(label))
 
@@ -525,7 +528,68 @@ class MsecGui:
         # putting levels to vbox
         vbox.pack_start(self.levels_frame, padding=DEFAULT_SPACING)
 
+        # notifications by email
+        self.notify_mail = gtk.CheckButton(_("Send security alerts by email"))
+        if self.msecconfig.get("MAIL_WARN") == "yes":
+            self.notify_mail.set_active(True)
+        vbox.pack_start(self.notify_mail, False, False, padding=DEFAULT_SPACING)
+
+        # email address
+        hbox = gtk.HBox()
+        label = gtk.Label(_("System administrator email address:"))
+        label.set_property("xalign", 0.2)
+        hbox.pack_start(label, False, False, padding=DEFAULT_SPACING)
+        self.email_entry = gtk.Entry()
+        email = self.msecconfig.get("MAIL_USER")
+        if not email:
+            email = ""
+        self.email_entry.set_text(email)
+        self.email_entry.connect('changed', self.change_email)
+        hbox.pack_start(self.email_entry, False, False, padding=DEFAULT_SPACING)
+        vbox.pack_start(hbox, False, False, padding=DEFAULT_SPACING)
+
+        # updating the mail address/checkbox relationship
+        self.notify_mail.connect('clicked', self.notify_mail_changed, hbox)
+        self.checkboxes_callbacks["MAIL_WARN"] = (self.notify_mail_changed, self.notify_mail, hbox)
+
+        self.notify_mail_changed(self.notify_mail, hbox)
+
+        # notifications on desktop
+        self.notify_desktop = gtk.CheckButton(_("Display security alerts on desktop"))
+        if self.msecconfig.get("NOTIFY_WARN") == "yes":
+            self.notify_desktop.set_active(True)
+        self.notify_desktop.connect('clicked', self.notify_changed, None)
+        vbox.pack_start(self.notify_desktop, False, False, padding=DEFAULT_SPACING)
+        self.checkboxes_callbacks["NOTIFY_WARN"] = (self.notify_changed, self.notify_desktop, None)
+
+        # save the checkboxes
+
+        "NOTIFY_WARN", "MAIL_WARN", 
+
         return vbox
+
+    def change_email(self, widget):
+        """Email address was changed"""
+        email = widget.get_text()
+        self.msecconfig.set("MAIL_USER", email)
+
+    def notify_mail_changed(self, widget, param):
+        """Changes to mail notifications"""
+        status = widget.get_active()
+        if status:
+            self.msecconfig.set("MAIL_WARN", "yes")
+            param.set_sensitive(True)
+        else:
+            self.msecconfig.set("MAIL_WARN", "no")
+            param.set_sensitive(False)
+
+    def notify_changed(self, widget, param):
+        """Changes to mail notifications"""
+        status = widget.get_active()
+        if status:
+            self.msecconfig.set("NOTIFY_WARN", "yes")
+        else:
+            self.msecconfig.set("NOTIFY_WARN", "no")
 
     def enable_disable_msec(self, widget):
         """Enables/disables msec tool"""
@@ -565,12 +629,6 @@ class MsecGui:
         # what is the current level?
         defconfig = self.msec_defaults[level]
 
-        # remove options which are not defined anymore
-        defoptions = defconfig.list_options()
-        for option in self.msecconfig.list_options():
-            if option not in defoptions:
-                print "Removing %s" % option
-
         for z in self.current_options_view:
             options, curconfig = self.current_options_view[z]
             iter = options.get_iter_root()
@@ -581,9 +639,9 @@ class MsecGui:
                     option = options.get_value(iter, self.COLUMN_OPTION)
                     curvalue = options.get_value(iter, self.COLUMN_VALUE)
                     newvalue = defconfig.get(option)
-                    if curvalue != newvalue:
-                        # changing option
-                        if force:
+                    # changing option
+                    if force:
+                        if curvalue != newvalue:
                             self.log.debug("%s: %s -> %s" % (option, curvalue, newvalue))
                             options.set(iter, self.COLUMN_VALUE, newvalue)
                             # reset customization
@@ -602,6 +660,16 @@ class MsecGui:
             else:
                 #print curconfig.__class__
                 pass
+        # checkboxes
+        for option in self.checkboxes_callbacks:
+            if force:
+                func, widget, callback = self.checkboxes_callbacks[option]
+                if defconfig.get(option) == "yes":
+                    widget.set_active(True)
+                else:
+                    widget.set_active(False)
+                self.msecconfig.set(option, defconfig.get(option))
+                func(widget, callback)
         # finally, change new base_level
         self.base_level = level
 
@@ -610,7 +678,6 @@ class MsecGui:
         if widget.get_active():
             #self.base_level = level
             # update everything
-            print "Forcing level %s" % level
             self.toggle_level(level, force=True)
 
     def notifications_page(self, id):
@@ -624,12 +691,12 @@ class MsecGui:
         vbox.pack_start(entry, False, False)
 
         # basic security options
-        options_view, model = self.create_treeview(["TTY_WARN", "SYSLOG_WARN", "NOTIFY_WARN", "MAIL_WARN", "MAIL_USER", "MAIL_EMPTY_CONTENT"])
+        options_view, model = self.create_treeview(["TTY_WARN", "SYSLOG_WARN", "MAIL_USER", "MAIL_EMPTY_CONTENT"])
+
+        vbox.pack_start(options_view)
 
         # save those options
         self.current_options_view[id] = (model, self.msecconfig)
-        vbox.pack_start(options_view)
-
         return vbox
 
     def system_security_page(self, id):
@@ -682,8 +749,10 @@ class MsecGui:
         entry = gtk.Label(PERIODIC_SECURITY_TEXT)
         vbox.pack_start(entry, False, False)
 
+        periodic_checks = self.msecconfig.get("CHECK_SECURITY")
+
         self.periodic_checks = gtk.CheckButton(_("Enable periodic security checks"))
-        if self.msecconfig.get("CHECK_SECURITY") == "yes":
+        if periodic_checks == "yes":
             self.periodic_checks.set_active(True)
         vbox.pack_start(self.periodic_checks, False, False)
 
@@ -698,12 +767,15 @@ class MsecGui:
 
         # see if these tests are enabled
         self.periodic_checks.connect('clicked', self.periodic_tests, options_view)
-        periodic_checks = self.msecconfig.get("CHECK_SECURITY")
         if periodic_checks == 'no':
             # disable all periodic tests
             options_view.set_sensitive(False)
-        # TODO: CHECK_SECURITY??
+
+        # save options
         self.current_options_view[id] = (model, self.msecconfig)
+
+        # save the checkboxes
+        self.checkboxes_callbacks["CHECK_SECURITY"] = (self.periodic_tests, self.periodic_checks, options_view)
 
         return vbox
 
@@ -1099,7 +1171,6 @@ class MsecGui:
 
         if num_changes > 0:
             # there were changes
-            print "Unsaved changes!"
             # asks for new parameter value
             dialog = gtk.Dialog(_("Save your changes?"),
                     self.window, 0,
@@ -1113,7 +1184,6 @@ class MsecGui:
             dialog.show_all()
             response = dialog.run()
             dialog.destroy()
-            print "response!"
             if response == gtk.RESPONSE_OK:
                 ret = self.ok(widget)
                 if not ret:

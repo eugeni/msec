@@ -142,7 +142,7 @@ class MsecGui:
             # running standalone
             self.window = gtk.Window()
             self.window.set_default_size(640, 480)
-        self.window.connect('destroy', self.quit)
+        self.window.connect('delete-event', self.quit)
 
         # are we enforcing a level
         self.enforced_level = None
@@ -343,7 +343,7 @@ class MsecGui:
         response = dialog.run()
         if response != gtk.RESPONSE_OK:
             dialog.destroy()
-            return
+            return False
         dialog.destroy()
 
         # new base level
@@ -357,6 +357,8 @@ class MsecGui:
         self.permconfig.save()
 
         self.reload_config()
+
+        return True
 
     def reload_config(self):
         """Reloads config files"""
@@ -1040,8 +1042,41 @@ class MsecGui:
         model.set(iter, self.COLUMN_CUSTOM, custom)
 
 
-    def quit(self, param):
+    def quit(self, widget, event):
         """Quits the application"""
+
+        # were there changes in configuration?
+        num_changes, allchanges, messages = self.check_for_changes(self.msecconfig, self.permconfig)
+
+        if num_changes > 0:
+            # there were changes
+            print "Unsaved changes!"
+            # asks for new parameter value
+            dialog = gtk.Dialog(_("Save your changes?"),
+                    self.window, 0,
+                    (_("Cancel"), gtk.RESPONSE_CANCEL,
+                        _("Ignore"), gtk.RESPONSE_CLOSE,
+                        _("Save"), gtk.RESPONSE_OK))
+            # option title
+            label = gtk.Label(_("Do you want to save changes before closing?"))
+            dialog.vbox.pack_start(label, False, False, padding=DEFAULT_SPACING)
+
+            dialog.show_all()
+            response = dialog.run()
+            dialog.destroy()
+            print "response!"
+            if response == gtk.RESPONSE_OK:
+                ret = self.ok(widget)
+                if not ret:
+                    # haven't saved
+                    print "not saved"
+                    return True
+            elif response == gtk.RESPONSE_CLOSE:
+                # leaving
+                gtk.main_quit()
+            else:
+                return True
+
         print "Leaving.."
         gtk.main_quit()
 

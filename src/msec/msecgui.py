@@ -204,18 +204,6 @@ class MsecGui:
 
         self.window.show_all()
 
-    def recreate_tabs(self, notebook, tabs):
-        """Creates tabs and initializes options values"""
-        pass
-
-    def cancel(self, widget):
-        """Cancel button"""
-        self.quit(widget)
-
-    def help(self, widget):
-        """Help button"""
-        print "Help clicked."
-
     def check_for_changes(self, curconfig, curperms):
         """Checks for changes in configuration. Returns number of configuration
         changes, the description of changes, and results of msec dry run"""

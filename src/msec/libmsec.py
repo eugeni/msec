@@ -1494,6 +1494,7 @@ class MSEC:
 
     def check_security(self, param):
         """ Enables daily security checks."""
+        self.enable_security_check(param)
         pass
 
     def check_perms(self, param):

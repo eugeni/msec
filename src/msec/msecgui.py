@@ -392,7 +392,7 @@ class MsecGui:
             gobject.TYPE_STRING,
             gobject.TYPE_STRING,
             gobject.TYPE_STRING,
-            gobject.TYPE_BOOLEAN)
+            gobject.TYPE_INT)
 
         # treeview
         treeview = gtk.TreeView(lstore)
@@ -412,20 +412,12 @@ class MsecGui:
         renderer = gtk.CellRendererText()
         renderer.set_property('wrap-width', 400)
         renderer.set_property('wrap-mode', pango.WRAP_WORD_CHAR)
-        column = gtk.TreeViewColumn(_('Description'), renderer, text=self.COLUMN_DESCR)
-        column.set_sort_column_id(self.COLUMN_DESCR)
-        treeview.append_column(column)
+        treeview.insert_column_with_attributes(-1, _('Description'), renderer, text=self.COLUMN_DESCR, weight=self.COLUMN_CUSTOM)
+        #treeview.append_column(column)
 
         # column for values
         column = gtk.TreeViewColumn(_('Value'), gtk.CellRendererText(), text=self.COLUMN_VALUE)
         column.set_sort_column_id(self.COLUMN_VALUE)
-        treeview.append_column(column)
-
-        # column for custom settings
-        column = gtk.TreeViewColumn(_('Customized'), gtk.CellRendererToggle(), active=self.COLUMN_CUSTOM)
-        column.set_sort_column_id(self.COLUMN_CUSTOM)
-        column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-        column.set_fixed_width(50)
         treeview.append_column(column)
 
         sw.add(treeview)
@@ -450,9 +442,9 @@ class MsecGui:
 
             # was it changed? if yes, change description to italic
             if self.option_is_changed(option, value):
-                custom = True
+                custom = pango.WEIGHT_BOLD
             else:
-                custom = False
+                custom = pango.WEIGHT_NORMAL
 
             # building the option
             iter = lstore.append()
@@ -499,31 +491,31 @@ class MsecGui:
         self.button_default.connect('clicked', self.force_level, config.DEFAULT_LEVEL)
         if self.base_level == config.DEFAULT_LEVEL:
             self.button_default.set_active(True)
-        levels_vbox.pack_start(self.button_default)
+        levels_vbox.pack_start(self.button_default, False, False)
         # default level description
         label = gtk.Label(DEFAULT_LEVEL_DESCRIPTION)
         label.set_use_markup(True)
         label.set_property("xalign", 0.1)
         label.set_property("yalign", 0.0)
         label.set_line_wrap(True)
-        label.set_width_chars(120)
+        #label.set_width_chars(120)
         label.set_justify(gtk.JUSTIFY_FILL)
-        levels_vbox.pack_start(label)
+        levels_vbox.pack_start(label, False, False)
         # secure
         self.button_secure = gtk.RadioButton(group=self.button_default, label=_("SECURE"))
         self.button_secure.connect('clicked', self.force_level, config.SECURE_LEVEL)
         if self.base_level == config.SECURE_LEVEL:
             self.button_secure.set_active(True)
-        levels_vbox.pack_start(self.button_secure)
+        levels_vbox.pack_start(self.button_secure, False, False)
         # secure level description
         label = gtk.Label(SECURE_LEVEL_DESCRIPTION)
         label.set_use_markup(True)
         label.set_property("xalign", 0.1)
         label.set_property("yalign", 0.0)
         label.set_line_wrap(True)
-        label.set_width_chars(120)
+        #label.set_width_chars(120)
         label.set_justify(gtk.JUSTIFY_FILL)
-        levels_vbox.pack_start(label)
+        levels_vbox.pack_start(label, False, False)
 
         # putting levels to vbox
         vbox.pack_start(self.levels_frame, padding=DEFAULT_SPACING)
@@ -590,8 +582,9 @@ class MsecGui:
                             self.log.debug("%s: %s -> %s" % (option, curvalue, newvalue))
                             options.set(iter, self.COLUMN_VALUE, newvalue)
                             # reset customization
-                            options.set(iter, self.COLUMN_CUSTOM, False)
                             curconfig.set(option, newvalue)
+                    # set option as normal
+                    options.set(iter, self.COLUMN_CUSTOM, pango.WEIGHT_NORMAL)
                     ## skip custom options
                     #print "Base level: %s" % self.base_level
                     #if self.option_is_changed(option, curvalue):
@@ -814,7 +807,7 @@ class MsecGui:
         # hbox.pack_start(button, False)
 
         # default
-        button = gtk.Button(_("Reset to default permissions"))
+        button = gtk.Button(_("Reset to default level permissions"))
         button.connect('clicked', self.reset_permissions, lstore)
         hbox.pack_start(button, False)
 
@@ -1048,7 +1041,8 @@ class MsecGui:
             # combobox parameter
             entry = gtk.combo_box_new_text()
             # add an item to disable a check
-            params.append(config.OPTION_DISABLED)
+            if config.OPTION_DISABLED not in params:
+                params.append(config.OPTION_DISABLED)
             for item in params:
                 entry.append_text(item)
             if value not in params:
@@ -1078,9 +1072,9 @@ class MsecGui:
         # is it different from default? if yes, change description to italic
         doc = config.find_doc(self.msec, param, self.descriptions)
         if self.option_is_changed(param, newval):
-            custom = True
+            custom = pango.WEIGHT_BOLD
         else:
-            custom = False
+            custom = pango.WEIGHT_NORMAL
 
         model.set(iter, self.COLUMN_VALUE, newval)
         model.set(iter, self.COLUMN_DESCR, doc)
@@ -1099,9 +1093,9 @@ class MsecGui:
             # asks for new parameter value
             dialog = gtk.Dialog(_("Save your changes?"),
                     self.window, 0,
-                    (_("Cancel"), gtk.RESPONSE_CANCEL,
-                        _("Ignore"), gtk.RESPONSE_CLOSE,
-                        _("Save"), gtk.RESPONSE_OK))
+                    (_("_Cancel"), gtk.RESPONSE_CANCEL,
+                        _("_Ignore"), gtk.RESPONSE_CLOSE,
+                        _("_Save"), gtk.RESPONSE_OK))
             # option title
             label = gtk.Label(_("Do you want to save changes before closing?"))
             dialog.vbox.pack_start(label, False, False, padding=DEFAULT_SPACING)

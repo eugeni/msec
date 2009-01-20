@@ -1275,7 +1275,7 @@ class MSEC:
         self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.rp_filter', arg, 'Enabling ip spoofing protection', 'Disabling ip spoofing protection')
 
     def enable_dns_spoofing_protection(self, arg, alert=1):
-        '''  Enable/Disable name resolution spoofing protection.  If \\fIalert\\fP is true, also reports to syslog.'''
+        '''  Enable/Disable name resolution spoofing protection.'''
         hostconf = self.configfiles.get_config_file(HOSTCONF)
 
         val = hostconf.get_match('nospoof\s+on')

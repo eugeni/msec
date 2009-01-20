@@ -977,7 +977,7 @@ class MSEC:
                     kdmrc.set_shell_variable('AllowShutdown', 'All', 'X-:\*-Core', '^\s*$')
             if not val_inittab:
                 self.log.info(_('Allowing Ctrl-Alt-Del from console'))
-                inittab.replace_line_matching(CTRALTDEL_REGEXP, 'ca::ctrlaltdel:/sbin/shutdown -t3 -r now', 1)
+                inittab.exists() and inittab.replace_line_matching(CTRALTDEL_REGEXP, 'ca::ctrlaltdel:/sbin/shutdown -t3 -r now', 1)
         else:
             if not val_shutdownallow or val_shutdown or val_poweroff or val_reboot or val_halt:
                 self.log.info(_('Forbidding reboot and shutdown to the console user'))
@@ -999,7 +999,7 @@ class MSEC:
                     kdmrc.set_shell_variable('AllowShutdown', 'None', 'X-:\*-Core', '^\s*$')
             if val_inittab:
                 self.log.info(_('Forbidding Ctrl-Alt-Del from console'))
-                inittab.remove_line_matching(CTRALTDEL_REGEXP)
+                inittab.exists() and inittab.remove_line_matching(CTRALTDEL_REGEXP)
 
     def allow_user_list(self, arg):
         '''  Allow/Forbid the list of users on the system on display managers (kdm and gdm).'''

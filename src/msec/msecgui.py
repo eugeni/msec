@@ -74,15 +74,6 @@ PERIODIC_SECURITY_TEXT=_("""Periodic security checks.
 These options configure the security checks that should be executed periodically.
 """)
 
-NOTIFICATIONS_TEXT=_("""Security notifications.
-
-This page allows to configure the different ways the security notifications can be
-delivered.
-
-It is possible to receive notifications by e-mail, using syslog, using an exclusive
-log file, or using desktop environment notification system.
-""")
-
 PERMISSIONS_SECURITY_TEXT=_("""File permissions.
 
 These options allow to fine-tune system permissions for important files and directores.
@@ -203,8 +194,7 @@ class MsecGui:
             (2, self.system_security_page, _("System security")),
             (3, self.network_security_page, _("Network security")),
             (4, self.periodic_security_page, _("Periodic checks")),
-            (5, self.notifications_page, _("Security notifications")),
-            (6, self.permissions_security_page, _("Permissions")),
+            (5, self.permissions_security_page, _("Permissions")),
             ]
         for id, callback, label in tabs:
             self.notebook.append_page(callback(id), gtk.Label(label))
@@ -680,25 +670,6 @@ class MsecGui:
             # update everything
             self.toggle_level(level, force=True)
 
-    def notifications_page(self, id):
-        """Builds the notifications page"""
-        vbox = gtk.VBox(homogeneous=False)
-
-        # security levels
-
-        entry = gtk.Label(NOTIFICATIONS_TEXT)
-        entry.set_use_markup(True)
-        vbox.pack_start(entry, False, False)
-
-        # basic security options
-        options_view, model = self.create_treeview(["TTY_WARN", "SYSLOG_WARN", "MAIL_USER", "MAIL_EMPTY_CONTENT"])
-
-        vbox.pack_start(options_view)
-
-        # save those options
-        self.current_options_view[id] = (model, self.msecconfig)
-        return vbox
-
     def system_security_page(self, id):
         """Builds the network security page"""
         vbox = gtk.VBox(homogeneous=False)
@@ -761,7 +732,7 @@ class MsecGui:
                                             "CHECK_SGID", "CHECK_WRITABLE", "CHECK_UNOWNED",
                                             "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_PASSWD",
                                             "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM",
-                                            "CHECK_SHOSTS"
+                                            "CHECK_SHOSTS", "TTY_WARN", "SYSLOG_WARN", "MAIL_EMPTY_CONTENT",
                                             ])
         vbox.pack_start(options_view)
 

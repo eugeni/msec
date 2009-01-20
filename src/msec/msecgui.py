@@ -42,17 +42,12 @@ LEVEL_SECURITY_TEXT=_("""<big><b>Choose security level</b></big>
 
 This application allows you to configure your system security. If you wish
 to activate it, choose the appropriate security level:
-
-  - <b>Default</b>: this is the default profile, which configures a reasonably
-    safe set of security features. It activates several periodic system checks,
-    and mails their results daily to the selected email (by default, the local
-    'root' account is used to receive such emails).
-
-  - <b>Secure</b>: this profile is configured to provide maximum security, even
-    at the cost of limiting the remote access to the system. It also runs a wider
-    set of periodic checks, enforces the local password settings, and periodically
-    checks if the system security settings, configured here, were modified.
 """)
+
+DEFAULT_LEVEL_DESCRIPTION=_("""This profile configures a reasonably safe set of security features. It activates several non-intrusive periodic system checks. This is the suggested level for Desktop.""")
+
+SECURE_LEVEL_DESCRIPTION=_("""This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks, enforces the local password settings, and periodically checks if the system security settings, configured here, were modified. """)
+
 
 SYSTEM_SECURITY_TEXT=_("""System security options.
 
@@ -493,33 +488,66 @@ class MsecGui:
         entry.set_use_markup(True)
         vbox.pack_start(entry, False, False)
 
+        # none
+        self.msec_enabled = gtk.CheckButton(label=_("Enable MSEC tool"))
+        if self.base_level != config.NONE_LEVEL:
+            self.msec_enabled.set_active(True)
+        self.msec_enabled.connect('clicked', self.enable_disable_msec)
+        vbox.pack_start(self.msec_enabled, False, False, padding=DEFAULT_SPACING)
+
         # security levels
-        self.levels_frame = gtk.Frame(_("Base security level"))
+        self.levels_frame = gtk.Frame(_("Select the base security level"))
         levels_vbox = gtk.VBox()
         self.levels_frame.add(levels_vbox)
-        # none
-        button = gtk.RadioButton(group=None, label=_("Disable MSEC"))
-        button.connect('clicked', self.force_level, config.NONE_LEVEL)
-        if self.base_level == config.NONE_LEVEL:
-            button.set_active(True)
-        levels_vbox.pack_start(button)
         # default
-        button = gtk.RadioButton(group=button, label=_("Enable MSEC with DEFAULT security level"))
-        button.connect('clicked', self.force_level, config.DEFAULT_LEVEL)
+        self.button_default = gtk.RadioButton(group=None, label=_("Default"))
+        self.button_default.connect('clicked', self.force_level, config.DEFAULT_LEVEL)
         if self.base_level == config.DEFAULT_LEVEL:
-            button.set_active(True)
-        levels_vbox.pack_start(button)
+            self.button_default.set_active(True)
+        levels_vbox.pack_start(self.button_default)
+        # default level description
+        label = gtk.Label(DEFAULT_LEVEL_DESCRIPTION)
+        label.set_use_markup(True)
+        label.set_property("xalign", 0.1)
+        label.set_property("yalign", 0.0)
+        label.set_line_wrap(True)
+        label.set_width_chars(120)
+        label.set_justify(gtk.JUSTIFY_FILL)
+        levels_vbox.pack_start(label)
         # secure
-        button = gtk.RadioButton(group=button, label=_("Enable MSEC with SECURE security level"))
-        button.connect('clicked', self.force_level, config.SECURE_LEVEL)
+        self.button_secure = gtk.RadioButton(group=self.button_default, label=_("SECURE"))
+        self.button_secure.connect('clicked', self.force_level, config.SECURE_LEVEL)
         if self.base_level == config.SECURE_LEVEL:
-            button.set_active(True)
-        levels_vbox.pack_start(button)
+            self.button_secure.set_active(True)
+        levels_vbox.pack_start(self.button_secure)
+        # secure level description
+        label = gtk.Label(SECURE_LEVEL_DESCRIPTION)
+        label.set_use_markup(True)
+        label.set_property("xalign", 0.1)
+        label.set_property("yalign", 0.0)
+        label.set_line_wrap(True)
+        label.set_width_chars(120)
+        label.set_justify(gtk.JUSTIFY_FILL)
+        levels_vbox.pack_start(label)
 
         # putting levels to vbox
-        vbox.pack_start(self.levels_frame)
+        vbox.pack_start(self.levels_frame, padding=DEFAULT_SPACING)
 
         return vbox
+
+    def enable_disable_msec(self, widget):
+        """Enables/disables msec tool"""
+        newstatus = widget.get_active()
+        if newstatus == False:
+            self.toggle_level(config.NONE_LEVEL, force=True)
+        else:
+            # what level are we toggling?
+            if self.button_default.get_active():
+                level = config.DEFAULT_LEVEL
+            else:
+                level = config.SECURE_LEVEL
+            self.toggle_level(level, force=True)
+
 
     def toggle_level(self, level, force=False):
         """Enables/disables graphical items for msec"""
@@ -531,6 +559,7 @@ class MsecGui:
 
         # update notebook pages
         npages = self.notebook.get_n_pages()
+        self.levels_frame.set_sensitive(enabled)
         for page in range(1, npages):
             curpage = self.notebook.get_nth_page(page)
             curpage.set_sensitive(enabled)
@@ -543,6 +572,12 @@ class MsecGui:
 
         # what is the current level?
         defconfig = self.msec_defaults[level]
+
+        # remove options which are not defined anymore
+        defoptions = defconfig.list_options()
+        for option in self.msecconfig.list_options():
+            if option not in defoptions:
+                print "Removing %s" % option
 
         for z in self.current_options_view:
             options, curconfig = self.current_options_view[z]
@@ -582,7 +617,7 @@ class MsecGui:
         if widget.get_active():
             #self.base_level = level
             # update everything
-            "Forcing level %s" % level
+            print "Forcing level %s" % level
             self.toggle_level(level, force=True)
 
     def notifications_page(self, id):

@@ -404,19 +404,24 @@ class MsecGui:
         # configuring columns
 
         # column for option names
-        column = gtk.TreeViewColumn(_('Security Option'), gtk.CellRendererText(), text=self.COLUMN_OPTION)
+        renderer = gtk.CellRendererText()
+        renderer.set_property('width', 200)
+        column = gtk.TreeViewColumn(_('Security Option'), renderer, text=self.COLUMN_OPTION, weight=self.COLUMN_CUSTOM)
         column.set_sort_column_id(self.COLUMN_OPTION)
+        column.set_resizable(True)
+        column.set_expand(True)
         treeview.append_column(column)
 
         # column for descriptions
         renderer = gtk.CellRendererText()
         renderer.set_property('wrap-width', 400)
         renderer.set_property('wrap-mode', pango.WRAP_WORD_CHAR)
-        treeview.insert_column_with_attributes(-1, _('Description'), renderer, text=self.COLUMN_DESCR, weight=self.COLUMN_CUSTOM)
+        column = treeview.insert_column_with_attributes(-1, _('Description'), renderer, text=self.COLUMN_DESCR, weight=self.COLUMN_CUSTOM)
+        column.set_expand(True)
         #treeview.append_column(column)
 
         # column for values
-        column = gtk.TreeViewColumn(_('Value'), gtk.CellRendererText(), text=self.COLUMN_VALUE)
+        column = gtk.TreeViewColumn(_('Value'), gtk.CellRendererText(), text=self.COLUMN_VALUE, weight=self.COLUMN_CUSTOM)
         column.set_sort_column_id(self.COLUMN_VALUE)
         treeview.append_column(column)
 
@@ -744,21 +749,25 @@ class MsecGui:
         # column for path mask
         column = gtk.TreeViewColumn(_('Path'), gtk.CellRendererText(), text=self.COLUMN_PATH)
         column.set_sort_column_id(self.COLUMN_PATH)
+        column.set_expand(True)
         treeview.append_column(column)
 
         # column for user
         column = gtk.TreeViewColumn(_('User'), gtk.CellRendererText(), text=self.COLUMN_USER)
         column.set_sort_column_id(self.COLUMN_USER)
+        column.set_expand(True)
         treeview.append_column(column)
 
         # column for group
         column = gtk.TreeViewColumn(_('Group'), gtk.CellRendererText(), text=self.COLUMN_GROUP)
         column.set_sort_column_id(self.COLUMN_GROUP)
+        column.set_expand(True)
         treeview.append_column(column)
 
         # column for permissions
         column = gtk.TreeViewColumn(_('Permissions'), gtk.CellRendererText(), text=self.COLUMN_PERM)
         column.set_sort_column_id(self.COLUMN_VALUE)
+        column.set_expand(True)
         treeview.append_column(column)
 
         # column for force option
@@ -768,6 +777,7 @@ class MsecGui:
         column.set_sort_column_id(self.COLUMN_FORCE)
         column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
         column.set_fixed_width(50)
+        column.set_expand(True)
         treeview.append_column(column)
 
         sw.add(treeview)

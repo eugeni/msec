@@ -9,11 +9,18 @@ import string
 import getopt
 
 # PyGTK
-import gtk
-#import gtk.glade
-import pygtk
-import gobject
-import pango
+import warnings
+warnings.filterwarnings('error', module='gtk')
+try:
+    import gtk
+    import pygtk
+    import gobject
+    import pango
+except Warning, e:
+    print "ERROR: %s" % e
+    print "Exiting.."
+    sys.exit(1)
+warnings.resetwarnings()
 
 # config
 import config

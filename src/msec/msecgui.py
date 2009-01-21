@@ -7,6 +7,8 @@ import os
 import sys
 import string
 import getopt
+import signal
+import Queue
 
 # PyGTK
 import warnings
@@ -202,7 +204,19 @@ class MsecGui:
         # are we enabled?
         self.toggle_level(self.base_level)
 
+        # pending signals
+        self.signals = Queue.Queue()
+        gobject.timeout_add(500, self.check_signals)
+
         self.window.show_all()
+
+    def check_signals(self):
+        """Checks for received signals"""
+        if not self.signals.empty():
+            s = self.signals.get()
+            if s == signal.SIGTERM:
+                self.quit(self.window)
+        gobject.timeout_add(500, self.check_signals)
 
     def check_for_changes(self, curconfig, curperms):
         """Checks for changes in configuration. Returns number of configuration
@@ -1133,8 +1147,12 @@ class MsecGui:
         model.set(iter, self.COLUMN_DESCR, doc)
         model.set(iter, self.COLUMN_CUSTOM, custom)
 
+    def signal_quit(self, s):
+        """Quits via a signal"""
+        self.signals.put(s)
+        return True
 
-    def quit(self, widget, event):
+    def quit(self, widget, event=None):
         """Quits the application"""
 
         # were there changes in configuration?
@@ -1224,5 +1242,6 @@ if __name__ == "__main__":
     log.info("Starting gui..")
 
     gui = MsecGui(log, msec, perms, msec_config, perm_conf, embed=PlugWindowID)
+    signal.signal(signal.SIGTERM, lambda s, f: gui.signal_quit(s))
     gtk.main()
 

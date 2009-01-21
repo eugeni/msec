@@ -29,6 +29,6 @@ trap cleanup 0
 MSEC=/usr/share/msec/msecperms.py
 OPT="$@"
 
-$MSEC $OPT
+exec $MSEC $OPT
 
 # msec ends here

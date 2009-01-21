@@ -1,3 +1,6 @@
+Version 0.60.7 - January 21 2009, Eugeni Dodonov
+- Now correctly integrating with MCC.
+
 Version 0.60.6 - January 20 2009, Eugeni Dodonov
 - Removed Authentication tab (now handled by a separate application)
 - Now it is possible to save settings without quitting.

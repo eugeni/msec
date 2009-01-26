@@ -174,6 +174,13 @@ def substitute_re_result(res, s):
         subst = res.group(idx) or ''
         s = string.replace(s, '@' + str(idx), subst)
     return s
+
+def invert(param):
+    """Returns inverse value for param. E.g., yes becomes no, and no becomes yes."""
+    if param == "yes":
+        return "no"
+    else:
+        return "yes"
 # }}}
 
 # {{{ Log
@@ -777,8 +784,6 @@ class MSEC:
 
     def create_server_link(self, param):
         '''  Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages.'''
-        __params__ = ["no", "default", "secure"]
-
         server = self.configfiles.get_config_file(SERVER)
 
         if param == "no":
@@ -923,7 +928,7 @@ class MSEC:
                 msec.remove_line_matching('^HISTFILESIZE=')
 
     def set_win_parts_umask(self, umask):
-        '''  Set umask option for mounting vfat and ntfs partitions. A value of None means default umask.'''
+        '''  Set umask option for mounting vfat and ntfs partitions. If umask is 'no', default umask is used.'''
         fstab = self.configfiles.get_config_file(FSTAB)
 
         if umask == "no":
@@ -1270,7 +1275,6 @@ class MSEC:
 
     def enable_ip_spoofing_protection(self, arg, alert=1):
         '''  Enable/Disable IP spoofing protection.'''
-        # the alert argument is kept for backward compatibility
         self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.rp_filter', arg, 'Enabling ip spoofing protection', 'Disabling ip spoofing protection')
 
     def enable_dns_spoofing_protection(self, arg, alert=1):
@@ -1292,15 +1296,15 @@ class MSEC:
 
     def accept_icmp_echo(self, arg):
         '''   Accept/Refuse icmp echo.'''
-        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_all', arg, 'Ignoring icmp echo', 'Accepting icmp echo')
+        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_all', invert(arg), 'Ignoring icmp echo', 'Accepting icmp echo')
 
     def accept_broadcasted_icmp_echo(self, arg):
         '''   Accept/Refuse broadcasted icmp echo.'''
-        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_broadcasts', arg, 'Ignoring broadcasted icmp echo', 'Accepting broadcasted icmp echo')
+        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_broadcasts', invert(arg), 'Ignoring broadcasted icmp echo', 'Accepting broadcasted icmp echo')
 
     def accept_bogus_error_responses(self, arg):
         '''  Accept/Refuse bogus IPv4 error messages.'''
-        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_ignore_bogus_error_responses', arg, 'Ignoring bogus icmp error responses', 'Accepting bogus icmp error responses')
+        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_ignore_bogus_error_responses', invert(arg), 'Ignoring bogus icmp error responses', 'Accepting bogus icmp error responses')
 
     def enable_log_strange_packets(self, arg):
         '''  Enable/Disable the logging of IPv4 strange packets.'''

@@ -272,6 +272,8 @@ class MsecGui:
                 gtk.STOCK_OK, gtk.RESPONSE_OK)
                 )
 
+        dialog.set_default_response(gtk.RESPONSE_OK)
+
         label = gtk.Label(SAVE_SETTINGS_TEXT)
         dialog.vbox.set_spacing(DEFAULT_SPACING)
         dialog.vbox.pack_start(label, False, False, padding=DEFAULT_SPACING)

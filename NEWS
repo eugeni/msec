@@ -1,4 +1,5 @@
 Version 0.60.8 - January 26 2009, Eugeni Dodonov
+- Changed without_password to without-password to prevent bogus errors.
 - Running expensive msec_find only when required.
 - Fixing permissions on msec-created files (#27820 #47059)
 - Handling network settings as in previous msec versions (#47240).

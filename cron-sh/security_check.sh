@@ -54,15 +54,6 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
     fi
 fi
 
-if [[ ${CHECK_PERMS} == yes ]]; then
-	# running msec_perms
-	/usr/sbin/msecperms > ${TMP} 2>&1
-	if [[ -s ${TMP} ]]; then
-		printf "\nPermissions changes on system files:\n" >> ${SECURITY}
-		cat ${TMP} | sed -e 's/WARNING: //g' >> ${SECURITY}
-	fi
-fi
-
 if [[ ${CHECK_USER_FILES} == yes ]]; then
 # Files that should not be owned by someone else or readable.
 list=".netrc .rhosts .shosts .Xauthority .gnupg/secring.gpg \
@@ -220,7 +211,6 @@ done > ${TMP}
 
 ### Passwd file check
 if [[ ${CHECK_SHOSTS} == yes ]]; then    
-	# TODO: do not check on remote shares (#41709)
 	getent passwd | awk -F: '{print $1" "$6}' |
 	while read username homedir; do
 		if ! expr "$homedir" : "$FILTER"  > /dev/null; then
@@ -297,6 +287,21 @@ if [[ ${CHKROOTKIT_CHECK} == yes ]]; then
 	cat ${CHKROOTKIT_TODAY} >> ${SECURITY}
     fi
 fi
+
+### file permissions
+# fix permissions on newly created msec files according to system policy
+/usr/sbin/msecperms -e '/var/log/msec.log' "$SECURITY_LOG" "/var/log/security/*" &> ${TMP}
+
+# now check default permissions
+if [[ ${CHECK_PERMS} == yes ]]; then
+	# running msec_perms
+	/usr/sbin/msecperms > ${TMP} 2>&1
+	if [[ -s ${TMP} ]]; then
+		printf "\nPermissions changes on system files:\n" >> ${SECURITY}
+		cat ${TMP} | sed -e 's/WARNING: //g' >> ${SECURITY}
+	fi
+fi
+
 
 ### Report
 if [[ -s ${SECURITY} ]]; then

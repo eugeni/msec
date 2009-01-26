@@ -43,7 +43,16 @@ def usage():
 This applications verifies and (when required) enforces permissions
 of certain files and directories.
 
-The list of permissions is stored in %s.
+Usage: msecperms [parameters] [list of paths to check]
+
+If no paths to check are specified, all permissions stored in
+%s are checked.
+Otherwise, only the enties in the list of paths are expanded and checked.
+
+For example:
+    drakperms '/tmp/*' '/etc/*'
+will cover only files which are covered by '/tmp/*' and '/etc/*' rules of
+%s.
 
 Available parameters:
     -h, --help              displays this helpful message.
@@ -55,7 +64,7 @@ Available parameters:
     -p, --pretend           only pretend to change the level, perform no real
                             actions. Use this to see what operations msec
                             will perform.
-""" % (version, config.PERMCONF)
+""" % (version, config.PERMCONF, config.PERMCONF)
 # }}}
 
 if __name__ == "__main__":
@@ -142,7 +151,7 @@ if __name__ == "__main__":
     perm = PERMS(log)
 
     # check permissions
-    changed_files = perm.check_perms(permconf)
+    changed_files = perm.check_perms(permconf, files_to_check=args)
 
     # writing back changes
     perm.commit(really_commit=commit, enforce=enforce)

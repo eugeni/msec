@@ -1895,8 +1895,9 @@ class PERMS:
                     self.log.warn(_("Wrong permissions of %s: should be %o") % (file, newperm))
 
 
-    def check_perms(self, perms):
-        '''Checks permissions for all entries in perms (PermConfig).'''
+    def check_perms(self, perms, files_to_check=[]):
+        '''Checks permissions for all entries in perms (PermConfig).
+        If files_to_check is specified, only the specified files are checked.'''
 
         for file in perms.list_options():
             user_s, group_s, perm_s, force = perms.get(file)
@@ -1973,6 +1974,17 @@ class PERMS:
                     if f in self.files:
                         self.log.debug("Removing previously selected %s (matched by '%s')" % (f, file))
                         del self.files[f]
+        # do we have to check for any specific paths?
+        if files_to_check:
+            self.log.info(_("Checking paths: %s") % ", ".join(files_to_check))
+            paths_to_check = []
+            for f in files_to_check:
+                paths_to_check.extend(glob.glob(f))
+            paths_to_check = set(paths_to_check)
+            # remove unneeded entries from self.files
+            for f in self.files.keys():
+                if f not in paths_to_check:
+                    del self.files[f]
         return self.files
 # }}}
 

@@ -19,11 +19,6 @@ echo -n $$ > $LCK
 
 trap cleanup 0
 
-if [[ ! -f /var/lib/msec/security.conf ]]; then
-    echo "Can't access /var/lib/msec/security.conf."
-    exit 1
-fi
-
 if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
 else
@@ -138,8 +133,12 @@ netstat -pvlA inet,inet6 2> /dev/null > ${OPEN_PORT_TODAY};
 
 ionice -c3 -p $$
 
-# Hard disk related file check; the less priority the better...
-nice --adjustment=+19 /usr/bin/msec_find ${DIR}
+# only running this check when really required
+if [[ ${CHECK_SUID_MD5} == yes || ${CHECK_SUID_ROOT} == yes || ${CHECK_SGID} == yes || ${CHECK_WRITABLE} == yes || ${CHECK_UNOWNED} == yes  ]]; then
+
+	# Hard disk related file check; the less priority the better...
+	nice --adjustment=+19 /usr/bin/msec_find ${DIR}
+fi
 
 if [[ -f ${SUID_ROOT_TODAY} ]]; then
     sort < ${SUID_ROOT_TODAY} > ${SUID_ROOT_TODAY}.tmp

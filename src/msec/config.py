@@ -73,7 +73,7 @@ SETTINGS =    {'BASE_LEVEL':                    ("base_level",                  
                # security options
                'USER_UMASK':                    ("set_user_umask",                  ['*']),
                'ROOT_UMASK':                    ("set_root_umask",                  ['*']),
-               'WIN_PARTS_UMASK':               ("set_win_parts_umask",             ['no', '*']),
+               'WIN_PARTS_UMASK':               ("set_win_parts_umask",             ['*']),
                'ACCEPT_BOGUS_ERROR_RESPONSES':  ("accept_bogus_error_responses",    ['yes', 'no']),
                'ACCEPT_BROADCASTED_ICMP_ECHO':  ("accept_broadcasted_icmp_echo",    ['yes', 'no']),
                'ACCEPT_ICMP_ECHO':              ("accept_icmp_echo",                ['yes', 'no']),
@@ -108,7 +108,7 @@ SETTINGS =    {'BASE_LEVEL':                    ("base_level",                  
                'SHELL_TIMEOUT':                 ("set_shell_timeout",               ['*']),
                }
 # text for disabled options
-OPTION_DISABLED=_("Disabled")
+OPTION_DISABLED=_("System default")
 
 # localized help
 try:

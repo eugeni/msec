@@ -817,7 +817,7 @@ class MSEC:
             msec.set_shell_variable('UMASK_USER', umask)
 
     def allow_x_connections(self, arg):
-        '''  Allow/Forbid X connections. Accepted arguments: yes (all connections are allowed), local (only local connection), no (no connection).'''
+        '''  Allow connections to X server from other users. Accepted arguments: yes (all connections are allowed), local (only local connection), no (no connection).'''
 
         xinit = self.configfiles.get_config_file(MSEC_XINIT)
         val = xinit.get_match('/usr/bin/xhost\s*(\+\s*[^#]*)', '@1')
@@ -846,7 +846,7 @@ class MSEC:
                 self.log.error(_('invalid allow_x_connections arg: %s') % arg)
 
     def allow_xserver_to_listen(self, arg):
-        '''  The argument specifies if clients are authorized to connect to the X server on the tcp port 6000 or not.'''
+        '''  Allow X server to accept connections from network on tcp port 6000.'''
 
         startx = self.configfiles.get_config_file(STARTX)
         xservers = self.configfiles.get_config_file(XSERVERS)
@@ -928,7 +928,7 @@ class MSEC:
                 msec.remove_line_matching('^HISTFILESIZE=')
 
     def set_win_parts_umask(self, umask):
-        '''  Set umask option for mounting vfat and ntfs partitions. If umask is 'no', default umask is used.'''
+        '''  Set umask option for mounting vfat and ntfs partitions. If umask is '0', default system umask is used.'''
         fstab = self.configfiles.get_config_file(FSTAB)
 
         if umask == "no":
@@ -940,7 +940,7 @@ class MSEC:
             fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+)(?!.*umask=)(\S+)(.*)", "@1@3,umask=0@4", 0, 1)
 
     def allow_reboot(self, arg):
-        '''  Allow/Forbid system reboot and shutdown to local users.'''
+        '''  Allow system reboot and shutdown to local users.'''
         shutdownallow = self.configfiles.get_config_file(SHUTDOWNALLOW)
         sysctlconf = self.configfiles.get_config_file(SYSCTLCONF)
         kdmrc = self.configfiles.get_config_file(KDMRC)
@@ -1006,7 +1006,7 @@ class MSEC:
                 inittab.exists() and inittab.remove_line_matching(CTRALTDEL_REGEXP)
 
     def allow_user_list(self, arg):
-        '''  Allow/Forbid the list of users on the system on display managers (kdm and gdm).'''
+        '''  Allow display managers (kdm and gdm) to display list of local users.'''
         kdmrc = self.configfiles.get_config_file(KDMRC)
         gdmconf = self.configfiles.get_config_file(GDMCONF)
 
@@ -1033,7 +1033,7 @@ class MSEC:
                     gdmconf.set_shell_variable('Browser', 'false')
 
     def allow_root_login(self, arg):
-        '''  Allow/Forbid direct root login.'''
+        '''  Allow direct root login on terminal.'''
         securetty = self.configfiles.get_config_file(SECURETTY)
         kde = self.configfiles.get_config_file(KDE)
         gdm = self.configfiles.get_config_file(GDM)
@@ -1086,7 +1086,7 @@ class MSEC:
                 securetty.remove_line_matching('.+', 1)
 
     def allow_remote_root_login(self, arg):
-        '''  Allow/Forbid remote root login via sshd. You can specify yes, no and without-password. See sshd_config(5) man page for more information.'''
+        '''  Allow remote root login via sshd. If yes, login is allowed. If without-password, only public-key authentication logins are allowed. See sshd_config(5) man page for more information.'''
         sshd_config = self.configfiles.get_config_file(SSHDCONFIG)
 
         if not sshd_config.exists():
@@ -1109,7 +1109,7 @@ class MSEC:
                                                                            'PermitRootLogin without-password', 1)
 
     def enable_pam_wheel_for_su(self, arg):
-        '''   Enabling su only from members of the wheel group or allow su from any user.'''
+        ''' Allow only users in whell grup to su to root.'''
         su = self.configfiles.get_config_file(SU)
 
         val = su.get_match('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$')
@@ -1166,7 +1166,7 @@ class MSEC:
                     simple.remove_line_matching(SUCCEED_MATCH)
 
     def allow_autologin(self, arg):
-        '''  Allow/Forbid autologin.'''
+        '''  Allow autologin.'''
         autologin = self.configfiles.get_config_file(AUTOLOGIN)
 
         val = autologin.get_shell_variable('AUTOLOGIN')
@@ -1202,7 +1202,7 @@ class MSEC:
         menulst.exists() and menulst.remove_line_matching('^password\s')
 
     def enable_console_log(self, arg, expr='*.*', dev='tty12'):
-        '''  Enable/Disable syslog reports to console terminal 12.'''
+        ''' Log syslog messages on console terminal 12.'''
 
         syslogconf = self.configfiles.get_config_file(SYSLOGCONF)
 
@@ -1218,7 +1218,7 @@ class MSEC:
                 syslogconf.exists() and syslogconf.remove_line_matching('\s*[^#]+/dev/')
 
     def enable_security_check(self, arg):
-        '''   Activate/Disable daily security check.'''
+        '''  Activate daily security check.'''
         cron = self.configfiles.get_config_file(CRON)
         cron.remove_line_matching('[^#]+/usr/share/msec/security.sh')
 
@@ -1234,7 +1234,7 @@ class MSEC:
                 securitycron.unlink()
 
     def authorize_services(self, arg):
-        ''' Configure access to tcp_wrappers services (see hosts.deny(5)).  If arg = yes, all services are authorized. If arg = local, only local ones are, and if arg = no, no services are authorized. In this case, To authorize the services you need, use /etc/hosts.allow (see hosts.allow(5)).'''
+        ''' Allow full access to network services controlled by tcp_wrapper (see hosts.deny(5)). If yes, all services are allowed. If local, only connections to local services are authorized. If no, the services must be authorized manually in /etc/hosts.allow (see hosts.allow(5)).'''
 
         hostsdeny = self.configfiles.get_config_file(HOSTSDENY)
 
@@ -1277,11 +1277,11 @@ class MSEC:
                 f.set_shell_variable(variable, 0)
 
     def enable_ip_spoofing_protection(self, arg, alert=1):
-        '''  Enable/Disable IP spoofing protection.'''
+        '''  Enable IP spoofing protection.'''
         self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.rp_filter', arg, 'Enabling ip spoofing protection', 'Disabling ip spoofing protection')
 
     def enable_dns_spoofing_protection(self, arg, alert=1):
-        '''  Enable/Disable name resolution spoofing protection.'''
+        '''  Enable name resolution spoofing protection.'''
         hostconf = self.configfiles.get_config_file(HOSTCONF)
 
         val = hostconf.get_match('nospoof\s+on')
@@ -1298,23 +1298,23 @@ class MSEC:
                 hostconf.remove_line_matching('spoofalert')
 
     def accept_icmp_echo(self, arg):
-        '''   Accept/Refuse icmp echo.'''
+        ''' Accept ICMP echo.'''
         self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_all', invert(arg), 'Ignoring icmp echo', 'Accepting icmp echo')
 
     def accept_broadcasted_icmp_echo(self, arg):
-        '''   Accept/Refuse broadcasted icmp echo.'''
+        ''' Accept broadcasted ICMP echo.'''
         self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_broadcasts', invert(arg), 'Ignoring broadcasted icmp echo', 'Accepting broadcasted icmp echo')
 
     def accept_bogus_error_responses(self, arg):
-        '''  Accept/Refuse bogus IPv4 error messages.'''
+        '''  Accept bogus IPv4 error messages.'''
         self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_ignore_bogus_error_responses', invert(arg), 'Ignoring bogus icmp error responses', 'Accepting bogus icmp error responses')
 
     def enable_log_strange_packets(self, arg):
-        '''  Enable/Disable the logging of IPv4 strange packets.'''
+        '''  Enable logging of strange network packets.'''
         self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.log_martians', arg, 'Enabling logging of strange packets', 'Disabling logging of strange packets')
 
     def password_length(self, arg):
-        '''  Set the password minimum length and minimum number of digit and minimum number of capitalized letters.'''
+        ''' Set the password minimum length and minimum number of digit and minimum number of capitalized letters, using length,ndigits,nupper format.'''
 
         try:
             length, ndigits, nupper = arg.split(",")
@@ -1360,7 +1360,7 @@ class MSEC:
                                           '@0 ucredit=%s ' % nupper))
 
     def enable_password(self, arg):
-        '''  Use password to authenticate users. Take EXTREMELY care when disabling passwords, as it will leave the machine COMPLETELY vulnerable.'''
+        ''' Use password to authenticate users. Take EXTREMELY care when disabling passwords, as it will leave the machine vulnerable.'''
         system_auth = self.configfiles.get_config_file(SYSTEM_AUTH)
 
         val = system_auth.get_match(PASSWORD_REGEXP)
@@ -1376,7 +1376,7 @@ class MSEC:
                 system_auth.insert_before('auth\s+sufficient', 'auth        sufficient    pam_permit.so')
 
     def password_history(self, arg):
-        '''  Set the password history length to prevent password reuse. This is not supported by pam_tcb. '''
+        ''' Set the password history length to prevent password reuse. This is not supported by pam_tcb. '''
 
         system_auth = self.configfiles.get_config_file(SYSTEM_AUTH)
 
@@ -1415,7 +1415,7 @@ class MSEC:
                 system_auth.replace_line_matching(UNIX_REGEXP, '@1@3')
 
     def enable_sulogin(self, arg):
-        '''   Enable/Disable sulogin(8) in single user level.'''
+        ''' Ask for root password when going to single user level (man sulogin(8)).'''
         inittab = self.configfiles.get_config_file(INITTAB)
 
         val = inittab.get_match(SULOGIN_REGEXP)
@@ -1431,7 +1431,7 @@ class MSEC:
 
     # Do we need this?
     def enable_msec_cron(self, arg):
-        '''  Enable/Disable msec hourly security check.'''
+        '''  Perform hourly security check, checking for changes in system configuration.'''
         mseccron = self.configfiles.get_config_file(MSECCRON)
 
         val = mseccron.exists()
@@ -1446,7 +1446,7 @@ class MSEC:
                 mseccron.unlink()
 
     def enable_at_crontab(self, arg):
-        '''  Enable/Disable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow (see man at(1) and crontab(1)).'''
+        ''' Enable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow (see man at(1) and crontab(1)).'''
         cronallow = self.configfiles.get_config_file(CRONALLOW)
         atallow = self.configfiles.get_config_file(ATALLOW)
 
@@ -1467,7 +1467,7 @@ class MSEC:
                 atallow.replace_line_matching('root', 'root', 1)
 
     def allow_xauth_from_root(self, arg):
-        ''' Allow/forbid to export display when passing from the root account to the other users. See pam_xauth(8) for more details.'''
+        ''' Allow to export display when passing from the root account to the other users. See pam_xauth(8) for more details.'''
         export = self.configfiles.get_config_file(EXPORT)
 
         allow = export.get_match('^\*$')
@@ -1482,7 +1482,7 @@ class MSEC:
                 export.remove_line_matching('^\*$')
 
     def check_promisc(self, param):
-        '''  Activate/Disable ethernet cards promiscuity check.'''
+        '''  Activate ethernet cards promiscuity check.'''
         cron = self.configfiles.get_config_file(CRON)
 
         val = cron.get_match(CRON_REGEX)
@@ -1500,97 +1500,97 @@ class MSEC:
     # to get their descriptions.
 
     def check_security(self, param):
-        """ Enables daily security checks."""
+        """ Enable daily security checks."""
         self.enable_security_check(param)
         pass
 
     def check_perms(self, param):
-        """ Enables periodic permission checking for system files."""
+        """ Enable periodic permission checking for system files."""
         pass
 
     def check_user_files(self, param):
-        """ Enables permission checking on users' files that should not be owned by someone else, or writable."""
+        """ Enable permission checking on users' files that should not be owned by someone else, or writable."""
         pass
 
     def check_suid_root(self, param):
-        """ Enables checking for additions/removals of suid root files."""
+        """ Enable checking for additions/removals of suid root files."""
         pass
 
     def check_suid_md5(self, param):
-        """ Enables checksum verification for suid files."""
+        """ Enable checksum verification for suid files."""
         pass
 
     def check_sgid(self, param):
-        """ Enables checking for additions/removals of sgid files."""
+        """ Enable checking for additions/removals of sgid files."""
         pass
 
     def check_writable(self, param):
-        """ Enables checking for files/directories writable by everybody."""
+        """ Enable checking for files/directories writable by everybody."""
         pass
 
     def check_unowned(self, param):
-        """ Enables checking for unowned files."""
+        """ Enable checking for unowned files."""
         pass
 
     def check_open_port(self, param):
-        """ Enables checking for open network ports."""
+        """ Enable checking for open network ports."""
         pass
 
     def check_passwd(self, param):
-        """ Enables password-related checks, such as empty passwords and strange super-user accounts."""
+        """ Enable password-related checks, such as empty passwords and strange super-user accounts."""
         pass
 
     def check_shadow(self, param):
-        """ Enables checking for empty passwords."""
+        """ Enable checking for empty passwords in /etc/shadow (man shadow(5))."""
         pass
 
     def check_chkrootkit(self, param):
-        """ Enables checking for known rootkits using chkrootkit."""
+        """ Enable checking for known rootkits using chkrootkit."""
         pass
 
     def check_rpm(self, param):
-        """ Enables verification of installed packages."""
+        """ Enable verification of installed RPM packages."""
         pass
 
     def tty_warn(self, param):
-        """ Enables periodic security check results to terminal."""
+        """ Enable periodic security check results to terminal."""
         pass
 
     def mail_warn(self, param):
-        """ Enables security results submission by email."""
+        """ Send security check results by email."""
         pass
 
     def mail_empty_content(self, param):
-        """ Enables sending of empty mail reports."""
+        """ Send mail reports even if no changes were detected."""
         pass
 
     def syslog_warn(self, param):
-        """ Enables logging to system log."""
+        """ Enables logging of periodic checks to system log."""
         pass
 
     def mail_user(self, param):
-        """ Defines email to receive security notifications."""
+        """ User email to receive security notifications."""
         pass
 
     def check_shosts(self, param):
-        """ Enables checking for dangerous options in users' .rhosts/.shosts files."""
+        """ Enable checking for dangerous options in users' .rhosts/.shosts files."""
         pass
 
     # TODO: unfinished
     def enable_apparmor(self, param):
-        """Enables support for AppArmor security framework"""
+        """Enable support for AppArmor security framework"""
         pass
 
     def enable_policykit(self, param):
-        """Enables support for PolicyKit framework, which allows ordinary users to run system application"""
+        """Enable support for PolicyKit framework, which allows ordinary users to run system application"""
         pass
 
     def enable_sudo(self, param):
-        """Enables support for sudo application, which allows users to run applications using system account. If yes, users must autenticate themselves using password. If this parameter is set to 'wheel', users must belong to the 'wheel' group to be able to use sudo"""
+        """Enable support for sudo application, which allows users to run applications using system account. If yes, users must autenticate themselves using password. If this parameter is set to 'wheel', users must belong to the 'wheel' group to be able to use sudo"""
         pass
 
     def notify_warn(self, param):
-        """Enables support for security notifications using libnotify. This allows the security notifications to be delivered directly to the users' desktop"""
+        """Show security notifications in system tray using libnotify."""
         pass
 
 

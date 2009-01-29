@@ -74,6 +74,9 @@ tar:
 
 dist: cleandist export tar
 
+gitdist: cleandist
+	git archive --prefix $(PACKAGE)-$(VERSION)/ HEAD | bzip2 -9 > $(PACKAGE)-$(VERSION).tar.bz2
+
 changelog: 
 	svn up
 	svn2cl --accum --authors=../common/username.xml -o ChangeLog || : 

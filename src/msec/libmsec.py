@@ -817,7 +817,7 @@ class MSEC:
             msec.set_shell_variable('UMASK_USER', umask)
 
     def allow_x_connections(self, arg):
-        '''  Allow connections to X server from other users. Accepted arguments: yes (all connections are allowed), local (only local connection), no (no connection).'''
+        '''  Allow local users to connect to X server. Accepted arguments: yes (all connections are allowed), local (only local connection), no (no connection).'''
 
         xinit = self.configfiles.get_config_file(MSEC_XINIT)
         val = xinit.get_match('/usr/bin/xhost\s*(\+\s*[^#]*)', '@1')
@@ -1431,7 +1431,7 @@ class MSEC:
 
     # Do we need this?
     def enable_msec_cron(self, arg):
-        '''  Perform hourly security check, checking for changes in system configuration.'''
+        '''  Perform hourly security check for changes in system configuration.'''
         mseccron = self.configfiles.get_config_file(MSECCRON)
 
         val = mseccron.exists()
@@ -1578,15 +1578,15 @@ class MSEC:
 
     # TODO: unfinished
     def enable_apparmor(self, param):
-        """Enable support for AppArmor security framework"""
+        """Enable AppArmor security framework on boot"""
         pass
 
     def enable_policykit(self, param):
-        """Enable support for PolicyKit framework, which allows ordinary users to run system application"""
+        """Enable PolicyKit security framework"""
         pass
 
     def enable_sudo(self, param):
-        """Enable support for sudo application, which allows users to run applications using system account. If yes, users must autenticate themselves using password. If this parameter is set to 'wheel', users must belong to the 'wheel' group to be able to use sudo"""
+        """Allow users to authenticate with their passwords for sudo. If this parameter is set to 'wheel', users must belong to the 'wheel' group to be able to use sudo"""
         pass
 
     def notify_warn(self, param):

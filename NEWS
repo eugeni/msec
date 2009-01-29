@@ -1,3 +1,7 @@
+Version 0.60.9 - January 29 2009, Eugeni Dodonov
+- Reviewed description text for options (#47240)
+- Added localization.
+
 Version 0.60.8 - January 26 2009, Eugeni Dodonov
 - Changed without_password to without-password to prevent bogus errors.
 - Running expensive msec_find only when required.

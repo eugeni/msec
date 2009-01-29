@@ -1,5 +1,5 @@
 PACKAGE = msec
-VERSION = 0.60.8
+VERSION = 0.60.9
 SVNPATH = svn+ssh://svn.mandriva.com/svn/soft/msec
 
 all: version promisc_check msec_find python
@@ -61,6 +61,9 @@ install: all
 	# logrotate
 	mkdir -p $(RPM_BUILD_ROOT)/etc/logrotate.d
 	install -m644 msec.logrotate $(RPM_BUILD_ROOT)/etc/logrotate.d/msec
+
+	# locale
+	$(MAKE) -C po $@
 
 cleandist:
 	rm -rf $(PACKAGE)-$(VERSION) $(PACKAGE)-$(VERSION).tar.bz2

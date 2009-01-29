@@ -928,10 +928,10 @@ class MSEC:
                 msec.remove_line_matching('^HISTFILESIZE=')
 
     def set_win_parts_umask(self, umask):
-        '''  Set umask option for mounting vfat and ntfs partitions. If umask is '0', default system umask is used.'''
+        ''' Set umask option for mounting vfat and ntfs partitions. If umask is '0', default system umask is used.'''
         fstab = self.configfiles.get_config_file(FSTAB)
 
-        if umask == "no":
+        if umask == "0":
             fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+)umask=\d+(\s.*)", "@1defaults@3", 0, 1)
             fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+)umask=\d+,(.*)", "@1@3", 0, 1)
             fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+\S+),umask=\d+(.*)", "@1@3", 0, 1)

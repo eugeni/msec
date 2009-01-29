@@ -1,6 +1,6 @@
 # Installation directories
 top_srcdir=..
-localedir = $(DESTDIR)/usr/share/locale
+localedir = $(RPM_BUILD_ROOT)/usr/share/locale
 
 PGOAL = msec
 

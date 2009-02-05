@@ -112,12 +112,6 @@ XDM = '/etc/pam.d/xdm'
 XSERVERS = '/etc/X11/xdm/Xservers'
 EXPORT = '/root/.xauth/export'
 
-# auth
-AUTH_PAM='/etc/pam.d/'
-AUTH_CONSOLE='/etc/security/console.apps/'
-AUTH_LINK_CONSOLE="mandriva-console-auth"
-AUTH_LINK_SIMPLE="mandriva-simple-auth"
-
 # ConfigFile constants
 STRING_TYPE = type('')
 
@@ -531,7 +525,7 @@ class ConfigFile:
                 return self
         if status == BEFORE:
             # never found the start delimiter
-            self.log.warn(_('WARNING: never found regexp %s in %s, not writing changes') % (start_regexp, self.path))
+            self.log.debug('WARNING: never found regexp %s in %s, not writing changes' % (start_regexp, self.path))
             return self
         if space.search(value):
             s = var + '="' + value + '"'
@@ -625,7 +619,7 @@ class ConfigFile:
                 s = substitute_re_result(res, value)
                 matches = matches + 1
                 if s != line:
-                    self.log.debug(_("replaced in %s the line %d:\n%s\nwith the line:\n%s") % (self.path, idx, line, s))
+                    self.log.debug("replaced in %s the line %d:\n%s\nwith the line:\n%s" % (self.path, idx, line, s))
                     lines[idx] = s
                     self.modified()
                 if not all:
@@ -633,7 +627,7 @@ class ConfigFile:
         if matches == 0 and at_end_if_not_found:
             if type(at_end_if_not_found) == STRING_TYPE:
                 value = at_end_if_not_found
-            self.log.debug(_("appended in %s the line:\n%s") % (self.path, value))
+            self.log.debug("appended in %s the line:\n%s" % (self.path, value))
             if idx == None or idx == len(lines):
                 self.append(value)
             else:
@@ -650,14 +644,14 @@ class ConfigFile:
             res = r.search(lines[idx])
             if res:
                 s = substitute_re_result(res, value)
-                self.log.debug(_("inserted in %s after the line %d:\n%s\nthe line:\n%s") % (self.path, idx, lines[idx], s))
+                self.log.debug("inserted in %s after the line %d:\n%s\nthe line:\n%s" % (self.path, idx, lines[idx], s))
                 lines.insert(idx+1, s)
                 self.modified()
                 matches = matches + 1
                 if not all:
                     return matches
         if matches == 0 and at_end_if_not_found:
-            self.log.debug(_("appended in %s the line:\n%s") % (self.path, value))
+            self.log.debug("appended in %s the line:\n%s" % (self.path, value))
             self.append(value)
             self.modified()
             matches = matches + 1
@@ -671,14 +665,14 @@ class ConfigFile:
             res = r.search(lines[idx])
             if res:
                 s = substitute_re_result(res, value)
-                self.log.debug(_("inserted in %s before the line %d:\n%s\nthe line:\n%s") % (self.path, idx, lines[idx], s))
+                self.log.debug("inserted in %s before the line %d:\n%s\nthe line:\n%s" % (self.path, idx, lines[idx], s))
                 lines.insert(idx, s)
                 self.modified()
                 matches = matches + 1
                 if not all:
                     return matches
         if matches == 0 and at_top_if_not_found:
-            self.log.debug(_("inserted at the top of %s the line:\n%s") % (self.path, value))
+            self.log.debug("inserted at the top of %s the line:\n%s" % (self.path, value))
             lines.insert(0, value)
             self.modified()
             matches = matches + 1
@@ -688,7 +682,7 @@ class ConfigFile:
         lines = self.get_lines()
         try:
             lines.insert(idx, value)
-            self.log.debug(_("inserted in %s at the line %d:\n%s") % (self.path, idx, value))
+            self.log.debug("inserted in %s at the line %d:\n%s" % (self.path, idx, value))
             self.modified()
             return 1
         except KeyError:
@@ -701,7 +695,7 @@ class ConfigFile:
         for idx in range(len(lines) - 1, -1, -1):
             res = r.search(lines[idx])
             if res:
-                self.log.debug(_("removing in %s the line %d:\n%s") % (self.path, idx, lines[idx]))
+                self.log.debug("removing in %s the line %d:\n%s" % (self.path, idx, lines[idx]))
                 lines.pop(idx)
                 self.modified()
                 matches = matches + 1

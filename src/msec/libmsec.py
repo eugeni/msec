@@ -721,6 +721,9 @@ class MSEC:
         self.configfiles.add_config_assoc(SYSLOGCONF, '[ -f /var/lock/subsys/syslog ] && service syslog reload')
         self.configfiles.add_config_assoc('^/etc/issue$', '/usr/bin/killall mingetty')
 
+        # plugins
+        self.plugins = {}
+
     def reset(self):
         """Resets the configuration"""
         self.log.debug("Resetting msec data.")
@@ -728,10 +731,30 @@ class MSEC:
 
     def get_action(self, name):
         """Determines correspondent function for requested action."""
+        # finding out what function to call
         try:
-            func = getattr(self, name)
+            plugin, callback = name.split(".", 1)
+        except:
+            # bad format?
+            self.log.error(_("Invalid callback: %s") % (name))
+            return None
+
+        # is it a main function or a plugin?
+        if plugin == config.MAIN_LIB:
+            plugin_ = self
+        else:
+            if plugin in self.plugins:
+                plugin_ = self.plugins[plugin]
+            else:
+                self.log.info(_("Plugin %s not found") % plugin)
+                return self.log.info
+                return None
+        try:
+            func = getattr(plugin_, callback)
             return func
         except:
+            self.log.info(_("Not supported function '%s' in '%s'") % (callback, plugin))
+            traceback.print_exc()
             return None
 
     def commit(self, really_commit=True):

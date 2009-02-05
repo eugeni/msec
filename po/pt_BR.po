@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "POT-Creation-Date: 2009-01-29 18:02+BRST\n"
-"PO-Revision-Date: 2009-01-29 18:12-0300\n"
+"PO-Revision-Date: 2009-01-30 11:56-0300\n"
 "Last-Translator: Eugeni Dodonov <eugeni@mandriva.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,11 +16,11 @@ msgstr ""
 
 #: ../src/msec/help.py:15
 msgid "Enable name resolution spoofing protection."
-msgstr ""
+msgstr "Habilitar a proteção de spoofing de resolução de nomes."
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
+msgstr "Enviar relatórios por email mesmo se nenhuma alteração foi detectada"
 
 #: ../src/msec/help.py:19
 msgid "Accept broadcasted ICMP echo."
@@ -28,39 +28,39 @@ msgstr "Aceitar mensagens ICMP enviadas por broadcast"
 
 #: ../src/msec/help.py:21
 msgid "Allow users to authenticate with their passwords for sudo. If this parameter is set to 'wheel', users must belong to the 'wheel' group to be able to use sudo"
-msgstr ""
+msgstr "Permitir usuários a autenticar-se com suas senhas para usar sudo. Se esse parâmetro for igual a 'wheel', os usuários devem fazer parte do grupo 'wheel' para poder usar o sudo"
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
+msgstr "Habilitar o servidor X a aceitar conexões da rede na porta TCP 6000"
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr ""
+msgstr "Habilitar verificações por falhas de segurança conhecidas por chkrootkit"
 
 #: ../src/msec/help.py:27
 msgid "Enable checking for additions/removals of suid root files."
-msgstr ""
+msgstr "Verificar adições/remoções de arquivos com suid de root"
 
 #: ../src/msec/help.py:29
 msgid "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow (see man at(1) and crontab(1))."
-msgstr ""
+msgstr "Habilitar crontab e at para usuários. Os usuários permitidos devem ser inseridos em /etc/cron.allow e /etc/at.allow (veja as páginas do manual at(1) e crontab(1))."
 
 #: ../src/msec/help.py:31
 msgid "Accept bogus IPv4 error messages."
-msgstr ""
+msgstr "Aceitar mensagens de erro de IPv4."
 
 #: ../src/msec/help.py:33
 msgid "Enable checksum verification for suid files."
-msgstr ""
+msgstr "Verificar checksum dos arquivos suid."
 
 #: ../src/msec/help.py:35
 msgid "User email to receive security notifications."
-msgstr ""
+msgstr "Endereço de email que deverá receber as notificações de segurança."
 
 #: ../src/msec/help.py:37
 msgid "Allow autologin."
-msgstr ""
+msgstr "Habilitar login automático"
 
 #: ../src/msec/help.py:39
 msgid "Allow only users in whell grup to su to root."

@@ -65,6 +65,7 @@ Available parameters:
                             actions. Use this to see what operations msec
                             will perform.
     -r, --root <path>       path to use as root
+    -q, --quiet             run quietly
 """ % (version, config.PERMCONF, config.PERMCONF)
 # }}}
 
@@ -74,11 +75,12 @@ if __name__ == "__main__":
     force_level = False
     commit = True
     enforce = False
+    quiet = False
     root = ''
 
     # parse command line
     try:
-        opt, args = getopt.getopt(sys.argv[1:], 'hel:f:dpr:', ['help', 'enforce', 'list=', 'force=', 'debug', 'pretend', 'root='])
+        opt, args = getopt.getopt(sys.argv[1:], 'hel:f:dpr:q', ['help', 'enforce', 'list=', 'force=', 'debug', 'pretend', 'root=', 'quiet'])
     except getopt.error:
         usage()
         sys.exit(1)
@@ -118,6 +120,8 @@ if __name__ == "__main__":
         # check-only mode
         elif o[0] == '-p' or o[0] == '--pretend':
             commit = False
+        elif o[0] == '-q' or o[0] == '--quiet':
+            quiet = True
 
     # verifying use id
     if os.geteuid() != 0:
@@ -130,10 +134,10 @@ if __name__ == "__main__":
     interactive = sys.stdin.isatty()
     if interactive:
         # logs to file and to terminal
-        log = Log(log_path="%s%s" % (root, config.SECURITYLOG), interactive=True, log_syslog=False, log_level=log_level)
+        log = Log(log_path="%s%s" % (root, config.SECURITYLOG), interactive=True, log_syslog=False, log_level=log_level, quiet=quiet)
     else:
         log_level = logging.WARN
-        log = Log(log_path="%s%s" % (root, config.SECURITYLOG), interactive=True, log_syslog=False, log_level=log_level)
+        log = Log(log_path="%s%s" % (root, config.SECURITYLOG), interactive=True, log_syslog=False, log_level=log_level, quiet=quiet)
 
     # loading permissions
     permconf = config.PermConfig(log, config="%s%s" % (root, config.PERMCONF))

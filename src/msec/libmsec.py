@@ -187,7 +187,8 @@ class Log:
                 log_facility=SysLogHandler.LOG_AUTHPRIV,
                 syslog_address="/dev/log",
                 log_path="/var/log/msec.log",
-                interactive=True):
+                interactive=True,
+                quiet=False):
         self.log_facility = log_facility
         self.log_path = log_path
 
@@ -196,6 +197,8 @@ class Log:
 
         # common logging stuff
         self.logger = logging.getLogger(app_name)
+
+        self.quiet = quiet
 
         # syslog
         if log_syslog:
@@ -230,6 +233,9 @@ class Log:
 
     def info(self, message):
         """Informative message (normal msec operation)"""
+        if self.quiet:
+            # skip informative messages in quiet mode
+            return
         if self.buffer:
             self.buffer["info"].append(message)
         else:
@@ -258,6 +264,9 @@ class Log:
 
     def warn(self, message):
         """Warning message (slight security change, permissions change, etc)"""
+        if self.quiet:
+            # skip warning messages in quiet mode
+            return
         if self.buffer:
             self.buffer["warn"].append(message)
         else:

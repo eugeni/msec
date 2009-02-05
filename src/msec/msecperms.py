@@ -130,18 +130,18 @@ if __name__ == "__main__":
     interactive = sys.stdin.isatty()
     if interactive:
         # logs to file and to terminal
-        log = Log(log_path=config.SECURITYLOG, interactive=True, log_syslog=False, log_level=log_level)
+        log = Log(log_path="%s%s" % (root, config.SECURITYLOG), interactive=True, log_syslog=False, log_level=log_level)
     else:
         log_level = logging.WARN
-        log = Log(log_path=config.SECURITYLOG, interactive=True, log_syslog=False, log_level=log_level)
+        log = Log(log_path="%s%s" % (root, config.SECURITYLOG), interactive=True, log_syslog=False, log_level=log_level)
 
     # loading permissions
-    permconf = config.PermConfig(log, config=config.PERMCONF)
+    permconf = config.PermConfig(log, config="%s%s" % (root, config.PERMCONF))
 
     # forcing new level
     if force_level:
         # first load the default configuration for level
-        standard_permconf = config.load_default_perms(log, level)
+        standard_permconf = config.load_default_perms(log, level, root=root)
         params = standard_permconf.list_options()
         if not params:
             log.error(_("Level '%s' not found, aborting.") % level)

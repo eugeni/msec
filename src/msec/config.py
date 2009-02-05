@@ -22,14 +22,14 @@ import os
 NONE_LEVEL="none"
 STANDARD_LEVEL="standard"
 SECURE_LEVEL="secure"
-SECURITY_LEVEL="/etc/security/msec/level.%s"
+SECURITY_LEVEL="%s/etc/security/msec/level.%s"
 
 # msec configuration file
 SECURITYCONF = '/etc/security/msec/security.conf'
 
 # permissions
 PERMCONF = '/etc/security/msec/perms.conf'
-PERMISSIONS_LEVEL = '/etc/security/msec/perm.%s' # for level
+PERMISSIONS_LEVEL = '%s/etc/security/msec/perm.%s' # for level
 
 # logging
 SECURITYLOG = '/var/log/msec.log'
@@ -163,19 +163,19 @@ def find_valid_params(param):
         return valid_params
 
 # helper functions
-def load_defaults(log, level):
+def load_defaults(log, level, root=''):
     """Loads default configuration for given security level, returning a
         MsecConfig instance.
         """
-    config = MsecConfig(log, config=SECURITY_LEVEL % level)
+    config = MsecConfig(log, config=SECURITY_LEVEL % (root, level))
     config.load()
     return config
 
-def load_default_perms(log, level):
+def load_default_perms(log, level, root=''):
     """Loads default permissions for given security level, returning a
         MsecConfig instance.
         """
-    config = PermConfig(log, config=PERMISSIONS_LEVEL % level)
+    config = PermConfig(log, config=PERMISSIONS_LEVEL % (root, level))
     config.load()
     return config
 

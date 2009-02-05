@@ -111,19 +111,19 @@ if __name__ == "__main__":
     interactive = sys.stdin.isatty()
     if interactive:
         # logs to file and to terminal
-        log = Log(log_path=config.SECURITYLOG, interactive=True, log_syslog=False, log_level=log_level)
+        log = Log(log_path="%s%s" % (root, config.SECURITYLOG), interactive=True, log_syslog=False, log_level=log_level)
     else:
         # TODO: review logging messages
         #log_level = logging.WARN
-        log = Log(log_path=config.SECURITYLOG, interactive=False, log_syslog=False, log_level=log_level)
+        log = Log(log_path="%s%s" % (root, config.SECURITYLOG), interactive=False, log_syslog=False, log_level=log_level)
 
     # loading initial config
-    msec_config = config.MsecConfig(log, config=config.SECURITYCONF)
+    msec_config = config.MsecConfig(log, config="%s%s" % (root, config.SECURITYCONF))
 
     # forcing new level
     if force_level:
         # first load the default configuration for level
-        levelconf = config.load_defaults(log, level)
+        levelconf = config.load_defaults(log, level, root=root)
         params = levelconf.list_options()
         if not params:
             log.error(_("Level '%s' not found, aborting.") % level)

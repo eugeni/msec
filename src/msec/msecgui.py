@@ -528,10 +528,10 @@ class MsecGui:
         label.set_line_wrap(True)
         #label.set_width_chars(120)
         label.set_justify(gtk.JUSTIFY_FILL)
-        levels_vbox.pack_start(label, False, False)
+        levels_vbox.pack_start(label, False, False, padding=DEFAULT_SPACING)
 
         # putting levels to vbox
-        vbox.pack_start(self.levels_frame, padding=DEFAULT_SPACING)
+        vbox.pack_start(self.levels_frame, False, False, padding=DEFAULT_SPACING)
 
         # notifications by email
         self.notify_mail = gtk.CheckButton(_("Send security alerts by email"))

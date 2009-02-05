@@ -143,46 +143,6 @@ def find_doc(msec, option, cached=None):
     return doc
 
 
-# mandriva security tools
-AUTH_NO_PASSWD = _("No password")
-AUTH_ROOT_PASSWD = _("Root password")
-AUTH_USER_PASSWD = _("User password")
-
-# mandriva drakx tools
-MANDRIVA_TOOLS = {
-            "rpmdrake":  _("Software Management"),
-            "mandrivaupdate":  _("Mandriva Update"),
-            "drakrpm-edit-media":  _("Software Media Manager"),
-            "drak3d":  _("Configure 3D Desktop effects"),
-            "xfdrake":  _("Graphical Server Configuration"),
-            "drakmouse":  _("Mouse Configuration"),
-            "drakkeyboard":  _("Keyboard Configuration"),
-            "drakups":  _("UPS Configuration"),
-            "drakconnect":  _("Network Configuration"),
-            "drakhosts":  _("Hosts definitions"),
-            "draknetcenter":  _("Network Center"),
-            "drakvpn":  _("VPN"),
-            "drakproxy":  _("Proxy Configuration"),
-            "drakgw":  _("Connection Sharing"),
-            "drakauth":  _("Authentication"),
-            "drakbackup":  _("Backups"),
-            "drakfont":  _("Import fonts"),
-            "draklog":  _("Logs"),
-            "drakxservices":  _("Services"),
-            "userdrake":  _("Users"),
-            "drakclock":  _("Date, Clock & Time Zone Settings"),
-            "drakboot":  _("Boot Configuration"),
-    }
-
-# drakx tool groups
-MANDRIVA_TOOL_GROUPS = [
-            ( _("Software Management"), ['rpmdrake', 'mandrivaupdate', 'drakrpm-edit-media'] ),
-            ( _("Hardware"), ['drak3d', 'xfdrake', 'drakmouse', 'drakkeyboard', 'drakups'] ),
-            ( _("Network"), ['drakconnect', 'drakhosts', 'draknetcenter', 'drakvpn', 'drakproxy', 'drakgw'] ),
-            ( _("System"), ['drakauth', 'drakbackup', 'drakfont', 'draklog', 'drakxservices', 'userdrake', 'drakclock'] ),
-            ( _("Boot"), ['drakboot'] ),
-        ]
-
 def find_callback(param):
     '''Finds a callback for security option'''
     if param not in SETTINGS:

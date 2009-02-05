@@ -82,7 +82,6 @@ ISSUE = '/etc/issue'
 ISSUENET = '/etc/issue.net'
 KDE = '/etc/pam.d/kde'
 KDMRC = '/usr/share/config/kdm/kdmrc'
-LDSOPRELOAD = '/etc/ld.so.preload'
 LILOCONF = '/etc/lilo.conf'
 LOGINDEFS = '/etc/login.defs'
 MENULST = '/boot/grub/menu.lst'
@@ -722,8 +721,6 @@ class MSEC:
         self.configfiles.add_config_assoc(SYSLOGCONF, '[ -f /var/lock/subsys/syslog ] && service syslog reload')
         self.configfiles.add_config_assoc('^/etc/issue$', '/usr/bin/killall mingetty')
 
-        # TODO: add a common function to check parameters
-
     def reset(self):
         """Resets the configuration"""
         self.log.debug("Resetting msec data.")
@@ -1103,7 +1100,7 @@ class MSEC:
                                                                            'PermitRootLogin without-password', 1)
 
     def enable_pam_wheel_for_su(self, arg):
-        ''' Allow only users in whell grup to su to root.'''
+        ''' Allow only users in wheel grup to su to root.'''
         su = self.configfiles.get_config_file(SU)
 
         val = su.get_match('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$')
@@ -1423,7 +1420,6 @@ class MSEC:
                 self.log.info(_('Disabling sulogin in single user runlevel'))
                 inittab.remove_line_matching('~~:S:wait:/sbin/sulogin')
 
-    # Do we need this?
     def enable_msec_cron(self, arg):
         '''  Perform hourly security check for changes in system configuration.'''
         mseccron = self.configfiles.get_config_file(MSECCRON)

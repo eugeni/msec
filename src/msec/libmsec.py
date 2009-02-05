@@ -272,12 +272,13 @@ class Log:
 class ConfigFiles:
     """This class is responsible to store references to all configuration files,
         mark them as changed, and update on disk when necessary"""
-    def __init__(self, log):
+    def __init__(self, log, root=''):
         """Initializes list of ConfigFiles"""
         self.files = {}
         self.modified_files = []
         self.action_assoc = []
         self.log = log
+        self.root = root
 
     def add(self, file, path):
         """Appends a path to list of files"""
@@ -293,7 +294,7 @@ class ConfigFiles:
         try:
             return self.files[path]
         except KeyError:
-            return ConfigFile(path, self, self.log, suffix=suffix)
+            return ConfigFile(path, self, self.log, suffix=suffix, root=self.root)
 
     def add_config_assoc(self, regex, action):
         """Adds association between a file and an action"""
@@ -706,11 +707,12 @@ class ConfigFile:
 # {{{ MSEC - main class
 class MSEC:
     """Main msec class. Contains all functions and performs the actions"""
-    def __init__(self, log):
+    def __init__(self, log, root=''):
         """Initializes config files and associations"""
         # all config files
         self.log = log
-        self.configfiles = ConfigFiles(log)
+        self.root = root
+        self.configfiles = ConfigFiles(log, root=root)
 
         # associate helper commands with files
         self.configfiles.add_config_assoc(INITTAB, '/sbin/telinit q')
@@ -727,7 +729,7 @@ class MSEC:
     def reset(self):
         """Resets the configuration"""
         self.log.debug("Resetting msec data.")
-        self.configfiles = ConfigFiles(self.log)
+        self.configfiles = ConfigFiles(self.log, root=self.root)
 
     def get_action(self, name):
         """Determines correspondent function for requested action."""

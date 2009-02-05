@@ -52,6 +52,7 @@ Arguments to msec:
     -p, --pretend           only pretend to change the level, perform no real
                             actions. Use this to see what operations msec
                             will perform.
+    -r, --root <path>       path to use as root
 """ % version
 # }}}
 
@@ -60,10 +61,11 @@ if __name__ == "__main__":
     force_level = False
     log_level = logging.INFO
     commit = True
+    root = ''
 
     # parse command line
     try:
-        opt, args = getopt.getopt(sys.argv[1:], 'hl:f:dp', ['help', 'list=', 'force=', 'debug', 'pretend'])
+        opt, args = getopt.getopt(sys.argv[1:], 'hl:f:dpr:', ['help', 'list=', 'force=', 'debug', 'pretend', 'root='])
     except getopt.error:
         usage()
         sys.exit(1)
@@ -88,6 +90,9 @@ if __name__ == "__main__":
         elif o[0] == '-f' or o[0] == '--force':
             level = o[1]
             force_level = True
+        # custom root
+        elif o[0] == '-r' or o[0] == '--root':
+            root = o[1]
         # debugging
         elif o[0] == '-d' or o[0] == '--debug':
             log_level = logging.DEBUG
@@ -130,7 +135,7 @@ if __name__ == "__main__":
         msec_config.load()
 
     # load the msec library
-    msec = MSEC(log)
+    msec = MSEC(log, root=root)
 
     # apply the config to msec
     msec.apply(msec_config)

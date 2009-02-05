@@ -105,7 +105,7 @@ SETTINGS =    {'BASE_LEVEL':                    ("libmsec.base_level",          
                # password stuff
                'ENABLE_PASSWORD':               ("libmsec.enable_password",                 ['yes', 'no']),
                'PASSWORD_HISTORY':              ("libmsec.password_history",                ['*']),
-               #                                                    format: min length, num upper, num digits
+               #                                                                        format: min length, num upper, num digits
                'PASSWORD_LENGTH':               ("libmsec.password_length",                 ['*']),
                'SHELL_HISTORY_SIZE':            ("libmsec.set_shell_history_size",          ['*']),
                'SHELL_TIMEOUT':                 ("libmsec.set_shell_timeout",               ['*']),

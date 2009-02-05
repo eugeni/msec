@@ -44,7 +44,7 @@ this level disables all msec options. It should be used when you want to manage
 all aspects of system security on your own.
 
 .TP
-\\fBdefault\\fR
+\\fBstandard\\fR
 this is the default security level, which configures a reasonably safe set of security
 features. It activates several periodic system checks, and sends the results of their
 execution by email (by default, the local 'root' account is used).
@@ -163,14 +163,14 @@ This is the GTK version of msec. It acts as frontend to all msec functionalities
 \\fBDisplay system configuration changes without enforcing anything:\\fP
     msec -p
 
-\\fBInstall predefined security level 'default':\\fP
-    msec -f default
+\\fBInstall predefined security level 'standard':\\fP
+    msec -f standard
 
-\\fBPreview changes inflicted by change to 'default' level:\\fP
-    msec -p -f default
+\\fBPreview changes inflicted by change to 'standard' level:\\fP
+    msec -p -f standard
 
-\\fBCreate a custom security level based on 'default':\\fP
-    cp /etc/security/msec/level.default /etc/security/msec/level.my
+\\fBCreate a custom security level based on 'standard':\\fP
+    cp /etc/security/msec/level.standard /etc/security/msec/level.my
     edit /etc/security/msec/level.my
     msec -f my
 
@@ -180,11 +180,11 @@ This is the GTK version of msec. It acts as frontend to all msec functionalities
 \\fBDisplay permissions changes without enforcing anything:\\fP
     msecperms -p
 
-\\fBInstall predefined permissions for level 'default':\\fP
-    msecperms -f default
+\\fBInstall predefined permissions for level 'standard':\\fP
+    msecperms -f standard
 
-\\fBPreview changes inflicted by change to 'default' level:\\fP
-    msecperms -p -f default
+\\fBPreview changes inflicted by change to 'standard' level:\\fP
+    msecperms -p -f standard
 
 \\fBCreate a custom permissions level based on 'secure':\\fP
     cp /etc/security/msec/perm.secure /etc/security/msec/perm.my

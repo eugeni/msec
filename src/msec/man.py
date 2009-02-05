@@ -22,7 +22,7 @@ except:
     version = "(development version)"
 
 header = '''.ds q \N'34'
-.TH msec %s msec "Mandriva Linux"
+.TH msec 8 msec "Mandriva Linux"
 .SH NAME
 msec \- Mandriva Linux security tools
 .SH SYNOPSIS
@@ -195,7 +195,7 @@ This is the GTK version of msec. It acts as frontend to all msec functionalities
 
 The following security options are supported by msec:
 
-''' % version
+'''
 
 footer = '''.RE
 .SH NOTES

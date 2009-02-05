@@ -1,3 +1,8 @@
+Version 0.60.10 - February 05 2009, Eugeni Dodonov
+- Level name change: 'default' to 'standard'.
+- Added support for running in chroot.
+- Added initial support for plugins.
+
 Version 0.60.9 - January 29 2009, Eugeni Dodonov
 - Reviewed description text for options (#47240)
 - Added localization.

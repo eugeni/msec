@@ -52,7 +52,7 @@ This application allows you to configure your system security. If you wish
 to activate it, choose the appropriate security level:
 """)
 
-DEFAULT_LEVEL_DESCRIPTION=_("""This profile configures a reasonably safe set of security features. It activates several non-intrusive periodic system checks. This is the suggested level for Desktop.""")
+STANDARD_LEVEL_DESCRIPTION=_("""This profile configures a reasonably safe set of security features. It activates several non-intrusive periodic system checks. This is the suggested level for Desktop.""")
 
 SECURE_LEVEL_DESCRIPTION=_("""This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks, enforces the local password settings, and periodically checks if the system security settings, configured here, were modified. """)
 
@@ -105,17 +105,17 @@ class MsecGui:
         self.msecconfig = msecconfig
         self.permconfig = permconfig
 
-        # pre-defined default configurations
+        # pre-defined standard configurations
         self.msec_defaults = {
                 config.NONE_LEVEL: config.load_defaults(log, config.NONE_LEVEL),
-                config.DEFAULT_LEVEL: config.load_defaults(log, config.DEFAULT_LEVEL),
+                config.STANDARD_LEVEL: config.load_defaults(log, config.STANDARD_LEVEL),
                 config.SECURE_LEVEL: config.load_defaults(log, config.SECURE_LEVEL),
                 }
 
         # pre-defined permissions
         self.perm_defaults = {
                 config.NONE_LEVEL: config.load_default_perms(log, config.NONE_LEVEL),
-                config.DEFAULT_LEVEL: config.load_default_perms(log, config.DEFAULT_LEVEL),
+                config.STANDARD_LEVEL: config.load_default_perms(log, config.STANDARD_LEVEL),
                 config.SECURE_LEVEL: config.load_default_perms(log, config.SECURE_LEVEL),
                 }
 
@@ -378,16 +378,16 @@ class MsecGui:
         # what level are we?
         level = self.msecconfig.get("BASE_LEVEL")
         if not level:
-            self.log.info(_("No base msec level specified, using '%s'") % config.DEFAULT_LEVEL)
-            self.base_level = config.DEFAULT_LEVEL
-        elif level == config.NONE_LEVEL or level == config.DEFAULT_LEVEL or level == config.SECURE_LEVEL:
+            self.log.info(_("No base msec level specified, using '%s'") % config.STANDARD_LEVEL)
+            self.base_level = config.STANDARD_LEVEL
+        elif level == config.NONE_LEVEL or level == config.STANDARD_LEVEL or level == config.SECURE_LEVEL:
             self.log.info(_("Detected base msec level '%s'") % level)
             self.base_level = level
         else:
             # custom level?
             # TODO: notify user about this
-            self.log.info(_("Custom base config level found. Will default to '%s'") % (level, config.DEFAULT_LEVEL))
-            self.base_level = config.DEFAULT_LEVEL
+            self.log.info(_("Custom base config level '%s' found. Will default to '%s'") % (level, config.STANDARD_LEVEL))
+            self.base_level = config.STANDARD_LEVEL
 
     def create_treeview(self, options):
         """Creates a treeview from given list of options"""
@@ -500,13 +500,13 @@ class MsecGui:
         levels_vbox = gtk.VBox()
         self.levels_frame.add(levels_vbox)
         # default
-        self.button_default = gtk.RadioButton(group=None, label=_("Default"))
-        self.button_default.connect('clicked', self.force_level, config.DEFAULT_LEVEL)
-        if self.base_level == config.DEFAULT_LEVEL:
+        self.button_default = gtk.RadioButton(group=None, label=_("Standard"))
+        self.button_default.connect('clicked', self.force_level, config.STANDARD_LEVEL)
+        if self.base_level == config.STANDARD_LEVEL:
             self.button_default.set_active(True)
         levels_vbox.pack_start(self.button_default, False, False)
         # default level description
-        label = gtk.Label(DEFAULT_LEVEL_DESCRIPTION)
+        label = gtk.Label(STANDARD_LEVEL_DESCRIPTION)
         label.set_use_markup(True)
         label.set_property("xalign", 0.1)
         label.set_property("yalign", 0.0)
@@ -515,7 +515,7 @@ class MsecGui:
         label.set_justify(gtk.JUSTIFY_FILL)
         levels_vbox.pack_start(label, False, False)
         # secure
-        self.button_secure = gtk.RadioButton(group=self.button_default, label=_("SECURE"))
+        self.button_secure = gtk.RadioButton(group=self.button_default, label=_("Secure"))
         self.button_secure.connect('clicked', self.force_level, config.SECURE_LEVEL)
         if self.base_level == config.SECURE_LEVEL:
             self.button_secure.set_active(True)
@@ -604,7 +604,7 @@ class MsecGui:
         else:
             # what level are we toggling?
             if self.button_default.get_active():
-                level = config.DEFAULT_LEVEL
+                level = config.STANDARD_LEVEL
             else:
                 level = config.SECURE_LEVEL
             self.toggle_level(level, force=True)
@@ -1061,7 +1061,7 @@ class MsecGui:
             value = config.OPTION_DISABLED
 
         callback, params = config.SETTINGS[param]
-        conf_def = self.msec_defaults[config.DEFAULT_LEVEL]
+        conf_def = self.msec_defaults[config.STANDARD_LEVEL]
         conf_sec = self.msec_defaults[config.SECURE_LEVEL]
 
         # Highlighting default options
@@ -1069,7 +1069,7 @@ class MsecGui:
         def_end=""
         sec_start=""
         sec_end=""
-        if self.base_level == config.DEFAULT_LEVEL:
+        if self.base_level == config.STANDARD_LEVEL:
             def_start="<b>"
             def_end="</b>"
         elif self.base_level == config.SECURE_LEVEL:
@@ -1089,7 +1089,7 @@ class MsecGui:
         label.set_use_markup(True)
         # description
         dialog.vbox.pack_start(label)
-        label = gtk.Label(_("<i>%s</i>\n\n\tCurrent value:\t\t\t<i>%s</i>\n\t%sDefault level value:\t<i>%s</i>%s\n\t%sSecure level value:\t\t<i>%s</i>%s\n") %
+        label = gtk.Label(_("<i>%s</i>\n\n\tCurrent value:\t\t\t<i>%s</i>\n\t%sStandard level value:\t<i>%s</i>%s\n\t%sSecure level value:\t\t<i>%s</i>%s\n") %
                 (descr, value,
                     def_start, val_def, def_end,
                     sec_start, val_sec, sec_end))

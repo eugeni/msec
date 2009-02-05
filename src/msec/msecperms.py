@@ -136,14 +136,14 @@ if __name__ == "__main__":
     # forcing new level
     if force_level:
         # first load the default configuration for level
-        default_permconf = config.load_default_perms(log, level)
-        params = default_permconf.list_options()
+        standard_permconf = config.load_default_perms(log, level)
+        params = standard_permconf.list_options()
         if not params:
             log.error(_("Level '%s' not found, aborting.") % level)
             sys.exit(1)
         log.info(_("Switching to '%s' level.") % level)
         for opt in params:
-            permconf.set(opt, default_permconf.get(opt))
+            permconf.set(opt, standard_permconf.get(opt))
     else:
         permconf.load()
 

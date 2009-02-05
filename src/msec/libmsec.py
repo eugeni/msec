@@ -199,17 +199,25 @@ class Log:
 
         # syslog
         if log_syslog:
-            self.syslog_h = SysLogHandler(facility=log_facility, address=syslog_address)
-            formatter = logging.Formatter('%(name)s: %(levelname)s: %(message)s')
-            self.syslog_h.setFormatter(formatter)
-            self.logger.addHandler(self.syslog_h)
+            try:
+                self.syslog_h = SysLogHandler(facility=log_facility, address=syslog_address)
+                formatter = logging.Formatter('%(name)s: %(levelname)s: %(message)s')
+                self.syslog_h.setFormatter(formatter)
+                self.logger.addHandler(self.syslog_h)
+            except:
+                print >>sys.stderr, "Logging to syslog not available: %s" % (sys.exc_value[1])
+                interactive = True
 
         # log to file
         if log_file:
-            self.file_h = logging.FileHandler(self.log_path)
-            formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
-            self.file_h.setFormatter(formatter)
-            self.logger.addHandler(self.file_h)
+            try:
+                self.file_h = logging.FileHandler(self.log_path)
+                formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
+                self.file_h.setFormatter(formatter)
+                self.logger.addHandler(self.file_h)
+            except:
+                print >>sys.stderr, "Logging to '%s' not available: %s" % (self.log_path, sys.exc_value[1])
+                interactive = True
 
         # interactive logging
         if interactive:

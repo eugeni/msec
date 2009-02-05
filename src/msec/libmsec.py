@@ -1614,9 +1614,10 @@ class MSEC:
 # {{{ PERMS - permissions handling
 class PERMS:
     """Permission checking/enforcing."""
-    def __init__(self, log):
+    def __init__(self, log, root=''):
         """Initializes internal variables"""
         self.log = log
+        self.root = root
         self.USER = {}
         self.GROUP = {}
         self.USERID = {}
@@ -1776,7 +1777,7 @@ class PERMS:
                 group = self.get_group_id(group_s)
 
             # now check the permissions
-            for f in glob.glob(file):
+            for f in glob.glob('%s%s' % (self.root, file)):
                 # get file properties
                 f = os.path.realpath(f)
                 try:

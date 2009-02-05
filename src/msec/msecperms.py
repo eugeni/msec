@@ -64,6 +64,7 @@ Available parameters:
     -p, --pretend           only pretend to change the level, perform no real
                             actions. Use this to see what operations msec
                             will perform.
+    -r, --root <path>       path to use as root
 """ % (version, config.PERMCONF, config.PERMCONF)
 # }}}
 
@@ -73,10 +74,11 @@ if __name__ == "__main__":
     force_level = False
     commit = True
     enforce = False
+    root = ''
 
     # parse command line
     try:
-        opt, args = getopt.getopt(sys.argv[1:], 'hel:f:dp', ['help', 'enforce', 'list=', 'force=', 'debug', 'pretend'])
+        opt, args = getopt.getopt(sys.argv[1:], 'hel:f:dpr:', ['help', 'enforce', 'list=', 'force=', 'debug', 'pretend', 'root='])
     except getopt.error:
         usage()
         sys.exit(1)
@@ -110,6 +112,9 @@ if __name__ == "__main__":
         # permission enforcing
         elif o[0] == '-e' or o[0] == '--enforce':
             enforce = True
+        # custom root
+        elif o[0] == '-r' or o[0] == '--root':
+            root = o[1]
         # check-only mode
         elif o[0] == '-p' or o[0] == '--pretend':
             commit = False
@@ -148,7 +153,7 @@ if __name__ == "__main__":
         permconf.load()
 
     # load the main permission class
-    perm = PERMS(log)
+    perm = PERMS(log, root=root)
 
     # check permissions
     changed_files = perm.check_perms(permconf, files_to_check=args)

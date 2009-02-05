@@ -2,7 +2,7 @@ PACKAGE = msec
 VERSION = 0.60.10
 SVNPATH = svn+ssh://svn.mandriva.com/svn/soft/msec
 
-all: version promisc_check msec_find python
+all: version promisc_check msec_find python manpages
 	make -C cron-sh
 
 version:
@@ -23,6 +23,9 @@ msec_find:
 
 python:
 	make -C src/msec
+
+manpages:
+	make -C src/msec man
 
 install: all
 	mkdir -p $(RPM_BUILD_ROOT)/etc/security/msec

@@ -1162,7 +1162,7 @@ class MSEC:
                 if su.exists():
                     (su.replace_line_matching('^[#\s]*auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$',
                                                           'auth       required     pam_wheel.so use_uid') or \
-                                 su.insert_after('^auth\s+required', 'auth       required     pam_wheel.so use_uid'))
+                                 su.insert_before('^auth\s+include', 'auth       required     pam_wheel.so use_uid'))
         else:
             if val:
                 self.log.info(_('Allowing su for all'))

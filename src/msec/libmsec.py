@@ -1186,7 +1186,6 @@ class MSEC:
             if not val or not val_simple:
                 self.log.info(_('Allowing transparent root access for wheel group members'))
                 if not val:
-                    print "here2"
                     su.insert_before('^auth\s+sufficient', SUCCEED_LINE)
                 if simple.exists() and not val_simple:
                     simple.insert_before('^auth\s+sufficient', SUCCEED_LINE)

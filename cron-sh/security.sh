@@ -173,7 +173,7 @@ fi
 
 ### rpm database check
 
-if [[ ${RPM_CHECK} == yes ]]; then
+if [[ ${CHECK_RPM} == yes ]]; then
     rpm -qa --qf "%{NAME}-%{VERSION}-%{RELEASE}\t%{INSTALLTIME}\n" | sort > ${RPM_QA_TODAY}
 
     rm -f ${RPM_VA_TODAY}.tmp
@@ -184,7 +184,7 @@ if [[ ${RPM_CHECK} == yes ]]; then
 fi
 
 ### chkrootkit checks
-if [[ ${CHKROOTKIT_CHECK} == yes ]]; then
+if [[ ${CHECK_CHKROOTKIT} == yes ]]; then
     if [ -x /usr/sbin/chkrootkit ]; then
 	/usr/sbin/chkrootkit ${CHKROOTKIT_OPTION} > ${CHKROOTKIT_TODAY}
     fi

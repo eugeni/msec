@@ -141,7 +141,7 @@ if [[ ${CHECK_OPEN_PORT} == yes ]]; then
 fi
 
 ### rpm database
-if [[ ${RPM_CHECK} == yes ]]; then
+if [[ ${CHECK_RPM} == yes ]]; then
     if [[ -f ${RPM_QA_YESTERDAY} ]]; then
 	diff -u ${RPM_QA_YESTERDAY} ${RPM_QA_TODAY} > ${RPM_QA_DIFF}
 	if [ -s ${RPM_QA_DIFF} ]; then
@@ -181,7 +181,7 @@ if [[ ${RPM_CHECK} == yes ]]; then
 fi
 
 ### Changed chkrootkit
-if [[ ${CHKROOTKIT_CHECK} == yes ]]; then
+if [[ ${CHECK_CHKROOTKIT} == yes ]]; then
 
     if [[ -f ${CHKROOTKIT_YESTERDAY} ]]; then
        diff -u ${CHKROOTKIT_YESTERDAY} ${CHKROOTKIT_TODAY} 1> ${CHKROOTKIT_DIFF}

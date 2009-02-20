@@ -262,7 +262,7 @@ fi
 
 
 ### rpm database checks
-if [[ ${RPM_CHECK} == yes ]]; then
+if [[ ${CHECK_RPM} == yes ]]; then
 
     if [[ -s ${RPM_VA_TODAY} ]]; then
 	printf "\nSecurity Warning: These files belonging to packages are modified on the system :\n" >> ${SECURITY}
@@ -280,7 +280,7 @@ if [[ ${RPM_CHECK} == yes ]]; then
 fi
 
 ### chkrootkit checks
-if [[ ${CHKROOTKIT_CHECK} == yes ]]; then
+if [[ ${CHECK_CHKROOTKIT} == yes ]]; then
 
     if [[ -s ${CHKROOTKIT_TODAY} ]]; then
 	printf "\nChkrootkit report:\n" >> ${SECURITY}

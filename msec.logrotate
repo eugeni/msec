@@ -8,3 +8,9 @@
 	monthly
 	compress
 }
+
+# updating permissions on rotated logs
+sharedscripts
+postrotate
+	test -f /usr/sbin/msecperms && /usr/sbin/msecperms -q -e '/var/log/*'
+endscript

@@ -35,6 +35,7 @@ case "$1" in
 		gprintf "Setting and checking MSEC permissions"
 		/usr/sbin/msecperms -q
 		echo_success
+		echo
 	elif [ "$ENABLE_STARTUP_PERMS" = "enforce" ]; then
 		gprintf "Setting and enforcing MSEC permissions"
 		/usr/sbin/msecperms -q

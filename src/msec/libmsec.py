@@ -1643,6 +1643,15 @@ class MSEC:
         """Show security notifications in system tray using libnotify."""
         pass
 
+    # bogus functions
+    def enable_startup_msec(self, param):
+        """Enforce MSEC settings on system startup"""
+        pass
+
+    def enable_startup_perms(self, param):
+        """Enforce MSEC file directory permissions on system startup"""
+        pass
+
 
 # }}}
 

@@ -30,6 +30,7 @@ manpages:
 install: all
 	mkdir -p $(RPM_BUILD_ROOT)/etc/security/msec
 	mkdir -p $(RPM_BUILD_ROOT)/usr/share/msec
+	mkdir -p $(RPM_BUILD_ROOT)/usr/share/msec/plugins
 	mkdir -p $(RPM_BUILD_ROOT)/usr/sbin
 	cp init-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec
 	cp cron-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec
@@ -37,6 +38,11 @@ install: all
 	for i in libmsec.py config.py msec.py msecperms.py msecgui.py help.py version.py; do \
 	    install -m755 src/msec/$$i $(RPM_BUILD_ROOT)/usr/share/msec ; \
 	done
+	# install plugins
+	for i in apparmor.py; do \
+	    install -m755 src/msec/plugins/$$i $(RPM_BUILD_ROOT)/usr/share/msec/plugins ; \
+	done
+	# install sbin files
 	for i in msec msecperms msecgui; do \
 		install -m755 src/msec/$$i $(RPM_BUILD_ROOT)/usr/sbin ; \
 	done

@@ -14,6 +14,7 @@ all: compile man help
 
 compile:
 	./compile.py '/usr/share/msec/' *.py
+	./compile.py '/usr/share/msec/plugins' plugins/*.py
 
 man: $(MAN)
 

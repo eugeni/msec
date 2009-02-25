@@ -762,7 +762,7 @@ class MSEC:
                     plugin_name = getattr(plugin, "PLUGIN")
                     plugin_class = getattr(plugin, plugin_name)
                     plugin = plugin_class(log=self.log, configfiles=self.configfiles, root=self.root)
-                    self.plugins[plugin_f] = plugin
+                    self.plugins[plugin_name] = plugin
                     self.log.debug("Loaded plugin '%s'" % plugin_f)
                 except:
                     self.log.error(_("Error loading plugin '%s' from %s: %s") % (plugin_f, file, sys.exc_value))

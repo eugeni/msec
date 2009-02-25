@@ -18,7 +18,7 @@ class apparmor:
 
         # configuring entry in global settings
         param = 'ENABLE_APPARMOR'
-        callback = "apparmor.enable_apparmor"
+        callback = "%s.enable_apparmor" % PLUGIN
         valid_values = ['yes', 'no']
         config.SETTINGS[param] = (callback, valid_values)
 

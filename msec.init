@@ -1,0 +1,63 @@
+#!/bin/sh
+#
+# Enables MSEC policy on system startup
+#
+# description: Enables MSEC security policy on system startup
+# chkconfig: 345 13 20
+#
+### BEGIN INIT INFO
+# Provides: msec
+# Default-Start: 3 4 5
+# Short-Description: Enables MSEC security policy
+# Description: Enables MSEC security settings, defined by current policy
+### END INIT INFO
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+if [ ! -f /etc/security/msec/security.conf ] ; then
+	# no msec configuration, aborting
+	exit
+fi
+
+. /etc/security/msec/security.conf
+
+# See how we were called.
+case "$1" in
+  start)
+	if [ "$ENABLE_STARTUP_MSEC" = "yes" ]; then
+		gprintf "Enabling MSEC security policy"
+		/usr/sbin/msec -q
+		echo_success
+	fi
+	if [ "$ENABLE_STARTUP_PERMS" = "yes" ]; then
+		gprintf "Setting and checking MSEC permissions"
+		/usr/sbin/msecperms -q
+		echo_success
+	fi
+	;;
+  stop)
+  	# nothing to do
+	;;
+  status)
+	if [ "$ENABLE_STARTUP_MSEC" = "yes" ]; then
+		gprintf "MSEC security policy on startup: enabled"
+	else
+		gprintf "MSEC security policy on startup: disabled"
+	fi
+	if [ "$ENABLE_STARTUP_PERMS" = "yes" ]; then
+		gprintf "MSEC permissions on startup: enabled"
+	else
+		gprintf "MSEC permissions on startup: disabled"
+	fi
+	;;
+  restart)
+	$0 stop
+	$0 start
+	;;
+  *)
+	gprintf "Usage: %s\n" "$0 {start|stop|restart|status}"
+	exit 1
+esac
+
+exit 0

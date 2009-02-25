@@ -112,6 +112,28 @@ SETTINGS =    {'BASE_LEVEL':                    ("libmsec.base_level",          
 # text for disabled options
 OPTION_DISABLED=_("System default")
 
+# settings organizes by category
+# system security settings
+SETTINGS_SYSTEM = ["ENABLE_POLICYKIT", "ENABLE_SUDO", "ENABLE_MSEC_CRON",
+                    "ENABLE_PAM_WHEEL_FOR_SU", "ENABLE_SULOGIN", "CREATE_SERVER_LINK", "ENABLE_AT_CRONTAB",
+                    "ALLOW_ROOT_LOGIN", "ALLOW_USER_LIST", "ENABLE_PASSWORD", "ALLOW_AUTOLOGIN",
+                    "ENABLE_CONSOLE_LOG", "ENABLE_PAM_WHEEL_FOR_SU", "CREATE_SERVER_LINK",
+                    "ALLOW_XAUTH_FROM_ROOT", "ALLOW_REBOOT", "SHELL_HISTORY_SIZE", "SHELL_TIMEOUT", "PASSWORD_LENGTH",
+                    "PASSWORD_HISTORY", "USER_UMASK", "ROOT_UMASK",
+                    ]
+# network security settings
+SETTINGS_NETWORK = ["ACCEPT_BOGUS_ERROR_RESPONSES", "ACCEPT_BROADCASTED_ICMP_ECHO", "ACCEPT_ICMP_ECHO",
+                    "ALLOW_REMOTE_ROOT_LOGIN", "ALLOW_X_CONNECTIONS", "ALLOW_XSERVER_TO_LISTEN",
+                    "AUTHORIZE_SERVICES", "ENABLE_DNS_SPOOFING_PROTECTION", "ENABLE_IP_SPOOFING_PROTECTION",
+                    "ENABLE_LOG_STRANGE_PACKETS",
+                    ]
+# periodic checks
+SETTINGS_PERIODIC = ["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",
+                    "CHECK_WRITABLE", "CHECK_UNOWNED", "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_PASSWD",
+                    "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM", "CHECK_SHOSTS", "TTY_WARN", "SYSLOG_WARN",
+                    "MAIL_EMPTY_CONTENT",
+                    ]
+
 # localized help
 try:
     from help import HELP
@@ -134,7 +156,7 @@ def find_doc(msec, option, cached=None):
         # option not found in HELP, lets look in docstring
         # get description from function comments
         func = msec.get_action(callback)
-        if func:
+        if func.__doc__:
             doc = func.__doc__.strip()
         else:
             # well, no luck. Just use the callback then

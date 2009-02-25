@@ -694,15 +694,7 @@ class MsecGui:
         vbox.pack_start(entry, False, False)
 
         # system security options
-        options_view, model = self.create_treeview(["ENABLE_APPARMOR", "ENABLE_POLICYKIT",
-                                            "ENABLE_SUDO", "ENABLE_MSEC_CRON", "ENABLE_PAM_WHEEL_FOR_SU",
-                                            "ENABLE_SULOGIN", "CREATE_SERVER_LINK", "ENABLE_AT_CRONTAB",
-                                            "ALLOW_ROOT_LOGIN", "ALLOW_USER_LIST", "ENABLE_PASSWORD",
-                                            "ALLOW_AUTOLOGIN", "ENABLE_CONSOLE_LOG",
-                                            "ENABLE_PAM_WHEEL_FOR_SU", "CREATE_SERVER_LINK", "ALLOW_XAUTH_FROM_ROOT",
-                                            "ALLOW_REBOOT", "SHELL_HISTORY_SIZE", "SHELL_TIMEOUT", "PASSWORD_LENGTH",
-                                            "PASSWORD_HISTORY", "USER_UMASK", "ROOT_UMASK",
-                                            ])
+        options_view, model = self.create_treeview(config.SETTINGS_SYSTEM)
         self.current_options_view[id] = (model, self.msecconfig)
         vbox.pack_start(options_view)
 
@@ -717,12 +709,7 @@ class MsecGui:
         vbox.pack_start(entry, False, False)
 
         # network security options
-        options_view, model = self.create_treeview(["ACCEPT_BOGUS_ERROR_RESPONSES", "ACCEPT_BROADCASTED_ICMP_ECHO",
-                                            "ACCEPT_ICMP_ECHO", "ALLOW_REMOTE_ROOT_LOGIN",
-                                            "ALLOW_X_CONNECTIONS", "ALLOW_XSERVER_TO_LISTEN",
-                                            "AUTHORIZE_SERVICES", "ENABLE_DNS_SPOOFING_PROTECTION",
-                                            "ENABLE_IP_SPOOFING_PROTECTION", "ENABLE_LOG_STRANGE_PACKETS",
-                                            ])
+        options_view, model = self.create_treeview(config.SETTINGS_NETWORK)
         self.current_options_view[id] = (model, self.msecconfig)
         vbox.pack_start(options_view)
 
@@ -743,12 +730,7 @@ class MsecGui:
         vbox.pack_start(self.periodic_checks, False, False)
 
         # network security options
-        options_view, model = self.create_treeview(["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5",
-                                            "CHECK_SGID", "CHECK_WRITABLE", "CHECK_UNOWNED",
-                                            "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_PASSWD",
-                                            "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM",
-                                            "CHECK_SHOSTS", "TTY_WARN", "SYSLOG_WARN", "MAIL_EMPTY_CONTENT",
-                                            ])
+        options_view, model = self.create_treeview(config.SETTINGS_PERIODIC)
         vbox.pack_start(options_view)
 
         # see if these tests are enabled

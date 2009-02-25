@@ -28,4 +28,5 @@ class apparmor:
     def enable_apparmor(self, params):
         """Enable AppArmor security framework on boot"""
         if self.log:
-            self.log.info("AppArmor plugin: not implemented yet!")
+            #self.log.info("AppArmor plugin: not implemented yet!")
+            pass

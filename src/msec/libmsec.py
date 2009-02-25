@@ -724,7 +724,7 @@ class ConfigFile:
 # {{{ MSEC - main class
 class MSEC:
     """Main msec class. Contains all functions and performs the actions"""
-    def __init__(self, log, root=''):
+    def __init__(self, log, root='', plugins="plugins"):
         """Initializes config files and associations"""
         # all config files
         self.log = log
@@ -741,7 +741,31 @@ class MSEC:
         self.configfiles.add_config_assoc('^/etc/issue$', '/usr/bin/killall mingetty')
 
         # plugins
+        self.init_plugins(plugins)
+
+    def init_plugins(self, path):
+        """Loads msec plugins from path"""
         self.plugins = {}
+        plugin_files = glob.glob("%s/*.py" % path)
+        plugin_r = re.compile("plugins/(.*).py")
+        sys.path.insert(0, path)
+        for file in plugin_files:
+            f = plugin_r.findall(file)
+            if f:
+                plugin_f = f[0]
+                try:
+                    plugin = __import__(plugin_f, fromlist=[path])
+                    if not hasattr(plugin, "PLUGIN"):
+                        # not a valid plugin
+                        continue
+                    self.log.debug("Loading plugin %s" % file)
+                    plugin_name = getattr(plugin, "PLUGIN")
+                    plugin_class = getattr(plugin, plugin_name)
+                    plugin = plugin_class(log=self.log, configfiles=self.configfiles, root=self.root)
+                    self.plugins[plugin_f] = plugin
+                    self.log.debug("Loaded plugin '%s'" % plugin_f)
+                except:
+                    self.log.error(_("Error loading plugin '%s' from %s: %s") % (plugin_f, file, sys.exc_value))
 
     def reset(self):
         """Resets the configuration"""
@@ -752,24 +776,23 @@ class MSEC:
         """Determines correspondent function for requested action."""
         # finding out what function to call
         try:
-            plugin, callback = name.split(".", 1)
+            plugin_, callback = name.split(".", 1)
         except:
             # bad format?
             self.log.error(_("Invalid callback: %s") % (name))
             return None
-
         # is it a main function or a plugin?
-        if plugin == config.MAIN_LIB:
-            plugin_ = self
+        if plugin_ == config.MAIN_LIB:
+            plugin = self
         else:
-            if plugin in self.plugins:
-                plugin_ = self.plugins[plugin]
+            if plugin_ in self.plugins:
+                plugin = self.plugins[plugin_]
             else:
-                self.log.info(_("Plugin %s not found") % plugin)
+                self.log.info(_("Plugin %s not found") % plugin_)
                 return self.log.info
                 return None
         try:
-            func = getattr(plugin_, callback)
+            func = getattr(plugin, callback)
             return func
         except:
             self.log.info(_("Not supported function '%s' in '%s'") % (callback, plugin))
@@ -1608,10 +1631,6 @@ class MSEC:
         pass
 
     # TODO: unfinished
-    def enable_apparmor(self, param):
-        """Enable AppArmor security framework on boot"""
-        pass
-
     def enable_policykit(self, param):
         """Enable PolicyKit security framework"""
         pass

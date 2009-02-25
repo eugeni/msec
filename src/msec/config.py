@@ -47,6 +47,7 @@ MODIFICATIONS_NOT_FOUND = _('No changes in system files')
 
 # plugins
 MAIN_LIB="libmsec"
+PLUGINS_DIR="/usr/share/msec/plugins"
 
 # msec callbacks and valid values
 #               OPTION                           callback                            valid values

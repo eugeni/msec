@@ -724,7 +724,7 @@ class ConfigFile:
 # {{{ MSEC - main class
 class MSEC:
     """Main msec class. Contains all functions and performs the actions"""
-    def __init__(self, log, root='', plugins="plugins"):
+    def __init__(self, log, root='', plugins=PLUGINS_DIR):
         """Initializes config files and associations"""
         # all config files
         self.log = log
@@ -743,7 +743,7 @@ class MSEC:
         # plugins
         self.init_plugins(plugins)
 
-    def init_plugins(self, path):
+    def init_plugins(self, path=PLUGINS_DIR):
         """Loads msec plugins from path"""
         self.plugins = {}
         plugin_files = glob.glob("%s/*.py" % path)

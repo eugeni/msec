@@ -1649,7 +1649,7 @@ class MSEC:
         pass
 
     def enable_startup_perms(self, param):
-        """Enforce MSEC file directory permissions on system startup"""
+        """Enforce MSEC file directory permissions on system startup. If this parameter is set to 'enforce', system permissions will be enforced automatically, according to system security settings."""
         pass
 
 

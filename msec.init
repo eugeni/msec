@@ -34,6 +34,10 @@ case "$1" in
 		gprintf "Setting and checking MSEC permissions"
 		/usr/sbin/msecperms -q
 		echo_success
+	elif [ "$ENABLE_STARTUP_PERMS" = "enforce" ]; then
+		gprintf "Setting and enforcing MSEC permissions"
+		/usr/sbin/msecperms -q
+		echo_success
 	fi
 	;;
   stop)
@@ -45,11 +49,15 @@ case "$1" in
 	else
 		gprintf "MSEC security policy on startup: disabled"
 	fi
+	echo
 	if [ "$ENABLE_STARTUP_PERMS" = "yes" ]; then
 		gprintf "MSEC permissions on startup: enabled"
+	elif [ "$ENABLE_STARTUP_PERMS" = "enforce" ]; then
+		gprintf "MSEC permissions on startup: enforced"
 	else
 		gprintf "MSEC permissions on startup: disabled"
 	fi
+	echo
 	;;
   restart)
 	$0 stop

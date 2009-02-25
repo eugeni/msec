@@ -109,7 +109,7 @@ SETTINGS =    {'BASE_LEVEL':                    ("libmsec.base_level",          
                'SHELL_HISTORY_SIZE':            ("libmsec.set_shell_history_size",          ['*']),
                'SHELL_TIMEOUT':                 ("libmsec.set_shell_timeout",               ['*']),
                'ENABLE_STARTUP_MSEC':           ("libmsec.enable_startup_msec",             ['yes', 'no']),
-               'ENABLE_STARTUP_PERMS':          ("libmsec.enable_startup_perms",            ['yes', 'no']),
+               'ENABLE_STARTUP_PERMS':          ("libmsec.enable_startup_perms",            ['yes', 'no', 'enforce']),
                }
 # text for disabled options
 OPTION_DISABLED=_("System default")

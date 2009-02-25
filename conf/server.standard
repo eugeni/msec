@@ -19,6 +19,7 @@ iptables
 iptoip
 isdn4linux
 keytable
+msec
 named
 network
 ntpd

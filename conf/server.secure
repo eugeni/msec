@@ -5,6 +5,7 @@ gpm
 haldaemon
 ipchains
 keytable
+msec
 network
 pcmcia
 prelude

@@ -101,7 +101,6 @@ SETTINGS =    {'BASE_LEVEL':                    ("libmsec.base_level",          
                'ENABLE_SUDO':                   ("libmsec.enable_sudo",                     ['yes', 'no', 'wheel']),
                'ENABLE_PAM_WHEEL_FOR_SU':       ("libmsec.enable_pam_wheel_for_su",         ['yes', 'no']),
                'ENABLE_SULOGIN':                ("libmsec.enable_sulogin",                  ['yes', 'no']),
-               'ENABLE_POLICYKIT':              ("libmsec.enable_policykit",                ['yes', 'no']),
                # password stuff
                'ENABLE_PASSWORD':               ("libmsec.enable_password",                 ['yes', 'no']),
                'PASSWORD_HISTORY':              ("libmsec.password_history",                ['*']),

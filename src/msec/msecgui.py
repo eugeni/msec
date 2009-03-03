@@ -187,7 +187,7 @@ class MsecGui:
         try:
             # logo
             image = gtk.Image()
-            pixbuf = gtk.gdk.pixbuf_new_from_file(BANNER)
+            pixbuf = gtk.gdk.pixbuf_new_from_file("%s/%s" % (config.MSEC_DIR, BANNER))
             image.set_from_pixbuf(pixbuf)
             banner.pack_start(image, False, False)
             label = gtk.Label(_("MSEC: System Security and Audit"))

@@ -46,6 +46,7 @@ MODIFICATIONS_FOUND = _('Modified system files')
 MODIFICATIONS_NOT_FOUND = _('No changes in system files')
 
 # plugins
+MSEC_DIR="/usr/share/msec"
 MAIN_LIB="libmsec"
 PLUGINS_DIR="/usr/share/msec/plugins"
 

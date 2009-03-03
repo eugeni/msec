@@ -37,10 +37,12 @@ install: all
 	# install main msec files
 	for i in libmsec.py config.py msec.py msecperms.py msecgui.py help.py version.py; do \
 	    install -m755 src/msec/$$i $(RPM_BUILD_ROOT)/usr/share/msec ; \
+	    install -m755 src/msec/$${i}o $(RPM_BUILD_ROOT)/usr/share/plugins ; \
 	done
 	# install plugins
-	for i in apparmor.py; do \
+	for i in apparmor.py policykit.py; do \
 	    install -m755 src/msec/plugins/$$i $(RPM_BUILD_ROOT)/usr/share/msec/plugins ; \
+	    install -m755 src/msec/plugins/$${i}o $(RPM_BUILD_ROOT)/usr/share/msec/plugins ; \
 	done
 	# install sbin files
 	for i in msec msecperms msecgui; do \

@@ -47,6 +47,8 @@ install: all
 		install -m755 src/msec/$$i $(RPM_BUILD_ROOT)/usr/sbin ; \
 	done
 	cp conf/perm.* conf/server.* conf/level.* $(RPM_BUILD_ROOT)/etc/security/msec
+	# install banner
+	install -m755 src/msec/msec.png $(RPM_BUILD_ROOT)/usr/share/msec
 
 	mkdir -p $(RPM_BUILD_ROOT)/var/log
 	mkdir -p $(RPM_BUILD_ROOT)/var/log/security

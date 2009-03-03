@@ -8,6 +8,7 @@ import sys
 import string
 import getopt
 import signal
+import traceback
 import Queue
 
 # PyGTK
@@ -88,6 +89,7 @@ SAVE_SETTINGS_TEXT=_("""Save and apply new configuration?""")
 
 # gui-related settings
 DEFAULT_SPACING=5
+BANNER="msec.png"
 
 class MsecGui:
     """Msec GUI"""
@@ -179,6 +181,22 @@ class MsecGui:
                 else:
                     menuitem.set_sensitive(False)
                 menu.add(menuitem)
+
+        # creating logo
+        banner = gtk.HBox(homogeneous=False, spacing=10)
+        try:
+            # logo
+            image = gtk.Image()
+            pixbuf = gtk.gdk.pixbuf_new_from_file(BANNER)
+            image.set_from_pixbuf(pixbuf)
+            banner.pack_start(image, False, False)
+            label = gtk.Label(_("MSEC: System Security and Audit"))
+            label.modify_font(pango.FontDescription("13"))
+            banner.pack_start(label, False, False)
+            main_vbox.pack_start(banner, False, False)
+        except:
+            traceback.print_exc()
+            print "Not found"
 
         # creating tabs
         self.notebook = gtk.Notebook()

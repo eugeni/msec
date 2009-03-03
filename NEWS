@@ -1,3 +1,9 @@
+Version 0.60.13 - March 02 2009, Eugeni Dodonov
+- Added banner for msecgui.
+- Moved PolicyKit code to plugin.
+- Changed default ENABLE_STARTUP parameters to be in sync with
+  crontab settings.
+
 Version 0.60.12 - February 25 2009, Eugeni Dodonov
 - Correctly handle wheel group authentication (#19091)
 - Correctly handling CHECK_RPM and CHECK_CHKROOTKIT parameters.

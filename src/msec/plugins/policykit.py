@@ -26,7 +26,7 @@ class policykit:
         config.SETTINGS_SYSTEM.append(param)
 
     def enable_policykit(self, params):
-        """Enable PolicyKit security framework"""
+        """Enable PolicyKit security framework for all users. If this option is not enabled, only users in wheel group may change advanced PolicyKit permissions and settings"""
         if self.log:
             #self.log.info("policykit plugin: not implemented yet!")
             pass

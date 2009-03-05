@@ -7,6 +7,7 @@ PLUGIN = "pam"
 import os
 import re
 import gettext
+import grp
 
 # configuration
 import config

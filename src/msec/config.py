@@ -98,15 +98,8 @@ SETTINGS =    {'BASE_LEVEL':                    ("libmsec.base_level",          
                'ENABLE_IP_SPOOFING_PROTECTION': ("libmsec.enable_dns_spoofing_protection",  ['yes', 'no']),
                'ENABLE_LOG_STRANGE_PACKETS':    ("libmsec.enable_log_strange_packets",      ['yes', 'no']),
                'ENABLE_MSEC_CRON':              ("libmsec.enable_msec_cron",                ['yes', 'no']),
-               'ENABLE_PAM_ROOT_FROM_WHEEL':    ("libmsec.enable_pam_root_from_wheel",      ['yes', 'no']),
                'ENABLE_SUDO':                   ("libmsec.enable_sudo",                     ['yes', 'no', 'wheel']),
-               'ENABLE_PAM_WHEEL_FOR_SU':       ("libmsec.enable_pam_wheel_for_su",         ['yes', 'no']),
                'ENABLE_SULOGIN':                ("libmsec.enable_sulogin",                  ['yes', 'no']),
-               # password stuff
-               'ENABLE_PASSWORD':               ("libmsec.enable_password",                 ['yes', 'no']),
-               'PASSWORD_HISTORY':              ("libmsec.password_history",                ['*']),
-               #                                                                        format: min length, num upper, num digits
-               'PASSWORD_LENGTH':               ("libmsec.password_length",                 ['*']),
                'SHELL_HISTORY_SIZE':            ("libmsec.set_shell_history_size",          ['*']),
                'SHELL_TIMEOUT':                 ("libmsec.set_shell_timeout",               ['*']),
                'ENABLE_STARTUP_MSEC':           ("libmsec.enable_startup_msec",             ['yes', 'no']),
@@ -118,11 +111,10 @@ OPTION_DISABLED=_("System default")
 # settings organizes by category
 # system security settings
 SETTINGS_SYSTEM = ["ENABLE_STARTUP_MSEC", "ENABLE_STARTUP_PERMS", "ENABLE_MSEC_CRON",
-                    "ENABLE_PAM_WHEEL_FOR_SU", "ENABLE_SULOGIN", "CREATE_SERVER_LINK", "ENABLE_AT_CRONTAB",
-                    "ALLOW_ROOT_LOGIN", "ALLOW_USER_LIST", "ENABLE_PASSWORD", "ALLOW_AUTOLOGIN",
-                    "ENABLE_CONSOLE_LOG", "ENABLE_PAM_WHEEL_FOR_SU", "CREATE_SERVER_LINK",
-                    "ALLOW_XAUTH_FROM_ROOT", "ALLOW_REBOOT", "SHELL_HISTORY_SIZE", "SHELL_TIMEOUT", "PASSWORD_LENGTH",
-                    "PASSWORD_HISTORY", "USER_UMASK", "ROOT_UMASK",
+                    "ENABLE_SULOGIN", "CREATE_SERVER_LINK", "ENABLE_AT_CRONTAB",
+                    "ALLOW_ROOT_LOGIN", "ALLOW_USER_LIST", "ALLOW_AUTOLOGIN",
+                    "ENABLE_CONSOLE_LOG", "CREATE_SERVER_LINK", "ALLOW_XAUTH_FROM_ROOT",
+                    "ALLOW_REBOOT", "SHELL_HISTORY_SIZE", "SHELL_TIMEOUT", "USER_UMASK", "ROOT_UMASK",
                     ]
 # network security settings
 SETTINGS_NETWORK = ["ACCEPT_BOGUS_ERROR_RESPONSES", "ACCEPT_BROADCASTED_ICMP_ECHO", "ACCEPT_ICMP_ECHO",

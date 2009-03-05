@@ -93,20 +93,16 @@ OPASSWD = '/etc/security/opasswd'
 PASSWD = '/etc/pam.d/passwd'
 POWEROFF = '/usr/bin/poweroff'
 REBOOT = '/usr/bin/reboot'
-SECURETTY = '/etc/securetty'
 SECURITYCRON = '/etc/cron.daily/msec'
 SECURITYSH = '/usr/share/msec/security.sh'
 SERVER = '/etc/security/msec/server'
 SHADOW = '/etc/shadow'
 SHUTDOWN = '/usr/bin/shutdown'
 SHUTDOWNALLOW = '/etc/shutdown.allow'
-SIMPLE_ROOT_AUTHEN = '/etc/pam.d/simple_root_authen'
 SSHDCONFIG = '/etc/ssh/sshd_config'
 STARTX = '/usr/bin/startx'
-SU = '/etc/pam.d/su'
 SYSCTLCONF = '/etc/sysctl.conf'
 SYSLOGCONF = '/etc/syslog.conf'
-SYSTEM_AUTH = '/etc/pam.d/system-auth'
 XDM = '/etc/pam.d/xdm'
 XSERVERS = '/etc/X11/xdm/Xservers'
 EXPORT = '/root/.xauth/export'
@@ -121,6 +117,7 @@ AFTER=2
 # regexps
 space = re.compile('\s')
 # X server
+SECURETTY = '/etc/securetty'
 STARTX_REGEXP = '(\s*serverargs=".*) -nolisten tcp(.*")'
 XSERVERS_REGEXP = '(\s*[^#]+/usr/bin/X .*) -nolisten tcp(.*)'
 GDMCONF_REGEXP = '(\s*command=.*/X.*?) -nolisten tcp(.*)$'
@@ -131,22 +128,12 @@ CTRALTDEL_REGEXP = '^ca::ctrlaltdel:/sbin/shutdown.*'
 CONSOLE_HELPER = 'consolehelper'
 # ssh PermitRootLogin
 PERMIT_ROOT_LOGIN_REGEXP = '^\s*PermitRootLogin\s+(no|yes|without-password|forced-commands-only)'
-# pam
-SUCCEED_MATCH = '^auth\s+sufficient\s+pam_succeed_if.so\s+use_uid\s+user\s+ingroup\s+wheel\s*$'
-SUCCEED_LINE = 'auth       sufficient   pam_succeed_if.so use_uid user ingroup wheel'
 # cron
 CRON_ENTRY = '*/1 * * * *    root    /usr/share/msec/promisc_check.sh'
 CRON_REGEX = '[^#]+/usr/share/msec/promisc_check.sh'
 # tcp_wrappers
 ALL_REGEXP = '^ALL:ALL:DENY'
 ALL_LOCAL_REGEXP = '^ALL:ALL EXCEPT 127\.0\.0\.1:DENY'
-# password stuff
-LENGTH_REGEXP = re.compile('^(password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*?)\sminlen=([0-9]+)\s(.*)')
-NDIGITS_REGEXP = re.compile('^(password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*?)\sdcredit=([0-9]+)\s(.*)')
-UCREDIT_REGEXP = re.compile('^(password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*?)\sucredit=([0-9]+)\s(.*)')
-PASSWORD_REGEXP = '^\s*auth\s+sufficient\s+(?:/lib/security/)?pam_permit.so'
-UNIX_REGEXP = re.compile('(^\s*password\s+sufficient\s+(?:/lib/security/)?pam_unix.so.*)\sremember=([0-9]+)(.*)')
-PAM_TCB_REGEXP = re.compile('(^\s*password\s+sufficient\s+(?:/lib/security/)?pam_tcb.so.*)')
 # sulogin
 SULOGIN_REGEXP = '~~:S:wait:/sbin/sulogin'
 
@@ -1088,59 +1075,6 @@ class MSEC:
                     self.log.info(_("Forbidding list of users in GDM"))
                     gdmconf.set_shell_variable('Browser', 'false')
 
-    def allow_root_login(self, arg):
-        '''  Allow direct root login on terminal.'''
-        securetty = self.configfiles.get_config_file(SECURETTY)
-        kde = self.configfiles.get_config_file(KDE)
-        gdm = self.configfiles.get_config_file(GDM)
-        gdmconf = self.configfiles.get_config_file(GDMCONF)
-        xdm = self.configfiles.get_config_file(XDM)
-
-        val = {}
-        val_kde = kde.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
-        val_gdm = gdm.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
-        val_xdm = xdm.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
-        num = 0
-        for n in range(1, 7):
-            s = 'tty' + str(n)
-            if securetty.get_match(s):
-                num = num + 1
-            s = 'vc/' + str(n)
-            if securetty.get_match(s):
-                num = num + 1
-
-        if arg == "yes":
-            if val_kde or val_gdm or val_xdm or num != 12:
-                self.log.info(_('Allowing direct root login'))
-                if gdmconf.exists():
-                    gdmconf.set_shell_variable('ConfigAvailable', 'true', '\[greeter\]', '^\s*$')
-
-                for cnf in [kde, gdm, xdm]:
-                    if cnf.exists():
-                        cnf.remove_line_matching('^auth\s*required\s*(?:/lib/security/)?pam_listfile.so.*bastille-no-login', 1)
-
-                for n in range(1, 7):
-                    s = 'tty' + str(n)
-                    securetty.replace_line_matching(s, s, 1)
-                    s = 'vc/' + str(n)
-                    securetty.replace_line_matching(s, s, 1)
-        else:
-            if gdmconf.exists():
-                gdmconf.set_shell_variable('ConfigAvailable', 'false', '\[greeter\]', '^\s*$')
-            if (kde.exists() and not val_kde) or (gdm.exists() and not val_gdm) or (xdm.exists() and not val_xdm) or num > 0:
-                self.log.info(_('Forbidding direct root login'))
-
-                bastillenologin = self.configfiles.get_config_file(BASTILLENOLOGIN)
-                bastillenologin.replace_line_matching('^\s*root', 'root', 1)
-
-                # TODO: simplify this
-                for cnf in [kde, gdm, xdm]:
-                    if cnf.exists():
-                        (cnf.replace_line_matching('^auth\s*required\s*(?:/lib/security/)?pam_listfile.so.*bastille-no-login',
-                            'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login') or
-                          cnf.insert_at(0, 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login'))
-                securetty.remove_line_matching('.+', 1)
-
     def allow_remote_root_login(self, arg):
         '''  Allow remote root login via sshd. If yes, login is allowed. If without-password, only public-key authentication logins are allowed. See sshd_config(5) man page for more information.'''
         sshd_config = self.configfiles.get_config_file(SSHDCONFIG)
@@ -1163,62 +1097,6 @@ class MSEC:
                 self.log.info(_('Allowing remote root login only by passphrase'))
                 sshd_config.exists() and sshd_config.replace_line_matching(PERMIT_ROOT_LOGIN_REGEXP,
                                                                            'PermitRootLogin without-password', 1)
-
-    def enable_pam_wheel_for_su(self, arg):
-        ''' Allow only users in wheel grup to su to root.'''
-        su = self.configfiles.get_config_file(SU)
-
-        val = su.get_match('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$')
-
-        if arg == "yes":
-            if not val:
-                self.log.info(_('Allowing su only from wheel group members'))
-                try:
-                    ent = grp.getgrnam('wheel')
-                except KeyError:
-                    error(_('no wheel group'))
-                    return
-                members = ent[3]
-                if members == [] or members == ['root']:
-                    self.log.error(_('wheel group is empty'))
-                    return
-                if su.exists():
-                    (su.replace_line_matching('^[#\s]*auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$',
-                                                          'auth       required     pam_wheel.so use_uid') or \
-                                 su.insert_before('^auth\s+include', 'auth       required     pam_wheel.so use_uid'))
-        else:
-            if val:
-                self.log.info(_('Allowing su for all'))
-                if su.exists():
-                    su.replace_line_matching('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$',
-                                                          '# auth       required     pam_wheel.so use_uid')
-
-    def enable_pam_root_from_wheel(self, arg):
-        '''   Allow root access without password for the members of the wheel group.'''
-        su = self.configfiles.get_config_file(SU)
-        simple = self.configfiles.get_config_file(SIMPLE_ROOT_AUTHEN)
-
-        if not su.exists():
-            return
-
-        val = su.get_match(SUCCEED_MATCH)
-
-        val_simple = simple.get_match(SUCCEED_MATCH)
-
-        if arg == "yes":
-            if not val or not val_simple:
-                self.log.info(_('Allowing transparent root access for wheel group members'))
-                if not val:
-                    su.insert_before('^auth\s+sufficient', SUCCEED_LINE)
-                if simple.exists() and not val_simple:
-                    simple.insert_before('^auth\s+sufficient', SUCCEED_LINE)
-        else:
-            if val or val_simple:
-                self.log.info(_('Disabling transparent root access for wheel group members'))
-                if val:
-                    su.remove_line_matching(SUCCEED_MATCH)
-                if simple.exists() and val_simple:
-                    simple.remove_line_matching(SUCCEED_MATCH)
 
     def allow_autologin(self, arg):
         '''  Allow autologin.'''
@@ -1368,107 +1246,6 @@ class MSEC:
         '''  Enable logging of strange network packets.'''
         self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.log_martians', arg, 'Enabling logging of strange packets', 'Disabling logging of strange packets')
 
-    def password_length(self, arg):
-        ''' Set the password minimum length and minimum number of digit and minimum number of capitalized letters, using length,ndigits,nupper format.'''
-
-        try:
-            length, ndigits, nupper = arg.split(",")
-            length = int(length)
-            ndigits = int(ndigits)
-            nupper = int(nupper)
-        except:
-            self.log.error(_('Invalid password length "%s". Use "length,ndigits,nupper" as parameter') % arg)
-            return
-
-        passwd = self.configfiles.get_config_file(SYSTEM_AUTH)
-
-        val_length = val_ndigits = val_ucredit = 999999
-
-        if passwd.exists():
-            val_length  = passwd.get_match(LENGTH_REGEXP, '@2')
-            if val_length:
-                val_length = int(val_length)
-
-            val_ndigits = passwd.get_match(NDIGITS_REGEXP, '@2')
-            if val_ndigits:
-                val_ndigits = int(val_ndigits)
-
-            val_ucredit = passwd.get_match(UCREDIT_REGEXP, '@2')
-            if val_ucredit:
-                val_ucredit = int(val_ucredit)
-
-        if passwd.exists() and (val_length != length or val_ndigits != ndigits or val_ucredit != nupper):
-            self.log.info(_('Setting minimum password length %d') % length)
-            (passwd.replace_line_matching(LENGTH_REGEXP,
-                                          '@1 minlen=%s @3' % length) or \
-             passwd.replace_line_matching('^password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*',
-                                          '@0 minlen=%s ' % length))
-
-            (passwd.replace_line_matching(NDIGITS_REGEXP,
-                                          '@1 dcredit=%s @3' % ndigits) or \
-             passwd.replace_line_matching('^password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*',
-                                          '@0 dcredit=%s ' % ndigits))
-
-            (passwd.replace_line_matching(UCREDIT_REGEXP,
-                                          '@1 ucredit=%s @3' % nupper) or \
-             passwd.replace_line_matching('^password\s+required\s+(?:/lib/security/)?pam_cracklib.so.*',
-                                          '@0 ucredit=%s ' % nupper))
-
-    def enable_password(self, arg):
-        ''' Use password to authenticate users. Take EXTREMELY care when disabling passwords, as it will leave the machine vulnerable.'''
-        system_auth = self.configfiles.get_config_file(SYSTEM_AUTH)
-
-        val = system_auth.get_match(PASSWORD_REGEXP)
-
-        if arg == "yes":
-            if val:
-                self.log.info(_('Using password to authenticate users'))
-                system_auth.remove_line_matching(PASSWORD_REGEXP)
-        else:
-            if not val:
-                self.log.info(_('Don\'t use password to authenticate users'))
-                system_auth.replace_line_matching(PASSWORD_REGEXP, 'auth        sufficient    pam_permit.so') or \
-                system_auth.insert_before('auth\s+sufficient', 'auth        sufficient    pam_permit.so')
-
-    def password_history(self, arg):
-        ''' Set the password history length to prevent password reuse. This is not supported by pam_tcb. '''
-
-        system_auth = self.configfiles.get_config_file(SYSTEM_AUTH)
-
-        pam_tcb = system_auth.get_match(PAM_TCB_REGEXP)
-        if pam_tcb:
-            self.log.info(_('Password history not supported with pam_tcb.'))
-            return
-
-        # verify parameter validity
-        # max
-        try:
-            history = int(arg)
-        except:
-            self.log.error(_('Invalid maximum password history length: "%s"') % arg)
-            return
-
-        if system_auth.exists():
-            val = system_auth.get_match(UNIX_REGEXP, '@2')
-
-            if val and val != '':
-                val = int(val)
-            else:
-                val = 0
-        else:
-            val = 0
-
-        if history != val:
-            if history > 0:
-                self.log.info(_('Setting password history to %d.') % history)
-                system_auth.replace_line_matching(UNIX_REGEXP, '@1 remember=%d@3' % history) or \
-                system_auth.replace_line_matching('(^\s*password\s+sufficient\s+(?:/lib/security/)?pam_unix.so.*)', '@1 remember=%d' % history)
-                opasswd = self.configfiles.get_config_file(OPASSWD)
-                opasswd.exists() or opasswd.touch()
-            else:
-                self.log.info(_('Disabling password history'))
-                system_auth.replace_line_matching(UNIX_REGEXP, '@1@3')
-
     def enable_sulogin(self, arg):
         ''' Ask for root password when going to single user level (man sulogin(8)).'''
         inittab = self.configfiles.get_config_file(INITTAB)
@@ -1549,6 +1326,59 @@ class MSEC:
             if val:
                 self.log.info(_('Disabling periodic promiscuity check'))
                 cron.remove_line_matching('[^#]+/usr/share/msec/promisc_check.sh')
+
+    def allow_root_login(self, arg):
+        '''  Allow direct root login on terminal.'''
+        securetty = self.configfiles.get_config_file(SECURETTY)
+        kde = self.configfiles.get_config_file(KDE)
+        gdm = self.configfiles.get_config_file(GDM)
+        gdmconf = self.configfiles.get_config_file(GDMCONF)
+        xdm = self.configfiles.get_config_file(XDM)
+
+        val = {}
+        val_kde = kde.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+        val_gdm = gdm.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+        val_xdm = xdm.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
+        num = 0
+        for n in range(1, 7):
+            s = 'tty' + str(n)
+            if securetty.get_match(s):
+                num = num + 1
+            s = 'vc/' + str(n)
+            if securetty.get_match(s):
+                num = num + 1
+
+        if arg == "yes":
+            if val_kde or val_gdm or val_xdm or num != 12:
+                self.log.info(_('Allowing direct root login'))
+                if gdmconf.exists():
+                    gdmconf.set_shell_variable('ConfigAvailable', 'true', '\[greeter\]', '^\s*$')
+
+                for cnf in [kde, gdm, xdm]:
+                    if cnf.exists():
+                        cnf.remove_line_matching('^auth\s*required\s*(?:/lib/security/)?pam_listfile.so.*bastille-no-login', 1)
+
+                for n in range(1, 7):
+                    s = 'tty' + str(n)
+                    securetty.replace_line_matching(s, s, 1)
+                    s = 'vc/' + str(n)
+                    securetty.replace_line_matching(s, s, 1)
+        else:
+            if gdmconf.exists():
+                gdmconf.set_shell_variable('ConfigAvailable', 'false', '\[greeter\]', '^\s*$')
+            if (kde.exists() and not val_kde) or (gdm.exists() and not val_gdm) or (xdm.exists() and not val_xdm) or num > 0:
+                self.log.info(_('Forbidding direct root login'))
+
+                bastillenologin = self.configfiles.get_config_file(BASTILLENOLOGIN)
+                bastillenologin.replace_line_matching('^\s*root', 'root', 1)
+
+                # TODO: simplify this
+                for cnf in [kde, gdm, xdm]:
+                    if cnf.exists():
+                        (cnf.replace_line_matching('^auth\s*required\s*(?:/lib/security/)?pam_listfile.so.*bastille-no-login',
+                            'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login') or
+                          cnf.insert_at(0, 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login'))
+                securetty.remove_line_matching('.+', 1)
 
     # The following checks are run from crontab. We only have these functions here
     # to get their descriptions.

@@ -1,3 +1,7 @@
+Version 0.60.14 - March 05 2009, Eugeni Dodonov
+- Modularization: moved pam-related functionality to pam plugin.
+- Updated list of safe services.
+
 Version 0.60.13 - March 02 2009, Eugeni Dodonov
 - Added banner for msecgui.
 - Moved PolicyKit code to plugin.

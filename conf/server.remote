@@ -40,6 +40,7 @@ ospfd
 ospf6d
 partmon
 pcmcia
+portreserve
 pptp
 pptpd
 preload

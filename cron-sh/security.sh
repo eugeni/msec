@@ -177,7 +177,7 @@ if [[ ${CHECK_RPM} == yes ]]; then
     rpm -qa --qf "%{NAME}-%{VERSION}-%{RELEASE}\t%{INSTALLTIME}\n" | sort > ${RPM_QA_TODAY}
 
     rm -f ${RPM_VA_TODAY}.tmp
-    nice --adjustment=+19 rpm -Va | grep '^..5' | sort > ${RPM_VA_TODAY}.tmp
+    nice --adjustment=+19 rpm -Va --noscripts | grep '^..5' | sort > ${RPM_VA_TODAY}.tmp
     grep -v '^..........c.'  ${RPM_VA_TODAY}.tmp | sed 's/^............//' | sort > ${RPM_VA_TODAY}
     grep '^..........c.'  ${RPM_VA_TODAY}.tmp | sed 's/^............//' | sort > ${RPM_VA_CONFIG_TODAY}
     rm -f ${RPM_VA_TODAY}.tmp

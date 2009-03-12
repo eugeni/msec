@@ -89,13 +89,15 @@ fi
 list=".bashrc .bash_profile .bash_login .bash_logout .cshrc .emacs .exrc \
 .forward .klogin .login .logout .profile .tcshrc .fvwmrc .inputrc .kshrc \
 .nexrc .screenrc .ssh .ssh/config .ssh/authorized_keys .ssh/environment \
-.ssh/known_hosts .ssh/rc .twmrc .xsession .xinitrc .Xdefaults"
+.ssh/known_hosts .ssh/rc .twmrc .xsession .xinitrc .Xdefaults \
+.gnupg .gnupg/secring.gpg .ssh/identity .ssh/id_dsa .ssh/id_rsa \
+.Xauthority .cvspass .subversion/auth .purple/accounts.xml .config "
 getent passwd | awk -F: '/^[^+-]/ { print $1 ":" $3 ":" $6 }' | \
 while IFS=: read username uid homedir; do
     if ! expr "$homedir" : "$FILTER"  > /dev/null; then
 	for f in ${list} ; do
 	    file="${homedir}/${f}"
-	    if [[ -f "${file}" ]] ; then
+	    if [[ -e "${file}" ]] ; then
 		res=`ls -LldcGn "${file}" | sed 's/ \{1,\}/:/g'`
 		printf "${uid}:${username}:${file}:${res}\n"
 	    fi

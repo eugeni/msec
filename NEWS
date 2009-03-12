@@ -1,3 +1,11 @@
+Version 0.60.15 - March 12 2009, Eugeni Dodonov
+- Added specific permission for /var/log/btmp and wtmp (#48604)
+- Do not run chkrootkit on NFS partitions (#37753).
+- Changed CREATE_SERVER_LINK functionality to allow/deny local and remote
+  services, enabling it on secure level only.
+- Updated list of files that should not be world-writable or not user-owned.
+- Running rpm database check with "--noscripts" (#42849).
+
 Version 0.60.14 - March 05 2009, Eugeni Dodonov
 - Modularization: moved pam-related functionality to pam plugin.
 - Updated list of safe services.

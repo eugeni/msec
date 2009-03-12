@@ -85,8 +85,8 @@
 /var/lock/subsys				root.adm		750
 /var/log/					root.adm		751
 /var/log/*					root.root		640
-/var/log/btmp					root.utmp		600
-/var/log/wtmp					root.utmp		664
+/var/log/btmp					root.utmp		600 force
+/var/log/wtmp					root.utmp		664 force
 /var/log/Xorg.0.log				current.current		current
 /var/log/lp-errs				lp.lp			600
 /var/log/*/*					current.current		600

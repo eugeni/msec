@@ -186,7 +186,8 @@ fi
 ### chkrootkit checks
 if [[ ${CHECK_CHKROOTKIT} == yes ]]; then
     if [ -x /usr/sbin/chkrootkit ]; then
-	/usr/sbin/chkrootkit ${CHKROOTKIT_OPTION} > ${CHKROOTKIT_TODAY}
+	# do not check on NFS
+	/usr/sbin/chkrootkit -n ${CHKROOTKIT_OPTION} > ${CHKROOTKIT_TODAY}
     fi
 fi
 

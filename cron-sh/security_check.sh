@@ -317,6 +317,7 @@ if [[ -s ${SECURITY} ]]; then
     cat ${INFOS} >> ${SECURITY_LOG}
 
     Maillog "[msec] *** Security Check on ${hostname}, ${date} ***" "${SECURITY} ${INFOS}"
+    Notifylog "MSEC has performed Security Check on ${hostname} on ${date}"
 fi
 
 if [[ -f ${SECURITY} ]]; then

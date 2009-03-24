@@ -48,42 +48,31 @@ except IOError:
 
 # text strings
 LEVEL_SECURITY_TEXT=_("""<big><b>Choose security level</b></big>
-
 This application allows you to configure your system security. If you wish
-to activate it, choose the appropriate security level:
-""")
+to activate it, choose the appropriate security level: """)
 
 STANDARD_LEVEL_DESCRIPTION=_("""This profile configures a reasonably safe set of security features. It activates several non-intrusive periodic system checks. This is the suggested level for Desktop.""")
 
-SECURE_LEVEL_DESCRIPTION=_("""This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks, enforces the local password settings, and periodically checks if the system security settings, configured here, were modified. """)
+SECURE_LEVEL_DESCRIPTION=_("""This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks. This level is suggested for Servers and security-concerned systems . """)
 
 
-SYSTEM_SECURITY_TEXT=_("""System security options.
-
+SYSTEM_SECURITY_TEXT=_("""<big><b>System security options</b></big>
 These options control the local security configuration, such as the login restrictions,
 password configurations, integration with other security tools, and default file creation
-permissions.
-""")
+permissions.  """)
 
-NETWORK_SECURITY_TEXT=_("""Network security options.
-
+NETWORK_SECURITY_TEXT=_("""<big><b>Network security options</b></big>
 These options define the network security agains remote treats, unauthorized accesses,
-and breakin attempts.
-""")
+and breakin attempts.  """)
 
-PERIODIC_SECURITY_TEXT=_("""Periodic security checks.
+PERIODIC_SECURITY_TEXT=_("""<big><b>Periodic security checks</b></big>
+These options configure the security checks that should be executed periodically.  """)
 
-These options configure the security checks that should be executed periodically.
-""")
-
-PERMISSIONS_SECURITY_TEXT=_("""File permissions.
-
+PERMISSIONS_SECURITY_TEXT=_("""<big><b>File permissions</b></big>
 These options allow to fine-tune system permissions for important files and directores.
-
 The following permissions are checked periodically, and any change to the owner, group,
 or current permission is reported. The permissions can be enforced, automatically
-changing them to the specified values when a change is detected.
-""")
+changing them to the specified values when a change is detected.  """)
 
 SAVE_SETTINGS_TEXT=_("""Save and apply new configuration?""")
 
@@ -137,7 +126,7 @@ class MsecGui:
         else:
             # running standalone
             self.window = gtk.Window()
-            self.window.set_default_size(640, 480)
+            self.window.set_default_size(640, 440)
         self.window.connect('delete-event', self.quit)
 
         # are we enforcing a level
@@ -195,12 +184,11 @@ class MsecGui:
             banner.pack_start(label, False, False)
             main_vbox.pack_start(banner, False, False)
         except:
-            traceback.print_exc()
-            print "Not found"
+            print "Banner %s Not found" % ("%s/%s" % (config.MSEC_DIR, BANNER))
 
         # creating tabs
         self.notebook = gtk.Notebook()
-        main_vbox.add(self.notebook)
+        main_vbox.pack_start(self.notebook)
 
         # data to change the values
         self.current_options_view = {}
@@ -289,6 +277,7 @@ class MsecGui:
                 gtk.STOCK_OK, gtk.RESPONSE_OK)
                 )
 
+        dialog.set_default_size(640, 300)
         dialog.set_default_response(gtk.RESPONSE_OK)
 
         label = gtk.Label(SAVE_SETTINGS_TEXT)
@@ -308,7 +297,7 @@ class MsecGui:
 
 
         vbox = gtk.VBox()
-        exp_vbox.set_size_request(640, 300)
+        exp_vbox.set_size_request(640, 280)
         sw.add_with_viewport(vbox)
 
         # were there changes in configuration?
@@ -511,11 +500,11 @@ class MsecGui:
         if self.base_level != config.NONE_LEVEL:
             self.msec_enabled.set_active(True)
         self.msec_enabled.connect('clicked', self.enable_disable_msec)
-        vbox.pack_start(self.msec_enabled, False, False, padding=DEFAULT_SPACING)
+        vbox.pack_start(self.msec_enabled, False, False)
 
         # security levels
         self.levels_frame = gtk.Frame(_("Select the base security level"))
-        levels_vbox = gtk.VBox()
+        levels_vbox = gtk.VBox(homogeneous=False)
         self.levels_frame.add(levels_vbox)
         # default
         self.button_default = gtk.RadioButton(group=None, label=_("Standard"))
@@ -524,13 +513,11 @@ class MsecGui:
             self.button_default.set_active(True)
         levels_vbox.pack_start(self.button_default, False, False)
         # default level description
-        label = gtk.Label(STANDARD_LEVEL_DESCRIPTION)
-        label.set_use_markup(True)
-        label.set_property("xalign", 0.1)
-        label.set_property("yalign", 0.0)
-        label.set_line_wrap(True)
-        #label.set_width_chars(120)
-        label.set_justify(gtk.JUSTIFY_FILL)
+        buffer = gtk.TextBuffer()
+        buffer.set_text(STANDARD_LEVEL_DESCRIPTION)
+        label = gtk.TextView(buffer)
+        label.set_wrap_mode(gtk.WRAP_WORD_CHAR)
+        label.set_editable(False)
         levels_vbox.pack_start(label, False, False)
         # secure
         self.button_secure = gtk.RadioButton(group=self.button_default, label=_("Secure"))
@@ -539,37 +526,35 @@ class MsecGui:
             self.button_secure.set_active(True)
         levels_vbox.pack_start(self.button_secure, False, False)
         # secure level description
-        label = gtk.Label(SECURE_LEVEL_DESCRIPTION)
-        label.set_use_markup(True)
-        label.set_property("xalign", 0.1)
-        label.set_property("yalign", 0.0)
-        label.set_line_wrap(True)
-        #label.set_width_chars(120)
-        label.set_justify(gtk.JUSTIFY_FILL)
-        levels_vbox.pack_start(label, False, False, padding=DEFAULT_SPACING)
+        buffer = gtk.TextBuffer()
+        buffer.set_text(SECURE_LEVEL_DESCRIPTION)
+        label = gtk.TextView(buffer)
+        label.set_wrap_mode(gtk.WRAP_WORD_CHAR)
+        label.set_editable(False)
+        levels_vbox.pack_start(label, False, False)
 
         # putting levels to vbox
-        vbox.pack_start(self.levels_frame, False, False, padding=DEFAULT_SPACING)
+        vbox.pack_start(self.levels_frame, False, False)
 
         # notifications by email
         self.notify_mail = gtk.CheckButton(_("Send security alerts by email"))
         if self.msecconfig.get("MAIL_WARN") == "yes":
             self.notify_mail.set_active(True)
-        vbox.pack_start(self.notify_mail, False, False, padding=DEFAULT_SPACING)
+        vbox.pack_start(self.notify_mail, False, False)
 
         # email address
         hbox = gtk.HBox()
         label = gtk.Label(_("System administrator email address:"))
         label.set_property("xalign", 0.2)
-        hbox.pack_start(label, False, False, padding=DEFAULT_SPACING)
+        hbox.pack_start(label, False, False)
         self.email_entry = gtk.Entry()
         email = self.msecconfig.get("MAIL_USER")
         if not email:
             email = ""
         self.email_entry.set_text(email)
         self.email_entry.connect('changed', self.change_email)
-        hbox.pack_start(self.email_entry, False, False, padding=DEFAULT_SPACING)
-        vbox.pack_start(hbox, False, False, padding=DEFAULT_SPACING)
+        hbox.pack_start(self.email_entry, False, False)
+        vbox.pack_start(hbox, False, False)
 
         # updating the mail address/checkbox relationship
         self.notify_mail.connect('clicked', self.notify_mail_changed, hbox)
@@ -582,7 +567,7 @@ class MsecGui:
         if self.msecconfig.get("NOTIFY_WARN") == "yes":
             self.notify_desktop.set_active(True)
         self.notify_desktop.connect('clicked', self.notify_changed, None)
-        vbox.pack_start(self.notify_desktop, False, False, padding=DEFAULT_SPACING)
+        vbox.pack_start(self.notify_desktop, False, False)
         self.checkboxes_callbacks["NOTIFY_WARN"] = (self.notify_changed, self.notify_desktop, None)
 
         # save the checkboxes
@@ -738,6 +723,7 @@ class MsecGui:
         vbox = gtk.VBox(homogeneous=False)
 
         entry = gtk.Label(PERIODIC_SECURITY_TEXT)
+        entry.set_use_markup(True)
         vbox.pack_start(entry, False, False)
 
         periodic_checks = self.msecconfig.get("CHECK_SECURITY")
@@ -780,6 +766,7 @@ class MsecGui:
         vbox = gtk.VBox(homogeneous=False)
 
         entry = gtk.Label(PERMISSIONS_SECURITY_TEXT)
+        entry.set_use_markup(True)
         vbox.pack_start(entry, False, False)
 
         sw = gtk.ScrolledWindow()

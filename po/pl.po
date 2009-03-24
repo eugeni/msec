@@ -1,3 +1,4 @@
+# translation of msec.po to
 # translation of libDrakX-standalone.po to
 # Polish translation file
 #
@@ -14,12 +15,11 @@
 # Amazis.net sp. z o.o. - Tomasz Bednarski <tomasz.bednarski@amazis.pl>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: libDrakX-standalone\n"
+"Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-05 12:43+BRST\n"
-"PO-Revision-Date: 2009-01-28 15:35+0100\n"
-"Last-Translator: Amazis.net sp. z o.o. - Tomasz Bednarski <tomasz."
-"bednarski@amazis.pl>\n"
+"PO-Revision-Date: 2009-03-24 19:04+0100\n"
+"Last-Translator: Amazis.net sp. z o.o. - Tomasz Bednarski <tomasz.bednarski@amazis.pl>\n"
 "Language-Team:  <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,34 +28,34 @@ msgstr ""
 
 #: ../src/msec/help.py:15
 msgid "Enable name resolution spoofing protection."
-msgstr ""
+msgstr "Aktywuj ochronę przed fałszowaniem odwzorowywanych nazw"
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
+msgstr "Wysyłaj raporty e-mailem nawet jeżeli nie wykryto zmian."
 
 #: ../src/msec/help.py:19
 msgid "Accept broadcasted ICMP echo."
-msgstr ""
+msgstr "Akceptuj pakiety rozgłoszeniowe ICMP."
 
 #: ../src/msec/help.py:21
 msgid ""
 "Allow users to authenticate with their passwords for sudo. If this parameter "
 "is set to 'wheel', users must belong to the 'wheel' group to be able to use "
 "sudo"
-msgstr ""
+msgstr "Umożliwiaj użytkownikom uwierzytelnianie dla sudo z wykorzystaniem haseł. Jeżeli wartość tego parametru ustawiono na 'wheel' użytkownicy muszą należeć do grupy 'wheel', aby móc korzystać z sudo"
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
+msgstr "Pozwalaj serwerowi X na akceptowanie połączeń sieciowych na porcie tcp 6000."
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr ""
+msgstr "Aktywuj kontrolę w kierunku znanych rootkitów z wykorzystaniem chkrootkit."
 
 #: ../src/msec/help.py:27
 msgid "Enable checking for additions/removals of suid root files."
-msgstr ""
+msgstr "Aktywuj kontrolę w kierunki nowych/usuniętych plików z atrybutem suid roota."
 
 #: ../src/msec/help.py:29
 msgid ""
@@ -69,7 +69,7 @@ msgstr "Akceptowanie nieprawidłowych komunikatów o błędach IPv4"
 
 #: ../src/msec/help.py:33
 msgid "Enable checksum verification for suid files."
-msgstr ""
+msgstr "Aktywuj weryfikację sumy kontrolnej plików suid."
 
 #: ../src/msec/help.py:35
 #, fuzzy
@@ -94,8 +94,7 @@ msgstr ""
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
-msgstr ""
-"Ustaw czas wygaśnięcia powłoki. Wartość zero oznacza brak czasu wygasania."
+msgstr "Ustaw czas wygaśnięcia powłoki. Wartość zero oznacza brak czasu wygasania."
 
 #: ../src/msec/help.py:45
 msgid ""
@@ -554,8 +553,7 @@ msgid "Disabling name resolution spoofing protection"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1341
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1362

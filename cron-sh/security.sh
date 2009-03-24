@@ -196,7 +196,7 @@ fi
 Syslog() {
     if [[ ${SYSLOG_WARN} == yes ]]; then
     while read line; do
-        logger -- "${line}"
+        logger -t msec -- "${line}"
     done < ${1}
     fi
 }

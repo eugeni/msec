@@ -4,7 +4,7 @@
 
 Syslog() {
     if [[ ${SYSLOG_WARN} == yes ]]; then
-        logger -- "${1}"
+        logger -t msec -- "${1}"
     fi
 }
 

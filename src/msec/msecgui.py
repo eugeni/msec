@@ -570,10 +570,6 @@ class MsecGui:
         vbox.pack_start(self.notify_desktop, False, False)
         self.checkboxes_callbacks["NOTIFY_WARN"] = (self.notify_changed, self.notify_desktop, None)
 
-        # save the checkboxes
-
-        "NOTIFY_WARN", "MAIL_WARN", 
-
         return vbox
 
     def change_email(self, widget):

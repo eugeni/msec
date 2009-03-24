@@ -1,3 +1,5 @@
+Version 0.60.16 - March 24 2009, Eugeni Dodonov
+- Added support for desktop notifications on msec periodic checks.
 - Using correct logger for syslog messages.
 - Updated gui layout to better support small displays (or netbooks).
 

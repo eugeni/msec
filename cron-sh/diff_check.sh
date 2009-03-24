@@ -209,11 +209,12 @@ if [[ -s ${TMP} ]]; then
     echo -e "\n\n*** Diff Check, ${date} ***\n" >> ${SECURITY_LOG}
     cat ${TMP} >> ${SECURITY_LOG}
 
-    Notifylog "MSEC has performed Diff Check on ${hostname} on ${date}\nChanges in system security were detected and are available in ${SECURITY_LOG}."
+    Notifylog "MSEC has performed Diff Check on ${hostname} on ${date}. Changes in system security were detected and are available in ${SECURITY_LOG}."
+else
+    Notifylog "MSEC has performed Diff Check on ${hostname} on ${date}. No changes were detected in system security."
 fi
 
 Maillog "[msec] *** Diff Check on ${hostname}, ${date} ***" "${TMP}"
-Notifylog "MSEC has performed Diff Check on ${hostname} on ${date}\nNo changes were detected in system security."
 
 if [[ -f ${TMP} ]]; then
 	rm -f ${TMP}

@@ -243,8 +243,8 @@ EOF
 Notifylog() {
 	if [ ${NOTIFY_WARN} == yes ]; then
 		message=${1}
-		DBUS_SEND=`which DBUS_SEND 2>/dev/null`
-		if [ -x "$DBUS_SEND" -a -s ${message} ]; then
+		DBUS_SEND=`which dbus-send 2>/dev/null`
+		if [ -x "$DBUS_SEND" ]; then
 			$DBUS_SEND --system --type=signal /com/mandriva/user com.mandriva.user.security_notification string:"$message"
 		fi
 	fi

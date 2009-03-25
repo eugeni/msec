@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-03 12:06+BRT\n"
-"PO-Revision-Date: 2009-03-25 04:41+0100\n"
+"PO-Revision-Date: 2009-03-25 04:54+0100\n"
 "Last-Translator: \n"
 "Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -31,15 +31,15 @@ msgstr ""
 
 #: ../src/msec/help.py:15
 msgid "Enable name resolution spoofing protection."
-msgstr ""
+msgstr "Aktiver navneoppslagforfalskningsbeskyttelse."
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
+msgstr "Send e-post-rapporter selv om ingen forandringer ble oppdaget"
 
 #: ../src/msec/help.py:19
 msgid "Accept broadcasted ICMP echo."
-msgstr ""
+msgstr "Aksepter kringkastet ICMP-ekko."
 
 #: ../src/msec/help.py:21
 msgid ""
@@ -50,11 +50,11 @@ msgstr ""
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
+msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på port 6000."
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr ""
+msgstr "Aktiver sjekking for kjente rootkit ved hjelp av chkrootkit."
 
 #: ../src/msec/help.py:27
 msgid "Enable checking for additions/removals of suid root files."
@@ -122,11 +122,11 @@ msgstr ""
 
 #: ../src/msec/help.py:53
 msgid "Enable checking for open network ports."
-msgstr ""
+msgstr "Aktiver sjekking for åpne nettverksporter."
 
 #: ../src/msec/help.py:55
 msgid "Enable logging of strange network packets."
-msgstr ""
+msgstr "Aktiver logging av rare nettverkspakker."
 
 #: ../src/msec/help.py:57
 msgid "Enable verification of installed RPM packages."
@@ -134,11 +134,11 @@ msgstr ""
 
 #: ../src/msec/help.py:59
 msgid "Allow root access without password for the members of the wheel group."
-msgstr ""
+msgstr "Tillat root-tilgang uten passord for medlemmene i wheel-gruppen."
 
 #: ../src/msec/help.py:61
 msgid "Send security check results by email."
-msgstr ""
+msgstr "Send sikkerhetssjekkresultater som e-post."
 
 #: ../src/msec/help.py:63
 msgid ""
@@ -160,7 +160,7 @@ msgstr "Slå på løsaktighetskontroll for nettverkskort."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
-msgstr ""
+msgstr "Aktiver AppArmor sikkerhetsrammeverk på oppstart"
 
 #: ../src/msec/help.py:73
 msgid ""
@@ -174,7 +174,7 @@ msgstr ""
 
 #: ../src/msec/help.py:77
 msgid "Log syslog messages on console terminal 12."
-msgstr ""
+msgstr "Logg syslog-meldinger på konsollterminal 12."
 
 #: ../src/msec/help.py:79
 msgid "Enable IP spoofing protection."
@@ -188,7 +188,7 @@ msgstr ""
 
 #: ../src/msec/help.py:83
 msgid "Enable periodic permission checking for system files."
-msgstr ""
+msgstr "Aktiver periodisk rettighetssjekking for systemfiler."
 
 #: ../src/msec/help.py:85
 msgid "Set shell commands history size. A value of -1 means unlimited."

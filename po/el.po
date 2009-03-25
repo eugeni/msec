@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: DrakX-el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-25 12:58+BRT\n"
-"PO-Revision-Date: 2009-03-20 23:59+0100\n"
+"PO-Revision-Date: 2009-03-25 21:06+0100\n"
 "Last-Translator: Glentadakis Dimitrios <dglent@gmail.com>\n"
 "Language-Team: Greek <i18ngr@lists.hellug.gr>\n"
 "MIME-Version: 1.0\n"
@@ -24,20 +24,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:15
-#, fuzzy
 msgid "Enable name resolution spoofing protection."
 msgstr ""
-"Προστασίας κατά της εισχώρησης στο δίκτυο (spoofing) με διερεύνηση ονόματος "
-"(name resolution)"
+"Ενεργοποίηση προστασίας κατά της εισχώρησης στο δίκτυο (spoofing) με "
+"διερεύνηση ονόματος "
+"(name resolution)."
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
+msgstr "Αποστολή μηνυμάτων αναφορών ακόμα και αν δεν έχουν εντοπιστεί αλλαγές."
 
 #: ../src/msec/help.py:19
-#, fuzzy
 msgid "Accept broadcasted ICMP echo."
-msgstr "Αποδοχή του μεταδιδόμενου icmp echo."
+msgstr "Αποδοχή του μεταδιδόμενου ICMP echo."
 
 #: ../src/msec/help.py:21
 msgid ""
@@ -80,9 +79,8 @@ msgid "Enable checksum verification for suid files."
 msgstr ""
 
 #: ../src/msec/help.py:35
-#, fuzzy
 msgid "User email to receive security notifications."
-msgstr "Παρακαλώ περιμένετε, ορίζονται οι επιλογές ασφαλείας..."
+msgstr ""
 
 #: ../src/msec/help.py:37
 msgid "Allow autologin."
@@ -909,7 +907,7 @@ msgstr "Περιοδικοί Έλεγχοι"
 
 #: ../src/msec/msecgui.py:204 ../src/msec/msecgui.py:809
 msgid "Permissions"
-msgstr "Δικαιώματα"
+msgstr "Άδειες"
 
 #: ../src/msec/msecgui.py:237
 msgid "MSEC option changes"
@@ -1095,19 +1093,16 @@ msgid "File: "
 msgstr "/_Αρχείο"
 
 #: ../src/msec/msecgui.py:989
-#, fuzzy
 msgid "User: "
-msgstr "ID Χρήστη"
+msgstr "Χρήστης :"
 
 #: ../src/msec/msecgui.py:997
-#, fuzzy
 msgid "Group: "
-msgstr "ID Ομάδας"
+msgstr "Ομάδα :"
 
 #: ../src/msec/msecgui.py:1005
-#, fuzzy
 msgid "Permissions: "
-msgstr "Δικαιώματα"
+msgstr "Άδειες :"
 
 #: ../src/msec/msecgui.py:1066
 msgid "Select new value for %s"
@@ -1214,4 +1209,5 @@ msgstr ""
 #, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Ενεργοποίηση του su, μόνο για τα μέλη της ομάδας wheel."
+
 

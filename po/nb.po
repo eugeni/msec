@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-03 12:06+BRT\n"
-"PO-Revision-Date: 2009-03-25 04:54+0100\n"
+"PO-Revision-Date: 2009-03-25 05:25+0100\n"
 "Last-Translator: \n"
 "Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr ""
 
 #: ../src/msec/help.py:15
 msgid "Enable name resolution spoofing protection."
-msgstr "Aktiver navneoppslagforfalskningsbeskyttelse."
+msgstr "Slå på navneoppslagforfalskningsbeskyttelse."
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
@@ -54,7 +54,7 @@ msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på port 6000
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr "Aktiver sjekking for kjente rootkit ved hjelp av chkrootkit."
+msgstr "Slå på sjekking for kjente rootkit ved hjelp av chkrootkit."
 
 #: ../src/msec/help.py:27
 msgid "Enable checking for additions/removals of suid root files."
@@ -92,11 +92,11 @@ msgid ""
 "server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --"
 "add to decide to add a service if it is present in the file during the "
 "installation of packages."
-msgstr "Opprett den symbolske lenken /etc/security/msec/server så den peker til /etc/security/msec/server.SERVER_LEVEL. /etc/security/msec/server benyttes av chkconfig --add for å avgjøre om en tjeneste skal legges til hvis den finnes i filen under installasjonen av pakker."
+msgstr "Oppretter den symbolske lenken /etc/security/msec/server så den peker til /etc/security/msec/server.SERVER_LEVEL. /etc/security/msec/server benyttes av chkconfig --add for å avgjøre om en tjeneste skal legges til hvis den finnes i filen under installasjonen av pakker."
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
-msgstr "Sett skallets tidsavbrudd. Null betyr inget tidsavbrudd."
+msgstr "Sett skallets tidsavbrudd. Null betyr ingen tidsavbrudd."
 
 #: ../src/msec/help.py:45
 msgid ""
@@ -122,11 +122,11 @@ msgstr ""
 
 #: ../src/msec/help.py:53
 msgid "Enable checking for open network ports."
-msgstr "Aktiver sjekking for åpne nettverksporter."
+msgstr "Slå på sjekking for åpne nettverksporter."
 
 #: ../src/msec/help.py:55
 msgid "Enable logging of strange network packets."
-msgstr "Aktiver logging av rare nettverkspakker."
+msgstr "Slå på logging av rare nettverkspakker."
 
 #: ../src/msec/help.py:57
 msgid "Enable verification of installed RPM packages."
@@ -155,12 +155,13 @@ msgid "Enable checking for additions/removals of sgid files."
 msgstr ""
 
 #: ../src/msec/help.py:69
+#, fuzzy
 msgid "Activate ethernet cards promiscuity check."
 msgstr "Slå på løsaktighetskontroll for nettverkskort."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
-msgstr "Aktiver AppArmor sikkerhetsrammeverk på oppstart"
+msgstr "Slå på AppArmor sikkerhetsrammeverk på oppstart"
 
 #: ../src/msec/help.py:73
 msgid ""
@@ -178,7 +179,7 @@ msgstr "Logg syslog-meldinger på konsollterminal 12."
 
 #: ../src/msec/help.py:79
 msgid "Enable IP spoofing protection."
-msgstr "Slå på beskyttelse mot IP-forfalsking."
+msgstr "Slå på beskyttelse mot IP-forfalskning."
 
 #: ../src/msec/help.py:81
 msgid ""
@@ -188,7 +189,7 @@ msgstr ""
 
 #: ../src/msec/help.py:83
 msgid "Enable periodic permission checking for system files."
-msgstr "Aktiver periodisk rettighetssjekking for systemfiler."
+msgstr "Slå på periodisk rettighetssjekking for systemfiler."
 
 #: ../src/msec/help.py:85
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -288,14 +289,14 @@ msgstr ""
 
 #: ../src/msec/help.py:125
 msgid "Enable periodic security check results to terminal."
-msgstr "Aktiver periodiske sikkerhetssjekkresultater til terminalen."
+msgstr "Slå på periodiske sikkerhetssjekkresultater til terminalen."
 
 #: ../src/msec/help.py:127
 msgid ""
 "Enable PolicyKit security framework for all users. If this option is not "
 "enabled, only users in wheel group may change advanced PolicyKit permissions "
 "and settings"
-msgstr "Aktiver PolicyKit-sikkerhetsrammeverk for alle brukere. Hvis ikke dette valget er aktivert, kan kun brukere i wheel-gruppen forandre avanserte PolicyKit-rettigheter og innstillinger."
+msgstr "Slå på PolicyKit-sikkerhetsrammeverk for alle brukere. Hvis ikke dette valget er aktivert, kan kun brukere i wheel-gruppen forandre avanserte PolicyKit-rettigheter og innstillinger."
 
 #: ../src/msec/libmsec.py:339
 msgid "%s modified so launched command: %s"
@@ -391,7 +392,7 @@ msgstr "Tillater X-tjeneren å lytte på tcp-tilkoblinger"
 
 #: ../src/msec/libmsec.py:936
 msgid "Forbidding the X server to listen to tcp connection"
-msgstr "Forby X-tjeneren å lytte på tcp-tilkobling"
+msgstr "Forbyr X-tjeneren å lytte på tcp-tilkoblinger"
 
 #: ../src/msec/libmsec.py:952
 msgid "Invalid shell timeout \"%s\""
@@ -491,7 +492,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1175
 msgid "Allowing su only from wheel group members"
-msgstr "Tillater su kun for medlemmer av wheel"
+msgstr "Tillater su kun for medlemmer av wheel-gruppen"
 
 #: ../src/msec/libmsec.py:1179
 msgid "no wheel group"
@@ -523,7 +524,7 @@ msgstr "Forbyr autoinnlogging"
 
 #: ../src/msec/libmsec.py:1239
 msgid "Activating password in boot loader"
-msgstr "Aktiverer passord i oppstartslaster"
+msgstr "Slå på passord i oppstartslaster"
 
 #: ../src/msec/libmsec.py:1253
 msgid "Removing password in boot loader"
@@ -531,19 +532,19 @@ msgstr "Fjerner passord fra oppstartslaster"
 
 #: ../src/msec/libmsec.py:1268
 msgid "Enabling log on console"
-msgstr "Aktiver logging på konsollet"
+msgstr "Slå på logging på konsollet"
 
 #: ../src/msec/libmsec.py:1272
 msgid "Disabling log on console"
-msgstr "Deaktiver visning av logo på konsollet"
+msgstr "Slå av visning av logo på konsollet"
 
 #: ../src/msec/libmsec.py:1284
 msgid "Activating daily security check"
-msgstr "Aktiver daglige sikkerhetssjekker"
+msgstr "Slå på daglige sikkerhetssjekker"
 
 #: ../src/msec/libmsec.py:1288
 msgid "Disabling daily security check"
-msgstr "Deaktiver daglige sikkerhetssjekker"
+msgstr "Slå av daglige sikkerhetssjekker"
 
 #: ../src/msec/libmsec.py:1305
 msgid "Authorizing all services"
@@ -551,19 +552,19 @@ msgstr "Autentiserer alle tjenester"
 
 #: ../src/msec/libmsec.py:1309
 msgid "Disabling all services"
-msgstr "Deaktiver alle tjenester"
+msgstr "Slå av alle tjenester"
 
 #: ../src/msec/libmsec.py:1313
 msgid "Disabling non local services"
-msgstr "Deaktiver ikke-lokale tjenesters"
+msgstr "Slå av ikke-lokale tjenester"
 
 #: ../src/msec/libmsec.py:1346
 msgid "Enabling name resolution spoofing protection"
-msgstr "Aktiver navneoppslagsforfalskningsbeskyttelse"
+msgstr "Slå på navneoppslagsforfalskningsbeskyttelse"
 
 #: ../src/msec/libmsec.py:1351
 msgid "Disabling name resolution spoofing protection"
-msgstr "Deaktiver navneoppslagsforfalskningsbeskyttelse"
+msgstr "Slå av navneoppslagsforfalskningsbeskyttelse"
 
 #: ../src/msec/libmsec.py:1380
 msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
@@ -595,31 +596,31 @@ msgstr "Setter passordhistorie til %d"
 
 #: ../src/msec/libmsec.py:1469
 msgid "Disabling password history"
-msgstr "Deaktiverer passordhistorie"
+msgstr "Slå av passordhistorie"
 
 #: ../src/msec/libmsec.py:1480
 msgid "Enabling sulogin in single user runlevel"
-msgstr "Aktiverer sulogin i enbruker kjørenivå"
+msgstr "Slå på sulogin i enbrukermodus"
 
 #: ../src/msec/libmsec.py:1484
 msgid "Disabling sulogin in single user runlevel"
-msgstr "Deaktiverer sulogin i enbruker kjørenivå"
+msgstr "Slå av sulogin i enbrukermodus"
 
 #: ../src/msec/libmsec.py:1495
 msgid "Enabling msec periodic runs"
-msgstr "Aktiver msec periodisk kjøring"
+msgstr "Slå på msec periodisk kjøring"
 
 #: ../src/msec/libmsec.py:1499
 msgid "Disabling msec periodic runs"
-msgstr "Deaktiver msec periodisk kjøring"
+msgstr "Slå av msec periodisk kjøring"
 
 #: ../src/msec/libmsec.py:1512
 msgid "Enabling crontab and at"
-msgstr "Aktiver crontab og at"
+msgstr "Slå på crontab og at"
 
 #: ../src/msec/libmsec.py:1519
 msgid "Disabling crontab and at"
-msgstr "Deaktiver crontab og at"
+msgstr "Slå av crontab og at"
 
 #: ../src/msec/libmsec.py:1531
 msgid "Allowing export display from root"
@@ -631,11 +632,11 @@ msgstr "Forbyr eksportering av visning fra root"
 
 #: ../src/msec/libmsec.py:1546
 msgid "Activating periodic promiscuity check"
-msgstr "Aktiver periodisk promiskuøs sjekk"
+msgstr "Slå på periodisk promiskuøs sjekk"
 
 #: ../src/msec/libmsec.py:1550
 msgid "Disabling periodic promiscuity check"
-msgstr "Deaktiver periodisk promiskuøs sjekk"
+msgstr "Slå av periodisk promiskuøs sjekk"
 
 #: ../src/msec/libmsec.py:1675
 msgid "user name %s not found"
@@ -940,7 +941,7 @@ msgstr "Ugyldig valg '%s'!"
 
 #: ../src/msec/msecgui.py:510
 msgid "Enable MSEC tool"
-msgstr "Aktiver MSEC-verktøy"
+msgstr "Slå på MSEC-verktøy"
 
 #: ../src/msec/msecgui.py:517
 msgid "Select the base security level"
@@ -968,7 +969,7 @@ msgstr "Vis sikkerhetsadvarsler på skrivebordet"
 
 #: ../src/msec/msecgui.py:745
 msgid "Enable periodic security checks"
-msgstr "Aktiver periodiske sikkerhetssjekker"
+msgstr "Slå på periodiske sikkerhetssjekker"
 
 #: ../src/msec/msecgui.py:808
 msgid "Path"

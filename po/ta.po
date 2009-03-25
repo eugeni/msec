@@ -140,8 +140,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:65
+#, fuzzy
 msgid "Set the root umask."
-msgstr ""
+msgstr "கடவுச்ெசால் ஏதுமில்ைல"
 
 #: ../src/msec/help.py:67
 msgid "Enable checking for additions/removals of sgid files."
@@ -216,8 +217,9 @@ msgid "Enable daily security checks."
 msgstr ""
 
 #: ../src/msec/help.py:99
+#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr ""
+msgstr "தொலைவு அச்சுப்பொறி"
 
 #: ../src/msec/help.py:101
 msgid "Enable checking for unowned files."
@@ -260,8 +262,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:117
+#, fuzzy
 msgid "Set the user umask."
-msgstr ""
+msgstr "பயனர்கள்"
 
 #: ../src/msec/help.py:119
 msgid "Accept ICMP echo."
@@ -304,12 +307,14 @@ msgid "deleted %s"
 msgstr "நீக்கு"
 
 #: ../src/msec/libmsec.py:455
+#, fuzzy
 msgid "touched file %s"
-msgstr ""
+msgstr "`%s' கோப்பு கிரையாது\n"
 
 #: ../src/msec/libmsec.py:475
+#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr ""
+msgstr "ext2 யிலிருந்து ext3 கோப்பமைப்பிற்கு மாறுகிறது"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
@@ -356,12 +361,14 @@ msgid "Restricting chkconfig for packages according to \"%s\" profile"
 msgstr ""
 
 #: ../src/msec/libmsec.py:849
+#, fuzzy
 msgid "Setting root umask to %s"
-msgstr ""
+msgstr "ext2 யிலிருந்து ext3 கோப்பமைப்பிற்கு மாறுகிறது"
 
 #: ../src/msec/libmsec.py:859
+#, fuzzy
 msgid "Setting users umask to %s"
-msgstr ""
+msgstr "ext2 யிலிருந்து ext3 கோப்பமைப்பிற்கு மாறுகிறது"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
@@ -380,20 +387,23 @@ msgid "invalid allow_x_connections arg: %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:912
+#, fuzzy
 msgid "Allowing the X server to listen to tcp connections"
-msgstr ""
+msgstr "சாதரன மோடம்வழி தொடர்பு"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
 msgstr ""
 
 #: ../src/msec/libmsec.py:939
+#, fuzzy
 msgid "Invalid shell timeout \"%s\""
-msgstr ""
+msgstr "கரு தொடங்கல் வெளியேற்ற நேரம்"
 
 #: ../src/msec/libmsec.py:947
+#, fuzzy
 msgid "Setting shell timeout to %s"
-msgstr ""
+msgstr "கரு தொடங்கல் வெளியேற்ற நேரம்"
 
 #: ../src/msec/libmsec.py:955
 msgid "Invalid shell history size \"%s\""
@@ -464,32 +474,38 @@ msgid "Forbidding list of users in GDM"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1089
+#, fuzzy
 msgid "Allowing remote root login"
-msgstr ""
+msgstr "தொலைவு அச்சுப்பொறி"
 
 #: ../src/msec/libmsec.py:1093
+#, fuzzy
 msgid "Forbidding remote root login"
-msgstr ""
+msgstr "தொலைவு அச்சுப்பொறி"
 
 #: ../src/msec/libmsec.py:1097
+#, fuzzy
 msgid "Allowing remote root login only by passphrase"
-msgstr ""
+msgstr "தொலைவு அச்சுப்பொறி"
 
 #: ../src/msec/libmsec.py:1109
+#, fuzzy
 msgid "Allowing autologin"
-msgstr ""
+msgstr "தன்னியக்கநுழைவு"
 
 #: ../src/msec/libmsec.py:1112
+#, fuzzy
 msgid "Forbidding autologin"
-msgstr ""
+msgstr "தன்னியக்கநுழைவு"
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1131
+#, fuzzy
 msgid "Removing password in boot loader"
-msgstr ""
+msgstr "கடவுச்ெசால் ஏதுமில்ைல"
 
 #: ../src/msec/libmsec.py:1146
 msgid "Enabling log on console"
@@ -536,8 +552,9 @@ msgid "Disabling sulogin in single user runlevel"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1272
+#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr ""
+msgstr "%s வகிர் வடிவூட்டப்படுகிறது"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
@@ -568,16 +585,19 @@ msgid "Disabling periodic promiscuity check"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1353
+#, fuzzy
 msgid "Allowing direct root login"
-msgstr ""
+msgstr "தொலைவு அச்சுப்பொறி"
 
 #: ../src/msec/libmsec.py:1370
+#, fuzzy
 msgid "Forbidding direct root login"
-msgstr ""
+msgstr "தொலைவு அச்சுப்பொறி"
 
 #: ../src/msec/libmsec.py:1505
+#, fuzzy
 msgid "user name %s not found"
-msgstr ""
+msgstr "பயனர் பெயர் மிக நீளமாக உள்ளது"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
@@ -596,24 +616,28 @@ msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1590
+#, fuzzy
 msgid "Enforcing user on %s to %s"
-msgstr ""
+msgstr "ext2 யிலிருந்து ext3 கோப்பமைப்பிற்கு மாறுகிறது"
 
 #: ../src/msec/libmsec.py:1594
+#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr ""
+msgstr "இறக்குவதில் பிழை நேர்ந்துள்ளது %s: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1599
+#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr ""
+msgstr "ext2 யிலிருந்து ext3 கோப்பமைப்பிற்கு மாறுகிறது"
 
 #: ../src/msec/libmsec.py:1603
+#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr ""
+msgstr "இறக்குவதில் பிழை நேர்ந்துள்ளது %s: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
@@ -640,12 +664,14 @@ msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1700
+#, fuzzy
 msgid "Checking paths: %s"
-msgstr ""
+msgstr "%s சரிபார்த்தல்"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
+#, fuzzy
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "பாதுகாப்பு நிலை"
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
@@ -664,8 +690,9 @@ msgid "Level '%s' not found, aborting."
 msgstr ""
 
 #: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
+#, fuzzy
 msgid "Switching to '%s' level."
-msgstr ""
+msgstr "ext2 யிலிருந்து ext3 கோப்பமைப்பிற்கு மாறுகிறது"
 
 #: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
 msgid "Unable to save config!"
@@ -733,37 +760,37 @@ msgstr ""
 #: ../src/msec/msecgui.py:77
 #, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "கைமுறை வடிவமைப்பு "
+msgstr "தயவுசெய்து காத்திருக்கவும்...செயல்படுத்தப்படுகிறது"
 
 #: ../src/msec/msecgui.py:143
 #, fuzzy
 msgid "_File"
-msgstr "/_கோப்பு"
+msgstr "சிலி"
 
 #: ../src/msec/msecgui.py:145
 #, fuzzy
 msgid "_Save configuration"
-msgstr "கைமுறை வடிவமைப்பு "
+msgstr "ஒலி வடிவமைப்பு"
 
 #: ../src/msec/msecgui.py:147
 #, fuzzy
 msgid "_Import configuration"
-msgstr "கைமுறை வடிவமைப்பு "
+msgstr "ஒலி வடிவமைப்பு"
 
 #: ../src/msec/msecgui.py:148
 #, fuzzy
 msgid "_Export configuration"
-msgstr "கைமுறை வடிவமைப்பு "
+msgstr "ஒலி வடிவமைப்பு"
 
 #: ../src/msec/msecgui.py:150
 #, fuzzy
 msgid "_Quit"
-msgstr "/_வெளிச்ெசல்"
+msgstr "வெளிச்ெசல்"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
 #, fuzzy
 msgid "_Help"
-msgstr "/_உதவி"
+msgstr "உதவி"
 
 #: ../src/msec/msecgui.py:155
 #, fuzzy
@@ -776,17 +803,19 @@ msgid "MSEC: System Security and Audit"
 msgstr "இயக்க முறைமை"
 
 #: ../src/msec/msecgui.py:200
+#, fuzzy
 msgid "Basic security"
-msgstr ""
+msgstr "பாதுகாப்பு"
 
 #: ../src/msec/msecgui.py:201
 #, fuzzy
 msgid "System security"
-msgstr "இயக்க முறைமை"
+msgstr "பாதுகாப்பு"
 
 #: ../src/msec/msecgui.py:202
+#, fuzzy
 msgid "Network security"
-msgstr ""
+msgstr "வலையமைப்பு பினாமி"
 
 #: ../src/msec/msecgui.py:203
 msgid "Periodic checks"
@@ -827,13 +856,14 @@ msgid "removed %s <b>%s</b>"
 msgstr ""
 
 #: ../src/msec/msecgui.py:262
+#, fuzzy
 msgid "no changes"
-msgstr ""
+msgstr "பகிர்தல் கிடையாது"
 
 #: ../src/msec/msecgui.py:274
 #, fuzzy
 msgid "Saving changes.."
-msgstr "எனச் சேமி.."
+msgstr "%s நீக்கப்படுகிறது..."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -870,46 +900,50 @@ msgstr ""
 #: ../src/msec/msecgui.py:424
 #, fuzzy
 msgid "Security Option"
-msgstr "குறிப்பு"
+msgstr "விருப்பத்ேதர்வு தெரிவிக்கவும்"
 
 #: ../src/msec/msecgui.py:434
+#, fuzzy
 msgid "Description"
-msgstr "குறிப்பு"
+msgstr "விருப்பத்ேதர்வு தெரிவிக்கவும்"
 
 #: ../src/msec/msecgui.py:439
+#, fuzzy
 msgid "Value"
-msgstr ""
+msgstr "பாலாவ்"
 
 #: ../src/msec/msecgui.py:449
 msgid "Invalid option '%s'!"
 msgstr ""
 
 #: ../src/msec/msecgui.py:499
+#, fuzzy
 msgid "Enable MSEC tool"
-msgstr ""
+msgstr "சிடியில் இருந்து தொடங்கலாமா?"
 
 #: ../src/msec/msecgui.py:506
+#, fuzzy
 msgid "Select the base security level"
-msgstr ""
+msgstr "உங்களுக்கு தேவையான பாதுகாப்பு நிலையைத் தேர்வுச் செய்யவும்"
 
 #: ../src/msec/msecgui.py:510
-#, fuzzy
 msgid "Standard"
-msgstr "நாள்காட்டி"
+msgstr "இயல்பான"
 
 #: ../src/msec/msecgui.py:523
 #, fuzzy
 msgid "Secure"
-msgstr "சேவையகம்:"
+msgstr "பாதுகாப்பு"
 
 #: ../src/msec/msecgui.py:540
+#, fuzzy
 msgid "Send security alerts by email"
-msgstr ""
+msgstr "பாதுகாப்பு நிலை"
 
 #: ../src/msec/msecgui.py:547
 #, fuzzy
 msgid "System administrator email address:"
-msgstr "உங்கள் மின்னஞ்சல் முகவரியைத் தருக"
+msgstr "உங்கள் கடவுச்ெசால்ைல உருவாக்கவும்"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
@@ -924,12 +958,14 @@ msgid "Path"
 msgstr "பாதை"
 
 #: ../src/msec/msecgui.py:797
+#, fuzzy
 msgid "User"
-msgstr "பயனர்"
+msgstr "உபயோகிப்பாளர் அடையாளம்"
 
 #: ../src/msec/msecgui.py:803
+#, fuzzy
 msgid "Group"
-msgstr "குழு"
+msgstr "குழு ID"
 
 #: ../src/msec/msecgui.py:817
 #, fuzzy
@@ -941,8 +977,9 @@ msgid "Reset to default level permissions"
 msgstr ""
 
 #: ../src/msec/msecgui.py:866
+#, fuzzy
 msgid "Add a rule"
-msgstr ""
+msgstr "பயனரைச் சேர்"
 
 #: ../src/msec/msecgui.py:871
 msgid "Delete"
@@ -971,12 +1008,12 @@ msgstr "/_கோப்பு"
 #: ../src/msec/msecgui.py:989
 #, fuzzy
 msgid "User: "
-msgstr "பயனர்:"
+msgstr "உபயோகிப்பாளர் அடையாளம்"
 
 #: ../src/msec/msecgui.py:997
 #, fuzzy
 msgid "Group: "
-msgstr "குழு:"
+msgstr "குழு ID"
 
 #: ../src/msec/msecgui.py:1005
 #, fuzzy
@@ -997,8 +1034,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:1086
+#, fuzzy
 msgid "New value:"
-msgstr ""
+msgstr "நியு  ெசலடோனியா "
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
@@ -1022,7 +1060,7 @@ msgstr "சேமி"
 #: ../src/msec/msecgui.py:1154
 #, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "உங்கள் வடிவமைப்ைப சோதித்து பார்க்க வேண்டுமா? [சோதித்து பார்ப்பது முக்கியம்]"
+msgstr " /etc/fstab மாற்றங்களை தட்டில் சேமிக்க வேண்டுமா"
 
 #: ../src/msec/plugins/pam.py:68
 msgid "Using password to authenticate users"
@@ -1037,16 +1075,19 @@ msgid "Password history not supported with pam_tcb."
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:91
+#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr ""
+msgstr "இந்த கடவுச்ெசால் மிக எளிதாக உள்ளது"
 
 #: ../src/msec/plugins/pam.py:106
+#, fuzzy
 msgid "Setting password history to %d."
-msgstr ""
+msgstr "இந்த கடவுச்ெசால் மிக எளிதாக உள்ளது"
 
 #: ../src/msec/plugins/pam.py:112
+#, fuzzy
 msgid "Disabling password history"
-msgstr ""
+msgstr "இந்த கடவுச்ெசால் மிக எளிதாக உள்ளது"
 
 #: ../src/msec/plugins/pam.py:124
 msgid ""
@@ -1080,3 +1121,4 @@ msgstr ""
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
+

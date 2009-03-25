@@ -137,8 +137,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:65
+#, fuzzy
 msgid "Set the root umask."
-msgstr ""
+msgstr "ไม่มีรหัสผ่าน"
 
 #: ../src/msec/help.py:67
 msgid "Enable checking for additions/removals of sgid files."
@@ -213,8 +214,9 @@ msgid "Enable daily security checks."
 msgstr ""
 
 #: ../src/msec/help.py:99
+#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr ""
+msgstr "เครื่องพิมพ์แบบรีโมท"
 
 #: ../src/msec/help.py:101
 msgid "Enable checking for unowned files."
@@ -257,8 +259,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:117
+#, fuzzy
 msgid "Set the user umask."
-msgstr ""
+msgstr "ชื่อผู้ใช้"
 
 #: ../src/msec/help.py:119
 msgid "Accept ICMP echo."
@@ -301,8 +304,9 @@ msgid "deleted %s"
 msgstr "ลบ"
 
 #: ../src/msec/libmsec.py:455
+#, fuzzy
 msgid "touched file %s"
-msgstr ""
+msgstr "ไม่มีไฟล์"
 
 #: ../src/msec/libmsec.py:475
 msgid "made symbolic link from %s to %s"
@@ -377,20 +381,23 @@ msgid "invalid allow_x_connections arg: %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:912
+#, fuzzy
 msgid "Allowing the X server to listen to tcp connections"
-msgstr ""
+msgstr "การติดต่อโดยใช้ Modem ธรรมดา"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
 msgstr ""
 
 #: ../src/msec/libmsec.py:939
+#, fuzzy
 msgid "Invalid shell timeout \"%s\""
-msgstr ""
+msgstr "Kernel Boot Timeout"
 
 #: ../src/msec/libmsec.py:947
+#, fuzzy
 msgid "Setting shell timeout to %s"
-msgstr ""
+msgstr "Kernel Boot Timeout"
 
 #: ../src/msec/libmsec.py:955
 msgid "Invalid shell history size \"%s\""
@@ -461,32 +468,38 @@ msgid "Forbidding list of users in GDM"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1089
+#, fuzzy
 msgid "Allowing remote root login"
-msgstr ""
+msgstr "เครื่องพิมพ์แบบรีโมท"
 
 #: ../src/msec/libmsec.py:1093
+#, fuzzy
 msgid "Forbidding remote root login"
-msgstr ""
+msgstr "เครื่องพิมพ์แบบรีโมท"
 
 #: ../src/msec/libmsec.py:1097
+#, fuzzy
 msgid "Allowing remote root login only by passphrase"
-msgstr ""
+msgstr "เครื่องพิมพ์แบบรีโมท"
 
 #: ../src/msec/libmsec.py:1109
+#, fuzzy
 msgid "Allowing autologin"
-msgstr ""
+msgstr "Autologin"
 
 #: ../src/msec/libmsec.py:1112
+#, fuzzy
 msgid "Forbidding autologin"
-msgstr ""
+msgstr "Autologin"
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1131
+#, fuzzy
 msgid "Removing password in boot loader"
-msgstr ""
+msgstr "ไม่มีรหัสผ่าน"
 
 #: ../src/msec/libmsec.py:1146
 msgid "Enabling log on console"
@@ -533,8 +546,9 @@ msgid "Disabling sulogin in single user runlevel"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1272
+#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr ""
+msgstr "ฟอร์แมตพาร์ติชั่น %s"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
@@ -565,16 +579,19 @@ msgid "Disabling periodic promiscuity check"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1353
+#, fuzzy
 msgid "Allowing direct root login"
-msgstr ""
+msgstr "เครื่องพิมพ์แบบรีโมท"
 
 #: ../src/msec/libmsec.py:1370
+#, fuzzy
 msgid "Forbidding direct root login"
-msgstr ""
+msgstr "เครื่องพิมพ์แบบรีโมท"
 
 #: ../src/msec/libmsec.py:1505
+#, fuzzy
 msgid "user name %s not found"
-msgstr ""
+msgstr "ชื่อผู้ใช้ยาวเกินไป"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
@@ -597,8 +614,9 @@ msgid "Enforcing user on %s to %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1594
+#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr ""
+msgstr "ผิดพลาดยกเลิกการเม้าท์ %s: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
@@ -609,8 +627,9 @@ msgid "Enforcing group on %s to %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1603
+#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr ""
+msgstr "ผิดพลาดยกเลิกการเม้าท์ %s: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
@@ -637,12 +656,14 @@ msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1700
+#, fuzzy
 msgid "Checking paths: %s"
-msgstr ""
+msgstr "ความละเอียดของภาพ %s\n"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
+#, fuzzy
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "เลือกระดับระบบรักษาความปลอดภัย"
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
@@ -728,38 +749,39 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:77
+#, fuzzy
 msgid "Save and apply new configuration?"
-msgstr ""
+msgstr "กรุณารอสักครู่ ..."
 
 #: ../src/msec/msecgui.py:143
 #, fuzzy
 msgid "_File"
-msgstr "/_ไฟล์"
+msgstr "ชิลี"
 
 #: ../src/msec/msecgui.py:145
 #, fuzzy
 msgid "_Save configuration"
-msgstr "Boot Style Configuration"
+msgstr "การปรับแต่ง LAN"
 
 #: ../src/msec/msecgui.py:147
 #, fuzzy
 msgid "_Import configuration"
-msgstr "ตั้งค่าพร็อกซี"
+msgstr "การปรับแต่ง LAN"
 
 #: ../src/msec/msecgui.py:148
 #, fuzzy
 msgid "_Export configuration"
-msgstr "ตั้งค่าพร็อกซี"
+msgstr "การปรับแต่ง LAN"
 
 #: ../src/msec/msecgui.py:150
 #, fuzzy
 msgid "_Quit"
-msgstr "/_ออก"
+msgstr "ออก"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
 #, fuzzy
 msgid "_Help"
-msgstr "/_ช่วยเหลือ"
+msgstr "ความช่วยเหลือ"
 
 #: ../src/msec/msecgui.py:155
 #, fuzzy
@@ -772,17 +794,19 @@ msgid "MSEC: System Security and Audit"
 msgstr "System mode"
 
 #: ../src/msec/msecgui.py:200
+#, fuzzy
 msgid "Basic security"
-msgstr ""
+msgstr "ระบบความป้องกัน"
 
 #: ../src/msec/msecgui.py:201
 #, fuzzy
 msgid "System security"
-msgstr "System mode"
+msgstr "ระบบความป้องกัน"
 
 #: ../src/msec/msecgui.py:202
+#, fuzzy
 msgid "Network security"
-msgstr ""
+msgstr "โปรแกรมค้นหาเครือข่าย"
 
 #: ../src/msec/msecgui.py:203
 msgid "Periodic checks"
@@ -823,13 +847,14 @@ msgid "removed %s <b>%s</b>"
 msgstr ""
 
 #: ../src/msec/msecgui.py:262
+#, fuzzy
 msgid "no changes"
-msgstr ""
+msgstr "ไม่มีเครื่องพิมพ์"
 
 #: ../src/msec/msecgui.py:274
 #, fuzzy
 msgid "Saving changes.."
-msgstr "บันทึกแฟ้มเป็น"
+msgstr "ความละเอียดของภาพ %s\n"
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -866,11 +891,12 @@ msgstr ""
 #: ../src/msec/msecgui.py:424
 #, fuzzy
 msgid "Security Option"
-msgstr "รายละเอียด"
+msgstr "ระบุอ๊อปชั่น"
 
 #: ../src/msec/msecgui.py:434
+#, fuzzy
 msgid "Description"
-msgstr "รายละเอียด"
+msgstr "ระบุอ๊อปชั่น"
 
 #: ../src/msec/msecgui.py:439
 msgid "Value"
@@ -881,30 +907,33 @@ msgid "Invalid option '%s'!"
 msgstr ""
 
 #: ../src/msec/msecgui.py:499
+#, fuzzy
 msgid "Enable MSEC tool"
-msgstr ""
+msgstr "Enable CD Boot?"
 
 #: ../src/msec/msecgui.py:506
+#, fuzzy
 msgid "Select the base security level"
-msgstr ""
+msgstr "เลือกระดับระบบรักษาความปลอดภัย"
 
 #: ../src/msec/msecgui.py:510
-#, fuzzy
 msgid "Standard"
-msgstr "ปฎิทิน"
+msgstr "Standard"
 
 #: ../src/msec/msecgui.py:523
 #, fuzzy
 msgid "Secure"
-msgstr "เซิร์ฟเวอร์:"
+msgstr "ระบบความป้องกัน"
 
 #: ../src/msec/msecgui.py:540
+#, fuzzy
 msgid "Send security alerts by email"
-msgstr ""
+msgstr "เลือกระดับระบบรักษาความปลอดภัย"
 
 #: ../src/msec/msecgui.py:547
+#, fuzzy
 msgid "System administrator email address:"
-msgstr ""
+msgstr "เซ็ตรหัสผ่านรูท"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
@@ -919,12 +948,14 @@ msgid "Path"
 msgstr "พาธ"
 
 #: ../src/msec/msecgui.py:797
+#, fuzzy
 msgid "User"
-msgstr "ผู้ใช้"
+msgstr "รหัสผู้ใช้"
 
 #: ../src/msec/msecgui.py:803
+#, fuzzy
 msgid "Group"
-msgstr "กลุ่ม"
+msgstr "รหัสกลุ่ม"
 
 #: ../src/msec/msecgui.py:817
 #, fuzzy
@@ -936,8 +967,9 @@ msgid "Reset to default level permissions"
 msgstr ""
 
 #: ../src/msec/msecgui.py:866
+#, fuzzy
 msgid "Add a rule"
-msgstr ""
+msgstr "เพิ่มผู้ใช้"
 
 #: ../src/msec/msecgui.py:871
 msgid "Delete"
@@ -966,12 +998,12 @@ msgstr "/_ไฟล์"
 #: ../src/msec/msecgui.py:989
 #, fuzzy
 msgid "User: "
-msgstr "ผู้ใช้:"
+msgstr "รหัสผู้ใช้"
 
 #: ../src/msec/msecgui.py:997
 #, fuzzy
 msgid "Group: "
-msgstr "กลุ่ม:"
+msgstr "รหัสกลุ่ม"
 
 #: ../src/msec/msecgui.py:1005
 #, fuzzy
@@ -992,8 +1024,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:1086
+#, fuzzy
 msgid "New value:"
-msgstr ""
+msgstr "Macedonian"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
@@ -1032,16 +1065,19 @@ msgid "Password history not supported with pam_tcb."
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:91
+#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr ""
+msgstr "รหัสผ่านนี้ง่ายต่อการเดา"
 
 #: ../src/msec/plugins/pam.py:106
+#, fuzzy
 msgid "Setting password history to %d."
-msgstr ""
+msgstr "รหัสผ่านนี้ง่ายต่อการเดา"
 
 #: ../src/msec/plugins/pam.py:112
+#, fuzzy
 msgid "Disabling password history"
-msgstr ""
+msgstr "รหัสผ่านนี้ง่ายต่อการเดา"
 
 #: ../src/msec/plugins/pam.py:124
 msgid ""
@@ -1075,3 +1111,4 @@ msgstr ""
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
+

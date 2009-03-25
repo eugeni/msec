@@ -1,15 +1,16 @@
-# translation of uz.po to Uzbek
-# Copyright (C) 2003, 2004, 2006, 2007 Free Software Foundation, Inc.
+# translation of uz@cyrillic.po to Uzbek
+# Copyright (C) 2003, 2004, 2006, 2007, 2008 Free Software Foundation, Inc.
 # Copyright (C) 2003 Mandriva.
 #
-# Mashrab Kuvatov <kmashrab@uni-bremen.de>, 2003, 2004, 2006, 2007.
+# Mashrab Kuvatov <kmashrab@uni-bremen.de>, 2003, 2004, 2006, 2007, 2008.
 # Nurali Abdurahmonov <mavnur@gmail.com>, 2006.
+# Behzod Saidov <behzodsaidov@gmail.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: uz\n"
+"Project-Id-Version: uz@cyrillic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-25 12:58+BRT\n"
-"PO-Revision-Date: 2007-09-26 23:16+0200\n"
+"PO-Revision-Date: 2008-08-24 01:24+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -97,8 +98,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:47
+#, fuzzy
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr ""
+msgstr "Бўш махфий сўзни /etc/shadow файлида текшириш"
 
 #: ../src/msec/help.py:49
 msgid ""
@@ -129,14 +131,18 @@ msgid "Allow root access without password for the members of the wheel group."
 msgstr ""
 
 #: ../src/msec/help.py:61
+#, fuzzy
 msgid "Send security check results by email."
-msgstr ""
+msgstr "Текширув натижасини электрон хат орқали жўнатиш"
 
 #: ../src/msec/help.py:63
+#, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
+"Махфий сўзнинг энг қисқа узунлигини, ундаги сонларнинг ва бош ҳарфларнинг "
+"энг кичик сонини аниқлаш."
 
 #: ../src/msec/help.py:65
 msgid "Set the root umask."
@@ -188,8 +194,9 @@ msgstr ""
 "Консолдан киритилган буйруқлар тарихининг ҳажмини аниқлаш. -1 чексизга тенг."
 
 #: ../src/msec/help.py:87
+#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
-msgstr ""
+msgstr "Терминал орқали компьютерни ўчириб-ёқишга рухсат этиш."
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
@@ -212,12 +219,14 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:97
+#, fuzzy
 msgid "Enable daily security checks."
-msgstr ""
+msgstr "Кундалик хавфсизлик текширишларини бажариш"
 
 #: ../src/msec/help.py:99
+#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr ""
+msgstr "Root тўғридан-тўғри киришига рухсат этиш."
 
 #: ../src/msec/help.py:101
 msgid "Enable checking for unowned files."
@@ -301,15 +310,17 @@ msgstr ""
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
 #, fuzzy
 msgid "deleted %s"
-msgstr "Танланган компьютерни тузатиш"
+msgstr "Ўчириш"
 
 #: ../src/msec/libmsec.py:455
+#, fuzzy
 msgid "touched file %s"
-msgstr ""
+msgstr "Бундай файл мавжуд эмас"
 
 #: ../src/msec/libmsec.py:475
+#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr ""
+msgstr "Ext2 файл тизимидан ext3 файл тизимига ўтилмоқда"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
@@ -356,12 +367,14 @@ msgid "Restricting chkconfig for packages according to \"%s\" profile"
 msgstr ""
 
 #: ../src/msec/libmsec.py:849
+#, fuzzy
 msgid "Setting root umask to %s"
-msgstr ""
+msgstr "Ext2 файл тизимидан ext3 файл тизимига ўтилмоқда"
 
 #: ../src/msec/libmsec.py:859
+#, fuzzy
 msgid "Setting users umask to %s"
-msgstr ""
+msgstr "Ext2 файл тизимидан ext3 файл тизимига ўтилмоқда"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
@@ -380,40 +393,48 @@ msgid "invalid allow_x_connections arg: %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:912
+#, fuzzy
 msgid "Allowing the X server to listen to tcp connections"
-msgstr ""
+msgstr "X Windows уланишларга рухсат этиш"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
 msgstr ""
 
 #: ../src/msec/libmsec.py:939
+#, fuzzy
 msgid "Invalid shell timeout \"%s\""
-msgstr ""
+msgstr "Консол учун таймаут"
 
 #: ../src/msec/libmsec.py:947
+#, fuzzy
 msgid "Setting shell timeout to %s"
-msgstr ""
+msgstr "Консол учун таймаут"
 
 #: ../src/msec/libmsec.py:955
+#, fuzzy
 msgid "Invalid shell history size \"%s\""
-msgstr ""
+msgstr "Консолда бажарилган буйруқлар тарихининг ҳажми"
 
 #: ../src/msec/libmsec.py:966
+#, fuzzy
 msgid "Setting shell history size to %s"
-msgstr ""
+msgstr "Консолда бажарилган буйруқлар тарихининг ҳажми"
 
 #: ../src/msec/libmsec.py:970
+#, fuzzy
 msgid "Removing limit on shell history size"
-msgstr ""
+msgstr "Консолда бажарилган буйруқлар тарихининг ҳажми"
 
 #: ../src/msec/libmsec.py:1009
+#, fuzzy
 msgid "Allowing reboot and shutdown to the console user"
-msgstr ""
+msgstr "Терминал орқали компьютерни ўчириб-ёқишга рухсат этиш."
 
 #: ../src/msec/libmsec.py:1016
+#, fuzzy
 msgid "Allowing SysRq key to the console user"
-msgstr ""
+msgstr "Терминал орқали компьютерни ўчириб-ёқишга рухсат этиш."
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
@@ -428,12 +449,14 @@ msgid "Allowing Ctrl-Alt-Del from console"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1030
+#, fuzzy
 msgid "Forbidding reboot and shutdown to the console user"
-msgstr ""
+msgstr "Терминал орқали компьютерни ўчириб-ёқишга рухсат этиш."
 
 #: ../src/msec/libmsec.py:1038
+#, fuzzy
 msgid "Forbidding SysRq key to the console user"
-msgstr ""
+msgstr "Консолдан компьютерни ўчириб-ёқиш"
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
@@ -464,24 +487,29 @@ msgid "Forbidding list of users in GDM"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1089
+#, fuzzy
 msgid "Allowing remote root login"
-msgstr ""
+msgstr "Root масофадан киришига рухсат этиш"
 
 #: ../src/msec/libmsec.py:1093
+#, fuzzy
 msgid "Forbidding remote root login"
-msgstr ""
+msgstr "Root масофадан киришига рухсат этиш"
 
 #: ../src/msec/libmsec.py:1097
+#, fuzzy
 msgid "Allowing remote root login only by passphrase"
-msgstr ""
+msgstr "Root масофадан киришига рухсат этиш"
 
 #: ../src/msec/libmsec.py:1109
+#, fuzzy
 msgid "Allowing autologin"
-msgstr ""
+msgstr "Авто-киришга рухсат бериш."
 
 #: ../src/msec/libmsec.py:1112
+#, fuzzy
 msgid "Forbidding autologin"
-msgstr ""
+msgstr "Авто-киришга рухсат бериш."
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
@@ -502,12 +530,14 @@ msgid "Disabling log on console"
 msgstr "Консолда белгини кўрсатиш"
 
 #: ../src/msec/libmsec.py:1162
+#, fuzzy
 msgid "Activating daily security check"
-msgstr ""
+msgstr "Кундалик хавфсизлик текширишларини бажариш."
 
 #: ../src/msec/libmsec.py:1166
+#, fuzzy
 msgid "Disabling daily security check"
-msgstr ""
+msgstr "Кундалик хавфсизлик текшируви"
 
 #: ../src/msec/libmsec.py:1183
 msgid "Authorizing all services"
@@ -539,8 +569,9 @@ msgid "Disabling sulogin in single user runlevel"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1272
+#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr ""
+msgstr "Дискнинг своп қисми (%s) ёқилмоқда"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
@@ -563,24 +594,28 @@ msgid "Forbidding export display from root"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1323
+#, fuzzy
 msgid "Activating periodic promiscuity check"
-msgstr ""
+msgstr "Кундалик хавфсизлик текширишларини бажариш."
 
 #: ../src/msec/libmsec.py:1327
 msgid "Disabling periodic promiscuity check"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1353
+#, fuzzy
 msgid "Allowing direct root login"
-msgstr ""
+msgstr "Root тўғридан-тўғри киришига рухсат этиш."
 
 #: ../src/msec/libmsec.py:1370
+#, fuzzy
 msgid "Forbidding direct root login"
-msgstr ""
+msgstr "Root тўғридан-тўғри киришига рухсат этиш."
 
 #: ../src/msec/libmsec.py:1505
+#, fuzzy
 msgid "user name %s not found"
-msgstr ""
+msgstr "Фойдаланувчининг исми жуда узун"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
@@ -599,24 +634,28 @@ msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1590
+#, fuzzy
 msgid "Enforcing user on %s to %s"
-msgstr ""
+msgstr "Ext2 файл тизимидан ext3 файл тизимига ўтилмоқда"
 
 #: ../src/msec/libmsec.py:1594
+#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr ""
+msgstr "%s'ни ажратишда хато: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1599
+#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr ""
+msgstr "Ext2 файл тизимидан ext3 файл тизимига ўтилмоқда"
 
 #: ../src/msec/libmsec.py:1603
+#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr ""
+msgstr "%s'ни ажратишда хато: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
@@ -643,12 +682,14 @@ msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1700
+#, fuzzy
 msgid "Checking paths: %s"
-msgstr ""
+msgstr "%s текширилмоқда"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
+#, fuzzy
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "Хавфсизлик даражаси"
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
@@ -667,8 +708,9 @@ msgid "Level '%s' not found, aborting."
 msgstr ""
 
 #: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
+#, fuzzy
 msgid "Switching to '%s' level."
-msgstr ""
+msgstr "Ext2 файл тизимидан ext3 файл тизимига ўтилмоқда"
 
 #: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
 msgid "Unable to save config!"
@@ -736,37 +778,37 @@ msgstr ""
 #: ../src/msec/msecgui.py:77
 #, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "Сканнер мосламаси"
+msgstr "Илтимос кутиб туринг... Мосламалар қўлланилмоқда"
 
 #: ../src/msec/msecgui.py:143
 #, fuzzy
 msgid "_File"
-msgstr "/_Файл"
+msgstr "Чили"
 
 #: ../src/msec/msecgui.py:145
 #, fuzzy
 msgid "_Save configuration"
-msgstr "Сканнер мосламаси"
+msgstr "Товушни мослаш"
 
 #: ../src/msec/msecgui.py:147
 #, fuzzy
 msgid "_Import configuration"
-msgstr "Юкланишни мослаш"
+msgstr "Товушни мослаш"
 
 #: ../src/msec/msecgui.py:148
 #, fuzzy
 msgid "_Export configuration"
-msgstr "Юкланишни мослаш"
+msgstr "Товушни мослаш"
 
 #: ../src/msec/msecgui.py:150
 #, fuzzy
 msgid "_Quit"
-msgstr "/Чи_қиш"
+msgstr "Чиқиш"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
 #, fuzzy
 msgid "_Help"
-msgstr "/_Ёрдам"
+msgstr "Ёрдам"
 
 #: ../src/msec/msecgui.py:155
 #, fuzzy
@@ -779,18 +821,19 @@ msgid "MSEC: System Security and Audit"
 msgstr "Тизим мосламалари"
 
 #: ../src/msec/msecgui.py:200
+#, fuzzy
 msgid "Basic security"
-msgstr ""
+msgstr "Кундалик хавфсизлик текшируви"
 
 #: ../src/msec/msecgui.py:201
 #, fuzzy
 msgid "System security"
-msgstr "Тизим мосламалари"
+msgstr "Хавфсизлик"
 
 #: ../src/msec/msecgui.py:202
 #, fuzzy
 msgid "Network security"
-msgstr "Тармоқ маркази"
+msgstr "Тармоқнинг профили"
 
 #: ../src/msec/msecgui.py:203
 #, fuzzy
@@ -839,7 +882,7 @@ msgstr ""
 #: ../src/msec/msecgui.py:274
 #, fuzzy
 msgid "Saving changes.."
-msgstr "...сифатида сақлаш"
+msgstr "Пакетлар ўчирилмоқда..."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -876,15 +919,17 @@ msgstr ""
 #: ../src/msec/msecgui.py:424
 #, fuzzy
 msgid "Security Option"
-msgstr "Таърифи"
+msgstr "Параметрларни аниқлаш"
 
 #: ../src/msec/msecgui.py:434
+#, fuzzy
 msgid "Description"
-msgstr "Таърифи"
+msgstr "Параметрларни аниқлаш"
 
 #: ../src/msec/msecgui.py:439
+#, fuzzy
 msgid "Value"
-msgstr ""
+msgstr "Палау"
 
 #: ../src/msec/msecgui.py:449
 #, fuzzy
@@ -892,23 +937,23 @@ msgid "Invalid option '%s'!"
 msgstr "Асосий мосламалар"
 
 #: ../src/msec/msecgui.py:499
+#, fuzzy
 msgid "Enable MSEC tool"
-msgstr ""
+msgstr "ACPI'ни ёқиш"
 
 #: ../src/msec/msecgui.py:506
 #, fuzzy
 msgid "Select the base security level"
-msgstr "Илтимос кутиб туринг, хавфсизлик даражаси ўрнатилмоқда"
+msgstr "Илтимос исталган хавфсизлик даражасини танланг"
 
 #: ../src/msec/msecgui.py:510
-#, fuzzy
 msgid "Standard"
-msgstr "Календар"
+msgstr "Андоза"
 
 #: ../src/msec/msecgui.py:523
 #, fuzzy
 msgid "Secure"
-msgstr "Сервер:"
+msgstr "Хавфсизлик"
 
 #: ../src/msec/msecgui.py:540
 #, fuzzy
@@ -918,27 +963,30 @@ msgstr "Хавфсизлик хабарномаси:"
 #: ../src/msec/msecgui.py:547
 #, fuzzy
 msgid "System administrator email address:"
-msgstr "Илтимос электрон почтангизни киритинг"
+msgstr "Администратор (root)"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
 msgstr ""
 
 #: ../src/msec/msecgui.py:727
+#, fuzzy
 msgid "Enable periodic security checks"
-msgstr ""
+msgstr "Кундалик хавфсизлик текширишларини бажариш"
 
 #: ../src/msec/msecgui.py:791
 msgid "Path"
 msgstr "Йўл"
 
 #: ../src/msec/msecgui.py:797
+#, fuzzy
 msgid "User"
-msgstr "Фойдаланувчи"
+msgstr "Фойдаланувчи ID"
 
 #: ../src/msec/msecgui.py:803
+#, fuzzy
 msgid "Group"
-msgstr "Гуруҳ"
+msgstr "Гуруҳ ID"
 
 #: ../src/msec/msecgui.py:817
 #, fuzzy
@@ -980,12 +1028,12 @@ msgstr "/_Файл"
 #: ../src/msec/msecgui.py:989
 #, fuzzy
 msgid "User: "
-msgstr "Фойдаланувчи:"
+msgstr "Фойдаланувчи ID"
 
 #: ../src/msec/msecgui.py:997
 #, fuzzy
 msgid "Group: "
-msgstr "Гуруҳ:"
+msgstr "Гуруҳ ID"
 
 #: ../src/msec/msecgui.py:1005
 #, fuzzy
@@ -1007,8 +1055,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:1086
+#, fuzzy
 msgid "New value:"
-msgstr ""
+msgstr "Янги Каледония"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
@@ -1032,31 +1081,36 @@ msgstr "Сақлаш"
 #: ../src/msec/msecgui.py:1154
 #, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "Мослаш воситасини ишга туширишни истайсизми?"
+msgstr "/etc/fstab файлига киритилган ўзгаришларни сақлашни истайсизми?"
 
 #: ../src/msec/plugins/pam.py:68
+#, fuzzy
 msgid "Using password to authenticate users"
-msgstr ""
+msgstr "Фойдаланувчиларни тасдиқлаш учун махфий сўздан фойдаланиш"
 
 #: ../src/msec/plugins/pam.py:72
+#, fuzzy
 msgid "Don't use password to authenticate users"
-msgstr ""
+msgstr "Фойдаланувчиларни тасдиқлаш учун махфий сўздан фойдаланиш"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:91
+#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr ""
+msgstr "Махфий сўз тарихининг узунлиги"
 
 #: ../src/msec/plugins/pam.py:106
+#, fuzzy
 msgid "Setting password history to %d."
-msgstr ""
+msgstr "Махфий сўз тарихининг узунлиги"
 
 #: ../src/msec/plugins/pam.py:112
+#, fuzzy
 msgid "Disabling password history"
-msgstr ""
+msgstr "Махфий сўз тарихининг узунлиги"
 
 #: ../src/msec/plugins/pam.py:124
 msgid ""
@@ -1090,3 +1144,4 @@ msgstr ""
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
+

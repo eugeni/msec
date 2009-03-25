@@ -14,19 +14,29 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: KBabel 0.9.6\n"
 
 #: ../src/msec/help.py:15
+#, fuzzy
 msgid "Enable name resolution spoofing protection."
 msgstr ""
+"Argumenti: (arg, alert=1)\n"
+"\n"
+"Omogući/Onemogući IP spoofing zaštitu."
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
 msgstr ""
 
 #: ../src/msec/help.py:19
+#, fuzzy
 msgid "Accept broadcasted ICMP echo."
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+" Prihvati/Odbij prenosivi icmp echo."
 
 #: ../src/msec/help.py:21
 msgid ""
@@ -44,14 +54,23 @@ msgid "Enable checking for known rootkits using chkrootkit."
 msgstr ""
 
 #: ../src/msec/help.py:27
+#, fuzzy
 msgid "Enable checking for additions/removals of suid root files."
 msgstr ""
+"ukoliko je podešeno na da, označite dodavanje/uklanjanje za suid root "
+"fajlove."
 
 #: ../src/msec/help.py:29
+#, fuzzy
 msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Omogući/Onemogući crontab i at za korisnike. Postavite korisnike sa "
+"dozvolama u /etc/cron.allow i /etc/at.allow\n"
+"(pročitajte man at(1) i crontab(1))."
 
 #: ../src/msec/help.py:31
 #, fuzzy
@@ -108,8 +127,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:47
+#, fuzzy
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr ""
+msgstr "ukoliko je podešeno na da, prverite praznu lozinku u /etc/shadow."
 
 #: ../src/msec/help.py:49
 msgid ""
@@ -128,8 +148,12 @@ msgid "Enable checking for open network ports."
 msgstr ""
 
 #: ../src/msec/help.py:55
+#, fuzzy
 msgid "Enable logging of strange network packets."
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Omogući/Onemogući prijavljivanje IPv4 strange paketa."
 
 #: ../src/msec/help.py:57
 msgid "Enable verification of installed RPM packages."
@@ -140,22 +164,33 @@ msgid "Allow root access without password for the members of the wheel group."
 msgstr ""
 
 #: ../src/msec/help.py:61
+#, fuzzy
 msgid "Send security check results by email."
-msgstr ""
+msgstr "ukoliko kažete da, pošaljite rezultat provere mail-om."
 
 #: ../src/msec/help.py:63
+#, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
+"Argumenti: (length, ndigits=0, nupper=0)\n"
+"\n"
+"Podesite najmanju dužinu lozinke i najmanji broj brojeva i minimalan broj "
+"velikih slova."
 
 #: ../src/msec/help.py:65
+#, fuzzy
 msgid "Set the root umask."
 msgstr ""
+"Argumenti: (umask)\n"
+"\n"
+"Podesite root umask."
 
 #: ../src/msec/help.py:67
+#, fuzzy
 msgid "Enable checking for additions/removals of sgid files."
-msgstr ""
+msgstr "ukoliko je podešeno na da, označite dodavanje/uklanjanje sgid fajlova."
 
 #: ../src/msec/help.py:69
 #, fuzzy
@@ -170,14 +205,23 @@ msgid "Enable AppArmor security framework on boot"
 msgstr ""
 
 #: ../src/msec/help.py:73
+#, fuzzy
 msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
+"Argumenti: (arg, listen_tcp=None)\n"
+"\n"
+"Dozvoljava/Nedozvoljava X konekciju. Prvi argument određije šta je urađeno\n"
+"sa strane klijenta: ALL (sve konekcije su dozvoljene), LOCAL (samo\n"
+"lpkalne konekcije) i NONE (bez konekcije)."
 
 #: ../src/msec/help.py:75
+#, fuzzy
 msgid "Enable checking for files/directories writable by everybody."
 msgstr ""
+"ukoliko je podešeno na da, označite fajlove/diretorijume upisivim za sve "
+"korisnike."
 
 #: ../src/msec/help.py:77
 msgid "Log syslog messages on console terminal 12."
@@ -211,8 +255,12 @@ msgstr ""
 "linita."
 
 #: ../src/msec/help.py:87
+#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Dozvoli/Ne dozvoli restartovanje od strane konzlolnog korisnika."
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
@@ -229,22 +277,32 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:95
+#, fuzzy
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Podesite istoriju pamćenja lozinki da bi sprečili ponovnu upotrebu lozinke."
 
 #: ../src/msec/help.py:97
+#, fuzzy
 msgid "Enable daily security checks."
-msgstr ""
+msgstr "ukoliko je podešeno na da, pokrenite dnevne sigurnosne provere."
 
 #: ../src/msec/help.py:99
+#, fuzzy
 msgid "Allow direct root login on terminal."
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Dozvoli/Ne dozvoli diektno root logovanje."
 
 #: ../src/msec/help.py:101
+#, fuzzy
 msgid "Enable checking for unowned files."
-msgstr ""
+msgstr "ukoliko je podešeno na da, prijavite fajlove bez vlasnika."
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
@@ -283,20 +341,36 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:117
+#, fuzzy
 msgid "Set the user umask."
 msgstr ""
+"Argumenti: (umask)\n"
+"\n"
+"Podešavanje korisničkog umask."
 
 #: ../src/msec/help.py:119
+#, fuzzy
 msgid "Accept ICMP echo."
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+" Prihvati/Odbij icmp echo."
 
 #: ../src/msec/help.py:121
+#, fuzzy
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
 "local services are authorized. If no, the services must be authorized "
 "manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Autorizuje sve servise koje kontroliše tcp_wrappers (see hosts.deny(5)) ako "
+"je \\fIarg\\fP = ALL. Samo lokalni\n"
+"if \\fIarg\\fP = LOCAL and none if \\fIarg\\fP = NONE. Za autorizaciju vama "
+"potrebnih servisa , koristite /etc/hosts.allow\n"
+"(see hosts.allow(5))."
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
@@ -324,15 +398,17 @@ msgstr ""
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
 #, fuzzy
 msgid "deleted %s"
-msgstr "Uredi selektovanog hosta"
+msgstr "Obriši"
 
 #: ../src/msec/libmsec.py:455
+#, fuzzy
 msgid "touched file %s"
-msgstr ""
+msgstr "Nema takvog fajla"
 
 #: ../src/msec/libmsec.py:475
+#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr ""
+msgstr "Menjam ext2 na ext3"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
@@ -379,12 +455,14 @@ msgid "Restricting chkconfig for packages according to \"%s\" profile"
 msgstr ""
 
 #: ../src/msec/libmsec.py:849
+#, fuzzy
 msgid "Setting root umask to %s"
-msgstr ""
+msgstr "Menjam ext2 na ext3"
 
 #: ../src/msec/libmsec.py:859
+#, fuzzy
 msgid "Setting users umask to %s"
-msgstr ""
+msgstr "Menjam ext2 na ext3"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
@@ -403,20 +481,23 @@ msgid "invalid allow_x_connections arg: %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:912
+#, fuzzy
 msgid "Allowing the X server to listen to tcp connections"
-msgstr ""
+msgstr "Winmodem konekcija"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
 msgstr ""
 
 #: ../src/msec/libmsec.py:939
+#, fuzzy
 msgid "Invalid shell timeout \"%s\""
-msgstr ""
+msgstr "Pauza pri startanju kernela"
 
 #: ../src/msec/libmsec.py:947
+#, fuzzy
 msgid "Setting shell timeout to %s"
-msgstr ""
+msgstr "Pauza pri startanju kernela"
 
 #: ../src/msec/libmsec.py:955
 msgid "Invalid shell history size \"%s\""
@@ -431,12 +512,20 @@ msgid "Removing limit on shell history size"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1009
+#, fuzzy
 msgid "Allowing reboot and shutdown to the console user"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Dozvoli/Ne dozvoli restartovanje od strane konzlolnog korisnika."
 
 #: ../src/msec/libmsec.py:1016
+#, fuzzy
 msgid "Allowing SysRq key to the console user"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Dozvoli/Ne dozvoli restartovanje od strane konzlolnog korisnika."
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
@@ -451,12 +540,20 @@ msgid "Allowing Ctrl-Alt-Del from console"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1030
+#, fuzzy
 msgid "Forbidding reboot and shutdown to the console user"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Dozvoli/Ne dozvoli restartovanje od strane konzlolnog korisnika."
 
 #: ../src/msec/libmsec.py:1038
+#, fuzzy
 msgid "Forbidding SysRq key to the console user"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Dozvoli/Ne dozvoli restartovanje od strane konzlolnog korisnika."
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
@@ -487,32 +584,53 @@ msgid "Forbidding list of users in GDM"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1089
+#, fuzzy
 msgid "Allowing remote root login"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Dozvoli/Ne dozvoli udaljeno root logovanje."
 
 #: ../src/msec/libmsec.py:1093
+#, fuzzy
 msgid "Forbidding remote root login"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Dozvoli/Ne dozvoli udaljeno root logovanje."
 
 #: ../src/msec/libmsec.py:1097
+#, fuzzy
 msgid "Allowing remote root login only by passphrase"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Dozvoli/Ne dozvoli udaljeno root logovanje."
 
 #: ../src/msec/libmsec.py:1109
+#, fuzzy
 msgid "Allowing autologin"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Dozvoli/Ne dozvoli autologovanje."
 
 #: ../src/msec/libmsec.py:1112
+#, fuzzy
 msgid "Forbidding autologin"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Dozvoli/Ne dozvoli autologovanje."
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1131
+#, fuzzy
 msgid "Removing password in boot loader"
-msgstr ""
+msgstr "Bez lozinke"
 
 #: ../src/msec/libmsec.py:1146
 #, fuzzy
@@ -525,12 +643,20 @@ msgid "Disabling log on console"
 msgstr "Prikaži logo u konzoli"
 
 #: ../src/msec/libmsec.py:1162
+#, fuzzy
 msgid "Activating daily security check"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+" Aktiviraj/Deaktiviraj dnevne sigurnosne provere."
 
 #: ../src/msec/libmsec.py:1166
+#, fuzzy
 msgid "Disabling daily security check"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+" Aktiviraj/Deaktiviraj dnevne sigurnosne provere."
 
 #: ../src/msec/libmsec.py:1183
 msgid "Authorizing all services"
@@ -546,24 +672,41 @@ msgid "Disabling non local services"
 msgstr "Zajedničko deljenje lokalnih skenera"
 
 #: ../src/msec/libmsec.py:1224
+#, fuzzy
 msgid "Enabling name resolution spoofing protection"
 msgstr ""
+"Argumenti: (arg, alert=1)\n"
+"\n"
+"Omogući/Onemogući IP spoofing zaštitu."
 
 #: ../src/msec/libmsec.py:1229
+#, fuzzy
 msgid "Disabling name resolution spoofing protection"
 msgstr ""
+"Argumenti: (arg, alert=1)\n"
+"\n"
+"Omogući/Onemogući IP spoofing zaštitu."
 
 #: ../src/msec/libmsec.py:1257
+#, fuzzy
 msgid "Enabling sulogin in single user runlevel"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+" Omogući/Onemogući sulogin(8) u single user nivou."
 
 #: ../src/msec/libmsec.py:1261
+#, fuzzy
 msgid "Disabling sulogin in single user runlevel"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+" Omogući/Onemogući sulogin(8) u single user nivou."
 
 #: ../src/msec/libmsec.py:1272
+#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr ""
+msgstr "Omogućavam swap particiju %s"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
@@ -586,24 +729,41 @@ msgid "Forbidding export display from root"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1323
+#, fuzzy
 msgid "Activating periodic promiscuity check"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Aktiviraj/Deaktiviraj proveru promiskuiteta mrežnih kartica."
 
 #: ../src/msec/libmsec.py:1327
+#, fuzzy
 msgid "Disabling periodic promiscuity check"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Aktiviraj/Deaktiviraj proveru promiskuiteta mrežnih kartica."
 
 #: ../src/msec/libmsec.py:1353
+#, fuzzy
 msgid "Allowing direct root login"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Dozvoli/Ne dozvoli diektno root logovanje."
 
 #: ../src/msec/libmsec.py:1370
+#, fuzzy
 msgid "Forbidding direct root login"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Dozvoli/Ne dozvoli diektno root logovanje."
 
 #: ../src/msec/libmsec.py:1505
+#, fuzzy
 msgid "user name %s not found"
-msgstr ""
+msgstr "Korisničko ime već je predugačko"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
@@ -622,24 +782,28 @@ msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1590
+#, fuzzy
 msgid "Enforcing user on %s to %s"
-msgstr ""
+msgstr "Menjam ext2 na ext3"
 
 #: ../src/msec/libmsec.py:1594
+#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr ""
+msgstr "Greška pri demontiranju %s: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1599
+#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr ""
+msgstr "Menjam ext2 na ext3"
 
 #: ../src/msec/libmsec.py:1603
+#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr ""
+msgstr "Greška pri demontiranju %s: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
@@ -666,12 +830,14 @@ msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1700
+#, fuzzy
 msgid "Checking paths: %s"
-msgstr ""
+msgstr "Proveravam %s"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
+#, fuzzy
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "Sigurnosni nivo"
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
@@ -690,8 +856,9 @@ msgid "Level '%s' not found, aborting."
 msgstr ""
 
 #: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
+#, fuzzy
 msgid "Switching to '%s' level."
-msgstr ""
+msgstr "Menjam ext2 na ext3"
 
 #: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
 msgid "Unable to save config!"
@@ -759,37 +926,37 @@ msgstr ""
 #: ../src/msec/msecgui.py:77
 #, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "Ručna konfiguracija"
+msgstr "Samo momenat... primena konfiguracije"
 
 #: ../src/msec/msecgui.py:143
 #, fuzzy
 msgid "_File"
-msgstr "/_Fajl"
+msgstr "Čile"
 
 #: ../src/msec/msecgui.py:145
 #, fuzzy
 msgid "_Save configuration"
-msgstr "Ručna konfiguracija"
+msgstr "Podešavanje zvuka"
 
 #: ../src/msec/msecgui.py:147
 #, fuzzy
 msgid "_Import configuration"
-msgstr "KOnfiguracija alarma za Mail"
+msgstr "Podešavanje zvuka"
 
 #: ../src/msec/msecgui.py:148
 #, fuzzy
 msgid "_Export configuration"
-msgstr "KOnfiguracija alarma za Mail"
+msgstr "Podešavanje zvuka"
 
 #: ../src/msec/msecgui.py:150
 #, fuzzy
 msgid "_Quit"
-msgstr "/_Kraj"
+msgstr "Kraj"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
 #, fuzzy
 msgid "_Help"
-msgstr "/_Pomoć"
+msgstr "Pomoć"
 
 #: ../src/msec/msecgui.py:155
 #, fuzzy
@@ -802,17 +969,19 @@ msgid "MSEC: System Security and Audit"
 msgstr "Sistemska podešavanja"
 
 #: ../src/msec/msecgui.py:200
+#, fuzzy
 msgid "Basic security"
-msgstr ""
+msgstr "Sigurnost"
 
 #: ../src/msec/msecgui.py:201
 #, fuzzy
 msgid "System security"
-msgstr "Sistemska podešavanja"
+msgstr "Sigurnost"
 
 #: ../src/msec/msecgui.py:202
+#, fuzzy
 msgid "Network security"
-msgstr ""
+msgstr "Mrežni proksi"
 
 #: ../src/msec/msecgui.py:203
 #, fuzzy
@@ -855,13 +1024,14 @@ msgid "removed %s <b>%s</b>"
 msgstr ""
 
 #: ../src/msec/msecgui.py:262
+#, fuzzy
 msgid "no changes"
-msgstr ""
+msgstr "Nema zajedničkog deljenja"
 
 #: ../src/msec/msecgui.py:274
 #, fuzzy
 msgid "Saving changes.."
-msgstr "Snimi Kao..."
+msgstr "Ukanjam %s ..."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -898,38 +1068,40 @@ msgstr ""
 #: ../src/msec/msecgui.py:424
 #, fuzzy
 msgid "Security Option"
-msgstr "Opis"
+msgstr "Navedite opcije"
 
 #: ../src/msec/msecgui.py:434
+#, fuzzy
 msgid "Description"
-msgstr "Opis"
+msgstr "Navedite opcije"
 
 #: ../src/msec/msecgui.py:439
+#, fuzzy
 msgid "Value"
-msgstr ""
+msgstr "Palau"
 
 #: ../src/msec/msecgui.py:449
 msgid "Invalid option '%s'!"
 msgstr ""
 
 #: ../src/msec/msecgui.py:499
+#, fuzzy
 msgid "Enable MSEC tool"
-msgstr ""
+msgstr "Omogući startanje sa CD-a?"
 
 #: ../src/msec/msecgui.py:506
 #, fuzzy
 msgid "Select the base security level"
-msgstr "Samo momenat, podešavam nivo sigurnosti..."
+msgstr "Izaberite željeni sigurnosni nivo"
 
 #: ../src/msec/msecgui.py:510
-#, fuzzy
 msgid "Standard"
-msgstr "Kalendar"
+msgstr "Standardni"
 
 #: ../src/msec/msecgui.py:523
 #, fuzzy
 msgid "Secure"
-msgstr "Server:"
+msgstr "Sigurnost"
 
 #: ../src/msec/msecgui.py:540
 #, fuzzy
@@ -939,27 +1111,33 @@ msgstr "Sigurnosni alarmi:"
 #: ../src/msec/msecgui.py:547
 #, fuzzy
 msgid "System administrator email address:"
-msgstr "Unesite svoju email adresu dole"
+msgstr "Unesi root lozinku"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
 msgstr ""
 
 #: ../src/msec/msecgui.py:727
+#, fuzzy
 msgid "Enable periodic security checks"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Omogući/Onemogući msec proveru sigurnosti na svaki čas."
 
 #: ../src/msec/msecgui.py:791
 msgid "Path"
 msgstr "Putanja"
 
 #: ../src/msec/msecgui.py:797
+#, fuzzy
 msgid "User"
-msgstr "Korisnik"
+msgstr "Korisnikov ID"
 
 #: ../src/msec/msecgui.py:803
+#, fuzzy
 msgid "Group"
-msgstr "Grupa"
+msgstr "Grupni ID"
 
 #: ../src/msec/msecgui.py:817
 #, fuzzy
@@ -971,8 +1149,9 @@ msgid "Reset to default level permissions"
 msgstr ""
 
 #: ../src/msec/msecgui.py:866
+#, fuzzy
 msgid "Add a rule"
-msgstr ""
+msgstr "Dodaj korisnika"
 
 #: ../src/msec/msecgui.py:871
 msgid "Delete"
@@ -1001,12 +1180,12 @@ msgstr "/_Fajl"
 #: ../src/msec/msecgui.py:989
 #, fuzzy
 msgid "User: "
-msgstr "Korisnik:"
+msgstr "Korisnikov ID"
 
 #: ../src/msec/msecgui.py:997
 #, fuzzy
 msgid "Group: "
-msgstr "Grupa"
+msgstr "Grupni ID"
 
 #: ../src/msec/msecgui.py:1005
 #, fuzzy
@@ -1027,8 +1206,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:1086
+#, fuzzy
 msgid "New value:"
-msgstr ""
+msgstr "Nova Kaledonija"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
@@ -1052,31 +1232,42 @@ msgstr "Sačuvaj"
 #: ../src/msec/msecgui.py:1154
 #, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "Da li hoćete da testirate konfiguraciju?"
+msgstr "Da li hoćete da sačuvate izmene u /etc/fstab?"
 
 #: ../src/msec/plugins/pam.py:68
+#, fuzzy
 msgid "Using password to authenticate users"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Koristi lozinku za autentifikaciju korisnika."
 
 #: ../src/msec/plugins/pam.py:72
+#, fuzzy
 msgid "Don't use password to authenticate users"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+"Koristi lozinku za autentifikaciju korisnika."
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:91
+#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr ""
+msgstr "Ova lozinka je previše prosta"
 
 #: ../src/msec/plugins/pam.py:106
+#, fuzzy
 msgid "Setting password history to %d."
-msgstr ""
+msgstr "Ova lozinka je previše prosta"
 
 #: ../src/msec/plugins/pam.py:112
+#, fuzzy
 msgid "Disabling password history"
-msgstr ""
+msgstr "Ova lozinka je previše prosta"
 
 #: ../src/msec/plugins/pam.py:124
 msgid ""
@@ -1088,8 +1279,12 @@ msgid "Setting minimum password length %d"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:169
+#, fuzzy
 msgid "Allowing su only from wheel group members"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+" Omogućavanje su samo za korisnije wheel grupe ili za svakog korisnika."
 
 #: ../src/msec/plugins/pam.py:173
 msgid "no wheel group"
@@ -1108,5 +1303,10 @@ msgid "Allowing transparent root access for wheel group members"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:211
+#, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
+"Argumenti: (arg)\n"
+"\n"
+" Omogućavanje su samo za korisnije wheel grupe ili za svakog korisnika."
+

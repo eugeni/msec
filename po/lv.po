@@ -137,8 +137,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:65
+#, fuzzy
 msgid "Set the root umask."
-msgstr ""
+msgstr "Bez paroles"
 
 #: ../src/msec/help.py:67
 msgid "Enable checking for additions/removals of sgid files."
@@ -213,8 +214,9 @@ msgid "Enable daily security checks."
 msgstr ""
 
 #: ../src/msec/help.py:99
+#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr ""
+msgstr "(pie šī datora)"
 
 #: ../src/msec/help.py:101
 msgid "Enable checking for unowned files."
@@ -257,8 +259,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:117
+#, fuzzy
 msgid "Set the user umask."
-msgstr ""
+msgstr "Lietotāji"
 
 #: ../src/msec/help.py:119
 msgid "Accept ICMP echo."
@@ -301,12 +304,14 @@ msgid "deleted %s"
 msgstr "Izdzēst"
 
 #: ../src/msec/libmsec.py:455
+#, fuzzy
 msgid "touched file %s"
-msgstr ""
+msgstr "Nav tāda faila"
 
 #: ../src/msec/libmsec.py:475
+#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr ""
+msgstr "Pārslēgšanās no ext2 uz ext3"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
@@ -353,12 +358,14 @@ msgid "Restricting chkconfig for packages according to \"%s\" profile"
 msgstr ""
 
 #: ../src/msec/libmsec.py:849
+#, fuzzy
 msgid "Setting root umask to %s"
-msgstr ""
+msgstr "Pārslēgšanās no ext2 uz ext3"
 
 #: ../src/msec/libmsec.py:859
+#, fuzzy
 msgid "Setting users umask to %s"
-msgstr ""
+msgstr "Pārslēgšanās no ext2 uz ext3"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
@@ -377,20 +384,23 @@ msgid "invalid allow_x_connections arg: %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:912
+#, fuzzy
 msgid "Allowing the X server to listen to tcp connections"
-msgstr ""
+msgstr "Parasts modēma savienojums"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
 msgstr ""
 
 #: ../src/msec/libmsec.py:939
+#, fuzzy
 msgid "Invalid shell timeout \"%s\""
-msgstr ""
+msgstr "Kerneļa ielādes taimauts"
 
 #: ../src/msec/libmsec.py:947
+#, fuzzy
 msgid "Setting shell timeout to %s"
-msgstr ""
+msgstr "Kerneļa ielādes taimauts"
 
 #: ../src/msec/libmsec.py:955
 msgid "Invalid shell history size \"%s\""
@@ -461,32 +471,38 @@ msgid "Forbidding list of users in GDM"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1089
+#, fuzzy
 msgid "Allowing remote root login"
-msgstr ""
+msgstr "(pie šī datora)"
 
 #: ../src/msec/libmsec.py:1093
+#, fuzzy
 msgid "Forbidding remote root login"
-msgstr ""
+msgstr "(pie šī datora)"
 
 #: ../src/msec/libmsec.py:1097
+#, fuzzy
 msgid "Allowing remote root login only by passphrase"
-msgstr ""
+msgstr "(pie šī datora)"
 
 #: ../src/msec/libmsec.py:1109
+#, fuzzy
 msgid "Allowing autologin"
-msgstr ""
+msgstr "Autopieslēgšanās"
 
 #: ../src/msec/libmsec.py:1112
+#, fuzzy
 msgid "Forbidding autologin"
-msgstr ""
+msgstr "Autopieslēgšanās"
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1131
+#, fuzzy
 msgid "Removing password in boot loader"
-msgstr ""
+msgstr "Bez paroles"
 
 #: ../src/msec/libmsec.py:1146
 #, fuzzy
@@ -535,8 +551,9 @@ msgid "Disabling sulogin in single user runlevel"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1272
+#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr ""
+msgstr "Formatēju sadaļu %s"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
@@ -567,16 +584,19 @@ msgid "Disabling periodic promiscuity check"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1353
+#, fuzzy
 msgid "Allowing direct root login"
-msgstr ""
+msgstr "(pie šī datora)"
 
 #: ../src/msec/libmsec.py:1370
+#, fuzzy
 msgid "Forbidding direct root login"
-msgstr ""
+msgstr "(pie šī datora)"
 
 #: ../src/msec/libmsec.py:1505
+#, fuzzy
 msgid "user name %s not found"
-msgstr ""
+msgstr "Lietotāja vārds ir pārāk garš"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
@@ -595,24 +615,28 @@ msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1590
+#, fuzzy
 msgid "Enforcing user on %s to %s"
-msgstr ""
+msgstr "Pārslēgšanās no ext2 uz ext3"
 
 #: ../src/msec/libmsec.py:1594
+#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr ""
+msgstr "kļūda nomontējot %s: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1599
+#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr ""
+msgstr "Pārslēgšanās no ext2 uz ext3"
 
 #: ../src/msec/libmsec.py:1603
+#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr ""
+msgstr "kļūda nomontējot %s: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
@@ -639,12 +663,14 @@ msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1700
+#, fuzzy
 msgid "Checking paths: %s"
-msgstr ""
+msgstr "Kopēju %s"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
+#, fuzzy
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "Drošības līmenis"
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
@@ -663,8 +689,9 @@ msgid "Level '%s' not found, aborting."
 msgstr ""
 
 #: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
+#, fuzzy
 msgid "Switching to '%s' level."
-msgstr ""
+msgstr "Pārslēgšanās no ext2 uz ext3"
 
 #: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
 msgid "Unable to save config!"
@@ -732,37 +759,37 @@ msgstr ""
 #: ../src/msec/msecgui.py:77
 #, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "Manuāla konfigurēšana"
+msgstr "Lūdzu uzgaidiet ... konfigurācijas piemērošana"
 
 #: ../src/msec/msecgui.py:143
 #, fuzzy
 msgid "_File"
-msgstr "/_Fails"
+msgstr "Čīle"
 
 #: ../src/msec/msecgui.py:145
 #, fuzzy
 msgid "_Save configuration"
-msgstr "Manuāla konfigurēšana"
+msgstr "Skaņas konfigurācija"
 
 #: ../src/msec/msecgui.py:147
 #, fuzzy
 msgid "_Import configuration"
-msgstr "Pasta trauksmes konfigurēšana"
+msgstr "Skaņas konfigurācija"
 
 #: ../src/msec/msecgui.py:148
 #, fuzzy
 msgid "_Export configuration"
-msgstr "Pasta trauksmes konfigurēšana"
+msgstr "Skaņas konfigurācija"
 
 #: ../src/msec/msecgui.py:150
 #, fuzzy
 msgid "_Quit"
-msgstr "/_Iziet"
+msgstr "Beigt"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
 #, fuzzy
 msgid "_Help"
-msgstr "/_Palīdzība"
+msgstr "Palīdzība"
 
 #: ../src/msec/msecgui.py:155
 #, fuzzy
@@ -775,17 +802,19 @@ msgid "MSEC: System Security and Audit"
 msgstr "Sistēmas uzstādījumi"
 
 #: ../src/msec/msecgui.py:200
+#, fuzzy
 msgid "Basic security"
-msgstr ""
+msgstr "Drošība"
 
 #: ../src/msec/msecgui.py:201
 #, fuzzy
 msgid "System security"
-msgstr "Sistēmas uzstādījumi"
+msgstr "Drošība"
 
 #: ../src/msec/msecgui.py:202
+#, fuzzy
 msgid "Network security"
-msgstr ""
+msgstr "Tīkla pārlūks"
 
 #: ../src/msec/msecgui.py:203
 #, fuzzy
@@ -828,13 +857,14 @@ msgid "removed %s <b>%s</b>"
 msgstr ""
 
 #: ../src/msec/msecgui.py:262
+#, fuzzy
 msgid "no changes"
-msgstr ""
+msgstr "Bez koplietošanas"
 
 #: ../src/msec/msecgui.py:274
 #, fuzzy
 msgid "Saving changes.."
-msgstr "Saglabāt kā..."
+msgstr "Atvienoju %s"
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -871,38 +901,40 @@ msgstr ""
 #: ../src/msec/msecgui.py:424
 #, fuzzy
 msgid "Security Option"
-msgstr "Apraksts"
+msgstr "Norādīt opcijas"
 
 #: ../src/msec/msecgui.py:434
+#, fuzzy
 msgid "Description"
-msgstr "Apraksts"
+msgstr "Norādīt opcijas"
 
 #: ../src/msec/msecgui.py:439
+#, fuzzy
 msgid "Value"
-msgstr ""
+msgstr "Palau"
 
 #: ../src/msec/msecgui.py:449
 msgid "Invalid option '%s'!"
 msgstr ""
 
 #: ../src/msec/msecgui.py:499
+#, fuzzy
 msgid "Enable MSEC tool"
-msgstr ""
+msgstr "Atļaut CD ielādi?"
 
 #: ../src/msec/msecgui.py:506
 #, fuzzy
 msgid "Select the base security level"
-msgstr "Lūdzu uzgaidiet, uzstādu drošības līmeni"
+msgstr "Izvēlieties vēlamo drošības līmeni?"
 
 #: ../src/msec/msecgui.py:510
-#, fuzzy
 msgid "Standard"
-msgstr "Kalendārs"
+msgstr "Standarta"
 
 #: ../src/msec/msecgui.py:523
 #, fuzzy
 msgid "Secure"
-msgstr "Serveris:"
+msgstr "Drošība"
 
 #: ../src/msec/msecgui.py:540
 #, fuzzy
@@ -912,7 +944,7 @@ msgstr "Drošības trauksmes:"
 #: ../src/msec/msecgui.py:547
 #, fuzzy
 msgid "System administrator email address:"
-msgstr "Lūdzu zemāk ievadiet savu epasta adresi"
+msgstr "root paroles izvēle"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
@@ -927,12 +959,14 @@ msgid "Path"
 msgstr "Ceļš"
 
 #: ../src/msec/msecgui.py:797
+#, fuzzy
 msgid "User"
-msgstr "Lietotājs"
+msgstr "Lietotāja ID"
 
 #: ../src/msec/msecgui.py:803
+#, fuzzy
 msgid "Group"
-msgstr "Grupa"
+msgstr "Grupas ID"
 
 #: ../src/msec/msecgui.py:817
 #, fuzzy
@@ -944,8 +978,9 @@ msgid "Reset to default level permissions"
 msgstr ""
 
 #: ../src/msec/msecgui.py:866
+#, fuzzy
 msgid "Add a rule"
-msgstr ""
+msgstr "Pievienot lietotāju"
 
 #: ../src/msec/msecgui.py:871
 msgid "Delete"
@@ -974,12 +1009,12 @@ msgstr "/_Fails"
 #: ../src/msec/msecgui.py:989
 #, fuzzy
 msgid "User: "
-msgstr "Lietotājs:"
+msgstr "Lietotāja ID"
 
 #: ../src/msec/msecgui.py:997
 #, fuzzy
 msgid "Group: "
-msgstr "Grupa:"
+msgstr "Grupas ID"
 
 #: ../src/msec/msecgui.py:1005
 #, fuzzy
@@ -1000,8 +1035,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:1086
+#, fuzzy
 msgid "New value:"
-msgstr ""
+msgstr "Jaunkaledonija"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
@@ -1025,7 +1061,7 @@ msgstr "Saglabāt"
 #: ../src/msec/msecgui.py:1154
 #, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "Vai vēlaties izmēģināt šo konfigurāciju?"
+msgstr "Vai vēlaties saglabāt /etc/fstab izmaiņas"
 
 #: ../src/msec/plugins/pam.py:68
 msgid "Using password to authenticate users"
@@ -1040,16 +1076,19 @@ msgid "Password history not supported with pam_tcb."
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:91
+#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr ""
+msgstr "Šī parole ir pārāk vienkārša"
 
 #: ../src/msec/plugins/pam.py:106
+#, fuzzy
 msgid "Setting password history to %d."
-msgstr ""
+msgstr "Šī parole ir pārāk vienkārša"
 
 #: ../src/msec/plugins/pam.py:112
+#, fuzzy
 msgid "Disabling password history"
-msgstr ""
+msgstr "Šī parole ir pārāk vienkārša"
 
 #: ../src/msec/plugins/pam.py:124
 msgid ""
@@ -1083,3 +1122,4 @@ msgstr ""
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
+

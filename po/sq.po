@@ -16,16 +16,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 
 #: ../src/msec/help.py:15
+#, fuzzy
 msgid "Enable name resolution spoofing protection."
-msgstr ""
+msgstr "Emri i vendosmërisë me mbrojtje tallëse"
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
 msgstr ""
 
 #: ../src/msec/help.py:19
+#, fuzzy
 msgid "Accept broadcasted ICMP echo."
-msgstr ""
+msgstr "Pranoje transmetuesin echon icmp"
 
 #: ../src/msec/help.py:21
 msgid ""
@@ -43,14 +45,20 @@ msgid "Enable checking for known rootkits using chkrootkit."
 msgstr ""
 
 #: ../src/msec/help.py:27
+#, fuzzy
 msgid "Enable checking for additions/removals of suid root files."
-msgstr ""
+msgstr "Verifikoji mbledhjet/e zhdukshme nga skedaret suid root."
 
 #: ../src/msec/help.py:29
+#, fuzzy
 msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
+"Aktivizoje/Blokoje tabelën-cron (crontab) dhe at për përdoruesit.\n"
+"\n"
+"Futi përdoruesit e mundshëm në /etc/cron.allow dhe /etc/at.allow\n"
+"(shiqo doracakun (man) at(1) dhe crontab(1))."
 
 #: ../src/msec/help.py:31
 #, fuzzy
@@ -98,8 +106,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:47
+#, fuzzy
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr ""
+msgstr "Verifikoje parullën e zbraztë në /etc/shadow"
 
 #: ../src/msec/help.py:49
 msgid ""
@@ -118,8 +127,9 @@ msgid "Enable checking for open network ports."
 msgstr ""
 
 #: ../src/msec/help.py:55
+#, fuzzy
 msgid "Enable logging of strange network packets."
-msgstr ""
+msgstr "Aktivizoje logging e IPv4 në pakot e huaja"
 
 #: ../src/msec/help.py:57
 msgid "Enable verification of installed RPM packages."
@@ -130,22 +140,28 @@ msgid "Allow root access without password for the members of the wheel group."
 msgstr ""
 
 #: ../src/msec/help.py:61
+#, fuzzy
 msgid "Send security check results by email."
-msgstr ""
+msgstr "Verifikoje rezultatin e raportit nga e-maili"
 
 #: ../src/msec/help.py:63
+#, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
+"Konfiguroje parullën me një gjatësi minimale, me numra digjitale minimal dhe "
+"numër të shkronjave."
 
 #: ../src/msec/help.py:65
+#, fuzzy
 msgid "Set the root umask."
-msgstr ""
+msgstr "Konfiguroje umask të administratorit."
 
 #: ../src/msec/help.py:67
+#, fuzzy
 msgid "Enable checking for additions/removals of sgid files."
-msgstr ""
+msgstr "Verifikoji mbledhjet/e zhdukura të skedareve sgid"
 
 #: ../src/msec/help.py:69
 #, fuzzy
@@ -157,14 +173,23 @@ msgid "Enable AppArmor security framework on boot"
 msgstr ""
 
 #: ../src/msec/help.py:73
+#, fuzzy
 msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
+"Mundëso/Ndalo lidhjen në X:\n"
+"\n"
+"- GJITHA (të gjitha lidhjet janë të mundëshme),\n"
+"\n"
+"- LOKAL (vetëm lidhje lokale),\n"
+"\n"
+"- ASNJËRA (asnjë lidhje)."
 
 #: ../src/msec/help.py:75
+#, fuzzy
 msgid "Enable checking for files/directories writable by everybody."
-msgstr ""
+msgstr "Verifikoji skedaret/repertorët e shkrueshëm nga secili personë."
 
 #: ../src/msec/help.py:77
 msgid "Log syslog messages on console terminal 12."
@@ -192,8 +217,9 @@ msgstr ""
 "th. e pas kufizuar."
 
 #: ../src/msec/help.py:87
+#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
-msgstr ""
+msgstr "Mundëso/Ndalo rinisjen e konsollës së përdoruesit."
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
@@ -210,22 +236,28 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:95
+#, fuzzy
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
 msgstr ""
+"Konfiguroje gjatësinë e skedares së historisë në ripërdorimin e parullës së "
+"ndaluar."
 
 #: ../src/msec/help.py:97
+#, fuzzy
 msgid "Enable daily security checks."
-msgstr ""
+msgstr "Nisi për gjdo ditë verifikimet e sigurisë"
 
 #: ../src/msec/help.py:99
+#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr ""
+msgstr "Mundëso/Ndalo lidhje direkte root."
 
 #: ../src/msec/help.py:101
+#, fuzzy
 msgid "Enable checking for unowned files."
-msgstr ""
+msgstr "Raportim i skedareve jo përkatëse"
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
@@ -264,20 +296,34 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:117
+#, fuzzy
 msgid "Set the user umask."
-msgstr ""
+msgstr "Konfigurim i umask për përdoruesin"
 
 #: ../src/msec/help.py:119
+#, fuzzy
 msgid "Accept ICMP echo."
-msgstr ""
+msgstr "Pranoje echon icmp"
 
 #: ../src/msec/help.py:121
+#, fuzzy
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
 "local services are authorized. If no, the services must be authorized "
 "manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
+"Autorizim:\n"
+"\n"
+"- të gjitha shërbimet kontrolohen nga tcp_wrappers (shiqo tek hosts.deny(5) "
+"faqe ndihmuese) nëse konfigurohet me \"GJITHA\",\n"
+"\n"
+"- vetëm ata lokal nëse konfigurohen me \"LOKAL\".\n"
+"\n"
+"- jo nëse konfigurohet me \"JO\".\n"
+"\n"
+"Për ti autorizuar shërbimet që ju nevojiten, përdoreni /etc/hosts.allow\n"
+"(shiqo tek hosts.allow(5))."
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
@@ -305,15 +351,17 @@ msgstr ""
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
 #, fuzzy
 msgid "deleted %s"
-msgstr "Botoje ftusin e zgjedhur"
+msgstr "Zhduke"
 
 #: ../src/msec/libmsec.py:455
+#, fuzzy
 msgid "touched file %s"
-msgstr ""
+msgstr "File `%s' nuk u gjet\n"
 
 #: ../src/msec/libmsec.py:475
+#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr ""
+msgstr "Kalim nga ext2 në ext3"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
@@ -360,12 +408,14 @@ msgid "Restricting chkconfig for packages according to \"%s\" profile"
 msgstr ""
 
 #: ../src/msec/libmsec.py:849
+#, fuzzy
 msgid "Setting root umask to %s"
-msgstr ""
+msgstr "Kalim nga ext2 në ext3"
 
 #: ../src/msec/libmsec.py:859
+#, fuzzy
 msgid "Setting users umask to %s"
-msgstr ""
+msgstr "Kalim nga ext2 në ext3"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
@@ -384,40 +434,48 @@ msgid "invalid allow_x_connections arg: %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:912
+#, fuzzy
 msgid "Allowing the X server to listen to tcp connections"
-msgstr ""
+msgstr "Mundësoi lidhjet me X Window"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
 msgstr ""
 
 #: ../src/msec/libmsec.py:939
+#, fuzzy
 msgid "Invalid shell timeout \"%s\""
-msgstr ""
+msgstr "Kohë zgjatja e Shell"
 
 #: ../src/msec/libmsec.py:947
+#, fuzzy
 msgid "Setting shell timeout to %s"
-msgstr ""
+msgstr "Kohë zgjatja e Shell"
 
 #: ../src/msec/libmsec.py:955
+#, fuzzy
 msgid "Invalid shell history size \"%s\""
-msgstr ""
+msgstr "Shell madhësia e historisë"
 
 #: ../src/msec/libmsec.py:966
+#, fuzzy
 msgid "Setting shell history size to %s"
-msgstr ""
+msgstr "Shell madhësia e historisë"
 
 #: ../src/msec/libmsec.py:970
+#, fuzzy
 msgid "Removing limit on shell history size"
-msgstr ""
+msgstr "Shell madhësia e historisë"
 
 #: ../src/msec/libmsec.py:1009
+#, fuzzy
 msgid "Allowing reboot and shutdown to the console user"
-msgstr ""
+msgstr "Mundëso/Ndalo rinisjen e konsollës së përdoruesit."
 
 #: ../src/msec/libmsec.py:1016
+#, fuzzy
 msgid "Allowing SysRq key to the console user"
-msgstr ""
+msgstr "Mundëso/Ndalo rinisjen e konsollës së përdoruesit."
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
@@ -432,12 +490,14 @@ msgid "Allowing Ctrl-Alt-Del from console"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1030
+#, fuzzy
 msgid "Forbidding reboot and shutdown to the console user"
-msgstr ""
+msgstr "Mundëso/Ndalo rinisjen e konsollës së përdoruesit."
 
 #: ../src/msec/libmsec.py:1038
+#, fuzzy
 msgid "Forbidding SysRq key to the console user"
-msgstr ""
+msgstr "Rinise nga konsola e përdoruesit"
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
@@ -468,37 +528,43 @@ msgid "Forbidding list of users in GDM"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1089
+#, fuzzy
 msgid "Allowing remote root login"
-msgstr ""
+msgstr "Mundëson lidhje root të largët"
 
 #: ../src/msec/libmsec.py:1093
+#, fuzzy
 msgid "Forbidding remote root login"
-msgstr ""
+msgstr "Mundëso/Ndalo lidhje root të largët."
 
 #: ../src/msec/libmsec.py:1097
+#, fuzzy
 msgid "Allowing remote root login only by passphrase"
-msgstr ""
+msgstr "Mundëson lidhje root të largët"
 
 #: ../src/msec/libmsec.py:1109
+#, fuzzy
 msgid "Allowing autologin"
-msgstr ""
+msgstr "Mundëso/Ndalo lidhje-automatike (autologin)."
 
 #: ../src/msec/libmsec.py:1112
+#, fuzzy
 msgid "Forbidding autologin"
-msgstr ""
+msgstr "Mundëso/Ndalo lidhje-automatike (autologin)."
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1131
+#, fuzzy
 msgid "Removing password in boot loader"
-msgstr ""
+msgstr "Asnjë parullë e vjetërsuar për"
 
 #: ../src/msec/libmsec.py:1146
 #, fuzzy
 msgid "Enabling log on console"
-msgstr "Çfaqe logon ndër Konsolë"
+msgstr "Aktivizoje/Blokoje raportin syslog në konsolën 12"
 
 #: ../src/msec/libmsec.py:1150
 #, fuzzy
@@ -506,12 +572,14 @@ msgid "Disabling log on console"
 msgstr "Çfaqe logon ndër Konsolë"
 
 #: ../src/msec/libmsec.py:1162
+#, fuzzy
 msgid "Activating daily security check"
-msgstr ""
+msgstr "Activizoje/Blokoje verifikim sigurie në gjdo ditë."
 
 #: ../src/msec/libmsec.py:1166
+#, fuzzy
 msgid "Disabling daily security check"
-msgstr ""
+msgstr "Verifikim i sigurisë ditor"
 
 #: ../src/msec/libmsec.py:1183
 msgid "Authorizing all services"
@@ -527,36 +595,43 @@ msgid "Disabling non local services"
 msgstr "Shpëndarja e skanerve lokalë"
 
 #: ../src/msec/libmsec.py:1224
+#, fuzzy
 msgid "Enabling name resolution spoofing protection"
-msgstr ""
+msgstr "Emri i vendosmërisë me mbrojtje tallëse"
 
 #: ../src/msec/libmsec.py:1229
+#, fuzzy
 msgid "Disabling name resolution spoofing protection"
-msgstr ""
+msgstr "Emri i vendosmërisë me mbrojtje tallëse"
 
 #: ../src/msec/libmsec.py:1257
+#, fuzzy
 msgid "Enabling sulogin in single user runlevel"
-msgstr ""
+msgstr "Aktivizon/Blokon sulogin(8) në nivelin e përdoruesit vetiak."
 
 #: ../src/msec/libmsec.py:1261
+#, fuzzy
 msgid "Disabling sulogin in single user runlevel"
-msgstr ""
+msgstr "Aktivizon/Blokon sulogin(8) në nivelin e përdoruesit vetiak."
 
 #: ../src/msec/libmsec.py:1272
+#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr ""
+msgstr "Aktivizimi i ndarjes swap %s"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1289
+#, fuzzy
 msgid "Enabling crontab and at"
-msgstr ""
+msgstr "Aktivizoje \"crontab\" dhe \"at\" për përdoruesit"
 
 #: ../src/msec/libmsec.py:1296
+#, fuzzy
 msgid "Disabling crontab and at"
-msgstr ""
+msgstr "Aktivizoje \"crontab\" dhe \"at\" për përdoruesit"
 
 #: ../src/msec/libmsec.py:1308
 msgid "Allowing export display from root"
@@ -567,24 +642,29 @@ msgid "Forbidding export display from root"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1323
+#, fuzzy
 msgid "Activating periodic promiscuity check"
-msgstr ""
+msgstr "Activizoje/Blokoje kartelën ethernet me verifikim të përzier."
 
 #: ../src/msec/libmsec.py:1327
+#, fuzzy
 msgid "Disabling periodic promiscuity check"
-msgstr ""
+msgstr "Kartelat ethernet me verifikim të përzier"
 
 #: ../src/msec/libmsec.py:1353
+#, fuzzy
 msgid "Allowing direct root login"
-msgstr ""
+msgstr "Mundëso/Ndalo lidhje direkte root."
 
 #: ../src/msec/libmsec.py:1370
+#, fuzzy
 msgid "Forbidding direct root login"
-msgstr ""
+msgstr "Mundëso/Ndalo lidhje direkte root."
 
 #: ../src/msec/libmsec.py:1505
+#, fuzzy
 msgid "user name %s not found"
-msgstr ""
+msgstr "Emri i përdoruesit është shumë i gjatë"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
@@ -603,24 +683,28 @@ msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1590
+#, fuzzy
 msgid "Enforcing user on %s to %s"
-msgstr ""
+msgstr "Kalim nga ext2 në ext3"
 
 #: ../src/msec/libmsec.py:1594
+#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr ""
+msgstr "gabim gjatë çmontimit %s: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1599
+#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr ""
+msgstr "Kalim nga ext2 në ext3"
 
 #: ../src/msec/libmsec.py:1603
+#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr ""
+msgstr "gabim gjatë çmontimit %s: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
@@ -647,12 +731,14 @@ msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1700
+#, fuzzy
 msgid "Checking paths: %s"
-msgstr ""
+msgstr "Verifikimi i %s"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
+#, fuzzy
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "Nivel sigurie"
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
@@ -671,8 +757,9 @@ msgid "Level '%s' not found, aborting."
 msgstr ""
 
 #: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
+#, fuzzy
 msgid "Switching to '%s' level."
-msgstr ""
+msgstr "Kalim nga ext2 në ext3"
 
 #: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
 msgid "Unable to save config!"
@@ -740,37 +827,37 @@ msgstr ""
 #: ../src/msec/msecgui.py:77
 #, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "Konfigurimi manuel"
+msgstr "Një moment ju lutemi... Përshtatja e konfigurimit"
 
 #: ../src/msec/msecgui.py:143
 #, fuzzy
 msgid "_File"
-msgstr "/_Skedare"
+msgstr "Qili"
 
 #: ../src/msec/msecgui.py:145
 #, fuzzy
 msgid "_Save configuration"
-msgstr "Konfigurimi manuel"
+msgstr "Konfigurimi i zërit"
 
 #: ../src/msec/msecgui.py:147
 #, fuzzy
 msgid "_Import configuration"
-msgstr "Konfigurimi i lajmit alarmues"
+msgstr "Konfigurimi i zërit"
 
 #: ../src/msec/msecgui.py:148
 #, fuzzy
 msgid "_Export configuration"
-msgstr "Konfigurimi i lajmit alarmues"
+msgstr "Konfigurimi i zërit"
 
 #: ../src/msec/msecgui.py:150
 #, fuzzy
 msgid "_Quit"
-msgstr "/_Braktise"
+msgstr "Braktise"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
 #, fuzzy
 msgid "_Help"
-msgstr "/_Ndihmë"
+msgstr "Ndihmë"
 
 #: ../src/msec/msecgui.py:155
 #, fuzzy
@@ -783,17 +870,19 @@ msgid "MSEC: System Security and Audit"
 msgstr "Rregullimet e sistemit"
 
 #: ../src/msec/msecgui.py:200
+#, fuzzy
 msgid "Basic security"
-msgstr ""
+msgstr "Verifikim i sigurisë ditor"
 
 #: ../src/msec/msecgui.py:201
 #, fuzzy
 msgid "System security"
-msgstr "Rregullimet e sistemit"
+msgstr "Siguria"
 
 #: ../src/msec/msecgui.py:202
+#, fuzzy
 msgid "Network security"
-msgstr ""
+msgstr "Shfletues rrjeti"
 
 #: ../src/msec/msecgui.py:203
 #, fuzzy
@@ -836,13 +925,14 @@ msgid "removed %s <b>%s</b>"
 msgstr ""
 
 #: ../src/msec/msecgui.py:262
+#, fuzzy
 msgid "no changes"
-msgstr ""
+msgstr "Asnjë ndarje"
 
 #: ../src/msec/msecgui.py:274
 #, fuzzy
 msgid "Saving changes.."
-msgstr "Shpëtoje si.."
+msgstr "Zhdukja e %s ..."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -879,15 +969,17 @@ msgstr ""
 #: ../src/msec/msecgui.py:424
 #, fuzzy
 msgid "Security Option"
-msgstr "Përshkrimi"
+msgstr "Specifikoi opcionet"
 
 #: ../src/msec/msecgui.py:434
+#, fuzzy
 msgid "Description"
-msgstr "Përshkrimi"
+msgstr "Specifikoi opcionet"
 
 #: ../src/msec/msecgui.py:439
+#, fuzzy
 msgid "Value"
-msgstr ""
+msgstr "Palau"
 
 #: ../src/msec/msecgui.py:449
 #, fuzzy
@@ -895,23 +987,23 @@ msgid "Invalid option '%s'!"
 msgstr "Opcionet Bazë"
 
 #: ../src/msec/msecgui.py:499
+#, fuzzy
 msgid "Enable MSEC tool"
-msgstr ""
+msgstr "Autorizoje nisjen nga CD?"
 
 #: ../src/msec/msecgui.py:506
 #, fuzzy
 msgid "Select the base security level"
-msgstr "Një moment ju lutemi, konfigurim i nivelit të sigurisë..."
+msgstr "Ju lutemi zgjedheni nivelin e sigurisë që ju pëlqen"
 
 #: ../src/msec/msecgui.py:510
-#, fuzzy
 msgid "Standard"
-msgstr "Kalendari"
+msgstr "Standard"
 
 #: ../src/msec/msecgui.py:523
 #, fuzzy
 msgid "Secure"
-msgstr "Serveri:"
+msgstr "Siguria"
 
 #: ../src/msec/msecgui.py:540
 #, fuzzy
@@ -921,27 +1013,30 @@ msgstr "Siguria e Alarmeve:"
 #: ../src/msec/msecgui.py:547
 #, fuzzy
 msgid "System administrator email address:"
-msgstr "Ju lutemi futni adresën tuaj e-mail këtu"
+msgstr "Paraqite parullën root"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
 msgstr ""
 
 #: ../src/msec/msecgui.py:727
+#, fuzzy
 msgid "Enable periodic security checks"
-msgstr ""
+msgstr "Aktivizoje/Blokoje verifikim e sigurisë në gjdo orë"
 
 #: ../src/msec/msecgui.py:791
 msgid "Path"
 msgstr "Shtegu"
 
 #: ../src/msec/msecgui.py:797
+#, fuzzy
 msgid "User"
-msgstr "Përdorues"
+msgstr "ID i Përdoruesit"
 
 #: ../src/msec/msecgui.py:803
+#, fuzzy
 msgid "Group"
-msgstr "Grupi"
+msgstr "Grup ID"
 
 #: ../src/msec/msecgui.py:817
 #, fuzzy
@@ -953,8 +1048,9 @@ msgid "Reset to default level permissions"
 msgstr ""
 
 #: ../src/msec/msecgui.py:866
+#, fuzzy
 msgid "Add a rule"
-msgstr "Shtoje një rregullë"
+msgstr "Shto një përdorues"
 
 #: ../src/msec/msecgui.py:871
 msgid "Delete"
@@ -983,12 +1079,12 @@ msgstr "/_Skedare"
 #: ../src/msec/msecgui.py:989
 #, fuzzy
 msgid "User: "
-msgstr "Përdorues :"
+msgstr "ID i Përdoruesit"
 
 #: ../src/msec/msecgui.py:997
 #, fuzzy
 msgid "Group: "
-msgstr "Grupi :"
+msgstr "Grup ID"
 
 #: ../src/msec/msecgui.py:1005
 #, fuzzy
@@ -1009,8 +1105,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:1086
+#, fuzzy
 msgid "New value:"
-msgstr ""
+msgstr "Kaledonia e Re"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
@@ -1034,31 +1131,36 @@ msgstr "Shpëtoje"
 #: ../src/msec/msecgui.py:1154
 #, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "A dëshironi ta testoni konfigurimin?"
+msgstr "A dëshironi ti registroni ndryshimet në /etc/fstab"
 
 #: ../src/msec/plugins/pam.py:68
+#, fuzzy
 msgid "Using password to authenticate users"
-msgstr ""
+msgstr "Përdore parullën për ti vërtetuar përdoruesit"
 
 #: ../src/msec/plugins/pam.py:72
+#, fuzzy
 msgid "Don't use password to authenticate users"
-msgstr ""
+msgstr "Përdore parullën për ti vërtetuar përdoruesit"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:91
+#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr ""
+msgstr "Gjatësia parullës së historisë"
 
 #: ../src/msec/plugins/pam.py:106
+#, fuzzy
 msgid "Setting password history to %d."
-msgstr ""
+msgstr "Gjatësia parullës së historisë"
 
 #: ../src/msec/plugins/pam.py:112
+#, fuzzy
 msgid "Disabling password history"
-msgstr ""
+msgstr "Gjatësia parullës së historisë"
 
 #: ../src/msec/plugins/pam.py:124
 msgid ""
@@ -1070,8 +1172,11 @@ msgid "Setting minimum password length %d"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:169
+#, fuzzy
 msgid "Allowing su only from wheel group members"
 msgstr ""
+"Aftësimi i super përdoruesit (su) vetëm nga anëtaret e grupit timon apo "
+"njashtu mundëson super përdoruesit (su) nga secili përdorues"
 
 #: ../src/msec/plugins/pam.py:173
 msgid "no wheel group"
@@ -1090,5 +1195,9 @@ msgid "Allowing transparent root access for wheel group members"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:211
+#, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
+"Aftësimi i super përdoruesit (su) vetëm nga anëtaret e grupit timon apo "
+"njashtu mundëson super përdoruesit (su) nga secili përdorues"
+

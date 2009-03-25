@@ -299,15 +299,17 @@ msgstr ""
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
 #, fuzzy
 msgid "deleted %s"
-msgstr "Тандалган хостту түзөтүү"
+msgstr "Жоготуу"
 
 #: ../src/msec/libmsec.py:455
+#, fuzzy
 msgid "touched file %s"
-msgstr ""
+msgstr "Мындай файл жок"
 
 #: ../src/msec/libmsec.py:475
+#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr ""
+msgstr "ext2 файл системасынын ext3'кө өткөрүү"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
@@ -355,12 +357,14 @@ msgid "Restricting chkconfig for packages according to \"%s\" profile"
 msgstr ""
 
 #: ../src/msec/libmsec.py:849
+#, fuzzy
 msgid "Setting root umask to %s"
-msgstr ""
+msgstr "ext2 файл системасынын ext3'кө өткөрүү"
 
 #: ../src/msec/libmsec.py:859
+#, fuzzy
 msgid "Setting users umask to %s"
-msgstr ""
+msgstr "ext2 файл системасынын ext3'кө өткөрүү"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
@@ -463,8 +467,9 @@ msgid "Forbidding list of users in GDM"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1089
+#, fuzzy
 msgid "Allowing remote root login"
-msgstr ""
+msgstr "Автологин"
 
 #: ../src/msec/libmsec.py:1093
 msgid "Forbidding remote root login"
@@ -475,12 +480,14 @@ msgid "Allowing remote root login only by passphrase"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1109
+#, fuzzy
 msgid "Allowing autologin"
-msgstr ""
+msgstr "Автологин"
 
 #: ../src/msec/libmsec.py:1112
+#, fuzzy
 msgid "Forbidding autologin"
-msgstr ""
+msgstr "Автологин"
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
@@ -536,8 +543,9 @@ msgid "Disabling sulogin in single user runlevel"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1272
+#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr ""
+msgstr "Своп бөлүмү ишке киргизилүүдө %s"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
@@ -568,16 +576,18 @@ msgid "Disabling periodic promiscuity check"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1353
+#, fuzzy
 msgid "Allowing direct root login"
-msgstr ""
+msgstr "Автологин"
 
 #: ../src/msec/libmsec.py:1370
 msgid "Forbidding direct root login"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1505
+#, fuzzy
 msgid "user name %s not found"
-msgstr ""
+msgstr "Колдонуучу аты өтө узун"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
@@ -596,24 +606,28 @@ msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1590
+#, fuzzy
 msgid "Enforcing user on %s to %s"
-msgstr ""
+msgstr "ext2 файл системасынын ext3'кө өткөрүү"
 
 #: ../src/msec/libmsec.py:1594
+#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr ""
+msgstr "%s ажыратуудагы ката: %s "
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1599
+#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr ""
+msgstr "ext2 файл системасынын ext3'кө өткөрүү"
 
 #: ../src/msec/libmsec.py:1603
+#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr ""
+msgstr "%s ажыратуудагы ката: %s "
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
@@ -640,8 +654,9 @@ msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1700
+#, fuzzy
 msgid "Checking paths: %s"
-msgstr ""
+msgstr "%s текшерилүүдө"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
 msgid "Invalid security level '%s'."
@@ -664,8 +679,9 @@ msgid "Level '%s' not found, aborting."
 msgstr ""
 
 #: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
+#, fuzzy
 msgid "Switching to '%s' level."
-msgstr ""
+msgstr "ext2 файл системасынын ext3'кө өткөрүү"
 
 #: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
 msgid "Unable to save config!"
@@ -733,37 +749,37 @@ msgstr ""
 #: ../src/msec/msecgui.py:77
 #, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "Өз алдынча конфигурациялоо"
+msgstr "Күтө туруңуз... Конфигурация колдонулууда"
 
 #: ../src/msec/msecgui.py:143
 #, fuzzy
 msgid "_File"
-msgstr "/_Файл"
+msgstr "Чили"
 
 #: ../src/msec/msecgui.py:145
 #, fuzzy
 msgid "_Save configuration"
-msgstr "Кабарлоолорду күүлөө"
+msgstr "Добуш конфигурациясы"
 
 #: ../src/msec/msecgui.py:147
 #, fuzzy
 msgid "_Import configuration"
-msgstr "Кабарлоолорду күүлөө"
+msgstr "Добуш конфигурациясы"
 
 #: ../src/msec/msecgui.py:148
 #, fuzzy
 msgid "_Export configuration"
-msgstr "Кабарлоолорду күүлөө"
+msgstr "Добуш конфигурациясы"
 
 #: ../src/msec/msecgui.py:150
 #, fuzzy
 msgid "_Quit"
-msgstr "/_Чыгуу"
+msgstr "Чыгуу"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
 #, fuzzy
 msgid "_Help"
-msgstr "/_Жардам"
+msgstr "Жардам"
 
 #: ../src/msec/msecgui.py:155
 #, fuzzy
@@ -775,17 +791,19 @@ msgid "MSEC: System Security and Audit"
 msgstr ""
 
 #: ../src/msec/msecgui.py:200
+#, fuzzy
 msgid "Basic security"
-msgstr ""
+msgstr "Коопсуздук"
 
 #: ../src/msec/msecgui.py:201
+#, fuzzy
 msgid "System security"
-msgstr ""
+msgstr "Коопсуздук"
 
 #: ../src/msec/msecgui.py:202
 #, fuzzy
 msgid "Network security"
-msgstr "Желе"
+msgstr "Желенин профили"
 
 #: ../src/msec/msecgui.py:203
 msgid "Periodic checks"
@@ -826,13 +844,14 @@ msgid "removed %s <b>%s</b>"
 msgstr ""
 
 #: ../src/msec/msecgui.py:262
+#, fuzzy
 msgid "no changes"
-msgstr ""
+msgstr "Жалпы ресурс жок"
 
 #: ../src/msec/msecgui.py:274
 #, fuzzy
 msgid "Saving changes.."
-msgstr "Деп сактоо.."
+msgstr "Пакеттер жоготулууда..."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -869,37 +888,38 @@ msgstr ""
 #: ../src/msec/msecgui.py:424
 #, fuzzy
 msgid "Security Option"
-msgstr "Сүрөттөмөсү"
+msgstr "Коопсуздук"
 
 #: ../src/msec/msecgui.py:434
 msgid "Description"
 msgstr "Сүрөттөмөсү"
 
 #: ../src/msec/msecgui.py:439
+#, fuzzy
 msgid "Value"
-msgstr ""
+msgstr "Палау"
 
 #: ../src/msec/msecgui.py:449
 msgid "Invalid option '%s'!"
 msgstr ""
 
 #: ../src/msec/msecgui.py:499
+#, fuzzy
 msgid "Enable MSEC tool"
-msgstr ""
+msgstr "CD жүктөлүүгө уруксатпы?"
 
 #: ../src/msec/msecgui.py:506
 msgid "Select the base security level"
 msgstr ""
 
 #: ../src/msec/msecgui.py:510
-#, fuzzy
 msgid "Standard"
-msgstr "Календар"
+msgstr ""
 
 #: ../src/msec/msecgui.py:523
 #, fuzzy
 msgid "Secure"
-msgstr "Сервердин IP'си:"
+msgstr "Коопсуздук"
 
 #: ../src/msec/msecgui.py:540
 msgid "Send security alerts by email"
@@ -908,7 +928,7 @@ msgstr ""
 #: ../src/msec/msecgui.py:547
 #, fuzzy
 msgid "System administrator email address:"
-msgstr "Төмөндө өзүңүздүн email адресиңизди киргизиңиз "
+msgstr "Администратордуy (root) паролун орнотуу"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
@@ -923,12 +943,14 @@ msgid "Path"
 msgstr ""
 
 #: ../src/msec/msecgui.py:797
+#, fuzzy
 msgid "User"
-msgstr "Колдонуучу"
+msgstr "Колдонуучунун IDси"
 
 #: ../src/msec/msecgui.py:803
+#, fuzzy
 msgid "Group"
-msgstr "Группа"
+msgstr "Группанын IDси"
 
 #: ../src/msec/msecgui.py:817
 msgid "Enforce"
@@ -939,8 +961,9 @@ msgid "Reset to default level permissions"
 msgstr ""
 
 #: ../src/msec/msecgui.py:866
+#, fuzzy
 msgid "Add a rule"
-msgstr "Эреже кошуу"
+msgstr "Колдонуучу кошуу"
 
 #: ../src/msec/msecgui.py:871
 msgid "Delete"
@@ -969,12 +992,12 @@ msgstr "/_Файл"
 #: ../src/msec/msecgui.py:989
 #, fuzzy
 msgid "User: "
-msgstr "Колдонуучу:"
+msgstr "Колдонуучунун IDси"
 
 #: ../src/msec/msecgui.py:997
 #, fuzzy
 msgid "Group: "
-msgstr "Группа:"
+msgstr "Группанын IDси"
 
 #: ../src/msec/msecgui.py:1005
 #, fuzzy
@@ -996,8 +1019,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:1086
+#, fuzzy
 msgid "New value:"
-msgstr ""
+msgstr "Жаңы Каледония"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
@@ -1006,7 +1030,7 @@ msgstr ""
 #: ../src/msec/msecgui.py:1150
 #, fuzzy
 msgid "_Cancel"
-msgstr "Калтыр"
+msgstr "Айнуу"
 
 #: ../src/msec/msecgui.py:1151
 msgid "_Ignore"
@@ -1020,7 +1044,7 @@ msgstr "Сактоо"
 #: ../src/msec/msecgui.py:1154
 #, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "Тийиштүү конфигурция куралын иштетүүнү калайсызбы ?"
+msgstr "/etc/fstab өзгөртүүсүн сактоону калайсызбы"
 
 #: ../src/msec/plugins/pam.py:68
 msgid "Using password to authenticate users"
@@ -1078,3 +1102,4 @@ msgstr ""
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
+

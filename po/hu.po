@@ -1,16 +1,16 @@
-# translation of libDrakX-standalone to Hungarian
+# translation of libdrakx to Hungarian
 # Copyright (C) 2000-2001,2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
 #
 # Emese Kovacs <emese@gnome.hu>, 2000-2001.
 # Arpad Biro <biro.arpad gmail>, 2000, 2003, 2004, 2005, 2006, 2007.
 # Tamas Szanto <tszanto@mol.hu>, 2001.
-# Lónyai Gergely <aleph@mandriva.org>, 2008
+# Gergely Lónyai <aleph@mandriva.org>, 2007, 2008, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: msec-2009.1\n"
+"Project-Id-Version: libDrakX-2009.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-25 12:58+BRT\n"
-"PO-Revision-Date: 2009-03-25 13:55+0100\n"
+"PO-Revision-Date: 2009-03-19 18:04+0100\n"
 "Last-Translator: Gergely Lónyai <aleph@mandriva.org>\n"
 "Language-Team: Hungarian <aleph@mandriva.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,8 +23,11 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: ../src/msec/help.py:15
+#, fuzzy
 msgid "Enable name resolution spoofing protection."
 msgstr ""
+"'DNS spoofing' (a névfeloldásnak az eredetitől eltérő rendszerrel való\n"
+"végeztetése) elleni védelem"
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
@@ -51,8 +54,9 @@ msgid "Enable checking for known rootkits using chkrootkit."
 msgstr ""
 
 #: ../src/msec/help.py:27
+#, fuzzy
 msgid "Enable checking for additions/removals of suid root files."
-msgstr ""
+msgstr "'SUID root'-os fájlok létrehozásának/törlésének ellenőrzése"
 
 #: ../src/msec/help.py:29
 #, fuzzy
@@ -111,8 +115,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:47
+#, fuzzy
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr ""
+msgstr "Ellenőrzés, hogy létezik-e üres jelszó a /etc/shadow fájlban"
 
 #: ../src/msec/help.py:49
 msgid ""
@@ -144,23 +149,28 @@ msgid "Allow root access without password for the members of the wheel group."
 msgstr ""
 
 #: ../src/msec/help.py:61
+#, fuzzy
 msgid "Send security check results by email."
-msgstr ""
+msgstr "Az ellenőrzés eredményének elküldése levélben"
 
 #: ../src/msec/help.py:63
+#, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
+"A minimális jelszóhossz és a számjegyek illetve a nagybetűk minimális\n"
+"számának beállítása"
 
 #: ../src/msec/help.py:65
 #, fuzzy
 msgid "Set the root umask."
-msgstr "A rendszergazdai (root) jelszó beállítása"
+msgstr "A rendszergazdához tartozó létrehozási fájlmód maszk beállítása"
 
 #: ../src/msec/help.py:67
+#, fuzzy
 msgid "Enable checking for additions/removals of sgid files."
-msgstr ""
+msgstr "SGID-os fájlok létrehozásának/törlésének ellenőrzése"
 
 #: ../src/msec/help.py:69
 msgid "Activate ethernet cards promiscuity check."
@@ -173,14 +183,23 @@ msgid "Enable AppArmor security framework on boot"
 msgstr ""
 
 #: ../src/msec/help.py:73
+#, fuzzy
 msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
+"X kapcsolatok engedélyezése:\n"
+"\n"
+"- \"Mind\": minden kapcsolat engedélyezett\n"
+"\n"
+"- \"Helyi\": csak a helyi gépről induló kapcsolatok engedélyezettek\n"
+"\n"
+"- \"Egyik sem\": semmilyen kapcsolat nincs engedélyezve"
 
 #: ../src/msec/help.py:75
+#, fuzzy
 msgid "Enable checking for files/directories writable by everybody."
-msgstr ""
+msgstr "A mindenki által írható fájlok/könyvtárak ellenőrzése"
 
 #: ../src/msec/help.py:77
 msgid "Log syslog messages on console terminal 12."
@@ -209,8 +228,9 @@ msgstr ""
 "A -1 érték jelentése: korlátlan."
 
 #: ../src/msec/help.py:87
+#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
-msgstr ""
+msgstr "Újraindítás engedélyezése konzolfelhasználók számára"
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
@@ -227,10 +247,13 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:95
+#, fuzzy
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
 msgstr ""
+"A jelszótörténeti lista méretének beállítása a jelszavak újrahasználásának\n"
+"megakadályozására"
 
 #: ../src/msec/help.py:97
 #, fuzzy
@@ -238,12 +261,14 @@ msgid "Enable daily security checks."
 msgstr "A napi biztonsági ellenőrzések végrehajtása"
 
 #: ../src/msec/help.py:99
+#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr ""
+msgstr "Közvetlen rendszergazdai bejelentkezés engedélyezése"
 
 #: ../src/msec/help.py:101
+#, fuzzy
 msgid "Enable checking for unowned files."
-msgstr ""
+msgstr "Figyelmeztetés a tulajdonos nélküli fájlokra"
 
 #: ../src/msec/help.py:103
 #, fuzzy
@@ -292,7 +317,7 @@ msgstr ""
 #: ../src/msec/help.py:117
 #, fuzzy
 msgid "Set the user umask."
-msgstr "Felhasználói adatok beállítása"
+msgstr "A felhasználóhoz tartozó létrehozási fájlmód maszk beállítása"
 
 #: ../src/msec/help.py:119
 #, fuzzy
@@ -300,12 +325,25 @@ msgid "Accept ICMP echo."
 msgstr "ICMP Echo elfogadása"
 
 #: ../src/msec/help.py:121
+#, fuzzy
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
 "local services are authorized. If no, the services must be authorized "
 "manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
+"Engedélyezés a következők számára:\n"
+"\n"
+"- \"Mind\" beállítás esetén: a tcp_wrappers által vezérelt összes "
+"szolgáltatás\n"
+"(információ a hosts.deny(5) leírásban (\"man\"))\n"
+"\n"
+"- \"Helyi\" beállítás esetén: csak a helyiek\n"
+"\n"
+"- \"Egyik sem\" beállítás esetén: egyik sem\n"
+"\n"
+"A szükséges szolgáltatások engedélyezése a /etc/hosts.allow fájl\n"
+"használatával végezhető (információ a hosts.allow(5) leírásban (\"man\"))."
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
@@ -332,18 +370,19 @@ msgid "%s modified so should have run command: %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
+#, fuzzy
 msgid "deleted %s"
-msgstr "%d törölve"
+msgstr "Törlés"
 
 #: ../src/msec/libmsec.py:455
 #, fuzzy
 msgid "touched file %s"
-msgstr "Attribútumok..."
+msgstr "Nincs ilyen fájl"
 
 #: ../src/msec/libmsec.py:475
 #, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr "%s szimbolikus link nem hozható létre a következőre: %s"
+msgstr "Átváltás %sről %sre"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
@@ -399,12 +438,12 @@ msgstr ""
 #: ../src/msec/libmsec.py:849
 #, fuzzy
 msgid "Setting root umask to %s"
-msgstr "%s: Hiba a(z) %d szignál következőre történő beállítása közben: %s"
+msgstr "Átváltás %sről %sre"
 
 #: ../src/msec/libmsec.py:859
 #, fuzzy
 msgid "Setting users umask to %s"
-msgstr "Hozzáadás a 'users' nevű csoporthoz"
+msgstr "Átváltás %sről %sre"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
@@ -424,8 +463,9 @@ msgid "invalid allow_x_connections arg: %s"
 msgstr "Az elfogadott kapcsolatok csak ebben az időben érvényesek:"
 
 #: ../src/msec/libmsec.py:912
+#, fuzzy
 msgid "Allowing the X server to listen to tcp connections"
-msgstr ""
+msgstr "X Window kapcsolatok engedélyezése"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
@@ -434,33 +474,37 @@ msgstr ""
 #: ../src/msec/libmsec.py:939
 #, fuzzy
 msgid "Invalid shell timeout \"%s\""
-msgstr "Energiagazdálkodási műveletek „érvénytelenségi” időkorlátja"
+msgstr "A parancsértelmező várakozási ideje"
 
 #: ../src/msec/libmsec.py:947
 #, fuzzy
 msgid "Setting shell timeout to %s"
-msgstr "Időtúllépés az adatcsatorna NULL értékre állítása közben"
+msgstr "A parancsértelmező várakozási ideje"
 
 #: ../src/msec/libmsec.py:955
 #, fuzzy
 msgid "Invalid shell history size \"%s\""
-msgstr "Érvénytelen méret a feltétel mezőben."
+msgstr "A parancsértelmező történeti listájának mérete"
 
 #: ../src/msec/libmsec.py:966
+#, fuzzy
 msgid "Setting shell history size to %s"
-msgstr ""
+msgstr "A parancsértelmező történeti listájának mérete"
 
 #: ../src/msec/libmsec.py:970
+#, fuzzy
 msgid "Removing limit on shell history size"
-msgstr ""
+msgstr "A parancsértelmező történeti listájának mérete"
 
 #: ../src/msec/libmsec.py:1009
+#, fuzzy
 msgid "Allowing reboot and shutdown to the console user"
-msgstr ""
+msgstr "Újraindítás engedélyezése konzolfelhasználók számára"
 
 #: ../src/msec/libmsec.py:1016
+#, fuzzy
 msgid "Allowing SysRq key to the console user"
-msgstr ""
+msgstr "Újraindítás engedélyezése konzolfelhasználók számára"
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
@@ -475,12 +519,14 @@ msgid "Allowing Ctrl-Alt-Del from console"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1030
+#, fuzzy
 msgid "Forbidding reboot and shutdown to the console user"
-msgstr ""
+msgstr "Újraindítás engedélyezése konzolfelhasználók számára"
 
 #: ../src/msec/libmsec.py:1038
+#, fuzzy
 msgid "Forbidding SysRq key to the console user"
-msgstr ""
+msgstr "Újraindítás konzolfelhasználók által"
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
@@ -525,8 +571,9 @@ msgid "Forbidding remote root login"
 msgstr "Távoli rendszergazdai bejelentkezés engedélyezése"
 
 #: ../src/msec/libmsec.py:1097
+#, fuzzy
 msgid "Allowing remote root login only by passphrase"
-msgstr ""
+msgstr "Távoli rendszergazdai bejelentkezés engedélyezése"
 
 #: ../src/msec/libmsec.py:1109
 #, fuzzy
@@ -543,13 +590,14 @@ msgid "Activating password in boot loader"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1131
+#, fuzzy
 msgid "Removing password in boot loader"
-msgstr ""
+msgstr "Nincs jelszóelévülés:"
 
 #: ../src/msec/libmsec.py:1146
 #, fuzzy
 msgid "Enabling log on console"
-msgstr "Logó megjelenítése a konzolon"
+msgstr "A 12-es konzolra történő rendszernaplózás bekapcsolása"
 
 #: ../src/msec/libmsec.py:1150
 #, fuzzy
@@ -564,7 +612,7 @@ msgstr "A napi biztonsági ellenőrzés bekapcsolása"
 #: ../src/msec/libmsec.py:1166
 #, fuzzy
 msgid "Disabling daily security check"
-msgstr "A napi biztonsági ellenőrzés bekapcsolása"
+msgstr "Napi biztonsági ellenőrzés"
 
 #: ../src/msec/libmsec.py:1183
 #, fuzzy
@@ -582,12 +630,18 @@ msgid "Disabling non local services"
 msgstr "Nem helyi fájl megnyitása"
 
 #: ../src/msec/libmsec.py:1224
+#, fuzzy
 msgid "Enabling name resolution spoofing protection"
 msgstr ""
+"'DNS spoofing' (a névfeloldásnak az eredetitől eltérő rendszerrel való\n"
+"végeztetése) elleni védelem"
 
 #: ../src/msec/libmsec.py:1229
+#, fuzzy
 msgid "Disabling name resolution spoofing protection"
 msgstr ""
+"'DNS spoofing' (a névfeloldásnak az eredetitől eltérő rendszerrel való\n"
+"végeztetése) elleni védelem"
 
 #: ../src/msec/libmsec.py:1257
 #, fuzzy
@@ -600,8 +654,9 @@ msgid "Disabling sulogin in single user runlevel"
 msgstr "Az sulogin(8) engedélyezése egyfelhasználós szinten"
 
 #: ../src/msec/libmsec.py:1272
+#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr ""
+msgstr "A(z) %s lapozópartíció bekapcsolása"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
@@ -629,8 +684,8 @@ msgstr ""
 #, fuzzy
 msgid "Activating periodic promiscuity check"
 msgstr ""
-"Az Ethernet kártyák 'promiscuous' (minden csomagot megtartó) üzemmódjának\n"
-"ellenőrzése"
+"Az Ethernet kártyák 'promiscuous' (minden csomagot megtartó) üzemmódjának "
+"ellenőrzésének bekapcsolása"
 
 #: ../src/msec/libmsec.py:1327
 #, fuzzy
@@ -652,7 +707,7 @@ msgstr "Közvetlen rendszergazdai bejelentkezés engedélyezése"
 #: ../src/msec/libmsec.py:1505
 #, fuzzy
 msgid "user name %s not found"
-msgstr "Nem található ,nincs ilyen név"
+msgstr "A felhasználónév túl hosszú"
 
 #: ../src/msec/libmsec.py:1517
 #, fuzzy
@@ -676,12 +731,12 @@ msgstr ""
 #: ../src/msec/libmsec.py:1590
 #, fuzzy
 msgid "Enforcing user on %s to %s"
-msgstr "Nem lehet felhasználót felvenni ehhez: %s (%s)"
+msgstr "Átváltás %sről %sre"
 
 #: ../src/msec/libmsec.py:1594
 #, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr "A felhasználó a tálcára kattintott."
+msgstr "hiba történt a(z) %s leválasztásakor: %s"
 
 #: ../src/msec/libmsec.py:1596
 #, fuzzy
@@ -691,12 +746,12 @@ msgstr "A proxy ilyen kell, hogy legyen: http://..."
 #: ../src/msec/libmsec.py:1599
 #, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr "Kijelölés útv_onallá alakítása"
+msgstr "Átváltás %sről %sre"
 
 #: ../src/msec/libmsec.py:1603
 #, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr "Olvasási hiba a(z) „%s” fájlnál: %s\n"
+msgstr "hiba történt a(z) %s leválasztásakor: %s"
 
 #: ../src/msec/libmsec.py:1605
 #, fuzzy
@@ -730,12 +785,12 @@ msgstr ""
 #: ../src/msec/libmsec.py:1700
 #, fuzzy
 msgid "Checking paths: %s"
-msgstr "Keresési útvonalak"
+msgstr "%s ellenőrzése"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
 #, fuzzy
 msgid "Invalid security level '%s'."
-msgstr "Érvénytelen optimalizálási szint: %s"
+msgstr "Biztonsági szint"
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 #, fuzzy
@@ -828,31 +883,37 @@ msgstr ""
 #: ../src/msec/msecgui.py:77
 #, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "Lapolvasó beállítása"
+msgstr "Kis türelmet - a beállítások módosítása"
 
 #: ../src/msec/msecgui.py:143
+#, fuzzy
 msgid "_File"
-msgstr "_Fájl"
+msgstr "Chile"
 
 #: ../src/msec/msecgui.py:145
+#, fuzzy
 msgid "_Save configuration"
-msgstr "Beállítása _mentése"
+msgstr "Hangbeállítások"
 
 #: ../src/msec/msecgui.py:147
+#, fuzzy
 msgid "_Import configuration"
-msgstr "Beállítása _importálása"
+msgstr "Hangbeállítások"
 
 #: ../src/msec/msecgui.py:148
+#, fuzzy
 msgid "_Export configuration"
-msgstr "Beállítása _exportálása"
+msgstr "Hangbeállítások"
 
 #: ../src/msec/msecgui.py:150
+#, fuzzy
 msgid "_Quit"
-msgstr "_Kilépés"
+msgstr "Kilépés"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
+#, fuzzy
 msgid "_Help"
-msgstr "_Segítség"
+msgstr "Segítség"
 
 #: ../src/msec/msecgui.py:155
 #, fuzzy
@@ -867,17 +928,17 @@ msgstr "A rendszer biztonságának, engedélyeinek és ellenőrzésének beálí
 #: ../src/msec/msecgui.py:200
 #, fuzzy
 msgid "Basic security"
-msgstr "Biztonsági információk"
+msgstr "Napi biztonsági ellenőrzés"
 
 #: ../src/msec/msecgui.py:201
 #, fuzzy
 msgid "System security"
-msgstr "Biztonsági információk"
+msgstr "Biztonság"
 
 #: ../src/msec/msecgui.py:202
 #, fuzzy
 msgid "Network security"
-msgstr "Hálózati biztonsági szolgáltatások - Network Security Services (NSS)"
+msgstr "Hálózati profil"
 
 #: ../src/msec/msecgui.py:203
 msgid "Periodic checks"
@@ -893,8 +954,9 @@ msgid "MSEC option changes"
 msgstr "Felhasználói módosítások _alkalmazása"
 
 #: ../src/msec/msecgui.py:237
+#, fuzzy
 msgid "option"
-msgstr "beállítás"
+msgstr "Beállítások"
 
 #: ../src/msec/msecgui.py:238
 #, fuzzy
@@ -922,12 +984,14 @@ msgid "removed %s <b>%s</b>"
 msgstr "%s: törölve"
 
 #: ../src/msec/msecgui.py:262
+#, fuzzy
 msgid "no changes"
-msgstr "nem történt változás"
+msgstr "Nincs megosztás"
 
 #: ../src/msec/msecgui.py:274
+#, fuzzy
 msgid "Saving changes.."
-msgstr "Változások mentése.."
+msgstr "Csomagok eltávolítása..."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -963,38 +1027,42 @@ msgid "Custom base config level '%s' found. Will default to '%s'"
 msgstr ""
 
 #: ../src/msec/msecgui.py:424
+#, fuzzy
 msgid "Security Option"
-msgstr "Biztonsági opció"
+msgstr "Paraméterek megadása"
 
 #: ../src/msec/msecgui.py:434
+#, fuzzy
 msgid "Description"
-msgstr "Leírás"
+msgstr "Paraméterek megadása"
 
 #: ../src/msec/msecgui.py:439
+#, fuzzy
 msgid "Value"
-msgstr "Érték"
+msgstr "Palau"
 
 #: ../src/msec/msecgui.py:449
 #, fuzzy
 msgid "Invalid option '%s'!"
-msgstr "%s: érvénytelen kapcsoló -- %c\n"
+msgstr "Fő beállítások"
 
 #: ../src/msec/msecgui.py:499
+#, fuzzy
 msgid "Enable MSEC tool"
-msgstr "Az MSEC eszköz engedélyezése"
+msgstr "CD-ről történhessen rendszerindítás?"
 
 #: ../src/msec/msecgui.py:506
 #, fuzzy
 msgid "Select the base security level"
-msgstr "Biztonsági szint és ellenőrzések"
+msgstr "Válassza ki a kívánt biztonsági szintet"
 
 #: ../src/msec/msecgui.py:510
 msgid "Standard"
-msgstr "Alap"
+msgstr "Szabványos"
 
 #: ../src/msec/msecgui.py:523
 msgid "Secure"
-msgstr "Biztonságos"
+msgstr "Biztonság"
 
 #: ../src/msec/msecgui.py:540
 #, fuzzy
@@ -1004,7 +1072,7 @@ msgstr "Biztonsági figyelmeztetések:"
 #: ../src/msec/msecgui.py:547
 #, fuzzy
 msgid "System administrator email address:"
-msgstr "Adminisztrátori email: az FTP-adminisztrátor email-címe."
+msgstr "A rendszergazdai (root) jelszó beállítása"
 
 #: ../src/msec/msecgui.py:566
 #, fuzzy
@@ -1014,19 +1082,21 @@ msgstr "A Föld megjelenítése a munkaasztalon"
 #: ../src/msec/msecgui.py:727
 #, fuzzy
 msgid "Enable periodic security checks"
-msgstr "Biztonsági szint és ellenőrzések"
+msgstr "Az msec óránkénti biztonsági ellenőrzéseinek bekapcsolása"
 
 #: ../src/msec/msecgui.py:791
 msgid "Path"
 msgstr "Útvonal"
 
 #: ../src/msec/msecgui.py:797
+#, fuzzy
 msgid "User"
-msgstr "Felhasználó"
+msgstr "Használt"
 
 #: ../src/msec/msecgui.py:803
+#, fuzzy
 msgid "Group"
-msgstr "Csoport"
+msgstr "Csoportazonosító"
 
 #: ../src/msec/msecgui.py:817
 #, fuzzy
@@ -1036,7 +1106,7 @@ msgstr "Ignorálás"
 #: ../src/msec/msecgui.py:861
 #, fuzzy
 msgid "Reset to default level permissions"
-msgstr "Paraméterek visszaállítása az alapértelmezett értékekre"
+msgstr "A hangkeverés alaphelyzetbe állítása"
 
 #: ../src/msec/msecgui.py:866
 msgid "Add a rule"
@@ -1068,12 +1138,14 @@ msgid "File: "
 msgstr "Fájl:"
 
 #: ../src/msec/msecgui.py:989
+#, fuzzy
 msgid "User: "
-msgstr "Felhasználó:"
+msgstr "Felh.-azonosító"
 
 #: ../src/msec/msecgui.py:997
+#, fuzzy
 msgid "Group: "
-msgstr "Csoport:"
+msgstr "Csoportazonosító"
 
 #: ../src/msec/msecgui.py:1005
 msgid "Permissions: "
@@ -1096,7 +1168,7 @@ msgstr ""
 #: ../src/msec/msecgui.py:1086
 #, fuzzy
 msgid "New value:"
-msgstr "Új listaelem ér_téke:"
+msgstr "Új-Kaledónia"
 
 #: ../src/msec/msecgui.py:1148
 #, fuzzy
@@ -1104,8 +1176,9 @@ msgid "Save your changes?"
 msgstr "Nem menthetők a postafiók beállításai."
 
 #: ../src/msec/msecgui.py:1150
+#, fuzzy
 msgid "_Cancel"
-msgstr "_Mégsem"
+msgstr "Mégsem"
 
 #: ../src/msec/msecgui.py:1151
 msgid "_Ignore"
@@ -1118,7 +1191,7 @@ msgstr "Menté_s"
 #: ../src/msec/msecgui.py:1154
 #, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "A katalógust módosították. Kéri a változások mentését?"
+msgstr "El szeretné menteni a /etc/fstab fájlban végrehajtott módosításokat?"
 
 #: ../src/msec/plugins/pam.py:68
 #, fuzzy
@@ -1126,8 +1199,9 @@ msgid "Using password to authenticate users"
 msgstr "Jelszó használata a felhasználók azonosításához"
 
 #: ../src/msec/plugins/pam.py:72
+#, fuzzy
 msgid "Don't use password to authenticate users"
-msgstr ""
+msgstr "Jelszó használata a felhasználók azonosításához"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
@@ -1136,12 +1210,12 @@ msgstr ""
 #: ../src/msec/plugins/pam.py:91
 #, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr "A jelszó vagy PIN érvénytelen hosszúságú"
+msgstr "A jelszótörténeti lista mérete"
 
 #: ../src/msec/plugins/pam.py:106
 #, fuzzy
 msgid "Setting password history to %d."
-msgstr "Adja meg a jelszót a feloldáshoz"
+msgstr "A jelszótörténeti lista mérete"
 
 #: ../src/msec/plugins/pam.py:112
 #, fuzzy
@@ -1185,5 +1259,9 @@ msgid "Allowing transparent root access for wheel group members"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:211
+#, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
+"Az \"su\" parancs használata csak a \"wheel\" nevű csoport tagjainak számára "
+"legyen lehetséges."
+

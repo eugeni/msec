@@ -23,8 +23,9 @@ msgid "Send mail reports even if no changes were detected."
 msgstr ""
 
 #: ../src/msec/help.py:19
+#, fuzzy
 msgid "Accept broadcasted ICMP echo."
-msgstr ""
+msgstr "አስተያየት የተሰጠበትን ለውጥ ተቀበል"
 
 #: ../src/msec/help.py:21
 msgid ""
@@ -136,8 +137,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:65
+#, fuzzy
 msgid "Set the root umask."
-msgstr ""
+msgstr "የገጽ &ቅንጅት"
 
 #: ../src/msec/help.py:67
 msgid "Enable checking for additions/removals of sgid files."
@@ -208,16 +210,19 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:97
+#, fuzzy
 msgid "Enable daily security checks."
-msgstr ""
+msgstr "ተመልከት ይህንን"
 
 #: ../src/msec/help.py:99
+#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr ""
+msgstr "የሚፈነጠቅ መመልከቻ ሲጀምር _አሳይ"
 
 #: ../src/msec/help.py:101
+#, fuzzy
 msgid "Enable checking for unowned files."
-msgstr ""
+msgstr "ሁሉንም የምስል ፋይሎች"
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
@@ -256,12 +261,14 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:117
+#, fuzzy
 msgid "Set the user umask."
-msgstr ""
+msgstr "የአቢወርድ ቋንቋ፦"
 
 #: ../src/msec/help.py:119
+#, fuzzy
 msgid "Accept ICMP echo."
-msgstr ""
+msgstr "አስተያየት የተሰጠበትን ለውጥ ተቀበል"
 
 #: ../src/msec/help.py:121
 msgid ""
@@ -297,11 +304,12 @@ msgstr ""
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
 #, fuzzy
 msgid "deleted %s"
-msgstr "የተመረጠው ተጠሪ ይታረም"
+msgstr "አጥፋ"
 
 #: ../src/msec/libmsec.py:455
+#, fuzzy
 msgid "touched file %s"
-msgstr ""
+msgstr "ፋይሉ `%s'ን የለም\n"
 
 #: ../src/msec/libmsec.py:475
 msgid "made symbolic link from %s to %s"
@@ -376,32 +384,38 @@ msgid "invalid allow_x_connections arg: %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:912
+#, fuzzy
 msgid "Allowing the X server to listen to tcp connections"
-msgstr ""
+msgstr "ይህንን መስኮት አተልቀው"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
 msgstr ""
 
 #: ../src/msec/libmsec.py:939
+#, fuzzy
 msgid "Invalid shell timeout \"%s\""
-msgstr ""
+msgstr "የሼል ውጤት"
 
 #: ../src/msec/libmsec.py:947
+#, fuzzy
 msgid "Setting shell timeout to %s"
-msgstr ""
+msgstr "የሼል ውጤት"
 
 #: ../src/msec/libmsec.py:955
+#, fuzzy
 msgid "Invalid shell history size \"%s\""
-msgstr ""
+msgstr "አውቶማቲክ የአምድ መጠን"
 
 #: ../src/msec/libmsec.py:966
+#, fuzzy
 msgid "Setting shell history size to %s"
-msgstr ""
+msgstr "አውቶማቲክ የአምድ መጠን"
 
 #: ../src/msec/libmsec.py:970
+#, fuzzy
 msgid "Removing limit on shell history size"
-msgstr ""
+msgstr "አውቶማቲክ የአምድ መጠን"
 
 #: ../src/msec/libmsec.py:1009
 msgid "Allowing reboot and shutdown to the console user"
@@ -460,24 +474,29 @@ msgid "Forbidding list of users in GDM"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1089
+#, fuzzy
 msgid "Allowing remote root login"
-msgstr ""
+msgstr "የሚፈነጠቅ መመልከቻ ሲጀምር _አሳይ"
 
 #: ../src/msec/libmsec.py:1093
+#, fuzzy
 msgid "Forbidding remote root login"
-msgstr ""
+msgstr "የሚፈነጠቅ መመልከቻ ሲጀምር _አሳይ"
 
 #: ../src/msec/libmsec.py:1097
+#, fuzzy
 msgid "Allowing remote root login only by passphrase"
-msgstr ""
+msgstr "የሚፈነጠቅ መመልከቻ ሲጀምር _አሳይ"
 
 #: ../src/msec/libmsec.py:1109
+#, fuzzy
 msgid "Allowing autologin"
-msgstr ""
+msgstr "የተለመደውን ቱልባሮች ፍቀድ"
 
 #: ../src/msec/libmsec.py:1112
+#, fuzzy
 msgid "Forbidding autologin"
-msgstr ""
+msgstr "የተለመደውን ቱልባሮች ፍቀድ"
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
@@ -496,12 +515,14 @@ msgid "Disabling log on console"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1162
+#, fuzzy
 msgid "Activating daily security check"
-msgstr ""
+msgstr "ተመልከት ይህንን"
 
 #: ../src/msec/libmsec.py:1166
+#, fuzzy
 msgid "Disabling daily security check"
-msgstr ""
+msgstr "ተመልከት ይህንን"
 
 #: ../src/msec/libmsec.py:1183
 msgid "Authorizing all services"
@@ -532,8 +553,9 @@ msgid "Disabling sulogin in single user runlevel"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1272
+#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr ""
+msgstr "የስዋፕ ክፋይ %sን በማስቻል ላይ"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
@@ -556,24 +578,28 @@ msgid "Forbidding export display from root"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1323
+#, fuzzy
 msgid "Activating periodic promiscuity check"
-msgstr ""
+msgstr "ተመልከት ይህንን"
 
 #: ../src/msec/libmsec.py:1327
 msgid "Disabling periodic promiscuity check"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1353
+#, fuzzy
 msgid "Allowing direct root login"
-msgstr ""
+msgstr "የሚፈነጠቅ መመልከቻ ሲጀምር _አሳይ"
 
 #: ../src/msec/libmsec.py:1370
+#, fuzzy
 msgid "Forbidding direct root login"
-msgstr ""
+msgstr "የሚፈነጠቅ መመልከቻ ሲጀምር _አሳይ"
 
 #: ../src/msec/libmsec.py:1505
+#, fuzzy
 msgid "user name %s not found"
-msgstr ""
+msgstr "የተጠቃሚ ስሙ በጣም ረጅም ነው"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
@@ -596,8 +622,9 @@ msgid "Enforcing user on %s to %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1594
+#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr ""
+msgstr "%sን የመንቀል ስህተት: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
@@ -608,8 +635,9 @@ msgid "Enforcing group on %s to %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1603
+#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr ""
+msgstr "%sን የመንቀል ስህተት: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
@@ -636,12 +664,14 @@ msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1700
+#, fuzzy
 msgid "Checking paths: %s"
-msgstr ""
+msgstr "%sን በማጣራት ላይ"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
+#, fuzzy
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "የደህንነት ደረጃ፦"
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
@@ -729,37 +759,37 @@ msgstr ""
 #: ../src/msec/msecgui.py:77
 #, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "በእጅ ምርጫ"
+msgstr "እባክዎ ይጠብቁ... ምርጫውን በስራ ላይ አያዋለ ነው"
 
 #: ../src/msec/msecgui.py:143
 #, fuzzy
 msgid "_File"
-msgstr "/ፋይል (_F)"
+msgstr "ቺሊ"
 
 #: ../src/msec/msecgui.py:145
 #, fuzzy
 msgid "_Save configuration"
-msgstr "በእጅ ምርጫ"
+msgstr "የድምጽ ምርጫ"
 
 #: ../src/msec/msecgui.py:147
 #, fuzzy
 msgid "_Import configuration"
-msgstr "በእጅ ምርጫ"
+msgstr "የድምጽ ምርጫ"
 
 #: ../src/msec/msecgui.py:148
 #, fuzzy
 msgid "_Export configuration"
-msgstr "በእጅ ምርጫ"
+msgstr "የድምጽ ምርጫ"
 
 #: ../src/msec/msecgui.py:150
 #, fuzzy
 msgid "_Quit"
-msgstr "/ውጣ (_Q)"
+msgstr "ውጣ"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
 #, fuzzy
 msgid "_Help"
-msgstr "/መረጃ (_H)"
+msgstr "እርዳታ"
 
 #: ../src/msec/msecgui.py:155
 #, fuzzy
@@ -772,17 +802,19 @@ msgid "MSEC: System Security and Audit"
 msgstr "የስይስተም ምርጫዎች"
 
 #: ../src/msec/msecgui.py:200
+#, fuzzy
 msgid "Basic security"
-msgstr ""
+msgstr "ተመልከት ይህንን"
 
 #: ../src/msec/msecgui.py:201
 #, fuzzy
 msgid "System security"
-msgstr "የስይስተም ምርጫዎች"
+msgstr "ደህንነት"
 
 #: ../src/msec/msecgui.py:202
+#, fuzzy
 msgid "Network security"
-msgstr ""
+msgstr "የተጠቃሚው እይታ"
 
 #: ../src/msec/msecgui.py:203
 msgid "Periodic checks"
@@ -823,13 +855,14 @@ msgid "removed %s <b>%s</b>"
 msgstr ""
 
 #: ../src/msec/msecgui.py:262
+#, fuzzy
 msgid "no changes"
-msgstr ""
+msgstr "መጋራት የለም"
 
 #: ../src/msec/msecgui.py:274
 #, fuzzy
 msgid "Saving changes.."
-msgstr "እንደ...ያስቀምጡ"
+msgstr "ጥቅሎችን በማስወገድ ላይ..."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -866,15 +899,17 @@ msgstr ""
 #: ../src/msec/msecgui.py:424
 #, fuzzy
 msgid "Security Option"
-msgstr "መግለጫ"
+msgstr "ምርጫዎችን ይግለጹ"
 
 #: ../src/msec/msecgui.py:434
+#, fuzzy
 msgid "Description"
-msgstr "መግለጫ"
+msgstr "ምርጫዎችን ይግለጹ"
 
 #: ../src/msec/msecgui.py:439
+#, fuzzy
 msgid "Value"
-msgstr ""
+msgstr "ፓላው"
 
 #: ../src/msec/msecgui.py:449
 #, fuzzy
@@ -882,50 +917,56 @@ msgid "Invalid option '%s'!"
 msgstr "መሠረታዊ ምርጫዎች"
 
 #: ../src/msec/msecgui.py:499
+#, fuzzy
 msgid "Enable MSEC tool"
-msgstr ""
+msgstr "ከዲሲ ማስጀመር አስችል?"
 
 #: ../src/msec/msecgui.py:506
+#, fuzzy
 msgid "Select the base security level"
-msgstr ""
+msgstr "የደህንነት ደረጃ፦"
 
 #: ../src/msec/msecgui.py:510
-#, fuzzy
 msgid "Standard"
-msgstr "ቀን መቁጠሪያ"
+msgstr "መደበኛ"
 
 #: ../src/msec/msecgui.py:523
 #, fuzzy
 msgid "Secure"
-msgstr "ተጠሪ፦"
+msgstr "ደህንነት"
 
 #: ../src/msec/msecgui.py:540
+#, fuzzy
 msgid "Send security alerts by email"
-msgstr ""
+msgstr "የደህንነት ደረጃ፦"
 
 #: ../src/msec/msecgui.py:547
+#, fuzzy
 msgid "System administrator email address:"
-msgstr ""
+msgstr "የroot ሚስጢራዊ ቃል ይምረጡ"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
 msgstr ""
 
 #: ../src/msec/msecgui.py:727
+#, fuzzy
 msgid "Enable periodic security checks"
-msgstr ""
+msgstr "ተመልከት ይህንን"
 
 #: ../src/msec/msecgui.py:791
 msgid "Path"
 msgstr "መተላለፊያ"
 
 #: ../src/msec/msecgui.py:797
+#, fuzzy
 msgid "User"
-msgstr "ተጠቃሚ"
+msgstr "የተጠቃሚ መለያ ቁጥር"
 
 #: ../src/msec/msecgui.py:803
+#, fuzzy
 msgid "Group"
-msgstr "የውይይት መድረክ"
+msgstr "የብድን መለያ ቁጥር"
 
 #: ../src/msec/msecgui.py:817
 #, fuzzy
@@ -937,8 +978,9 @@ msgid "Reset to default level permissions"
 msgstr ""
 
 #: ../src/msec/msecgui.py:866
+#, fuzzy
 msgid "Add a rule"
-msgstr ""
+msgstr "ተጠቃሚ ጨምር"
 
 #: ../src/msec/msecgui.py:871
 msgid "Delete"
@@ -967,12 +1009,12 @@ msgstr "/ፋይል (_F)"
 #: ../src/msec/msecgui.py:989
 #, fuzzy
 msgid "User: "
-msgstr "ተጠቃሚ፦"
+msgstr "የተጠቃሚ መለያ ቁጥር"
 
 #: ../src/msec/msecgui.py:997
 #, fuzzy
 msgid "Group: "
-msgstr "የውይይት መድረክ፦"
+msgstr "የብድን መለያ ቁጥር"
 
 #: ../src/msec/msecgui.py:1005
 #, fuzzy
@@ -993,8 +1035,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:1086
+#, fuzzy
 msgid "New value:"
-msgstr ""
+msgstr "ኒው ካሌዶኒያ"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
@@ -1033,16 +1076,19 @@ msgid "Password history not supported with pam_tcb."
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:91
+#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr ""
+msgstr "የታሪክ መስኮት ክፈት"
 
 #: ../src/msec/plugins/pam.py:106
+#, fuzzy
 msgid "Setting password history to %d."
-msgstr ""
+msgstr "የታሪክ መስኮት ክፈት"
 
 #: ../src/msec/plugins/pam.py:112
+#, fuzzy
 msgid "Disabling password history"
-msgstr ""
+msgstr "የታሪክ መስኮት ክፈት"
 
 #: ../src/msec/plugins/pam.py:124
 msgid ""
@@ -1076,3 +1122,4 @@ msgstr ""
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
+

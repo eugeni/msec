@@ -301,12 +301,14 @@ msgid "deleted %s"
 msgstr "Scancele"
 
 #: ../src/msec/libmsec.py:455
+#, fuzzy
 msgid "touched file %s"
-msgstr ""
+msgstr "File locâi"
 
 #: ../src/msec/libmsec.py:475
+#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr ""
+msgstr "O cambii di ext2 a ext3"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
@@ -353,12 +355,14 @@ msgid "Restricting chkconfig for packages according to \"%s\" profile"
 msgstr ""
 
 #: ../src/msec/libmsec.py:849
+#, fuzzy
 msgid "Setting root umask to %s"
-msgstr ""
+msgstr "O cambii di ext2 a ext3"
 
 #: ../src/msec/libmsec.py:859
+#, fuzzy
 msgid "Setting users umask to %s"
-msgstr ""
+msgstr "O cambii di ext2 a ext3"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
@@ -461,8 +465,9 @@ msgid "Forbidding list of users in GDM"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1089
+#, fuzzy
 msgid "Allowing remote root login"
-msgstr ""
+msgstr "Acès automatic"
 
 #: ../src/msec/libmsec.py:1093
 msgid "Forbidding remote root login"
@@ -473,12 +478,14 @@ msgid "Allowing remote root login only by passphrase"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1109
+#, fuzzy
 msgid "Allowing autologin"
-msgstr ""
+msgstr "Acès automatic"
 
 #: ../src/msec/libmsec.py:1112
+#, fuzzy
 msgid "Forbidding autologin"
-msgstr ""
+msgstr "Acès automatic"
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
@@ -565,16 +572,18 @@ msgid "Disabling periodic promiscuity check"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1353
+#, fuzzy
 msgid "Allowing direct root login"
-msgstr ""
+msgstr "Acès automatic"
 
 #: ../src/msec/libmsec.py:1370
 msgid "Forbidding direct root login"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1505
+#, fuzzy
 msgid "user name %s not found"
-msgstr ""
+msgstr "Il non utent al è masse lunc"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
@@ -593,8 +602,9 @@ msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1590
+#, fuzzy
 msgid "Enforcing user on %s to %s"
-msgstr ""
+msgstr "O cambii di ext2 a ext3"
 
 #: ../src/msec/libmsec.py:1594
 msgid "Error changing user on %s: %s"
@@ -605,8 +615,9 @@ msgid "Wrong owner of %s: should be %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1599
+#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr ""
+msgstr "O cambii di ext2 a ext3"
 
 #: ../src/msec/libmsec.py:1603
 msgid "Error changing group on %s: %s"
@@ -641,8 +652,9 @@ msgid "Checking paths: %s"
 msgstr ""
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
+#, fuzzy
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "Nivel di Sigurece"
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
@@ -661,8 +673,9 @@ msgid "Level '%s' not found, aborting."
 msgstr ""
 
 #: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
+#, fuzzy
 msgid "Switching to '%s' level."
-msgstr ""
+msgstr "O cambii di ext2 a ext3"
 
 #: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
 msgid "Unable to save config!"
@@ -734,7 +747,7 @@ msgstr ""
 #: ../src/msec/msecgui.py:143
 #, fuzzy
 msgid "_File"
-msgstr "/_File"
+msgstr "Cile"
 
 #: ../src/msec/msecgui.py:145
 #, fuzzy
@@ -744,22 +757,22 @@ msgstr "Configurazion dal stîl di inviament"
 #: ../src/msec/msecgui.py:147
 #, fuzzy
 msgid "_Import configuration"
-msgstr "Configurazion Proxy"
+msgstr "Configurazion dal stîl di inviament"
 
 #: ../src/msec/msecgui.py:148
 #, fuzzy
 msgid "_Export configuration"
-msgstr "Configurazion Proxy"
+msgstr "Configurazion dal stîl di inviament"
 
 #: ../src/msec/msecgui.py:150
 #, fuzzy
 msgid "_Quit"
-msgstr "/_Jessî"
+msgstr "Jessî"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
 #, fuzzy
 msgid "_Help"
-msgstr "/_Jutori"
+msgstr "Jutori"
 
 #: ../src/msec/msecgui.py:155
 #, fuzzy
@@ -771,17 +784,19 @@ msgid "MSEC: System Security and Audit"
 msgstr ""
 
 #: ../src/msec/msecgui.py:200
+#, fuzzy
 msgid "Basic security"
-msgstr ""
+msgstr "Sigurece"
 
 #: ../src/msec/msecgui.py:201
+#, fuzzy
 msgid "System security"
-msgstr ""
+msgstr "Sigurece"
 
 #: ../src/msec/msecgui.py:202
 #, fuzzy
 msgid "Network security"
-msgstr "Rêt"
+msgstr "Gnûf profîl..."
 
 #: ../src/msec/msecgui.py:203
 msgid "Periodic checks"
@@ -822,13 +837,14 @@ msgid "removed %s <b>%s</b>"
 msgstr ""
 
 #: ../src/msec/msecgui.py:262
+#, fuzzy
 msgid "no changes"
-msgstr ""
+msgstr "Nissune condivision"
 
 #: ../src/msec/msecgui.py:274
 #, fuzzy
 msgid "Saving changes.."
-msgstr "Salve sicu.."
+msgstr "O rimôf i pachets..."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -865,41 +881,44 @@ msgstr ""
 #: ../src/msec/msecgui.py:424
 #, fuzzy
 msgid "Security Option"
-msgstr "Descrizion"
+msgstr "Sigurece"
 
 #: ../src/msec/msecgui.py:434
 msgid "Description"
 msgstr "Descrizion"
 
 #: ../src/msec/msecgui.py:439
+#, fuzzy
 msgid "Value"
-msgstr ""
+msgstr "Palau"
 
 #: ../src/msec/msecgui.py:449
 msgid "Invalid option '%s'!"
 msgstr ""
 
 #: ../src/msec/msecgui.py:499
+#, fuzzy
 msgid "Enable MSEC tool"
-msgstr ""
+msgstr "Abilite l'inviament di CD?"
 
 #: ../src/msec/msecgui.py:506
+#, fuzzy
 msgid "Select the base security level"
-msgstr ""
+msgstr "Nivel di Sigurece"
 
 #: ../src/msec/msecgui.py:510
-#, fuzzy
 msgid "Standard"
-msgstr "Calendari"
+msgstr ""
 
 #: ../src/msec/msecgui.py:523
 #, fuzzy
 msgid "Secure"
-msgstr "Server:"
+msgstr "Sigurece"
 
 #: ../src/msec/msecgui.py:540
+#, fuzzy
 msgid "Send security alerts by email"
-msgstr ""
+msgstr "Nivel di Sigurece"
 
 #: ../src/msec/msecgui.py:547
 msgid "System administrator email address:"
@@ -918,12 +937,14 @@ msgid "Path"
 msgstr ""
 
 #: ../src/msec/msecgui.py:797
+#, fuzzy
 msgid "User"
-msgstr "Utent"
+msgstr "ID Utent"
 
 #: ../src/msec/msecgui.py:803
+#, fuzzy
 msgid "Group"
-msgstr "Grop"
+msgstr "ID Grop"
 
 #: ../src/msec/msecgui.py:817
 msgid "Enforce"
@@ -934,8 +955,9 @@ msgid "Reset to default level permissions"
 msgstr ""
 
 #: ../src/msec/msecgui.py:866
+#, fuzzy
 msgid "Add a rule"
-msgstr ""
+msgstr "Zonte utent"
 
 #: ../src/msec/msecgui.py:871
 msgid "Delete"
@@ -964,12 +986,12 @@ msgstr "/_File"
 #: ../src/msec/msecgui.py:989
 #, fuzzy
 msgid "User: "
-msgstr "Utent:"
+msgstr "ID Utent"
 
 #: ../src/msec/msecgui.py:997
 #, fuzzy
 msgid "Group: "
-msgstr "Grop :"
+msgstr "ID Grop"
 
 #: ../src/msec/msecgui.py:1005
 #, fuzzy
@@ -1014,7 +1036,7 @@ msgstr "Salve"
 #: ../src/msec/msecgui.py:1154
 #, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "Vuelistu provâ le configurazion?"
+msgstr "Vuelistu salvâ les modifichis a /etc/fstab"
 
 #: ../src/msec/plugins/pam.py:68
 msgid "Using password to authenticate users"
@@ -1072,3 +1094,4 @@ msgstr ""
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
+

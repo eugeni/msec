@@ -18,16 +18,20 @@ msgstr ""
 "X-Generator: KBabel 1.0.2\n"
 
 #: ../src/msec/help.py:15
+#, fuzzy
 msgid "Enable name resolution spoofing protection."
-msgstr ""
+msgstr "Аргумент Сонордуулга г."
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
 msgstr ""
 
 #: ../src/msec/help.py:19
+#, fuzzy
 msgid "Accept broadcasted ICMP echo."
 msgstr ""
+"Аргумент г\n"
+" Зөвшөөрөх."
 
 #: ../src/msec/help.py:21
 msgid ""
@@ -45,8 +49,9 @@ msgid "Enable checking for known rootkits using chkrootkit."
 msgstr ""
 
 #: ../src/msec/help.py:27
+#, fuzzy
 msgid "Enable checking for additions/removals of suid root files."
-msgstr ""
+msgstr "Тийм аас."
 
 #: ../src/msec/help.py:29
 msgid ""
@@ -102,8 +107,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:47
+#, fuzzy
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr ""
+msgstr "Тийм ямх."
 
 #: ../src/msec/help.py:49
 msgid ""
@@ -122,8 +128,9 @@ msgid "Enable checking for open network ports."
 msgstr ""
 
 #: ../src/msec/help.py:55
+#, fuzzy
 msgid "Enable logging of strange network packets."
-msgstr ""
+msgstr "Аргумент г аас."
 
 #: ../src/msec/help.py:57
 msgid "Enable verification of installed RPM packages."
@@ -134,22 +141,26 @@ msgid "Allow root access without password for the members of the wheel group."
 msgstr ""
 
 #: ../src/msec/help.py:61
+#, fuzzy
 msgid "Send security check results by email."
-msgstr ""
+msgstr "хэрэв тийм гэвэл тайлангийн үр дүн и-мэйлээр шалгагдах болно."
 
 #: ../src/msec/help.py:63
+#, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
-msgstr ""
+msgstr "Аргумент г аас аас."
 
 #: ../src/msec/help.py:65
+#, fuzzy
 msgid "Set the root umask."
-msgstr ""
+msgstr "Аргумент г."
 
 #: ../src/msec/help.py:67
+#, fuzzy
 msgid "Enable checking for additions/removals of sgid files."
-msgstr ""
+msgstr "Тийм аас."
 
 #: ../src/msec/help.py:69
 #, fuzzy
@@ -170,8 +181,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:75
+#, fuzzy
 msgid "Enable checking for files/directories writable by everybody."
-msgstr ""
+msgstr "Тийм."
 
 #: ../src/msec/help.py:77
 msgid "Log syslog messages on console terminal 12."
@@ -198,8 +210,9 @@ msgid "Set shell commands history size. A value of -1 means unlimited."
 msgstr "Аргумент хэмжээ г хэмжээ аас."
 
 #: ../src/msec/help.py:87
+#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
-msgstr ""
+msgstr "Аргумент г."
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
@@ -216,22 +229,26 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:95
+#, fuzzy
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
-msgstr ""
+msgstr "Аргумент г."
 
 #: ../src/msec/help.py:97
+#, fuzzy
 msgid "Enable daily security checks."
-msgstr ""
+msgstr "Тийм өдөр тутам."
 
 #: ../src/msec/help.py:99
+#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr ""
+msgstr "Аргумент г."
 
 #: ../src/msec/help.py:101
+#, fuzzy
 msgid "Enable checking for unowned files."
-msgstr ""
+msgstr "Тийм."
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
@@ -270,20 +287,25 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:117
+#, fuzzy
 msgid "Set the user umask."
-msgstr ""
+msgstr "Аргумент г."
 
 #: ../src/msec/help.py:119
+#, fuzzy
 msgid "Accept ICMP echo."
 msgstr ""
+"Аргумент г\n"
+" Зөвшөөрөх."
 
 #: ../src/msec/help.py:121
+#, fuzzy
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
 "local services are authorized. If no, the services must be authorized "
 "manually in /etc/hosts.allow (see hosts.allow(5))."
-msgstr ""
+msgstr "Аргумент г байхгүй тийш вы г."
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
@@ -311,11 +333,12 @@ msgstr ""
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
 #, fuzzy
 msgid "deleted %s"
-msgstr "Сонгогдсон хостыг засах"
+msgstr "Устгах"
 
 #: ../src/msec/libmsec.py:455
+#, fuzzy
 msgid "touched file %s"
-msgstr ""
+msgstr "»%s« файл алга\n"
 
 #: ../src/msec/libmsec.py:475
 msgid "made symbolic link from %s to %s"
@@ -418,12 +441,14 @@ msgid "Removing limit on shell history size"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1009
+#, fuzzy
 msgid "Allowing reboot and shutdown to the console user"
-msgstr ""
+msgstr "Аргумент г."
 
 #: ../src/msec/libmsec.py:1016
+#, fuzzy
 msgid "Allowing SysRq key to the console user"
-msgstr ""
+msgstr "Аргумент г."
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
@@ -438,12 +463,14 @@ msgid "Allowing Ctrl-Alt-Del from console"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1030
+#, fuzzy
 msgid "Forbidding reboot and shutdown to the console user"
-msgstr ""
+msgstr "Аргумент г."
 
 #: ../src/msec/libmsec.py:1038
+#, fuzzy
 msgid "Forbidding SysRq key to the console user"
-msgstr ""
+msgstr "Аргумент г."
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
@@ -474,32 +501,53 @@ msgid "Forbidding list of users in GDM"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1089
+#, fuzzy
 msgid "Allowing remote root login"
 msgstr ""
+"Аргументууд: (арг)\n"
+"\n"
+"Эзний зайн нэвтрэлтийг Зөвшөөр/Хоригло."
 
 #: ../src/msec/libmsec.py:1093
+#, fuzzy
 msgid "Forbidding remote root login"
 msgstr ""
+"Аргументууд: (арг)\n"
+"\n"
+"Эзний зайн нэвтрэлтийг Зөвшөөр/Хоригло."
 
 #: ../src/msec/libmsec.py:1097
+#, fuzzy
 msgid "Allowing remote root login only by passphrase"
 msgstr ""
+"Аргументууд: (арг)\n"
+"\n"
+"Эзний зайн нэвтрэлтийг Зөвшөөр/Хоригло."
 
 #: ../src/msec/libmsec.py:1109
+#, fuzzy
 msgid "Allowing autologin"
 msgstr ""
+"Аргументууд: (арг)\n"
+"\n"
+"автомат нэвтрэлтийг Зөвшөөр/Хоригло."
 
 #: ../src/msec/libmsec.py:1112
+#, fuzzy
 msgid "Forbidding autologin"
 msgstr ""
+"Аргументууд: (арг)\n"
+"\n"
+"автомат нэвтрэлтийг Зөвшөөр/Хоригло."
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1131
+#, fuzzy
 msgid "Removing password in boot loader"
-msgstr ""
+msgstr "Нууц үг байхгүй"
 
 #: ../src/msec/libmsec.py:1146
 msgid "Enabling log on console"
@@ -510,12 +558,20 @@ msgid "Disabling log on console"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1162
+#, fuzzy
 msgid "Activating daily security check"
 msgstr ""
+"Аргументууд: (арг)\n"
+"\n"
+" Өдөр тутмын нууцлалын шалгалтыг идэвхжүүлэх/ идэвхгүйжүүлэх."
 
 #: ../src/msec/libmsec.py:1166
+#, fuzzy
 msgid "Disabling daily security check"
 msgstr ""
+"Аргументууд: (арг)\n"
+"\n"
+" Өдөр тутмын нууцлалын шалгалтыг идэвхжүүлэх/ идэвхгүйжүүлэх."
 
 #: ../src/msec/libmsec.py:1183
 msgid "Authorizing all services"
@@ -530,20 +586,28 @@ msgid "Disabling non local services"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1224
+#, fuzzy
 msgid "Enabling name resolution spoofing protection"
-msgstr ""
+msgstr "Аргумент Сонордуулга г."
 
 #: ../src/msec/libmsec.py:1229
+#, fuzzy
 msgid "Disabling name resolution spoofing protection"
-msgstr ""
+msgstr "Аргумент Сонордуулга г."
 
 #: ../src/msec/libmsec.py:1257
+#, fuzzy
 msgid "Enabling sulogin in single user runlevel"
 msgstr ""
+"Аргумент г\n"
+" Нээх ямх."
 
 #: ../src/msec/libmsec.py:1261
+#, fuzzy
 msgid "Disabling sulogin in single user runlevel"
 msgstr ""
+"Аргумент г\n"
+" Нээх ямх."
 
 #: ../src/msec/libmsec.py:1272
 msgid "Enabling msec periodic runs"
@@ -570,24 +634,35 @@ msgid "Forbidding export display from root"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1323
+#, fuzzy
 msgid "Activating periodic promiscuity check"
 msgstr ""
+"Аргумент: (arg)\n"
+"\n"
+"итернэт карт шалгалт идэвхижүүлэх/болих."
 
 #: ../src/msec/libmsec.py:1327
+#, fuzzy
 msgid "Disabling periodic promiscuity check"
 msgstr ""
+"Аргумент: (arg)\n"
+"\n"
+"итернэт карт шалгалт идэвхижүүлэх/болих."
 
 #: ../src/msec/libmsec.py:1353
+#, fuzzy
 msgid "Allowing direct root login"
-msgstr ""
+msgstr "Аргумент г."
 
 #: ../src/msec/libmsec.py:1370
+#, fuzzy
 msgid "Forbidding direct root login"
-msgstr ""
+msgstr "Аргумент г."
 
 #: ../src/msec/libmsec.py:1505
+#, fuzzy
 msgid "user name %s not found"
-msgstr ""
+msgstr "Хэрэглэгчийн нэр хэт урт"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
@@ -610,8 +685,9 @@ msgid "Enforcing user on %s to %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1594
+#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr ""
+msgstr "%s-ийг салгаж байна"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
@@ -622,8 +698,9 @@ msgid "Enforcing group on %s to %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1603
+#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr ""
+msgstr "%s-ийг салгаж байна"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
@@ -650,12 +727,14 @@ msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1700
+#, fuzzy
 msgid "Checking paths: %s"
-msgstr ""
+msgstr "%s-ийг шалгаж байна"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
+#, fuzzy
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "Хамгаалалт"
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
@@ -743,37 +822,37 @@ msgstr ""
 #: ../src/msec/msecgui.py:77
 #, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "Мэйл сонордуулгын тохиргоо"
+msgstr "Хүлээх"
 
 #: ../src/msec/msecgui.py:143
 #, fuzzy
 msgid "_File"
-msgstr "/_Файл"
+msgstr "Чили"
 
 #: ../src/msec/msecgui.py:145
 #, fuzzy
 msgid "_Save configuration"
-msgstr "Мэйл сонордуулгын тохиргоо"
+msgstr "Драйвер"
 
 #: ../src/msec/msecgui.py:147
 #, fuzzy
 msgid "_Import configuration"
-msgstr "Мэйл сонордуулгын тохиргоо"
+msgstr "Драйвер"
 
 #: ../src/msec/msecgui.py:148
 #, fuzzy
 msgid "_Export configuration"
-msgstr "Мэйл сонордуулгын тохиргоо"
+msgstr "Драйвер"
 
 #: ../src/msec/msecgui.py:150
 #, fuzzy
 msgid "_Quit"
-msgstr "/_Гарах"
+msgstr "Гарах"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
 #, fuzzy
 msgid "_Help"
-msgstr "/_Тусламж"
+msgstr "Тусламж"
 
 #: ../src/msec/msecgui.py:155
 #, fuzzy
@@ -786,17 +865,19 @@ msgid "MSEC: System Security and Audit"
 msgstr "Системийн горим"
 
 #: ../src/msec/msecgui.py:200
+#, fuzzy
 msgid "Basic security"
-msgstr ""
+msgstr "Нууцлал"
 
 #: ../src/msec/msecgui.py:201
 #, fuzzy
 msgid "System security"
-msgstr "Системийн горим"
+msgstr "Нууцлал"
 
 #: ../src/msec/msecgui.py:202
+#, fuzzy
 msgid "Network security"
-msgstr ""
+msgstr "Сүлжээ-харьцах хэсэг"
 
 #: ../src/msec/msecgui.py:203
 msgid "Periodic checks"
@@ -837,12 +918,14 @@ msgid "removed %s <b>%s</b>"
 msgstr ""
 
 #: ../src/msec/msecgui.py:262
+#, fuzzy
 msgid "no changes"
-msgstr ""
+msgstr "Үгүй"
 
 #: ../src/msec/msecgui.py:274
+#, fuzzy
 msgid "Saving changes.."
-msgstr ""
+msgstr "%s багцийг устгалт"
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -879,66 +962,72 @@ msgstr ""
 #: ../src/msec/msecgui.py:424
 #, fuzzy
 msgid "Security Option"
-msgstr "Тодорхойлолт"
+msgstr "Нууцлал"
 
 #: ../src/msec/msecgui.py:434
 msgid "Description"
 msgstr "Тодорхойлолт"
 
 #: ../src/msec/msecgui.py:439
+#, fuzzy
 msgid "Value"
-msgstr ""
+msgstr "Палау"
 
 #: ../src/msec/msecgui.py:449
 msgid "Invalid option '%s'!"
 msgstr ""
 
 #: ../src/msec/msecgui.py:499
+#, fuzzy
 msgid "Enable MSEC tool"
-msgstr ""
+msgstr "Нээх CD?"
 
 #: ../src/msec/msecgui.py:506
+#, fuzzy
 msgid "Select the base security level"
-msgstr ""
+msgstr "Хамгаалалт"
 
 #: ../src/msec/msecgui.py:510
-#, fuzzy
 msgid "Standard"
-msgstr "Цаг тооны бичиг"
+msgstr "Стандарт"
 
 #: ../src/msec/msecgui.py:523
 #, fuzzy
 msgid "Secure"
-msgstr "Сервер:"
+msgstr "Нууцлал"
 
 #: ../src/msec/msecgui.py:540
+#, fuzzy
 msgid "Send security alerts by email"
-msgstr ""
+msgstr "Хамгаалалт:"
 
 #: ../src/msec/msecgui.py:547
 #, fuzzy
 msgid "System administrator email address:"
-msgstr "Та доор э-шуудангийн хаягаа өгнө үү"
+msgstr "Нууцлалын Удирдлага (бүртгэл эсвэл и-мэйл)"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
 msgstr ""
 
 #: ../src/msec/msecgui.py:727
+#, fuzzy
 msgid "Enable periodic security checks"
-msgstr ""
+msgstr "Аргумент г."
 
 #: ../src/msec/msecgui.py:791
 msgid "Path"
 msgstr "Зам"
 
 #: ../src/msec/msecgui.py:797
+#, fuzzy
 msgid "User"
-msgstr "Хэрэглэгч"
+msgstr "Хэрэглэгчийн ID"
 
 #: ../src/msec/msecgui.py:803
+#, fuzzy
 msgid "Group"
-msgstr "Бүлэг"
+msgstr "Группын ID"
 
 #: ../src/msec/msecgui.py:817
 #, fuzzy
@@ -950,8 +1039,9 @@ msgid "Reset to default level permissions"
 msgstr ""
 
 #: ../src/msec/msecgui.py:866
+#, fuzzy
 msgid "Add a rule"
-msgstr ""
+msgstr "Хэрэглэгч нэмэх"
 
 #: ../src/msec/msecgui.py:871
 msgid "Delete"
@@ -980,12 +1070,12 @@ msgstr "/_Файл"
 #: ../src/msec/msecgui.py:989
 #, fuzzy
 msgid "User: "
-msgstr "Хэрэглэгч:"
+msgstr "Хэрэглэгчийн ID"
 
 #: ../src/msec/msecgui.py:997
 #, fuzzy
 msgid "Group: "
-msgstr "Бүлэг:"
+msgstr "Группын ID"
 
 #: ../src/msec/msecgui.py:1005
 #, fuzzy
@@ -1006,8 +1096,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:1086
+#, fuzzy
 msgid "New value:"
-msgstr ""
+msgstr "Шинэ Калидоне"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
@@ -1031,31 +1122,36 @@ msgstr "Хадгалах"
 #: ../src/msec/msecgui.py:1154
 #, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "вы?"
+msgstr "вы"
 
 #: ../src/msec/plugins/pam.py:68
+#, fuzzy
 msgid "Using password to authenticate users"
-msgstr ""
+msgstr "Аргумент г хэрэглэгчид."
 
 #: ../src/msec/plugins/pam.py:72
+#, fuzzy
 msgid "Don't use password to authenticate users"
-msgstr ""
+msgstr "Аргумент г хэрэглэгчид."
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:91
+#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr ""
+msgstr "бол"
 
 #: ../src/msec/plugins/pam.py:106
+#, fuzzy
 msgid "Setting password history to %d."
-msgstr ""
+msgstr "бол"
 
 #: ../src/msec/plugins/pam.py:112
+#, fuzzy
 msgid "Disabling password history"
-msgstr ""
+msgstr "бол"
 
 #: ../src/msec/plugins/pam.py:124
 msgid ""
@@ -1067,8 +1163,11 @@ msgid "Setting minimum password length %d"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:169
+#, fuzzy
 msgid "Allowing su only from wheel group members"
 msgstr ""
+"Аргумент г\n"
+" аас бүлэг."
 
 #: ../src/msec/plugins/pam.py:173
 msgid "no wheel group"
@@ -1087,5 +1186,10 @@ msgid "Allowing transparent root access for wheel group members"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:211
+#, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
+"Аргумент г\n"
+" аас бүлэг."
+
+#, fuzzy

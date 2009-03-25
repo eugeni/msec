@@ -1,20 +1,21 @@
-# translation of libDrakX-standalone.po to Nederlands
+# translation of libDrakX.po to Nederlands
+# translation of libDrakX-nl.po to
 # Dutch translation of DrakX.
 # Copyright (C) 2000, 2005, 2006, 2008 Free Software Foundation, Inc.
 # Copyright (c) 2000 Mandriva
 #
 # Niels Gras <niels.gras@wanadoo.nl>, 2000.
 # Jeroen ten Berge <j.ten.berge@twinbit.nl>, 2002.
-# Reinout van Schouwen <reinouts@gnome.org>, 2002-2008.
+# Reinout van Schouwen <reinouts@gnome.org>, 2002-2008
 # Peter Bosch <peter.bosch@hccnet.nl>, 2002.
 # Rob Teng <mandrake.tips@free.fr>, 2005, 2008.
-# C. Verschuuren <c.verschuuren AT gmail DOT com>, 2006.
+# Arno Fleming, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: libDrakX-standalone\n"
+"Project-Id-Version: libDrakX\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-25 12:58+BRT\n"
-"PO-Revision-Date: 2008-10-03 22:06+0200\n"
+"PO-Revision-Date: 2008-12-19 15:35+0100\n"
 "Last-Translator: Reinout van Schouwen <reinouts@gnome.org>\n"
 "Language-Team: Nederlands\n"
 "MIME-Version: 1.0\n"
@@ -23,16 +24,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:15
+#, fuzzy
 msgid "Enable name resolution spoofing protection."
-msgstr ""
+msgstr "Bescherming tegen nep-name resolution"
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
 msgstr ""
 
 #: ../src/msec/help.py:19
+#, fuzzy
 msgid "Accept broadcasted ICMP echo."
-msgstr ""
+msgstr "Uitgezonden icmp-echo accepteren."
 
 #: ../src/msec/help.py:21
 msgid ""
@@ -50,14 +53,20 @@ msgid "Enable checking for known rootkits using chkrootkit."
 msgstr ""
 
 #: ../src/msec/help.py:27
+#, fuzzy
 msgid "Enable checking for additions/removals of suid root files."
-msgstr ""
+msgstr "Toevoegingen/verdwijningen controleren van suid root-bestanden."
 
 #: ../src/msec/help.py:29
+#, fuzzy
 msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
+"crontab en at inschakelen voor gebruikers.\n"
+"\n"
+"Zet toegestane gebruikers in /etc/cron.allow en /etc/at.allow\n"
+"(zie de man-pagina van at(1) en crontab(1))."
 
 #: ../src/msec/help.py:31
 msgid "Accept bogus IPv4 error messages."
@@ -103,8 +112,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:47
+#, fuzzy
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr ""
+msgstr "Controleren op leeg wachtwoord in /etc/shadow"
 
 #: ../src/msec/help.py:49
 msgid ""
@@ -123,8 +133,9 @@ msgid "Enable checking for open network ports."
 msgstr ""
 
 #: ../src/msec/help.py:55
+#, fuzzy
 msgid "Enable logging of strange network packets."
-msgstr ""
+msgstr "In logboek bijhouden van vreemde IPv4-pakketten"
 
 #: ../src/msec/help.py:57
 msgid "Enable verification of installed RPM packages."
@@ -135,22 +146,28 @@ msgid "Allow root access without password for the members of the wheel group."
 msgstr ""
 
 #: ../src/msec/help.py:61
+#, fuzzy
 msgid "Send security check results by email."
-msgstr ""
+msgstr "Controleresultaat rapporteren over e-mail."
 
 #: ../src/msec/help.py:63
+#, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
+"Instellen van minimumlengte van het wachtwoord en minimum aantal cijfers en "
+"hoofdletters."
 
 #: ../src/msec/help.py:65
+#, fuzzy
 msgid "Set the root umask."
-msgstr ""
+msgstr "Instellen van standaardrechten bestanden aanmaken voor root."
 
 #: ../src/msec/help.py:67
+#, fuzzy
 msgid "Enable checking for additions/removals of sgid files."
-msgstr ""
+msgstr "Nagaan van toegevoegde/verwijderde sgid-bestanden"
 
 #: ../src/msec/help.py:69
 msgid "Activate ethernet cards promiscuity check."
@@ -161,14 +178,23 @@ msgid "Enable AppArmor security framework on boot"
 msgstr ""
 
 #: ../src/msec/help.py:73
+#, fuzzy
 msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
+"X-verbindingen toestaan:\n"
+"\n"
+"- \"Alle\" (alle verbindingen toegestaan),\n"
+"\n"
+"- \"Local\" (alleen verbinding vanaf lokale machine toestaan),\n"
+"\n"
+"- \"None\" (geen verbinding)."
 
 #: ../src/msec/help.py:75
+#, fuzzy
 msgid "Enable checking for files/directories writable by everybody."
-msgstr ""
+msgstr "Controleren op voor iedereen schrijfbare bestanden/mappen"
 
 #: ../src/msec/help.py:77
 msgid "Log syslog messages on console terminal 12."
@@ -195,8 +221,9 @@ msgstr ""
 "betekent ongelimiteerd."
 
 #: ../src/msec/help.py:87
+#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
-msgstr ""
+msgstr "Herstarten door de console-gebruiker toestaan."
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
@@ -213,22 +240,28 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:95
+#, fuzzy
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
 msgstr ""
+"De lengte van de wachtwoordgeschiedenis instellen om wachtwoord-hergebruik\n"
+"te voorkomen."
 
 #: ../src/msec/help.py:97
+#, fuzzy
 msgid "Enable daily security checks."
-msgstr ""
+msgstr "Dagelijkse beveiligingscontroles uitvoeren."
 
 #: ../src/msec/help.py:99
+#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr ""
+msgstr "Directe aanmelding van root toestaan."
 
 #: ../src/msec/help.py:101
+#, fuzzy
 msgid "Enable checking for unowned files."
-msgstr ""
+msgstr "Bestanden zonder eigenaar rapporteren"
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
@@ -261,26 +294,46 @@ msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
 
 #: ../src/msec/help.py:115
+#, fuzzy
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
 msgstr ""
+"Export van de display toestaan\n"
+"wanneer vanaf het root-account overgegaan wordt\n"
+"naar andere gebruikers.\n"
+"\n"
+"Zie de man-pagina van pam_xauth(8) voor meer details."
 
 #: ../src/msec/help.py:117
+#, fuzzy
 msgid "Set the user umask."
-msgstr ""
+msgstr "Instellen van standaardrechten bestanden aanmaken voor gebruikers."
 
 #: ../src/msec/help.py:119
+#, fuzzy
 msgid "Accept ICMP echo."
-msgstr ""
+msgstr "icmp-echo accepteren."
 
 #: ../src/msec/help.py:121
+#, fuzzy
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
 "local services are authorized. If no, the services must be authorized "
 "manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
+"Goedkeuren:\n"
+"\n"
+"- Alle diensten gecontroleerd door tcp_wrappers (zie de man-pagina\n"
+"van hosts.deny(5)) als ingesteld op \"ALL\",\n"
+"\n"
+"- alleen lokale diensten als ingesteld op \"Local\"\n"
+"\n"
+"- geen als ingesteld op \"None\".\n"
+"\n"
+"Om de diensten die u nodig heeft goed te keuren, gebruikt u\n"
+"/etc/hosts.allow (zie de man-pagina van hosts.allow(5))."
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
@@ -308,15 +361,17 @@ msgstr ""
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
 #, fuzzy
 msgid "deleted %s"
-msgstr "Geselecteerde computer bewerken"
+msgstr "Verwijderen"
 
 #: ../src/msec/libmsec.py:455
+#, fuzzy
 msgid "touched file %s"
-msgstr ""
+msgstr "Bestand bestaat niet"
 
 #: ../src/msec/libmsec.py:475
+#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr ""
+msgstr "Omschakelen van %s naar %s"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
@@ -364,12 +419,14 @@ msgid "Restricting chkconfig for packages according to \"%s\" profile"
 msgstr ""
 
 #: ../src/msec/libmsec.py:849
+#, fuzzy
 msgid "Setting root umask to %s"
-msgstr ""
+msgstr "Omschakelen van %s naar %s"
 
 #: ../src/msec/libmsec.py:859
+#, fuzzy
 msgid "Setting users umask to %s"
-msgstr ""
+msgstr "Omschakelen van %s naar %s"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
@@ -388,40 +445,48 @@ msgid "invalid allow_x_connections arg: %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:912
+#, fuzzy
 msgid "Allowing the X server to listen to tcp connections"
-msgstr ""
+msgstr "X Window-verbindingen toestaan"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
 msgstr ""
 
 #: ../src/msec/libmsec.py:939
+#, fuzzy
 msgid "Invalid shell timeout \"%s\""
-msgstr ""
+msgstr "Shell-wachttijd"
 
 #: ../src/msec/libmsec.py:947
+#, fuzzy
 msgid "Setting shell timeout to %s"
-msgstr ""
+msgstr "Shell-wachttijd"
 
 #: ../src/msec/libmsec.py:955
+#, fuzzy
 msgid "Invalid shell history size \"%s\""
-msgstr ""
+msgstr "Grootte van shell-geschiedenis"
 
 #: ../src/msec/libmsec.py:966
+#, fuzzy
 msgid "Setting shell history size to %s"
-msgstr ""
+msgstr "Grootte van shell-geschiedenis"
 
 #: ../src/msec/libmsec.py:970
+#, fuzzy
 msgid "Removing limit on shell history size"
-msgstr ""
+msgstr "Grootte van shell-geschiedenis"
 
 #: ../src/msec/libmsec.py:1009
+#, fuzzy
 msgid "Allowing reboot and shutdown to the console user"
-msgstr ""
+msgstr "Herstarten door de console-gebruiker toestaan."
 
 #: ../src/msec/libmsec.py:1016
+#, fuzzy
 msgid "Allowing SysRq key to the console user"
-msgstr ""
+msgstr "Herstarten door de console-gebruiker toestaan."
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
@@ -436,12 +501,14 @@ msgid "Allowing Ctrl-Alt-Del from console"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1030
+#, fuzzy
 msgid "Forbidding reboot and shutdown to the console user"
-msgstr ""
+msgstr "Herstarten door de console-gebruiker toestaan."
 
 #: ../src/msec/libmsec.py:1038
+#, fuzzy
 msgid "Forbidding SysRq key to the console user"
-msgstr ""
+msgstr "Herstarten door de console-gebruiker"
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
@@ -472,37 +539,43 @@ msgid "Forbidding list of users in GDM"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1089
+#, fuzzy
 msgid "Allowing remote root login"
-msgstr ""
+msgstr "Op afstand aanmelden van root toestaan"
 
 #: ../src/msec/libmsec.py:1093
+#, fuzzy
 msgid "Forbidding remote root login"
-msgstr ""
+msgstr "Op afstand aanmelden van root toestaan"
 
 #: ../src/msec/libmsec.py:1097
+#, fuzzy
 msgid "Allowing remote root login only by passphrase"
-msgstr ""
+msgstr "Op afstand aanmelden van root toestaan"
 
 #: ../src/msec/libmsec.py:1109
+#, fuzzy
 msgid "Allowing autologin"
-msgstr ""
+msgstr "Automatisch aanmelden toestaan."
 
 #: ../src/msec/libmsec.py:1112
+#, fuzzy
 msgid "Forbidding autologin"
-msgstr ""
+msgstr "Automatisch aanmelden toestaan."
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1131
+#, fuzzy
 msgid "Removing password in boot loader"
-msgstr ""
+msgstr "Geen wachtwoordverloop voor"
 
 #: ../src/msec/libmsec.py:1146
 #, fuzzy
 msgid "Enabling log on console"
-msgstr "Logo weergeven in tekstscherm (console)"
+msgstr "Systeemlogboekrapportage naar console 12 inschakelen"
 
 #: ../src/msec/libmsec.py:1150
 #, fuzzy
@@ -510,12 +583,14 @@ msgid "Disabling log on console"
 msgstr "Logo weergeven in tekstscherm (console)"
 
 #: ../src/msec/libmsec.py:1162
+#, fuzzy
 msgid "Activating daily security check"
-msgstr ""
+msgstr "Dagelijkse beveiligingscontrole activeren."
 
 #: ../src/msec/libmsec.py:1166
+#, fuzzy
 msgid "Disabling daily security check"
-msgstr ""
+msgstr "Dagelijkse beveiligingscontrole"
 
 #: ../src/msec/libmsec.py:1183
 msgid "Authorizing all services"
@@ -531,36 +606,43 @@ msgid "Disabling non local services"
 msgstr "Lokale scanners delen"
 
 #: ../src/msec/libmsec.py:1224
+#, fuzzy
 msgid "Enabling name resolution spoofing protection"
-msgstr ""
+msgstr "Bescherming tegen nep-name resolution"
 
 #: ../src/msec/libmsec.py:1229
+#, fuzzy
 msgid "Disabling name resolution spoofing protection"
-msgstr ""
+msgstr "Bescherming tegen nep-name resolution"
 
 #: ../src/msec/libmsec.py:1257
+#, fuzzy
 msgid "Enabling sulogin in single user runlevel"
-msgstr ""
+msgstr "sulogin(8) inschakelen op \"single user\"-niveau."
 
 #: ../src/msec/libmsec.py:1261
+#, fuzzy
 msgid "Disabling sulogin in single user runlevel"
-msgstr ""
+msgstr "sulogin(8) inschakelen op \"single user\"-niveau."
 
 #: ../src/msec/libmsec.py:1272
+#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr ""
+msgstr "Bezig met inschakelen van virtueel geheugen-partitie %s"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1289
+#, fuzzy
 msgid "Enabling crontab and at"
-msgstr ""
+msgstr "\"crontab\" en \"at\" voor gebruikers inschakelen"
 
 #: ../src/msec/libmsec.py:1296
+#, fuzzy
 msgid "Disabling crontab and at"
-msgstr ""
+msgstr "\"crontab\" en \"at\" voor gebruikers inschakelen"
 
 #: ../src/msec/libmsec.py:1308
 msgid "Allowing export display from root"
@@ -571,24 +653,29 @@ msgid "Forbidding export display from root"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1323
+#, fuzzy
 msgid "Activating periodic promiscuity check"
-msgstr ""
+msgstr "Controle op ethernetkaart-afluistermodus inschakelen."
 
 #: ../src/msec/libmsec.py:1327
+#, fuzzy
 msgid "Disabling periodic promiscuity check"
-msgstr ""
+msgstr "Controle op ethernetkaart-afluistermodus"
 
 #: ../src/msec/libmsec.py:1353
+#, fuzzy
 msgid "Allowing direct root login"
-msgstr ""
+msgstr "Directe aanmelding van root toestaan."
 
 #: ../src/msec/libmsec.py:1370
+#, fuzzy
 msgid "Forbidding direct root login"
-msgstr ""
+msgstr "Directe aanmelding van root toestaan."
 
 #: ../src/msec/libmsec.py:1505
+#, fuzzy
 msgid "user name %s not found"
-msgstr ""
+msgstr "Deze gebruikersnaam is te lang"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
@@ -607,24 +694,28 @@ msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1590
+#, fuzzy
 msgid "Enforcing user on %s to %s"
-msgstr ""
+msgstr "Omschakelen van %s naar %s"
 
 #: ../src/msec/libmsec.py:1594
+#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr ""
+msgstr "fout bij ontkoppelen %s: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1599
+#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr ""
+msgstr "Omschakelen van %s naar %s"
 
 #: ../src/msec/libmsec.py:1603
+#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr ""
+msgstr "fout bij ontkoppelen %s: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
@@ -651,8 +742,9 @@ msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1700
+#, fuzzy
 msgid "Checking paths: %s"
-msgstr ""
+msgstr "Bezig met controleren van %s"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
 msgid "Invalid security level '%s'."
@@ -675,8 +767,9 @@ msgid "Level '%s' not found, aborting."
 msgstr ""
 
 #: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
+#, fuzzy
 msgid "Switching to '%s' level."
-msgstr ""
+msgstr "Omschakelen van %s naar %s"
 
 #: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
 #, fuzzy
@@ -745,37 +838,37 @@ msgstr ""
 #: ../src/msec/msecgui.py:77
 #, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "Scannerconfiguratie"
+msgstr "Even geduld... bezig met toepassen van de configuratie"
 
 #: ../src/msec/msecgui.py:143
 #, fuzzy
 msgid "_File"
-msgstr "/_Bestand"
+msgstr "Chili"
 
 #: ../src/msec/msecgui.py:145
 #, fuzzy
 msgid "_Save configuration"
-msgstr "Scannerconfiguratie"
+msgstr "Geluidsconfiguratie"
 
 #: ../src/msec/msecgui.py:147
 #, fuzzy
 msgid "_Import configuration"
-msgstr "Waarschuwingsconfiguratie"
+msgstr "Geluidsconfiguratie"
 
 #: ../src/msec/msecgui.py:148
 #, fuzzy
 msgid "_Export configuration"
-msgstr "Waarschuwingsconfiguratie"
+msgstr "Geluidsconfiguratie"
 
 #: ../src/msec/msecgui.py:150
 #, fuzzy
 msgid "_Quit"
-msgstr "/_Afsluiten"
+msgstr "Afsluiten"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
 #, fuzzy
 msgid "_Help"
-msgstr "/_Hulp"
+msgstr "Hulp"
 
 #: ../src/msec/msecgui.py:155
 #, fuzzy
@@ -788,18 +881,19 @@ msgid "MSEC: System Security and Audit"
 msgstr "Systeeminstellingen"
 
 #: ../src/msec/msecgui.py:200
+#, fuzzy
 msgid "Basic security"
-msgstr ""
+msgstr "Dagelijkse beveiligingscontrole"
 
 #: ../src/msec/msecgui.py:201
 #, fuzzy
 msgid "System security"
-msgstr "Systeeminstellingen"
+msgstr "Beveiliging"
 
 #: ../src/msec/msecgui.py:202
 #, fuzzy
 msgid "Network security"
-msgstr "Netwerkcentrum"
+msgstr "Netwerkprofiel"
 
 #: ../src/msec/msecgui.py:203
 #, fuzzy
@@ -842,13 +936,14 @@ msgid "removed %s <b>%s</b>"
 msgstr ""
 
 #: ../src/msec/msecgui.py:262
+#, fuzzy
 msgid "no changes"
-msgstr ""
+msgstr "Niet delen"
 
 #: ../src/msec/msecgui.py:274
 #, fuzzy
 msgid "Saving changes.."
-msgstr "Opslaan als..."
+msgstr "Verwijderen van pakketten..."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -885,39 +980,41 @@ msgstr ""
 #: ../src/msec/msecgui.py:424
 #, fuzzy
 msgid "Security Option"
-msgstr "Beschrijving"
+msgstr "Opties specificeren"
 
 #: ../src/msec/msecgui.py:434
+#, fuzzy
 msgid "Description"
-msgstr "Beschrijving"
+msgstr "Opties specificeren"
 
 #: ../src/msec/msecgui.py:439
+#, fuzzy
 msgid "Value"
-msgstr ""
+msgstr "Palau"
 
 #: ../src/msec/msecgui.py:449
 #, fuzzy
 msgid "Invalid option '%s'!"
-msgstr "Basisopties"
+msgstr "Hoofdopties"
 
 #: ../src/msec/msecgui.py:499
+#, fuzzy
 msgid "Enable MSEC tool"
-msgstr ""
+msgstr "CD-opstart inschakelen?"
 
 #: ../src/msec/msecgui.py:506
 #, fuzzy
 msgid "Select the base security level"
-msgstr "Even geduld, bezig met instellen van beveiligingsniveau..."
+msgstr "Kies het gewenste veiligheidsniveau"
 
 #: ../src/msec/msecgui.py:510
-#, fuzzy
 msgid "Standard"
-msgstr "Kalender"
+msgstr "Standaard"
 
 #: ../src/msec/msecgui.py:523
 #, fuzzy
 msgid "Secure"
-msgstr "Server:"
+msgstr "Beveiliging"
 
 #: ../src/msec/msecgui.py:540
 #, fuzzy
@@ -927,27 +1024,30 @@ msgstr "Beveiligingswaarschuwingen:"
 #: ../src/msec/msecgui.py:547
 #, fuzzy
 msgid "System administrator email address:"
-msgstr "Voert u alstublieft hieronder uw e-mailadres in"
+msgstr "Beheerderswachtwoord (root) instellen"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
 msgstr ""
 
 #: ../src/msec/msecgui.py:727
+#, fuzzy
 msgid "Enable periodic security checks"
-msgstr ""
+msgstr "Om het uur-msec beveilingscontrole in-/uitschakelen"
 
 #: ../src/msec/msecgui.py:791
 msgid "Path"
 msgstr "Pad"
 
 #: ../src/msec/msecgui.py:797
+#, fuzzy
 msgid "User"
-msgstr "Gebruiker"
+msgstr "Gebruiken"
 
 #: ../src/msec/msecgui.py:803
+#, fuzzy
 msgid "Group"
-msgstr "Groep"
+msgstr "Groep-ID"
 
 #: ../src/msec/msecgui.py:817
 #, fuzzy
@@ -955,8 +1055,9 @@ msgid "Enforce"
 msgstr "Negeren"
 
 #: ../src/msec/msecgui.py:861
+#, fuzzy
 msgid "Reset to default level permissions"
-msgstr ""
+msgstr "Audiomixer herinitialiseren naar standaardwaarden"
 
 #: ../src/msec/msecgui.py:866
 msgid "Add a rule"
@@ -989,12 +1090,12 @@ msgstr "/_Bestand"
 #: ../src/msec/msecgui.py:989
 #, fuzzy
 msgid "User: "
-msgstr "Gebruiker:"
+msgstr "Gebruikers-ID"
 
 #: ../src/msec/msecgui.py:997
 #, fuzzy
 msgid "Group: "
-msgstr "Groep:"
+msgstr "Groep-ID"
 
 #: ../src/msec/msecgui.py:1005
 #, fuzzy
@@ -1016,8 +1117,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:1086
+#, fuzzy
 msgid "New value:"
-msgstr ""
+msgstr "Nieuw Caledonië"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
@@ -1041,31 +1143,36 @@ msgstr "Opslaan"
 #: ../src/msec/msecgui.py:1154
 #, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "Wenst u dit nu te configureren?"
+msgstr "Wilt u de /etc/fstab aanpassingen bewaren"
 
 #: ../src/msec/plugins/pam.py:68
+#, fuzzy
 msgid "Using password to authenticate users"
-msgstr ""
+msgstr "Wachtwoord gebruiken voor aanmeld controle van gebruikers"
 
 #: ../src/msec/plugins/pam.py:72
+#, fuzzy
 msgid "Don't use password to authenticate users"
-msgstr ""
+msgstr "Wachtwoord gebruiken voor aanmeld controle van gebruikers"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:91
+#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr ""
+msgstr "Lengte van wachtwoordgeschiedenis"
 
 #: ../src/msec/plugins/pam.py:106
+#, fuzzy
 msgid "Setting password history to %d."
-msgstr ""
+msgstr "Lengte van wachtwoordgeschiedenis"
 
 #: ../src/msec/plugins/pam.py:112
+#, fuzzy
 msgid "Disabling password history"
-msgstr ""
+msgstr "Lengte van wachtwoordgeschiedenis"
 
 #: ../src/msec/plugins/pam.py:124
 msgid ""
@@ -1077,8 +1184,9 @@ msgid "Setting minimum password length %d"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:169
+#, fuzzy
 msgid "Allowing su only from wheel group members"
-msgstr ""
+msgstr "su slechts inschakelen voor leden van de wheel-groep."
 
 #: ../src/msec/plugins/pam.py:173
 msgid "no wheel group"
@@ -1097,5 +1205,7 @@ msgid "Allowing transparent root access for wheel group members"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:211
+#, fuzzy
 msgid "Disabling transparent root access for wheel group members"
-msgstr ""
+msgstr "su slechts inschakelen voor leden van de wheel-groep."
+

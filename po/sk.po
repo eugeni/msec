@@ -17,16 +17,18 @@ msgstr ""
 "Plural-Forms:  nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../src/msec/help.py:15
+#, fuzzy
 msgid "Enable name resolution spoofing protection."
-msgstr ""
+msgstr "Ochrana voči dns spoofingu"
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
 msgstr ""
 
 #: ../src/msec/help.py:19
+#, fuzzy
 msgid "Accept broadcasted ICMP echo."
-msgstr ""
+msgstr "Akceptovať icmp echo poslané na broadcast adresu"
 
 #: ../src/msec/help.py:21
 msgid ""
@@ -44,14 +46,21 @@ msgid "Enable checking for known rootkits using chkrootkit."
 msgstr ""
 
 #: ../src/msec/help.py:27
+#, fuzzy
 msgid "Enable checking for additions/removals of suid root files."
-msgstr ""
+msgstr "Kontrolovať pridanie/odobratie súborov s nastaveným root suid bitom."
 
 #: ../src/msec/help.py:29
+#, fuzzy
 msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
+"Povoliť/Zakázať použitie crontab pre používateľov.\n"
+"\n"
+"Používatelia, ktorí majú mať používanie cron démona povolené by mali byť "
+"uvedení\n"
+"v /etc/cron.allow a /etc/at.allow (viď. man at(1) a crontab(1))."
 
 #: ../src/msec/help.py:31
 #, fuzzy
@@ -100,8 +109,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:47
+#, fuzzy
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr ""
+msgstr "Kontrolovať prázdne heslá v /etc/shadow"
 
 #: ../src/msec/help.py:49
 msgid ""
@@ -120,8 +130,9 @@ msgid "Enable checking for open network ports."
 msgstr ""
 
 #: ../src/msec/help.py:55
+#, fuzzy
 msgid "Enable logging of strange network packets."
-msgstr ""
+msgstr "Povoliť logovanie neštandardných IPv4 paketov."
 
 #: ../src/msec/help.py:57
 msgid "Enable verification of installed RPM packages."
@@ -132,22 +143,28 @@ msgid "Allow root access without password for the members of the wheel group."
 msgstr ""
 
 #: ../src/msec/help.py:61
+#, fuzzy
 msgid "Send security check results by email."
-msgstr ""
+msgstr "Sumár z kontroly odoslať emailom"
 
 #: ../src/msec/help.py:63
+#, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
+"Nastaviť minimálnu dĺžku hesla, minimálny počet číslic a minimálny počet "
+"veľkých písmen."
 
 #: ../src/msec/help.py:65
+#, fuzzy
 msgid "Set the root umask."
-msgstr ""
+msgstr "Nastaviť umask pre root-a."
 
 #: ../src/msec/help.py:67
+#, fuzzy
 msgid "Enable checking for additions/removals of sgid files."
-msgstr ""
+msgstr "Kontrolovať pridanie/odstránenie súborov s nastaveným sgid."
 
 #: ../src/msec/help.py:69
 #, fuzzy
@@ -160,14 +177,22 @@ msgid "Enable AppArmor security framework on boot"
 msgstr ""
 
 #: ../src/msec/help.py:73
+#, fuzzy
 msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
+"Povoliť/Zakázať X spojenia:\n"
+"\n"
+"- ALL (všetky pripojenia sú povolené),\n"
+"\n"
+"- LOCAL (iba pre lokálne pripojenia),\n"
+"- NONE (žiadne pripojenia)."
 
 #: ../src/msec/help.py:75
+#, fuzzy
 msgid "Enable checking for files/directories writable by everybody."
-msgstr ""
+msgstr "Kontrolovať súbory/priečinky či sú zapisovateľné pre všetkých"
 
 #: ../src/msec/help.py:77
 msgid "Log syslog messages on console terminal 12."
@@ -195,8 +220,11 @@ msgstr ""
 "neobmedzenú históriu."
 
 #: ../src/msec/help.py:87
+#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
 msgstr ""
+"Povoliť/Zakázať možnosť reštartovať systém používateľom prihláseným ku "
+"konzole."
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
@@ -213,22 +241,28 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:95
+#, fuzzy
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
 msgstr ""
+"Nastaviť dĺžku histórie hesiel ako prevenciu pred znovupoužitím takého "
+"istého hesla."
 
 #: ../src/msec/help.py:97
+#, fuzzy
 msgid "Enable daily security checks."
-msgstr ""
+msgstr "Spúšťať denné bezpečnostné kontroly"
 
 #: ../src/msec/help.py:99
+#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr ""
+msgstr "Povoliť/Zakázať priame prihlásenie root-a z konzoly."
 
 #: ../src/msec/help.py:101
+#, fuzzy
 msgid "Enable checking for unowned files."
-msgstr ""
+msgstr "Vyhľadať súbory, ktoré nemajú vlastníka"
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
@@ -261,26 +295,45 @@ msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
 
 #: ../src/msec/help.py:115
+#, fuzzy
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
 msgstr ""
+"Povoliť/zakázať exportovať obrazovku\n"
+"ak je odovzdaná root-om inému používateľovi.\n"
+"\n"
+"Pozrite pam_xauth(8) pre bližšie podrobnosti."
 
 #: ../src/msec/help.py:117
+#, fuzzy
 msgid "Set the user umask."
-msgstr ""
+msgstr "Nastaviť umask pre používateľa."
 
 #: ../src/msec/help.py:119
+#, fuzzy
 msgid "Accept ICMP echo."
-msgstr ""
+msgstr "Akceptovať icmp echo"
 
 #: ../src/msec/help.py:121
+#, fuzzy
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
 "local services are authorized. If no, the services must be authorized "
 "manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
+"Autorizovať:\n"
+"\n"
+"- všetky služby kontrolované pomocou tcp_wappera (viď. hosts.deny(5)) ak je "
+"nastavené na \"ALL\",\n"
+"\n"
+"- iba lokálne, potom \"LOCAL\"\n"
+"\n"
+"- žiadne, potom \"NONE\".\n"
+"\n"
+"Pre autorizovanie služieb je potrebné použiť /etc/hosts.allow (viď. hosts."
+"allow(5))."
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
@@ -308,15 +361,17 @@ msgstr ""
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
 #, fuzzy
 msgid "deleted %s"
-msgstr "Upraviť označeného hostiteľa"
+msgstr "Zrušiť"
 
 #: ../src/msec/libmsec.py:455
+#, fuzzy
 msgid "touched file %s"
-msgstr ""
+msgstr "Súbor neexistuje"
 
 #: ../src/msec/libmsec.py:475
+#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr ""
+msgstr "Prepínam z ext2 na ext3"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
@@ -364,12 +419,14 @@ msgid "Restricting chkconfig for packages according to \"%s\" profile"
 msgstr ""
 
 #: ../src/msec/libmsec.py:849
+#, fuzzy
 msgid "Setting root umask to %s"
-msgstr ""
+msgstr "Prepínam z ext2 na ext3"
 
 #: ../src/msec/libmsec.py:859
+#, fuzzy
 msgid "Setting users umask to %s"
-msgstr ""
+msgstr "Prepínam z ext2 na ext3"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
@@ -388,40 +445,52 @@ msgid "invalid allow_x_connections arg: %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:912
+#, fuzzy
 msgid "Allowing the X server to listen to tcp connections"
-msgstr ""
+msgstr "Povoliť X Window spojenia"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
 msgstr ""
 
 #: ../src/msec/libmsec.py:939
+#, fuzzy
 msgid "Invalid shell timeout \"%s\""
-msgstr ""
+msgstr "Automatické odhlásenie"
 
 #: ../src/msec/libmsec.py:947
+#, fuzzy
 msgid "Setting shell timeout to %s"
-msgstr ""
+msgstr "Automatické odhlásenie"
 
 #: ../src/msec/libmsec.py:955
+#, fuzzy
 msgid "Invalid shell history size \"%s\""
-msgstr ""
+msgstr "Veľkosť histórie shellu"
 
 #: ../src/msec/libmsec.py:966
+#, fuzzy
 msgid "Setting shell history size to %s"
-msgstr ""
+msgstr "Veľkosť histórie shellu"
 
 #: ../src/msec/libmsec.py:970
+#, fuzzy
 msgid "Removing limit on shell history size"
-msgstr ""
+msgstr "Veľkosť histórie shellu"
 
 #: ../src/msec/libmsec.py:1009
+#, fuzzy
 msgid "Allowing reboot and shutdown to the console user"
 msgstr ""
+"Povoliť/Zakázať možnosť reštartovať systém používateľom prihláseným ku "
+"konzole."
 
 #: ../src/msec/libmsec.py:1016
+#, fuzzy
 msgid "Allowing SysRq key to the console user"
 msgstr ""
+"Povoliť/Zakázať možnosť reštartovať systém používateľom prihláseným ku "
+"konzole."
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
@@ -436,12 +505,16 @@ msgid "Allowing Ctrl-Alt-Del from console"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1030
+#, fuzzy
 msgid "Forbidding reboot and shutdown to the console user"
 msgstr ""
+"Povoliť/Zakázať možnosť reštartovať systém používateľom prihláseným ku "
+"konzole."
 
 #: ../src/msec/libmsec.py:1038
+#, fuzzy
 msgid "Forbidding SysRq key to the console user"
-msgstr ""
+msgstr "Reštartovať ak je používateľ prihlásený na konzole"
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
@@ -472,37 +545,43 @@ msgid "Forbidding list of users in GDM"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1089
+#, fuzzy
 msgid "Allowing remote root login"
-msgstr ""
+msgstr "Povoliť vzdialené prihlásenie root-a."
 
 #: ../src/msec/libmsec.py:1093
+#, fuzzy
 msgid "Forbidding remote root login"
-msgstr ""
+msgstr "Povoliť/Zakázať možnosť vzdialeného prihlásenia sa root-a."
 
 #: ../src/msec/libmsec.py:1097
+#, fuzzy
 msgid "Allowing remote root login only by passphrase"
-msgstr ""
+msgstr "Povoliť vzdialené prihlásenie root-a."
 
 #: ../src/msec/libmsec.py:1109
+#, fuzzy
 msgid "Allowing autologin"
-msgstr ""
+msgstr "Povoliť/Zakázať autologin."
 
 #: ../src/msec/libmsec.py:1112
+#, fuzzy
 msgid "Forbidding autologin"
-msgstr ""
+msgstr "Povoliť/Zakázať autologin."
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1131
+#, fuzzy
 msgid "Removing password in boot loader"
-msgstr ""
+msgstr "Neobmedzená platnosť hesla pre"
 
 #: ../src/msec/libmsec.py:1146
 #, fuzzy
 msgid "Enabling log on console"
-msgstr "Zobraziť logo na konzole"
+msgstr "Povoliť/Zakázať zobrazovanie syslog reportov na konzole č.12"
 
 #: ../src/msec/libmsec.py:1150
 #, fuzzy
@@ -510,12 +589,14 @@ msgid "Disabling log on console"
 msgstr "Zobraziť logo na konzole"
 
 #: ../src/msec/libmsec.py:1162
+#, fuzzy
 msgid "Activating daily security check"
-msgstr ""
+msgstr "Aktivovať/Deaktivovať denné bezpečnostné kontroly."
 
 #: ../src/msec/libmsec.py:1166
+#, fuzzy
 msgid "Disabling daily security check"
-msgstr ""
+msgstr "Denné bezpečnostné kontroly"
 
 #: ../src/msec/libmsec.py:1183
 msgid "Authorizing all services"
@@ -531,36 +612,43 @@ msgid "Disabling non local services"
 msgstr "Zdieľanie lokálnych skenerov"
 
 #: ../src/msec/libmsec.py:1224
+#, fuzzy
 msgid "Enabling name resolution spoofing protection"
-msgstr ""
+msgstr "Ochrana voči dns spoofingu"
 
 #: ../src/msec/libmsec.py:1229
+#, fuzzy
 msgid "Disabling name resolution spoofing protection"
-msgstr ""
+msgstr "Ochrana voči dns spoofingu"
 
 #: ../src/msec/libmsec.py:1257
+#, fuzzy
 msgid "Enabling sulogin in single user runlevel"
-msgstr ""
+msgstr "Povoliť/Zakázať sulogin(8) v jednopoužívateľskom režime"
 
 #: ../src/msec/libmsec.py:1261
+#, fuzzy
 msgid "Disabling sulogin in single user runlevel"
-msgstr ""
+msgstr "Povoliť/Zakázať sulogin(8) v jednopoužívateľskom režime"
 
 #: ../src/msec/libmsec.py:1272
+#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr ""
+msgstr "Povoľuje sa swap oddiel %s"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1289
+#, fuzzy
 msgid "Enabling crontab and at"
-msgstr ""
+msgstr "Povoliť \"crontab\" a \"at\" pre používateľov"
 
 #: ../src/msec/libmsec.py:1296
+#, fuzzy
 msgid "Disabling crontab and at"
-msgstr ""
+msgstr "Povoliť \"crontab\" a \"at\" pre používateľov"
 
 #: ../src/msec/libmsec.py:1308
 msgid "Allowing export display from root"
@@ -571,24 +659,30 @@ msgid "Forbidding export display from root"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1323
+#, fuzzy
 msgid "Activating periodic promiscuity check"
 msgstr ""
+"Aktivovať/Deaktivovať kontrolu promiskuitného režimu ethernetovej karty."
 
 #: ../src/msec/libmsec.py:1327
+#, fuzzy
 msgid "Disabling periodic promiscuity check"
-msgstr ""
+msgstr "Kontrola promiskuitného režimu ethernet karty"
 
 #: ../src/msec/libmsec.py:1353
+#, fuzzy
 msgid "Allowing direct root login"
-msgstr ""
+msgstr "Povoliť/Zakázať priame prihlásenie root-a z konzoly."
 
 #: ../src/msec/libmsec.py:1370
+#, fuzzy
 msgid "Forbidding direct root login"
-msgstr ""
+msgstr "Povoliť/Zakázať priame prihlásenie root-a z konzoly."
 
 #: ../src/msec/libmsec.py:1505
+#, fuzzy
 msgid "user name %s not found"
-msgstr ""
+msgstr "Používateľské meno je príliš dlhé"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
@@ -607,24 +701,28 @@ msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1590
+#, fuzzy
 msgid "Enforcing user on %s to %s"
-msgstr ""
+msgstr "Prepínam z ext2 na ext3"
 
 #: ../src/msec/libmsec.py:1594
+#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr ""
+msgstr "chyba pri odpojení %s: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1599
+#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr ""
+msgstr "Prepínam z ext2 na ext3"
 
 #: ../src/msec/libmsec.py:1603
+#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr ""
+msgstr "chyba pri odpojení %s: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
@@ -651,12 +749,14 @@ msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1700
+#, fuzzy
 msgid "Checking paths: %s"
-msgstr ""
+msgstr "Kontroluje sa %s"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
+#, fuzzy
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "Úroveň bezpečnosti"
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
@@ -675,8 +775,9 @@ msgid "Level '%s' not found, aborting."
 msgstr ""
 
 #: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
+#, fuzzy
 msgid "Switching to '%s' level."
-msgstr ""
+msgstr "Prepínam z ext2 na ext3"
 
 #: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
 #, fuzzy
@@ -745,37 +846,37 @@ msgstr ""
 #: ../src/msec/msecgui.py:77
 #, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "Ručné nastavenie"
+msgstr "Prosím čakajte... Aplikuje sa konfigurácia"
 
 #: ../src/msec/msecgui.py:143
 #, fuzzy
 msgid "_File"
-msgstr "/_Súbory"
+msgstr "Čile"
 
 #: ../src/msec/msecgui.py:145
 #, fuzzy
 msgid "_Save configuration"
-msgstr "Nastavenie ovládača UPS"
+msgstr "Konfigurácia zvuku"
 
 #: ../src/msec/msecgui.py:147
 #, fuzzy
 msgid "_Import configuration"
-msgstr "Nastavenie varovaní"
+msgstr "Konfigurácia zvuku"
 
 #: ../src/msec/msecgui.py:148
 #, fuzzy
 msgid "_Export configuration"
-msgstr "Nastavenie varovaní"
+msgstr "Konfigurácia zvuku"
 
 #: ../src/msec/msecgui.py:150
 #, fuzzy
 msgid "_Quit"
-msgstr "/_Koniec"
+msgstr "Koniec"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
 #, fuzzy
 msgid "_Help"
-msgstr "/_Pomoc"
+msgstr "Pomoc"
 
 #: ../src/msec/msecgui.py:155
 #, fuzzy
@@ -788,17 +889,19 @@ msgid "MSEC: System Security and Audit"
 msgstr "Systémové nastavenia"
 
 #: ../src/msec/msecgui.py:200
+#, fuzzy
 msgid "Basic security"
-msgstr ""
+msgstr "Denné bezpečnostné kontroly"
 
 #: ../src/msec/msecgui.py:201
 #, fuzzy
 msgid "System security"
-msgstr "Systémové nastavenia"
+msgstr "Bezpečnosť"
 
 #: ../src/msec/msecgui.py:202
+#, fuzzy
 msgid "Network security"
-msgstr ""
+msgstr "Sieťový profil"
 
 #: ../src/msec/msecgui.py:203
 #, fuzzy
@@ -841,13 +944,14 @@ msgid "removed %s <b>%s</b>"
 msgstr ""
 
 #: ../src/msec/msecgui.py:262
+#, fuzzy
 msgid "no changes"
-msgstr ""
+msgstr "Bez zdieľania"
 
 #: ../src/msec/msecgui.py:274
 #, fuzzy
 msgid "Saving changes.."
-msgstr "Ulož ako.."
+msgstr "Odstraňujú sa balíky..."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -884,15 +988,17 @@ msgstr ""
 #: ../src/msec/msecgui.py:424
 #, fuzzy
 msgid "Security Option"
-msgstr "Popis"
+msgstr "Zadajte voľby"
 
 #: ../src/msec/msecgui.py:434
+#, fuzzy
 msgid "Description"
-msgstr "Popis"
+msgstr "Zadajte voľby"
 
 #: ../src/msec/msecgui.py:439
+#, fuzzy
 msgid "Value"
-msgstr ""
+msgstr "Palau"
 
 #: ../src/msec/msecgui.py:449
 #, fuzzy
@@ -900,23 +1006,23 @@ msgid "Invalid option '%s'!"
 msgstr "Základné nastavenia"
 
 #: ../src/msec/msecgui.py:499
+#, fuzzy
 msgid "Enable MSEC tool"
-msgstr ""
+msgstr "Povoliť štart z CD?"
 
 #: ../src/msec/msecgui.py:506
 #, fuzzy
 msgid "Select the base security level"
-msgstr "Prosím čakajte, nastavuje sa úroveň bezpečnosti..."
+msgstr "Prosím, zvoľte si zodpovedajúcu bezpečnostnú úroveň"
 
 #: ../src/msec/msecgui.py:510
-#, fuzzy
 msgid "Standard"
-msgstr "Kalendár"
+msgstr "Štandardná"
 
 #: ../src/msec/msecgui.py:523
 #, fuzzy
 msgid "Secure"
-msgstr "Server:"
+msgstr "Bezpečnosť"
 
 #: ../src/msec/msecgui.py:540
 #, fuzzy
@@ -926,27 +1032,30 @@ msgstr "Bezpečnostné varovania:"
 #: ../src/msec/msecgui.py:547
 #, fuzzy
 msgid "System administrator email address:"
-msgstr "Vložte vašu emailovú adresu nižšie"
+msgstr "Nastavenie administrátorského (root) hesla"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
 msgstr ""
 
 #: ../src/msec/msecgui.py:727
+#, fuzzy
 msgid "Enable periodic security checks"
-msgstr ""
+msgstr "Povoliť bezpečnostné kontroly msec každú hodinu"
 
 #: ../src/msec/msecgui.py:791
 msgid "Path"
 msgstr "Cesta"
 
 #: ../src/msec/msecgui.py:797
+#, fuzzy
 msgid "User"
-msgstr "Používateľ"
+msgstr "ID používateľa"
 
 #: ../src/msec/msecgui.py:803
+#, fuzzy
 msgid "Group"
-msgstr "Skupina"
+msgstr "ID skupiny"
 
 #: ../src/msec/msecgui.py:817
 #, fuzzy
@@ -958,8 +1067,9 @@ msgid "Reset to default level permissions"
 msgstr ""
 
 #: ../src/msec/msecgui.py:866
+#, fuzzy
 msgid "Add a rule"
-msgstr "Pridať pravidlo"
+msgstr "Pridať používateľa"
 
 #: ../src/msec/msecgui.py:871
 msgid "Delete"
@@ -988,12 +1098,12 @@ msgstr "/_Súbory"
 #: ../src/msec/msecgui.py:989
 #, fuzzy
 msgid "User: "
-msgstr "Používateľ :"
+msgstr "ID používateľa"
 
 #: ../src/msec/msecgui.py:997
 #, fuzzy
 msgid "Group: "
-msgstr "Skupina :"
+msgstr "ID skupiny"
 
 #: ../src/msec/msecgui.py:1005
 #, fuzzy
@@ -1015,8 +1125,9 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:1086
+#, fuzzy
 msgid "New value:"
-msgstr ""
+msgstr "Nová Kaledónia"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
@@ -1040,31 +1151,36 @@ msgstr "Uložiť"
 #: ../src/msec/msecgui.py:1154
 #, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "Želáte si spustiť potrebný konfiguračný nástroj?"
+msgstr "Želáte si uložiť zmeny do /etc/fstab"
 
 #: ../src/msec/plugins/pam.py:68
+#, fuzzy
 msgid "Using password to authenticate users"
-msgstr ""
+msgstr "Používať heslá pre autentikáciu používateľov"
 
 #: ../src/msec/plugins/pam.py:72
+#, fuzzy
 msgid "Don't use password to authenticate users"
-msgstr ""
+msgstr "Používať heslá pre autentikáciu používateľov"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:91
+#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr ""
+msgstr "Dĺžka histórie hesiel"
 
 #: ../src/msec/plugins/pam.py:106
+#, fuzzy
 msgid "Setting password history to %d."
-msgstr ""
+msgstr "Dĺžka histórie hesiel"
 
 #: ../src/msec/plugins/pam.py:112
+#, fuzzy
 msgid "Disabling password history"
-msgstr ""
+msgstr "Dĺžka histórie hesiel"
 
 #: ../src/msec/plugins/pam.py:124
 msgid ""
@@ -1076,8 +1192,11 @@ msgid "Setting minimum password length %d"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:169
+#, fuzzy
 msgid "Allowing su only from wheel group members"
 msgstr ""
+"Povoliť su iba pre členov skupiny wheel, alebo povoliť su pre akéhokoľvek "
+"používateľa"
 
 #: ../src/msec/plugins/pam.py:173
 msgid "no wheel group"
@@ -1096,5 +1215,9 @@ msgid "Allowing transparent root access for wheel group members"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:211
+#, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
+"Povoliť su iba pre členov skupiny wheel, alebo povoliť su pre akéhokoľvek "
+"používateľa"
+

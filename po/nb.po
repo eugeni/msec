@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-03 12:06+BRT\n"
-"PO-Revision-Date: 2009-03-25 05:25+0100\n"
+"PO-Revision-Date: 2009-03-25 05:40+0100\n"
 "Last-Translator: \n"
 "Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr ""
 
 #: ../src/msec/help.py:15
 msgid "Enable name resolution spoofing protection."
-msgstr "Slå på navneoppslagforfalskningsbeskyttelse."
+msgstr "Slå på beskytteslse mot navneoppslagsforfalskning."
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
@@ -54,7 +54,7 @@ msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på port 6000
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr "Slå på sjekking for kjente rootkit ved hjelp av chkrootkit."
+msgstr "Slå på sjekk for kjente rootkit ved hjelp av chkrootkit."
 
 #: ../src/msec/help.py:27
 msgid "Enable checking for additions/removals of suid root files."
@@ -122,7 +122,7 @@ msgstr ""
 
 #: ../src/msec/help.py:53
 msgid "Enable checking for open network ports."
-msgstr "Slå på sjekking for åpne nettverksporter."
+msgstr "Slå på sjekk for åpne nettverksporter."
 
 #: ../src/msec/help.py:55
 msgid "Enable logging of strange network packets."
@@ -138,7 +138,7 @@ msgstr "Tillat root-tilgang uten passord for medlemmene i wheel-gruppen."
 
 #: ../src/msec/help.py:61
 msgid "Send security check results by email."
-msgstr "Send sikkerhetssjekkresultater som e-post."
+msgstr "Send resultater fra sikkerhetssjekk som e-post."
 
 #: ../src/msec/help.py:63
 msgid ""
@@ -161,7 +161,7 @@ msgstr "Slå på løsaktighetskontroll for nettverkskort."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
-msgstr "Slå på AppArmor sikkerhetsrammeverk på oppstart"
+msgstr "Slå på AppArmor sikkerhetsrammeverk under oppstart"
 
 #: ../src/msec/help.py:73
 msgid ""
@@ -189,7 +189,7 @@ msgstr ""
 
 #: ../src/msec/help.py:83
 msgid "Enable periodic permission checking for system files."
-msgstr "Slå på periodisk rettighetssjekking for systemfiler."
+msgstr "Slå på periodisk rettighetssjekk for systemfiler."
 
 #: ../src/msec/help.py:85
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -300,7 +300,7 @@ msgstr "Slå på PolicyKit-sikkerhetsrammeverk for alle brukere. Hvis ikke dette
 
 #: ../src/msec/libmsec.py:339
 msgid "%s modified so launched command: %s"
-msgstr "%s modifisert, so startet kommando: %s"
+msgstr "%s modifisert, så startet kommando: %s"
 
 #: ../src/msec/libmsec.py:348
 msgid "%s modified so should have run command: %s"
@@ -536,7 +536,7 @@ msgstr "Slå på logging på konsollet"
 
 #: ../src/msec/libmsec.py:1272
 msgid "Disabling log on console"
-msgstr "Slå av visning av logo på konsollet"
+msgstr "Slå av visning av logg på konsollet"
 
 #: ../src/msec/libmsec.py:1284
 msgid "Activating daily security check"
@@ -560,11 +560,11 @@ msgstr "Slå av ikke-lokale tjenester"
 
 #: ../src/msec/libmsec.py:1346
 msgid "Enabling name resolution spoofing protection"
-msgstr "Slå på navneoppslagsforfalskningsbeskyttelse"
+msgstr "Slå på beskyttelse mot navneoppslagsforfalskning"
 
 #: ../src/msec/libmsec.py:1351
 msgid "Disabling name resolution spoofing protection"
-msgstr "Slå av navneoppslagsforfalskningsbeskyttelse"
+msgstr "Slå av beskyttelse mot navneoppslagsforfalskning"
 
 #: ../src/msec/libmsec.py:1380
 msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
@@ -913,15 +913,15 @@ msgstr "Detaljer (%d forandres).."
 
 #: ../src/msec/msecgui.py:399
 msgid "No base msec level specified, using '%s'"
-msgstr "Ingen basis msec-nivå spesifisert, bruker '%s'"
+msgstr "Ingen grunnleggende msec-nivå spesifisert, bruker '%s'"
 
 #: ../src/msec/msecgui.py:402
 msgid "Detected base msec level '%s'"
-msgstr "Oppdaget basis msecnivå '%s'"
+msgstr "Oppdaget grunnleggende msec-nivå '%s'"
 
 #: ../src/msec/msecgui.py:407
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr "Tilpasset basisoppsettsnivå '%s' funnet. Vil forhåndsvelge '%s'"
+msgstr "Tilpasset grunnleggende-oppsettsnivå '%s' funnet. Vil forhåndsvelge '%s'"
 
 #: ../src/msec/msecgui.py:435
 msgid "Security Option"
@@ -945,7 +945,7 @@ msgstr "Slå på MSEC-verktøy"
 
 #: ../src/msec/msecgui.py:517
 msgid "Select the base security level"
-msgstr "Velg basis sikkerhetsnivå"
+msgstr "Velg grunnleggende sikkerhetsnivå"
 
 #: ../src/msec/msecgui.py:521
 msgid "Standard"

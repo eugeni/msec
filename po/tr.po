@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: DrakX-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-25 12:58+BRT\n"
-"PO-Revision-Date: 2009-03-25 13:31+0200\n"
+"PO-Revision-Date: 2009-03-27 07:41+0200\n"
 "Last-Translator: Atilla ÖNTAŞ <atilla_ontas@mandriva.org>\n"
 "Language-Team: Turkish <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -65,6 +65,9 @@ msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
+"Kullanıcılar için crontab ve at etkinleştir. İzin verilen kullanıcıları /etc/"
+"cron.allow ve /etc/at.allow dosyalarına yerleştir. (at(1) ve crontab(1) el "
+"kitaplarına bakın)"
 
 #: ../src/msec/help.py:31
 msgid "Accept bogus IPv4 error messages."
@@ -72,12 +75,11 @@ msgstr "Taklit IPv4 hata iletilerini kabul et."
 
 #: ../src/msec/help.py:33
 msgid "Enable checksum verification for suid files."
-msgstr ""
+msgstr "Suid dosyalar için checksum denetimini etkinleştir."
 
 #: ../src/msec/help.py:35
-#, fuzzy
 msgid "User email to receive security notifications."
-msgstr "Lütfen bekleyin, güvenlik seçenekleri ayarlanıyor..."
+msgstr "Güvenlik uyarılarını alacak kullanıcı e-posta adresi."
 
 #: ../src/msec/help.py:37
 msgid "Allow autologin."
@@ -86,6 +88,8 @@ msgstr "Otomatik Giriş' e izin ver."
 #: ../src/msec/help.py:39
 msgid "Allow only users in wheel grup to su to root."
 msgstr ""
+"Kök kullanıcı olarak işlem yapmaları için sadece wheel grubu üyelerine izin "
+"ver."
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -97,26 +101,38 @@ msgid ""
 "services considered safe). Note that the allowed services must be placed "
 "manually into the server.SERVER_LEVEL files when necessary."
 msgstr ""
+"/etc/security/msec/server dosyasına bağlı /etc/security/msec/server kısayolu "
+"oluşturur. SERVER_LEVEL./etc/security/msec/server, chkconfig --add "
+"tarafından kurulum sırasında paket içindeyse bir hizmeti eklemeye karar "
+"vermede kullanılır. Ön tanımlı olarak, iki ayar sunulur: yerel (sadece yerel "
+"hizmetleri etkinleştirir.) ve uzak (ayrıca güvenli sayılan uzak hizmetleri "
+"de etkinleştirir.) İzin verilen hizmetlerin sunucuya elle eklenmesi "
+"gerektiğini unutmayın. Gerektiğinde SERVER_LEVEL dosyaları."
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
-msgstr ""
+msgstr "Kabuk zamanaşımını ayarla. Sıfır değeri zamanaşımı yok demektir."
 
 #: ../src/msec/help.py:45
 msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
 msgstr ""
+"Başkaları tarafından sahiplenmemesi veya yazılmaması gereken kullanıcı "
+"dosyalarında izin denetimlerini etkinleştir."
 
 #: ../src/msec/help.py:47
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
 msgstr ""
+"/etc/shadow (man shadow(5)) içindeki boş parolaların denetimini etkinleştir."
 
 #: ../src/msec/help.py:49
 msgid ""
 "Use password to authenticate users. Take EXTREMELY care when disabling "
 "passwords, as it will leave the machine vulnerable."
 msgstr ""
+"Kullanıcılara izin vermek için parolaları kullan. Parolaları devredışı "
+"bırakırken ÇOK DİKKATLİ olun, sisteminizi korumasız kalabilir."
 
 #: ../src/msec/help.py:51
 msgid ""

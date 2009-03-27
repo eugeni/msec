@@ -159,7 +159,7 @@ class pam:
                                           '@0 ucredit=%s ' % nupper))
 
     def enable_pam_wheel_for_su(self, arg):
-        ''' Allow only users in wheel grup to su to root.'''
+        ''' Allow only users in wheel group to su to root.'''
         su = self.configfiles.get_config_file(self.SU)
 
         val = su.get_match('^auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$')

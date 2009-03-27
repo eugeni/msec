@@ -40,7 +40,7 @@ msgstr "Envia relatórios por email mesmo se nenhuma alteração foi detectada"
 
 #: ../src/msec/help.py:19
 msgid "Accept broadcasted ICMP echo."
-msgstr "Aceita eco ICMP via broadcast."
+msgstr "Aceita eco ICMP por broadcast."
 
 #: ../src/msec/help.py:21
 msgid ""
@@ -48,9 +48,9 @@ msgid ""
 "is set to 'wheel', users must belong to the 'wheel' group to be able to use "
 "sudo"
 msgstr ""
-"Permite usuários a autenticar-se com suas senhas para usar sudo. Se esse "
-"parâmetro for igual a 'wheel', os usuários devem fazer parte do grupo "
-"'wheel' para poder usar o sudo"
+"Permite usuários autenticar-se com suas senhas com sudo. Se esse "
+"parâmetro for ajustado para 'wheel', os usuários deverão  fazer parte do grupo "
+"'wheel' para poder usar sudo"
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
@@ -58,39 +58,37 @@ msgstr "Habilita o servidor X a aceitar conexões da rede na porta TCP 6000"
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr ""
-"Habilita verificações por falhas de segurança conhecidas por chkrootkit"
+msgstr "Habilita checagem por rootkits conhecidos, usando o chrootkit"
 
 #: ../src/msec/help.py:27
 msgid "Enable checking for additions/removals of suid root files."
-msgstr "Habilita checagem de adições/remoções de arquivos suid root"
+msgstr "Habilita checagem por adições/remoções de arquivos suid root"
 
 #: ../src/msec/help.py:29
 msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
-"Habilita o crontab e at para usuários. Insira os usuários permitidos em/etc/"
-"cron.allow e /etc/at.allow (veja o manual do at(1) e crontab(1))."
+"Habilita o crontab e at para usuários. Insira os usuários permitidos em" 
+"/etc/cron.allow e /etc/at.allow (veja o manual do at(1) e crontab(1))."
 
 #: ../src/msec/help.py:31
 msgid "Accept bogus IPv4 error messages."
-msgstr "Aceita mensagens de erro espúrias IPv4."
+msgstr "Aceita mensagens espúrias de erros IPv4."
 
 #: ../src/msec/help.py:33
 msgid "Enable checksum verification for suid files."
-msgstr "Verifica checksum dos arquivos suid."
+msgstr "Habilita verificação checksum de arquivos suid."
 
 #: ../src/msec/help.py:35
 msgid "User email to receive security notifications."
-msgstr "Endereço de email que deverá receber as notificações de segurança."
+msgstr "Email do usuário para receber notificações de segurança."
 
 #: ../src/msec/help.py:37
 msgid "Allow autologin."
-msgstr "Permite o login automático."
+msgstr "Permite login automático."
 
 #: ../src/msec/help.py:39
-#, fuzzy
 msgid "Allow only users in wheel group to su to root."
 msgstr "Permite que apenas usuários incluídos no grupo wheel se tornem root."
 
@@ -107,8 +105,7 @@ msgstr ""
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
-msgstr ""
-"Define o tempo limite do shell. Um valor zero significa sem tempo limite."
+msgstr "Define o tempo limite do shell. Um valor zero significa sem tempo limite."
 
 #: ../src/msec/help.py:45
 msgid ""
@@ -116,7 +113,7 @@ msgid ""
 "someone else, or writable."
 msgstr ""
 "Habilita checagem de permissões em usuários, arquivos que não "
-"deveriampertencer a alguém, ou com permissão de escrita"
+"deveriam pertencer a alguém ou com permissão de escrita"
 
 #: ../src/msec/help.py:47
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
@@ -135,12 +132,12 @@ msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '0', "
 "default system umask is used."
 msgstr ""
-"Define a opção umask para montar partições vfat e ntfs. Se umask é '0', o "
-"umask padrão do sistema será usado"
+"Define a opção umask para montar partições vfat e ntfs. Se umask é '0',"
+"o umask padrão do sistema será usado"
 
 #: ../src/msec/help.py:53
 msgid "Enable checking for open network ports."
-msgstr "Habilita checagem por portas abertas na rede"
+msgstr "Habilita checagem por portas de rede abertas"
 
 #: ../src/msec/help.py:55
 msgid "Enable logging of strange network packets."
@@ -156,7 +153,7 @@ msgstr "Permite acesso root sem senha para membros do grupo wheel"
 
 #: ../src/msec/help.py:61
 msgid "Send security check results by email."
-msgstr "Envia resultado da verificação de segurança por e-mail"
+msgstr "Envia resultado da checagem de segurança por e-mail"
 
 #: ../src/msec/help.py:63
 msgid ""
@@ -208,7 +205,7 @@ msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
 msgstr ""
-"Define o nível de segurança básico, encima das definições daconfiguração "
+"Define o nível de segurança básico, encima das definições da configuração "
 "atual."
 
 #: ../src/msec/help.py:83
@@ -217,13 +214,11 @@ msgstr "Habilita checagem periódica de permissões nos arquivos do sistema."
 
 #: ../src/msec/help.py:85
 msgid "Set shell commands history size. A value of -1 means unlimited."
-msgstr ""
-"Determina tamanho do histórico dos comandos usados no shell. O valor -"
-"1significa tamanho ilimitado."
+msgstr "Determina tamanho do histórico do shell. Um valor de -1 significa ilimitado."
 
 #: ../src/msec/help.py:87
 msgid "Allow system reboot and shutdown to local users."
-msgstr "Permite que usuário possa reiniciar/desligar o sistema."
+msgstr "Permite usuários locais reiniciar/desligar o sistema."
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
@@ -231,17 +226,15 @@ msgstr "Permite gravação dos logs das checagens periódicas nos logs do sistem
 
 #: ../src/msec/help.py:91
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr ""
-"Habilita chacagem por opções perigosas nos arquivos .rhosts/.shosts dos "
-"usuários"
+msgstr "Habilita chacagem por opções perigosas nos arquivos .rhosts/.shosts dos usuários"
 
 #: ../src/msec/help.py:93
 msgid ""
 "Enable password-related checks, such as empty passwords and strange super-"
 "user accounts."
 msgstr ""
-"Habilita análise geral nas senhas, visando, por exemplo, senhas vazias "
-"oucontas de super usuário estranhas."
+"Habilita análise geral nas senhas, visando por exemplo, senhas vazias "
+"ou contas de super usuário estranhas."
 
 #: ../src/msec/help.py:95
 msgid ""
@@ -253,21 +246,20 @@ msgstr ""
 
 #: ../src/msec/help.py:97
 msgid "Enable daily security checks."
-msgstr "Habilita verificação diária de segurança"
+msgstr "Habilita checagem diária de segurança"
 
 #: ../src/msec/help.py:99
 msgid "Allow direct root login on terminal."
-msgstr "Permite o login direto do root no terminal."
+msgstr "Permite login direto do root no terminal."
 
 #: ../src/msec/help.py:101
 msgid "Enable checking for unowned files."
-msgstr "Habilita checagem por arquivos sem dono"
+msgstr "Habilita checagem por arquivos órfãos"
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
-"Habilita gerenciadores de login(kdm e gdm) a mostrar a lista local de "
-"usuários."
+msgstr "Habilita gerenciadores de login (kdm e gdm) mostrar uma lista de "
+"usuários locais."
 
 #: ../src/msec/help.py:105
 msgid ""
@@ -275,6 +267,7 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
+""
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."

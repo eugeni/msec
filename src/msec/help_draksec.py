@@ -81,7 +81,7 @@ help_wiki = open(help_wiki_file, "w")
 
 # process all configuration parameters
 log = Log(log_syslog=False, log_file=False)
-msec = MSEC(log)
+msec = MSEC(log, plugins='plugins')
 
 print >>help_perl, header_perl
 print >>help_python, header_python

@@ -62,7 +62,7 @@ password configurations, integration with other security tools, and default file
 permissions.  """)
 
 NETWORK_SECURITY_TEXT=_("""<big><b>Network security options</b></big>
-These options define the network security agains remote treats, unauthorized accesses,
+These options define the network security agains remote threats, unauthorized accesses,
 and breakin attempts.  """)
 
 PERIODIC_SECURITY_TEXT=_("""<big><b>Periodic security checks</b></big>

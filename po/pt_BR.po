@@ -226,7 +226,7 @@ msgstr "Permite gravação dos logs das checagens periódicas nos logs do sistem
 
 #: ../src/msec/help.py:91
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr "Habilita chacagem por opções perigosas nos arquivos .rhosts/.shosts dos usuários"
+msgstr "Habilita chacagem por opções perigosas nos arquivos .rhosts/.shosts dos usuários."
 
 #: ../src/msec/help.py:93
 msgid ""
@@ -246,7 +246,7 @@ msgstr ""
 
 #: ../src/msec/help.py:97
 msgid "Enable daily security checks."
-msgstr "Habilita checagem diária de segurança"
+msgstr "Habilita checagem diária de segurança."
 
 #: ../src/msec/help.py:99
 msgid "Allow direct root login on terminal."
@@ -254,7 +254,7 @@ msgstr "Permite login direto do root no terminal."
 
 #: ../src/msec/help.py:101
 msgid "Enable checking for unowned files."
-msgstr "Habilita checagem por arquivos órfãos"
+msgstr "Habilita checagem por arquivos órfãos."
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
@@ -267,12 +267,13 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
-""
+"Forçar permissões do MSEC nos arquivos e diretórios na inicialização. Este"
+"parâmetro no modo 'enforce' força as permissões do sistema automaticamente"
+"de acordo com as configurações de segurança do sistema."
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
-msgstr ""
-"Mostrar notificações de segurança na área de noticações com a libnotify"
+msgstr "Mostrar notificações de segurança na área de noticações usando libnotify."
 
 #: ../src/msec/help.py:109
 msgid ""
@@ -280,63 +281,54 @@ msgid ""
 "password, only public-key authentication logins are allowed. See sshd_config"
 "(5) man page for more information."
 msgstr ""
+"Permitir login remoto via sshd. Se sim, login é permitido. A opção without-"
+"password permite login apenas com chave pública. Veja o manual do sshd_config"
+"(5) para mais informações."
 
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
-msgstr ""
+msgstr "Executar checagem de segurança de hora em hora por mudanças "
+"na configuração do sistema."
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
-msgstr ""
+msgstr "Pedir a senha de root quando for para o modo single user (man sulogin(8))."
 
 #: ../src/msec/help.py:115
-#, fuzzy
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
 msgstr ""
-"Permite a exportar o display ao\n"
-"mudar da conta de root para outros usuários.\n"
-"\n"
+"Permite exportar o display ao mudar da conta de root para outros usuários "
 "Veja pam_xauth(8) para mais detalhes."
 
 #: ../src/msec/help.py:117
-#, fuzzy
 msgid "Set the user umask."
-msgstr "Define a umask para criação de arquivos para usuários."
+msgstr "Ajusta umask do usuário"
 
 #: ../src/msec/help.py:119
-#, fuzzy
 msgid "Accept ICMP echo."
-msgstr "Aceitar eco ICMP."
+msgstr "Aceitar eco ICMP(ping)."
 
 #: ../src/msec/help.py:121
-#, fuzzy
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
 "local services are authorized. If no, the services must be authorized "
 "manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
-"Autorização:\n"
-"\n"
-"- todos os serviços controlados por tcp_wrappers (veja a página do manual de "
-"hosts.deny(5)), se escolher \"ALL\",\n"
-"\n"
-"- somente da máquina local, se escolher \"Local\"\n"
-"\n"
-"- nenhum, se escolher \"None\".\n"
-"\n"
-"Para autorizar os serviços que você necessita, use o arquivo /etc/hosts."
-"allow (veja o manual do hosts.allow (5))."
+"Autorizar acesso a todos os serviços controlados por tcp_wrappers (veja 
+hosts.deny(5)). Se sim, todos os serviços são permitidos. Se local, somente
+conexões a serviços locais são permitidas. Se não, o serviço tem que ser 
+autorizado manualmente em /etc/hosts.allow (veja hosts.allow(5))."
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
-msgstr ""
+msgstr "Aplicar configurações do MSEC no inicio do sistema"
 
 #: ../src/msec/help.py:125
 msgid "Enable periodic security check results to terminal."
-msgstr ""
+msgstr "Habilita resultados da checagem periódica para o terminal."
 
 #: ../src/msec/help.py:127
 msgid ""
@@ -344,239 +336,219 @@ msgid ""
 "enabled, only users in wheel group may change advanced PolicyKit permissions "
 "and settings"
 msgstr ""
+"Habilita o framework PolicyKit para todos os usuários. Com esta opção "
+"desabilitada somente usuários pertencentes ao grupo wheel poderão "
+"alterar permissões avançadas e opções do PolicyKit."
 
 #: ../src/msec/libmsec.py:326
 msgid "%s modified so launched command: %s"
-msgstr ""
+msgstr "%s modificado, lançando o comando: %s"
 
 #: ../src/msec/libmsec.py:335
 msgid "%s modified so should have run command: %s"
-msgstr ""
+msgstr "%s modificado, esperada execução do comando: %s"
 
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
-#, fuzzy
 msgid "deleted %s"
-msgstr "Remover"
+msgstr "removido %s"
 
 #: ../src/msec/libmsec.py:455
-#, fuzzy
 msgid "touched file %s"
-msgstr "Não é um arquivo"
+msgstr "criado arquivo %s"
 
 #: ../src/msec/libmsec.py:475
-#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr "Mudando de %s para %s"
+msgstr "criado link simbólico de %s para %s"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
-msgstr ""
+msgstr "movido arquivo %s para %s"
 
 #: ../src/msec/libmsec.py:528 ../src/msec/libmsec.py:544
 msgid "set variable %s to %s in %s"
-msgstr ""
+msgstr "ajustada variável %s para %s em %s"
 
 #: ../src/msec/libmsec.py:755
 msgid "Error loading plugin '%s' from %s: %s"
-msgstr ""
+msgstr "Erro ao carregar plugin '%s' de %s: %s"
 
 #: ../src/msec/libmsec.py:769
 msgid "Invalid callback: %s"
-msgstr ""
+msgstr "Chamada inválida: %s"
 
 #: ../src/msec/libmsec.py:778
 msgid "Plugin %s not found"
-msgstr ""
+msgstr "Plugin %s não encontrado"
 
 #: ../src/msec/libmsec.py:785
 msgid "Not supported function '%s' in '%s'"
-msgstr ""
+msgstr "Função '%s' não suportada em '%s'"
 
 #: ../src/msec/libmsec.py:792 ../src/msec/libmsec.py:1575
 msgid "In check-only mode, nothing is written back to disk."
-msgstr ""
+msgstr "No modo somente checagem, nada depois é escrito no disco"
 
 #: ../src/msec/libmsec.py:809
 msgid "'%s' is not available in this version"
-msgstr ""
+msgstr "'%s' não está disponível nesta versão"
 
 #: ../src/msec/libmsec.py:819
 msgid "Invalid parameter for %s: '%s'. Valid parameters: '%s'."
-msgstr ""
+msgstr "Parâmentro inválido para %s: '%s'. Parâmetros válidos: '%s'."
 
 #: ../src/msec/libmsec.py:834
 msgid "Allowing unrestricted chkconfig for packages"
-msgstr ""
+msgstr "Permitindo chkconfig irrestrito para pacotes"
 
 #: ../src/msec/libmsec.py:839
 msgid "Restricting chkconfig for packages according to \"%s\" profile"
-msgstr ""
+msgstr "Restringindo chkconfig para pacotes de acordo com o perfil \"%s\"."
 
 #: ../src/msec/libmsec.py:849
-#, fuzzy
 msgid "Setting root umask to %s"
-msgstr "Mudando de %s para %s"
+msgstr "Ajustando o umask root para %s"
 
 #: ../src/msec/libmsec.py:859
-#, fuzzy
 msgid "Setting users umask to %s"
-msgstr "Mudando de %s para %s"
+msgstr "Ajustando o umask dos usuários para %s"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
-msgstr ""
+msgstr "Permitindo usuários conectar ao servidor X de qualquer lugar"
 
 #: ../src/msec/libmsec.py:883
 msgid "Allowing users to connect X server from localhost"
-msgstr ""
+msgstr "Permitindo usuários conectar ao servidor X localmente"
 
 #: ../src/msec/libmsec.py:886
 msgid "Restricting X server connection to the console user"
-msgstr ""
+msgstr "Restringindo conexão ao servidor X para o usuário do console"
 
 #: ../src/msec/libmsec.py:889
 msgid "invalid allow_x_connections arg: %s"
-msgstr ""
+msgstr "Permissão_x_conexão inválido, arg: %s"
 
 #: ../src/msec/libmsec.py:912
-#, fuzzy
 msgid "Allowing the X server to listen to tcp connections"
-msgstr "Permitir conexões X Window"
+msgstr "Permitindo o servidor X a ouvir conexões TCP"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
-msgstr ""
+msgstr "Proibindo o servidor X a ouvir conexões TCP"
 
 #: ../src/msec/libmsec.py:939
-#, fuzzy
 msgid "Invalid shell timeout \"%s\""
-msgstr "Tempo de espera do shell"
+msgstr "Tempo de espera do shell inválido \"%s\""
 
 #: ../src/msec/libmsec.py:947
-#, fuzzy
 msgid "Setting shell timeout to %s"
-msgstr "Tempo de espera do shell"
+msgstr "Ajustando tempo de espera do shell para %s"
 
 #: ../src/msec/libmsec.py:955
-#, fuzzy
 msgid "Invalid shell history size \"%s\""
-msgstr "Tamanho do histórico do shell"
+msgstr "Tamanho do histórico do shell inválido \"%s\""
 
 #: ../src/msec/libmsec.py:966
-#, fuzzy
 msgid "Setting shell history size to %s"
-msgstr "Tamanho do histórico do shell"
+msgstr "Ajustando tamanho do histórico do shell para %s"
 
 #: ../src/msec/libmsec.py:970
-#, fuzzy
 msgid "Removing limit on shell history size"
-msgstr "Tamanho do histórico do shell"
+msgstr "Removendo limitação de tamanho para o histórico do shell"
 
 #: ../src/msec/libmsec.py:1009
-#, fuzzy
 msgid "Allowing reboot and shutdown to the console user"
-msgstr "Permite que usuário do console possa reiniciar a máquina."
+msgstr "Permitindo ao usuário do console reiniciar/desligar ."
 
 #: ../src/msec/libmsec.py:1016
-#, fuzzy
 msgid "Allowing SysRq key to the console user"
-msgstr "Permite que usuário do console possa reiniciar a máquina."
+msgstr "Permitindo a tecla SysRq ao usuário do console"
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "Permitindo Desligar/Reiniciar no GDM"
 
 #: ../src/msec/libmsec.py:1023
 msgid "Allowing Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "Permitindo Desligar/Reiniciar no KDM"
 
 #: ../src/msec/libmsec.py:1026
 msgid "Allowing Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "Permitindo Ctrl-Alt-Del do console"
 
 #: ../src/msec/libmsec.py:1030
-#, fuzzy
 msgid "Forbidding reboot and shutdown to the console user"
 msgstr "Permite que usuário do console possa reiniciar a máquina."
 
 #: ../src/msec/libmsec.py:1038
-#, fuzzy
 msgid "Forbidding SysRq key to the console user"
-msgstr "Reinicialização da máquina permitida ao usuário do console"
+msgstr "Proibindo a tecla SysRq ao usuário do console"
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "Proibindo Desligar/Reiniciar no GDM"
 
 #: ../src/msec/libmsec.py:1045
 msgid "Forbidding Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "Proibindo Desligar/Reiniciar no KDM"
 
 #: ../src/msec/libmsec.py:1048
 msgid "Forbidding Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "Proibindo Ctrl-Alt-Del do console"
 
 #: ../src/msec/libmsec.py:1062
 msgid "Allowing list of users in KDM"
-msgstr ""
+msgstr "Permitindo lista de usuários no KDM"
 
 #: ../src/msec/libmsec.py:1066
 msgid "Allowing list of users in GDM"
-msgstr ""
+msgstr "Permitindo lista de usuários no GDM"
 
 #: ../src/msec/libmsec.py:1071
 msgid "Forbidding list of users in KDM"
-msgstr ""
+msgstr "Proibindoo lista de usuários no KDM"
 
 #: ../src/msec/libmsec.py:1075
 msgid "Forbidding list of users in GDM"
-msgstr ""
+msgstr "Proibindo lista de usuários no GDM"
 
 #: ../src/msec/libmsec.py:1089
-#, fuzzy
 msgid "Allowing remote root login"
-msgstr "Permitir login remoto do root"
+msgstr "Permitindo login remoto do root"
 
 #: ../src/msec/libmsec.py:1093
-#, fuzzy
 msgid "Forbidding remote root login"
-msgstr "Permitir login remoto do root"
+msgstr "Proibindo login remoto do root"
 
 #: ../src/msec/libmsec.py:1097
-#, fuzzy
 msgid "Allowing remote root login only by passphrase"
-msgstr "Permitir login remoto do root"
+msgstr "Permitindo login remoto do root apenas por passphrase"
 
 #: ../src/msec/libmsec.py:1109
-#, fuzzy
 msgid "Allowing autologin"
-msgstr "Permite o login automático."
+msgstr "Permitindo login automático."
 
 #: ../src/msec/libmsec.py:1112
-#, fuzzy
 msgid "Forbidding autologin"
-msgstr "Permite o login automático."
+msgstr "Proibindo login automático."
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
-msgstr ""
+msgstr "Ativando senha no gerenciador de inicialização (bootloader)."
 
 #: ../src/msec/libmsec.py:1131
-#, fuzzy
 msgid "Removing password in boot loader"
-msgstr "Nenhuma senha expirada para"
+msgstr "Removendo senha no gerenciador de inicialização (bootloader)."
 
 #: ../src/msec/libmsec.py:1146
-#, fuzzy
 msgid "Enabling log on console"
-msgstr "Habilita a saída do syslog para o console 12"
+msgstr "Habilitando relatórios no console"
 
 #: ../src/msec/libmsec.py:1150
 msgid "Disabling log on console"
-msgstr ""
+msgstr "Desabilitando relatórios no console"
 
 #: ../src/msec/libmsec.py:1162
-#, fuzzy
 msgid "Activating daily security check"
 msgstr "Ativa a verificação diária de segurança."
 

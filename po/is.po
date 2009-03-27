@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: is2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 12:58+BRT\n"
+"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
 "PO-Revision-Date: 2009-03-26 07:27+0000\n"
 "Last-Translator: Pjetur G. Hjaltason <pjetur@pjetur.net>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
@@ -78,7 +78,8 @@ msgid "Allow autologin."
 msgstr "Leyfa sjálfvirka innskráningu."
 
 #: ../src/msec/help.py:39
-msgid "Allow only users in wheel grup to su to root."
+#, fuzzy
+msgid "Allow only users in wheel group to su to root."
 msgstr ""
 "Aðeins notendur í \"weel\" hópnum fá að verða kerfisstjórar (root) með \"su"
 "\"."
@@ -718,8 +719,8 @@ msgstr ""
 #: ../src/msec/msecgui.py:64
 msgid ""
 "<big><b>Network security options</b></big>\n"
-"These options define the network security agains remote treats, unauthorized "
-"accesses,\n"
+"These options define the network security agains remote threats, "
+"unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
 
@@ -1035,7 +1036,8 @@ msgid "Disabling password history"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:124
-msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid ""
+"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:145
@@ -1065,4 +1067,3 @@ msgstr ""
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
-

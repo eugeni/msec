@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 12:58+BRT\n"
+"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
 "PO-Revision-Date: 2005-09-21 14:03+0100\n"
 "Last-Translator: Tibor Pittich <Tibor.Pittich@mandriva.org>\n"
 "Language-Team:  <i18n@mandrake.sk>\n"
@@ -82,7 +82,7 @@ msgid "Allow autologin."
 msgstr "Povoliť/Zakázať autologin."
 
 #: ../src/msec/help.py:39
-msgid "Allow only users in wheel grup to su to root."
+msgid "Allow only users in wheel group to su to root."
 msgstr ""
 
 #: ../src/msec/help.py:41
@@ -819,8 +819,8 @@ msgstr ""
 #: ../src/msec/msecgui.py:64
 msgid ""
 "<big><b>Network security options</b></big>\n"
-"These options define the network security agains remote treats, unauthorized "
-"accesses,\n"
+"These options define the network security agains remote threats, "
+"unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
 
@@ -1220,4 +1220,3 @@ msgid "Disabling transparent root access for wheel group members"
 msgstr ""
 "Povoliť su iba pre členov skupiny wheel, alebo povoliť su pre akéhokoľvek "
 "používateľa"
-

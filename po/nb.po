@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 12:58+BRT\n"
+"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
 "PO-Revision-Date: 2009-03-26 03:13+0100\n"
 "Last-Translator: \n"
 "Language-Team:  <en@li.org>\n"
@@ -53,7 +53,8 @@ msgstr ""
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på port 6000."
+msgstr ""
+"Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på port 6000."
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -67,7 +68,9 @@ msgstr "Slå på sjekk for utvidelser/fjerning av suid root-filer."
 msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
-msgstr "Slå på crontab og at for brukere. Putt tillatte brukere i /etc/cron.allow og /etc/at.allow (se man at(1) og crontab(1))."
+msgstr ""
+"Slå på crontab og at for brukere. Putt tillatte brukere i /etc/cron.allow "
+"og /etc/at.allow (se man at(1) og crontab(1))."
 
 #: ../src/msec/help.py:31
 msgid "Accept bogus IPv4 error messages."
@@ -86,7 +89,8 @@ msgid "Allow autologin."
 msgstr "Tillat autoinnlogging."
 
 #: ../src/msec/help.py:39
-msgid "Allow only users in wheel grup to su to root."
+#, fuzzy
+msgid "Allow only users in wheel group to su to root."
 msgstr ""
 "Tillat kun bruk av su for å oppnå root-rettigheter for medlemmer i wheel-"
 "gruppen"
@@ -106,8 +110,9 @@ msgstr ""
 "chkconfig --add for å avgjøre om en tjeneste skal legges til hvis den finnes "
 "i filen under installasjonen av pakker. To forhåndsvalg er tilgjengelige: "
 "lokal (som bare slår på lokale tjenester) og ekstern (som også slår på noen "
-"eksterne tjenester regnet som trygge.) Vær klar over at de tillatte tjenestene må "
-"bli plassert manuelt i server.SERVER_LEVEL-filene når det trengs."
+"eksterne tjenester regnet som trygge.) Vær klar over at de tillatte "
+"tjenestene må bli plassert manuelt i server.SERVER_LEVEL-filene når det "
+"trengs."
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
@@ -117,7 +122,9 @@ msgstr "Sett skallets tidsavbrudd. Null betyr ingen tidsavbrudd."
 msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
-msgstr "Slå på rettighetssjekk for brukerfiler som ikke skal være eid av andre eller skrivbare."
+msgstr ""
+"Slå på rettighetssjekk for brukerfiler som ikke skal være eid av andre eller "
+"skrivbare."
 
 #: ../src/msec/help.py:47
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
@@ -127,13 +134,17 @@ msgstr "Slå på sjekk for tomme passord i /etc/shadow (man shadow(5))."
 msgid ""
 "Use password to authenticate users. Take EXTREMELY care when disabling "
 "passwords, as it will leave the machine vulnerable."
-msgstr "Benytt passord for å autentisere brukere. Vær VELDIG forsiktig når du deaktiverer bruken av passord ettersom det vil gjøre maskinen sårbar."
+msgstr ""
+"Benytt passord for å autentisere brukere. Vær VELDIG forsiktig når du "
+"deaktiverer bruken av passord ettersom det vil gjøre maskinen sårbar."
 
 #: ../src/msec/help.py:51
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '0', "
 "default system umask is used."
-msgstr "Sett umask-valg for montering av VFAT og NTFS-partisjoner. Hvis umask er '0' vil det forhåndsvalgte systemvalget benyttes."
+msgstr ""
+"Sett umask-valg for montering av VFAT og NTFS-partisjoner. Hvis umask er '0' "
+"vil det forhåndsvalgte systemvalget benyttes."
 
 #: ../src/msec/help.py:53
 msgid "Enable checking for open network ports."
@@ -159,7 +170,9 @@ msgstr "Send resultater fra sikkerhetssjekk som e-post."
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
-msgstr "Sett minimumslengden for passord og minimum av antall siffer og store bokstaver ved brukt av length,ndigits,nuppler-formatet."
+msgstr ""
+"Sett minimumslengden for passord og minimum av antall siffer og store "
+"bokstaver ved brukt av length,ndigits,nuppler-formatet."
 
 #: ../src/msec/help.py:65
 msgid "Set the root umask."
@@ -182,7 +195,10 @@ msgstr "Slå på AppArmor sikkerhetsrammeverk under oppstart"
 msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
-msgstr "Tillat lokale brukere å koble til X-tjeneren. Aksepterte argument: ja (alle tilkoblinger er tillatt), local (bare lokale tilkoblinger), nei (ingen tilkoblinger)."
+msgstr ""
+"Tillat lokale brukere å koble til X-tjeneren. Aksepterte argument: ja (alle "
+"tilkoblinger er tillatt), local (bare lokale tilkoblinger), nei (ingen "
+"tilkoblinger)."
 
 #: ../src/msec/help.py:75
 msgid "Enable checking for files/directories writable by everybody."
@@ -200,7 +216,9 @@ msgstr "Slå på beskyttelse mot IP-forfalskning."
 msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
-msgstr "Definerer det grunnleggende sikkerhetsnivået som det nåværende oppsettet er basert på."
+msgstr ""
+"Definerer det grunnleggende sikkerhetsnivået som det nåværende oppsettet er "
+"basert på."
 
 #: ../src/msec/help.py:83
 msgid "Enable periodic permission checking for system files."
@@ -226,13 +244,17 @@ msgstr "Slå på sjekk for farlige valg i brukeres: .rhosts/.shosts-filer."
 msgid ""
 "Enable password-related checks, such as empty passwords and strange super-"
 "user accounts."
-msgstr "Slå på passord-relaterte sjekker, som tomme passord og merkelige superbrukerkontoer."
+msgstr ""
+"Slå på passord-relaterte sjekker, som tomme passord og merkelige "
+"superbrukerkontoer."
 
 #: ../src/msec/help.py:95
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
-msgstr "Sett lengden på passordhistorien for å forhindre gjenbruk av passord. Dette er ikke støttet av pam_tcb."
+msgstr ""
+"Sett lengden på passordhistorien for å forhindre gjenbruk av passord. Dette "
+"er ikke støttet av pam_tcb."
 
 #: ../src/msec/help.py:97
 msgid "Enable daily security checks."
@@ -248,14 +270,18 @@ msgstr "Slå på sjekk for filer uten eier."
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr "Tillat sesjonshåndterere (KDM og GDM) å vise en liste med lokale brukere."
+msgstr ""
+"Tillat sesjonshåndterere (KDM og GDM) å vise en liste med lokale brukere."
 
 #: ../src/msec/help.py:105
 msgid ""
 "Enforce MSEC file directory permissions on system startup. If this parameter "
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
-msgstr "Påtving MSEC fil/katalog-tillatelser på systemoppstart. Hvis denne parametren er satt til 'påtving', vil systemtillatelsene bli påtvunget automatisk, i henhold til sikkerhetsinnstillingene for systemet."
+msgstr ""
+"Påtving MSEC fil/katalog-tillatelser på systemoppstart. Hvis denne "
+"parametren er satt til 'påtving', vil systemtillatelsene bli påtvunget "
+"automatisk, i henhold til sikkerhetsinnstillingene for systemet."
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
@@ -266,7 +292,10 @@ msgid ""
 "Allow remote root login via sshd. If yes, login is allowed. If without-"
 "password, only public-key authentication logins are allowed. See sshd_config"
 "(5) man page for more information."
-msgstr "Tillat ekstern innlogging for root via sshd. Hvis Ja, er innlogging tillatt. Hvis uten passord, er kun innlogging med offentlig nøkkel-autentisering tillatt. Se manualsiden sshd_config(5) for mer informasjon."
+msgstr ""
+"Tillat ekstern innlogging for root via sshd. Hvis Ja, er innlogging tillatt. "
+"Hvis uten passord, er kun innlogging med offentlig nøkkel-autentisering "
+"tillatt. Se manualsiden sshd_config(5) for mer informasjon."
 
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
@@ -280,7 +309,9 @@ msgstr "Spør etter root-passord når man går til enbrukernivå (man sulogin(8)
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
-msgstr "Tillatt å eksportere skjermen når man går fra root-kontoen til andre brukere. Se pam_xauth(8) for detaljer."
+msgstr ""
+"Tillatt å eksportere skjermen når man går fra root-kontoen til andre "
+"brukere. Se pam_xauth(8) for detaljer."
 
 #: ../src/msec/help.py:117
 msgid "Set the user umask."
@@ -296,7 +327,11 @@ msgid ""
 "deny(5)). If yes, all services are allowed. If local, only connections to "
 "local services are authorized. If no, the services must be authorized "
 "manually in /etc/hosts.allow (see hosts.allow(5))."
-msgstr "Tillatt full tilgang til nettverkstjenester kontrollert av tcp_wrappers (se hosts.deny(5)). Hvis Ja er alle tjenester tillatt. Hvis Lokal er kun tilgang til lokale tjenester godtatt. Hvis Nei må tjenestene tillates manuelt i /etc/hosts.allow (se hosts.allow(5))."
+msgstr ""
+"Tillatt full tilgang til nettverkstjenester kontrollert av tcp_wrappers (se "
+"hosts.deny(5)). Hvis Ja er alle tjenester tillatt. Hvis Lokal er kun tilgang "
+"til lokale tjenester godtatt. Hvis Nei må tjenestene tillates manuelt i /etc/"
+"hosts.allow (se hosts.allow(5))."
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
@@ -370,9 +405,7 @@ msgstr "'%s' er ikke tilgjengelig i denne versjonen"
 
 #: ../src/msec/libmsec.py:819
 msgid "Invalid parameter for %s: '%s'. Valid parameters: '%s'."
-msgstr ""
-"Ugyldig parameter for %s: '%s.' "
-"Gyldige parametre: '%s'."
+msgstr "Ugyldig parameter for %s: '%s.' Gyldige parametre: '%s'."
 
 #: ../src/msec/libmsec.py:834
 msgid "Allowing unrestricted chkconfig for packages"
@@ -707,16 +740,19 @@ msgid ""
 "This application allows you to configure your system security. If you wish\n"
 "to activate it, choose the appropriate security level: "
 msgstr ""
-"<big><b>Velg sikkerhetsnivå</b></big><br> Dette "
-"programmet lar deg sette opp systemsikkerheten."
-"<br> Velg et passene sikkerhetsnivå, hvis du vil slå det på:"
+"<big><b>Velg sikkerhetsnivå</b></big><br> Dette programmet lar deg sette opp "
+"systemsikkerheten.<br> Velg et passene sikkerhetsnivå, hvis du vil slå det "
+"på:"
 
 #: ../src/msec/msecgui.py:54
 msgid ""
 "This profile configures a reasonably safe set of security features. It "
 "activates several non-intrusive periodic system checks. This is the "
 "suggested level for Desktop."
-msgstr "Denne profilen setter opp et forholdsvis sikkert system. Det aktiverer flere ikke-påtrengende periodiske systemsjekker. Dette er det anbefalte nivået for Skrivebord."
+msgstr ""
+"Denne profilen setter opp et forholdsvis sikkert system. Det aktiverer flere "
+"ikke-påtrengende periodiske systemsjekker. Dette er det anbefalte nivået for "
+"Skrivebord."
 
 #: ../src/msec/msecgui.py:56
 msgid ""
@@ -724,7 +760,11 @@ msgid ""
 "limiting the remote access to the system. It also runs a wider set of "
 "periodic checks. This level is suggested for Servers and security-concerned "
 "systems . "
-msgstr "Denne profilen er satt opp for å gi maksimum sikkerhet, til og med på bekostning av å begrense fjerntilgangen til systemet. Det kjører også et bredere sett med periodiske sjekker. Dette nivået er anbefalt for tjenere eller sikkerhetsbevisste systemer."
+msgstr ""
+"Denne profilen er satt opp for å gi maksimum sikkerhet, til og med på "
+"bekostning av å begrense fjerntilgangen til systemet. Det kjører også et "
+"bredere sett med periodiske sjekker. Dette nivået er anbefalt for tjenere "
+"eller sikkerhetsbevisste systemer."
 
 #: ../src/msec/msecgui.py:59
 msgid ""
@@ -734,22 +774,32 @@ msgid ""
 "password configurations, integration with other security tools, and default "
 "file creation\n"
 "permissions.  "
-msgstr "<big><b>Valg for systemsikkerhet</b></big><br> Disse valgene kontrollerer det lokale sikkerhetsoppsettet som innloggingsbegrensninger, <br> passordinnstillinger, integrasjon med andre sikkerhetsverktøy og forhåndsvalgte rettigheter ved opprettelse av filer."
+msgstr ""
+"<big><b>Valg for systemsikkerhet</b></big><br> Disse valgene kontrollerer "
+"det lokale sikkerhetsoppsettet som innloggingsbegrensninger, <br> "
+"passordinnstillinger, integrasjon med andre sikkerhetsverktøy og "
+"forhåndsvalgte rettigheter ved opprettelse av filer."
 
 #: ../src/msec/msecgui.py:64
+#, fuzzy
 msgid ""
 "<big><b>Network security options</b></big>\n"
-"These options define the network security agains remote treats, unauthorized "
-"accesses,\n"
+"These options define the network security agains remote threats, "
+"unauthorized accesses,\n"
 "and breakin attempts.  "
-msgstr "<big><b>Valg for nettverkssikkerhet</b></big><br> Disse valgene definerer nettverkssikkerheten for tiltak mot eksterne trusler, uautorisert tilgang, <br> og innbruddsforsøk."
+msgstr ""
+"<big><b>Valg for nettverkssikkerhet</b></big><br> Disse valgene definerer "
+"nettverkssikkerheten for tiltak mot eksterne trusler, uautorisert tilgang, "
+"<br> og innbruddsforsøk."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
 "<big><b>Periodic security checks</b></big>\n"
 "These options configure the security checks that should be executed "
 "periodically.  "
-msgstr "<big><b>Valg for periodiske sikkerhetssjekker</b></big><br> Disse valgene setter opp sikkerhetssjekker som skal kjøres periodisk."
+msgstr ""
+"<big><b>Valg for periodiske sikkerhetssjekker</b></big><br> Disse valgene "
+"setter opp sikkerhetssjekker som skal kjøres periodisk."
 
 #: ../src/msec/msecgui.py:71
 msgid ""
@@ -762,8 +812,12 @@ msgid ""
 "automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
-"<big><b>Filtillatelser</b></big><br> "
-"Disse valgene lar deg finjustere systemtillatelsene for viktige filer og kataloger. <br> De følgende tillatelsene blir sjekket periodevis, og forandring av eier, gruppe, <br> eller gjeldende rettigheter blir rapportert. Tillatelsene kan bli påtvunget automatisk <br> ved forandring og settes tilbake til de spesifiserte verdiene."
+"<big><b>Filtillatelser</b></big><br> Disse valgene lar deg finjustere "
+"systemtillatelsene for viktige filer og kataloger. <br> De følgende "
+"tillatelsene blir sjekket periodevis, og forandring av eier, gruppe, <br> "
+"eller gjeldende rettigheter blir rapportert. Tillatelsene kan bli påtvunget "
+"automatisk <br> ved forandring og settes tilbake til de spesifiserte "
+"verdiene."
 
 #: ../src/msec/msecgui.py:77
 msgid "Save and apply new configuration?"
@@ -887,7 +941,8 @@ msgstr "Oppdaget grunnleggende msec-nivå '%s'"
 
 #: ../src/msec/msecgui.py:396
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr "Tilpasset grunnleggende-oppsettsnivå '%s' funnet. Vil forhåndsvelge '%s'"
+msgstr ""
+"Tilpasset grunnleggende-oppsettsnivå '%s' funnet. Vil forhåndsvelge '%s'"
 
 #: ../src/msec/msecgui.py:424
 msgid "Security Option"
@@ -1009,7 +1064,9 @@ msgid ""
 "\tCurrent value:\t\t\t<i>%s</i>\n"
 "\t%sStandard level value:\t<i>%s</i>%s\n"
 "\t%sSecure level value:\t\t<i>%s</i>%s\n"
-msgstr "<i>%s</i><br> <br> \tCurrent verdi:\t\t\t<i>%s</i><br>\t%sStandard nivåverdi: \t<i>%s</i>%s<br> \t%sSecure nivåverdi:\t\t<i>%s</i>%s\n"
+msgstr ""
+"<i>%s</i><br> <br> \tCurrent verdi:\t\t\t<i>%s</i><br>\t%sStandard "
+"nivåverdi: \t<i>%s</i>%s<br> \t%sSecure nivåverdi:\t\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "New value:"
@@ -1060,8 +1117,10 @@ msgid "Disabling password history"
 msgstr "Slå av passordhistorie"
 
 #: ../src/msec/plugins/pam.py:124
-msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
-msgstr "Ugyldig passordlengde \"%s\". Bruk \"length,ndigits,nupper\" som parametre."
+msgid ""
+"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgstr ""
+"Ugyldig passordlengde \"%s\". Bruk \"length,ndigits,nupper\" som parametre."
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
@@ -1090,4 +1149,3 @@ msgstr "Tillater gjennomsiktig root-tilgang for medlemmer av wheel-gruppen"
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av gjennomsiktig root-tilgang for medlemmer av wheel-gruppen"
-

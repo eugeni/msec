@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 12:58+BRT\n"
+"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
 "PO-Revision-Date: 2004-10-04 18:45+0200\n"
 "Last-Translator: Ramon Casha <ramon.casha@linux.org.mt>\n"
 "Language-Team: Maltese <mt@li.org>\n"
@@ -82,7 +82,7 @@ msgid "Allow autologin."
 msgstr "Ippermetti/iċħad autologin."
 
 #: ../src/msec/help.py:39
-msgid "Allow only users in wheel grup to su to root."
+msgid "Allow only users in wheel group to su to root."
 msgstr ""
 
 #: ../src/msec/help.py:41
@@ -806,8 +806,8 @@ msgstr ""
 #: ../src/msec/msecgui.py:64
 msgid ""
 "<big><b>Network security options</b></big>\n"
-"These options define the network security agains remote treats, unauthorized "
-"accesses,\n"
+"These options define the network security agains remote threats, "
+"unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
 
@@ -1203,4 +1203,3 @@ msgstr ""
 #, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Ippermetti su biss minn membri tal-grupp \"wheel\", jew utenti kollha"
-

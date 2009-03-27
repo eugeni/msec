@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 12:58+BRT\n"
+"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
 "PO-Revision-Date: 2009-03-20 00:09+0100\n"
 "Last-Translator: Michal Bukovjan <bukm@centrum.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -81,7 +81,7 @@ msgid "Allow autologin."
 msgstr "Povolit automatické přihlášení."
 
 #: ../src/msec/help.py:39
-msgid "Allow only users in wheel grup to su to root."
+msgid "Allow only users in wheel group to su to root."
 msgstr ""
 
 #: ../src/msec/help.py:41
@@ -801,8 +801,8 @@ msgstr ""
 #: ../src/msec/msecgui.py:64
 msgid ""
 "<big><b>Network security options</b></big>\n"
-"These options define the network security agains remote treats, unauthorized "
-"accesses,\n"
+"These options define the network security agains remote threats, "
+"unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
 
@@ -1197,4 +1197,3 @@ msgstr ""
 #, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Povolit su pouze členům skupiny wheel"
-

@@ -19,9 +19,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 12:58+BRT\n"
+"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
 "PO-Revision-Date: 2009-03-26 07:40+0100\n"
-"Last-Translator: Amazis.net sp. z o.o. - Tomasz Bednarski <tomasz.bednarski@amazis.pl>\n"
+"Last-Translator: Amazis.net sp. z o.o. - Tomasz Bednarski <tomasz."
+"bednarski@amazis.pl>\n"
 "Language-Team:  <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,11 +53,13 @@ msgstr ""
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr "Pozwalaj serwerowi X na akceptowanie połączeń sieciowych na porcie tcp 6000."
+msgstr ""
+"Pozwalaj serwerowi X na akceptowanie połączeń sieciowych na porcie tcp 6000."
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr "Aktywuj kontrolę w kierunku znanych rootkitów z wykorzystaniem chkrootkit."
+msgstr ""
+"Aktywuj kontrolę w kierunku znanych rootkitów z wykorzystaniem chkrootkit."
 
 #: ../src/msec/help.py:27
 msgid "Enable checking for additions/removals of suid root files."
@@ -67,9 +70,9 @@ msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
-"Udostępnij użytkownikom funkcje crontab i at. "
-"Umieść użytkowników, którzy mogą korzystać z tych mechanizmów "
-"w /etc/cron.allow i /etc/at.allow (zajrzyj do manuala at(1) i crontab(1))."
+"Udostępnij użytkownikom funkcje crontab i at. Umieść użytkowników, którzy "
+"mogą korzystać z tych mechanizmów w /etc/cron.allow i /etc/at.allow (zajrzyj "
+"do manuala at(1) i crontab(1))."
 
 #: ../src/msec/help.py:31
 msgid "Accept bogus IPv4 error messages."
@@ -88,7 +91,7 @@ msgid "Allow autologin."
 msgstr "Dozwolone automatyczne logowanie"
 
 #: ../src/msec/help.py:39
-msgid "Allow only users in wheel grup to su to root."
+msgid "Allow only users in wheel group to su to root."
 msgstr ""
 
 #: ../src/msec/help.py:41
@@ -104,7 +107,8 @@ msgstr ""
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
-msgstr "Ustaw czas wygaśnięcia powłoki. Wartość zero oznacza brak czasu wygasania."
+msgstr ""
+"Ustaw czas wygaśnięcia powłoki. Wartość zero oznacza brak czasu wygasania."
 
 #: ../src/msec/help.py:45
 msgid ""
@@ -810,8 +814,8 @@ msgstr ""
 #: ../src/msec/msecgui.py:64
 msgid ""
 "<big><b>Network security options</b></big>\n"
-"These options define the network security agains remote treats, unauthorized "
-"accesses,\n"
+"These options define the network security agains remote threats, "
+"unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
 
@@ -1173,7 +1177,8 @@ msgid "Disabling password history"
 msgstr "Rozmiar historii hasła"
 
 #: ../src/msec/plugins/pam.py:124
-msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid ""
+"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:145
@@ -1205,4 +1210,3 @@ msgstr ""
 #, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Mechanizm su tylko dla członków grupy wheel"
-

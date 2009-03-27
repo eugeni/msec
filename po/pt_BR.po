@@ -19,7 +19,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
-"POT-Creation-Date: 2009-03-25 12:58+BRT\n"
+"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
 "PO-Revision-Date: 2009-02-06 14:39-0200\n"
 "Last-Translator: Sergio Rafael Lemke <sergio@mandriva.com.br>\n"
 "Language-Team: Brazilian Portuguese <cooker-i18n@mandrivalinux.org>\n"
@@ -58,7 +58,8 @@ msgstr "Habilita o servidor X a aceitar conexões da rede na porta TCP 6000"
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr "Habilita verificações por falhas de segurança conhecidas por chkrootkit"
+msgstr ""
+"Habilita verificações por falhas de segurança conhecidas por chkrootkit"
 
 #: ../src/msec/help.py:27
 msgid "Enable checking for additions/removals of suid root files."
@@ -69,8 +70,8 @@ msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
-"Habilita o crontab e at para usuários. Insira os usuários permitidos em"
-"/etc/cron.allow e /etc/at.allow (veja o manual do at(1) e crontab(1))."
+"Habilita o crontab e at para usuários. Insira os usuários permitidos em/etc/"
+"cron.allow e /etc/at.allow (veja o manual do at(1) e crontab(1))."
 
 #: ../src/msec/help.py:31
 msgid "Accept bogus IPv4 error messages."
@@ -89,7 +90,8 @@ msgid "Allow autologin."
 msgstr "Permite o login automático."
 
 #: ../src/msec/help.py:39
-msgid "Allow only users in wheel grup to su to root."
+#, fuzzy
+msgid "Allow only users in wheel group to su to root."
 msgstr "Permite que apenas usuários incluídos no grupo wheel se tornem root."
 
 #: ../src/msec/help.py:41
@@ -105,15 +107,16 @@ msgstr ""
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
-msgstr "Define o tempo limite do shell. Um valor zero significa sem tempo limite."
+msgstr ""
+"Define o tempo limite do shell. Um valor zero significa sem tempo limite."
 
 #: ../src/msec/help.py:45
 msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
-msgstr "" 
-"Habilita checagem de permissões em usuários, arquivos que não deveriam" 
-"pertencer a alguém, ou com permissão de escrita"
+msgstr ""
+"Habilita checagem de permissões em usuários, arquivos que não "
+"deveriampertencer a alguém, ou com permissão de escrita"
 
 #: ../src/msec/help.py:47
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
@@ -132,8 +135,8 @@ msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '0', "
 "default system umask is used."
 msgstr ""
-"Define a opção umask para montar partições vfat e ntfs. Se umask é '0', "
-"o umask padrão do sistema será usado"
+"Define a opção umask para montar partições vfat e ntfs. Se umask é '0', o "
+"umask padrão do sistema será usado"
 
 #: ../src/msec/help.py:53
 msgid "Enable checking for open network ports."
@@ -160,8 +163,8 @@ msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
-"Seleciona o comprimento, número mínimo de dígitos e o número de letras" 
-"maísculas obrigatórias na senha e mais definições."
+"Seleciona o comprimento, número mínimo de dígitos e o número de "
+"letrasmaísculas obrigatórias na senha e mais definições."
 
 #: ../src/msec/help.py:65
 msgid "Set the root umask."
@@ -184,8 +187,9 @@ msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
-"Habilita usuários locais a conectar ao servidor gráfico X. Argumentos aceitos:"
-"yes (todas as conexões são permitidas), local (só conexões locais), no (sem conexões) "
+"Habilita usuários locais a conectar ao servidor gráfico X. Argumentos "
+"aceitos:yes (todas as conexões são permitidas), local (só conexões locais), "
+"no (sem conexões) "
 
 #: ../src/msec/help.py:75
 msgid "Enable checking for files/directories writable by everybody."
@@ -204,8 +208,8 @@ msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
 msgstr ""
-"Define o nível de segurança básico, encima das definições da"
-"configuração atual."
+"Define o nível de segurança básico, encima das definições daconfiguração "
+"atual."
 
 #: ../src/msec/help.py:83
 msgid "Enable periodic permission checking for system files."
@@ -213,8 +217,9 @@ msgstr "Habilita checagem periódica de permissões nos arquivos do sistema."
 
 #: ../src/msec/help.py:85
 msgid "Set shell commands history size. A value of -1 means unlimited."
-msgstr "Determina tamanho do histórico dos comandos usados no shell. O valor -1"
-"significa tamanho ilimitado."
+msgstr ""
+"Determina tamanho do histórico dos comandos usados no shell. O valor -"
+"1significa tamanho ilimitado."
 
 #: ../src/msec/help.py:87
 msgid "Allow system reboot and shutdown to local users."
@@ -226,15 +231,17 @@ msgstr "Permite gravação dos logs das checagens periódicas nos logs do sistem
 
 #: ../src/msec/help.py:91
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr "Habilita chacagem por opções perigosas nos arquivos .rhosts/.shosts dos usuários"
+msgstr ""
+"Habilita chacagem por opções perigosas nos arquivos .rhosts/.shosts dos "
+"usuários"
 
 #: ../src/msec/help.py:93
 msgid ""
 "Enable password-related checks, such as empty passwords and strange super-"
 "user accounts."
 msgstr ""
-"Habilita análise geral nas senhas, visando, por exemplo, senhas vazias ou"
-"contas de super usuário estranhas."
+"Habilita análise geral nas senhas, visando, por exemplo, senhas vazias "
+"oucontas de super usuário estranhas."
 
 #: ../src/msec/help.py:95
 msgid ""
@@ -258,7 +265,9 @@ msgstr "Habilita checagem por arquivos sem dono"
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr "Habilita gerenciadores de login(kdm e gdm) a mostrar a lista local de usuários."
+msgstr ""
+"Habilita gerenciadores de login(kdm e gdm) a mostrar a lista local de "
+"usuários."
 
 #: ../src/msec/help.py:105
 msgid ""
@@ -269,7 +278,8 @@ msgstr ""
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
-msgstr "Mostrar notificações de segurança na área de noticações com a libnotify"
+msgstr ""
+"Mostrar notificações de segurança na área de noticações com a libnotify"
 
 #: ../src/msec/help.py:109
 msgid ""
@@ -794,8 +804,8 @@ msgstr ""
 #: ../src/msec/msecgui.py:64
 msgid ""
 "<big><b>Network security options</b></big>\n"
-"These options define the network security agains remote treats, unauthorized "
-"accesses,\n"
+"These options define the network security agains remote threats, "
+"unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
 
@@ -1151,4 +1161,3 @@ msgstr ""
 #, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Habilitar 'su' somente aos membros do grupo wheel"
-

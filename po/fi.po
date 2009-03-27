@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX-fi - LE2005 Release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 12:58+BRT\n"
+"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
 "PO-Revision-Date: 2008-03-31 17:58+0300\n"
 "Last-Translator: Anssi Hannula <anssi@mandriva.org>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -88,7 +88,7 @@ msgid "Allow autologin."
 msgstr "Salli / Estä automaattinen sisäänkirjautuminen."
 
 #: ../src/msec/help.py:39
-msgid "Allow only users in wheel grup to su to root."
+msgid "Allow only users in wheel group to su to root."
 msgstr ""
 
 #: ../src/msec/help.py:41
@@ -812,8 +812,8 @@ msgstr ""
 #: ../src/msec/msecgui.py:64
 msgid ""
 "<big><b>Network security options</b></big>\n"
-"These options define the network security agains remote treats, unauthorized "
-"accesses,\n"
+"These options define the network security agains remote threats, "
+"unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
 
@@ -1214,4 +1214,3 @@ msgid "Disabling transparent root access for wheel group members"
 msgstr ""
 "Salli 'su' vain 'wheel' ryhmään kuuluville jäsenille, tai salli komento "
 "kaikille"
-

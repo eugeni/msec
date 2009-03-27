@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 12:58+BRT\n"
+"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
 "PO-Revision-Date: 2005-03-19 23:18+0600\n"
 "Last-Translator: Samia <mailsamia2001@yahoo.com>\n"
 "Language-Team: Bangla <mdk-translation@bengalinux.org>\n"
@@ -83,7 +83,7 @@ msgid "Allow autologin."
 msgstr "স্বয়ংক্রিয় লগ-ইন অনুমোদন/নিষিদ্ধ করো"
 
 #: ../src/msec/help.py:39
-msgid "Allow only users in wheel grup to su to root."
+msgid "Allow only users in wheel group to su to root."
 msgstr ""
 
 #: ../src/msec/help.py:41
@@ -812,8 +812,8 @@ msgstr ""
 #: ../src/msec/msecgui.py:64
 msgid ""
 "<big><b>Network security options</b></big>\n"
-"These options define the network security agains remote treats, unauthorized "
-"accesses,\n"
+"These options define the network security agains remote threats, "
+"unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
 
@@ -1213,4 +1213,3 @@ msgid "Disabling transparent root access for wheel group members"
 msgstr ""
 "শুধুমাত্র wheel গ্রুপের সদস্যদের জন্য অথবা সকল ব্যবহারকারীর জন্য su ব্যবহারের সুযোগ "
 "সক্রিয় করো"
-

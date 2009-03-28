@@ -1,28 +1,29 @@
+# translation of nb.po to Danish
 # translation of nb.po to
 # translation of libDrakX-standalone-nb.po to
 # KTranslator Generated File
 # Translation file of Mandriva Linux graphic install
 # Copyright (C) 1999 Mandriva
+#
 # Terje Bjerkelia <terje@bjerkelia.com>, 1999-2000.
 # Andreas Bergstrøm <abergstr@halden.net>, 2000.
 # Kenneth Rørvik <kenneth@argon.no-ip.com>, 2003.
 # Per Øyvind Karlsen <peroyvind@sintrax.net>, 2003, 2004.
-# Keld Simonsen <keld@dkuug.dk>, 2004, 2007.
+# Keld Simonsen <keld@dkuug.dk>, 2004, 2007, 2009.
 # Per Øyvind Karlsen <peroyvind@mandrivalinux.org>, 2004, 2005.
 # Eskild Hustvedt <eskild@goldenfiles.com>, 2004.
 # Eskild Hustvedt <zerodogg@skolelinux.no>, 2004, 2005.
 # Per Øyvind Karlsen <pkarlsen@mandriva.com>, 2005, 2006.
 # Marius Laache <blakern_@hotmail.com>, 2007.
 # Per Øyvind Karlsen <peroyvind@mandriva.org>, 2007.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-27 13:31+BRT\n"
-"PO-Revision-Date: 2009-03-26 03:13+0100\n"
-"Last-Translator: \n"
-"Language-Team:  <en@li.org>\n"
+"PO-Revision-Date: 2009-03-28 18:28+0100\n"
+"Last-Translator: Keld Simonsen <keld@dkuug.dk>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,8 +54,7 @@ msgstr ""
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på port 6000."
+msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på port 6000."
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -89,11 +89,8 @@ msgid "Allow autologin."
 msgstr "Tillat autoinnlogging."
 
 #: ../src/msec/help.py:39
-#, fuzzy
 msgid "Allow only users in wheel group to su to root."
-msgstr ""
-"Tillat kun bruk av su for å oppnå root-rettigheter for medlemmer i wheel-"
-"gruppen"
+msgstr "Tillat kun brukere i wheel-gruppen at su til root."
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -183,9 +180,8 @@ msgid "Enable checking for additions/removals of sgid files."
 msgstr "Slå på sjekk for utvidelse/fjerning av sgid-filer."
 
 #: ../src/msec/help.py:69
-#, fuzzy
 msgid "Activate ethernet cards promiscuity check."
-msgstr "Slå på løsaktighetskontroll for nettverkskort."
+msgstr "Slå på løsaktighetskontroll for ethernetkort."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
@@ -270,8 +266,7 @@ msgstr "Slå på sjekk for filer uten eier."
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
-"Tillat sesjonshåndterere (KDM og GDM) å vise en liste med lokale brukere."
+msgstr "Tillat sesjonshåndterere (KDM og GDM) å vise en liste med lokale brukere."
 
 #: ../src/msec/help.py:105
 msgid ""
@@ -616,19 +611,16 @@ msgid "Allowing export display from root"
 msgstr "Tillat eksportering av visning fra root"
 
 #: ../src/msec/libmsec.py:1312
-#, fuzzy
 msgid "Forbidding export display from root"
-msgstr "Forbyr eksportering av visning fra root"
+msgstr "Forbyr eksportering av skjærm fra root"
 
 #: ../src/msec/libmsec.py:1323
-#, fuzzy
 msgid "Activating periodic promiscuity check"
-msgstr "Slå på periodisk promiskuøs sjekk"
+msgstr "Slår på periodisk promiskuøs sjekk"
 
 #: ../src/msec/libmsec.py:1327
-#, fuzzy
 msgid "Disabling periodic promiscuity check"
-msgstr "Slå av periodisk promiskuøs sjekk"
+msgstr "Slår av periodisk promiskuøs sjekk"
 
 #: ../src/msec/libmsec.py:1353
 msgid "Allowing direct root login"
@@ -781,16 +773,16 @@ msgstr ""
 "forhåndsvalgte rettigheter ved opprettelse av filer."
 
 #: ../src/msec/msecgui.py:64
-#, fuzzy
 msgid ""
 "<big><b>Network security options</b></big>\n"
 "These options define the network security agains remote threats, "
 "unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
-"<big><b>Valg for nettverkssikkerhet</b></big><br> Disse valgene definerer "
-"nettverkssikkerheten for tiltak mot eksterne trusler, uautorisert tilgang, "
-"<br> og innbruddsforsøk."
+"<big><b>Valg for nettverkssikkerhet</b></big>\n"
+"Disse valgene definerer "
+"nettverkssikkerheten for tiltak mot eksterne trusler, uautorisert tilgang,\n"
+"og innbruddsforsøk.  "
 
 #: ../src/msec/msecgui.py:68
 msgid ""
@@ -941,8 +933,7 @@ msgstr "Oppdaget grunnleggende msec-nivå '%s'"
 
 #: ../src/msec/msecgui.py:396
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr ""
-"Tilpasset grunnleggende-oppsettsnivå '%s' funnet. Vil forhåndsvelge '%s'"
+msgstr "Tilpasset grunnleggende-oppsettsnivå '%s' funnet. Vil forhåndsvelge '%s'"
 
 #: ../src/msec/msecgui.py:424
 msgid "Security Option"
@@ -1117,10 +1108,8 @@ msgid "Disabling password history"
 msgstr "Slå av passordhistorie"
 
 #: ../src/msec/plugins/pam.py:124
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
-msgstr ""
-"Ugyldig passordlengde \"%s\". Bruk \"length,ndigits,nupper\" som parametre."
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgstr "Ugyldig passordlengde \"%s\". Bruk \"length,ndigits,nupper\" som parametre."
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
@@ -1149,3 +1138,4 @@ msgstr "Tillater gjennomsiktig root-tilgang for medlemmer av wheel-gruppen"
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av gjennomsiktig root-tilgang for medlemmer av wheel-gruppen"
+

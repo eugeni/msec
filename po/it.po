@@ -1,4 +1,4 @@
-# translation of msec-andrea.po to Italian
+# translation of it.po to Italian
 # Copyright (C) 2000, 2001 Mandriva S.A.
 #
 # Paolo Lorenzin <pasusu@tin.it>, 2000.
@@ -6,21 +6,21 @@
 # Roberto Rosselli Del Turco <rosselli@ling.unipi.it>, 2001, 2002,2003.
 # Marco De Vitis <mdv@spin.it>, 2003.
 # Giuseppe Levi <giuseppe.levi@email.it>, 2005.
-# Andrea Celli <andrea.celli@libero.it>, 2003, 2004, 2005, 2006, 2007, 2008.
+# Andrea Celli <andrea.celli@libero.it>, 2003, 2004, 2005, 2006, 2007, 2008, 2009.
 # Federica De Luca <my_utopia2002@hotmail.com>, 2008.
 # Moreno Manzini <moreno@mediacom.it>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: msec-andrea\n"
+"Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-27 13:31+BRT\n"
-"PO-Revision-Date: 2009-03-27 18:44+0100\n"
-"Last-Translator: Moreno Manzini <moreno@mediacom.it>\n"
-"Language-Team: Italian <timl@freelist.org>\n"
+"PO-Revision-Date: 2009-03-28 14:23+0100\n"
+"Last-Translator: Andrea Celli <andrea.celli@libero.it>\n"
+"Language-Team: Italian <timl@freelists.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 0.2\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:15
@@ -31,8 +31,7 @@ msgstr ""
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
-"Invia una email di rapporto anche se non sono stati rilevati cambiamenti."
+msgstr "Invia una email di rapporto anche se non sono stati rilevati cambiamenti."
 
 #: ../src/msec/help.py:19
 msgid "Accept broadcasted ICMP echo."
@@ -50,18 +49,15 @@ msgstr ""
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Permette al server X di accettare connessioni dalla rete sulla porta tcp 6000"
+msgstr "Permette al server X di accettare connessioni dalla rete sulla porta tcp 6000"
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr ""
-"Abilita la ricerca di rootkits conosciuti con l'utilizzo di chkrootkit."
+msgstr "Abilita la ricerca di rootkits conosciuti con l'utilizzo di chkrootkit."
 
 #: ../src/msec/help.py:27
 msgid "Enable checking for additions/removals of suid root files."
-msgstr ""
-"Abilita il controllo sull'aggiunta o la rimozione di file root con flag suid."
+msgstr "Abilita il controllo sull'aggiunta o la rimozione di file root con flag suid."
 
 #: ../src/msec/help.py:29
 msgid ""
@@ -89,10 +85,8 @@ msgid "Allow autologin."
 msgstr "Permette il login automatico."
 
 #: ../src/msec/help.py:39
-#, fuzzy
 msgid "Allow only users in wheel group to su to root."
-msgstr ""
-"Permette solo agli utenti del gruppo 'wheel' di usare su per diventare root."
+msgstr "Permette solo agli utenti del gruppo 'wheel' di usare su per diventare root."
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -183,8 +177,7 @@ msgstr "Imposta la umask per la creazione dei file di root."
 
 #: ../src/msec/help.py:67
 msgid "Enable checking for additions/removals of sgid files."
-msgstr ""
-"Abilita il controllo sull'aggiunta o la rimozione di file con flag sgid."
+msgstr "Abilita il controllo sull'aggiunta o la rimozione di file con flag sgid."
 
 #: ../src/msec/help.py:69
 msgid "Activate ethernet cards promiscuity check."
@@ -192,8 +185,7 @@ msgstr "Attiva il controllo di promiscuità sulle schede ethernet."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
-msgstr ""
-"Abilita l'avvio all'accensione dell'infrastruttura di sicurezza AppArmor"
+msgstr "Abilita l'avvio all'accensione dell'infrastruttura di sicurezza AppArmor"
 
 #: ../src/msec/help.py:73
 msgid ""
@@ -302,8 +294,7 @@ msgstr ""
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
-msgstr ""
-"Mostra i messaggi di sicurezza nel vassoio di sistema usando libnotify."
+msgstr "Mostra i messaggi di sicurezza nel vassoio di sistema usando libnotify."
 
 #: ../src/msec/help.py:109
 msgid ""
@@ -319,13 +310,12 @@ msgstr ""
 
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
-msgstr ""
-"Esegue i controlli orari sui cambiamenti nella configurazione del sistema."
+msgstr "Esegue i controlli orari sui cambiamenti nella configurazione del sistema."
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
-"Richiede la passowd di root quando si va in modalità utente singolo (man "
+"Richiede la password di root quando si va in modalità utente singolo (man "
 "sulogin(8))."
 
 #: ../src/msec/help.py:115
@@ -489,7 +479,7 @@ msgstr "Dimensione \"%s\" della cronologia della shell errata"
 
 #: ../src/msec/libmsec.py:966
 msgid "Setting shell history size to %s"
-msgstr "Impostazione dimensione della cronologia della shell a %s"
+msgstr "Dimensione della cronologia della shell impostata a %s"
 
 #: ../src/msec/libmsec.py:970
 msgid "Removing limit on shell history size"
@@ -687,7 +677,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1590
 msgid "Enforcing user on %s to %s"
-msgstr "Forzato utente da %s a %s"
+msgstr "Costringi chi entra in %s a diventare %s"
 
 #: ../src/msec/libmsec.py:1594
 msgid "Error changing user on %s: %s"
@@ -804,13 +794,13 @@ msgid ""
 "permissions.  "
 msgstr ""
 "<big><b>Opzioni di sicurezza del sistema</b></big>\n"
-"Queste opzioni controllano le impostazioni di sicurezza locali, come le "
-"restrizioni sul login,\n"
-"la configurazione delle password, l'integrazione con altri strumenti di "
-"sicurezza ed i permessi predefiniti per la creazione di file. "
+"Queste opzioni controllano le impostazioni di sicurezza locali, come\n"
+"le restrizioni ai login, la configurazione delle password, l'integrazione "
+"con\n"
+"altri strumenti di sicurezza ed i permessi predefiniti per la creazione di "
+"file. "
 
 #: ../src/msec/msecgui.py:64
-#, fuzzy
 msgid ""
 "<big><b>Network security options</b></big>\n"
 "These options define the network security agains remote threats, "
@@ -818,8 +808,8 @@ msgid ""
 "and breakin attempts.  "
 msgstr ""
 "<big><b>Opzioni sicurezza della rete</b></big>\n"
-"Queste opzioni definiscono le sicurezze della rete contro minacce remote, "
-"accessinon autorizzati\n"
+"Queste opzioni definiscono la sicurezza della rete contro minacce remote, "
+"accessi non autorizzati\n"
 "e tentativi di intrusione."
 
 #: ../src/msec/msecgui.py:68
@@ -974,8 +964,7 @@ msgstr "Rilevato il livello base di msec %s"
 
 #: ../src/msec/msecgui.py:396
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr ""
-"Trovato il livello base personalizzato '%s'. Sarà quello predefinito per '%s'"
+msgstr "Trovato il livello base personalizzato '%s'. Sarà quello predefinito per '%s'"
 
 #: ../src/msec/msecgui.py:424
 msgid "Security Option"
@@ -1131,32 +1120,32 @@ msgstr "Desidera salvare i cambiamenti apportati prima di chiudere?"
 
 #: ../src/msec/plugins/pam.py:68
 msgid "Using password to authenticate users"
-msgstr "Utilizzo della password per autenticare gli utenti"
+msgstr "Autenticazione degli utenti tramite password"
 
 #: ../src/msec/plugins/pam.py:72
 msgid "Don't use password to authenticate users"
-msgstr "Non utilizza la password per autenticare gli utenti"
+msgstr "Autenticazione degli utenti senza usare password"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
-msgstr "Lo storico delle password non è gestiro da pam_tcb."
+msgstr "La cronologia delle password non è gestita da pam_tcb."
 
 #: ../src/msec/plugins/pam.py:91
 msgid "Invalid maximum password history length: \"%s\""
 msgstr ""
-"Lunghezza massima dello storico delle password non valida, lunghezza: \"%s\""
+"Lunghezza massima della cronologia delle password non valida, lunghezza: "
+"\"%s\""
 
 #: ../src/msec/plugins/pam.py:106
 msgid "Setting password history to %d."
-msgstr "Impostazione dello storico delle password a %d."
+msgstr "Impostazione della cronologia delle password a %d."
 
 #: ../src/msec/plugins/pam.py:112
 msgid "Disabling password history"
-msgstr "Disabilitato dello storico delle password"
+msgstr "Disabilitata la cronologia delle password"
 
 #: ../src/msec/plugins/pam.py:124
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
 "Lunghezza password \"%s\" non valida. Usare \"Lunghezza,NumCifre,NumMaiuscole"
 "\" come parametri."
@@ -1187,5 +1176,5 @@ msgstr "Permesso l'accesso trasparente a root agli utenti del gruppo 'wheel'."
 
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
-msgstr ""
-"Disabilitato l'accesso trasparente a root agli utenti del gruppo 'wheel'."
+msgstr "Disabilitato l'accesso trasparente a root agli utenti del gruppo 'wheel'."
+

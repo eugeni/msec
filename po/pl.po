@@ -20,9 +20,8 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-27 13:31+BRT\n"
-"PO-Revision-Date: 2009-03-26 07:40+0100\n"
-"Last-Translator: Amazis.net sp. z o.o. - Tomasz Bednarski <tomasz."
-"bednarski@amazis.pl>\n"
+"PO-Revision-Date: 2009-03-28 12:52+0100\n"
+"Last-Translator: Amazis.net sp. z o.o. - Tomasz Bednarski <tomasz.bednarski@amazis.pl>\n"
 "Language-Team:  <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,13 +52,11 @@ msgstr ""
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Pozwalaj serwerowi X na akceptowanie połączeń sieciowych na porcie tcp 6000."
+msgstr "Pozwalaj serwerowi X na akceptowanie połączeń sieciowych na porcie tcp 6000."
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr ""
-"Aktywuj kontrolę w kierunku znanych rootkitów z wykorzystaniem chkrootkit."
+msgstr "Aktywuj kontrolę w kierunku znanych rootkitów z wykorzystaniem chkrootkit."
 
 #: ../src/msec/help.py:27
 msgid "Enable checking for additions/removals of suid root files."
@@ -92,7 +89,7 @@ msgstr "Dozwolone automatyczne logowanie"
 
 #: ../src/msec/help.py:39
 msgid "Allow only users in wheel group to su to root."
-msgstr ""
+msgstr "Przelogowanie na konto root (su) jest dostępne tylko dla użytkowników grupy wheel"
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -107,14 +104,13 @@ msgstr ""
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
-msgstr ""
-"Ustaw czas wygaśnięcia powłoki. Wartość zero oznacza brak czasu wygasania."
+msgstr "Ustaw czas wygaśnięcia powłoki. Wartość zero oznacza brak czasu wygasania."
 
 #: ../src/msec/help.py:45
 msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
-msgstr ""
+msgstr "Aktywuj kontrolę uprawnień na plikach użytkowników, które nie powinny być własnością innych lub być zapisywalne."
 
 #: ../src/msec/help.py:47
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
@@ -124,7 +120,7 @@ msgstr "Sprawdzanie pustych haseł w pliku /etc/shadow (man shadow(5))."
 msgid ""
 "Use password to authenticate users. Take EXTREMELY care when disabling "
 "passwords, as it will leave the machine vulnerable."
-msgstr ""
+msgstr "Użycie hasła do uwierzytelniania użytkowników. Postępuj BARDZO ostrożnie wyłączając hasła, ponieważ sprawi to że komputer będzie podatny na atak."
 
 #: ../src/msec/help.py:51
 msgid ""
@@ -1177,8 +1173,7 @@ msgid "Disabling password history"
 msgstr "Rozmiar historii hasła"
 
 #: ../src/msec/plugins/pam.py:124
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:145
@@ -1210,3 +1205,4 @@ msgstr ""
 #, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Mechanizm su tylko dla członków grupy wheel"
+

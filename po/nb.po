@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-27 13:31+BRT\n"
-"PO-Revision-Date: 2009-03-29 14:59+0200\n"
+"PO-Revision-Date: 2009-03-29 15:29+0200\n"
 "Last-Translator: Keld Simonsen <keld@dkuug.dk>\n"
 "Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -407,7 +407,7 @@ msgstr "Tillat ubegrenset chkconfig for pakker"
 
 #: ../src/msec/libmsec.py:839
 msgid "Restricting chkconfig for packages according to \"%s\" profile"
-msgstr "Begrens chkconf for pakker i følge \"%s\"-profil."
+msgstr "Begrens chkconfig for pakker i følge \"%s\"-profil."
 
 #: ../src/msec/libmsec.py:849
 msgid "Setting root umask to %s"

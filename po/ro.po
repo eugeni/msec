@@ -45,7 +45,7 @@ msgstr ""
 "Project-Id-Version: DrakX 7.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-25 12:58+BRT\n"
-"PO-Revision-Date: 2009-03-27 21:02+0100\n"
+"PO-Revision-Date: 2009-03-29 23:32+0100\n"
 "Last-Translator: Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>\n"
 "Language-Team: Mandrivausers.ro\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgstr "Activează protecția împotriva uzurpării rezoluției de nume."
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
+msgstr "Trimite raport pe mail chiar dacă nu s-a detectat nici o schimbare."
 
 #: ../src/msec/help.py:19
 msgid "Accept broadcasted ICMP echo."
@@ -73,14 +73,18 @@ msgid ""
 "is set to 'wheel', users must belong to the 'wheel' group to be able to use "
 "sudo"
 msgstr ""
+"Permite utilizatorilor să se autentifice cu propria parolă pentru sudo. Dacă "
+"acest parametru este reglat pe „wheel”, utilizatorii trebuie să aparțină "
+"grupului „wheel” pentru a putea utiliza sudo"
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
 msgstr ""
+"Permite serverului X să accepte conexiuni din rețea pe portul tcp 6000."
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr ""
+msgstr "Activează verificarea pentru rootkit cunoscute utilizînd chkrootkit."
 
 #: ../src/msec/help.py:27
 msgid "Enable checking for additions/removals of suid root files."
@@ -103,7 +107,7 @@ msgstr "Acceptă mesaje de eroare IPv4 fictive."
 
 #: ../src/msec/help.py:33
 msgid "Enable checksum verification for suid files."
-msgstr ""
+msgstr "Activează verificarea sumei de control pentru fișierele suid,"
 
 #: ../src/msec/help.py:35
 msgid "User email to receive security notifications."
@@ -116,7 +120,7 @@ msgstr "Permite autentificarea automată."
 
 #: ../src/msec/help.py:39
 msgid "Allow only users in wheel grup to su to root."
-msgstr ""
+msgstr "Permite numai utilizatorilor din grupul wheel să facă su la root,"
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -140,6 +144,8 @@ msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
 msgstr ""
+"Activează verificarea permisiunilor fișierelor utilizatorului ce nu trebuie "
+"să aparțină altcuiva, sau cu drept de scriere,"
 
 #: ../src/msec/help.py:47
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
@@ -150,16 +156,20 @@ msgid ""
 "Use password to authenticate users. Take EXTREMELY care when disabling "
 "passwords, as it will leave the machine vulnerable."
 msgstr ""
+"Utilizează parole pentru autentificarea utilizatorilor, Fiți EXTREM de "
+"prudent cînd dezactivați parolele, asta va lăsa mașina complet vulnerabilă,"
 
 #: ../src/msec/help.py:51
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '0', "
 "default system umask is used."
 msgstr ""
+"Configurați opțiunea umask pentru montarea partițiilor VFAT și NTFS. Dacă "
+"umasc este „0”, atunci este utilizată valoarea umask implicită a sistemului."
 
 #: ../src/msec/help.py:53
 msgid "Enable checking for open network ports."
-msgstr ""
+msgstr "Activează verificarea de porturi de rețea deschise."
 
 #: ../src/msec/help.py:55
 msgid "Enable logging of strange network packets."
@@ -167,11 +177,11 @@ msgstr "Activează înregistrarea în jurnal a pachetelor de rețea bizare."
 
 #: ../src/msec/help.py:57
 msgid "Enable verification of installed RPM packages."
-msgstr ""
+msgstr "Activează verificarea pechetelor RPM instalate."
 
 #: ../src/msec/help.py:59
 msgid "Allow root access without password for the members of the wheel group."
-msgstr ""
+msgstr "Permite accesul ca root fără parolă pentru membrii grupului wheel."
 
 #: ../src/msec/help.py:61
 msgid "Send security check results by email."
@@ -199,7 +209,7 @@ msgstr "Activați verificarea modului spion pentru plăcile de rețea."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
-msgstr ""
+msgstr "Activează platforma de securitate AppArmor la demaraj"
 
 #: ../src/msec/help.py:73
 msgid ""
@@ -218,7 +228,7 @@ msgstr ""
 
 #: ../src/msec/help.py:77
 msgid "Log syslog messages on console terminal 12."
-msgstr ""
+msgstr "Înregistrează mesajele syslog în consola terminalului 12."
 
 #: ../src/msec/help.py:79
 msgid "Enable IP spoofing protection."
@@ -229,10 +239,12 @@ msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
 msgstr ""
+"Definește nivelul de securitate de bază, peste care este bazată configurația "
+"curentă."
 
 #: ../src/msec/help.py:83
 msgid "Enable periodic permission checking for system files."
-msgstr ""
+msgstr "Activează verificarea periodică de securitate pentru fișierele sistem."
 
 #: ../src/msec/help.py:85
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -246,17 +258,21 @@ msgstr "Permite repornirea și oprirea sistemului de către utilizatorii locali.
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
-msgstr ""
+msgstr "Activează înregistrarea în jurnalul sistem a verificărilor periodice."
 
 #: ../src/msec/help.py:91
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
 msgstr ""
+"Activează verificarea pentru opțiunile periculoase din fișierele .rhosts/."
+"shosts ale utilizatorilor."
 
 #: ../src/msec/help.py:93
 msgid ""
 "Enable password-related checks, such as empty passwords and strange super-"
 "user accounts."
 msgstr ""
+"Activează verificările relative la parole, precum parolele vide și conturile "
+"de super-utilizator ciudate."
 
 #: ../src/msec/help.py:95
 msgid ""
@@ -281,6 +297,8 @@ msgstr "Activează verificarea fișierelor fără proprietar."
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
 msgstr ""
+"Permite gestionarilor de ecran (kdm și gdm) să afișeze lista utilizatorilor "
+"locali."
 
 #: ../src/msec/help.py:105
 msgid ""
@@ -288,10 +306,16 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
+"Forțează fișierul de permisiuni MSEC pe directoare la demarajul sistemului. "
+"Dacă acest parametru este reglat pe „forțare”, permisiunile sistem vor fi "
+"forțate în mod automat, în concordanță  cu parametrii de securitate ai "
+"sistemului."
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
 msgstr ""
+"Arată notificările de securitate în zona de notificare sistem utilizînd "
+"libnotify."
 
 #: ../src/msec/help.py:109
 msgid ""
@@ -299,14 +323,20 @@ msgid ""
 "password, only public-key authentication logins are allowed. See sshd_config"
 "(5) man page for more information."
 msgstr ""
+"Permite autentificarea distantă cu root via sshd. Dacă este da, "
+"autentificarea este permisă. Dacă este fără parolă, numai autentificările cu "
+"cheie publică sînt permise. Consultați pagina de manual sshd_config(5) "
+"pentru mai multe informații."
 
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
+"Execută verificări de securitate orare pentru modificări în configurația "
+"sistemului."
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
-msgstr ""
+msgstr "Se cere parola de root în mod mono-utilizator (man sulogin(8))."
 
 #: ../src/msec/help.py:115
 msgid ""
@@ -339,11 +369,12 @@ msgstr ""
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
-msgstr ""
+msgstr "Forțează configurările MSEC la demararea sistemului"
 
 #: ../src/msec/help.py:125
 msgid "Enable periodic security check results to terminal."
 msgstr ""
+"Activează rezultatele verificărilor periodice de securitate la terminal."
 
 #: ../src/msec/help.py:127
 msgid ""
@@ -351,14 +382,17 @@ msgid ""
 "enabled, only users in wheel group may change advanced PolicyKit permissions "
 "and settings"
 msgstr ""
+"Activează platforma de securitate PolicyKit pentru toți utilizatorii. Dacă "
+"această opțiune nu este activată, numai utilizatorii din grupul wheel pot "
+"schimba permisiunile și reglajele avansate PolicyKit"
 
 #: ../src/msec/libmsec.py:326
 msgid "%s modified so launched command: %s"
-msgstr ""
+msgstr "%s modificat deci s-a lansat comanda: %s"
 
 #: ../src/msec/libmsec.py:335
 msgid "%s modified so should have run command: %s"
-msgstr ""
+msgstr "%s modificat deci ar fi trebuit lansată comanda: %s"
 
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
 msgid "deleted %s"
@@ -382,11 +416,11 @@ msgstr "reglează variabila %s pe %s în %s"
 
 #: ../src/msec/libmsec.py:755
 msgid "Error loading plugin '%s' from %s: %s"
-msgstr ""
+msgstr "Eroare la încărcarea modulului „%s” din %s: %s"
 
 #: ../src/msec/libmsec.py:769
 msgid "Invalid callback: %s"
-msgstr ""
+msgstr "Apel invers invalid: %s"
 
 #: ../src/msec/libmsec.py:778
 msgid "Plugin %s not found"
@@ -394,11 +428,11 @@ msgstr "Nu s-a găsit modulul %s"
 
 #: ../src/msec/libmsec.py:785
 msgid "Not supported function '%s' in '%s'"
-msgstr ""
+msgstr "Funcție '%s' nesuportată în  '%s'"
 
 #: ../src/msec/libmsec.py:792 ../src/msec/libmsec.py:1575
 msgid "In check-only mode, nothing is written back to disk."
-msgstr ""
+msgstr "În mod numai-verificare, nu se scrie nimic pe disc."
 
 #: ../src/msec/libmsec.py:809
 msgid "'%s' is not available in this version"
@@ -406,15 +440,16 @@ msgstr "„%s” nu este disponibilă în această versiune"
 
 #: ../src/msec/libmsec.py:819
 msgid "Invalid parameter for %s: '%s'. Valid parameters: '%s'."
-msgstr ""
+msgstr "Parametru invalid pentru %s: '%s'. Cel valid este: '%s'."
 
 #: ../src/msec/libmsec.py:834
 msgid "Allowing unrestricted chkconfig for packages"
-msgstr ""
+msgstr "Se permite chkconfig nerestricționat pentru pachete"
 
 #: ../src/msec/libmsec.py:839
 msgid "Restricting chkconfig for packages according to \"%s\" profile"
 msgstr ""
+"Se restricționează chkconfig pentru pachete în concordanță cu profilul \"%s\""
 
 #: ../src/msec/libmsec.py:849
 msgid "Setting root umask to %s"
@@ -426,19 +461,20 @@ msgstr "Se reglează umask utilizatori pe %s"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
-msgstr ""
+msgstr "Se permite conectarea la serveul X pentru utilizatorii de peste tot"
 
 #: ../src/msec/libmsec.py:883
 msgid "Allowing users to connect X server from localhost"
-msgstr ""
+msgstr "Se permite conectarea la serverul X pentru utilizatorii din localhost"
 
 #: ../src/msec/libmsec.py:886
 msgid "Restricting X server connection to the console user"
 msgstr ""
+"Se restricționează conectarea la serverul X la utilizatorul din consolă"
 
 #: ../src/msec/libmsec.py:889
 msgid "invalid allow_x_connections arg: %s"
-msgstr ""
+msgstr "argument allow_x_connections invalid: %s"
 
 #: ../src/msec/libmsec.py:912
 msgid "Allowing the X server to listen to tcp connections"
@@ -446,7 +482,7 @@ msgstr "Permite serverului X să asculte la conexiunile tcp"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
-msgstr ""
+msgstr "Se interzice serverului X să asculte pe conexiunea TCP"
 
 #: ../src/msec/libmsec.py:939
 msgid "Invalid shell timeout \"%s\""
@@ -478,15 +514,15 @@ msgstr "Se autorizează tasta SysRq utilizatorului în consolă"
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "Se permite oprire/repornirea în GDM"
 
 #: ../src/msec/libmsec.py:1023
 msgid "Allowing Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "Se permite oprire/repornirea în KDM"
 
 #: ../src/msec/libmsec.py:1026
 msgid "Allowing Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "Se permite Ctrl-Alt-Del din consolă"
 
 #: ../src/msec/libmsec.py:1030
 msgid "Forbidding reboot and shutdown to the console user"
@@ -498,31 +534,31 @@ msgstr "Se interzice tasta SysRq utilizatorului în consolă"
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "Se interzice oprirea/repornirea în GDM"
 
 #: ../src/msec/libmsec.py:1045
 msgid "Forbidding Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "Se interzice oprirea/repornirea în KDM"
 
 #: ../src/msec/libmsec.py:1048
 msgid "Forbidding Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "Se interzice Ctrl-Alt-Del din consolă"
 
 #: ../src/msec/libmsec.py:1062
 msgid "Allowing list of users in KDM"
-msgstr ""
+msgstr "Se permite listarea utilizatorilor în KDM"
 
 #: ../src/msec/libmsec.py:1066
 msgid "Allowing list of users in GDM"
-msgstr ""
+msgstr "Se permite listarea utilizatorilor în GDM"
 
 #: ../src/msec/libmsec.py:1071
 msgid "Forbidding list of users in KDM"
-msgstr ""
+msgstr "Se interzice listarea utilizatorilor în KDM"
 
 #: ../src/msec/libmsec.py:1075
 msgid "Forbidding list of users in GDM"
-msgstr ""
+msgstr "Se interzice listarea utilizatorilor în GDM"
 
 #: ../src/msec/libmsec.py:1089
 msgid "Allowing remote root login"
@@ -546,7 +582,7 @@ msgstr "Se interzice autentificarea automată"
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
-msgstr ""
+msgstr "Se activează parola pe încărcătorul de sistem"
 
 #: ../src/msec/libmsec.py:1131
 msgid "Removing password in boot loader"
@@ -570,11 +606,11 @@ msgstr "Se dezactivează verificările de securitate cotidiene"
 
 #: ../src/msec/libmsec.py:1183
 msgid "Authorizing all services"
-msgstr ""
+msgstr "Se autorizează toate serviciile"
 
 #: ../src/msec/libmsec.py:1187
 msgid "Disabling all services"
-msgstr ""
+msgstr "Se dezactivează toate serviciile"
 
 #: ../src/msec/libmsec.py:1191
 msgid "Disabling non local services"
@@ -602,7 +638,7 @@ msgstr "Se activează execuțiile msec periodice"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
-msgstr ""
+msgstr "Se dezactivează executările MSEC periodice"
 
 #: ../src/msec/libmsec.py:1289
 msgid "Enabling crontab and at"
@@ -614,11 +650,11 @@ msgstr "Se dezactivează „crontab” și „at”"
 
 #: ../src/msec/libmsec.py:1308
 msgid "Allowing export display from root"
-msgstr ""
+msgstr "Se permite exportarea ecranului din root"
 
 #: ../src/msec/libmsec.py:1312
 msgid "Forbidding export display from root"
-msgstr ""
+msgstr "Se interzice exportarea ecranului din root"
 
 #: ../src/msec/libmsec.py:1323
 msgid "Activating periodic promiscuity check"
@@ -642,24 +678,25 @@ msgstr "numele de utilizator %s nu a fost găsit"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
-msgstr ""
+msgstr "nu s-a găsit utilizatorul pentru identificatorul %d"
 
 #: ../src/msec/libmsec.py:1529
 msgid "group name %s not found"
-msgstr ""
+msgstr "nu s-a găsit grupul %s"
 
 #: ../src/msec/libmsec.py:1541
 msgid "group name not found for id %d"
-msgstr ""
+msgstr "nu s-a găsit grupul pentru identificatorul %d"
 
 #: ../src/msec/libmsec.py:1551
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
+"Nu s-a putut verifica /proc/mounts. Se presupune că toate sistemele de "
+"fișiere sînt locale."
 
 #: ../src/msec/libmsec.py:1590
-#, fuzzy
 msgid "Enforcing user on %s to %s"
-msgstr "Se trece de la %s la %s"
+msgstr "Se forțează utilizatorul pe %s la %s"
 
 #: ../src/msec/libmsec.py:1594
 msgid "Error changing user on %s: %s"
@@ -667,12 +704,11 @@ msgstr "Eroare la schimbarea utilizatorului pe %s: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
-msgstr ""
+msgstr "Proprietar greșit pentru %s: ar trebui să fie %s"
 
 #: ../src/msec/libmsec.py:1599
-#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr "Se trece de la %s la %s"
+msgstr "Se forțează grupul pe %s la %s"
 
 #: ../src/msec/libmsec.py:1603
 msgid "Error changing group on %s: %s"
@@ -680,27 +716,27 @@ msgstr "Eroare la schimbarea grupului pe %s: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
-msgstr ""
+msgstr "Grup greșit pentru %s: ar trebui să fie %s"
 
 #: ../src/msec/libmsec.py:1610
 msgid "Enforcing permissions on %s to %o"
-msgstr ""
+msgstr "Se forțează permisiunile pe %s la %o"
 
 #: ../src/msec/libmsec.py:1614
 msgid "Error changing permissions on %s: %s"
-msgstr ""
+msgstr "Eroare la schimbarea permisiunilor pe %s: %s"
 
 #: ../src/msec/libmsec.py:1616
 msgid "Wrong permissions of %s: should be %o"
-msgstr ""
+msgstr "Permisiuni greșite pentru %s: ar trebui să fie %o"
 
 #: ../src/msec/libmsec.py:1633
 msgid "bad permissions for '%s': '%s'"
-msgstr ""
+msgstr "permisiuni greșite pentru '%s': '%s'"
 
 #: ../src/msec/libmsec.py:1658
 msgid "Non local file: \"%s\". Nothing changed."
-msgstr ""
+msgstr "Fișier nelocal: \"%s\". Nimic schimbat."
 
 #: ../src/msec/libmsec.py:1700
 msgid "Checking paths: %s"
@@ -708,23 +744,23 @@ msgstr "Verificare de căi: %s"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "Nivel de securitate invalid '%s'."
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
-msgstr ""
+msgstr "MSEC: Centrul de securitate Mandriva Security (%s)\n"
 
 #: ../src/msec/msec.py:110 ../src/msec/msecperms.py:129
 msgid "Error: This application must be executed by root!"
-msgstr ""
+msgstr "Eroare: Această aplicație trebuie executată de root!"
 
 #: ../src/msec/msec.py:111 ../src/msec/msecperms.py:130
 msgid "Run with --help to get help."
-msgstr ""
+msgstr "Lansați cu --help pentru ajutor."
 
 #: ../src/msec/msec.py:133 ../src/msec/msecperms.py:151
 msgid "Level '%s' not found, aborting."
-msgstr ""
+msgstr "Nu s-a găsit nivelul '%s', se abandonează."
 
 #: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
 msgid "Switching to '%s' level."
@@ -851,7 +887,7 @@ msgstr "Drepturi"
 
 #: ../src/msec/msecgui.py:237
 msgid "MSEC option changes"
-msgstr ""
+msgstr "Modificări de opțiuni MSEC"
 
 #: ../src/msec/msecgui.py:237
 msgid "option"
@@ -867,11 +903,11 @@ msgstr "verificare permisiuni"
 
 #: ../src/msec/msecgui.py:248
 msgid "changed %s <b>%s</b> (%s -> %s)"
-msgstr ""
+msgstr "schimbat %s <b>%s</b> (%s -> %s)"
 
 #: ../src/msec/msecgui.py:253
 msgid "added %s <b>%s</b> (%s)"
-msgstr ""
+msgstr "adăugat %s <b>%s</b> (%s)"
 
 #: ../src/msec/msecgui.py:258
 msgid "removed %s <b>%s</b>"
@@ -980,9 +1016,8 @@ msgid "Group"
 msgstr "Grup"
 
 #: ../src/msec/msecgui.py:817
-#, fuzzy
 msgid "Enforce"
-msgstr "Ignoră"
+msgstr "Forțare"
 
 #: ../src/msec/msecgui.py:861
 msgid "Reset to default level permissions"

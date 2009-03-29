@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-27 13:31+BRT\n"
-"PO-Revision-Date: 2009-03-17 10:37+0100\n"
+"PO-Revision-Date: 2009-03-29 15:32+0200\n"
 "Last-Translator: Oliver Burger <oliver.burger@wizard-fire.de>\n"
 "Language-Team: German <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,18 +34,18 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:15
-#, fuzzy
 msgid "Enable name resolution spoofing protection."
-msgstr "Aktivier Schutz gegen Namenauflösung"
+msgstr ""
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
 msgstr ""
+"Verschicke die Email-Statusreports auch, wenn keine Änderungen vorhanden "
+"sind."
 
 #: ../src/msec/help.py:19
-#, fuzzy
 msgid "Accept broadcasted ICMP echo."
-msgstr "Broadcast-ICMP-Echo akzeptieren."
+msgstr "Gesendetes ICMP-Echo akzeptieren."
 
 #: ../src/msec/help.py:21
 msgid ""
@@ -53,19 +53,25 @@ msgid ""
 "is set to 'wheel', users must belong to the 'wheel' group to be able to use "
 "sudo"
 msgstr ""
+"Erlaube es den Benutzern, sich mit ihrem Passwort für sudo zu "
+"authentifizieren. Wenn dieser Parameter auf 'wheel' gesetzt ist, müssen die "
+"Benutzer Mitglied der wheel-Gruppe sein, um sudo nutzen zu können"
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
 msgstr ""
+"Erlaube es dem X-Server, Netzwerk-Verbindungen auf tcp-Port 6000 zu "
+"akzeptieren"
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
 msgstr ""
+"Aktiviere die Suche nach bekannten Rootkits mittels Benutzung von chkrootkit."
 
 #: ../src/msec/help.py:27
-#, fuzzy
 msgid "Enable checking for additions/removals of suid root files."
-msgstr "Überprüfe das Hinzufügen/Entfernen von „suid“ Dateien"
+msgstr ""
+"Aktiviere die Überprüfung des Hinzufügens/Entfernens von „suid-root“ Dateien"
 
 #: ../src/msec/help.py:29
 #, fuzzy
@@ -1218,3 +1224,4 @@ msgstr ""
 #, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Erlaube su nur für Mitglieder der Wheel-Gruppe"
+

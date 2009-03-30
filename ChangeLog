@@ -1,3 +1,634 @@
+2009-03-30 14:03  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* po/af.po, po/am.po, po/ar.po, po/az.po, po/be.po, po/bg.po,
+	  po/bn.po, po/br.po, po/bs.po, po/ca.po, po/cs.po, po/cy.po,
+	  po/da.po, po/de.po, po/el.po, po/eo.po, po/es.po, po/et.po,
+	  po/eu.po, po/fa.po, po/fi.po, po/fr.po, po/fur.po, po/ga.po,
+	  po/gl.po, po/he.po, po/hi.po, po/hr.po, po/hu.po, po/id.po,
+	  po/is.po, po/it.po, po/ja.po, po/ko.po, po/ky.po, po/lt.po,
+	  po/ltg.po, po/lv.po, po/mk.po, po/mn.po, po/ms.po, po/msec.pot,
+	  po/mt.po, po/nb.po, po/nl.po, po/nn.po, po/pa_IN.po, po/pl.po,
+	  po/pt.po, po/pt_BR.po, po/ro.po, po/ru.po, po/sc.po, po/sk.po,
+	  po/sl.po, po/sq.po, po/sr.po, po/sr@Latn.po, po/sv.po, po/ta.po,
+	  po/tg.po, po/th.po, po/tl.po, po/tr.po, po/uk.po, po/uz.po,
+	  po/uz@cyrillic.po, po/vi.po, po/wa.po, po/zh_CN.po, po/zh_TW.po:
+	  typo fix (John Rye)
+
+2009-03-30 09:28  Gergely Lónyai <aleph at mandriva.org>
+
+	* po/hu.po: Hungarian translation update
+
+2009-03-30 04:08  bedi
+
+	* po/pt_BR.po: more msec updated translations for pt_BR
+
+2009-03-29 21:34  cfrussen
+
+	* po/ro.po: Updated work in progress of Romanian translation
+
+2009-03-29 16:24  Andrea Celli <andrea.celli at libero.it>
+
+	* po/it.po: update translation for Italian
+
+2009-03-29 14:28  Keld Jørn Simonsen <keld at dkuug.dk>
+
+	* po/da.po: updates
+
+2009-03-29 13:41  Keld Jørn Simonsen <keld at dkuug.dk>
+
+	* po/nb.po: updates
+
+2009-03-29 13:33  obgr_seneca
+
+	* po/de.po: update for German translation
+
+2009-03-29 13:07  Keld Jørn Simonsen <keld at dkuug.dk>
+
+	* po/nb.po: updates
+
+2009-03-29 12:53  Keld Jørn Simonsen <keld at dkuug.dk>
+
+	* po/da.po: updates
+
+2009-03-28 23:01  olorin
+
+	* po/nb.po: update for Norwegian Bokmål translation
+
+2009-03-28 22:11  Michal Bukovjan <bukovjan at mbox.dkm.cz>
+
+	* po/cs.po: Updated Czech translation.
+
+2009-03-28 18:37  Christophe Berthelé <cpjc at free.fr>
+
+	* po/fr.po: Update French translation
+
+2009-03-28 17:30  Keld Jørn Simonsen <keld at dkuug.dk>
+
+	* po/nb.po: updates
+
+2009-03-28 17:24  Keld Jørn Simonsen <keld at dkuug.dk>
+
+	* po/da.po: updates
+
+2009-03-28 13:24  Andrea Celli <andrea.celli at libero.it>
+
+	* po/it.po: update translation for Italian
+
+2009-03-28 12:03  Tomasz Bednarski <tbednarski at mandrivalinux.pl>
+
+	* po/pl.po: update translation for Polish
+
+2009-03-27 22:03  cfrussen
+
+	* po/ro.po: Updated work in progress of Romanian translation
+
+2009-03-27 20:47  bedi
+
+	* po/pt_BR.po: more msec translations for pt_BR
+
+2009-03-27 19:15  Andrea Celli <andrea.celli at libero.it>
+
+	* po/it.po: update translation for Italian
+
+2009-03-27 18:45  bedi
+
+	* po/pt_BR.po: updated msec translation for pt_BR
+
+2009-03-27 16:32  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* po/af.po, po/am.po, po/ar.po, po/az.po, po/be.po, po/bg.po,
+	  po/bn.po, po/br.po, po/bs.po, po/ca.po, po/cs.po, po/cy.po,
+	  po/da.po, po/de.po, po/el.po, po/eo.po, po/es.po, po/et.po,
+	  po/eu.po, po/fa.po, po/fi.po, po/fr.po, po/fur.po, po/ga.po,
+	  po/gl.po, po/he.po, po/hi.po, po/hr.po, po/hu.po, po/id.po,
+	  po/is.po, po/it.po, po/ja.po, po/ko.po, po/ky.po, po/lt.po,
+	  po/ltg.po, po/lv.po, po/mk.po, po/mn.po, po/ms.po, po/msec.pot,
+	  po/mt.po, po/nb.po, po/nl.po, po/nn.po, po/pa_IN.po, po/pl.po,
+	  po/pt.po, po/pt_BR.po, po/ro.po, po/ru.po, po/sc.po, po/sk.po,
+	  po/sl.po, po/sq.po, po/sr.po, po/sr@Latn.po, po/sv.po, po/ta.po,
+	  po/tg.po, po/th.po, po/tl.po, po/tr.po, po/uk.po, po/uz.po,
+	  po/uz@cyrillic.po, po/vi.po, po/wa.po, po/zh_CN.po, po/zh_TW.po:
+	  po: typo fixes.
+
+2009-03-27 16:29  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/msecgui.py: Typo fixed.
+
+2009-03-27 15:57  Gergely Lónyai <aleph at mandriva.org>
+
+	* po/hu.po: Hungarian translation update
+
+2009-03-27 15:43  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/help_draksec.py: Getting right plugins when generating
+	  help.
+
+2009-03-27 15:43  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/plugins/pam.py: Typo fixed.
+
+2009-03-27 05:46  bedi
+
+	* po/pt_BR.po: started translation of msec for pt_BR
+
+2009-03-27 05:41  atilla
+
+	* po/tr.po: updated translation for turkish language
+
+2009-03-26 16:14  Gergely Lónyai <aleph at mandriva.org>
+
+	* po/hu.po: Hungarian translation update
+
+2009-03-26 14:20  Pjetur G. Hjaltason <pjetur at pjetur.net>
+
+	* po/is.po: Latest updates
+
+2009-03-26 06:40  Tomasz Bednarski <tbednarski at mandrivalinux.pl>
+
+	* po/pl.po: update translation for Polish
+
+2009-03-26 02:15  olorin
+
+	* po/nb.po: update for Norwegian Bokmål translation
+
+2009-03-26 00:40  olorin
+
+	* po/nb.po: update for Norwegian Bokmål translation
+
+2009-03-26 00:07  atilla
+
+	* po/tr.po: updated translation for turkish language
+
+2009-03-25 20:08  dimitrios
+
+	* po/el.po: Update Greek translation
+
+2009-03-25 17:41  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* po/af.po, po/am.po, po/ar.po, po/az.po, po/be.po, po/bg.po,
+	  po/bn.po, po/br.po, po/bs.po, po/ca.po, po/cs.po, po/cy.po,
+	  po/da.po, po/de.po, po/el.po, po/eo.po, po/es.po, po/et.po,
+	  po/eu.po, po/fa.po, po/fi.po, po/fr.po, po/fur.po, po/ga.po,
+	  po/gl.po, po/he.po, po/hi.po, po/hr.po, po/hu.po, po/id.po,
+	  po/is.po, po/it.po, po/ja.po, po/ko.po, po/ky.po, po/lt.po,
+	  po/ltg.po, po/lv.po, po/mk.po, po/mn.po, po/ms.po, po/mt.po,
+	  po/nb.po, po/nl.po, po/nn.po, po/pa_IN.po, po/pl.po, po/pt.po,
+	  po/pt_BR.po, po/ro.po, po/ru.po, po/sc.po, po/sk.po, po/sl.po,
+	  po/sq.po, po/sr.po, po/sr@Latn.po, po/sv.po, po/ta.po, po/tg.po,
+	  po/th.po, po/tl.po, po/tr.po, po/uk.po, po/uz.po,
+	  po/uz@cyrillic.po, po/vi.po, po/wa.po, po/zh_CN.po, po/zh_TW.po:
+	  Added fuzzy translations from previons draksec as asked on i18n
+	  mailing
+	  list.
+
+2009-03-25 16:02  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* po/af.po, po/am.po, po/ar.po, po/az.po, po/be.po, po/bg.po,
+	  po/bn.po, po/br.po, po/bs.po, po/ca.po, po/cs.po, po/cy.po,
+	  po/da.po, po/de.po, po/el.po, po/eo.po, po/es.po, po/et.po,
+	  po/eu.po, po/fa.po, po/fi.po, po/fr.po, po/fur.po, po/ga.po,
+	  po/gl.po, po/he.po, po/hi.po, po/hr.po, po/hu.po, po/id.po,
+	  po/is.po, po/it.po, po/ja.po, po/ko.po, po/ky.po, po/lt.po,
+	  po/ltg.po, po/lv.po, po/mk.po, po/mn.po, po/ms.po, po/mt.po,
+	  po/nb.po, po/nl.po, po/nn.po, po/pa_IN.po, po/pl.po, po/pt.po,
+	  po/pt_BR.po, po/ro.po, po/ru.po, po/sc.po, po/sk.po, po/sl.po,
+	  po/sq.po, po/sr.po, po/sr@Latn.po, po/sv.po, po/ta.po, po/tg.po,
+	  po/th.po, po/tl.po, po/tr.po, po/uk.po, po/uz.po,
+	  po/uz@cyrillic.po, po/vi.po, po/wa.po, po/zh_CN.po, po/zh_TW.po:
+	  po: resync with code.
+
+2009-03-25 16:01  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* po/Makefile: po: corrected string for msec plugins.
+
+2009-03-25 16:01  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* po/msec.pot: po: updated strings as asked on i18n list.
+
+2009-03-25 13:54  Pavel Maryanov <acid_jack at ukr.net>
+
+	* po/ru.po: russian translation updated
+
+2009-03-25 13:17  Pavel Maryanov <acid_jack at ukr.net>
+
+	* po/ru.po: russian translation updated
+
+2009-03-25 12:56  Gergely Lónyai <aleph at mandriva.org>
+
+	* po/hu.po: Hungarian translation update
+
+2009-03-25 04:41  olorin
+
+	* po/nb.po: update for Norwegian Bokmål translation
+
+2009-03-25 04:26  olorin
+
+	* po/nb.po: update for Norwegian Bokmål translation
+
+2009-03-25 03:54  olorin
+
+	* po/nb.po: update for Norwegian Bokmål translation
+
+2009-03-25 03:42  olorin
+
+	* po/nb.po: update for Norwegian Bokmål translation
+
+2009-03-25 03:40  olorin
+
+	* po/nb.po: update for Norwegian Bokmål translation
+
+2009-03-24 21:16  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* po/af.po, po/am.po, po/ar.po, po/az.po, po/be.po, po/bg.po,
+	  po/bn.po, po/br.po, po/bs.po, po/ca.po, po/cs.po, po/cy.po,
+	  po/da.po, po/de.po, po/el.po, po/eo.po, po/es.po, po/et.po,
+	  po/eu.po, po/fa.po, po/fi.po, po/fr.po, po/fur.po, po/ga.po,
+	  po/gl.po, po/he.po, po/hi.po, po/hr.po, po/hu.po, po/id.po,
+	  po/is.po, po/it.po, po/ja.po, po/ko.po, po/ky.po, po/lt.po,
+	  po/ltg.po, po/lv.po, po/mk.po, po/mn.po, po/ms.po, po/mt.po,
+	  po/nb.po, po/nl.po, po/nn.po, po/pa_IN.po, po/pl.po, po/pt.po,
+	  po/pt_BR.po, po/ro.po, po/ru.po, po/sc.po, po/sk.po, po/sl.po,
+	  po/sq.po, po/sr.po, po/sr@Latn.po, po/sv.po, po/ta.po, po/tg.po,
+	  po/th.po, po/tl.po, po/tr.po, po/uk.po, po/uz.po,
+	  po/uz@cyrillic.po, po/vi.po, po/wa.po, po/zh_CN.po, po/zh_TW.po:
+	  Updated translations.
+
+2009-03-24 18:07  Tomasz Bednarski <tbednarski at mandrivalinux.pl>
+
+	* po/pl.po: update translation for Polish
+
+2009-03-24 14:01  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* msec.init, msec.logrotate: Adding back missing files.
+
+2009-03-24 14:01  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile, NEWS: 0.60.16
+
+2009-03-24 13:34  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* cron-sh/diff_check.sh, cron-sh/security.sh: Sending correct
+	  notify messages.
+
+2009-03-24 13:33  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* cron-sh/security.sh: Using correct dbus-send.
+
+2009-03-24 13:33  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* cron-sh/diff_check.sh, cron-sh/security.sh,
+	  cron-sh/security_check.sh: Added support for desktop
+	  notifications.
+
+2009-03-24 13:33  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* NEWS: Updated NEWS.
+
+2009-03-24 13:33  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/msecgui.py: Removed dead code.
+
+2009-03-24 13:32  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/msecgui.py: Updated GUI layout to better fit on netbook
+	  displays.
+
+2009-03-24 13:32  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* cron-sh/promisc_check.sh, cron-sh/security.sh, msec.init,
+	  msec.logrotate: Using correct logger.
+
+2009-03-12 13:37  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile, NEWS: 0.60.15
+
+2009-03-12 13:37  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* cron-sh/security_check.sh: Updated list of files to check for bad
+	  owner/permissions.
+
+2009-03-12 13:37  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* cron-sh/security.sh: Running rpm -Va with '--noscripts' (#42849).
+
+2009-03-12 13:37  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/perm.secure, conf/perm.standard: Enforcing permissions on
+	  btmp/wtmp.
+
+2009-03-12 13:36  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* cron-sh/security.sh: Do not run chkrootkit on NFS partitions
+	  (#37753).
+
+2009-03-12 13:36  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/perm.secure, conf/perm.standard: Added correct permissions
+	  for btmp and wtmp (#48604).
+
+2009-03-11 23:16  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/level.secure, conf/level.standard, conf/server.local,
+	  conf/server.remote, conf/server.secure, conf/server.standard,
+	  src/msec/config.py, src/msec/libmsec.py: Changed server files to
+	  support remote/local services.
+
+2009-03-11 23:16  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/perm.secure, conf/perm.standard: Added custom permission for
+	  /var/log/btmp.
+
+2009-03-11 23:16  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/level.standard: Fixed wrong base level name in
+	  level.standard.
+
+2009-03-05 16:42  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/plugins/pam.py: Added missing import.
+
+2009-03-05 16:35  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile, NEWS: 0.60.14
+
+2009-03-05 16:32  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/server.secure, conf/server.standard: Updated list of save
+	  services.
+
+2009-03-05 16:31  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile, src/msec/config.py, src/msec/libmsec.py,
+	  src/msec/plugins/pam.py: Added PAM plugin.
+
+2009-03-05 16:31  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile: Fixed typo.
+
+2009-03-03 15:16  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile, NEWS: 0.60.13
+
+2009-03-03 15:16  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile, po/msec.pot, src/msec/version.py: Installing plugins
+	  and compiled files.
+
+2009-03-03 15:16  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/config.py, src/msec/msecgui.py: Added MSEC_DIR
+	  configuration variable.
+
+2009-03-03 15:16  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile, src/msec/msec.png, src/msec/msecgui.py: Added banner.
+
+2009-03-03 15:10  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/level.secure, conf/level.standard,
+	  src/msec/plugins/policykit.py: Better PolicyKit plugin
+	  description.
+
+2009-03-03 15:09  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/config.py, src/msec/libmsec.py,
+	  src/msec/plugins/policykit.py: Moved policykit code to new
+	  plugin.
+
+2009-03-03 15:09  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/level.standard: Once again enabling ENABLE_STARTUP_* on
+	  default level to keep in sync with
+	  crontab settings.
+
+2009-02-25 20:06  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/level.standard: Do not enable msec settings on startup on
+	  standard level.
+
+2009-02-25 20:05  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/level.standard: Do not check permissions on startup on
+	  standard level.
+
+2009-02-25 20:04  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* msec.init: Added missing echo.
+
+2009-02-25 20:04  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/server.secure, conf/server.standard: Added msec to safe
+	  servers.
+
+2009-02-25 20:03  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* msec.init: Better spacing for msec messages.
+
+2009-02-25 20:03  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/libmsec.py: Typo fix for plugins location.
+
+2009-02-25 20:02  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/config.py, src/msec/libmsec.py: Better support for
+	  plugin location.
+
+2009-02-25 19:45  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile, NEWS: 0.60.12
+
+2009-02-25 19:44  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile, src/msec/Makefile: Support for plugin installation.
+
+2009-02-25 19:38  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/plugins/apparmor.py: Do not show 'not implemented'
+	  message for AppArmor.
+
+2009-02-25 19:34  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/level.secure, conf/level.standard: Added default settings
+	  for ENABLE_STARTUP parameters.
+
+2009-02-25 19:34  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* msec.init, src/msec/config.py, src/msec/libmsec.py: Added option
+	  to automatically enforce msec permissions on startup.
+
+2009-02-25 19:29  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/config.py, src/msec/libmsec.py: Added
+	  ENABLE_STARTUP_MSEC and ENABLE_STARTUP_PERMS variables.
+
+2009-02-25 19:29  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* msec.init: Added MSEC init script.
+
+2009-02-25 19:28  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/plugins/apparmor.py: Integrating apparmor plugin into
+	  gui.
+
+2009-02-25 19:28  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/config.py, src/msec/msecgui.py: Added support for
+	  categories of security items.
+
+2009-02-25 19:27  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/libmsec.py, src/msec/plugins/apparmor.py: Better support
+	  for plugin names.
+
+2009-02-25 19:27  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/config.py, src/msec/plugins,
+	  src/msec/plugins/apparmor.py: Added sample AppArmor plugin.
+
+2009-02-25 19:26  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/libmsec.py: Implemented support for plugins.
+
+2009-02-20 14:35  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* msec.logrotate: Updating permissions on logs changed by logrotate
+	  (#47997).
+
+2009-02-20 14:34  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* cron-sh/diff_check.sh, cron-sh/security.sh,
+	  cron-sh/security_check.sh: Fixes for CHECK_RPM and
+	  CHECK_CHKROOTKIT.
+
+2009-02-13 16:09  Thierry Vignaud <tvignaud at mandriva.com>
+
+	* po/af.po, po/am.po, po/ar.po, po/az.po, po/be.po, po/bg.po,
+	  po/bn.po, po/br.po, po/bs.po, po/ca.po, po/cs.po, po/cy.po,
+	  po/da.po, po/de.po, po/el.po, po/eo.po, po/es.po, po/et.po,
+	  po/eu.po, po/fa.po, po/fi.po, po/fr.po, po/fur.po, po/ga.po,
+	  po/gl.po, po/he.po, po/hi.po, po/hr.po, po/hu.po, po/id.po,
+	  po/is.po, po/it.po, po/ja.po, po/ko.po, po/ky.po, po/lt.po,
+	  po/ltg.po, po/lv.po, po/mk.po, po/mn.po, po/ms.po, po/mt.po,
+	  po/nb.po, po/nl.po, po/nn.po, po/pa_IN.po, po/pl.po, po/pt.po,
+	  po/pt_BR.po, po/ro.po, po/ru.po, po/sc.po, po/sk.po, po/sl.po,
+	  po/sq.po, po/sr.po, po/sr@Latn.po, po/sv.po, po/ta.po, po/tg.po,
+	  po/th.po, po/tl.po, po/tr.po, po/uk.po, po/uz.po,
+	  po/uz@cyrillic.po, po/vi.po, po/wa.po, po/zh_CN.po, po/zh_TW.po:
+	  add translations from drakx
+
+2009-02-10 12:48  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/libmsec.py: Removed bogus message.
+
+2009-02-10 12:46  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/libmsec.py: Correctly handle wheel group authentication
+	  (#19091).
+
+2009-02-05 21:26  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile, src/msec/version.py: 0.60.11
+
+2009-02-05 21:25  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* ChangeLog: Regenerated changelog.
+
+2009-02-05 21:22  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* NEWS: Updated NEWS.
+
+2009-02-05 21:22  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/libmsec.py, src/msec/msec.py, src/msec/msecperms.py:
+	  Implemented quiet mode.
+
+2009-02-05 21:22  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/config.py, src/msec/msec.py, src/msec/msecperms.py:
+	  Support for getting config and logging from a different root.
+
+2009-02-05 21:22  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/libmsec.py: Falling back to interactive logging if other
+	  loggers are not available
+
+2009-02-05 21:21  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/libmsec.py, src/msec/msecperms.py: Support for running
+	  msecperms with custom root.
+
+2009-02-05 21:21  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/man.py: Removed bogus version information.
+
+2009-02-05 21:21  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile: Automatic man page regeneration.
+
+2009-02-05 21:21  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/man.py: Updated references to default level in man.
+
+2009-02-05 21:21  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/level.standard: Changed 'default' to 'standard' in
+	  CREATE_SERVER_LINK.
+
+2009-02-05 21:20  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* Makefile, NEWS: 0.60.10
+
+2009-02-05 21:20  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* po/pt_BR.po: Updated pt_BR translation.
+
+2009-02-05 21:20  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* po/msec.pot: Updated POT file.
+
+2009-02-05 21:20  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/level.default, conf/level.standard, conf/perm.default,
+	  conf/perm.standard, conf/server.default, conf/server.standard,
+	  src/msec/config.py, src/msec/msecgui.py, src/msec/msecperms.py:
+	  Renamed level 'default' to level 'standard'.
+
+2009-02-05 21:20  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* conf/level.default: Not running RPM check in default level.
+
+2009-02-05 21:19  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/config.py, src/msec/libmsec.py, src/msec/msec.py: Added
+	  support for running in chroot.
+
+2009-02-05 21:19  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* man/C/msec.8: Removed manfile (generated automatically by make
+	  man).
+
+2009-02-05 21:19  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/config.py, src/msec/libmsec.py: Added initial support
+	  for plugins.
+
+2009-02-05 21:19  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/config.py, src/msec/libmsec.py: Removed more dead code.
+
+2009-02-05 21:19  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/libmsec.py: Removed dead code.
+
+2009-02-05 21:18  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* src/msec/msecgui.py: Improved GTK packing for initial msecgui
+	  screen.
+
+2009-02-05 21:18  Eugeni Dodonov <eugeni at mandriva.com>
+
+	* po/pt_BR.po: Updates to pt_BR.
+
 2009-02-05 21:22  eugeni
 
 	* NEWS: Updated NEWS.

@@ -102,8 +102,7 @@ msgstr ""
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
-msgstr ""
-"Define o tempo limite do shell. Um valor zero significa sem tempo limite."
+msgstr "Define o tempo limite do shell. Um valor zero significa sem tempo limite."
 
 #: ../src/msec/help.py:45
 msgid ""
@@ -159,7 +158,7 @@ msgid ""
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
 "Seleciona o comprimento, número mínimo de dígitos e o número de "
-"letrasmaísculas obrigatórias na senha e mais definições."
+"letras maísculas obrigatórias na senha e mais definições."
 
 #: ../src/msec/help.py:65
 msgid "Set the root umask."
@@ -182,9 +181,9 @@ msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
-"Habilita usuários locais a conectar ao servidor gráfico X. Argumentos "
-"aceitos:yes (todas as conexões são permitidas), local (só conexões locais), "
-"no (sem conexões) "
+"Habilita usuários locais a conectar ao servidor gráfico X. Argumentos"
+"aceitos:yes (todas as conexões são permitidas), local (só conexões locais),"
+"no (sem conexões)"
 
 #: ../src/msec/help.py:75
 msgid "Enable checking for files/directories writable by everybody."
@@ -212,8 +211,7 @@ msgstr "Habilita checagem periódica de permissões nos arquivos do sistema."
 
 #: ../src/msec/help.py:85
 msgid "Set shell commands history size. A value of -1 means unlimited."
-msgstr ""
-"Determina tamanho do histórico do shell. Um valor de -1 significa ilimitado."
+msgstr "Determina tamanho do histórico do shell. Um valor de -1 significa ilimitado."
 
 #: ../src/msec/help.py:87
 msgid "Allow system reboot and shutdown to local users."
@@ -225,9 +223,7 @@ msgstr "Permite gravação dos logs das checagens periódicas nos logs do sistem
 
 #: ../src/msec/help.py:91
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr ""
-"Habilita chacagem por opções perigosas nos arquivos .rhosts/.shosts dos "
-"usuários."
+msgstr "Habilita checagem por opções perigosas nos arquivos .rhosts/.shosts dos usuários."
 
 #: ../src/msec/help.py:93
 msgid ""
@@ -259,9 +255,7 @@ msgstr "Habilita checagem por arquivos órfãos."
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
-"Habilita gerenciadores de login (kdm e gdm) a mostrar uma lista de usuários "
-"locais."
+msgstr "Habilita gerenciadores de login(kdm e gdm) mostrar a lista de usuários locais."
 
 #: ../src/msec/help.py:105
 msgid ""
@@ -269,15 +263,13 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
-"Reforçar permissões do MSEC nos arquivos e diretórios durante a "
-"inicialização. Este parâmetro no modo 'enforce' força as permissões do "
-"sistema automaticamente de acordo com as configurações de segurança do "
-"sistema."
+"Reforçar permissões do MSEC nos arquivos e diretórios durante a inicialização."
+"Este parâmetro no modo 'enforce' reforça as permissões do sistema automaticamente"
+"de acordo com as configurações de segurança do sistema."
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
-msgstr ""
-"Mostrar notificações de segurança na área de noticações usando libnotify."
+msgstr "Mostrar notificações de segurança na área de noticações usando libnotify."
 
 #: ../src/msec/help.py:109
 msgid ""
@@ -291,14 +283,11 @@ msgstr ""
 
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
-msgstr ""
-"Executar checagem de segurança de hora em hora a procura de mudanças na "
-"configuração do sistema."
+msgstr "Executar checagem a cada hora procurando mudanças nas configurações do sistema."
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
-msgstr ""
-"Pedir a senha de root quando for para o modo single user (man sulogin(8))."
+msgstr "Pedir a senha de root quando for para o modo single user (man sulogin(8))."
 
 #: ../src/msec/help.py:115
 msgid ""
@@ -323,14 +312,14 @@ msgid ""
 "local services are authorized. If no, the services must be authorized "
 "manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
-"Autorizar acesso a todos os serviços controlados por tcp_wrappers (veja "
-"hosts.deny(5)). Se sim, todos os serviços são permitidos. Se local, somente "
-"conexões a serviços locais são permitidas. Se não, o serviço tem que ser "
+"Autorizar acesso a todos os serviços controlados por tcp_wrappers (veja"
+"hosts.deny(5)). Se sim, todos os serviços são permitidos. Se local, somente"
+"conexões a serviços locais são permitidas. Se não, o serviço tem que ser"
 "autorizado manualmente em /etc/hosts.allow (veja hosts.allow(5))."
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
-msgstr "Aplicar configurações do MSEC no inicio do sistema"
+msgstr "Reforçar configurações do MSEC na inicialização do sistema"
 
 #: ../src/msec/help.py:125
 msgid "Enable periodic security check results to terminal."
@@ -464,7 +453,7 @@ msgstr "Removendo limitação de tamanho para o histórico do shell"
 
 #: ../src/msec/libmsec.py:1009
 msgid "Allowing reboot and shutdown to the console user"
-msgstr "Permitindo ao usuário do console reiniciar/desligar ."
+msgstr "Permitindo ao usuário do console reiniciar/desligar."
 
 #: ../src/msec/libmsec.py:1016
 msgid "Allowing SysRq key to the console user"
@@ -648,12 +637,9 @@ msgstr "nome de grupo não encontrado para a id %d"
 
 #: ../src/msec/libmsec.py:1551
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
-msgstr ""
-"Incapaz de checar /proc/mounts. Assumindo todos os sistemas de arquivos como "
-"sendo locais"
+msgstr "Incapaz de checar /proc/mounts. Assumindo todos os sistemas de arquivos são locais"
 
 #: ../src/msec/libmsec.py:1590
-#, fuzzy
 msgid "Forcing ownership of %s to %s"
 msgstr "Reforçando usuário em %s para %s"
 
@@ -679,7 +665,7 @@ msgstr "Grupo de %s errado: deveria ser %s"
 
 #: ../src/msec/libmsec.py:1610
 msgid "Enforcing permissions on %s to %o"
-msgstr ""
+msgstr "Reforaçando permissõem em %s para %o"
 
 #: ../src/msec/libmsec.py:1614
 msgid "Error changing permissions on %s: %s"
@@ -885,11 +871,11 @@ msgstr "Salvando alterações.."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
-msgstr "<b>%s</b> <i>%s</i>\n"
+msgstr "<b>%s:</b> <i>%s</i>\n"
 
 #: ../src/msec/msecgui.py:315
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
-msgstr "<b>Resultados de execução de teste</b> <i>%s</i>"
+msgstr "<b>Resultados de execução de teste:</b> <i>%s</i>"
 
 #: ../src/msec/msecgui.py:323
 msgid "Details"
@@ -1037,12 +1023,12 @@ msgstr ""
 "<i>%s</i>\n"
 "\n"
 "\tValor atual:\t\t\t<i>%s</i>\n"
-"\t%sValor sugerido para nível padrão:\t<i>%s</i>%s\n"
-"\t%sValor sugerido para nível seguro:\t\t<i>%s</i>%s\n"
+"\t%sValor do nível padrão:\t<i>%s</i>%s\n"
+"\t%sValor do nível seguro:\t\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "New value:"
-msgstr "Nova Valor:"
+msgstr "Novo Valor:"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
@@ -1062,7 +1048,7 @@ msgstr "_Salvar"
 
 #: ../src/msec/msecgui.py:1154
 msgid "Do you want to save changes before closing?"
-msgstr "Você deseja salvar as alterações antes de fechar ?"
+msgstr "Você deseja salvar as alterações antes de fechar?"
 
 #: ../src/msec/plugins/pam.py:68
 msgid "Using password to authenticate users"
@@ -1074,7 +1060,7 @@ msgstr "Não use senhas para autenticar usuários"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
-msgstr ""
+msgstr "Histórico de senha não suportado com pam_tcb"
 
 #: ../src/msec/plugins/pam.py:91
 msgid "Invalid maximum password history length: \"%s\""
@@ -1092,10 +1078,11 @@ msgstr "Desabilitando histórico da senha"
 msgid ""
 "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
+"Comprimento de senha inválido \"%s\". Use como parâmentro \"length,ndigits,nupper\""
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
-msgstr ""
+msgstr "Ajustando comprimento mínimo da senha %d"
 
 #: ../src/msec/plugins/pam.py:169
 msgid "Allowing su only from wheel group members"

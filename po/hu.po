@@ -1098,9 +1098,9 @@ msgid ""
 "Please specify new permissions, or use 'current' to keep current "
 "permissions.\n"
 msgstr ""
-"Megváltozott a(z) <b>%s\b> jogosultsága\n"
+"Megváltozott a(z) <b>%s<\b> jogosultsága\n"
 "Kérem ellenőrizze az új jogosultságot, és ha az megfelelő, akkor használja a "
-"'current'-et a jelenlegi érték megtartásához."
+"'current'-et a jelenlegi érték megtartásához.\n"
 
 #: ../src/msec/msecgui.py:981
 msgid "File: "

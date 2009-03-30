@@ -19,13 +19,14 @@
 # Oliver Burger <oliver@mandrivauser.de>, 2008.
 # Wolfgang Bornath <wbo@mandriva.com>, 2009.
 # Oliver Burger <oliver.burger@wizard-fire.de>, 2009.
+# Thorsten van Lil <tvl83@gmx.de>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-03-29 15:32+0200\n"
-"Last-Translator: Oliver Burger <oliver.burger@wizard-fire.de>\n"
+"PO-Revision-Date: 2009-03-30 22:26+0200\n"
+"Last-Translator: Thorsten van Lil <tvl83@gmx.de>\n"
 "Language-Team: German <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -91,12 +92,11 @@ msgstr "Akzeptiere gefälschte IPv4 Fehlermeldungen."
 
 #: ../src/msec/help.py:33
 msgid "Enable checksum verification for suid files."
-msgstr ""
+msgstr "Verifikation der Prüfsumme für suid Dateien."
 
 #: ../src/msec/help.py:35
-#, fuzzy
 msgid "User email to receive security notifications."
-msgstr "Bitte warten, Sicherheitsoptionen werden eingestellt..."
+msgstr "Benutzer E-Mail zum Empfang von Sicherheitsmeldungen."
 
 #: ../src/msec/help.py:37
 msgid "Allow autologin."
@@ -104,7 +104,7 @@ msgstr "Das automatische Anmelden eines Benutzers erlauben."
 
 #: ../src/msec/help.py:39
 msgid "Allow only users in wheel group to su to root."
-msgstr ""
+msgstr "Erlaube nur Mitglieder der wheel Gruppe mit su zu root wechseln."
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -126,27 +126,33 @@ msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
 msgstr ""
+"Überprüfung von Dateien eines Benutzers aktivieren, die weder von anderen "
+"besitzt oder schreibbar sein dürfen."
 
 #: ../src/msec/help.py:47
-#, fuzzy
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr "Prüfe auf leere Passwörter in /etc/shadow"
+msgstr "Prüfe auf leere Passwörter in /etc/shadow (man shadow(5))."
 
 #: ../src/msec/help.py:49
 msgid ""
 "Use password to authenticate users. Take EXTREMELY care when disabling "
 "passwords, as it will leave the machine vulnerable."
 msgstr ""
+"Passwort zur Authentifizierung von Benutzern aktivieren. Seien Sie bei der "
+"Deaktivierung der Passwörts extrem vorsichtig, da es den Rechner angreifbar "
+"macht."
 
 #: ../src/msec/help.py:51
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '0', "
 "default system umask is used."
 msgstr ""
+"Beim einhängen von vfat und ntfs Partitionen die umask Option setzen. "
+"Wenn umask '0' ist, so wird die Standard umask des Systems genutzt."
 
 #: ../src/msec/help.py:53
 msgid "Enable checking for open network ports."
-msgstr ""
+msgstr "Suche nach offenen Netzwerk-Ports aktivieren."
 
 #: ../src/msec/help.py:55
 #, fuzzy
@@ -155,44 +161,39 @@ msgstr "Aktiviere das Protokollieren von IPv4-fremden Paketen"
 
 #: ../src/msec/help.py:57
 msgid "Enable verification of installed RPM packages."
-msgstr ""
+msgstr "Verifikation der Prüfsumme von installierten RPM Paketen."
 
 #: ../src/msec/help.py:59
 msgid "Allow root access without password for the members of the wheel group."
-msgstr ""
+msgstr "Erlaube Mitgliedern der Gruppe wheel den passwrotlosen Root-Zugang."
 
 #: ../src/msec/help.py:61
-#, fuzzy
 msgid "Send security check results by email."
-msgstr "Ergebnis per E-Mail bekanntgeben"
+msgstr "Sicherheitsbericht per E-Mail verschicken."
 
 #: ../src/msec/help.py:63
-#, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
-"Setzt die minimale Passwort-Länge sowie minimale Anzahl von Ziffern und "
-"Großbuchstaben."
+"Setzen der minimale Passwort-Länge sowie minimale Anzahl von Ziffern und "
+"Großbuchstaben durch 'Länge,nZiffern,nGrußbuchstaben'."
 
 #: ../src/msec/help.py:65
-#, fuzzy
 msgid "Set the root umask."
-msgstr "Setzen der Root Umask"
+msgstr "Setzen der Root Umask."
 
 #: ../src/msec/help.py:67
-#, fuzzy
 msgid "Enable checking for additions/removals of sgid files."
-msgstr "Überprüfe das Hinzufügen/Entfernen von „sgid“ Dateien"
+msgstr "Überprüfe das Hinzufügen/Entfernen von „sgid“ Dateien."
 
 #: ../src/msec/help.py:69
-#, fuzzy
 msgid "Activate ethernet cards promiscuity check."
-msgstr "Aktiviere/Deaktiviere die Vermischtheitsprüfung für Netzwerkkarten."
+msgstr "Aktiviere die Vermischtheitsprüfung für Netzwerkkarten."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
-msgstr ""
+msgstr "Aktiviere das AppArmor Sicherheits-Framework beim Booten."
 
 #: ../src/msec/help.py:73
 #, fuzzy
@@ -209,13 +210,12 @@ msgstr ""
 "- \"KEINE\" (keine Verbindungen)."
 
 #: ../src/msec/help.py:75
-#, fuzzy
 msgid "Enable checking for files/directories writable by everybody."
-msgstr "Überprüfe Dateien/Verzeichnisse die schreibbar für alle sind"
+msgstr "Überprüfe Dateien/Verzeichnisse die schreibbar für alle sind."
 
 #: ../src/msec/help.py:77
 msgid "Log syslog messages on console terminal 12."
-msgstr ""
+msgstr "Leite syslog Meldungen auf Terminal 12 um."
 
 #: ../src/msec/help.py:79
 msgid "Enable IP spoofing protection."
@@ -226,10 +226,12 @@ msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
 msgstr ""
+"Definiert das Sicherheitslevel, auf welches die weiteren Einstellungen "
+"basieren."
 
 #: ../src/msec/help.py:83
 msgid "Enable periodic permission checking for system files."
-msgstr ""
+msgstr "Aktiviert periodische Checks von Systemdateien."
 
 #: ../src/msec/help.py:85
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -238,9 +240,10 @@ msgstr ""
 "unbegrenzt."
 
 #: ../src/msec/help.py:87
-#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
-msgstr "Den Neustart des Rechners durch den Konsolen Benutzer erlauben."
+msgstr ""
+"Das Neustarten und Herunterfahren des Rechners durch den lokalen Benutzer "
+"erlauben."
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
@@ -1224,3 +1227,4 @@ msgstr ""
 #, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Erlaube su nur für Mitglieder der Wheel-Gruppe"
+

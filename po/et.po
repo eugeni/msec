@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: DrakX-et\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-03-20 15:01+0200\n"
+"PO-Revision-Date: 2009-03-30 17:06+0200\n"
 "Last-Translator: Marek Laane <bald@starman.ee>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,18 +17,16 @@ msgstr ""
 "X-Generator: KBabel 1.3\n"
 
 #: ../src/msec/help.py:15
-#, fuzzy
 msgid "Enable name resolution spoofing protection."
-msgstr "Nimelahenduse võltsimiskaitse"
+msgstr "Nimelahenduse võltsimiskaitse lubamine."
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
+msgstr "Aruande saatmine e-postiga ka siis, kui muudatusi ei tuvastatud."
 
 #: ../src/msec/help.py:19
-#, fuzzy
 msgid "Accept broadcasted ICMP echo."
-msgstr "Üldlevi icmp echo lubamine."
+msgstr "Üldlevi ICMP echo lubamine."
 
 #: ../src/msec/help.py:21
 msgid ""
@@ -36,30 +34,28 @@ msgid ""
 "is set to 'wheel', users must belong to the 'wheel' group to be able to use "
 "sudo"
 msgstr ""
+"Kasutajatel lubatakse end parooliga autentida sudo abil. Kui parameetri "
+"väärtuseks on 'wheel', peab kasutaja sudo kasutamiseks kuuluma gruppi 'wheel'"
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
+msgstr "X-serverile lubatakse ühendusi võrgust TCP pordis 6000."
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr ""
+msgstr "Teadaolevate rootkittide kontrolli lubamine chkrootkiti abil."
 
 #: ../src/msec/help.py:27
-#, fuzzy
 msgid "Enable checking for additions/removals of suid root files."
-msgstr "Suid root failide lisamise/eemaldamise kontroll"
+msgstr "Suid root failide lisamise/eemaldamise kontroll."
 
 #: ../src/msec/help.py:29
-#, fuzzy
 msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
-"Crontab ja at lubamine kasutajatele.\n"
-"\n"
-"Lubatud kasutajad kirjutatakse failidesse /etc/cron.allow ja /etc/at.allow "
-"(vt man at(1) ja crontab(1))."
+"Crontab ja at lubamine kasutajatele. Lubatud kasutajad kirjutatakse failidesse "
+"/etc/cron.allow ja /etc/at.allow (vt man at(1) ja crontab(1))."
 
 #: ../src/msec/help.py:31
 msgid "Accept bogus IPv4 error messages."
@@ -67,12 +63,11 @@ msgstr "IPv4 võltsveateadete lubamine."
 
 #: ../src/msec/help.py:33
 msgid "Enable checksum verification for suid files."
-msgstr ""
+msgstr "Suid failide kontrollsumma kontrollimise lubamine."
 
 #: ../src/msec/help.py:35
-#, fuzzy
 msgid "User email to receive security notifications."
-msgstr "Palun oodake, kehtestatakse turvaparameetrid..."
+msgstr "Kasutaja e-posti aadress, kuhu saadetakse turvateated."
 
 #: ../src/msec/help.py:37
 msgid "Allow autologin."
@@ -80,7 +75,7 @@ msgstr "Automaatse sisselogimise lubamine."
 
 #: ../src/msec/help.py:39
 msgid "Allow only users in wheel group to su to root."
-msgstr ""
+msgstr "Ainult grupi wheel liikmetel on lubatud su abil administraatoriks saada."
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -92,6 +87,13 @@ msgid ""
 "services considered safe). Note that the allowed services must be placed "
 "manually into the server.SERVER_LEVEL files when necessary."
 msgstr ""
+"Nimeviida loomine, et /etc/security/msec/server osutaks failile /etc/security/"
+"msec/server.SERVER_LEVEL. Faili /etc/security/msec/server kasutab chkconfig --"
+"add otsustamaks, kas lisada teenus, kui see leidub pakettide paigaldamise "
+"ajal failis. Vaikimisi pakutakse kaht valmismääratlust: kohalik (mille puhul "
+"lülitatakse sisse ainult kohalikud teenused) ja võrgu (mille puhul lülitatakse "
+"ka sisse mõned turvaliseks peetavad võrguteenused). Pange tähele, et vajaduse "
+"korral tuleb lubatavad teenused sisestada server.SERVER_LEVEL failidesse käsitsi."
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
@@ -102,64 +104,64 @@ msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
 msgstr ""
+"Kasutaja failide õiguste kontrollimise lubamine, mis ei tohiks kuuluda "
+"kellelegi teisele või on kirjutatavad."
 
 #: ../src/msec/help.py:47
-#, fuzzy
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr "Tühja parooli kontroll /etc/shadow-s"
+msgstr "Tühja parooli kontroll failis /etc/shadow (man shadow(5))."
 
 #: ../src/msec/help.py:49
 msgid ""
 "Use password to authenticate users. Take EXTREMELY care when disabling "
 "passwords, as it will leave the machine vulnerable."
 msgstr ""
+"Parooli kasutamine kasutajate autentimiseks. Olge ERITI ETTEVAATLIKUD, "
+"kui paroolid keelate, sest see muudab masina väga haavatavaks."
 
 #: ../src/msec/help.py:51
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '0', "
 "default system umask is used."
 msgstr ""
+"Umask-i võtme määramine vfat- ja ntfs-partitsioonide haakimisel. Kui umask "
+"on '0', kasutatakse süsteemi vaikimisi umask-i."
 
 #: ../src/msec/help.py:53
 msgid "Enable checking for open network ports."
-msgstr ""
+msgstr "Avatud võrguportide kontrollimise lubamine."
 
 #: ../src/msec/help.py:55
-#, fuzzy
 msgid "Enable logging of strange network packets."
-msgstr "Ipv4 võõraste pakettide logimise lubamine."
+msgstr "Võõraste võrgupakettide logimise lubamine."
 
 #: ../src/msec/help.py:57
 msgid "Enable verification of installed RPM packages."
-msgstr ""
+msgstr "Paigaldatud RPM-pakettide kontrollimise lubamine."
 
 #: ../src/msec/help.py:59
 msgid "Allow root access without password for the members of the wheel group."
-msgstr ""
+msgstr "Paroolita administraatori õiguste lubamine grupi wheel liikmetele."
 
 #: ../src/msec/help.py:61
-#, fuzzy
 msgid "Send security check results by email."
-msgstr "Kontrolli tulemustest teatatakse e-postiga"
+msgstr "Turvakontrolli tulemustest e-kirjaga teatamine."
 
 #: ../src/msec/help.py:63
-#, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
-"Määrab parooli minimaalse pikkuse ning numbrite ja suurtähtede minimaalse "
-"hulga"
+"Parooli minimaalse pikkuse ning arvude ja suurtähtede minimaalse "
+"hulga määramine, kasutades vormingut pikkus,arvude_arv,suurtähte_arv."
 
 #: ../src/msec/help.py:65
-#, fuzzy
 msgid "Set the root umask."
 msgstr "Administraatori umask-i määramine."
 
 #: ../src/msec/help.py:67
-#, fuzzy
 msgid "Enable checking for additions/removals of sgid files."
-msgstr "Sgid-failide lisamise/eemaldamise kontroll"
+msgstr "Sgid-failide lisamise/eemaldamise kontrolli lubamine."
 
 #: ../src/msec/help.py:69
 msgid "Activate ethernet cards promiscuity check."
@@ -167,30 +169,24 @@ msgstr "Võrgukaardi mitte-eelisoleku kontrolli lubamine."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
-msgstr ""
+msgstr "AppArmori turvaraamistiku lubamine alglaadimisel"
 
 #: ../src/msec/help.py:73
-#, fuzzy
 msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
-"X'i ühenduste lubamine/keelamine:\n"
-"\n"
-"- \"Kõik\" (kõik ühendused on lubatud),\n"
-"\n"
-"- \"Kohalik\" (ainult kohalikud ühendused),\n"
-"\n"
-"- \"Puudub\" (ühendusi ei lubata)."
+"X-serveriga ühendumise lubamine kohalikele kasutajatele. Kasutada saab "
+"järgmisi argumente: jah (kõik ühendused on lubatud), kohalik (ainult "
+"kohalikud ühendused), ei (ühendusi ei lubata)."
 
 #: ../src/msec/help.py:75
-#, fuzzy
 msgid "Enable checking for files/directories writable by everybody."
-msgstr "Kõigi kirjutatavate failide/kataloogide kontroll"
+msgstr "Kõigi kirjutatavate failide/kataloogide kontrollimise lubamine."
 
 #: ../src/msec/help.py:77
 msgid "Log syslog messages on console terminal 12."
-msgstr ""
+msgstr "Syslogi teadete logimine konsooli terminalis 12."
 
 #: ../src/msec/help.py:79
 msgid "Enable IP spoofing protection."
@@ -201,59 +197,59 @@ msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
 msgstr ""
+"Baasturvataseme määramine lisaks sellele, millele tugineb kehtiv seadistus."
 
 #: ../src/msec/help.py:83
 msgid "Enable periodic permission checking for system files."
-msgstr ""
+msgstr "Süsteemsete failide perioodilise õiguste kontrolli lubamine."
 
 #: ../src/msec/help.py:85
 msgid "Set shell commands history size. A value of -1 means unlimited."
 msgstr "Shellikäskude puhvri suuruse määramine. -1 tähendab piiramatu."
 
 #: ../src/msec/help.py:87
-#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
-msgstr "Konsooli kasutajale taaskäivituse lubamine."
+msgstr "Kohalikele kasutajatele süsteemi taaskäivitamise ja seiskamise lubamine."
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
-msgstr ""
+msgstr "Perioodiliste kontrollide logimise lubamine süsteemi logisse."
 
 #: ../src/msec/help.py:91
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr ""
+msgstr "Ohtlike võtmete kontrolli lubamine kasutajate .rhosts/.shosts failides."
 
 #: ../src/msec/help.py:93
 msgid ""
 "Enable password-related checks, such as empty passwords and strange super-"
 "user accounts."
 msgstr ""
+"Parooliga seotud kontrollide lubamine (näiteks tühjad paroolid ja kummalised "
+"administraatori kontod)."
 
 #: ../src/msec/help.py:95
-#, fuzzy
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
-msgstr "Paroolipuhvri suuruse määramine vältimaks selle taaskasutamist"
+msgstr ""
+"Paroolipuhvri suuruse määramine vältimaks selle taaskasutamist. pam_tcb "
+"seda ei toeta."
 
 #: ../src/msec/help.py:97
-#, fuzzy
 msgid "Enable daily security checks."
-msgstr "Igapäevase turvakontrolli lubamine"
+msgstr "Igapäevase turvakontrolli lubamine."
 
 #: ../src/msec/help.py:99
-#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr "Administraatori vahetu sisselogimise lubamine."
+msgstr "Administraatori vahetu sisselogimise lubamine terminalis."
 
 #: ../src/msec/help.py:101
-#, fuzzy
 msgid "Enable checking for unowned files."
-msgstr "Omanikuta failidest teatamine"
+msgstr "Omanikuta failide kontrollimise lubamine."
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
+msgstr "Kuvahalduritel (KDM ja GDM) kohalike kasutajate nimekirja näitamise lubamine."
 
 #: ../src/msec/help.py:105
 msgid ""
@@ -261,10 +257,13 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
+"MSEC faili kataloogi õiguste kehtestamine süsteemi käivitamisel. Kui parameetriks "
+"on määratud 'enforce', kehtestatakse süsteemi õigused automaatselt vastavalt "
+"süsteemi turvaseadistustele."
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
-msgstr ""
+msgstr "Turvateadete näitamine süsteemisalves libnotify abil."
 
 #: ../src/msec/help.py:109
 msgid ""
@@ -272,63 +271,53 @@ msgid ""
 "password, only public-key authentication logins are allowed. See sshd_config"
 "(5) man page for more information."
 msgstr ""
+"Administraatori võrgust sisselogimise lubamine sshd kaudu. Kui on 'jah', siis on "
+"sisselogimine lubatud. Kui on 'ilma paroolita', siis lubatakse ainult avaliku "
+"võtmega autenditud sisselogimist. Täpsemalt vt sshd_config(5) manuaalilehekülge."
 
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
-msgstr ""
+msgstr "Igatunnuse turvakontrolli sooritamine süsteemi seadistuste muudatuste tuvastamiseks."
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
-msgstr ""
+msgstr "Administraatori parooli küsimine ainukasutaja tasandile suundudes (man sulogin(8))."
 
 #: ../src/msec/help.py:115
-#, fuzzy
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
 msgstr ""
-"Kuva ekspordi lubamine administraatori\n"
-"kontolt muude kasutajate kontole üle minnes.\n"
-"\n"
-"Vaadake täpsemalt pam_xauth(8)."
+"Kuva ekspordi lubamine administraatori kontolt muude kasutajate kontole "
+"üle minnes. Vaadake täpsemalt pam_xauth(8)."
 
 #: ../src/msec/help.py:117
-#, fuzzy
 msgid "Set the user umask."
-msgstr "Kasutaja faili loomise maski määramine."
+msgstr "Kasutaja umask-i määramine."
 
 #: ../src/msec/help.py:119
-#, fuzzy
 msgid "Accept ICMP echo."
-msgstr "Icmp echo lubamine."
+msgstr "ICMP echo lubamine."
 
 #: ../src/msec/help.py:121
-#, fuzzy
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
 "local services are authorized. If no, the services must be authorized "
 "manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
-"Autoriseeritakse:\n"
-"\n"
-"- kõik teenused, mida kontrollib tcp_wrappers (vt hosts.deny (5)), kui on "
-"\"KÕIK\",\n"
-"\n"
-"- ainult kohalikud, kui on \"Kohalik\",\n"
-"\n"
-"- mitte ühtegi teenust, kui on \"Puudub\".\n"
-"\n"
-"Vajalike teenuste autoriseerimiseks kasutage faili /etc/hosts.allow (vt. "
-"hosts.allow(5))."
+"Täieliku ligipääsu lubamine võrguteenustele, mida kontrollib tcp_wrappers (vt. "
+"hosts.deny (5)). Kui on 'jah', on kõik teenused lubatud. Kui on 'kohalik', "
+"on lubatud ainult ühendused kohalike teenustega. Kui on 'ei', tuleb teenused "
+"käsitsi lubada failis /etc/hosts.allow (vt. hosts.allow(5))."
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
-msgstr ""
+msgstr "MSEC-i seadistuste kehtestamine süsteemi käivitamisel"
 
 #: ../src/msec/help.py:125
 msgid "Enable periodic security check results to terminal."
-msgstr ""
+msgstr "Perioodilise turvakontrolli tulemuste väljundi lubamine terminalis."
 
 #: ../src/msec/help.py:127
 msgid ""
@@ -336,433 +325,389 @@ msgid ""
 "enabled, only users in wheel group may change advanced PolicyKit permissions "
 "and settings"
 msgstr ""
+"PolicyKiti turvaraamistiku kehtestamine kõigile kasutajatele. Kui see pole "
+"sisse lülitatud, saavad PolicyKiti põhjalikumaid õigusi ja seadistusi muuta "
+"ainult grupi wheel liikmed."
 
 #: ../src/msec/libmsec.py:326
 msgid "%s modified so launched command: %s"
-msgstr ""
+msgstr "%s on muudetud, mistõttu käivitati käsk: %s"
 
 #: ../src/msec/libmsec.py:335
 msgid "%s modified so should have run command: %s"
-msgstr ""
+msgstr "%s on muudetud, mistõttu tuleks käivitada käsk: %s"
 
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
-#, fuzzy
 msgid "deleted %s"
-msgstr "Kustuta"
+msgstr "kustutati %s"
 
 #: ../src/msec/libmsec.py:455
-#, fuzzy
 msgid "touched file %s"
-msgstr "Sellist faili pole"
+msgstr "faili %s töödeldi programmiga touch"
 
 #: ../src/msec/libmsec.py:475
-#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr "%s vahetamine %s vastu"
+msgstr "loodi nimeviit %s -> %s"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
-msgstr ""
+msgstr "fail %s liigutati asukohta %s"
 
 #: ../src/msec/libmsec.py:528 ../src/msec/libmsec.py:544
 msgid "set variable %s to %s in %s"
-msgstr ""
+msgstr "muutujale %s määrati väärtuseks %s asukohas %s"
 
 #: ../src/msec/libmsec.py:755
 msgid "Error loading plugin '%s' from %s: %s"
-msgstr ""
+msgstr "Viga plugina '%s' laadimisel asukohast %s: %s"
 
 #: ../src/msec/libmsec.py:769
 msgid "Invalid callback: %s"
-msgstr ""
+msgstr "vigane väljakutse: %s"
 
 #: ../src/msec/libmsec.py:778
 msgid "Plugin %s not found"
-msgstr ""
+msgstr "Pluginat %s ei leitud"
 
 #: ../src/msec/libmsec.py:785
 msgid "Not supported function '%s' in '%s'"
-msgstr ""
+msgstr "Toetamata funktsioon '%s' pluginas '%s'"
 
 #: ../src/msec/libmsec.py:792 ../src/msec/libmsec.py:1575
 msgid "In check-only mode, nothing is written back to disk."
-msgstr ""
+msgstr "Kontrollirežiimis ei kirjutata kettale midagi."
 
 #: ../src/msec/libmsec.py:809
-#, fuzzy
 msgid "'%s' is not available in this version"
-msgstr "%s praegusel versioonil puudub %s tugi."
+msgstr "'%s' ei ole praeguses versioonis saadaval"
 
 #: ../src/msec/libmsec.py:819
 msgid "Invalid parameter for %s: '%s'. Valid parameters: '%s'."
-msgstr ""
+msgstr "%s vigane parameeter: '%s'. Sobivad parameetrid: '%s'."
 
 #: ../src/msec/libmsec.py:834
 msgid "Allowing unrestricted chkconfig for packages"
-msgstr ""
+msgstr "Piiramatu chkconfigi lubamine pakettide puhul"
 
 #: ../src/msec/libmsec.py:839
 msgid "Restricting chkconfig for packages according to \"%s\" profile"
-msgstr ""
+msgstr "Chkconfigi piiramine pakettide puhul vastavalt \"%s\" profiilile"
 
 #: ../src/msec/libmsec.py:849
-#, fuzzy
 msgid "Setting root umask to %s"
-msgstr "%s vahetamine %s vastu"
+msgstr "Administraatori umask-iks määratakse %s"
 
 #: ../src/msec/libmsec.py:859
-#, fuzzy
 msgid "Setting users umask to %s"
-msgstr "%s vahetamine %s vastu"
+msgstr "Kasutajate umask-iks määratakse %s"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
-msgstr ""
+msgstr "Kasutajatel lubatakse X-serveriga ühenduda kõikjalt"
 
 #: ../src/msec/libmsec.py:883
 msgid "Allowing users to connect X server from localhost"
-msgstr ""
+msgstr "Kasutajatel lubatakse X-serveriga ühenduda kohalikust masinast"
 
 #: ../src/msec/libmsec.py:886
 msgid "Restricting X server connection to the console user"
-msgstr ""
+msgstr "X-serveri ühendused piiratakse konsooli kasutajaga"
 
 #: ../src/msec/libmsec.py:889
 msgid "invalid allow_x_connections arg: %s"
-msgstr ""
+msgstr "vigane allow_x_connections argument: %s"
 
 #: ../src/msec/libmsec.py:912
-#, fuzzy
 msgid "Allowing the X server to listen to tcp connections"
-msgstr "X Window ühenduste lubamine"
+msgstr "X-serveril lubatakse jälgida TCP ühendusi"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
-msgstr ""
+msgstr "X-serveril keelatakse jälgida TCP ühendusi"
 
 #: ../src/msec/libmsec.py:939
-#, fuzzy
 msgid "Invalid shell timeout \"%s\""
-msgstr "Shelli aegumine"
+msgstr "Vigane shelli aegumine \"%s\""
 
 #: ../src/msec/libmsec.py:947
-#, fuzzy
 msgid "Setting shell timeout to %s"
-msgstr "Shelli aegumine"
+msgstr "Shelli aegumiseks määratakse %s"
 
 #: ../src/msec/libmsec.py:955
-#, fuzzy
 msgid "Invalid shell history size \"%s\""
-msgstr "Shelli puhvri suurus"
+msgstr "Vigane shelli puhvri suurus \"%s\""
 
 #: ../src/msec/libmsec.py:966
-#, fuzzy
 msgid "Setting shell history size to %s"
-msgstr "Shelli puhvri suurus"
+msgstr "Shelli puhvri suuruseks määratakse %s"
 
 #: ../src/msec/libmsec.py:970
-#, fuzzy
 msgid "Removing limit on shell history size"
-msgstr "Shelli puhvri suurus"
+msgstr "Shelli puhvri suuruse piirangu eemaldamine"
 
 #: ../src/msec/libmsec.py:1009
-#, fuzzy
 msgid "Allowing reboot and shutdown to the console user"
-msgstr "Konsooli kasutajale taaskäivituse lubamine."
+msgstr "Konsooli kasutajale taaskäivituse ja seiskamise lubamine"
 
 #: ../src/msec/libmsec.py:1016
-#, fuzzy
 msgid "Allowing SysRq key to the console user"
-msgstr "Konsooli kasutajale taaskäivituse lubamine."
+msgstr "Konsooli kasutajale SysRq klahvi lubamine"
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "GDM-is seiskamise/taaskäivitamise lubamine"
 
 #: ../src/msec/libmsec.py:1023
 msgid "Allowing Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "KDM-is seiskamise/taaskäivitamise lubamine"
 
 #: ../src/msec/libmsec.py:1026
 msgid "Allowing Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "Ctrl+Alt+Del lubamine konsoolist"
 
 #: ../src/msec/libmsec.py:1030
-#, fuzzy
 msgid "Forbidding reboot and shutdown to the console user"
-msgstr "Konsooli kasutajale taaskäivituse lubamine."
+msgstr "Konsooli kasutajale taaskäivituse ja seiskamise keelamine"
 
 #: ../src/msec/libmsec.py:1038
-#, fuzzy
 msgid "Forbidding SysRq key to the console user"
-msgstr "Taaskäivituse lubamine konsooli kasutajale"
+msgstr "Konsooli kasutajale SysRq klahvi keelamine"
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "GDM-is seiskamise/taaskäivitamise keelamine"
 
 #: ../src/msec/libmsec.py:1045
 msgid "Forbidding Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "KDM-is seiskamise/taaskäivitamise keelamine"
 
 #: ../src/msec/libmsec.py:1048
 msgid "Forbidding Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "Ctrl+Alt+Del keelamine konsoolist"
 
 #: ../src/msec/libmsec.py:1062
 msgid "Allowing list of users in KDM"
-msgstr ""
+msgstr "Kasutajate nimekirja lubamine KDM-is"
 
 #: ../src/msec/libmsec.py:1066
 msgid "Allowing list of users in GDM"
-msgstr ""
+msgstr "Kasutajate nimekirja lubamine GDM-is"
 
 #: ../src/msec/libmsec.py:1071
 msgid "Forbidding list of users in KDM"
-msgstr ""
+msgstr "Kasutajate nimekirja keelamine KDM-is"
 
 #: ../src/msec/libmsec.py:1075
 msgid "Forbidding list of users in GDM"
-msgstr ""
+msgstr "Kasutajate nimekirja keelamine GDM-is"
 
 #: ../src/msec/libmsec.py:1089
-#, fuzzy
 msgid "Allowing remote root login"
 msgstr "Administraatori võrgust sisselogimise lubamine"
 
 #: ../src/msec/libmsec.py:1093
-#, fuzzy
 msgid "Forbidding remote root login"
-msgstr "Administraatori võrgust sisselogimise lubamine"
+msgstr "Administraatori võrgust sisselogimise keelamine"
 
 #: ../src/msec/libmsec.py:1097
-#, fuzzy
 msgid "Allowing remote root login only by passphrase"
-msgstr "Administraatori võrgust sisselogimise lubamine"
+msgstr "Administraatori võrgust sisselogimise lubamine ainult paroolifraasiga"
 
 #: ../src/msec/libmsec.py:1109
-#, fuzzy
 msgid "Allowing autologin"
-msgstr "Automaatse sisselogimise lubamine."
+msgstr "Automaatse sisselogimise lubamine"
 
 #: ../src/msec/libmsec.py:1112
-#, fuzzy
 msgid "Forbidding autologin"
-msgstr "Automaatse sisselogimise lubamine."
+msgstr "Automaatse sisselogimise keelamine"
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
-msgstr ""
+msgstr "Parooli aktiveerimine alglaaduris"
 
 #: ../src/msec/libmsec.py:1131
-#, fuzzy
 msgid "Removing password in boot loader"
-msgstr "Parool ei aegu"
+msgstr "Parooli eemaldamine alglaadurist"
 
 #: ../src/msec/libmsec.py:1146
-#, fuzzy
 msgid "Enabling log on console"
-msgstr "Syslog-i teadete konsoolile 12 saatmise lubamine."
+msgstr "Logi lubamine konsoolis"
 
 #: ../src/msec/libmsec.py:1150
-#, fuzzy
 msgid "Disabling log on console"
-msgstr "Logo näitamine konsoolil"
+msgstr "Logi keelamine konsoolis"
 
 #: ../src/msec/libmsec.py:1162
-#, fuzzy
 msgid "Activating daily security check"
-msgstr "Igapäevase turvakontrolli lubamine."
+msgstr "Igapäevase turvakontrolli aktiveerimine"
 
 #: ../src/msec/libmsec.py:1166
-#, fuzzy
 msgid "Disabling daily security check"
-msgstr "Igapäevane turvakontroll"
+msgstr "Igapäevane turvakontrolli keelamine"
 
 #: ../src/msec/libmsec.py:1183
 msgid "Authorizing all services"
-msgstr ""
+msgstr "Kõigi teenuste lubamine"
 
 #: ../src/msec/libmsec.py:1187
 msgid "Disabling all services"
-msgstr ""
+msgstr "Kõigi teenuste keelamine"
 
 #: ../src/msec/libmsec.py:1191
-#, fuzzy
 msgid "Disabling non local services"
-msgstr "Skännerite jagamine"
+msgstr "Mittekohalike teenuste keelamine"
 
 #: ../src/msec/libmsec.py:1224
-#, fuzzy
 msgid "Enabling name resolution spoofing protection"
-msgstr "Nimelahenduse võltsimiskaitse"
+msgstr "Nimelahenduse võltsimiskaitse lubamine"
 
 #: ../src/msec/libmsec.py:1229
-#, fuzzy
 msgid "Disabling name resolution spoofing protection"
-msgstr "Nimelahenduse võltsimiskaitse"
+msgstr "Nimelahenduse võltsimiskaitse keelamine"
 
 #: ../src/msec/libmsec.py:1257
-#, fuzzy
 msgid "Enabling sulogin in single user runlevel"
-msgstr "sulogin(8) lubamine üksikkasutaja tasemel."
+msgstr "Sulogini lubamine ainukasutaja tasemel"
 
 #: ../src/msec/libmsec.py:1261
-#, fuzzy
 msgid "Disabling sulogin in single user runlevel"
-msgstr "sulogin(8) lubamine üksikkasutaja tasemel."
+msgstr "Sulogini keelamine ainukasutaja tasemel"
 
 #: ../src/msec/libmsec.py:1272
-#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr "Vormindan saaleala %s"
+msgstr "Mseci perioodilise kontrolli lubamine"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
-msgstr ""
+msgstr "Mseci perioodilise kontrolli keelamine"
 
 #: ../src/msec/libmsec.py:1289
-#, fuzzy
 msgid "Enabling crontab and at"
-msgstr "\"Crontab\" ja \"at\" lubamine kasutajatele"
+msgstr "\"Crontab\" ja \"at\" lubamine"
 
 #: ../src/msec/libmsec.py:1296
-#, fuzzy
 msgid "Disabling crontab and at"
-msgstr "\"Crontab\" ja \"at\" lubamine kasutajatele"
+msgstr "\"Crontab\" ja \"at\" keelamine"
 
 #: ../src/msec/libmsec.py:1308
 msgid "Allowing export display from root"
-msgstr ""
+msgstr "Kuva ekspordi lubamine administraatorilt"
 
 #: ../src/msec/libmsec.py:1312
 msgid "Forbidding export display from root"
-msgstr ""
+msgstr "Kuva ekspordi keelamine administraatorilt"
 
 #: ../src/msec/libmsec.py:1323
-#, fuzzy
 msgid "Activating periodic promiscuity check"
-msgstr "Võrgukaardi mitte-eelisoleku kontrolli lubamine."
+msgstr "Perioodilise mitte-eelisoleku kontrolli lubamine"
 
 #: ../src/msec/libmsec.py:1327
-#, fuzzy
 msgid "Disabling periodic promiscuity check"
-msgstr "Võrgukaardi mitte-eelisoleku kontroll"
+msgstr "Perioodilise mitte-eelisoleku kontrolli keelamine"
 
 #: ../src/msec/libmsec.py:1353
-#, fuzzy
 msgid "Allowing direct root login"
-msgstr "Administraatori vahetu sisselogimise lubamine."
+msgstr "Administraatori vahetu sisselogimise lubamine"
 
 #: ../src/msec/libmsec.py:1370
-#, fuzzy
 msgid "Forbidding direct root login"
-msgstr "Administraatori vahetu sisselogimise lubamine."
+msgstr "Administraatori vahetu sisselogimise keelamine"
 
 #: ../src/msec/libmsec.py:1505
-#, fuzzy
 msgid "user name %s not found"
-msgstr "See kasutajanimi on liiga pikk"
+msgstr "kasutajanime %s ei leitud"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
-msgstr ""
+msgstr "ID %d jaoks ei leitud kasutajanime"
 
 #: ../src/msec/libmsec.py:1529
 msgid "group name %s not found"
-msgstr ""
+msgstr "grupi nime %s ei leitud"
 
 #: ../src/msec/libmsec.py:1541
 msgid "group name not found for id %d"
-msgstr ""
+msgstr "ID %d jaoks ei leitud grupi nime"
 
 #: ../src/msec/libmsec.py:1551
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
-msgstr ""
+msgstr "/proc/mounts kontroll nurjus. Eeldatakse, et kõik failisüsteemid on kohalikud."
 
 #: ../src/msec/libmsec.py:1590
-#, fuzzy
 msgid "Forcing ownership of %s to %s"
-msgstr "%s vahetamine %s vastu"
+msgstr "%s kasutajaks määratakse %s"
 
 #: ../src/msec/libmsec.py:1594
-#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr "viga %s lahutamisel: %s"
+msgstr "Viga %s kasutaja muutmisel: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
-msgstr ""
+msgstr "Väär %s omanik: peab olema %s"
 
 #: ../src/msec/libmsec.py:1599
-#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr "%s vahetamine %s vastu"
+msgstr "%s grupiks määratakse %s"
 
 #: ../src/msec/libmsec.py:1603
-#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr "viga %s lahutamisel: %s"
+msgstr "Viga %s grupi muutmisel: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
-msgstr ""
+msgstr "Väär %s grupp: peab olema %s"
 
 #: ../src/msec/libmsec.py:1610
 msgid "Enforcing permissions on %s to %o"
-msgstr ""
+msgstr "%s õigusteks määratakse %o"
 
 #: ../src/msec/libmsec.py:1614
 msgid "Error changing permissions on %s: %s"
-msgstr ""
+msgstr "Viga %s õiguste muutmisel: %s"
 
 #: ../src/msec/libmsec.py:1616
 msgid "Wrong permissions of %s: should be %o"
-msgstr ""
+msgstr "Väärad %s õigused: peavad olema %o"
 
 #: ../src/msec/libmsec.py:1633
 msgid "bad permissions for '%s': '%s'"
-msgstr ""
+msgstr "halvad '%s' õigused: '%s'"
 
 #: ../src/msec/libmsec.py:1658
 msgid "Non local file: \"%s\". Nothing changed."
-msgstr ""
+msgstr "Mittekohalik fail: \"%s\". Midagi ei muudetud."
 
 #: ../src/msec/libmsec.py:1700
-#, fuzzy
 msgid "Checking paths: %s"
-msgstr "%s kontrollimine"
+msgstr "Asukohtade kontrollimine. %s"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
-#, fuzzy
 msgid "Invalid security level '%s'."
-msgstr "Turvatase"
+msgstr "Vigane turvatase '%s'."
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
-msgstr ""
+msgstr "Msec: Mandriva turbekeskus (%s)\n"
 
 #: ../src/msec/msec.py:110 ../src/msec/msecperms.py:129
 msgid "Error: This application must be executed by root!"
-msgstr ""
+msgstr "Viga: seda rakendust saab käivitada ainult administraator!"
 
 #: ../src/msec/msec.py:111 ../src/msec/msecperms.py:130
 msgid "Run with --help to get help."
-msgstr ""
+msgstr "Abi nägemiseks käivitage võtmega --help."
 
 #: ../src/msec/msec.py:133 ../src/msec/msecperms.py:151
 msgid "Level '%s' not found, aborting."
-msgstr ""
+msgstr "Taset '%s' ei leitud, loobutakse."
 
 #: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
-#, fuzzy
 msgid "Switching to '%s' level."
-msgstr "%s vahetamine %s vastu"
+msgstr "Lülitumine tasemele '%s'."
 
 #: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
-#, fuzzy
 msgid "Unable to save config!"
-msgstr "Pildifaili %s laadimine ebaõnnestus"
+msgstr "Seadistuste salvestamine nurjus!"
 
 #: ../src/msec/msecgui.py:50
 msgid ""
@@ -770,6 +715,9 @@ msgid ""
 "This application allows you to configure your system security. If you wish\n"
 "to activate it, choose the appropriate security level: "
 msgstr ""
+"<big><b>Turvataseme valik</b></big>\n"
+"See rakendus võimaldab seadistada süsteemi turvalisust. Aktiveerimiseks\n"
+"valige sobiv turvatase: "
 
 #: ../src/msec/msecgui.py:54
 msgid ""
@@ -777,6 +725,9 @@ msgid ""
 "activates several non-intrusive periodic system checks. This is the "
 "suggested level for Desktop."
 msgstr ""
+"See profiil kehtestab üsna mõistlikud turvaseadistused. Aktiveeritakse "
+"mõned vähe tüli tekitavad perioodilised süsteemi kontrollid. Seda on "
+"soovitatav kasutada tavalise tööarvuti puhul."
 
 #: ../src/msec/msecgui.py:56
 msgid ""
@@ -785,6 +736,10 @@ msgid ""
 "periodic checks. This level is suggested for Servers and security-concerned "
 "systems . "
 msgstr ""
+"See profiil kehtestab maksimaalse turvalisuse, piirates isegi süsteemile "
+"ligipääsu mujalt. Samuti käivitatakse terve rida perioodilisi kontrolle. "
+"Seda on soovitatav kasutada serverite ja selliste süsteemide puhul, kus "
+"on tähtsal kohal turvalisus. "
 
 #: ../src/msec/msecgui.py:59
 msgid ""
@@ -795,6 +750,12 @@ msgid ""
 "file creation\n"
 "permissions.  "
 msgstr ""
+"<big><b>Süsteemi turvalisuse valikud</b></big>\n"
+"Need valikud määravad ära kohaliku turvaseadistuse, näiteks sisselogimise "
+"piirangud,\n"
+"parooliseadistused, lõimimise teiste turvatööriistadega ning vaikeõigused "
+"failide\n"
+"loomisel.  "
 
 #: ../src/msec/msecgui.py:64
 msgid ""
@@ -803,6 +764,10 @@ msgid ""
 "unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
+"<big><b>Võrguturvalisuse valikud</b></big>\n"
+"Need valikud määravad ära võrguturvalisuse, mis kaitseb väliste ohtude, "
+"lubamatu ligipääsu\n"
+"ja sissemurdmiskatsete eest. "
 
 #: ../src/msec/msecgui.py:68
 msgid ""
@@ -810,6 +775,9 @@ msgid ""
 "These options configure the security checks that should be executed "
 "periodically.  "
 msgstr ""
+"<big><b>Perioodilised turvakontrollid</b></big>\n"
+"Need valikud sätestavad turvakontrollid, mis tuleb käivitada "
+"perioodiliselt.  "
 
 #: ../src/msec/msecgui.py:71
 msgid ""
@@ -822,71 +790,66 @@ msgid ""
 "automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
+"<big><b>Failiõigused</b></big>\n"
+"Need valikud lubavad täppishäälestada oluliste failide ja kataloogide "
+"süsteemseid õigusi.\n"
+"Kehtestatud õigusi kontrollitakse perioodiliselt ning kõigist omaniku, "
+"grupi või\n"
+"kehtivate õiguste muutmisest antakse teada. Õigusi saab lasta jõuga "
+"kehtestada ning\n"
+"anda neile kindlaks määratud väärtuse, kui tuvastatakse muudatus.  "
 
 #: ../src/msec/msecgui.py:77
-#, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "Palun oodake... Rakendatakse seadistused"
+msgstr "Kas salvestada ja kehtestada uus seadistus?"
 
 #: ../src/msec/msecgui.py:143
-#, fuzzy
 msgid "_File"
-msgstr "Tšiili"
+msgstr "_Fail"
 
 #: ../src/msec/msecgui.py:145
-#, fuzzy
 msgid "_Save configuration"
-msgstr "Heliseadistused"
+msgstr "_Salvesta seadistus"
 
 #: ../src/msec/msecgui.py:147
-#, fuzzy
 msgid "_Import configuration"
-msgstr "Heliseadistused"
+msgstr "_Impordi seadistus"
 
 #: ../src/msec/msecgui.py:148
-#, fuzzy
 msgid "_Export configuration"
-msgstr "Heliseadistused"
+msgstr "_Ekspordi seadistus"
 
 #: ../src/msec/msecgui.py:150
-#, fuzzy
 msgid "_Quit"
-msgstr "Välju"
+msgstr "_Välju"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
-#, fuzzy
 msgid "_Help"
-msgstr "Abi"
+msgstr "_Abi"
 
 #: ../src/msec/msecgui.py:155
-#, fuzzy
 msgid "_About"
-msgstr "Misvärk"
+msgstr "Tea_ve"
 
 #: ../src/msec/msecgui.py:182
-#, fuzzy
 msgid "MSEC: System Security and Audit"
-msgstr "Süsteemsed seadistused"
+msgstr "MSEC: süsteemi turvalisus ja audit"
 
 #: ../src/msec/msecgui.py:200
-#, fuzzy
 msgid "Basic security"
-msgstr "Igapäevane turvakontroll"
+msgstr "Põhiseadistused"
 
 #: ../src/msec/msecgui.py:201
-#, fuzzy
 msgid "System security"
-msgstr "Turvalisus"
+msgstr "Süsteemi turvalisus"
 
 #: ../src/msec/msecgui.py:202
-#, fuzzy
 msgid "Network security"
-msgstr "Võrguprofiil"
+msgstr "Võrguturvalisus"
 
 #: ../src/msec/msecgui.py:203
-#, fuzzy
 msgid "Periodic checks"
-msgstr "Perioodiline kontroll"
+msgstr "Perioodilised kontrollid"
 
 #: ../src/msec/msecgui.py:204 ../src/msec/msecgui.py:809
 msgid "Permissions"
@@ -894,52 +857,47 @@ msgstr "Õigused"
 
 #: ../src/msec/msecgui.py:237
 msgid "MSEC option changes"
-msgstr ""
+msgstr "MSEC-i valikute muutused"
 
 #: ../src/msec/msecgui.py:237
-#, fuzzy
 msgid "option"
-msgstr "Eelistused"
+msgstr "valik"
 
 #: ../src/msec/msecgui.py:238
-#, fuzzy
 msgid "System permissions changes"
-msgstr "Süsteemi parameetrid"
+msgstr "Süsteemi õiguste muutused"
 
 #: ../src/msec/msecgui.py:238
-#, fuzzy
 msgid "permission check"
-msgstr "Õigused"
+msgstr "õiguste kontroll"
 
 #: ../src/msec/msecgui.py:248
 msgid "changed %s <b>%s</b> (%s -> %s)"
-msgstr ""
+msgstr "muudeti %s <b>%s</b> (%s -> %s)"
 
 #: ../src/msec/msecgui.py:253
 msgid "added %s <b>%s</b> (%s)"
-msgstr ""
+msgstr "lisati %s <b>%s</b> (%s)"
 
 #: ../src/msec/msecgui.py:258
 msgid "removed %s <b>%s</b>"
-msgstr ""
+msgstr "eemaldati %s <b>%s</b>"
 
 #: ../src/msec/msecgui.py:262
-#, fuzzy
 msgid "no changes"
-msgstr "Jagamiseta"
+msgstr "muutusi pole"
 
 #: ../src/msec/msecgui.py:274
-#, fuzzy
 msgid "Saving changes.."
-msgstr "Pakettide eemaldamine..."
+msgstr "Muutuste salvestamine..."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
-msgstr ""
+msgstr "<b>%s:</b> <i>%s</i>\n"
 
 #: ../src/msec/msecgui.py:315
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
-msgstr ""
+msgstr "<b>MSEC-i testi tulemused:</b> <i>%s</i>"
 
 #: ../src/msec/msecgui.py:323
 msgid "Details"
@@ -947,53 +905,47 @@ msgstr "Üksikasjad"
 
 #: ../src/msec/msecgui.py:329
 msgid "MSEC messages (%s): %d"
-msgstr ""
+msgstr "MSEC-i teated (%s): %d"
 
 #: ../src/msec/msecgui.py:343
 msgid "Details (%d changes).."
-msgstr ""
+msgstr "Üksikasjad (%d muutust)..."
 
 #: ../src/msec/msecgui.py:388
 msgid "No base msec level specified, using '%s'"
-msgstr ""
+msgstr "Msec-i baastase pole määratud, kasutatakse '%s'"
 
 #: ../src/msec/msecgui.py:391
 msgid "Detected base msec level '%s'"
-msgstr ""
+msgstr "Tuvastati msec-i baastase '%s'"
 
 #: ../src/msec/msecgui.py:396
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr ""
+msgstr "Leiti kohandatud seadistuste baastase '%s'. Vaikimisi kasutatakse '%s'"
 
 #: ../src/msec/msecgui.py:424
-#, fuzzy
 msgid "Security Option"
-msgstr "Parameetrite määramine"
+msgstr "Turvavalik"
 
 #: ../src/msec/msecgui.py:434
-#, fuzzy
 msgid "Description"
-msgstr "Parameetrite määramine"
+msgstr "Kirjeldus"
 
 #: ../src/msec/msecgui.py:439
-#, fuzzy
 msgid "Value"
-msgstr "Belau"
+msgstr "Väärtus"
 
 #: ../src/msec/msecgui.py:449
-#, fuzzy
 msgid "Invalid option '%s'!"
-msgstr "Põhivalikud"
+msgstr "Vigane valik '%s'!"
 
 #: ../src/msec/msecgui.py:499
-#, fuzzy
 msgid "Enable MSEC tool"
-msgstr "CD-lt laadimine lubatud?"
+msgstr "MSEC-i tööriista lubamine"
 
 #: ../src/msec/msecgui.py:506
-#, fuzzy
 msgid "Select the base security level"
-msgstr "Palun valige sobiv turvatase"
+msgstr "Baasturvataseme valimine"
 
 #: ../src/msec/msecgui.py:510
 msgid "Standard"
@@ -1004,47 +956,40 @@ msgid "Secure"
 msgstr "Turvaline"
 
 #: ../src/msec/msecgui.py:540
-#, fuzzy
 msgid "Send security alerts by email"
-msgstr "Turvahoiatused:"
+msgstr "Turvahoiatuste saatmine e-postiga"
 
 #: ../src/msec/msecgui.py:547
-#, fuzzy
 msgid "System administrator email address:"
-msgstr "Administraatori (root) parool"
+msgstr "Süsteemi administraatori e-posti aadress:"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
-msgstr ""
+msgstr "Turvahoiatuste näitamine töölaual"
 
 #: ../src/msec/msecgui.py:727
-#, fuzzy
 msgid "Enable periodic security checks"
-msgstr "Msec igatunnise turvakontrolli lubamine"
+msgstr "Perioodiliste turvakontrollide lubamine"
 
 #: ../src/msec/msecgui.py:791
 msgid "Path"
 msgstr "Asukoht"
 
 #: ../src/msec/msecgui.py:797
-#, fuzzy
 msgid "User"
-msgstr "Kasuta"
+msgstr "Kasutaja"
 
 #: ../src/msec/msecgui.py:803
-#, fuzzy
 msgid "Group"
-msgstr "Grupi ID"
+msgstr "Grupp"
 
 #: ../src/msec/msecgui.py:817
-#, fuzzy
 msgid "Enforce"
-msgstr "Ignoreeritakse"
+msgstr "Jõuga kehtestamine"
 
 #: ../src/msec/msecgui.py:861
-#, fuzzy
 msgid "Reset to default level permissions"
-msgstr "Helimikseri väärtuste lähtestamine"
+msgstr "Taasta taseme vaikeõigused"
 
 #: ../src/msec/msecgui.py:866
 msgid "Add a rule"
@@ -1056,11 +1001,11 @@ msgstr "Kustuta"
 
 #: ../src/msec/msecgui.py:954
 msgid "Changing permissions for %s"
-msgstr ""
+msgstr "%s õiguste muutmine"
 
 #: ../src/msec/msecgui.py:961
 msgid "Adding new permission check"
-msgstr ""
+msgstr "Uue õiguse lisamine"
 
 #: ../src/msec/msecgui.py:973
 msgid ""
@@ -1068,31 +1013,29 @@ msgid ""
 "Please specify new permissions, or use 'current' to keep current "
 "permissions.\n"
 msgstr ""
+"<b>%s</b> õiguste muutmine\n"
+"Palun määra uued õigused või kirjuta 'current' kehtivate õiguste "
+"säilitamiseks.\n"
 
 #: ../src/msec/msecgui.py:981
-#, fuzzy
 msgid "File: "
-msgstr "/_Fail"
+msgstr "Fail: "
 
 #: ../src/msec/msecgui.py:989
-#, fuzzy
 msgid "User: "
-msgstr "Kasutaja ID"
+msgstr "Kasutaja: "
 
 #: ../src/msec/msecgui.py:997
-#, fuzzy
 msgid "Group: "
-msgstr "Grupi ID"
+msgstr "Grupp: "
 
 #: ../src/msec/msecgui.py:1005
-#, fuzzy
 msgid "Permissions: "
-msgstr "Õigused"
+msgstr "Õigused: "
 
 #: ../src/msec/msecgui.py:1066
-#, fuzzy
 msgid "Select new value for %s"
-msgstr "Valige %s jaoks püsivarafail"
+msgstr "%s uue väärtuse valimine"
 
 #: ../src/msec/msecgui.py:1075
 msgid ""
@@ -1102,96 +1045,91 @@ msgid ""
 "\t%sStandard level value:\t<i>%s</i>%s\n"
 "\t%sSecure level value:\t\t<i>%s</i>%s\n"
 msgstr ""
+"<i>%s</i>\n"
+"\n"
+"\tKehtiv väärtus:\t\t\t<i>%s</i>\n"
+"\t%sStandardtaseme väärtus:\t<i>%s</i>%s\n"
+"\t%sTurvalise taseme väärtus:\t\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1086
-#, fuzzy
 msgid "New value:"
-msgstr "Uus-Kaledoonia"
+msgstr "Uus väärtus"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
-msgstr ""
+msgstr "Kas salvestada muutused?"
 
 #: ../src/msec/msecgui.py:1150
-#, fuzzy
 msgid "_Cancel"
-msgstr "Loobu"
+msgstr "Loo_bu"
 
 #: ../src/msec/msecgui.py:1151
-#, fuzzy
 msgid "_Ignore"
-msgstr "Ignoreeritakse"
+msgstr "E_ira"
 
 #: ../src/msec/msecgui.py:1152
-#, fuzzy
 msgid "_Save"
-msgstr "Salvesta"
+msgstr "_Salvesta"
 
 #: ../src/msec/msecgui.py:1154
-#, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "Kas salvestada /etc/fstab muudatused"
+msgstr "Kas salvestada enne sulgemist muutused?"
 
 #: ../src/msec/plugins/pam.py:68
-#, fuzzy
 msgid "Using password to authenticate users"
 msgstr "Parooli kasutamine kasutajate autentimiseks"
 
 #: ../src/msec/plugins/pam.py:72
-#, fuzzy
 msgid "Don't use password to authenticate users"
-msgstr "Parooli kasutamine kasutajate autentimiseks"
+msgstr "Parooli ei kasutata kasutajate autentimiseks"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
-msgstr ""
+msgstr "pam_tcb ei toeta paroolipuhvrit."
 
 #: ../src/msec/plugins/pam.py:91
-#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr "Paroolipuhvri suurus"
+msgstr "Vigane paroolipuhvri maksimumsuurus: \"%s\""
 
 #: ../src/msec/plugins/pam.py:106
-#, fuzzy
 msgid "Setting password history to %d."
-msgstr "Paroolipuhvri suurus"
+msgstr "Paroolipuhvri suuruseks määratakse %d."
 
 #: ../src/msec/plugins/pam.py:112
-#, fuzzy
 msgid "Disabling password history"
-msgstr "Paroolipuhvri suurus"
+msgstr "Paroolipuhvri keelamine"
 
 #: ../src/msec/plugins/pam.py:124
 msgid ""
 "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
+"Vigane parooli pikkus \"%s\". Parameetriteks peavad olema "
+"\"pikkus,arvude_arv,suurtähtede_arv\""
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
-msgstr ""
+msgstr "Paroolipuhvri miinimumiks määratakse %d"
 
 #: ../src/msec/plugins/pam.py:169
-#, fuzzy
 msgid "Allowing su only from wheel group members"
 msgstr "Su lubamine ainult grupi wheel liikmetele"
 
 #: ../src/msec/plugins/pam.py:173
 msgid "no wheel group"
-msgstr ""
+msgstr "gruppi wheel ei ole"
 
 #: ../src/msec/plugins/pam.py:177
 msgid "wheel group is empty"
-msgstr ""
+msgstr "grupp wheel on tühi"
 
 #: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"
-msgstr ""
+msgstr "Su lubamine kõigile"
 
 #: ../src/msec/plugins/pam.py:204
 msgid "Allowing transparent root access for wheel group members"
-msgstr ""
+msgstr "Läbipaistva administraatori ligipääsu lubamine grupi wheel liikmetele"
 
 #: ../src/msec/plugins/pam.py:211
-#, fuzzy
 msgid "Disabling transparent root access for wheel group members"
-msgstr "Su lubamine ainult grupi wheel liikmetele"
+msgstr "Läbipaistva administraatori ligipääsu keelamine grupi wheel liikmetele"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX-ky\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
+"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
 "PO-Revision-Date: 2005-04-20 20:27+0500\n"
 "Last-Translator: Nurlan Borubaev <nurlan@tamga.info>\n"
 "Language-Team: Kyrgyz\n"
@@ -607,7 +607,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1590
 #, fuzzy
-msgid "Enforcing user on %s to %s"
+msgid "Forcing ownership of %s to %s"
 msgstr "ext2 файл системасынын ext3'кө өткөрүү"
 
 #: ../src/msec/libmsec.py:1594

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
+"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
 "PO-Revision-Date: 2005-03-19 23:18+0600\n"
 "Last-Translator: Samia <mailsamia2001@yahoo.com>\n"
 "Language-Team: Bangla <mdk-translation@bengalinux.org>\n"
@@ -696,7 +696,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1590
 #, fuzzy
-msgid "Enforcing user on %s to %s"
+msgid "Forcing ownership of %s to %s"
 msgstr "ext2 থেকে ext3-তে পরিবর্তিত হচ্ছে"
 
 #: ../src/msec/libmsec.py:1594

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
+"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
 "PO-Revision-Date: 2002-09-27 17:45+0200\n"
 "Last-Translator: Raivo Saars <spaiks@inbox.lv>\n"
 "Language-Team: Latvian <ll10nt@listes.murds.lv>\n"
@@ -616,7 +616,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1590
 #, fuzzy
-msgid "Enforcing user on %s to %s"
+msgid "Forcing ownership of %s to %s"
 msgstr "Pārslēgšanās no ext2 uz ext3"
 
 #: ../src/msec/libmsec.py:1594

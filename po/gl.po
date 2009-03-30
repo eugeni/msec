@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libDrakX-gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
+"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
 "PO-Revision-Date: 2008-04-13 20:37+0100\n"
 "Last-Translator: Leandro Regueiro <leandro DOT regueiro AT gmail DOT com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -691,7 +691,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1590
 #, fuzzy
-msgid "Enforcing user on %s to %s"
+msgid "Forcing ownership of %s to %s"
 msgstr "Cambiando de %s a %s"
 
 #: ../src/msec/libmsec.py:1594

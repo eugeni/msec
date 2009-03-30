@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
+"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
 "PO-Revision-Date: 2006-09-05 23:14+0200\n"
 "Last-Translator: Pablo Saratxaga <pablo@walon.org>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -690,7 +690,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1590
 #, fuzzy
-msgid "Enforcing user on %s to %s"
+msgid "Forcing ownership of %s to %s"
 msgstr "Discandjî di ext2 a ext3"
 
 #: ../src/msec/libmsec.py:1594

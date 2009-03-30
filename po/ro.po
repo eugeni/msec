@@ -44,7 +44,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX 7.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 12:58+BRT\n"
+"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
 "PO-Revision-Date: 2009-03-29 23:32+0100\n"
 "Last-Translator: Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>\n"
 "Language-Team: Mandrivausers.ro\n"
@@ -119,7 +119,8 @@ msgid "Allow autologin."
 msgstr "Permite autentificarea automată."
 
 #: ../src/msec/help.py:39
-msgid "Allow only users in wheel grup to su to root."
+#, fuzzy
+msgid "Allow only users in wheel group to su to root."
 msgstr "Permite numai utilizatorilor din grupul wheel să facă su la root,"
 
 #: ../src/msec/help.py:41
@@ -695,7 +696,8 @@ msgstr ""
 "fișiere sînt locale."
 
 #: ../src/msec/libmsec.py:1590
-msgid "Enforcing user on %s to %s"
+#, fuzzy
+msgid "Forcing ownership of %s to %s"
 msgstr "Se forțează utilizatorul pe %s la %s"
 
 #: ../src/msec/libmsec.py:1594
@@ -805,8 +807,8 @@ msgstr ""
 #: ../src/msec/msecgui.py:64
 msgid ""
 "<big><b>Network security options</b></big>\n"
-"These options define the network security against remote treats, unauthorized "
-"accesses,\n"
+"These options define the network security against remote threats, "
+"unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
 

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
+"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
 "PO-Revision-Date: 2009-03-29 15:29+0200\n"
 "Last-Translator: Keld Simonsen <keld@dkuug.dk>\n"
 "Language-Team:  <en@li.org>\n"
@@ -53,7 +53,8 @@ msgstr ""
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på tcp-port 6000."
+msgstr ""
+"Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på tcp-port 6000."
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -265,7 +266,8 @@ msgstr "Slå på sjekk for filer uten eier."
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr "Tillat sesjonshåndterere (KDM og GDM) å vise en liste med lokale brukere."
+msgstr ""
+"Tillat sesjonshåndterere (KDM og GDM) å vise en liste med lokale brukere."
 
 #: ../src/msec/help.py:105
 msgid ""
@@ -650,7 +652,8 @@ msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr "Kan ikke sjekke /proc/mounts. Antar at alle filsystem er lokale."
 
 #: ../src/msec/libmsec.py:1590
-msgid "Enforcing user on %s to %s"
+#, fuzzy
+msgid "Forcing ownership of %s to %s"
 msgstr "Fremtvinger bruker %s på %s"
 
 #: ../src/msec/libmsec.py:1594
@@ -772,6 +775,7 @@ msgstr ""
 "forhåndsvalgte rettigheter ved opprettelse av filer."
 
 #: ../src/msec/msecgui.py:64
+#, fuzzy
 msgid ""
 "<big><b>Network security options</b></big>\n"
 "These options define the network security against remote threats, "
@@ -779,8 +783,8 @@ msgid ""
 "and breakin attempts.  "
 msgstr ""
 "<big><b>Valg for nettverkssikkerhet</b></big>\n"
-"Disse valgene definerer "
-"nettverkssikkerheten for tiltak mot eksterne trusler, uautorisert tilgang,\n"
+"Disse valgene definerer nettverkssikkerheten for tiltak mot eksterne "
+"trusler, uautorisert tilgang,\n"
 "og innbruddsforsøk.  "
 
 #: ../src/msec/msecgui.py:68
@@ -932,7 +936,8 @@ msgstr "Oppdaget grunnleggende msec-nivå '%s'"
 
 #: ../src/msec/msecgui.py:396
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr "Tilpasset grunnleggende-oppsettsnivå '%s' funnet. Vil forhåndsvelge '%s'"
+msgstr ""
+"Tilpasset grunnleggende-oppsettsnivå '%s' funnet. Vil forhåndsvelge '%s'"
 
 #: ../src/msec/msecgui.py:424
 msgid "Security Option"
@@ -1107,8 +1112,10 @@ msgid "Disabling password history"
 msgstr "Slå av passordhistorie"
 
 #: ../src/msec/plugins/pam.py:124
-msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
-msgstr "Ugyldig passordlengde \"%s\". Bruk \"length,ndigits,nupper\" som parametre."
+msgid ""
+"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgstr ""
+"Ugyldig passordlengde \"%s\". Bruk \"length,ndigits,nupper\" som parametre."
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
@@ -1137,4 +1144,3 @@ msgstr "Tillater gjennomsiktig root-tilgang for medlemmer av wheel-gruppen"
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av gjennomsiktig root-tilgang for medlemmer av wheel-gruppen"
-

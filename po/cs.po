@@ -7,14 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
+"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
 "PO-Revision-Date: 2009-03-28 23:09+0100\n"
 "Last-Translator: Michal Bukovjan <bukm@centrum.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: ../src/msec/help.py:15
@@ -56,8 +57,9 @@ msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
-"Povolit příkaz crontab a at všem uživatelům. Vyjmenovaní uživatelé se zapíšou "
-"do souborů /etc/cron.allow a /etc/at.allow (více man at(1) a crontab(1))."
+"Povolit příkaz crontab a at všem uživatelům. Vyjmenovaní uživatelé se "
+"zapíšou do souborů /etc/cron.allow a /etc/at.allow (více man at(1) a crontab"
+"(1))."
 
 #: ../src/msec/help.py:31
 msgid "Accept bogus IPv4 error messages."
@@ -89,13 +91,14 @@ msgid ""
 "services considered safe). Note that the allowed services must be placed "
 "manually into the server.SERVER_LEVEL files when necessary."
 msgstr ""
-"Vytvoří symbolický odkaz /etc/security/msec/server ukazující na /etc/security/msec/"
-"server.ÚROVEŇ_SERVERU. Příkaz chkconfig --add používá odkaz /etc/security/msec/server "
-"při rozhodování, zda přidat službu, pokud je přítomna v souboru při instalaci balíčků. "
-"Ve výchozím stavu jsou k dispozici dvě přednastavení: local (které umožňuje pouze "
-"lokální služby) a remote (které rovněž umožňuje některé vzdálené služby, pokud "
-"jsou považovány za bezpečné). Mějte na paměti, že povolené služby musí být "
-"umístěny do souborů server.ÚROVEŇ_SERVERU ručně, pokud je to potřeba."
+"Vytvoří symbolický odkaz /etc/security/msec/server ukazující na /etc/"
+"security/msec/server.ÚROVEŇ_SERVERU. Příkaz chkconfig --add používá odkaz /"
+"etc/security/msec/server při rozhodování, zda přidat službu, pokud je "
+"přítomna v souboru při instalaci balíčků. Ve výchozím stavu jsou k dispozici "
+"dvě přednastavení: local (které umožňuje pouze lokální služby) a remote "
+"(které rovněž umožňuje některé vzdálené služby, pokud jsou považovány za "
+"bezpečné). Mějte na paměti, že povolené služby musí být umístěny do souborů "
+"server.ÚROVEŇ_SERVERU ručně, pokud je to potřeba."
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
@@ -106,8 +109,8 @@ msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
 msgstr ""
-"Kontrolovat oprávnění na souborech uživatelů, které by neměly být vlastněny nikým "
-"jiným nebo zapisovatelné."
+"Kontrolovat oprávnění na souborech uživatelů, které by neměly být vlastněny "
+"nikým jiným nebo zapisovatelné."
 
 #: ../src/msec/help.py:47
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
@@ -143,7 +146,8 @@ msgstr "Ověřovat instalované RPM balíčky."
 
 #: ../src/msec/help.py:59
 msgid "Allow root access without password for the members of the wheel group."
-msgstr "Povolit přístup s právy root bez hesla pro uživatele ze skupiny „wheel”."
+msgstr ""
+"Povolit přístup s právy root bez hesla pro uživatele ze skupiny „wheel”."
 
 #: ../src/msec/help.py:61
 msgid "Send security check results by email."
@@ -167,7 +171,8 @@ msgstr "Kontrolovat přidané/odebrané soubory sgid."
 
 #: ../src/msec/help.py:69
 msgid "Activate ethernet cards promiscuity check."
-msgstr "Aktivovat kontrolu na nastavení promiskuitního režimu síťového rozhraní."
+msgstr ""
+"Aktivovat kontrolu na nastavení promiskuitního režimu síťového rozhraní."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
@@ -178,9 +183,9 @@ msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
-"Povolit lokálním uživatelům připojení k X serveru. Možné volby jsou: "
-"yes (jsou povolena všechna připojení), local (pouze lokální připojení), "
-"no (žádné připojení)."
+"Povolit lokálním uživatelům připojení k X serveru. Možné volby jsou: yes "
+"(jsou povolena všechna připojení), local (pouze lokální připojení), no "
+"(žádné připojení)."
 
 #: ../src/msec/help.py:75
 msgid "Enable checking for files/directories writable by everybody."
@@ -198,7 +203,9 @@ msgstr "Povolit ochranu před IP spoofingem."
 msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
-msgstr "Definuje základní úroveň zabezpečení, na které je postaveno současné nastavení."
+msgstr ""
+"Definuje základní úroveň zabezpečení, na které je postaveno současné "
+"nastavení."
 
 #: ../src/msec/help.py:83
 msgid "Enable periodic permission checking for system files."
@@ -218,7 +225,8 @@ msgstr "Zaznamenávat pravidelné kontroly do systémových záznamů."
 
 #: ../src/msec/help.py:91
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr "Kontrolovat nebezpečné volby v uživatelských souborech .rhosts/.shosts."
+msgstr ""
+"Kontrolovat nebezpečné volby v uživatelských souborech .rhosts/.shosts."
 
 #: ../src/msec/help.py:93
 msgid ""
@@ -233,8 +241,8 @@ msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
 msgstr ""
-"Nastavit délku historie pro použitá hesla, aby se zabránilo znovupoužití hesla. "
-"Toto není podporováno pam_tcb."
+"Nastavit délku historie pro použitá hesla, aby se zabránilo znovupoužití "
+"hesla. Toto není podporováno pam_tcb."
 
 #: ../src/msec/help.py:97
 msgid "Enable daily security checks."
@@ -250,7 +258,8 @@ msgstr "Vyhledávat soubory bez vlastníka."
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr "Umožnit správcům obrazovky (kdm a gdm) zobrazovat seznam lokálních uživatelů."
+msgstr ""
+"Umožnit správcům obrazovky (kdm a gdm) zobrazovat seznam lokálních uživatelů."
 
 #: ../src/msec/help.py:105
 msgid ""
@@ -258,13 +267,14 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
-"Vynutit oprávnění k adresářům a souborům podle MSEC při startu systému. Pokud je tento "
-"parametr nastaven na „enforce”, systémová oprávnění budou automaticky vynucena podle "
-"nastavení zabezpečení systému."
+"Vynutit oprávnění k adresářům a souborům podle MSEC při startu systému. "
+"Pokud je tento parametr nastaven na „enforce”, systémová oprávnění budou "
+"automaticky vynucena podle nastavení zabezpečení systému."
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
-msgstr "Zobrazovat bezpečnostní upozornění v oznamovací oblasti pomocí libnotify."
+msgstr ""
+"Zobrazovat bezpečnostní upozornění v oznamovací oblasti pomocí libnotify."
 
 #: ../src/msec/help.py:109
 msgid ""
@@ -272,9 +282,10 @@ msgid ""
 "password, only public-key authentication logins are allowed. See sshd_config"
 "(5) man page for more information."
 msgstr ""
-"Umožnit přihlášení uživatele root pomocí sshd. Pokud je nastaveno na „yes”, přihlášení je umožněno. "
-"Pokud je nastaveno bez hesla, jsou povolena pouze přihlášení s ověřením pomocí veřejného klíče. Více "
-"informací naleznete v manuálové stránce sshd_config(5)."
+"Umožnit přihlášení uživatele root pomocí sshd. Pokud je nastaveno na „yes”, "
+"přihlášení je umožněno. Pokud je nastaveno bez hesla, jsou povolena pouze "
+"přihlášení s ověřením pomocí veřejného klíče. Více informací naleznete v "
+"manuálové stránce sshd_config(5)."
 
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
@@ -282,7 +293,9 @@ msgstr "Provádět hodinové bezpečnostní kontroly změn v nastavení systému
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
-msgstr "Dotázat se na heslo uživatele root při přechodu do jednouživatelského režimu (man sulogin(8))."
+msgstr ""
+"Dotázat se na heslo uživatele root při přechodu do jednouživatelského režimu "
+"(man sulogin(8))."
 
 #: ../src/msec/help.py:115
 msgid ""
@@ -308,10 +321,10 @@ msgid ""
 "manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
 "Umožnit plný přístup k síťovým službám kontrolovaným pomocí tcp_wrapper "
-"(více hosts.deny(5)). Pokud je nastaveno „yes”, jsou dostupné všechny služby. "
-"Pokud je nastaveno „local”, jsou povoleny pouze přístupy k lokálním službám. "
-"Pokud je nastaveno „no”, je třeba povolit služby ručně v souboru /etc/host.allow "
-"(více najdete v man hosts.allow(5))."
+"(více hosts.deny(5)). Pokud je nastaveno „yes”, jsou dostupné všechny "
+"služby. Pokud je nastaveno „local”, jsou povoleny pouze přístupy k lokálním "
+"službám. Pokud je nastaveno „no”, je třeba povolit služby ručně v souboru /"
+"etc/host.allow (více najdete v man hosts.allow(5))."
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
@@ -327,9 +340,9 @@ msgid ""
 "enabled, only users in wheel group may change advanced PolicyKit permissions "
 "and settings"
 msgstr ""
-"Povolit bezpečnostní infrastrukturu PolicyKit pro všechny uživatele. Pokud není "
-"tato volba nastavena, mohou měnit pokročilá nastavení a oprávnění infastruktury "
-"PolicyKit pouze uživatelé ze skupiny „wheel”."
+"Povolit bezpečnostní infrastrukturu PolicyKit pro všechny uživatele. Pokud "
+"není tato volba nastavena, mohou měnit pokročilá nastavení a oprávnění "
+"infastruktury PolicyKit pouze uživatelé ze skupiny „wheel”."
 
 #: ../src/msec/libmsec.py:326
 msgid "%s modified so launched command: %s"
@@ -633,10 +646,13 @@ msgstr "název skupiny nenalezen pro id %d"
 
 #: ../src/msec/libmsec.py:1551
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
-msgstr "Nelze zkontrolovat /proc/mounts. Předpokládám, že všechny souborové systémy jsou lokální."
+msgstr ""
+"Nelze zkontrolovat /proc/mounts. Předpokládám, že všechny souborové systémy "
+"jsou lokální."
 
 #: ../src/msec/libmsec.py:1590
-msgid "Enforcing user on %s to %s"
+#, fuzzy
+msgid "Forcing ownership of %s to %s"
 msgstr "Vynucuji uživatele vlastníka %s na %s"
 
 #: ../src/msec/libmsec.py:1594
@@ -728,8 +744,8 @@ msgid ""
 "suggested level for Desktop."
 msgstr ""
 "Tento profil nastavuje přiměřeně bezpečnou sadu bezpečnostních vlastností. "
-"Aktivuje několik nerušivých pravidelných systémových kontrol. Toto je doporučovaná "
-"úroveň pro stolní počítač."
+"Aktivuje několik nerušivých pravidelných systémových kontrol. Toto je "
+"doporučovaná úroveň pro stolní počítač."
 
 #: ../src/msec/msecgui.py:56
 msgid ""
@@ -758,6 +774,7 @@ msgstr ""
 "práva při vytváření souborů."
 
 #: ../src/msec/msecgui.py:64
+#, fuzzy
 msgid ""
 "<big><b>Network security options</b></big>\n"
 "These options define the network security against remote threats, "
@@ -775,7 +792,8 @@ msgid ""
 "periodically.  "
 msgstr ""
 "<big><b>Pravidelné bezpečnostní kontroly</b></big>\n"
-"Tyto volby nastavují bezpečnostní kontroly, které by měly být spouštěny pravidelně."
+"Tyto volby nastavují bezpečnostní kontroly, které by měly být spouštěny "
+"pravidelně."
 
 #: ../src/msec/msecgui.py:71
 msgid ""
@@ -789,9 +807,12 @@ msgid ""
 "changing them to the specified values when a change is detected.  "
 msgstr ""
 "<big><b>Oprávnění k souborům</b></big>\n"
-"Tyto volby umožňují jemně vyladit systémová oprávnění k důležitým souborům a adresářům.\n"
-"Následující oprávnění jsou pravidelně kontrolována a jakákoli změna v uživateli, skupině\n"
-"nebo v oprávnění je nahlášena. Oprávnění lze vynutit a automaticky je změnit\n"
+"Tyto volby umožňují jemně vyladit systémová oprávnění k důležitým souborům a "
+"adresářům.\n"
+"Následující oprávnění jsou pravidelně kontrolována a jakákoli změna v "
+"uživateli, skupině\n"
+"nebo v oprávnění je nahlášena. Oprávnění lze vynutit a automaticky je "
+"změnit\n"
 "na zadané hodnoty, pokud je zjištěna jejich změna."
 
 #: ../src/msec/msecgui.py:77
@@ -916,7 +937,9 @@ msgstr "Detekována základní úroveň msec „%s”"
 
 #: ../src/msec/msecgui.py:396
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr "Byla nalezena vlastní základní úroveň nastavení „%s”. Jako výchozí bude použita „%s”"
+msgstr ""
+"Byla nalezena vlastní základní úroveň nastavení „%s”. Jako výchozí bude "
+"použita „%s”"
 
 #: ../src/msec/msecgui.py:424
 msgid "Security Option"
@@ -1009,8 +1032,8 @@ msgid ""
 "permissions.\n"
 msgstr ""
 "Měním oprávnění na <b>%s</b>\n"
-"Zadejte prosím nová oprávnění nebo použijte „current”pro zachování současných "
-"oprávění.\n"
+"Zadejte prosím nová oprávnění nebo použijte „current”pro zachování "
+"současných oprávění.\n"
 
 #: ../src/msec/msecgui.py:981
 msgid "File: "
@@ -1095,8 +1118,11 @@ msgid "Disabling password history"
 msgstr "Vypínám historii hesel"
 
 #: ../src/msec/plugins/pam.py:124
-msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
-msgstr "Neplatná délka hesla „%s”. Použijte jako parametr „délku_hesla,počet_číslic,počet_velkých_písmen”"
+msgid ""
+"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgstr ""
+"Neplatná délka hesla „%s”. Použijte jako parametr „délku_hesla,počet_číslic,"
+"počet_velkých_písmen”"
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
@@ -1125,4 +1151,3 @@ msgstr "Povoluji transparentní přístup uživatele root členům skupiny wheel
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Vypínám transparentní přístup uživatele root členům skupiny wheel"
-

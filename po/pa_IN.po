@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
+"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
 "PO-Revision-Date: 2005-03-27 17:55+0530\n"
 "Last-Translator: Jaswinder Singh Phulewala <jaswinderphulewala@yahoo.com>\n"
 "Language-Team: Punjabi <punlinux-i18n@lists.soruceforge.net>\n"
@@ -685,7 +685,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1590
 #, fuzzy
-msgid "Enforcing user on %s to %s"
+msgid "Forcing ownership of %s to %s"
 msgstr "ext2 ਤੋਂ ext3 ਤਬਦੀਲੀ"
 
 #: ../src/msec/libmsec.py:1594

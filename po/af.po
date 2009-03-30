@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX-af\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
+"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
 "PO-Revision-Date: 2005-04-21 17:33+0200\n"
 "Last-Translator: Dirk van der Walt <dirkvanderwalt@webmail.co.za>\n"
 "Language-Team: Afrikaans\n"
@@ -681,7 +681,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1590
 #, fuzzy
-msgid "Enforcing user on %s to %s"
+msgid "Forcing ownership of %s to %s"
 msgstr "Oorskakeling van ext2 na ext3"
 
 #: ../src/msec/libmsec.py:1594

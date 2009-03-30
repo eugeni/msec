@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX-fi - LE2005 Release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
+"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
 "PO-Revision-Date: 2008-03-31 17:58+0300\n"
 "Last-Translator: Anssi Hannula <anssi@mandriva.org>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -696,7 +696,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1590
 #, fuzzy
-msgid "Enforcing user on %s to %s"
+msgid "Forcing ownership of %s to %s"
 msgstr "Vaihdetaan %s tyyppiin %s"
 
 #: ../src/msec/libmsec.py:1594

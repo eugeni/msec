@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
+"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
 "PO-Revision-Date: 2005-09-21 14:03+0100\n"
 "Last-Translator: Tibor Pittich <Tibor.Pittich@mandriva.org>\n"
 "Language-Team:  <i18n@mandrake.sk>\n"
@@ -702,7 +702,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1590
 #, fuzzy
-msgid "Enforcing user on %s to %s"
+msgid "Forcing ownership of %s to %s"
 msgstr "Prepínam z ext2 na ext3"
 
 #: ../src/msec/libmsec.py:1594

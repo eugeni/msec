@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-27 13:31+BRT\n"
+"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
 "PO-Revision-Date: 2009-03-29 15:32+0200\n"
 "Last-Translator: Oliver Burger <oliver.burger@wizard-fire.de>\n"
 "Language-Team: German <cooker-i18n@mandrivalinux.org>\n"
@@ -711,7 +711,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1590
 #, fuzzy
-msgid "Enforcing user on %s to %s"
+msgid "Forcing ownership of %s to %s"
 msgstr "Wechsle von %s zu %s"
 
 #: ../src/msec/libmsec.py:1594
@@ -1224,4 +1224,3 @@ msgstr ""
 #, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Erlaube su nur für Mitglieder der Wheel-Gruppe"
-

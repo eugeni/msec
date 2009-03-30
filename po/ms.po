@@ -764,7 +764,7 @@ msgstr ""
 #: ../src/msec/msecgui.py:64
 msgid ""
 "<big><b>Network security options</b></big>\n"
-"These options define the network security agains remote threats, "
+"These options define the network security against remote threats, "
 "unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""

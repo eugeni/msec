@@ -1587,7 +1587,7 @@ class PERMS:
 
             if newuser != None:
                 if force and really_commit:
-                    self.log.warn(_("Enforcing user on %s to %s") % (file, self.get_user_name(newuser)))
+                    self.log.warn(_("Forcing ownership of %s to %s") % (file, self.get_user_name(newuser)))
                     try:
                         os.chown(file, newuser, -1)
                     except:

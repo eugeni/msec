@@ -1,4 +1,3 @@
-# translation of is2.po to Icelandic
 # Icelandic translation of msec.po
 # Translation file for Mandriva Linux graphic install, DrakX
 # Copyright (C) 1999,2003, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
@@ -10,10 +9,10 @@
 # Pjetur G. Hjaltason <pjetur@pjetur.net>, 2003, 2005, 2006, 2007, 2008, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: is2\n"
+"Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-03-26 07:27+0000\n"
+"PO-Revision-Date: 2009-03-31 12:05+0000\n"
 "Last-Translator: Pjetur G. Hjaltason <pjetur@pjetur.net>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
 "MIME-Version: 1.0\n"
@@ -78,11 +77,8 @@ msgid "Allow autologin."
 msgstr "Leyfa sjálfvirka innskráningu."
 
 #: ../src/msec/help.py:39
-#, fuzzy
 msgid "Allow only users in wheel group to su to root."
-msgstr ""
-"Aðeins notendur í \"weel\" hópnum fá að verða kerfisstjórar (root) með \"su"
-"\"."
+msgstr "Aðeins notendur í \"weel\" hópnum fá að verða kerfisstjórar (root) með \"su\"."
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -291,11 +287,11 @@ msgstr ""
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
-msgstr ""
+msgstr "Þvinga MSEC stillingar við ræsingu kerfis"
 
 #: ../src/msec/help.py:125
 msgid "Enable periodic security check results to terminal."
-msgstr ""
+msgstr "Virkja að reglulegar öryggisathuganir séu sendar á skjá."
 
 #: ../src/msec/help.py:127
 msgid ""
@@ -306,11 +302,11 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:326
 msgid "%s modified so launched command: %s"
-msgstr ""
+msgstr "%s breytt svo keyrð skipun: %s"
 
 #: ../src/msec/libmsec.py:335
 msgid "%s modified so should have run command: %s"
-msgstr ""
+msgstr "%s breytt svo það hefði keyrt skipun: %s"
 
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
 msgid "deleted %s"
@@ -334,11 +330,11 @@ msgstr "set breytu %s sem %s í %s"
 
 #: ../src/msec/libmsec.py:755
 msgid "Error loading plugin '%s' from %s: %s"
-msgstr ""
+msgstr "Villa við hleðslu á íforriti '%s' frá %s: %s"
 
 #: ../src/msec/libmsec.py:769
 msgid "Invalid callback: %s"
-msgstr ""
+msgstr "Ógilt svarkall: %s"
 
 #: ../src/msec/libmsec.py:778
 msgid "Plugin %s not found"
@@ -350,7 +346,7 @@ msgstr "Fallið '%s' er ekki stutt í '%s'"
 
 #: ../src/msec/libmsec.py:792 ../src/msec/libmsec.py:1575
 msgid "In check-only mode, nothing is written back to disk."
-msgstr ""
+msgstr "Í athugunar-ham er ekkert skrifað á diska."
 
 #: ../src/msec/libmsec.py:809
 msgid "'%s' is not available in this version"
@@ -358,131 +354,131 @@ msgstr "'%s' er ekki til í þessari útgáfu"
 
 #: ../src/msec/libmsec.py:819
 msgid "Invalid parameter for %s: '%s'. Valid parameters: '%s'."
-msgstr ""
+msgstr "Ógilt viðfang fyrir %s: '%s'. Gild viðföng eru: '%s'."
 
 #: ../src/msec/libmsec.py:834
 msgid "Allowing unrestricted chkconfig for packages"
-msgstr ""
+msgstr "Leyfa ótakmarkaðan aðgang pakka að chkconfig"
 
 #: ../src/msec/libmsec.py:839
 msgid "Restricting chkconfig for packages according to \"%s\" profile"
-msgstr ""
+msgstr "Takmarka aðgang pakka chkconfig samkvæmt sniði \"%s\""
 
 #: ../src/msec/libmsec.py:849
 msgid "Setting root umask to %s"
-msgstr ""
+msgstr "Setja umask root sem %s"
 
 #: ../src/msec/libmsec.py:859
 msgid "Setting users umask to %s"
-msgstr ""
+msgstr "Setja umask notanda sem %s"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
-msgstr ""
+msgstr "Leyfa notendum hvaðan sem er að tengjast við X miðlara"
 
 #: ../src/msec/libmsec.py:883
 msgid "Allowing users to connect X server from localhost"
-msgstr ""
+msgstr "Leyfa notendum að tengjast við X miðlara frá localhost"
 
 #: ../src/msec/libmsec.py:886
 msgid "Restricting X server connection to the console user"
-msgstr ""
+msgstr "Takmarka tengingar X miðlara við stjórnskjá"
 
 #: ../src/msec/libmsec.py:889
 msgid "invalid allow_x_connections arg: %s"
-msgstr ""
+msgstr "ógild breyta allow_x_connections: %s"
 
 #: ../src/msec/libmsec.py:912
 msgid "Allowing the X server to listen to tcp connections"
-msgstr ""
+msgstr "Leyfa X miðlara að hlusta á tcp tengingar"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
-msgstr ""
+msgstr "Banna X miðlara að hlusta á tcp tengingu"
 
 #: ../src/msec/libmsec.py:939
 msgid "Invalid shell timeout \"%s\""
-msgstr ""
+msgstr "Ógildur óvirkni-tími skeljar \"%s\""
 
 #: ../src/msec/libmsec.py:947
 msgid "Setting shell timeout to %s"
-msgstr ""
+msgstr "Setja óvirkni-tíma skeljar sem %s"
 
 #: ../src/msec/libmsec.py:955
 msgid "Invalid shell history size \"%s\""
-msgstr ""
+msgstr "Ógild hámarksstærð skeljarsögu \"%s\""
 
 #: ../src/msec/libmsec.py:966
 msgid "Setting shell history size to %s"
-msgstr ""
+msgstr "Setja hámarksstærð skeljarsögu sem %s"
 
 #: ../src/msec/libmsec.py:970
 msgid "Removing limit on shell history size"
-msgstr ""
+msgstr "Fjarlægja takmarkanir á stærð skeljarsögu"
 
 #: ../src/msec/libmsec.py:1009
 msgid "Allowing reboot and shutdown to the console user"
-msgstr ""
+msgstr "Leyfa stjórnskjáar-notanda að slökkva á kerfis eða enduræsa"
 
 #: ../src/msec/libmsec.py:1016
 msgid "Allowing SysRq key to the console user"
-msgstr ""
+msgstr "Leyfa notkun SysRq lykils á stjórnskjá"
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "Leyfa að slökkva á kerfi eða endurræsa í GDM"
 
 #: ../src/msec/libmsec.py:1023
 msgid "Allowing Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "Leyfa að slökkva á kerfi eða endurræsa í KDM"
 
 #: ../src/msec/libmsec.py:1026
 msgid "Allowing Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "Leyfa Ctrl-Alt-Del frá stjórnskjá"
 
 #: ../src/msec/libmsec.py:1030
 msgid "Forbidding reboot and shutdown to the console user"
-msgstr ""
+msgstr "Banna stjórnskjáar-notanda að slökkva á kerfis eða enduræsa"
 
 #: ../src/msec/libmsec.py:1038
 msgid "Forbidding SysRq key to the console user"
-msgstr ""
+msgstr "Banna notkun SysRq lykils á stjórnskjá"
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "Banna að slökkva á kerfi eða endurræsa í GDM"
 
 #: ../src/msec/libmsec.py:1045
 msgid "Forbidding Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "Banna að slökkva á kerfi eða endurræsa í KDM"
 
 #: ../src/msec/libmsec.py:1048
 msgid "Forbidding Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "Banna Ctrl-Alt-Del frá stjórnskjá"
 
 #: ../src/msec/libmsec.py:1062
 msgid "Allowing list of users in KDM"
-msgstr ""
+msgstr "Leyfa notandalista í KDM"
 
 #: ../src/msec/libmsec.py:1066
 msgid "Allowing list of users in GDM"
-msgstr ""
+msgstr "Leyfa notandalista í GDM"
 
 #: ../src/msec/libmsec.py:1071
 msgid "Forbidding list of users in KDM"
-msgstr ""
+msgstr "Ekki sýna notandalista í KDM"
 
 #: ../src/msec/libmsec.py:1075
 msgid "Forbidding list of users in GDM"
-msgstr ""
+msgstr "Ekki sýna notandalista í GDM"
 
 #: ../src/msec/libmsec.py:1089
 msgid "Allowing remote root login"
-msgstr ""
+msgstr "Leyfa fjartengda innskráningu kerfisstjóra"
 
 #: ../src/msec/libmsec.py:1093
 msgid "Forbidding remote root login"
-msgstr ""
+msgstr "Banna fjartengda innskráningu kerfisstjóra"
 
 #: ../src/msec/libmsec.py:1097
 msgid "Allowing remote root login only by passphrase"
@@ -490,19 +486,19 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1109
 msgid "Allowing autologin"
-msgstr ""
+msgstr "Leyfa sjálfvirka innskráningu"
 
 #: ../src/msec/libmsec.py:1112
 msgid "Forbidding autologin"
-msgstr ""
+msgstr "Banna sjálfvirka innskráningu"
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
-msgstr ""
+msgstr "Virkja lykilorð í kerfisstjóra"
 
 #: ../src/msec/libmsec.py:1131
 msgid "Removing password in boot loader"
-msgstr ""
+msgstr "Fjarlægja lykilorð í ræsistjóra"
 
 #: ../src/msec/libmsec.py:1146
 msgid "Enabling log on console"
@@ -530,7 +526,7 @@ msgstr "Banna allar þjónustur"
 
 #: ../src/msec/libmsec.py:1191
 msgid "Disabling non local services"
-msgstr ""
+msgstr "Banna allar fjartengdar þjónustur"
 
 #: ../src/msec/libmsec.py:1224
 msgid "Enabling name resolution spoofing protection"
@@ -542,27 +538,27 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1257
 msgid "Enabling sulogin in single user runlevel"
-msgstr ""
+msgstr "Leyfa sulogin í einnota ham"
 
 #: ../src/msec/libmsec.py:1261
 msgid "Disabling sulogin in single user runlevel"
-msgstr ""
+msgstr "banna sulogin í einnota ham"
 
 #: ../src/msec/libmsec.py:1272
 msgid "Enabling msec periodic runs"
-msgstr ""
+msgstr "Virkja reglubundnar msec athuganir"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
-msgstr ""
+msgstr "Aftengja reglubundnar msec athuganir"
 
 #: ../src/msec/libmsec.py:1289
 msgid "Enabling crontab and at"
-msgstr ""
+msgstr "Virkja crontab og at"
 
 #: ../src/msec/libmsec.py:1296
 msgid "Disabling crontab and at"
-msgstr ""
+msgstr "Aftengja crontab og at"
 
 #: ../src/msec/libmsec.py:1308
 msgid "Allowing export display from root"
@@ -582,44 +578,43 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1353
 msgid "Allowing direct root login"
-msgstr ""
+msgstr "Leyfa beina innskráningu kerfisstjóra"
 
 #: ../src/msec/libmsec.py:1370
 msgid "Forbidding direct root login"
-msgstr ""
+msgstr "Banna beina innskráningu kerfisstjóra"
 
 #: ../src/msec/libmsec.py:1505
 msgid "user name %s not found"
-msgstr ""
+msgstr "notandi %s finnst ekki"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
-msgstr ""
+msgstr "notandi fannst ekki með auðkennisnúmer %d"
 
 #: ../src/msec/libmsec.py:1529
 msgid "group name %s not found"
-msgstr ""
+msgstr "hópur %s finnst ekki"
 
 #: ../src/msec/libmsec.py:1541
 msgid "group name not found for id %d"
-msgstr ""
+msgstr "hópur fannst ekki með auðkennisnúmer %d"
 
 #: ../src/msec/libmsec.py:1551
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
-msgstr ""
+msgstr "Get ekki skoðað /proc/mounts. Geri ráð fyrir að öll skráakerfi séu staðbundin."
 
 #: ../src/msec/libmsec.py:1590
-#, fuzzy
 msgid "Forcing ownership of %s to %s"
-msgstr "Þvinga %s í hóp %s"
+msgstr "Þvinga eiganda af %s sem %s"
 
 #: ../src/msec/libmsec.py:1594
 msgid "Error changing user on %s: %s"
-msgstr ""
+msgstr "Villa við breytingu á eiganda %s: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
-msgstr ""
+msgstr "Rangur eigandi á %s: ætti að vera %s"
 
 #: ../src/msec/libmsec.py:1599
 msgid "Enforcing group on %s to %s"
@@ -838,11 +833,11 @@ msgstr "Vista breytingar.."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
-msgstr ""
+msgstr "<b>%s:</b> <i>%s</i>\n"
 
 #: ../src/msec/msecgui.py:315
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
-msgstr ""
+msgstr "<b>Niðurstöður MSEC athugana:</b> <i>%s</i>"
 
 #: ../src/msec/msecgui.py:323
 msgid "Details"
@@ -910,11 +905,11 @@ msgstr "Netfang kerfisstjóra:"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
-msgstr ""
+msgstr "Birta öryggisviðvaranir á skjáborði"
 
 #: ../src/msec/msecgui.py:727
 msgid "Enable periodic security checks"
-msgstr ""
+msgstr "Virkja reglulegar öryggisathuganir"
 
 #: ../src/msec/msecgui.py:791
 msgid "Path"
@@ -946,11 +941,11 @@ msgstr "Eyða"
 
 #: ../src/msec/msecgui.py:954
 msgid "Changing permissions for %s"
-msgstr ""
+msgstr "Breyti heimildum fyir %s"
 
 #: ../src/msec/msecgui.py:961
 msgid "Adding new permission check"
-msgstr ""
+msgstr "Bæta við nýrri heimilda-athugun"
 
 #: ../src/msec/msecgui.py:973
 msgid ""
@@ -958,6 +953,9 @@ msgid ""
 "Please specify new permissions, or use 'current' to keep current "
 "permissions.\n"
 msgstr ""
+"Breyti heimildum á <b>%s</b>\n"
+"Tilgreindu nýjar heimildir, eða notaðu 'current' til að halda "
+"núverandi heimildum.\n"
 
 #: ../src/msec/msecgui.py:981
 msgid "File: "
@@ -1014,57 +1012,57 @@ msgstr "Viltu vista breytingar áður en þú hættir?"
 
 #: ../src/msec/plugins/pam.py:68
 msgid "Using password to authenticate users"
-msgstr ""
+msgstr "Nota lykilorð til að auðkenna notendur"
 
 #: ../src/msec/plugins/pam.py:72
 msgid "Don't use password to authenticate users"
-msgstr ""
+msgstr "Ekki nota lykilorð til að auðkenna notendur"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
-msgstr ""
+msgstr "Lykilorða-saga er ekki studd með pam_tcb."
 
 #: ../src/msec/plugins/pam.py:91
 msgid "Invalid maximum password history length: \"%s\""
-msgstr ""
+msgstr "Ógilt viðfang, hámarks-lengd lykilorða-sögu: \"%s\""
 
 #: ../src/msec/plugins/pam.py:106
 msgid "Setting password history to %d."
-msgstr ""
+msgstr "Set lykilorða-sögu sem %d."
 
 #: ../src/msec/plugins/pam.py:112
 msgid "Disabling password history"
-msgstr ""
+msgstr "Aftengi lykilorða-sögu"
 
 #: ../src/msec/plugins/pam.py:124
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
-msgstr ""
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgstr "Lengd lykilorðs ógild \"%s\". Notið \"lengd,fj-stafa,fj-hástafa\" sem viðfang"
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
-msgstr ""
+msgstr "Set lágmarkslengd lykilorðs sem %d"
 
 #: ../src/msec/plugins/pam.py:169
 msgid "Allowing su only from wheel group members"
-msgstr ""
+msgstr "Leyfi aðeins notkun su frá notendum í wheel hópnum"
 
 #: ../src/msec/plugins/pam.py:173
 msgid "no wheel group"
-msgstr ""
+msgstr "enginn wheel hópur"
 
 #: ../src/msec/plugins/pam.py:177
 msgid "wheel group is empty"
-msgstr ""
+msgstr "wheel hópur er tómur"
 
 #: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"
-msgstr ""
+msgstr "Leyfa öllum að nota su"
 
 #: ../src/msec/plugins/pam.py:204
 msgid "Allowing transparent root access for wheel group members"
-msgstr ""
+msgstr "Leyfa gagnsæan kerfisstjórnunar-aðgang fyrir meðlimi í wheel hópnum"
 
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
-msgstr ""
+msgstr "Aftengja gagnsæan kerfisstjórnunar-aðgang fyrir meðlimi í wheel hópnum"
+

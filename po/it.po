@@ -1,4 +1,4 @@
-# translation of it.po to Italian
+# translation of msec.po to Italian
 # Copyright (C) 2000, 2001 Mandriva S.A.
 #
 # Paolo Lorenzin <pasusu@tin.it>, 2000.
@@ -11,16 +11,16 @@
 # Moreno Manzini <moreno@mediacom.it>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: it\n"
+"Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-03-28 14:23+0100\n"
-"Last-Translator: Andrea Celli <andrea.celli@libero.it>\n"
-"Language-Team: Italian <timl@freelists.org>\n"
+"PO-Revision-Date: 2009-03-31 07:58+0200\n"
+"Last-Translator: Moreno Manzini <moreno@mediacom.it>\n"
+"Language-Team: Italian <timl@freelist.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.2\n"
+"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:15
@@ -31,8 +31,7 @@ msgstr ""
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
-"Invia una email di rapporto anche se non sono stati rilevati cambiamenti."
+msgstr "Invia una email di rapporto anche se non sono stati rilevati cambiamenti."
 
 #: ../src/msec/help.py:19
 msgid "Accept broadcasted ICMP echo."
@@ -50,18 +49,15 @@ msgstr ""
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Permette al server X di accettare connessioni dalla rete sulla porta tcp 6000"
+msgstr "Permette al server X di accettare connessioni dalla rete sulla porta tcp 6000"
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr ""
-"Abilita la ricerca di rootkits conosciuti con l'utilizzo di chkrootkit."
+msgstr "Abilita la ricerca di rootkits conosciuti con l'utilizzo di chkrootkit."
 
 #: ../src/msec/help.py:27
 msgid "Enable checking for additions/removals of suid root files."
-msgstr ""
-"Abilita il controllo sull'aggiunta o la rimozione di file root con flag suid."
+msgstr "Abilita il controllo sull'aggiunta o la rimozione di file root con flag suid."
 
 #: ../src/msec/help.py:29
 msgid ""
@@ -90,8 +86,7 @@ msgstr "Permette il login automatico."
 
 #: ../src/msec/help.py:39
 msgid "Allow only users in wheel group to su to root."
-msgstr ""
-"Permette solo agli utenti del gruppo 'wheel' di usare su per diventare root."
+msgstr "Permette solo agli utenti del gruppo 'wheel' di usare su per diventare root."
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -182,8 +177,7 @@ msgstr "Imposta la umask per la creazione dei file di root."
 
 #: ../src/msec/help.py:67
 msgid "Enable checking for additions/removals of sgid files."
-msgstr ""
-"Abilita il controllo sull'aggiunta o la rimozione di file con flag sgid."
+msgstr "Abilita il controllo sull'aggiunta o la rimozione di file con flag sgid."
 
 #: ../src/msec/help.py:69
 msgid "Activate ethernet cards promiscuity check."
@@ -191,8 +185,7 @@ msgstr "Attiva il controllo di promiscuità sulle schede ethernet."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
-msgstr ""
-"Abilita l'avvio all'accensione dell'infrastruttura di sicurezza AppArmor"
+msgstr "Abilita l'avvio all'accensione dell'infrastruttura di sicurezza AppArmor"
 
 #: ../src/msec/help.py:73
 msgid ""
@@ -301,8 +294,7 @@ msgstr ""
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
-msgstr ""
-"Mostra i messaggi di sicurezza nel vassoio di sistema usando libnotify."
+msgstr "Mostra i messaggi di sicurezza nel vassoio di sistema usando libnotify."
 
 #: ../src/msec/help.py:109
 msgid ""
@@ -318,8 +310,7 @@ msgstr ""
 
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
-msgstr ""
-"Esegue i controlli orari sui cambiamenti nella configurazione del sistema."
+msgstr "Esegue i controlli orari sui cambiamenti nella configurazione del sistema."
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
@@ -685,13 +676,12 @@ msgstr ""
 "siano locali"
 
 #: ../src/msec/libmsec.py:1590
-#, fuzzy
 msgid "Forcing ownership of %s to %s"
-msgstr "Forza il propietario di %s a essere %s"
+msgstr "Forza il proprietario di %s a essere %s"
 
 #: ../src/msec/libmsec.py:1594
 msgid "Error changing user on %s: %s"
-msgstr "Errore cambiando utente da %s: %s"
+msgstr "Errore cambiando proprietario di %s: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
@@ -699,11 +689,11 @@ msgstr "Proprietario di %s: errato deve essere %s"
 
 #: ../src/msec/libmsec.py:1599
 msgid "Enforcing group on %s to %s"
-msgstr "Forzato gruppo da %s a %s"
+msgstr "Forzato gruppo di %s a %s"
 
 #: ../src/msec/libmsec.py:1603
 msgid "Error changing group on %s: %s"
-msgstr "Errore cambiando gruppo da %s: %s"
+msgstr "Errore cambiando gruppo di %s: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
@@ -711,11 +701,11 @@ msgstr "Gruppo di %s: errato deve essere %s"
 
 #: ../src/msec/libmsec.py:1610
 msgid "Enforcing permissions on %s to %o"
-msgstr "Forzati permessi da %s a %s"
+msgstr "Forzati permessi di %s a %s"
 
 #: ../src/msec/libmsec.py:1614
 msgid "Error changing permissions on %s: %s"
-msgstr "Errore cambiando i permessi da %s: %s"
+msgstr "Errore cambiando i permessi di %s: %s"
 
 #: ../src/msec/libmsec.py:1616
 msgid "Wrong permissions of %s: should be %o"
@@ -723,7 +713,7 @@ msgstr "Permessi di %s: errati devono essere %o"
 
 #: ../src/msec/libmsec.py:1633
 msgid "bad permissions for '%s': '%s'"
-msgstr "Permessi errati per '%s': '%s'"
+msgstr "Permessi errati di '%s': '%s'"
 
 #: ../src/msec/libmsec.py:1658
 msgid "Non local file: \"%s\". Nothing changed."
@@ -811,7 +801,6 @@ msgstr ""
 "file. "
 
 #: ../src/msec/msecgui.py:64
-#, fuzzy
 msgid ""
 "<big><b>Network security options</b></big>\n"
 "These options define the network security against remote threats, "
@@ -975,8 +964,7 @@ msgstr "Rilevato il livello base di msec %s"
 
 #: ../src/msec/msecgui.py:396
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr ""
-"Trovato il livello base personalizzato '%s'. Sarà quello predefinito per '%s'"
+msgstr "Trovato il livello base personalizzato '%s'. Sarà quello predefinito per '%s'"
 
 #: ../src/msec/msecgui.py:424
 msgid "Security Option"
@@ -1157,8 +1145,7 @@ msgid "Disabling password history"
 msgstr "Disabilitata la cronologia delle password"
 
 #: ../src/msec/plugins/pam.py:124
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
 "Lunghezza password \"%s\" non valida. Usare \"Lunghezza,NumCifre,NumMaiuscole"
 "\" come parametri."
@@ -1189,5 +1176,5 @@ msgstr "Permesso l'accesso trasparente a root agli utenti del gruppo 'wheel'."
 
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
-msgstr ""
-"Disabilitato l'accesso trasparente a root agli utenti del gruppo 'wheel'."
+msgstr "Disabilitato l'accesso trasparente a root agli utenti del gruppo 'wheel'."
+

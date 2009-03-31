@@ -731,6 +731,9 @@ msgid ""
 "activates several non-intrusive periodic system checks. This is the "
 "suggested level for Desktop."
 msgstr ""
+"Este perfil configura um set confiável de opções de segurança. Ele ativa "
+"um número severo de checagens não intrusivas ao sistema. Este é o nível "
+"recomendado para usuários domésticos."
 
 #: ../src/msec/msecgui.py:56
 msgid ""
@@ -739,6 +742,10 @@ msgid ""
 "periodic checks. This level is suggested for Servers and security-concerned "
 "systems . "
 msgstr ""
+"Este perfil é configurado para oferecer segurança máxima, inclusive limitando "
+"o acesso remoto ao sistema. Também executa um número maior de checagens"
+"periódicas. Esté nível é sugerido para Servidores e máquinas que necessitem de"
+"segurança extrema . "
 
 #: ../src/msec/msecgui.py:59
 msgid ""
@@ -749,6 +756,12 @@ msgid ""
 "file creation\n"
 "permissions.  "
 msgstr ""
+"<big><b>Opções de Segurança do Sistema</b></big>\n"
+"Estas opções controlam as configurações de segurança local, como login "
+"restrições,\n"
+"configuração de senhas, integração com outras ferramentas de segurança, e "
+"permissões\n"
+"padrão na criação de arquivos.  "
 
 #: ../src/msec/msecgui.py:64
 msgid ""
@@ -757,6 +770,10 @@ msgid ""
 "unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
+"<big><b>Opções de Segurança da Rede</b></big>\n"
+"Estas opções definem as opções da rede contra ataques remotos, "
+"acesso sem autorização,\n"
+"e tentativas de invasão.  "
 
 #: ../src/msec/msecgui.py:68
 msgid ""
@@ -764,6 +781,9 @@ msgid ""
 "These options configure the security checks that should be executed "
 "periodically.  "
 msgstr ""
+"<big><b>Checagem Periódica de Segurança</b></big>\n"
+"Estas opções configuram as checagens de segurança que deverão ser"
+"executadas periodicamente.  "
 
 #: ../src/msec/msecgui.py:71
 msgid ""
@@ -776,6 +796,14 @@ msgid ""
 "automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
+"<big><b>Permissões de Arquivos</b></big>\n"
+"Estas opções permitem um ajuste fino nas permissões do sistema nos arquivos "
+"importantes e diretórios.\n"
+"As seguintes permissões são checadas periodicamente, e qualquer mudança de "
+"dono, grupo,\n"
+"e permissão corrente são reportados. As permissões podem ser manipuladas, "
+"automaticamente\n"
+"alterando elas para um valor especificado quando uma mudança é detectada.  "
 
 #: ../src/msec/msecgui.py:77
 msgid "Save and apply new configuration?"
@@ -843,11 +871,11 @@ msgstr "opção"
 
 #: ../src/msec/msecgui.py:238
 msgid "System permissions changes"
-msgstr "Mudanças nas permisões do sistema"
+msgstr "Mudanças nas Permisões do Sistema"
 
 #: ../src/msec/msecgui.py:238
 msgid "permission check"
-msgstr "verificação de permissões"
+msgstr "verificação de Permissões"
 
 #: ../src/msec/msecgui.py:248
 msgid "changed %s <b>%s</b> (%s -> %s)"
@@ -875,7 +903,7 @@ msgstr "<b>%s:</b> <i>%s</i>\n"
 
 #: ../src/msec/msecgui.py:315
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
-msgstr "<b>Resultados de execução de teste:</b> <i>%s</i>"
+msgstr "<b>Resultados da execução de teste:</b> <i>%s</i>"
 
 #: ../src/msec/msecgui.py:323
 msgid "Details"
@@ -991,6 +1019,9 @@ msgid ""
 "Please specify new permissions, or use 'current' to keep current "
 "permissions.\n"
 msgstr ""
+"Trocando permissões em <b>%s</b>\n"
+"Por favor especifique novas permissões, ou use 'current' para "
+"manter as permissões atuais.\n"
 
 #: ../src/msec/msecgui.py:981
 msgid "File: "

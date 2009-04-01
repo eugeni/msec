@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-03-31 07:58+0200\n"
+"PO-Revision-Date: 2009-04-01 14:54+0200\n"
 "Last-Translator: Moreno Manzini <moreno@mediacom.it>\n"
 "Language-Team: Italian <timl@freelist.org>\n"
 "MIME-Version: 1.0\n"
@@ -689,11 +689,11 @@ msgstr "Proprietario di %s: errato deve essere %s"
 
 #: ../src/msec/libmsec.py:1599
 msgid "Enforcing group on %s to %s"
-msgstr "Forzato gruppo di %s a %s"
+msgstr "Forza il gruppo di %s a essere %s"
 
 #: ../src/msec/libmsec.py:1603
 msgid "Error changing group on %s: %s"
-msgstr "Errore cambiando gruppo di %s: %s"
+msgstr "Errore cambiando il gruppo di %s: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
@@ -1032,7 +1032,7 @@ msgstr "Forza"
 
 #: ../src/msec/msecgui.py:861
 msgid "Reset to default level permissions"
-msgstr "Ripristina ai valori predefiniti il livello dei permessi"
+msgstr "Riporta i permessi ai valori predefiniti"
 
 #: ../src/msec/msecgui.py:866
 msgid "Add a rule"

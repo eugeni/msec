@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-01 14:54+0200\n"
+"PO-Revision-Date: 2009-04-02 06:50+0200\n"
 "Last-Translator: Moreno Manzini <moreno@mediacom.it>\n"
 "Language-Team: Italian <timl@freelist.org>\n"
 "MIME-Version: 1.0\n"
@@ -701,7 +701,7 @@ msgstr "Gruppo di %s: errato deve essere %s"
 
 #: ../src/msec/libmsec.py:1610
 msgid "Enforcing permissions on %s to %o"
-msgstr "Forzati permessi di %s a %s"
+msgstr "Forza i permessi di %s a essere %s"
 
 #: ../src/msec/libmsec.py:1614
 msgid "Error changing permissions on %s: %s"

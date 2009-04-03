@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-02 11:43+0200\n"
+"PO-Revision-Date: 2009-04-03 11:14+0200\n"
 "Last-Translator: Oliver Burger <oliver.burger@wizard-fire.de>\n"
 "Language-Team: German <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: ../src/msec/help.py:15
 msgid "Enable name resolution spoofing protection."
-msgstr ""
+msgstr "Aktiviere Schutz vor  Namensauflösungs-Spoofing"
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
@@ -297,25 +297,37 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
+"Erzwinge MSEC Datei-Verzeichnis-Rechte beim Booten. Wenn dieser Parameter "
+"auf 'Erzwingen' steht, werden die System-Rechte automatisch je nach "
+"Sicherheitsstufe des Systems erzwungen."
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
-msgstr ""
+msgstr "Zeige Sicherheitshinweise im Systemabschnitt mittels libnotify"
 
 #: ../src/msec/help.py:109
+#, fuzzy
 msgid ""
 "Allow remote root login via sshd. If yes, login is allowed. If without-"
 "password, only public-key authentication logins are allowed. See sshd_config"
 "(5) man page for more information."
 msgstr ""
+"Erlaube entferntzen Root-Zugang mittels sshd. Wenn \"ja\" gewählt wird, ist "
+"der Zugang erlaubt, wenn \"ohne Passwort\" gewählt wird, ist nur eine "
+"public-key Authentifizierung gestattet. Siehe die sshd_config (5) man page "
+"für mehr Informationen."
 
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
+"Führe stündliche Sicherheitsüberprüfungen auf Änderungen in der "
+"Systemkonfiguration durch."
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
+"Frage beim Wechsel zum Ein-Benutzer Modus nach dem Root-Passwort (man "
+"sulogin (8))."
 
 #: ../src/msec/help.py:115
 #, fuzzy
@@ -334,7 +346,6 @@ msgid "Set the user umask."
 msgstr "Setzen der Benutzerzugriffsmaske."
 
 #: ../src/msec/help.py:119
-#, fuzzy
 msgid "Accept ICMP echo."
 msgstr "Akzeptiere ICMP Echo."
 

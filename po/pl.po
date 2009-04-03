@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-03 07:59+0200\n"
+"PO-Revision-Date: 2009-04-03 13:34+0200\n"
 "Last-Translator: Amazis.net sp. z o.o. - Tomasz Bednarski <tomasz.bednarski@amazis.pl>\n"
 "Language-Team:  <pl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -594,23 +594,23 @@ msgstr "Nieprawidłowa grupa dla %s: powinno być %s"
 
 #: ../src/msec/libmsec.py:1610
 msgid "Enforcing permissions on %s to %o"
-msgstr ""
+msgstr "Wymuszanie uprawnień na %s do %o"
 
 #: ../src/msec/libmsec.py:1614
 msgid "Error changing permissions on %s: %s"
-msgstr ""
+msgstr "Błąd podczas zmiany uprawnień na %s: %s"
 
 #: ../src/msec/libmsec.py:1616
 msgid "Wrong permissions of %s: should be %o"
-msgstr ""
+msgstr "Nieprawidłowe uprawnienia dla %s: powinno być %o"
 
 #: ../src/msec/libmsec.py:1633
 msgid "bad permissions for '%s': '%s'"
-msgstr ""
+msgstr "nieprawidłowe uprawnienia dla '%s': '%s'"
 
 #: ../src/msec/libmsec.py:1658
 msgid "Non local file: \"%s\". Nothing changed."
-msgstr ""
+msgstr "Plik nie jest na lokalnym systemie: \"%s\". Nic nie zmieniono."
 
 #: ../src/msec/libmsec.py:1700
 msgid "Checking paths: %s"
@@ -619,27 +619,27 @@ msgstr "Sprawdzanie ścieżek: %s"
 #: ../src/msec/msec.py:86
 #: ../src/msec/msecperms.py:99
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "Nieprawidłowy poziom bezpieczeństwa '%s'."
 
 #: ../src/msec/msec.py:109
 #: ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
-msgstr ""
+msgstr "Msec: Centrum Bezpieczeństwa Mandrivy (%s)\n"
 
 #: ../src/msec/msec.py:110
 #: ../src/msec/msecperms.py:129
 msgid "Error: This application must be executed by root!"
-msgstr ""
+msgstr "Błąd: program powinien być uruchomiony przez użytkownika root!"
 
 #: ../src/msec/msec.py:111
 #: ../src/msec/msecperms.py:130
 msgid "Run with --help to get help."
-msgstr ""
+msgstr "Uruchom z opcją --help, aby uzyskać pomoc."
 
 #: ../src/msec/msec.py:133
 #: ../src/msec/msecperms.py:151
 msgid "Level '%s' not found, aborting."
-msgstr ""
+msgstr "Poziom '%s' nie został odnaleziony. Przerywanie."
 
 #: ../src/msec/msec.py:135
 #: ../src/msec/msecperms.py:153
@@ -657,14 +657,17 @@ msgid ""
 "This application allows you to configure your system security. If you wish\n"
 "to activate it, choose the appropriate security level: "
 msgstr ""
+"<big><b>Wybierz poziom bezpieczeństwa</b></big>\n"
+"Ten program umożliwia konfigurację bezpieczeństwa systemu. Jeżeli chcesz\n"
+"aktywować jego działanie wybierze odpowiedni poziom bezpieczeństwa:"
 
 #: ../src/msec/msecgui.py:54
 msgid "This profile configures a reasonably safe set of security features. It activates several non-intrusive periodic system checks. This is the suggested level for Desktop."
-msgstr ""
+msgstr "Ten profil zawiera zestaw ustawień zapewniających rozsądne bezpieczeństwo. Aktywuje kilka okresowych kontroli systemu, które nie utrudniają korzystania z komputera. Jest to zalecany poziom dla zastosowań biurkowych."
 
 #: ../src/msec/msecgui.py:56
 msgid "This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks. This level is suggested for Servers and security-concerned systems . "
-msgstr ""
+msgstr "Ten profil zawiera zestaw ustawień zapewniających maksymalne bezpieczeństwo, nawet kosztem ograniczonego dostępu do systemu z zewnątrz. Aktywuje szerszy zakres okresowych kontroli systemu. Jest to zalecany poziom dla zastosowań serwerowych oraz dla systemów, dla których bezpieczeństwo jest bardzo ważne."
 
 #: ../src/msec/msecgui.py:59
 msgid ""
@@ -673,6 +676,10 @@ msgid ""
 "password configurations, integration with other security tools, and default file creation\n"
 "permissions.  "
 msgstr ""
+"<big><b>Opcje bezpieczeństwa systemu</b></big>\n"
+"Opcje określające konfigurację bezpieczeństwa lokalnego, takie jak ograniczenia logowania,\n"
+"konfiguracja haseł, integracja z innymi narzędziami bezpieczeńśtwa i domyślne \n"
+"prawa dostępu do tworzonych plików."
 
 #: ../src/msec/msecgui.py:64
 msgid ""
@@ -680,12 +687,17 @@ msgid ""
 "These options define the network security against remote threats, unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
+"<big><b>Opcje bezpieczeństwa sieci</b></big>\n"
+"Opcje definiujące bezpieczeństwo sieci w zakresie zagrożeń zewnętrznych, nieautoryzowanego dostępu,\n"
+"i prób włamań."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
 "<big><b>Periodic security checks</b></big>\n"
 "These options configure the security checks that should be executed periodically.  "
 msgstr ""
+"<big><b>Okresowa kontrola bezpieczeństwa</b></big>\n"
+"Opcje konfigurujące okresowe kontrole bezpieczeństwa."
 
 #: ../src/msec/msecgui.py:71
 msgid ""
@@ -695,6 +707,11 @@ msgid ""
 "or current permission is reported. The permissions can be enforced, automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
+"<big><b>Prawa dostępu do plików</b></big>\n"
+"Opcje umożliwiające dostosowanie praw dostępu do ważnych plików i katalogów.\n"
+"Prawa dostępu są okresowo kontrolowane, a każda zmian właściciela, grupy lub\n"
+"uprawnień jest raportowana. Prawa dostępu mogą być wymuszane, czyli automatycznie\n"
+"zmieniane do określonej wartości w przypadku wykrycia zmian."
 
 #: ../src/msec/msecgui.py:77
 msgid "Save and apply new configuration?"
@@ -756,7 +773,7 @@ msgstr "Prawa dostępu"
 
 #: ../src/msec/msecgui.py:237
 msgid "MSEC option changes"
-msgstr ""
+msgstr "Zmiany opcji MSEC"
 
 #: ../src/msec/msecgui.py:237
 msgid "option"
@@ -772,15 +789,15 @@ msgstr "kontrola praw dostępu"
 
 #: ../src/msec/msecgui.py:248
 msgid "changed %s <b>%s</b> (%s -> %s)"
-msgstr ""
+msgstr "zmieniono %s <b>%s</b> (%s -> %s)"
 
 #: ../src/msec/msecgui.py:253
 msgid "added %s <b>%s</b> (%s)"
-msgstr ""
+msgstr "dodano %s <b>%s</b> (%s)"
 
 #: ../src/msec/msecgui.py:258
 msgid "removed %s <b>%s</b>"
-msgstr ""
+msgstr "usunięto %s <b>%s</b>"
 
 #: ../src/msec/msecgui.py:262
 msgid "no changes"
@@ -792,11 +809,11 @@ msgstr "Zapisywanie zmian..."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
-msgstr ""
+msgstr "<b>%s:</b> <i>%s</i>\n"
 
 #: ../src/msec/msecgui.py:315
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
-msgstr ""
+msgstr "<b>Wyniki testów MSEC:</b> <i>%s</i>"
 
 #: ../src/msec/msecgui.py:323
 msgid "Details"
@@ -804,23 +821,23 @@ msgstr "Szczegóły"
 
 #: ../src/msec/msecgui.py:329
 msgid "MSEC messages (%s): %d"
-msgstr ""
+msgstr "Informacje MSEC (%s): %d"
 
 #: ../src/msec/msecgui.py:343
 msgid "Details (%d changes).."
-msgstr ""
+msgstr "Szczegóły (zmiany %d).."
 
 #: ../src/msec/msecgui.py:388
 msgid "No base msec level specified, using '%s'"
-msgstr ""
+msgstr "Nie zdefiniowano bazowego poziomu bezpieczeństwa msec. Korzystanie z '%s'."
 
 #: ../src/msec/msecgui.py:391
 msgid "Detected base msec level '%s'"
-msgstr ""
+msgstr "Wykryto bazowy poziom msec '%s'"
 
 #: ../src/msec/msecgui.py:396
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr ""
+msgstr "Odnaleziono bazowy poziom zdefiniowany przez użytkownika '%s'. Stosowanie domyślnego '%s'."
 
 #: ../src/msec/msecgui.py:424
 msgid "Security Option"
@@ -904,13 +921,15 @@ msgstr "Zmiana praw dostępu do %s"
 
 #: ../src/msec/msecgui.py:961
 msgid "Adding new permission check"
-msgstr ""
+msgstr "Dodawanie nowej kontroli uprawnień"
 
 #: ../src/msec/msecgui.py:973
 msgid ""
 "Changing permissions on <b>%s</b>\n"
 "Please specify new permissions, or use 'current' to keep current permissions.\n"
 msgstr ""
+"Zmiana uprawnień na <b>%s</b>\n"
+"Określ nowe prawa dostępu lub użyj opcji 'ieżące', aby zachować obecne uprawnienia.\n"
 
 #: ../src/msec/msecgui.py:981
 msgid "File: "
@@ -940,6 +959,11 @@ msgid ""
 "\t%sStandard level value:\t<i>%s</i>%s\n"
 "\t%sSecure level value:\t\t<i>%s</i>%s\n"
 msgstr ""
+"<i>%s</i>\n"
+"\n"
+"\tAktualna wartość:\t\t\t<i>%s</i>\n"
+"\t%sWartość dla poziomu standardowego:\t<i>%s</i>%s\n"
+"\t%sWartość dla poziomu bezpiecznego:\t\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "New value:"
@@ -991,7 +1015,7 @@ msgstr "Wyłącz historię haseł"
 
 #: ../src/msec/plugins/pam.py:124
 msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
-msgstr ""
+msgstr "Nieprawidłowa długość hasła \"%s\". Użyj parametru wg schematu \"długość, liczba znaków, wielkość znaków\""
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"

@@ -18,10 +18,10 @@
 # Amazis.net sp. z o.o. - Tomasz Bednarski <tomasz.bednarski@amazis.pl>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: pl\n"
+"Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-02 08:23+0200\n"
+"PO-Revision-Date: 2009-04-03 07:59+0200\n"
 "Last-Translator: Amazis.net sp. z o.o. - Tomasz Bednarski <tomasz.bednarski@amazis.pl>\n"
 "Language-Team:  <pl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -213,7 +213,7 @@ msgstr "Zezwalaj na wyświetlanie listy użytkowników przez menedżery okien (k
 
 #: ../src/msec/help.py:105
 msgid "Enforce MSEC file directory permissions on system startup. If this parameter is set to 'enforce', system permissions will be enforced automatically, according to system security settings."
-msgstr ""
+msgstr "Podczas startu systemu wymuś prawa dostępu do plików określone w MSEC. Jeżeli ten parametr ma wartość 'wymuś' prawa dostępu zostaną zmienione automatycznie, zgodnie z ustawieniami bezpieczeństwa systemu."
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
@@ -232,13 +232,8 @@ msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr "Pytaj o hasło root podczas uruchamiania w trybie pojedynczego użytkownika  (man sulogin(8))."
 
 #: ../src/msec/help.py:115
-#, fuzzy
 msgid "Allow to export display when passing from the root account to the other users. See pam_xauth(8) for more details."
-msgstr ""
-"Dozwolony eksport ekranu podczas\n"
-"przechodzenia z konta root na innego użytkownika.\n"
-"\n"
-"Zobacz pam_xauth(8) aby uzyskać więcej szczegółów. "
+msgstr "Dozwolony eksport ekranu podczas przechodzenia z konta root na innego użytkownika. Zobacz pam_xauth(8) aby uzyskać więcej szczegółów. "
 
 #: ../src/msec/help.py:117
 msgid "Set the user umask."
@@ -249,20 +244,8 @@ msgid "Accept ICMP echo."
 msgstr "Akceptowanie pakietów ICMP."
 
 #: ../src/msec/help.py:121
-#, fuzzy
 msgid "Allow full access to network services controlled by tcp_wrapper (see hosts.deny(5)). If yes, all services are allowed. If local, only connections to local services are authorized. If no, the services must be authorized manually in /etc/hosts.allow (see hosts.allow(5))."
-msgstr ""
-"Autoryzuje:\n"
-"\n"
-"- wszystkie usługi kontrolowane przez tcp_wrappers (zajrzyj do manuala\n"
-"hosts.deny) jeśli wartość wynosi \"ALL\".\n"
-"\n"
-"- tylko lokalne usługi, jeśli wartość = \"Local\"\n"
-"\n"
-"- żadne jeśli wartość = \"None\".\n"
-"\n"
-"Aby autoryzować potrzebne usługi, wykorzystaj plik /etc/hosts.allow\n"
-"(zajrzyj do manuala hosts.allow(5))."
+msgstr "Umożliwiaj dostęp do wszystkich usług sieciowych kontrolowane przez tcp_wrappers (zajrzyj do manuala hosts.deny(5)). Jeśli wartość wynosi 'tak' wszystkie usługi mają dostęp. Jeżeli wartość wynosi 'lokalne' tylko lokalne usługi mają dostęp. jeśli wartość wynosi 'nie' usługi muszą być uwierzytelniane ręcznie w pliku /etc/hosts.allow (zajrzyj do manuala hosts.allow(5))."
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
@@ -274,7 +257,7 @@ msgstr "Aktywuj wyświetlanie na terminalu wyników okresowej kontroli."
 
 #: ../src/msec/help.py:127
 msgid "Enable PolicyKit security framework for all users. If this option is not enabled, only users in wheel group may change advanced PolicyKit permissions and settings"
-msgstr ""
+msgstr "Udostępnij pakiet bezpieczeństwa PolicyKit wszystkim użytkownikom. Jeżeli tak opcja nie jest włączona tylko użytkownicy grupy wheel mogą zmieniać zaawansowane ustawienia i uprawnienia PolicyKit."
 
 #: ../src/msec/libmsec.py:326
 msgid "%s modified so launched command: %s"
@@ -304,11 +287,11 @@ msgstr "przeniesiono plik %s do %s"
 #: ../src/msec/libmsec.py:528
 #: ../src/msec/libmsec.py:544
 msgid "set variable %s to %s in %s"
-msgstr ""
+msgstr "ustaw zmienną %s na wartość %s w %s"
 
 #: ../src/msec/libmsec.py:755
 msgid "Error loading plugin '%s' from %s: %s"
-msgstr ""
+msgstr "Błąd podczas ładowania wtyczki '%s' z %s: %s"
 
 #: ../src/msec/libmsec.py:769
 msgid "Invalid callback: %s"
@@ -400,9 +383,8 @@ msgid "Allowing reboot and shutdown to the console user"
 msgstr "Umożliwiaj wyłączenie i ponowne uruchamianie komputera przez użytkowników konsoli"
 
 #: ../src/msec/libmsec.py:1016
-#, fuzzy
 msgid "Allowing SysRq key to the console user"
-msgstr "Dozwolone ponowne uruchamianie komputera przez użytkowników konsoli."
+msgstr "Dozwolone korzystanie z klawisza SysRq przez użytkowników konsoli."
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
@@ -421,9 +403,8 @@ msgid "Forbidding reboot and shutdown to the console user"
 msgstr "Zabronione ponowne uruchamianie komputera przez użytkowników konsoli"
 
 #: ../src/msec/libmsec.py:1038
-#, fuzzy
 msgid "Forbidding SysRq key to the console user"
-msgstr "Ponowne uruchamianie przez użytkownika konsoli"
+msgstr "Zabronione korzystanie z klawisza SysRq przez użytkowników konsoli."
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
@@ -499,11 +480,11 @@ msgstr "Wyłącz codzienne procesy sprawdzania zabezpieczeń"
 
 #: ../src/msec/libmsec.py:1183
 msgid "Authorizing all services"
-msgstr ""
+msgstr "Uwierzytelnianie wszystkich usług"
 
 #: ../src/msec/libmsec.py:1187
 msgid "Disabling all services"
-msgstr ""
+msgstr "Wyłączanie wszystkich usług"
 
 #: ../src/msec/libmsec.py:1191
 msgid "Disabling non local services"
@@ -531,7 +512,7 @@ msgstr "Aktywuj okresowe skanowanie msec"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
-msgstr ""
+msgstr "Wyłączanie okresowych kontroli msec"
 
 #: ../src/msec/libmsec.py:1289
 msgid "Enabling crontab and at"
@@ -543,11 +524,11 @@ msgstr "Wyłącz crontab i at"
 
 #: ../src/msec/libmsec.py:1308
 msgid "Allowing export display from root"
-msgstr ""
+msgstr "Umożliwia eksport ekranu z konta roota"
 
 #: ../src/msec/libmsec.py:1312
 msgid "Forbidding export display from root"
-msgstr ""
+msgstr "Eksport ekranu z konta roota zabroniony"
 
 #: ../src/msec/libmsec.py:1323
 #, fuzzy
@@ -573,19 +554,19 @@ msgstr "Nazwa użytkownika %s nie została znaleziona"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
-msgstr ""
+msgstr "nie odnaleziono nazwy użytkownika dla id %id"
 
 #: ../src/msec/libmsec.py:1529
 msgid "group name %s not found"
-msgstr ""
+msgstr "nie odnaleziono nazwy grupy %s"
 
 #: ../src/msec/libmsec.py:1541
 msgid "group name not found for id %d"
-msgstr ""
+msgstr "nie odnaleziono nazwy grupy dla id %id"
 
 #: ../src/msec/libmsec.py:1551
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
-msgstr ""
+msgstr "Sprawdzenie /proc/mounts było niemożliwe. Zakłada się że wszystkie pliki są lokalne."
 
 #: ../src/msec/libmsec.py:1590
 msgid "Forcing ownership of %s to %s"
@@ -597,21 +578,19 @@ msgstr "Błąd zmiany użytkownika pliku %s: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
-msgstr ""
+msgstr "Nieprawidłowy właściciel %s: powinno być %s"
 
 #: ../src/msec/libmsec.py:1599
-#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr "Przełączenie z %s do %s"
+msgstr "Wymuszanie grupy na %s do  %s"
 
 #: ../src/msec/libmsec.py:1603
-#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr "błąd odmontowania %s; %s"
+msgstr "Błąd podczas wymuszania grupy na %s: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
-msgstr ""
+msgstr "Nieprawidłowa grupa dla %s: powinno być %s"
 
 #: ../src/msec/libmsec.py:1610
 msgid "Enforcing permissions on %s to %o"

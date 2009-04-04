@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: da\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-03-29 16:26+0200\n"
+"PO-Revision-Date: 2009-04-04 10:32+0200\n"
 "Last-Translator: Keld Simonsen <keld@dkuug.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -44,8 +44,7 @@ msgstr ""
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Tillad X-serveren at acceptere tilkoblinger fra netværket på tcp-port 6000."
+msgstr "Tillad X-serveren at acceptere tilkoblinger fra netværket på tcp-port 6000."
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -212,8 +211,7 @@ msgstr "Aktivér periodisk rettighedstjek for systemfiler."
 
 #: ../src/msec/help.py:85
 msgid "Set shell commands history size. A value of -1 means unlimited."
-msgstr ""
-"Sæt historiklængden for kommandoskallen. En værdi på -1 betyder ubegrænset."
+msgstr "Sæt historiklængden for kommandoskallen. En værdi på -1 betyder ubegrænset."
 
 #: ../src/msec/help.py:87
 msgid "Allow system reboot and shutdown to local users."
@@ -257,8 +255,7 @@ msgstr "Aktivér tjek for filer der ikke er ejede af nogen."
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
-"Tillad sessions-håndterere (KDM og GDM) at vise en liste med lokale brugere."
+msgstr "Tillad sessions-håndterere (KDM og GDM) at vise en liste med lokale brugere."
 
 #: ../src/msec/help.py:105
 msgid ""
@@ -646,9 +643,8 @@ msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr "Kan ikke tjekke /proc/mounts. Antager at alle filsystemer er lokale."
 
 #: ../src/msec/libmsec.py:1590
-#, fuzzy
 msgid "Forcing ownership of %s to %s"
-msgstr "Gennemtvinger bruger %s på %s"
+msgstr "Gennemtvinger ejerskab af %s på %s"
 
 #: ../src/msec/libmsec.py:1594
 msgid "Error changing user on %s: %s"
@@ -769,7 +765,6 @@ msgstr ""
 "forhåndsvalgte rettigheder ved oprettelse af filer."
 
 #: ../src/msec/msecgui.py:64
-#, fuzzy
 msgid ""
 "<big><b>Network security options</b></big>\n"
 "These options define the network security against remote threats, "
@@ -931,8 +926,7 @@ msgstr "Fundet grundlæggende msec-niveau '%s'"
 
 #: ../src/msec/msecgui.py:396
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr ""
-"Tilpasset grundlæggende-opsætningsniveau '%s' fundet. Vil forhåndsvælge '%s'"
+msgstr "Tilpasset grundlæggende-opsætningsniveau '%s' fundet. Vil forhåndsvælge '%s'"
 
 #: ../src/msec/msecgui.py:424
 msgid "Security Option"
@@ -1110,8 +1104,7 @@ msgid "Disabling password history"
 msgstr "Deaktivér adgangskodehistorie"
 
 #: ../src/msec/plugins/pam.py:124
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
 "Ugyldig adgangskodelængde \"%s\". Brug \"length,ndigits,nupper\" som "
 "parameter."
@@ -1143,3 +1136,4 @@ msgstr "Tillader transparent root-adgang for medlemmer af wheel-gruppen"
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Deaktiverer transparent root-adgang for medlemmer af wheel-gruppen"
+

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: DrakX-el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-04 22:12+0200\n"
+"PO-Revision-Date: 2009-04-05 10:51+0200\n"
 "Last-Translator: Glentadakis Dimitrios <dglent@gmail.com>\n"
 "Language-Team: Greek <i18ngr@lists.hellug.gr>\n"
 "MIME-Version: 1.0\n"
@@ -113,9 +113,9 @@ msgstr ""
 "αρχείο "
 "κατά την εγκατάσταση πακέτων. Από προεπιλογή, παρέχονται δύο προ ρυθμισμένες "
 "επιλογές : "
-"τοπικό (όπου ενεργοποιούνται μόνο τοπικές υπηρεσίες) και απομακρυσμένο (όπου "
+"local(όπου ενεργοποιούνται μόνο τοπικές υπηρεσίες) και remote (όπου "
 "ενεργοποιεί "
-"επίσης κάποιες απομακρυσμένες υπηρεσίες που θεωρούνται ασφαλείς). Σημειώστε "
+"ορισμενες απομακρυσμένες υπηρεσίες που θεωρούνται ασφαλείς). Σημειώστε "
 "ότι οι "
 "επιτρεπόμενες υπηρεσίες πρέπει να τοποθετούνται χειροκίνητα στο αρχείο "
 "server.SERVER_LEVEL "
@@ -154,10 +154,13 @@ msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '0', "
 "default system umask is used."
 msgstr ""
+"Όρισε την επιλογή umask για την προσάρτηση κατατμήσεων vfat και ntfs. "
+"Αν το umask είναι '0', θα χρησιμοποιείται το umask του συστήματος από "
+"προεπιλογή."
 
 #: ../src/msec/help.py:53
 msgid "Enable checking for open network ports."
-msgstr ""
+msgstr "Ενεργοποίηση του ελέγχου ανοιχτών θυρών του δικτύου."
 
 #: ../src/msec/help.py:55
 msgid "Enable logging of strange network packets."
@@ -170,6 +173,8 @@ msgstr "Ενεργοποίηση του ελέγχου επαλήθευσης τ
 #: ../src/msec/help.py:59
 msgid "Allow root access without password for the members of the wheel group."
 msgstr ""
+"Επέτρεψε την πρόσβαση root χωρίς κωδικό πρόσβασης για τα μέλη της ομάδας "
+"wheel."
 
 #: ../src/msec/help.py:61
 msgid "Send security check results by email."
@@ -230,10 +235,12 @@ msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
 msgstr ""
+"Καθορίζει το βασικό επίπεδο ασφάλειας, πάνω στο οποίο έχει βασιστεί η "
+"τρέχουσα διαμόρφωση."
 
 #: ../src/msec/help.py:83
 msgid "Enable periodic permission checking for system files."
-msgstr ""
+msgstr "Ενεργοποίηση του περιοδικού ελέγχου των αρχείων συστήματος."
 
 #: ../src/msec/help.py:85
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -807,6 +814,11 @@ msgid ""
 "This application allows you to configure your system security. If you wish\n"
 "to activate it, choose the appropriate security level: "
 msgstr ""
+"<big><b>Επιλέξτε επίπεδο ασφαλείας</b></big>\n"
+"Αυτο το εργαλείο σας επιτρέπει να ρυθμίσετε την ασφάλεια του συστήματός σας."
+"\n"
+"Αν επιθυμείτε να το ενεργοποιήσετε, επιλέξτε το κατάλληλο επίπεδο ασφαλείας "
+":  "
 
 #: ../src/msec/msecgui.py:54
 msgid ""
@@ -814,6 +826,9 @@ msgid ""
 "activates several non-intrusive periodic system checks. This is the "
 "suggested level for Desktop."
 msgstr ""
+"Αυτο το προφίλ ρυθμίζει ένα αρκετά ασφαλές σύνολο χαρακτηριστικών ασφαλείας. "
+"Ενεργοποιεί μερικούς μη παρεμβατικούς ελέγχους του συστήματος. Είναι το "
+"προτεινόμενο επίπεδο για οικιακή χρήση."
 
 #: ../src/msec/msecgui.py:56
 msgid ""
@@ -822,6 +837,12 @@ msgid ""
 "periodic checks. This level is suggested for Servers and security-concerned "
 "systems . "
 msgstr ""
+"Αυτο το προφίλ είναι διαμορφωμένο ώστε να παρέχει τη μέγιστη δυνατή "
+"ασφάλεια, "
+"συμπεριλαμβανομένων τον περιορισμό (μη κλείδωμα) πρόσβασης σε απομακρυσμένο "
+"υπολογιστή. Επίσης εκτελεί ένα μεγαλύτερο σύνολο περιοδικών ελέγχων. Αυτο το "
+"επίπεδο "
+"προτείνεται για Διακομιστές και υπολογιστές που απαιτούν υψηλή ασφάλεια."
 
 #: ../src/msec/msecgui.py:59
 msgid ""

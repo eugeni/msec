@@ -76,7 +76,7 @@ msgstr ""
 "Project-Id-Version: DrakX-fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-03-28 19:35+0100\n"
+"PO-Revision-Date: 2009-04-05 20:08+0200\n"
 "Last-Translator: Christophe Berthelé <berthy@mandriva.org>\n"
 "Language-Team: French <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -211,6 +211,7 @@ msgstr "Vérifier les paquetages RPM installés."
 #: ../src/msec/help.py:59
 msgid "Allow root access without password for the members of the wheel group."
 msgstr ""
+"Autoriser l'accès root sans mot de passe pour les membres du groupe wheel."
 
 #: ../src/msec/help.py:61
 msgid "Send security check results by email."
@@ -239,7 +240,7 @@ msgstr "Activer la vérification du mode espion des cartes réseau."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
-msgstr ""
+msgstr "Activer l'environnement de sécurité AppArmor au démarrage"
 
 #: ../src/msec/help.py:73
 msgid ""
@@ -256,7 +257,7 @@ msgstr "Vérifier les fichiers et/ou dossiers modifiables par tout le monde."
 
 #: ../src/msec/help.py:77
 msgid "Log syslog messages on console terminal 12."
-msgstr ""
+msgstr "Afficher les messages du système sur la console 12."
 
 #: ../src/msec/help.py:79
 msgid "Enable IP spoofing protection."
@@ -267,10 +268,13 @@ msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
 msgstr ""
+"Définit le niveau de sécurité de base sur lequel s'appuie la présente "
+"configuration."
 
 #: ../src/msec/help.py:83
 msgid "Enable periodic permission checking for system files."
 msgstr ""
+"Active la vérification périodique des permissions des fichiers système."
 
 #: ../src/msec/help.py:85
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -286,6 +290,8 @@ msgstr ""
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
 msgstr ""
+"Active la journalisation des vérifications périodiques dans le journal "
+"système."
 
 #: ../src/msec/help.py:91
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
@@ -296,6 +302,8 @@ msgid ""
 "Enable password-related checks, such as empty passwords and strange super-"
 "user accounts."
 msgstr ""
+"Active les vérifications relatives aux mots de passe, comme les mots de "
+"passe vides ou les comptes administrateurs suspects."
 
 #: ../src/msec/help.py:95
 msgid ""
@@ -320,6 +328,8 @@ msgstr "Rechercher les fichiers n'appartenant à aucun utilisateur."
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
 msgstr ""
+"Autorise les gestionnaires de connexion (kdm et gdm) à afficher la liste des "
+"utilisateurs locaux."
 
 #: ../src/msec/help.py:105
 msgid ""
@@ -331,6 +341,8 @@ msgstr ""
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
 msgstr ""
+"Affiche les notifications de sécurité dans la barre des tâches en utilisant "
+"libnotify."
 
 #: ../src/msec/help.py:109
 msgid ""
@@ -342,10 +354,14 @@ msgstr ""
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
+"Effectue toutes les heures une vérification de sécurité des changements de "
+"la configuration système."
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
+"Demande le mot de passe root lors du passage en mode « single user » (man "
+"sulogin(8))."
 
 #: ../src/msec/help.py:115
 msgid ""
@@ -378,7 +394,7 @@ msgstr ""
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
-msgstr ""
+msgstr "Applique les paramètres MSEC au démarrage"
 
 #: ../src/msec/help.py:125
 msgid "Enable periodic security check results to terminal."
@@ -445,15 +461,16 @@ msgstr "« %s » n'est pas disponible dans cette version"
 
 #: ../src/msec/libmsec.py:819
 msgid "Invalid parameter for %s: '%s'. Valid parameters: '%s'."
-msgstr ""
+msgstr "Paramètre incorrect pour %s : « %s ». Paramètres valides : « %s »."
 
 #: ../src/msec/libmsec.py:834
 msgid "Allowing unrestricted chkconfig for packages"
-msgstr ""
+msgstr "Aucune restriction de chkconfig pour les paquetages"
 
 #: ../src/msec/libmsec.py:839
 msgid "Restricting chkconfig for packages according to \"%s\" profile"
 msgstr ""
+"Restriction de chkconfig pour les paquetages en fonction du profil « %s »"
 
 #: ../src/msec/libmsec.py:849
 msgid "Setting root umask to %s"
@@ -466,18 +483,20 @@ msgstr "Réglage de l'umask utilisateur à %s"
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
 msgstr ""
+"Utilisateurs autorisés à se connecter au serveur X à partir de n'importe où"
 
 #: ../src/msec/libmsec.py:883
 msgid "Allowing users to connect X server from localhost"
 msgstr ""
+"Utilisateurs autorisés à se connecter au serveur X à partir de localhost"
 
 #: ../src/msec/libmsec.py:886
 msgid "Restricting X server connection to the console user"
-msgstr ""
+msgstr "Restriction des connexions au serveur X à la console utilisateur"
 
 #: ../src/msec/libmsec.py:889
 msgid "invalid allow_x_connections arg: %s"
-msgstr ""
+msgstr "argument allow_x_connections incorrect : %s"
 
 #: ../src/msec/libmsec.py:912
 msgid "Allowing the X server to listen to tcp connections"
@@ -701,11 +720,12 @@ msgstr "nom de groupe non trouvé pour l'id %s"
 #: ../src/msec/libmsec.py:1551
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
+"Impossible de vérifier /proc/mounts. Apparemment tous les systèmes de "
+"fichiers sont locaux."
 
 #: ../src/msec/libmsec.py:1590
-#, fuzzy
 msgid "Forcing ownership of %s to %s"
-msgstr "Passage de %s à %s"
+msgstr "Propriétaire de %s forcé à %s"
 
 #: ../src/msec/libmsec.py:1594
 msgid "Error changing user on %s: %s"
@@ -716,9 +736,8 @@ msgid "Wrong owner of %s: should be %s"
 msgstr "Propriétaire incorrect pour %s : devrait être %s"
 
 #: ../src/msec/libmsec.py:1599
-#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr "Passage de %s à %s"
+msgstr "Groupe de %s forcé à %s"
 
 #: ../src/msec/libmsec.py:1603
 msgid "Error changing group on %s: %s"
@@ -730,7 +749,7 @@ msgstr "Groupe incorrect pour %s : devrait être %s"
 
 #: ../src/msec/libmsec.py:1610
 msgid "Enforcing permissions on %s to %o"
-msgstr ""
+msgstr "Application des permissions de %s à %o"
 
 #: ../src/msec/libmsec.py:1614
 msgid "Error changing permissions on %s: %s"
@@ -738,15 +757,15 @@ msgstr "Erreur de changement de permission pour %s : %s"
 
 #: ../src/msec/libmsec.py:1616
 msgid "Wrong permissions of %s: should be %o"
-msgstr ""
+msgstr "Permissions incorrectes pour %s : devraient être %o"
 
 #: ../src/msec/libmsec.py:1633
 msgid "bad permissions for '%s': '%s'"
-msgstr ""
+msgstr "permissions incorrectes pour « %s » : « %s »"
 
 #: ../src/msec/libmsec.py:1658
 msgid "Non local file: \"%s\". Nothing changed."
-msgstr ""
+msgstr "Fichier non local : « %s ». Aucune modification."
 
 #: ../src/msec/libmsec.py:1700
 msgid "Checking paths: %s"
@@ -754,7 +773,7 @@ msgstr "Vérification des chemins : %s"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "Niveau de sécurité incorrect « %s »."
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
@@ -762,15 +781,15 @@ msgstr "Msec: Centre de Securité Mandriva (%s)\n"
 
 #: ../src/msec/msec.py:110 ../src/msec/msecperms.py:129
 msgid "Error: This application must be executed by root!"
-msgstr ""
+msgstr "Erreur : cette application doit être lancée par root !"
 
 #: ../src/msec/msec.py:111 ../src/msec/msecperms.py:130
 msgid "Run with --help to get help."
-msgstr ""
+msgstr "Lancez avec --help pour obtenir de l'aide."
 
 #: ../src/msec/msec.py:133 ../src/msec/msecperms.py:151
 msgid "Level '%s' not found, aborting."
-msgstr ""
+msgstr "Niveau « %s » non trouvé, abandon."
 
 #: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
 msgid "Switching to '%s' level."
@@ -786,6 +805,10 @@ msgid ""
 "This application allows you to configure your system security. If you wish\n"
 "to activate it, choose the appropriate security level: "
 msgstr ""
+"<big><b>Choisissez le niveau de sécurité</b></big>\n"
+"Cette application vous permet de configurer la sécurité de votre système.\n"
+"Si vous souhaitez l'activer, veuillez choisir le niveau de sécurité "
+"approprié : "
 
 #: ../src/msec/msecgui.py:54
 msgid ""
@@ -793,6 +816,9 @@ msgid ""
 "activates several non-intrusive periodic system checks. This is the "
 "suggested level for Desktop."
 msgstr ""
+"Ce profil configure un ensemble de paramètres pour un niveau de sécurité "
+"raisonnable. Il active différentes vérifications périodiques du système, non "
+"intrusives. Ce niveau est préconisé pour les ordinateurs de bureau."
 
 #: ../src/msec/msecgui.py:56
 msgid ""
@@ -801,6 +827,10 @@ msgid ""
 "periodic checks. This level is suggested for Servers and security-concerned "
 "systems . "
 msgstr ""
+"Ce profil est configuré pour fournir une sécurité maximale, y compris au "
+"détriment de l'accès distant au système. Il active aussi une vaste panoplie "
+"de vérifications périodiques. Ce niveau est préconisé pour les serveurs et "
+"les systèmes sensibles."
 
 #: ../src/msec/msecgui.py:59
 msgid ""
@@ -953,7 +983,7 @@ msgstr "Détails (%d changements).."
 
 #: ../src/msec/msecgui.py:388
 msgid "No base msec level specified, using '%s'"
-msgstr ""
+msgstr "Pas de niveau msec de base spécifié, « %s » sera utilisé"
 
 #: ../src/msec/msecgui.py:391
 msgid "Detected base msec level '%s'"
@@ -961,7 +991,7 @@ msgstr "Niveau msec de base détecté '%s'"
 
 #: ../src/msec/msecgui.py:396
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr ""
+msgstr "Niveau de base personnalisé « %s » trouvé. Repli vers « %s »"
 
 #: ../src/msec/msecgui.py:424
 msgid "Security Option"
@@ -1045,7 +1075,7 @@ msgstr "Changement des permissions pour %s"
 
 #: ../src/msec/msecgui.py:961
 msgid "Adding new permission check"
-msgstr ""
+msgstr "Ajout d'une nouvelle vérification périodique"
 
 #: ../src/msec/msecgui.py:973
 msgid ""
@@ -1053,6 +1083,9 @@ msgid ""
 "Please specify new permissions, or use 'current' to keep current "
 "permissions.\n"
 msgstr ""
+"Changement des permissions pour <b>%s</b>\n"
+"Veuillez préciser les nouvelles permissions ou utiliser « actuelles » pour "
+"conserver les permissions actuelles.\n"
 
 #: ../src/msec/msecgui.py:981
 msgid "File: "
@@ -1082,6 +1115,11 @@ msgid ""
 "\t%sStandard level value:\t<i>%s</i>%s\n"
 "\t%sSecure level value:\t\t<i>%s</i>%s\n"
 msgstr ""
+"<i>%s</i>\n"
+"\n"
+"\tValeur actuelle :\t\t\t<i>%s</i>\n"
+"\t%sValeur du niveau standard :\t<i>%s</i>%s\n"
+"\t%sValeur du niveau sécurisé :\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "New value:"
@@ -1135,10 +1173,12 @@ msgstr "Désactivation de l'historique des mots de passe"
 msgid ""
 "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
+"Longueur de mot de passe « %s » incorrecte. Utilisez « longueur,nb_chiffres,"
+"nb_majuscules » comme paramètre"
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
-msgstr ""
+msgstr "Réglage de la longueur minimale du mot de passe à %d"
 
 #: ../src/msec/plugins/pam.py:169
 msgid "Allowing su only from wheel group members"

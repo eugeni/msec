@@ -16,7 +16,7 @@
 # Frank Koester <frank@dueppel13.de>, 2005.Frank Koester <frank@dueppel13.de>, 2006.
 # Nicolas Bauer <rastafarii@mandrivauer.de>, 2006, 2007.
 # Nicolas Bauer <rastafarii@mandrivauser.de>, 2007.
-# Oliver Burger <oliver@mandrivauser.de>, 2008.
+# Oliver Burger <oliver@mandrivauser.de>, 2008, 2009.
 # Wolfgang Bornath <wbo@mandriva.com>, 2009.
 # Oliver Burger <oliver.burger@wizard-fire.de>, 2009.
 # Thorsten van Lil <tvl83@gmx.de>, 2009.
@@ -25,18 +25,18 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-03 11:21+0200\n"
-"Last-Translator: Oliver Burger <oliver.burger@wizard-fire.de>\n"
-"Language-Team: German <cooker-i18n@mandrivalinux.org>\n"
+"PO-Revision-Date: 2009-04-05 11:09+0200\n"
+"Last-Translator: Oliver Burger <oliver@mandrivauser.de>\n"
+"Language-Team: deutsch <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.3\n"
+"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:15
 msgid "Enable name resolution spoofing protection."
-msgstr "Aktiviere Schutz vor  Namensauflösungs-Spoofing"
+msgstr "Aktiviere Schutz vor Manipulation bei der Namensauflösungs"
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
@@ -66,13 +66,11 @@ msgstr ""
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr ""
-"Aktiviere die Suche nach bekannten Rootkits mittels Benutzung von chkrootkit."
+msgstr "Aktiviere die Suche nach bekannten Rootkits mittels Benutzung von chkrootkit."
 
 #: ../src/msec/help.py:27
 msgid "Enable checking for additions/removals of suid root files."
-msgstr ""
-"Aktiviere die Überprüfung des Hinzufügens/Entfernens von „suid-root“ Dateien"
+msgstr "Aktiviere die Überprüfung des Hinzufügens/Entfernens von „suid-root“ Dateien"
 
 #: ../src/msec/help.py:29
 msgid ""
@@ -219,7 +217,7 @@ msgstr "Leite syslog Meldungen auf Terminal 12 um."
 
 #: ../src/msec/help.py:79
 msgid "Enable IP spoofing protection."
-msgstr "Aktiviere Schutz gegen IP Spoofing"
+msgstr "Aktiviere Schutz gegen Manipulation der IP"
 
 #: ../src/msec/help.py:81
 msgid ""
@@ -312,10 +310,8 @@ msgid ""
 "password, only public-key authentication logins are allowed. See sshd_config"
 "(5) man page for more information."
 msgstr ""
-"Erlaube entferntzen Root-Zugang mittels sshd. Wenn \"ja\" gewählt wird, ist "
-"der Zugang erlaubt, wenn \"ohne Passwort\" gewählt wird, ist nur eine "
-"public-key Authentifizierung gestattet. Siehe die sshd_config (5) man page "
-"für mehr Informationen."
+"Erlaube entferntzen Root-Zugang mittels sshd."
+"Akzeptierte Argumente sind: ja (Zugang ist erlaubt), ohne-Passwort (nur public-key-Authentifizierung gestattet). Siehe man sshd_config (5) für mehr Informationen."
 
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
@@ -330,15 +326,10 @@ msgstr ""
 "sulogin (8))."
 
 #: ../src/msec/help.py:115
-#, fuzzy
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
-msgstr ""
-"Erlaube die Freigabe der Anzeige,\n"
-"wenn von root zu einem anderen Nutzer gewechselt wird.\n"
-"\n"
-"Siehe pam_xauth(8) für Details.'"
+msgstr "Erlaube die Freigabe der Anzeige, wenn von root zu einem anderen Nutzer gewechselt wird. Siehe pam_xauth(8) für mehr Informationen"
 
 #: ../src/msec/help.py:117
 #, fuzzy
@@ -1203,8 +1194,7 @@ msgid "Disabling password history"
 msgstr "Passwort Verlaufslänge"
 
 #: ../src/msec/plugins/pam.py:124
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:145
@@ -1236,5 +1226,4 @@ msgstr ""
 #, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Erlaube su nur für Mitglieder der Wheel-Gruppe"
-
 

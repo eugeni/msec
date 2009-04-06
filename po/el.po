@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: DrakX-el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-05 10:51+0200\n"
+"PO-Revision-Date: 2009-04-06 22:41+0200\n"
 "Last-Translator: Glentadakis Dimitrios <dglent@gmail.com>\n"
 "Language-Team: Greek <i18ngr@lists.hellug.gr>\n"
 "MIME-Version: 1.0\n"
@@ -255,11 +255,13 @@ msgstr "Να επιτρέπεται η επανεκκίνηση από το χρ
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
-msgstr ""
+msgstr "Ενεργοποίηση της καταγραφής των περιοδικών ελέγχων στο log συστήματος"
 
 #: ../src/msec/help.py:91
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
 msgstr ""
+"Ενεργοποίηση ελέγχου για επικίνδυνες ρυθμίσεις στα αρχεία .rhosts/.shosts "
+"των χρηστών."
 
 #: ../src/msec/help.py:93
 msgid ""
@@ -282,14 +284,12 @@ msgid "Enable daily security checks."
 msgstr "Εκτέλεση των καθημερινών ελέγχων ασφαλείας"
 
 #: ../src/msec/help.py:99
-#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr "Να επιτρέπεται η απευθείας σύνδεση υπερχρήστη."
+msgstr "Επέτρεψε την απευθείας σύνδεση root στο τερματικό."
 
 #: ../src/msec/help.py:101
-#, fuzzy
 msgid "Enable checking for unowned files."
-msgstr "Αναφορά αρχείων χωρίς ιδιοκτήτη"
+msgstr "Ενεργοποίηση ελέγχου για αρχεία χωρίς ιδιοκτήτη."
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
@@ -387,9 +387,8 @@ msgid "%s modified so should have run command: %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
-#, fuzzy
 msgid "deleted %s"
-msgstr "Διαγραφή"
+msgstr ""
 
 #: ../src/msec/libmsec.py:455
 #, fuzzy
@@ -397,9 +396,8 @@ msgid "touched file %s"
 msgstr "Δεν υπάρχει τέτοιο αρχείο"
 
 #: ../src/msec/libmsec.py:475
-#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr "Αλλαγή από %s σε %s"
+msgstr "δημιουργήθηκε συμβολικός σύνδεσμος από το %s στο %s"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
@@ -419,7 +417,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:778
 msgid "Plugin %s not found"
-msgstr ""
+msgstr "Δεν βρέθηκε το plugin %s"
 
 #: ../src/msec/libmsec.py:785
 msgid "Not supported function '%s' in '%s'"
@@ -551,11 +549,11 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1062
 msgid "Allowing list of users in KDM"
-msgstr ""
+msgstr "Εμφάνιση της λίστας των χρηστών στο KDM"
 
 #: ../src/msec/libmsec.py:1066
 msgid "Allowing list of users in GDM"
-msgstr ""
+msgstr "Εμφάνιση της λίστας των χρηστών στο GDM"
 
 #: ../src/msec/libmsec.py:1071
 msgid "Forbidding list of users in KDM"

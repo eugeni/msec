@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-03 13:34+0200\n"
+"PO-Revision-Date: 2009-04-06 08:29+0200\n"
 "Last-Translator: Amazis.net sp. z o.o. - Tomasz Bednarski <tomasz.bednarski@amazis.pl>\n"
 "Language-Team:  <pl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -86,6 +86,8 @@ msgstr "Przelogowanie na konto root (su) jest dostępne tylko dla użytkowników
 #: ../src/msec/help.py:41
 msgid "Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages. By default, two presets are provided: local (which only enables local services) and remote (which also enables some remote services considered safe). Note that the allowed services must be placed manually into the server.SERVER_LEVEL files when necessary."
 msgstr ""
+"Tworzy link symboliczny  /etc/security/msec/server wskazujący na /etc/security/msec/server.SERVER_LEVEL. "
+"Plik /etc/security/msec/server jest wykorzystywany przez polecenie chkconfig --add do określenia czy należy dodać usługę podczas instalacji pakietów. Domyślnie dozwolone są dwa ustawienia: lokalny (aktywuje tylko lokalne usługi) i zdalny (aktywuje także niektóre usługi zdalne, które uznaje się za bezpieczne). Należy zwrócić uwagę, że jeżeli to konieczne usługi muszą być dodane ręcznie do plików server.SERVER_LEVEL"
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
@@ -531,14 +533,12 @@ msgid "Forbidding export display from root"
 msgstr "Eksport ekranu z konta roota zabroniony"
 
 #: ../src/msec/libmsec.py:1323
-#, fuzzy
 msgid "Activating periodic promiscuity check"
-msgstr "Uaktywnij sprawdzanie \"gadatliwości\" karty sieciowej."
+msgstr "Aktywuj okresowe sprawdzanie bezpieczeństwa i uprawnień."
 
 #: ../src/msec/libmsec.py:1327
-#, fuzzy
 msgid "Disabling periodic promiscuity check"
-msgstr "Sprawdzanie statystyk odbierania przez karty sieciowe"
+msgstr "Wyłącz okresowe sprawdzanie bezpieczeństwa i uprawnień."
 
 #: ../src/msec/libmsec.py:1353
 msgid "Allowing direct root login"

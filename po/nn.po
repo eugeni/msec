@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libDrakX\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-01-31 23:22+0100\n"
+"PO-Revision-Date: 2009-04-07 19:38+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -18,18 +18,16 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:15
-#, fuzzy
 msgid "Enable name resolution spoofing protection."
 msgstr "Vern mot namneoppslagforfalsking."
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
+msgstr "Send e-postrapportar sjølv om ingen endringar vart oppdaga."
 
 #: ../src/msec/help.py:19
-#, fuzzy
 msgid "Accept broadcasted ICMP echo."
-msgstr "Godta kringkasta icmp-ekko."
+msgstr "Godta kringkasta ICMP-ekko."
 
 #: ../src/msec/help.py:21
 msgid ""
@@ -37,31 +35,29 @@ msgid ""
 "is set to 'wheel', users must belong to the 'wheel' group to be able to use "
 "sudo"
 msgstr ""
+"Tillat brukarar å autentisera med passorda deira for sudo. Viss denne "
+"parameteren er sett til «wheel», må brukarane høyra til gruppa «wheel» for å "
+"kunna bruka sudo."
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
+msgstr "Tillat X-tenaren å godta samband frå nettverk på TCP-porten 6000."
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr ""
+msgstr "Sjå etter kjende rootkit med chkrootkit."
 
 #: ../src/msec/help.py:27
-#, fuzzy
 msgid "Enable checking for additions/removals of suid root files."
-msgstr "Sjå etter tillegg og fjerning av suid-root-filer"
+msgstr "Sjå etter tillegg og fjerning av suid-root-filer."
 
 #: ../src/msec/help.py:29
-#, fuzzy
 msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
-"Slå på «crontab» og «at» for brukarar.\n"
-"\n"
-"Legg brukarar som får tilgang til «/etc/cron.allow» og «/etc/at.allow» (sjå "
-"man at(1)\n"
-"og crontab(1))."
+"Slå på «crontab» og «at» for brukarar. Legg brukarar som får tilgang i "
+"«/etc/cron.allow» og «/etc/at.allow» (sjå man at(1) og crontab(1))."
 
 #: ../src/msec/help.py:31
 msgid "Accept bogus IPv4 error messages."
@@ -69,20 +65,19 @@ msgstr "Godta ugyldige IPv4-feilmeldingar."
 
 #: ../src/msec/help.py:33
 msgid "Enable checksum verification for suid files."
-msgstr ""
+msgstr "Kontroller kontrollsum til suid-filene."
 
 #: ../src/msec/help.py:35
-#, fuzzy
 msgid "User email to receive security notifications."
-msgstr "Set tryggleiksval. Vent litt …"
+msgstr "E-postadressa til brukaren som skal motta tryggleiksvarslingar."
 
 #: ../src/msec/help.py:37
 msgid "Allow autologin."
-msgstr "Godta autoinnlogging."
+msgstr "Tillat autoinnlogging."
 
 #: ../src/msec/help.py:39
 msgid "Allow only users in wheel group to su to root."
-msgstr ""
+msgstr "Tillat berre brukarar i gruppa «wheel» å utføra su til rotbrukar."
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -104,58 +99,60 @@ msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
 msgstr ""
+"Kontroller løyve på brukarfiler som ikkje skal eigast eller kunna endrast av "
+"andre."
 
 #: ../src/msec/help.py:47
-#, fuzzy
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr "Sjå etter tomme passord i /etc/shadow"
+msgstr "Sjå etter tomme passord i «/etc/shadow» (man shadow(5))."
 
 #: ../src/msec/help.py:49
 msgid ""
 "Use password to authenticate users. Take EXTREMELY care when disabling "
 "passwords, as it will leave the machine vulnerable."
 msgstr ""
+"Bruk passord for å autentisera brukarar. Ver VELDIG forsiktig viss du slår "
+"av dette, då det vil gjera maskina sårbar."
 
 #: ../src/msec/help.py:51
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '0', "
 "default system umask is used."
 msgstr ""
+"Set umask-valet ved montering av VFAT- og NTFS-partisjoanr. Viss umask er "
+"«0», vert standard-umaska brukt."
 
 #: ../src/msec/help.py:53
 msgid "Enable checking for open network ports."
-msgstr ""
+msgstr "Sjå etter opne nettverksportar."
 
 #: ../src/msec/help.py:55
-#, fuzzy
 msgid "Enable logging of strange network packets."
-msgstr "Loggfør merkelege IPv4-pakkar."
+msgstr "Loggfør merkelege nettverkspakkar."
 
 #: ../src/msec/help.py:57
 msgid "Enable verification of installed RPM packages."
-msgstr ""
+msgstr "Kontroller installerte RPM-pakkar."
 
 #: ../src/msec/help.py:59
 msgid "Allow root access without password for the members of the wheel group."
-msgstr ""
+msgstr "Tillat rottilgang utan passord for medlemmer i gruppa «wheel»."
 
 #: ../src/msec/help.py:61
-#, fuzzy
 msgid "Send security check results by email."
-msgstr "Rapporter resultatet over e-post"
+msgstr "Rapporter resultatet av tryggleikskontrollen via e-post."
 
 #: ../src/msec/help.py:63
-#, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
-"Vel minstelengd på passord og minimum tal på siffer og store bokstavar."
+"Vel minstelengd på passord og minimum tal på siffer og store bokstavar, på "
+"formatet «lengd,talpåsiffer,talpåstore»."
 
 #: ../src/msec/help.py:65
-#, fuzzy
 msgid "Set the root umask."
-msgstr "Vel modus for nye filer («umask») til «root»."
+msgstr "Vel rot-umask."
 
 #: ../src/msec/help.py:67
 #, fuzzy
@@ -1198,3 +1195,4 @@ msgstr ""
 #, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Godta «su» berre frå medlemmar i «wheel»-gruppa"
+

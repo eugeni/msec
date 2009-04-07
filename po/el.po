@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: DrakX-el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-06 22:41+0200\n"
+"PO-Revision-Date: 2009-04-07 21:38+0200\n"
 "Last-Translator: Glentadakis Dimitrios <dglent@gmail.com>\n"
 "Language-Team: Greek <i18ngr@lists.hellug.gr>\n"
 "MIME-Version: 1.0\n"
@@ -697,9 +697,8 @@ msgid "Allowing direct root login"
 msgstr "Να επιτρέπεται η απευθείας σύνδεση υπερχρήστη."
 
 #: ../src/msec/libmsec.py:1370
-#, fuzzy
 msgid "Forbidding direct root login"
-msgstr "Να επιτρέπεται η απευθείας σύνδεση υπερχρήστη."
+msgstr "Απαγόρευση της άμεσης σύνδεσης ως root"
 
 #: ../src/msec/libmsec.py:1505
 #, fuzzy
@@ -1125,9 +1124,8 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:981
-#, fuzzy
 msgid "File: "
-msgstr "/_Αρχείο"
+msgstr "Αρχείο :"
 
 #: ../src/msec/msecgui.py:989
 msgid "User: "
@@ -1219,7 +1217,7 @@ msgstr ""
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
-msgstr ""
+msgstr "Ρύθμιση του ελάχιστου μήκους του κωδικού σε %d"
 
 #: ../src/msec/plugins/pam.py:169
 #, fuzzy
@@ -1236,7 +1234,7 @@ msgstr ""
 
 #: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"
-msgstr ""
+msgstr "Επέτρεψε su για όλους"
 
 #: ../src/msec/plugins/pam.py:204
 msgid "Allowing transparent root access for wheel group members"

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: DrakX-el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-07 21:38+0200\n"
+"PO-Revision-Date: 2009-04-08 21:17+0200\n"
 "Last-Translator: Glentadakis Dimitrios <dglent@gmail.com>\n"
 "Language-Team: Greek <i18ngr@lists.hellug.gr>\n"
 "MIME-Version: 1.0\n"
@@ -217,7 +217,6 @@ msgstr ""
 "no (καμία σύνδεση)."
 
 #: ../src/msec/help.py:75
-#, fuzzy
 msgid "Enable checking for files/directories writable by everybody."
 msgstr "Έλεγχος των αρχείων/καταλόγων που είναι εγγράψιμοι από όλους."
 
@@ -249,9 +248,10 @@ msgstr ""
 "χωρίς όριο."
 
 #: ../src/msec/help.py:87
-#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
-msgstr "Να επιτρέπεται η επανεκκίνηση από το χρήστη της κονσόλας."
+msgstr ""
+"Επέτρεψε την επανεκκίνηση και τον τερματισμό του συστήματος από τους "
+"τοπικούς χρήστες."
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
@@ -268,20 +268,21 @@ msgid ""
 "Enable password-related checks, such as empty passwords and strange super-"
 "user accounts."
 msgstr ""
+"Ενεργοποίηση των ελέγχων σχετικά με τους κωδικούς πρόσβασης, όπως κενούς "
+"κωδικούς "
+"ή ύποπτους λογαριασμούς διαχειριστών."
 
 #: ../src/msec/help.py:95
-#, fuzzy
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
 msgstr ""
 "Όρισε το μέγεθος του ιστορικού των κωδικών ασφαλείας, για την αποφυγή "
-"επαναχρησιμοποίησης κωδικών."
+"επαναχρησιμοποίησης κωδικών. Αυτο δεν υποστηρίζεται από pam_tcb. "
 
 #: ../src/msec/help.py:97
-#, fuzzy
 msgid "Enable daily security checks."
-msgstr "Εκτέλεση των καθημερινών ελέγχων ασφαλείας"
+msgstr "Ενεργοποίηση των καθημερινών ελέγχων ασφαλείας."
 
 #: ../src/msec/help.py:99
 msgid "Allow direct root login on terminal."
@@ -294,6 +295,8 @@ msgstr "Ενεργοποίηση ελέγχου για αρχεία χωρίς �
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
 msgstr ""
+"Επέτρεψε στους διαχειριστές σύνδεσης (kdm και gdm) να εμφανίζουν την λίστα "
+"με τους τοπικούς χρήστες."
 
 #: ../src/msec/help.py:105
 msgid ""
@@ -301,10 +304,17 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
+"Εξαναγκασμός αδειών του MSEC στα αρχεία και καταλόγους στην εκκίνηση του "
+"συστήματος. Αν "
+"αυτή η παράμετρος είναι ρυθμισμένη σε « enforce », θα γίνεται αυτόματα "
+"εξαναγκαστική ρύθμιση "
+"των αδειών, σύμφωνα με τις ρυθμίσεις ασφαλείας του συστήματος."
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
 msgstr ""
+"Εμφάνιση των ειδοποιήσεων ασφαλείας στο πλαίσιο συστήματος χρησιμοποιώντας "
+"libnotify."
 
 #: ../src/msec/help.py:109
 msgid ""
@@ -312,31 +322,37 @@ msgid ""
 "password, only public-key authentication logins are allowed. See sshd_config"
 "(5) man page for more information."
 msgstr ""
+"Επέτρεψε την απομακρυσμένη σύνδεση του root μέσω sshd. Αν είναι « yes » η "
+"σύνδεση επιτρέπεται. "
+"Αν επιλέξετε « without- password », επιτρέπονται συνδέσεις μόνο με δημόσιο "
+"κλειδί. Δείτε "
+"την τεκμηρίωση man του sshd_config (5) για περισσότερες πληροφορίες."
 
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
+"Εκτελεί κάθε ώρα έναν έλεγχο ασφαλείας για αλλαγές στην διαμόρφωση του "
+"συστήματος."
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
+"Ερώτηση του κωδικού root κατά την μετάβαση σε επίπεδο απλού χρήστη (man "
+"sulogin(8))."
 
 # ?????
 #: ../src/msec/help.py:115
-#, fuzzy
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
 msgstr ""
-"Να επιτρέπεται η εξαγωγή της προβολής, όταν γίνεται μετάβαση\n"
-"από το λογαριασμό υπερχρήστη στους άλλους χρήστες.\n"
-"\n"
-"Δες το pam_xauth(8) για περισσότερες λεπτομέρειες.'"
+"Να επιτρέπεται η εξαγωγή της προβολής, όταν γίνεται μετάβαση "
+"από το λογαριασμό root στους άλλους χρήστες. Δες το pam_xauth(8) "
+"για περισσότερες λεπτομέρειες."
 
 #: ../src/msec/help.py:117
-#, fuzzy
 msgid "Set the user umask."
-msgstr "Όρισε την μάσκα της κατάστασης δημιουργίας αρχείων για τον χρήστη."
+msgstr "Όρισε την umask του χρήστη."
 
 #: ../src/msec/help.py:119
 #, fuzzy
@@ -344,28 +360,23 @@ msgid "Accept ICMP echo."
 msgstr "Αποδοχή του icmp echo."
 
 #: ../src/msec/help.py:121
-#, fuzzy
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
 "local services are authorized. If no, the services must be authorized "
 "manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
-"Αδειοδότηση:\n"
-"\n"
-"- όλες οι υπηρεσίες ελέγχονται από το tcp_wrappers (δες hosts.deny(5) σελίδα "
-"man), αν οριστεί σε \"ALL\",\n"
-"\n"
-"- μόνο οι τοπικές, αν οριστεί σε \"Local\"\n"
-"\n"
-"- καμία, αν οριστεί σε \"None\".\n"
-"\n"
-"Για να αδειοδοτήσεις τις υπηρεσίες που θέλεις, χρησιμοποίησε το /etc/hosts."
-"allow (δες hosts.allow(5))."
+"Επέτρεψε την πλήρη πρόσβαση στις υπηρεσίες δικτύου που ελέγχονται από το "
+"tcp_wrappers (δες hosts.deny(5)). Αν είναι « yes », επιτρέπονται όλες οι "
+"υπηρεσίες. "
+"Αν είναι « local », επιτρέπονται μόνο οι συνδέσεις σε τοπικές υπηρεσίες. Αν "
+"« no », "
+"οι υπηρεσίες πρέπει να πιστοποιούνται χειροκίνητα στο /etc/hosts.allow (δες "
+"hosts.allow(5)). "
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
-msgstr ""
+msgstr "Εφαρμογή των ρυθμίσεων του MSEC στην εκκίνηση"
 
 #: ../src/msec/help.py:125
 msgid "Enable periodic security check results to terminal."

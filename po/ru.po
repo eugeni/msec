@@ -10,10 +10,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: ru\n"
+"Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-07 14:50+0200\n"
+"PO-Revision-Date: 2009-04-08 15:07+0200\n"
 "Last-Translator: Pavel Maryanov <acid_jack@ukr.net>\n"
 "Language-Team: Russian <gnu@mx.ru>\n"
 "MIME-Version: 1.0\n"
@@ -131,23 +131,15 @@ msgstr "Проверять добавления/удаления бита sgid �
 
 #: ../src/msec/help.py:69
 msgid "Activate ethernet cards promiscuity check."
-msgstr "Включает/Отключает проверку режима promiscuity для ethernet-карт."
+msgstr "Включить проверку режима promiscuity для ethernet-карт."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
-msgstr "Включить каркас безопасности AppArmour при загрузке"
+msgstr "Включить макет безопасности AppArmour при загрузке"
 
 #: ../src/msec/help.py:73
-#, fuzzy
 msgid "Allow local users to connect to X server. Accepted arguments: yes (all connections are allowed), local (only local connection), no (no connection)."
-msgstr ""
-"Разрешает/Запрещает X-подключения:\n"
-"\n"
-"- ВСЕ (все подключения разрешены),\n"
-"\n"
-"- ЛОКАЛЬНЫЕ (подключения только с локальной машины),\n"
-"\n"
-"- НИ ОДНОГО (никаких подключений)."
+msgstr "Разрешить пользователям подключаться к X-серверу. Допустимые аргументы: yes (все подключения разрешены), local (подключения только с локальной машины), no (никаких подключений)."
 
 #: ../src/msec/help.py:75
 msgid "Enable checking for files/directories writable by everybody."
@@ -174,37 +166,32 @@ msgid "Set shell commands history size. A value of -1 means unlimited."
 msgstr "Устанавливает размер истории команд командного процессора. Значение -1 означает неограниченную историю."
 
 #: ../src/msec/help.py:87
-#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
-msgstr "Разрешает/Запрещает перезагрузку пользователем из консоли."
+msgstr "Разрешить пользователям из консоли перезагружать и завершать работу системы."
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
 msgstr "Включить протоколирование периодических проверок в системный журнал."
 
 #: ../src/msec/help.py:91
-#, fuzzy
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
 msgstr "Включить проверку на опасные параметры в пользовательских файлах .rhosts/.shosts."
 
 #: ../src/msec/help.py:93
-#, fuzzy
 msgid "Enable password-related checks, such as empty passwords and strange super-user accounts."
-msgstr "Включить проверку паролей - наличие пустого пароля и незнакомых аккаунтов суперпользователя."
+msgstr "Включить связанные с паролями проверки, например наличие пустых паролей и незнакомых учётных записей суперпользователя."
 
 #: ../src/msec/help.py:95
-#, fuzzy
 msgid "Set the password history length to prevent password reuse. This is not supported by pam_tcb."
-msgstr "Установка длительности истории пароля для предотвращения повторного использования пароля."
+msgstr "Установить длительность истории паролей для предотвращения повторного использования пароля. Эта функция не поддерживается в модуле pam_tcb."
 
 #: ../src/msec/help.py:97
 msgid "Enable daily security checks."
 msgstr "Запускать ежедневные проверки безопасности."
 
 #: ../src/msec/help.py:99
-#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr "Разрешает/Запрещает непосредственный вход в систему под root'ом."
+msgstr "Разрешить вход в систему под root'ом в консоли."
 
 #: ../src/msec/help.py:101
 msgid "Enable checking for unowned files."
@@ -235,13 +222,8 @@ msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr "Спрашивать пароль root при переходе в однопользовательский режим (man sulogin(8))."
 
 #: ../src/msec/help.py:115
-#, fuzzy
 msgid "Allow to export display when passing from the root account to the other users. See pam_xauth(8) for more details."
-msgstr ""
-"Разрешает/запрещает экспорт дисплея при\n"
-"переходе из учётной записи root'а на других пользователей.\n"
-"\n"
-"Подробнее смотрите в pam_xauth(8).'"
+msgstr "Разрешить экспорт дисплея при переходе из учётной записи root'а в учётные записи других пользователей. Дополнительные сведения см. в pam_xauth(8).'"
 
 #: ../src/msec/help.py:117
 msgid "Set the user umask."
@@ -252,18 +234,8 @@ msgid "Accept ICMP echo."
 msgstr "Принимать icmp echo."
 
 #: ../src/msec/help.py:121
-#, fuzzy
 msgid "Allow full access to network services controlled by tcp_wrapper (see hosts.deny(5)). If yes, all services are allowed. If local, only connections to local services are authorized. If no, the services must be authorized manually in /etc/hosts.allow (see hosts.allow(5))."
-msgstr ""
-"Разрешает:\n"
-"\n"
-"- все службы, контролируемые tcp_wrappers'ами (см. hosts.deny(5) man page), если установлено в \"ВСЕ\",\n"
-"\n"
-"- только локальные, если установлено в \"ЛОКАЛЬНЫЕ\"\n"
-"\n"
-"- ни одной, если установлено в \"НИ ОДНОГО\".\n"
-"\n"
-"Для разрешения нужных вам служб используйте /etc/hosts.allow (см hosts.allow (5))."
+msgstr "Разрешить полный доступ к сетевым службам, контролируемым tcp_wrapper'ами (см. hosts.deny(5)). Если установлено «yes», разрешены все службы. Если установлено «local», разрешены подключения только к локальным службам. Если установлено «no», службы необходимо разрешить вручную в файлах /etc/hosts.allow (см. hosts.allow (5))."
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
@@ -291,9 +263,8 @@ msgid "deleted %s"
 msgstr "удалён %s"
 
 #: ../src/msec/libmsec.py:455
-#, fuzzy
 msgid "touched file %s"
-msgstr "Нет такого файла"
+msgstr "обращение к файлу %s"
 
 #: ../src/msec/libmsec.py:475
 msgid "made symbolic link from %s to %s"
@@ -346,9 +317,8 @@ msgid "Restricting chkconfig for packages according to \"%s\" profile"
 msgstr "Неограниченный chkconfig для пакетов относится к профилю «%s»"
 
 #: ../src/msec/libmsec.py:849
-#, fuzzy
 msgid "Setting root umask to %s"
-msgstr "Переключение с %s на %s"
+msgstr "Установить значение umask для пользователя root, равное %s"
 
 #: ../src/msec/libmsec.py:859
 msgid "Setting users umask to %s"
@@ -700,15 +670,14 @@ msgstr ""
 "для создаваемых файлов."
 
 #: ../src/msec/msecgui.py:64
-#, fuzzy
 msgid ""
 "<big><b>Network security options</b></big>\n"
 "These options define the network security against remote threats, unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
-"<big><b>Настройки безопасности сети</b></big>\n"
-"Эти параметры задают сетевую безопасность для предотвращения удаленных атак, неавторизированного доступа и\n"
-"попыток взлома.  "
+"<big><b>Параметры безопасности сети</b></big>\n"
+"Эти параметры определяют сетевую безопасность для предотвращения удалённых атак,\n"
+"несанкционированного доступа и попыток взлома.  "
 
 #: ../src/msec/msecgui.py:68
 msgid ""
@@ -855,9 +824,8 @@ msgid "Detected base msec level '%s'"
 msgstr "Обнаружен базовый уровень msec '%s'"
 
 #: ../src/msec/msecgui.py:396
-#, fuzzy
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr "Найден настроенный базовый уровень конфигурации '%s'. По умолчанию будет '%s'"
+msgstr "Найден пользовательский базовый уровень конфигурации «%s». По умолчанию будет «%s»"
 
 #: ../src/msec/msecgui.py:424
 msgid "Security Option"
@@ -892,23 +860,20 @@ msgid "Secure"
 msgstr "Безопасность"
 
 #: ../src/msec/msecgui.py:540
-#, fuzzy
 msgid "Send security alerts by email"
-msgstr "Предупреждения о безопасности:"
+msgstr "Отправлять предупреждения о безопасности по электронной почте:"
 
 #: ../src/msec/msecgui.py:547
-#, fuzzy
 msgid "System administrator email address:"
-msgstr "Установка пароля администратора (root)"
+msgstr "Адрес электронной почты администратора:"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
 msgstr "Отображать предупреждения безопасности на рабочем столе"
 
 #: ../src/msec/msecgui.py:727
-#, fuzzy
 msgid "Enable periodic security checks"
-msgstr "Разрешить msec'у проверять безопасность каждый час"
+msgstr "Разрешить периодические проверки безопасности"
 
 #: ../src/msec/msecgui.py:791
 msgid "Path"
@@ -927,9 +892,8 @@ msgid "Enforce"
 msgstr "Принудительно"
 
 #: ../src/msec/msecgui.py:861
-#, fuzzy
 msgid "Reset to default level permissions"
-msgstr "Восстановить значения микшера по умолчанию "
+msgstr "Восстановить разрешения уровня по умолчанию "
 
 #: ../src/msec/msecgui.py:866
 msgid "Add a rule"
@@ -1014,42 +978,36 @@ msgid "Do you want to save changes before closing?"
 msgstr "Сохранить изменения перед выходом?"
 
 #: ../src/msec/plugins/pam.py:68
-#, fuzzy
 msgid "Using password to authenticate users"
 msgstr "Использовать пароль для аутентификации пользователей"
 
 #: ../src/msec/plugins/pam.py:72
-#, fuzzy
 msgid "Don't use password to authenticate users"
-msgstr "Использовать пароль для аутентификации пользователей"
+msgstr "Не использовать пароль для аутентификации пользователей"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
 msgstr "История паролей не поддерживается в pam_tcb."
 
 #: ../src/msec/plugins/pam.py:91
-#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr "Длина истории пароля"
+msgstr "Недопустимая максимальная длина истории пароля: «%s»"
 
 #: ../src/msec/plugins/pam.py:106
-#, fuzzy
 msgid "Setting password history to %d."
-msgstr "Длина истории пароля"
+msgstr "Установить длину истории пароля, равную %d."
 
 #: ../src/msec/plugins/pam.py:112
-#, fuzzy
 msgid "Disabling password history"
-msgstr "Длина истории пароля"
+msgstr "Отключить длину истории пароля"
 
 #: ../src/msec/plugins/pam.py:124
-#, fuzzy
 msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
-msgstr "Неверная длина пароля \"%s\". Используйте \"length,ndigits,nupper\" как парметры"
+msgstr "Недопустимая длина пароля «%s». Используйте «length,ndigits,nupper» как параметр"
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
-msgstr "Устанавливает минимальную длину пароля %d"
+msgstr "Установить минимальную длину пароля %d"
 
 #: ../src/msec/plugins/pam.py:169
 msgid "Allowing su only from wheel group members"

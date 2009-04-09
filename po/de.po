@@ -1,4 +1,3 @@
-# translation of de.po to deutsch
 # translation of de.po to
 # german translation of the MandrivaInstaller.
 # Copyright (C) 2000-2003 Mandriva S.A.
@@ -25,9 +24,9 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-05 11:09+0200\n"
-"Last-Translator: Oliver Burger <oliver@mandrivauser.de>\n"
-"Language-Team: deutsch <cooker-i18n@mandrivalinux.org>\n"
+"PO-Revision-Date: 2009-04-09 19:59+0200\n"
+"Last-Translator: Thorsten van Lil <tvl83@gmx.de>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -367,15 +366,15 @@ msgid ""
 "Enable PolicyKit security framework for all users. If this option is not "
 "enabled, only users in wheel group may change advanced PolicyKit permissions "
 "and settings"
-msgstr ""
+msgstr "Aktiviere das PolicyKit Sicherheitsframework für alle Benutzer. Wenn diese Option nicht eingeschaltet ist, können lediglich Benutzer der Gruppe wheel die erweiterten PolicyKit Rechte und Einstellungen verändern."
 
 #: ../src/msec/libmsec.py:326
 msgid "%s modified so launched command: %s"
-msgstr ""
+msgstr "%s wurde verändert, daher wird folgender Befehl ausgeführt: %s"
 
 #: ../src/msec/libmsec.py:335
 msgid "%s modified so should have run command: %s"
-msgstr ""
+msgstr "%s wurde verändert, daher sollte folgender Befehl ausgeführt werden: %s"
 
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
 #, fuzzy
@@ -394,15 +393,15 @@ msgstr "Wechsle von %s zu %s"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
-msgstr ""
+msgstr "verschiebe die Datei %s nach %s"
 
 #: ../src/msec/libmsec.py:528 ../src/msec/libmsec.py:544
 msgid "set variable %s to %s in %s"
-msgstr ""
+msgstr "Setze Variable %s auf %s in %s"
 
 #: ../src/msec/libmsec.py:755
 msgid "Error loading plugin '%s' from %s: %s"
-msgstr ""
+msgstr "Fehler beim Laden des Plugins %s von %s: %s"
 
 #: ../src/msec/libmsec.py:769
 msgid "Invalid callback: %s"
@@ -410,11 +409,11 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:778
 msgid "Plugin %s not found"
-msgstr ""
+msgstr "Plugin %s wurde nicht gefunden"
 
 #: ../src/msec/libmsec.py:785
 msgid "Not supported function '%s' in '%s'"
-msgstr ""
+msgstr "Nicht unterstützte Funktion %s in %s"
 
 #: ../src/msec/libmsec.py:792 ../src/msec/libmsec.py:1575
 msgid "In check-only mode, nothing is written back to disk."
@@ -427,11 +426,12 @@ msgstr "Der %s wird von dieser Version %s NICHT unterstützt."
 
 #: ../src/msec/libmsec.py:819
 msgid "Invalid parameter for %s: '%s'. Valid parameters: '%s'."
-msgstr ""
+msgstr "Ungültiger Parameter für %s: '%s'. Folgende Parameter sind zulässig: '%s'"
 
 #: ../src/msec/libmsec.py:834
+#, fuzzy
 msgid "Allowing unrestricted chkconfig for packages"
-msgstr ""
+msgstr "Unbeschränktes chkconfig für Pakete erlauben"
 
 #: ../src/msec/libmsec.py:839
 msgid "Restricting chkconfig for packages according to \"%s\" profile"
@@ -509,15 +509,15 @@ msgstr "Den Neustart des Rechners durch den Konsolen Benutzer erlauben."
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "Das Hoch- und Runterfahren in GDM zulassen"
 
 #: ../src/msec/libmsec.py:1023
 msgid "Allowing Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "Das Hoch- und Runterfahren in KDM zulassen"
 
 #: ../src/msec/libmsec.py:1026
 msgid "Allowing Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "STRG+ALT+ENTF in der Konsole zulassen"
 
 #: ../src/msec/libmsec.py:1030
 #, fuzzy
@@ -531,31 +531,31 @@ msgstr "Neustart durch den Konsolen Benutzer"
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "Das Hoch- und Runterfahren in GDM unterbinden"
 
 #: ../src/msec/libmsec.py:1045
 msgid "Forbidding Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "Das Hoch- und Runterfahren in KDM unterbinden"
 
 #: ../src/msec/libmsec.py:1048
 msgid "Forbidding Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "STRG+ALT+ENTF in der Konsole unterbinden"
 
 #: ../src/msec/libmsec.py:1062
 msgid "Allowing list of users in KDM"
-msgstr ""
+msgstr "Das Darstellen der Benutzerliste in KDM zulassen"
 
 #: ../src/msec/libmsec.py:1066
 msgid "Allowing list of users in GDM"
-msgstr ""
+msgstr "Das Darstellen der Benutzerliste in GDM zulassen"
 
 #: ../src/msec/libmsec.py:1071
 msgid "Forbidding list of users in KDM"
-msgstr ""
+msgstr "Das Darstellen der Benutzerliste in KDM unterbinden"
 
 #: ../src/msec/libmsec.py:1075
 msgid "Forbidding list of users in GDM"
-msgstr ""
+msgstr "Das Darstellen der Benutzerliste in GDM unterbinden"
 
 #: ../src/msec/libmsec.py:1089
 #, fuzzy
@@ -584,7 +584,7 @@ msgstr "Das automatische Anmelden eines Benutzers erlauben."
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
-msgstr ""
+msgstr "Passwort im Bootloader aktivieren"
 
 #: ../src/msec/libmsec.py:1131
 #, fuzzy
@@ -613,11 +613,11 @@ msgstr "Täglicher Sicherheitscheck"
 
 #: ../src/msec/libmsec.py:1183
 msgid "Authorizing all services"
-msgstr ""
+msgstr "Alle Dienste autorisieren"
 
 #: ../src/msec/libmsec.py:1187
 msgid "Disabling all services"
-msgstr ""
+msgstr "Alle Dienste abschalten"
 
 #: ../src/msec/libmsec.py:1191
 #, fuzzy
@@ -650,8 +650,9 @@ msgid "Enabling msec periodic runs"
 msgstr "Swap-Partition „%s“ aktivieren"
 
 #: ../src/msec/libmsec.py:1276
+#, fuzzy
 msgid "Disabling msec periodic runs"
-msgstr ""
+msgstr "Das regelmäßige Ausführen von msec deaktivieren"
 
 #: ../src/msec/libmsec.py:1289
 #, fuzzy
@@ -692,25 +693,24 @@ msgid "Forbidding direct root login"
 msgstr "Erlaube direkte Root Anmeldung."
 
 #: ../src/msec/libmsec.py:1505
-#, fuzzy
 msgid "user name %s not found"
-msgstr "Dieser Benutzername ist zu lang"
+msgstr "Der Benutzername %s wurde nicht gefunden"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
-msgstr ""
+msgstr "Der Benutzername für die ID %s wurde nicht gefunden"
 
 #: ../src/msec/libmsec.py:1529
 msgid "group name %s not found"
-msgstr ""
+msgstr "Der Gruppenname %s wurde nicht gefunden"
 
 #: ../src/msec/libmsec.py:1541
 msgid "group name not found for id %d"
-msgstr ""
+msgstr "Der Gruppenname für die ID %s wurde nicht gefunden"
 
 #: ../src/msec/libmsec.py:1551
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
-msgstr ""
+msgstr "Das Prüfen von /proc/mounts war nicht möglich. Wahrscheinlich sind nur lokale Dateisysteme vorhanden."
 
 #: ../src/msec/libmsec.py:1590
 #, fuzzy
@@ -724,7 +724,7 @@ msgstr "Fehler beim Aushängen von %s: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
-msgstr ""
+msgstr "Falscher Besitzer von %s: Sollte %s sein"
 
 #: ../src/msec/libmsec.py:1599
 #, fuzzy
@@ -738,7 +738,7 @@ msgstr "Fehler beim Aushängen von %s: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
-msgstr ""
+msgstr "Falsche Gruppe von %s: Sollte %s sein"
 
 #: ../src/msec/libmsec.py:1610
 msgid "Enforcing permissions on %s to %o"
@@ -746,11 +746,11 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1614
 msgid "Error changing permissions on %s: %s"
-msgstr ""
+msgstr "Fehler beim Verändern der Rechte von %s: %s"
 
 #: ../src/msec/libmsec.py:1616
 msgid "Wrong permissions of %s: should be %o"
-msgstr ""
+msgstr "Falsche Rechte von %s: Sollten %s sein"
 
 #: ../src/msec/libmsec.py:1633
 msgid "bad permissions for '%s': '%s'"
@@ -767,23 +767,23 @@ msgstr "%s wird überprüft"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "Ungültige Sicherheitsebene '%s'."
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
-msgstr ""
+msgstr "Msec: Mandriva Security Center (%s)\n"
 
 #: ../src/msec/msec.py:110 ../src/msec/msecperms.py:129
 msgid "Error: This application must be executed by root!"
-msgstr ""
+msgstr "Fehler: Diese Anwendung muss als root ausgeführt werden."
 
 #: ../src/msec/msec.py:111 ../src/msec/msecperms.py:130
 msgid "Run with --help to get help."
-msgstr ""
+msgstr "Mit --help starten um Hilfestellungen zu bekommen."
 
 #: ../src/msec/msec.py:133 ../src/msec/msecperms.py:151
 msgid "Level '%s' not found, aborting."
-msgstr ""
+msgstr "Ebene '%s' nicht gefunden. Abbruch."
 
 #: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
 #, fuzzy
@@ -801,6 +801,9 @@ msgid ""
 "This application allows you to configure your system security. If you wish\n"
 "to activate it, choose the appropriate security level: "
 msgstr ""
+"<big><b>Sicherheitsebene wählen</b></big>\n"
+"Diese Anwendung erlaubt es Ihnen die Systemsicherheit einzustellen.\n"
+"Zum Aktivieren wählen Sie eine entsprechende Sicherheitsebene:"
 
 #: ../src/msec/msecgui.py:54
 msgid ""

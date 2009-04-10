@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: DrakX-el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-09 19:35+0200\n"
-"Last-Translator: Glentadakis Dimitrios <dglent@gmail.com>\n"
+"PO-Revision-Date: 2009-04-10 11:51+0200\n"
+"Last-Translator: nikos papadopoulos <231036448@freemail.gr>\n"
 "Language-Team: Greek <i18ngr@lists.hellug.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,8 +78,7 @@ msgstr "Επέτρεψε τη σύνδεση ως root με su μόνο στου
 
 #: ../src/msec/help.py:41
 msgid "Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages. By default, two presets are provided: local (which only enables local services) and remote (which also enables some remote services considered safe). Note that the allowed services must be placed manually into the server.SERVER_LEVEL files when necessary."
-msgstr ""
-"Δημιουργεί το συμβολικό σύνδεσμο /etc/security/msec/server για /etc/security/msec/server.SERVER_LEVEL. Το /etc/security/msec/server χρησιμοποιείται από το chkconfig --add για να καθοριστεί η προσθήκη μιας υπηρεσίας διαθέσιμης στο αρχείο κατά την εγκατάσταση πακέτων. Από προεπιλογή, παρέχονται δύο προ ρυθμισμένες επιλογές : local (όπου ενεργοποιούνται μόνο τοπικές υπηρεσίες) και remote (όπου ενεργοποιεί ορισμένες απομακρυσμένες υπηρεσίες που θεωρούνται ασφαλείς). Σημειώστε ότι οι επιτρεπόμενες υπηρεσίες πρέπει να τοποθετούνται χειροκίνητα στο αρχείο server.SERVER_LEVEL όταν είναι απαραίτητο."
+msgstr "Δημιουργεί το συμβολικό σύνδεσμο /etc/security/msec/server για /etc/security/msec/server.SERVER_LEVEL. Το /etc/security/msec/server χρησιμοποιείται από το chkconfig --add για να καθοριστεί η προσθήκη μιας υπηρεσίας διαθέσιμης στο αρχείο κατά την εγκατάσταση πακέτων. Από προεπιλογή, παρέχονται δύο προ ρυθμισμένες επιλογές : local (όπου ενεργοποιούνται μόνο τοπικές υπηρεσίες) και remote (όπου ενεργοποιεί ορισμένες απομακρυσμένες υπηρεσίες που θεωρούνται ασφαλείς). Σημειώστε ότι οι επιτρεπόμενες υπηρεσίες πρέπει να τοποθετούνται χειροκίνητα στο αρχείο server.SERVER_LEVEL όταν είναι απαραίτητο."
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
@@ -712,6 +711,10 @@ msgid ""
 "password configurations, integration with other security tools, and default file creation\n"
 "permissions.  "
 msgstr ""
+"<big><b>Επιλογές ασφαλείας συστήματος</b></big>\n"
+"Αυτές οι επιλογές ελέγχουν την τοπική ρύθμιση ασφαλείας, \n"
+"όπως είναι οι περιορισμοί σύνδεσης στον υπολογιστή, οι ρυθμίσεις κωδικών ασφαλείας, \n"
+"η ενσωμάτωση με άλλα εργαλεία ασφαλείας, και οι προεπιλεγμένες άδειες δημιουργίας αρχείων.  "
 
 #: ../src/msec/msecgui.py:64
 msgid ""
@@ -719,12 +722,17 @@ msgid ""
 "These options define the network security against remote threats, unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
+"<big><b>Επιλογές ασφαλείας δικτύου</b></big>\n"
+"Αυτές οι επιλογές προσδιορίζουν την ασφάλεια δικτύου, \n"
+"εναντίον απομακρυσμένων απειλών, μη εξουσιοδοτημένης πρόσβασης, και απειλών διάρρηξης.  "
 
 #: ../src/msec/msecgui.py:68
 msgid ""
 "<big><b>Periodic security checks</b></big>\n"
 "These options configure the security checks that should be executed periodically.  "
 msgstr ""
+"<big><b>Περιοδικοί έλεγχοι ασφαλείας</b></big>\n"
+"Αυτές οι επιλογές ρυθμίζουν τους ελέγχους ασφαλείας, που θα πρέπει να εκτελούνται περιοδικά."
 
 #: ../src/msec/msecgui.py:71
 msgid ""
@@ -734,6 +742,11 @@ msgid ""
 "or current permission is reported. The permissions can be enforced, automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
+"<big><b>Άδειες αρχείων</b></big>\n"
+"Αυτές οι επιλογές επιτρέπουν την λεπτομερή ρύθμιση των αδειών του συστήματος για αρχεία και καταλόγους.\n"
+"Οι ακόλουθες άδειες ελέγχονται περιοδικά, και γίνεται αναφορά για οποιαδήποτε αλλαγή στον ιδιοκτήτη, \n"
+"στην ομάδα ή στις τωρινές άδειες.Όταν εντοπίζεται μία αλλαγή, οι άδειες μπορούν να εφαρμοστούν εξαναγκαστικά,\n"
+"επαναφέροντάς τες, αυτόματα, στις προσδιορισμένες τιμές."
 
 #: ../src/msec/msecgui.py:77
 #, fuzzy
@@ -927,7 +940,7 @@ msgstr "Όρισε τον κωδικό πρόσβασης του διαχειρ�
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
-msgstr ""
+msgstr "Προβολή των συναγερμών ασφαλείας στην επιφάνεια εργασίας"
 
 #: ../src/msec/msecgui.py:727
 #, fuzzy
@@ -969,17 +982,19 @@ msgstr "Διαγραφή"
 
 #: ../src/msec/msecgui.py:954
 msgid "Changing permissions for %s"
-msgstr ""
+msgstr "Αλλαγή των αδειών για το %s"
 
 #: ../src/msec/msecgui.py:961
 msgid "Adding new permission check"
-msgstr ""
+msgstr "Προσθήκη νέου ελέγχου αδειών"
 
 #: ../src/msec/msecgui.py:973
 msgid ""
 "Changing permissions on <b>%s</b>\n"
 "Please specify new permissions, or use 'current' to keep current permissions.\n"
 msgstr ""
+"Αλλαγή των αδειών για το <b>%s</b>\n"
+"Παρακαλώ, προσδιόρισε νέες τιμές, ή χρησιμοποίησε το «τωρινό» (current), για να διατηρήσεις τις τωρινές άδειες.\n"
 
 #: ../src/msec/msecgui.py:981
 msgid "File: "
@@ -999,7 +1014,7 @@ msgstr "Άδειες :"
 
 #: ../src/msec/msecgui.py:1066
 msgid "Select new value for %s"
-msgstr ""
+msgstr "Επέλεξε νέα τιμή για το %s"
 
 #: ../src/msec/msecgui.py:1075
 msgid ""
@@ -1009,6 +1024,11 @@ msgid ""
 "\t%sStandard level value:\t<i>%s</i>%s\n"
 "\t%sSecure level value:\t\t<i>%s</i>%s\n"
 msgstr ""
+"<i>%s</i>\n"
+"\n"
+"\tΤωρινή τιμή:\t\t\t<i>%s</i>\n"
+"\t%sΤιμή πρότυπου επιπέδου:\t<i>%s</i>%s\n"
+"\t%sΤιμή επιπέδου ασφαλείας:\t\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1086
 #, fuzzy
@@ -1017,7 +1037,7 @@ msgstr "Νέα Καληδονία"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
-msgstr ""
+msgstr "Να γίνει αποθήκευση των αλλαγών;"
 
 #: ../src/msec/msecgui.py:1150
 #, fuzzy
@@ -1051,7 +1071,7 @@ msgstr "Χρήση κωδικού πρόσβασης για την πιστοπ�
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
-msgstr ""
+msgstr "Το ιστορικό των κωδικών ασφαλείας δεν υποστηρίζεται από το pam_tcb."
 
 #: ../src/msec/plugins/pam.py:91
 #, fuzzy
@@ -1070,7 +1090,7 @@ msgstr "Μέγεθος του ιστορικού των κωδικών ασφα�
 
 #: ../src/msec/plugins/pam.py:124
 msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
-msgstr ""
+msgstr "Άκυρο μήκος του κωδικού ασφαλείας \"%s\". Χρησιμοποίησε για παράμετρο το \"length,ndigits,nupper\" "
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
@@ -1083,11 +1103,11 @@ msgstr "Ενεργοποίηση του su, μόνο για τα μέλη της
 
 #: ../src/msec/plugins/pam.py:173
 msgid "no wheel group"
-msgstr ""
+msgstr "δεν υπάρχει ομάδα υπερχρηστών (wheel)"
 
 #: ../src/msec/plugins/pam.py:177
 msgid "wheel group is empty"
-msgstr ""
+msgstr "η ομάδα υπερχρηστών (wheel) είναι άδεια"
 
 #: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"
@@ -1095,11 +1115,10 @@ msgstr "Επέτρεψε su για όλους"
 
 #: ../src/msec/plugins/pam.py:204
 msgid "Allowing transparent root access for wheel group members"
-msgstr ""
+msgstr "Επιτρέπεται η διάφανη πρόσβαση διαχειριστή (root), για τα μέλη της ομάδας υπερχρηστών (wheel)"
 
 #: ../src/msec/plugins/pam.py:211
 #, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Ενεργοποίηση του su, μόνο για τα μέλη της ομάδας wheel."
-
 

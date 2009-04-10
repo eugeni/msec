@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-10 16:52+0200\n"
+"PO-Revision-Date: 2009-04-10 16:59+0200\n"
 "Last-Translator: \n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -1131,7 +1131,7 @@ msgstr "Benutzer müssen sich nicht mit Passwort authentifizieren."
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
-msgstr ""
+msgstr "Passwort-Verlauf wird nicht von pam_tcb unterstützt."
 
 #: ../src/msec/plugins/pam.py:91
 msgid "Invalid maximum password history length: \"%s\""
@@ -1146,9 +1146,12 @@ msgid "Disabling password history"
 msgstr "Passwort Verlauf abschalten"
 
 #: ../src/msec/plugins/pam.py:124
+#, fuzzy
 msgid ""
 "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
+"Ungültige Passwortlänge \"%s\". Benutzen Sie \"length,ndigits,nupper\" als "
+"Parameter"
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
@@ -1172,8 +1175,8 @@ msgstr "Allen su erlauben"
 
 #: ../src/msec/plugins/pam.py:204
 msgid "Allowing transparent root access for wheel group members"
-msgstr ""
+msgstr "Erlaube transparenten Root-Zugang für Mitglieder der Gruppe wheel "
 
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
-msgstr ""
+msgstr "Deaktiviere transparenten Root-Zugang für Mitglieder der Gruppe wheel "

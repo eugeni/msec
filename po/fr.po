@@ -76,7 +76,7 @@ msgstr ""
 "Project-Id-Version: DrakX-fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-05 20:08+0200\n"
+"PO-Revision-Date: 2009-04-11 19:34+0200\n"
 "Last-Translator: Christophe Berthelé <berthy@mandriva.org>\n"
 "Language-Team: French <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -136,11 +136,11 @@ msgstr "Accepter les messages d'erreur IPv4 bogués."
 
 #: ../src/msec/help.py:33
 msgid "Enable checksum verification for suid files."
-msgstr "Activer la vérification de la somme de contrôle des fichiers suid"
+msgstr "Activer la vérification de la somme de contrôle des fichiers suid."
 
 #: ../src/msec/help.py:35
 msgid "User email to receive security notifications."
-msgstr "Adresse courriel pour la réception des avertissements de sécurité"
+msgstr "Adresse courriel pour la réception des avertissements de sécurité."
 
 #: ../src/msec/help.py:37
 msgid "Allow autologin."
@@ -150,7 +150,7 @@ msgstr "Activer la connexion automatique (autologin)."
 msgid "Allow only users in wheel group to su to root."
 msgstr ""
 "Autoriser la connexion à root via su uniquement aux utilisateurs du groupe "
-"wheel"
+"wheel."
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -162,6 +162,15 @@ msgid ""
 "services considered safe). Note that the allowed services must be placed "
 "manually into the server.SERVER_LEVEL files when necessary."
 msgstr ""
+"Crée un lien symbolique de /etc/security/msec/server vers /etc/security/msec/"
+"server.NIVEAU_SERVER. Ce lien /etc/security/msec/server est utilisé par "
+"« chkconfig --add » lors de l'installation des paquetages pour décider "
+"d'activer un service si ce dernier est cité dans le fichier server."
+"NIVEAU_SERVEUR. Par défaut, deux valeurs prédéfinies sont fournies : local "
+"(qui active seulement les services locaux) et remote (qui active en plus des "
+"services distants considérés comme sûrs). Notez que les services autorisés "
+"doivent être placés manuellement dans les fichiers server.NIVEAU_SERVEUR si "
+"vous en avez besoin."
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
@@ -173,7 +182,7 @@ msgid ""
 "someone else, or writable."
 msgstr ""
 "Vérifier les permissions des fichiers utilisateurs qui ne devraient pas "
-"appartenir à quelqu'un d'autre ou avoir les droits en écriture"
+"appartenir à quelqu'un d'autre ou avoir les droits en écriture."
 
 #: ../src/msec/help.py:47
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
@@ -228,7 +237,7 @@ msgstr ""
 
 #: ../src/msec/help.py:65
 msgid "Set the root umask."
-msgstr "Régler le umask de l'administrateur"
+msgstr "Régler le umask de l'administrateur."
 
 #: ../src/msec/help.py:67
 msgid "Enable checking for additions/removals of sgid files."
@@ -236,11 +245,11 @@ msgstr "Vérifier les ajouts/retraits des fichiers sgid."
 
 #: ../src/msec/help.py:69
 msgid "Activate ethernet cards promiscuity check."
-msgstr "Activer la vérification du mode espion des cartes réseau."
+msgstr "Vérifier le mode espion des cartes réseau."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
-msgstr "Activer l'environnement de sécurité AppArmor au démarrage"
+msgstr "Activer la structure de sécurité AppArmor au démarrage"
 
 #: ../src/msec/help.py:73
 msgid ""
@@ -289,13 +298,11 @@ msgstr ""
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
-msgstr ""
-"Active la journalisation des vérifications périodiques dans le journal "
-"système."
+msgstr "Tracer les vérifications périodiques dans le journal système."
 
 #: ../src/msec/help.py:91
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr ""
+msgstr "Vérifier les options dangereuses dans les fichiers .rhosts/.shosts."
 
 #: ../src/msec/help.py:93
 msgid ""
@@ -337,6 +344,10 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
+"Appliquer les permissions MSEC sur les répertoires et les fichiers au "
+"démarrage. Si ce paramètre est positionné à « appliquer », les permissions du "
+"système seront appliquées automatiquement, en fonction de la configuration "
+"de sécurité du système."
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
@@ -350,17 +361,21 @@ msgid ""
 "password, only public-key authentication logins are allowed. See sshd_config"
 "(5) man page for more information."
 msgstr ""
+"Autoriser la connexion root distante sur sshd. Si oui, la connexion est "
+"autorisée. Avec «without-password», seules les connexions basées sur une clé "
+"d'authentification sont autorisées. Voir la page de manuel sshd_config (5) "
+"pour plus d'information."
 
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
-"Effectue toutes les heures une vérification de sécurité des changements de "
+"Effectuer toutes les heures une vérification de sécurité des changements de "
 "la configuration système."
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
-"Demande le mot de passe root lors du passage en mode « single user » (man "
+"Demander le mot de passe root lors du passage en mode « single user » (man "
 "sulogin(8))."
 
 #: ../src/msec/help.py:115
@@ -394,11 +409,13 @@ msgstr ""
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
-msgstr "Applique les paramètres MSEC au démarrage"
+msgstr "Appliquer les paramètres MSEC au démarrage"
 
 #: ../src/msec/help.py:125
 msgid "Enable periodic security check results to terminal."
 msgstr ""
+"Afficher les résultats des vérifications de sécurité périodiques dans le "
+"terminal."
 
 #: ../src/msec/help.py:127
 msgid ""
@@ -406,14 +423,17 @@ msgid ""
 "enabled, only users in wheel group may change advanced PolicyKit permissions "
 "and settings"
 msgstr ""
+"Activer la structure de sécurité PolicyKit pour tous les utilisateurs. Si "
+"cette option n'est pas activée, seuls les utilisateurs du groupe wheel "
+"pourront changer les permissions et les paramètres avancés de PolicyKit."
 
 #: ../src/msec/libmsec.py:326
 msgid "%s modified so launched command: %s"
-msgstr ""
+msgstr "%s modifié donc commande lancée : %s"
 
 #: ../src/msec/libmsec.py:335
 msgid "%s modified so should have run command: %s"
-msgstr ""
+msgstr "%s modifié donc commande à lancer : %s"
 
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
 msgid "deleted %s"
@@ -429,31 +449,31 @@ msgstr "lien symbolique créé de %s vers %s"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
-msgstr ""
+msgstr "fichier %s déplacé vers %s"
 
 #: ../src/msec/libmsec.py:528 ../src/msec/libmsec.py:544
 msgid "set variable %s to %s in %s"
-msgstr ""
+msgstr "initialisation de la variable %s à %s dans %s"
 
 #: ../src/msec/libmsec.py:755
 msgid "Error loading plugin '%s' from %s: %s"
-msgstr ""
+msgstr "Erreur de chargement du greffon « %s » de %s : %s"
 
 #: ../src/msec/libmsec.py:769
 msgid "Invalid callback: %s"
-msgstr ""
+msgstr "Fonction « callback » invalide : %s"
 
 #: ../src/msec/libmsec.py:778
 msgid "Plugin %s not found"
-msgstr ""
+msgstr "Greffon %s non trouvé"
 
 #: ../src/msec/libmsec.py:785
 msgid "Not supported function '%s' in '%s'"
-msgstr ""
+msgstr "Fonction « %s » non supportée dans « %s »"
 
 #: ../src/msec/libmsec.py:792 ../src/msec/libmsec.py:1575
 msgid "In check-only mode, nothing is written back to disk."
-msgstr ""
+msgstr "En mode « vérification seulement », rien n'est écrit sur le disque."
 
 #: ../src/msec/libmsec.py:809
 msgid "'%s' is not available in this version"
@@ -492,7 +512,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:886
 msgid "Restricting X server connection to the console user"
-msgstr "Restriction des connexions au serveur X à la console utilisateur"
+msgstr "Connexions au serveur X restreintes à la console utilisateur"
 
 #: ../src/msec/libmsec.py:889
 msgid "invalid allow_x_connections arg: %s"
@@ -841,6 +861,12 @@ msgid ""
 "file creation\n"
 "permissions.  "
 msgstr ""
+"<big><b>Options de sécurité du système</b></big>\n"
+"Ces options configurent la sécurité locale, dont les restrictions de "
+"connexion, la configuration\n"
+"des mots de passe, l'intégration avec d'autres outils de sécurité ainsi que "
+"les permissions par\n"
+"défaut des fichiers et des répertoires.  "
 
 #: ../src/msec/msecgui.py:64
 msgid ""
@@ -849,6 +875,10 @@ msgid ""
 "unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
+"<big><b>Options de sécurité du réseau</b></big>\n"
+"Ces options configurent la sécurité du réseau contre les menaces distantes, "
+"les accès non\n"
+"autorisés et les tentatives d'intrusion.  "
 
 #: ../src/msec/msecgui.py:68
 msgid ""
@@ -856,6 +886,9 @@ msgid ""
 "These options configure the security checks that should be executed "
 "periodically.  "
 msgstr ""
+"<big><b>Vérifications de sécurité périodiques</b></big>\n"
+"Ces options configurent les vérifications de sécurité qui doivent être "
+"exécutées périodiquement.  "
 
 #: ../src/msec/msecgui.py:71
 msgid ""
@@ -868,6 +901,14 @@ msgid ""
 "automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
+"<big><b>Permissions des fichiers</b></big>\n"
+"Ces options vous permettent d'ajuster finement les permissions du système "
+"pour les fichiers et les répertoires importants.\n"
+"Les permissions suivantes sont vérifiées périodiquement et tout changement "
+"de propriétaire,\n"
+"de groupe ou de permissions est signalé. Les permissions peuvent être "
+"remplacées automatiquement \n"
+"par les valeurs spécifiées quant un changement est détecté.  "
 
 #: ../src/msec/msecgui.py:77
 msgid "Save and apply new configuration?"
@@ -903,7 +944,7 @@ msgstr "À _propos"
 
 #: ../src/msec/msecgui.py:182
 msgid "MSEC: System Security and Audit"
-msgstr "MSEC : Sécurité système et Audit"
+msgstr "MSEC : Sécurité du système et Audit"
 
 #: ../src/msec/msecgui.py:200
 msgid "Basic security"
@@ -927,7 +968,7 @@ msgstr "Permissions"
 
 #: ../src/msec/msecgui.py:237
 msgid "MSEC option changes"
-msgstr ""
+msgstr "Changements d'options MSEC"
 
 #: ../src/msec/msecgui.py:237
 msgid "option"
@@ -1055,7 +1096,7 @@ msgstr "Groupe"
 
 #: ../src/msec/msecgui.py:817
 msgid "Enforce"
-msgstr "Renforcer"
+msgstr "Appliquer"
 
 #: ../src/msec/msecgui.py:861
 msgid "Reset to default level permissions"
@@ -1084,7 +1125,7 @@ msgid ""
 "permissions.\n"
 msgstr ""
 "Changement des permissions pour <b>%s</b>\n"
-"Veuillez préciser les nouvelles permissions ou utiliser « actuelles » pour "
+"Veuillez préciser les nouvelles permissions ou utiliser « current » pour "
 "conserver les permissions actuelles.\n"
 
 #: ../src/msec/msecgui.py:981
@@ -1147,7 +1188,7 @@ msgstr "Désirez-vous sauvegarder les changements avant de fermer ?"
 
 #: ../src/msec/plugins/pam.py:68
 msgid "Using password to authenticate users"
-msgstr "Utiliser un mot de passe pour authentifier les utilisateurs"
+msgstr "Utilisation d'un mot de passe pour authentifier les utilisateurs"
 
 #: ../src/msec/plugins/pam.py:72
 msgid "Don't use password to authenticate users"
@@ -1163,7 +1204,7 @@ msgstr "Taille maximale de l'historique des mots de passe incorrecte : « %s 
 
 #: ../src/msec/plugins/pam.py:106
 msgid "Setting password history to %d."
-msgstr "Taille de l'historique des mots de passe fixée à %d"
+msgstr "Taille de l'historique des mots de passe fixée à %d."
 
 #: ../src/msec/plugins/pam.py:112
 msgid "Disabling password history"
@@ -1199,10 +1240,11 @@ msgstr "Autoriser su pour tous"
 #: ../src/msec/plugins/pam.py:204
 msgid "Allowing transparent root access for wheel group members"
 msgstr ""
-"Autoriser l'accès administrateur transparent pour les membres du groupe wheel"
+"Autorisation d'accès administrateur transparent pour les membres du groupe "
+"wheel"
 
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
-"Désactiver l'accès administrateur transparent pour les membres du groupe "
+"Désactivation d'accès administrateur transparent pour les membres du groupe "
 "wheel"

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: msec-2009.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-11 08:12+0100\n"
+"PO-Revision-Date: 2009-04-11 19:22+0100\n"
 "Last-Translator: Lónyai Gergely <aleph@mandriva.org>\n"
 "Language-Team: Hungarian <aleph@mandriva.org>\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,7 @@ msgstr "Engedélyezi, hogy csak a wheel csoport tagjai szerezhetnek root jogot a
 
 #: ../src/msec/help.py:41
 msgid "Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages. By default, two presets are provided: local (which only enables local services) and remote (which also enables some remote services considered safe). Note that the allowed services must be placed manually into the server.SERVER_LEVEL files when necessary."
-msgstr ""
+msgstr "Elmozgatja a symlinket a /etc/security/msec/server fájlról a /etc/security/msec/server.SERVER_LEVEL fájlra. A /etc/security/msec/server fájl a chkconfig --add parancsnál van használva, ha a fájl létezik, amikor a csomagok települnek. Alapértelmezésben két beállítást tartalmazhat: local (csak a helyi szolgáltatások vannak engedélyezve) és remote (az előbbieken kívül engedélyezve van néhány távolról is biztonságosan használható szolgáltatás). Amennyibe az alapértelmezetteken kívül további távoli hozzáférésű szolgáltatást kíván használni, akkor azt kézzel be kell írni a server.SERVER_LEVEL fájlba."
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
@@ -650,14 +650,17 @@ msgid ""
 "This application allows you to configure your system security. If you wish\n"
 "to activate it, choose the appropriate security level: "
 msgstr ""
+"<big><b>Válasszon biztonsági szintet</b></big>\n"
+"Ezzel az alkalmazással a rendszer biztonsági engedélyeit lehet finomhangolni.\n"
+"Ha aktiválni kívánja, válasszon egy biztonsági szintet:"
 
 #: ../src/msec/msecgui.py:54
 msgid "This profile configures a reasonably safe set of security features. It activates several non-intrusive periodic system checks. This is the suggested level for Desktop."
-msgstr ""
+msgstr "Ez a beállításprofil a biztonsági lehetőségek közül egy kényelmesen használható összeállítást biztosít. Tartalmaz néhány nem erőforrás igényes időnként lefutó biztonsági ellenőrzést. Ez az ajánlott szint egy otthoni gépre."
 
 #: ../src/msec/msecgui.py:56
 msgid "This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks. This level is suggested for Servers and security-concerned systems . "
-msgstr ""
+msgstr "Ez a beállításprofil biztosítja a legbiztonságosabb rendszert, illetve egyszerű, gyors módon lehet vele korlátozni a távoli használatot. Több különböző biztonsági ellenőrzést is futtat. Ez a szint kiszolgálókhoz és kifejezetten biztonságot igénylő számítógépekhez javasolt."
 
 #: ../src/msec/msecgui.py:59
 msgid ""
@@ -666,6 +669,8 @@ msgid ""
 "password configurations, integration with other security tools, and default file creation\n"
 "permissions.  "
 msgstr ""
+"<big><b>Rendszerbiztonsági opciók</b></big>\n"
+"Itt a helyi biztonsági beállításokat találja, mint például a bejelentkezés, jelszó, alapértelmezett fájl létrehozási jogok és integráció más biztonsági eszközökkel."
 
 #: ../src/msec/msecgui.py:64
 msgid ""
@@ -673,12 +678,17 @@ msgid ""
 "These options define the network security against remote threats, unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
+"<big><b>Hálózatbiztonsági opciók</b></big>\n"
+"Itt a hálózati biztonsági beállításokat találja, mint például távoli szálak, \n"
+"azonosítatlan hozzáférés, feltörési kísérletek."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
 "<big><b>Periodic security checks</b></big>\n"
 "These options configure the security checks that should be executed periodically.  "
 msgstr ""
+"<big><b>Periodikus biztonsági ellenőrzések</b></big>\n"
+"Itt az időnként lefutó biztonsági ellenőrzéseket beállításait találja."
 
 #: ../src/msec/msecgui.py:71
 msgid ""
@@ -688,6 +698,13 @@ msgid ""
 "or current permission is reported. The permissions can be enforced, automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
+"<big><b>Fájl jogosultságok</b></big>\n"
+"Itt a rendszer számára fontos fájlok és könyvtárak jogosultságainak \n"
+"beállításait találja.\n"
+"Az alábbi jogosultságokat a rendszer periodikusan ellenőrzi, és minden tulajdonos, \n"
+"csoport vagy jogosultságváltozás is ekkor lesz érvényesítve.\n"
+"A beállított jogosultságok erőltetve lesznek, azaz ha az ellenőrzés másképp \n"
+"találja, akkor a beállított értékeket alkalmazni fogja."
 
 #: ../src/msec/msecgui.py:77
 msgid "Save and apply new configuration?"

@@ -1,4 +1,3 @@
-# Translation of msec.po to Romanian
 # Copyright (c) 1999-2009 Mandriva
 #
 # Vă rugăm să nu actualizaţi fișierul, cu excepția cazului în care sînteți
@@ -37,20 +36,22 @@
 # Florin GRAD <florin@mandriva.com>, 1999, 2000
 # Dragos Marian BARBU <dragosb@softhome.net>, 2000
 # Ovidiu CONSTANTIN <ovidiu.constantin@gmx.net>, 2002, 2003
-# Harald ERSCH <harald@ersch.ro>,2003
+# Harald ERSCH <harald@ersch.ro>, 2003
 # Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>, 2008, 2009
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 12:58+BRT\n"
-"PO-Revision-Date: 2009-03-30 19:35+0200\n"
-"Last-Translator: Pîrîu Cristian Ionuţ <piriu.cristian@rdslink.ro>\n"
-"Language-Team: Mandrivausers.ro\n"
+"Report-Msgid-Bugs-To: https://qa.mandriva.com\n"
+"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
+"PO-Revision-Date: 2009-04-11 16:23+0100\n"
+"Last-Translator: Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>\n"
+"Language-Team: Mandrivausers.ro <piriu.cristian@rdslink.ro>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3;plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1))\n"
 "X-Poedit-Language: Romanian\n"
 "X-Poedit-Country: ROMANIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -120,8 +121,8 @@ msgid "Allow autologin."
 msgstr "Permite autentificarea automată."
 
 #: ../src/msec/help.py:39
-msgid "Allow only users in wheel grup to su to root."
-msgstr "Permite numai utilizatorilor din grupul wheel să facă su la root,"
+msgid "Allow only users in wheel group to su to root."
+msgstr "Activează protecția împotriva uzurpării rezoluției de nume."
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -704,8 +705,8 @@ msgstr ""
 "fișiere sînt locale."
 
 #: ../src/msec/libmsec.py:1590
-msgid "Enforcing user on %s to %s"
-msgstr "Se impune utilizatorul pe %s la %s"
+msgid "Forcing ownership of %s to %s"
+msgstr "Se impune proprietarul lui %s la %s"
 
 #: ../src/msec/libmsec.py:1594
 msgid "Error changing user on %s: %s"
@@ -831,8 +832,8 @@ msgstr ""
 #: ../src/msec/msecgui.py:64
 msgid ""
 "<big><b>Network security options</b></big>\n"
-"These options define the network security agains remote treats, unauthorized "
-"accesses,\n"
+"These options define the network security against remote threats, "
+"unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
 "<big><b>Opțiuni de securitate rețea</b></big>\n"

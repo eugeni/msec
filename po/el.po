@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: DrakX-el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-11 07:50+0200\n"
-"Last-Translator: Glentadakis Dimitrios <dglent@gmail.com>\n"
+"PO-Revision-Date: 2009-04-11 09:45+0200\n"
+"Last-Translator: nikos papadopoulos <231036448@freemail.gr>\n"
 "Language-Team: Greek <i18ngr@lists.hellug.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -776,9 +776,8 @@ msgid "System permissions changes"
 msgstr "Αλλαγές των αδειών συστήματος"
 
 #: ../src/msec/msecgui.py:238
-#, fuzzy
 msgid "permission check"
-msgstr "Δικαιώματα"
+msgstr "έλεγχος αδειών"
 
 #: ../src/msec/msecgui.py:248
 msgid "changed %s <b>%s</b> (%s -> %s)"
@@ -845,9 +844,8 @@ msgid "Value"
 msgstr "Τιμή"
 
 #: ../src/msec/msecgui.py:449
-#, fuzzy
 msgid "Invalid option '%s'!"
-msgstr "Βασικές ρυθμίσεις"
+msgstr "ανούσια επιλογή '%s'!"
 
 #: ../src/msec/msecgui.py:499
 msgid "Enable MSEC tool"
@@ -878,9 +876,8 @@ msgid "Display security alerts on desktop"
 msgstr "Προβολή των συναγερμών ασφαλείας στην επιφάνεια εργασίας"
 
 #: ../src/msec/msecgui.py:727
-#, fuzzy
 msgid "Enable periodic security checks"
-msgstr "Να επιτρέπονται οι ωριαίοι έλεγχοι ασφαλείας από το msec"
+msgstr "Ενεργοποίηση των περιοδικών ελέγχων ασφαλείας"
 
 #: ../src/msec/msecgui.py:791
 msgid "Path"
@@ -981,38 +978,32 @@ msgid "_Save"
 msgstr "_Αποθήκευση"
 
 #: ../src/msec/msecgui.py:1154
-#, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "Θέλετε να αποθηκεύσετε τις αλλαγές του /etc/fstab"
+msgstr "Θέλεις να αποθηκεύσεις τις αλλαγές πριν το κλείσιμο;"
 
 #: ../src/msec/plugins/pam.py:68
-#, fuzzy
 msgid "Using password to authenticate users"
-msgstr "Χρήση κωδικού πρόσβασης για την πιστοποίηση του χρήστη"
+msgstr "Χρήση κωδικού πρόσβασης, για την πιστοποίηση των χρηστών"
 
 #: ../src/msec/plugins/pam.py:72
-#, fuzzy
 msgid "Don't use password to authenticate users"
-msgstr "Χρήση κωδικού πρόσβασης για την πιστοποίηση του χρήστη"
+msgstr "Μη χρήση κωδικού πρόσβασης, για την πιστοποίηση των χρηστών"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
 msgstr "Το ιστορικό των κωδικών ασφαλείας δεν υποστηρίζεται από το pam_tcb."
 
 #: ../src/msec/plugins/pam.py:91
-#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr "Μέγεθος του ιστορικού των κωδικών ασφαλείας"
+msgstr "Άκυρο μέγιστο μέγεθος του ιστορικού των κωδικών ασφαλείας: \"%s\""
 
 #: ../src/msec/plugins/pam.py:106
-#, fuzzy
 msgid "Setting password history to %d."
-msgstr "Μέγεθος του ιστορικού των κωδικών ασφαλείας"
+msgstr "Ορισμός του ιστορικού των κωδικών ασφαλείας σε %d."
 
 #: ../src/msec/plugins/pam.py:112
-#, fuzzy
 msgid "Disabling password history"
-msgstr "Μέγεθος του ιστορικού των κωδικών ασφαλείας"
+msgstr "Απενεργοποίηση του ιστορικού των κωδικών ασφαλείας"
 
 #: ../src/msec/plugins/pam.py:124
 msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
@@ -1023,9 +1014,8 @@ msgid "Setting minimum password length %d"
 msgstr "Ρύθμιση του ελάχιστου μήκους του κωδικού σε %d"
 
 #: ../src/msec/plugins/pam.py:169
-#, fuzzy
 msgid "Allowing su only from wheel group members"
-msgstr "Ενεργοποίηση του su, μόνο για τα μέλη της ομάδας wheel."
+msgstr "Ενεργοποίηση του su, μόνο για τα μέλη της ομάδας διαχειριστών (wheel)"
 
 #: ../src/msec/plugins/pam.py:173
 msgid "no wheel group"
@@ -1044,8 +1034,6 @@ msgid "Allowing transparent root access for wheel group members"
 msgstr "Επιτρέπεται η διάφανη πρόσβαση διαχειριστή (root), για τα μέλη της ομάδας υπερχρηστών (wheel)"
 
 #: ../src/msec/plugins/pam.py:211
-#, fuzzy
 msgid "Disabling transparent root access for wheel group members"
-msgstr "Ενεργοποίηση του su, μόνο για τα μέλη της ομάδας wheel."
-
+msgstr "Απενεργοποίηση της διάφανης πρόσβασης διαχείρισης (root) για τα μέλη της ομάδας διαχειριστών (wheel)"
 

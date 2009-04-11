@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: msec-2009.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-09 15:07+0100\n"
+"PO-Revision-Date: 2009-04-11 08:12+0100\n"
 "Last-Translator: Lónyai Gergely <aleph@mandriva.org>\n"
 "Language-Team: Hungarian <aleph@mandriva.org>\n"
 "MIME-Version: 1.0\n"
@@ -184,7 +184,7 @@ msgstr "Engedélyezi a felhasználók .rhosts/.shosts fájljai veszélyes opció
 
 #: ../src/msec/help.py:93
 msgid "Enable password-related checks, such as empty passwords and strange super-user accounts."
-msgstr ""
+msgstr "Jelszóellenőrzések engedélyezése mind az üres jelszavakra, mind a nagyobb jogosultságú felhasználókra."
 
 #: ../src/msec/help.py:95
 msgid "Set the password history length to prevent password reuse. This is not supported by pam_tcb."
@@ -562,75 +562,62 @@ msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr "A /proc/mounts nem ellenőrizhető. Minden fájlrendszer helyinek lesz feltételezve."
 
 #: ../src/msec/libmsec.py:1590
-#, fuzzy
 msgid "Forcing ownership of %s to %s"
-msgstr "Nem lehet felhasználót felvenni ehhez: %s (%s)"
+msgstr "%s tulajdonosának %s-re változtatása"
 
 #: ../src/msec/libmsec.py:1594
-#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr "A felhasználó a tálcára kattintott."
+msgstr "Hiba a(z) %s tulajdonosának változtatása közben: %s"
 
 #: ../src/msec/libmsec.py:1596
-#, fuzzy
 msgid "Wrong owner of %s: should be %s"
-msgstr "A proxy ilyen kell, hogy legyen: http://..."
+msgstr "%s tulajdonosa hibás: %s-re változtatva"
 
 #: ../src/msec/libmsec.py:1599
-#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr "Kijelölés útv_onallá alakítása"
+msgstr "%s csoportjának %s-re változtatása"
 
 #: ../src/msec/libmsec.py:1603
-#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr "Olvasási hiba a(z) „%s” fájlnál: %s\n"
+msgstr "Hiba a(z) %s csoportjának változtatása közben: %s"
 
 #: ../src/msec/libmsec.py:1605
-#, fuzzy
 msgid "Wrong group of %s: should be %s"
-msgstr "A proxy ilyen kell, hogy legyen: http://..."
+msgstr "%s csoportja hibás: %s-re változtatva"
 
 #: ../src/msec/libmsec.py:1610
-#, fuzzy
 msgid "Enforcing permissions on %s to %o"
-msgstr "Kijelölés útv_onallá alakítása"
+msgstr "%s jogosultságának megváltoztatása: %o"
 
 #: ../src/msec/libmsec.py:1614
-#, fuzzy
 msgid "Error changing permissions on %s: %s"
-msgstr "Olvasási hiba a(z) „%s” fájlnál: %s\n"
+msgstr "Hiba a %s jogosultságának változtatása közben: %s"
 
 #: ../src/msec/libmsec.py:1616
-#, fuzzy
 msgid "Wrong permissions of %s: should be %o"
-msgstr "A proxy ilyen kell, hogy legyen: http://..."
+msgstr "%s jogosultsága hibás (változtatás): %o"
 
 #: ../src/msec/libmsec.py:1633
-#, fuzzy
 msgid "bad permissions for '%s': '%s'"
-msgstr "%s jogosultságainak törlése"
+msgstr "%s rossz jogosultsággal rendelkezik: '%s'"
 
 #: ../src/msec/libmsec.py:1658
 msgid "Non local file: \"%s\". Nothing changed."
 msgstr "A \"%s\" nem helyi fájl. Nem történt változtatás."
 
 #: ../src/msec/libmsec.py:1700
-#, fuzzy
 msgid "Checking paths: %s"
-msgstr "Keresési útvonalak"
+msgstr "Útvonalak ellenőrzése: %s"
 
 #: ../src/msec/msec.py:86
 #: ../src/msec/msecperms.py:99
-#, fuzzy
 msgid "Invalid security level '%s'."
-msgstr "Érvénytelen optimalizálási szint: %s"
+msgstr "Érvénytelen biztonsági szint: '%s'."
 
 #: ../src/msec/msec.py:109
 #: ../src/msec/msecperms.py:128
-#, fuzzy
 msgid "Msec: Mandriva Security Center (%s)\n"
-msgstr "Mandriva Linux Vezérlőközpont"
+msgstr "Msec: Mandriva Biztonsági Központ (%s)\n"
 
 #: ../src/msec/msec.py:110
 #: ../src/msec/msecperms.py:129
@@ -841,19 +828,16 @@ msgid "Value"
 msgstr "Érték"
 
 #: ../src/msec/msecgui.py:449
-#, fuzzy
 msgid "Invalid option '%s'!"
-msgstr "%s: érvénytelen kapcsoló -- %c\n"
+msgstr "Érvénytelen opció '%s'!"
 
 #: ../src/msec/msecgui.py:499
-#, fuzzy
 msgid "Enable MSEC tool"
-msgstr "Az msec óránkénti biztonsági ellenőrzéseinek bekapcsolása"
+msgstr "Az MSEC eszköz engedélyezése"
 
 #: ../src/msec/msecgui.py:506
-#, fuzzy
 msgid "Select the base security level"
-msgstr "Biztonsági szint és ellenőrzések"
+msgstr "Válasszon alap biztonsági szintet"
 
 #: ../src/msec/msecgui.py:510
 msgid "Standard"
@@ -864,19 +848,16 @@ msgid "Secure"
 msgstr "Biztonság"
 
 #: ../src/msec/msecgui.py:540
-#, fuzzy
 msgid "Send security alerts by email"
-msgstr "Biztonsági figyelmeztetések:"
+msgstr "Biztonsági figyelmeztetések elküldése emailben"
 
 #: ../src/msec/msecgui.py:547
-#, fuzzy
 msgid "System administrator email address:"
-msgstr "Adminisztrátori email: az FTP-adminisztrátor email-címe."
+msgstr "A rendszergazda email címe:"
 
 #: ../src/msec/msecgui.py:566
-#, fuzzy
 msgid "Display security alerts on desktop"
-msgstr "A Föld megjelenítése a munkaasztalon"
+msgstr "A biztonsági figyelmeztetések megjelenítése a munkaasztalon"
 
 #: ../src/msec/msecgui.py:727
 msgid "Enable periodic security checks"

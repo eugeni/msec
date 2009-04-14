@@ -69,7 +69,7 @@ PERIODIC_SECURITY_TEXT=_("""<big><b>Periodic security checks</b></big>
 These options configure the security checks that should be executed periodically.  """)
 
 PERMISSIONS_SECURITY_TEXT=_("""<big><b>File permissions</b></big>
-These options allow to fine-tune system permissions for important files and directores.
+These options allow to fine-tune system permissions for important files and directories.
 The following permissions are checked periodically, and any change to the owner, group,
 or current permission is reported. The permissions can be enforced, automatically
 changing them to the specified values when a change is detected.  """)

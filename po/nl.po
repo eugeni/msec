@@ -693,7 +693,7 @@ msgstr ""
 #: ../src/msec/msecgui.py:71
 msgid ""
 "<big><b>File permissions</b></big>\n"
-"These options allow to fine-tune system permissions for important files and directores.\n"
+"These options allow to fine-tune system permissions for important files and directories.\n"
 "The following permissions are checked periodically, and any change to the owner, group,\n"
 "or current permission is reported. The permissions can be enforced, automatically\n"
 "changing them to the specified values when a change is detected.  "

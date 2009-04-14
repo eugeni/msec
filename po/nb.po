@@ -35,7 +35,7 @@ msgstr "Slå på beskytteslse mot navneoppslagsforfalskning."
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
-msgstr "Send e-post-rapporter selv om ingen forandringer ble oppdaget"
+msgstr "Send e-post-rapporter selv om ingen forandringer ble oppdaget."
 
 #: ../src/msec/help.py:19
 msgid "Accept broadcasted ICMP echo."
@@ -81,7 +81,7 @@ msgstr "Slå på sjekksumkontroll for suid-filer."
 
 #: ../src/msec/help.py:35
 msgid "User email to receive security notifications."
-msgstr "Bruker-e-post som skal motta sikkerhetsanmerkninger"
+msgstr "Bruker-e-post som skal motta sikkerhetsanmerkninger."
 
 #: ../src/msec/help.py:37
 msgid "Allow autologin."
@@ -297,7 +297,7 @@ msgstr "Utfør sikkerhetssjekk for endringer i systemoppsettet hver time."
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
-msgstr "Spør etter root-passord når man går til enbrukernivå (man sulogin(8))"
+msgstr "Spør etter root-passord når man går til enbrukernivå (man sulogin(8))."
 
 #: ../src/msec/help.py:115
 msgid ""
@@ -699,7 +699,7 @@ msgstr "Sjekker stier: %s"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
 msgid "Invalid security level '%s'."
-msgstr "ugyldig sikkerhetsnivå '%s'"
+msgstr "ugyldig sikkerhetsnivå '%s'."
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
@@ -711,7 +711,7 @@ msgstr "Feil: Dette programmet må bli kjørt av root!"
 
 #: ../src/msec/msec.py:111 ../src/msec/msecperms.py:130
 msgid "Run with --help to get help."
-msgstr "Kjør med --help for å få hjelp"
+msgstr "Kjør med --help for å få hjelp."
 
 #: ../src/msec/msec.py:133 ../src/msec/msecperms.py:151
 msgid "Level '%s' not found, aborting."
@@ -731,9 +731,8 @@ msgid ""
 "This application allows you to configure your system security. If you wish\n"
 "to activate it, choose the appropriate security level: "
 msgstr ""
-"<big><b>Velg sikkerhetsnivå</b></big><br> Dette programmet lar deg sette opp "
-"systemsikkerheten.<br> Velg et passene sikkerhetsnivå, hvis du vil slå det "
-"på:"
+"<big><b>Velg sikkerhetsnivå</b></big><br> Dette programmet lar deg sette opp\n"
+"systemsikkerheten. Velg et passene sikkerhetsnivå, hvis du vil slå det på: "
 
 #: ../src/msec/msecgui.py:54
 msgid ""
@@ -1029,19 +1028,19 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:981
 msgid "File: "
-msgstr "Fil:"
+msgstr "Fil: "
 
 #: ../src/msec/msecgui.py:989
 msgid "User: "
-msgstr "Bruker:"
+msgstr "Bruker: "
 
 #: ../src/msec/msecgui.py:997
 msgid "Group: "
-msgstr "Gruppe :"
+msgstr "Gruppe: "
 
 #: ../src/msec/msecgui.py:1005
 msgid "Permissions: "
-msgstr "Rettigheter:"
+msgstr "Rettigheter: "
 
 #: ../src/msec/msecgui.py:1066
 msgid "Select new value for %s"
@@ -1092,7 +1091,7 @@ msgstr "Ikke benytt passord for å autentisere brukere"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
-msgstr "Passordhistorie er ikke støttet med pam_tcb"
+msgstr "Passordhistorie er ikke støttet med pam_tcb."
 
 #: ../src/msec/plugins/pam.py:91
 msgid "Invalid maximum password history length: \"%s\""
@@ -1100,7 +1099,7 @@ msgstr "Ugyldig maksimum passordhistorielengde: \"%s\""
 
 #: ../src/msec/plugins/pam.py:106
 msgid "Setting password history to %d."
-msgstr "Setter passordhistorie til %d"
+msgstr "Setter passordhistorie til %d."
 
 #: ../src/msec/plugins/pam.py:112
 msgid "Disabling password history"

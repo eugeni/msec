@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: DrakX-et\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-03-30 17:06+0200\n"
+"PO-Revision-Date: 2009-04-17 17:21+0200\n"
 "Last-Translator: Marek Laane <bald@starman.ee>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgid ""
 "sudo"
 msgstr ""
 "Kasutajatel lubatakse end parooliga autentida sudo abil. Kui parameetri "
-"väärtuseks on 'wheel', peab kasutaja sudo kasutamiseks kuuluma gruppi 'wheel'"
+"väärtuseks on 'wheel', peab kasutaja sudo kasutamiseks kuuluma gruppi 'wheel'."
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
@@ -105,7 +105,7 @@ msgid ""
 "someone else, or writable."
 msgstr ""
 "Kasutaja failide õiguste kontrollimise lubamine, mis ei tohiks kuuluda "
-"kellelegi teisele või on kirjutatavad."
+"kellelegi teisele või olla teistele kirjutatavad."
 
 #: ../src/msec/help.py:47
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
@@ -153,7 +153,7 @@ msgid ""
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
 "Parooli minimaalse pikkuse ning arvude ja suurtähtede minimaalse "
-"hulga määramine, kasutades vormingut pikkus,arvude_arv,suurtähte_arv."
+"hulga määramine, kasutades vormingut pikkus,arvude_arv,suurtähtede_arv."
 
 #: ../src/msec/help.py:65
 msgid "Set the root umask."
@@ -169,7 +169,7 @@ msgstr "Võrgukaardi mitte-eelisoleku kontrolli lubamine."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
-msgstr "AppArmori turvaraamistiku lubamine alglaadimisel"
+msgstr "AppArmori turvaraamistiku lubamine alglaadimisel."
 
 #: ../src/msec/help.py:73
 msgid ""
@@ -196,8 +196,7 @@ msgstr "IP võltsimiskaitse lubamine."
 msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
-msgstr ""
-"Baasturvataseme määramine lisaks sellele, millele tugineb kehtiv seadistus."
+msgstr "Baasturvataseme määramine, millele tugineb kehtiv seadistus."
 
 #: ../src/msec/help.py:83
 msgid "Enable periodic permission checking for system files."
@@ -232,7 +231,7 @@ msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
 msgstr ""
-"Paroolipuhvri suuruse määramine vältimaks selle taaskasutamist. pam_tcb "
+"Paroolipuhvri suuruse määramine vältimaks selle taaskasutamist. Pam_tcb "
 "seda ei toeta."
 
 #: ../src/msec/help.py:97
@@ -257,7 +256,7 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
-"MSEC faili kataloogi õiguste kehtestamine süsteemi käivitamisel. Kui parameetriks "
+"Kataloogide õiguste kehtestamise lubamine süsteemi käivitamisel. Kui parameetriks "
 "on määratud 'enforce', kehtestatakse süsteemi õigused automaatselt vastavalt "
 "süsteemi turvaseadistustele."
 
@@ -277,7 +276,7 @@ msgstr ""
 
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
-msgstr "Igatunnuse turvakontrolli sooritamine süsteemi seadistuste muudatuste tuvastamiseks."
+msgstr "Igatunnise turvakontrolli sooritamine süsteemi seadistuste muudatuste tuvastamiseks."
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
@@ -543,7 +542,7 @@ msgstr "Igapäevase turvakontrolli aktiveerimine"
 
 #: ../src/msec/libmsec.py:1166
 msgid "Disabling daily security check"
-msgstr "Igapäevane turvakontrolli keelamine"
+msgstr "Igapäevase turvakontrolli keelamine"
 
 #: ../src/msec/libmsec.py:1183
 msgid "Authorizing all services"
@@ -679,7 +678,7 @@ msgstr "Mittekohalik fail: \"%s\". Midagi ei muudetud."
 
 #: ../src/msec/libmsec.py:1700
 msgid "Checking paths: %s"
-msgstr "Asukohtade kontrollimine. %s"
+msgstr "Asukohtade kontrollimine: %s"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
 msgid "Invalid security level '%s'."
@@ -737,7 +736,7 @@ msgid ""
 "systems . "
 msgstr ""
 "See profiil kehtestab maksimaalse turvalisuse, piirates isegi süsteemile "
-"ligipääsu mujalt. Samuti käivitatakse terve rida perioodilisi kontrolle. "
+"mujalt ligipääsu. Samuti käivitatakse terve rida perioodilisi kontrolle. "
 "Seda on soovitatav kasutada serverite ja selliste süsteemide puhul, kus "
 "on tähtsal kohal turvalisus. "
 
@@ -1053,7 +1052,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1086
 msgid "New value:"
-msgstr "Uus väärtus"
+msgstr "Uus väärtus:"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
@@ -1085,7 +1084,7 @@ msgstr "Parooli ei kasutata kasutajate autentimiseks"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
-msgstr "pam_tcb ei toeta paroolipuhvrit."
+msgstr "Pam_tcb ei toeta paroolipuhvrit."
 
 #: ../src/msec/plugins/pam.py:91
 msgid "Invalid maximum password history length: \"%s\""

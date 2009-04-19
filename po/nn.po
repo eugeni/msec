@@ -785,15 +785,6 @@ msgstr ""
 "Desse vala definerer kva tryggleikskontrollar som skal køyrast regelmessig."
 
 #: ../src/msec/msecgui.py:71
-#| msgid ""
-#| "<big><b>File permissions</b></big>\n"
-#| "These options allow to fine-tune system permissions for important files "
-#| "and directores.\n"
-#| "The following permissions are checked periodically, and any change to the "
-#| "owner, group,\n"
-#| "or current permission is reported. The permissions can be enforced, "
-#| "automatically\n"
-#| "changing them to the specified values when a change is detected.  "
 msgid ""
 "<big><b>File permissions</b></big>\n"
 "These options allow to fine-tune system permissions for important files and "
@@ -1144,4 +1135,3 @@ msgstr "Tillèt automatisk rottilgang for medlemmer av «wheel»-gruppa"
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av automatisk rottilgang for medlemmer av «wheel»-gruppa"
-

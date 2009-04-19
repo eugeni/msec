@@ -31,18 +31,16 @@ msgstr ""
 "X-Poedit-Country: TAIWAN\n"
 
 #: ../src/msec/help.py:15
-#, fuzzy
 msgid "Enable name resolution spoofing protection."
-msgstr "名稱解析偽造保護"
+msgstr "啟用名稱解析偽造保護"
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
+msgstr "即使未改變，也寄送報表"
 
 #: ../src/msec/help.py:19
-#, fuzzy
 msgid "Accept broadcasted ICMP echo."
-msgstr "接收廣播的 icmp 回應。"
+msgstr "接受廣播的 ICMP 回應。"
 
 #: ../src/msec/help.py:21
 msgid ""
@@ -53,11 +51,11 @@ msgstr ""
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
+msgstr "允許X伺服器接受TCP 6000埠連線"
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr ""
+msgstr "啟用chkrootkit 檢查已知的rootkit"
 
 #: ../src/msec/help.py:27
 #, fuzzy
@@ -79,9 +77,8 @@ msgid "Enable checksum verification for suid files."
 msgstr ""
 
 #: ../src/msec/help.py:35
-#, fuzzy
 msgid "User email to receive security notifications."
-msgstr "請稍後，正在設定安全選項..."
+msgstr "使用者用來接收安全性訊息的電子郵件信箱位址。"
 
 #: ../src/msec/help.py:37
 msgid "Allow autologin."
@@ -89,7 +86,7 @@ msgstr "允許自動登入。"
 
 #: ../src/msec/help.py:39
 msgid "Allow only users in wheel group to su to root."
-msgstr ""
+msgstr "只允許 wheel 群組的使用者用 su 轉換成管理者。"
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -131,28 +128,25 @@ msgstr ""
 
 #: ../src/msec/help.py:53
 msgid "Enable checking for open network ports."
-msgstr ""
+msgstr "啟用開放網路埠檢查"
 
 #: ../src/msec/help.py:55
-#, fuzzy
 msgid "Enable logging of strange network packets."
-msgstr "啟用記錄異常的 IPv4 封包。"
+msgstr "啟用紀錄異常的網路封包。"
 
 #: ../src/msec/help.py:57
 msgid "Enable verification of installed RPM packages."
-msgstr ""
+msgstr "啟用驗證已安裝的RPM"
 
 #: ../src/msec/help.py:59
 msgid "Allow root access without password for the members of the wheel group."
-msgstr ""
+msgstr "允許 wheel 群組使用者不需密碼即可取得 root 權限。"
 
 #: ../src/msec/help.py:61
-#, fuzzy
 msgid "Send security check results by email."
 msgstr "以郵件回報檢查結果"
 
 #: ../src/msec/help.py:63
-#, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
@@ -174,13 +168,15 @@ msgstr "啟用網路卡混用檢查。"
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
-msgstr ""
+msgstr "在開機時啟用 AppArmor 安全架構"
 
 #: ../src/msec/help.py:73
 msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
+"允許本機使用者連線X伺服器。允許參數：是(全部連線皆允許)，本機(只有本機連線)，"
+"不允許(不連線)。"
 
 #: ../src/msec/help.py:75
 #, fuzzy
@@ -193,7 +189,7 @@ msgstr ""
 
 #: ../src/msec/help.py:79
 msgid "Enable IP spoofing protection."
-msgstr ""
+msgstr "啟用IP欺騙保護。"
 
 #: ../src/msec/help.py:81
 msgid ""
@@ -203,7 +199,7 @@ msgstr ""
 
 #: ../src/msec/help.py:83
 msgid "Enable periodic permission checking for system files."
-msgstr ""
+msgstr "啟用定期檢查系統檔案權限。"
 
 #: ../src/msec/help.py:85
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -216,17 +212,17 @@ msgstr "允許 console 使用者重新開機。"
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
-msgstr ""
+msgstr "開啟將定期檢查的結果紀錄到系統紀錄中。"
 
 #: ../src/msec/help.py:91
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr ""
+msgstr "啟用使用者.rhosts/.shosts 檔案危險項目檢查。"
 
 #: ../src/msec/help.py:93
 msgid ""
 "Enable password-related checks, such as empty passwords and strange super-"
 "user accounts."
-msgstr ""
+msgstr "啟用密碼相關檢查，如空白密碼和奇怪的超級用戶帳戶。"
 
 #: ../src/msec/help.py:95
 #, fuzzy
@@ -236,23 +232,20 @@ msgid ""
 msgstr "設定密碼記錄長度來防止重複使用密碼。"
 
 #: ../src/msec/help.py:97
-#, fuzzy
 msgid "Enable daily security checks."
-msgstr "執行每日安全檢查"
+msgstr "執行每日安全檢查。"
 
 #: ../src/msec/help.py:99
-#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr "允許 root 直接登入。"
+msgstr "允許 root 直接於終端機登入。"
 
 #: ../src/msec/help.py:101
-#, fuzzy
 msgid "Enable checking for unowned files."
-msgstr "回報不屬於任何人的檔案"
+msgstr "檢查不屬於任何人的檔案。 "
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
+msgstr "允許登入管理員(kdm 與 gdm)將本地使用者進行列表顯示。"
 
 #: ../src/msec/help.py:105
 msgid ""
@@ -278,7 +271,7 @@ msgstr ""
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
-msgstr ""
+msgstr "進入單人模式時，詢問 root 密碼(man sulogin(8))。"
 
 #: ../src/msec/help.py:115
 #, fuzzy
@@ -293,9 +286,8 @@ msgid "Set the user umask."
 msgstr "設定使用者的檔案模式建立遮罩。"
 
 #: ../src/msec/help.py:119
-#, fuzzy
 msgid "Accept ICMP echo."
-msgstr "接收 icmp 回應。"
+msgstr "接受 ICMP 回應。"
 
 #: ../src/msec/help.py:121
 msgid ""
@@ -329,9 +321,8 @@ msgid "%s modified so should have run command: %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
-#, fuzzy
 msgid "deleted %s"
-msgstr "刪除"
+msgstr "已刪除 %s"
 
 #: ../src/msec/libmsec.py:455
 #, fuzzy
@@ -439,19 +430,16 @@ msgid "Invalid shell history size \"%s\""
 msgstr "Shell 歷史記錄長度"
 
 #: ../src/msec/libmsec.py:966
-#, fuzzy
 msgid "Setting shell history size to %s"
-msgstr "Shell 歷史記錄長度"
+msgstr "設定 Shell 歷史記錄長度為 %s"
 
 #: ../src/msec/libmsec.py:970
-#, fuzzy
 msgid "Removing limit on shell history size"
-msgstr "Shell 歷史記錄長度"
+msgstr "取消 Shell 歷史記錄長度限制"
 
 #: ../src/msec/libmsec.py:1009
-#, fuzzy
 msgid "Allowing reboot and shutdown to the console user"
-msgstr "允許 console 使用者重新開機。"
+msgstr "允許 console 使用者重新開機與關機"
 
 #: ../src/msec/libmsec.py:1016
 #, fuzzy
@@ -460,20 +448,19 @@ msgstr "允許 console 使用者重新開機。"
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "允許於GDM 關機/重開機"
 
 #: ../src/msec/libmsec.py:1023
 msgid "Allowing Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "允許於KDM 關機/重開機"
 
 #: ../src/msec/libmsec.py:1026
 msgid "Allowing Ctrl-Alt-Del from console"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1030
-#, fuzzy
 msgid "Forbidding reboot and shutdown to the console user"
-msgstr "允許 console 使用者重新開機。"
+msgstr "禁止 console 使用者重新開機與關機"
 
 #: ../src/msec/libmsec.py:1038
 #, fuzzy
@@ -482,11 +469,11 @@ msgstr "console 使用者重開機"
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "禁止在 GDM 裏面進行關機/重開機"
 
 #: ../src/msec/libmsec.py:1045
 msgid "Forbidding Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "禁止在 KDM 裏面進行關機/重開機"
 
 #: ../src/msec/libmsec.py:1048
 msgid "Forbidding Ctrl-Alt-Del from console"
@@ -509,7 +496,6 @@ msgid "Forbidding list of users in GDM"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1089
-#, fuzzy
 msgid "Allowing remote root login"
 msgstr "允許遠端 root 登入"
 
@@ -524,14 +510,12 @@ msgid "Allowing remote root login only by passphrase"
 msgstr "允許遠端 root 登入"
 
 #: ../src/msec/libmsec.py:1109
-#, fuzzy
 msgid "Allowing autologin"
-msgstr "允許自動登入。"
+msgstr "允許自動登入"
 
 #: ../src/msec/libmsec.py:1112
-#, fuzzy
 msgid "Forbidding autologin"
-msgstr "允許自動登入。"
+msgstr "禁止自動登入。"
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
@@ -553,14 +537,12 @@ msgid "Disabling log on console"
 msgstr "在 Console 顯示圖案"
 
 #: ../src/msec/libmsec.py:1162
-#, fuzzy
 msgid "Activating daily security check"
 msgstr "啟用每日安全性檢查。"
 
 #: ../src/msec/libmsec.py:1166
-#, fuzzy
 msgid "Disabling daily security check"
-msgstr "每日安全檢查"
+msgstr "取消每日安全檢查"
 
 #: ../src/msec/libmsec.py:1183
 msgid "Authorizing all services"
@@ -568,7 +550,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:1187
 msgid "Disabling all services"
-msgstr ""
+msgstr "取消所有系統服務"
 
 #: ../src/msec/libmsec.py:1191
 #, fuzzy
@@ -576,14 +558,12 @@ msgid "Disabling non local services"
 msgstr "本地端掃描器分享"
 
 #: ../src/msec/libmsec.py:1224
-#, fuzzy
 msgid "Enabling name resolution spoofing protection"
-msgstr "名稱解析偽造保護"
+msgstr "啟用名稱解析偽造保護"
 
 #: ../src/msec/libmsec.py:1229
-#, fuzzy
 msgid "Disabling name resolution spoofing protection"
-msgstr "名稱解析偽造保護"
+msgstr "取消名稱解析偽造保護"
 
 #: ../src/msec/libmsec.py:1257
 #, fuzzy
@@ -605,14 +585,12 @@ msgid "Disabling msec periodic runs"
 msgstr ""
 
 #: ../src/msec/libmsec.py:1289
-#, fuzzy
 msgid "Enabling crontab and at"
-msgstr "為使用者啟用 \"crontab\" 與 \"at\""
+msgstr "啟用 crontab 與 at"
 
 #: ../src/msec/libmsec.py:1296
-#, fuzzy
 msgid "Disabling crontab and at"
-msgstr "為使用者啟用 \"crontab\" 與 \"at\""
+msgstr "停用 crontab 與 at"
 
 #: ../src/msec/libmsec.py:1308
 msgid "Allowing export display from root"
@@ -633,19 +611,16 @@ msgid "Disabling periodic promiscuity check"
 msgstr "啟用網路卡混用檢查。"
 
 #: ../src/msec/libmsec.py:1353
-#, fuzzy
 msgid "Allowing direct root login"
-msgstr "允許 root 直接登入。"
+msgstr "允許 root 直接登入"
 
 #: ../src/msec/libmsec.py:1370
-#, fuzzy
 msgid "Forbidding direct root login"
-msgstr "允許 root 直接登入。"
+msgstr "禁止 root 直接登入"
 
 #: ../src/msec/libmsec.py:1505
-#, fuzzy
 msgid "user name %s not found"
-msgstr "這個使用者名稱太長了"
+msgstr "使用者名稱 %s 不存在"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
@@ -712,9 +687,8 @@ msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
 #: ../src/msec/libmsec.py:1700
-#, fuzzy
 msgid "Checking paths: %s"
-msgstr "檢查 %s"
+msgstr "檢查路徑:  %s"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
 msgid "Invalid security level '%s'."
@@ -726,7 +700,7 @@ msgstr ""
 
 #: ../src/msec/msec.py:110 ../src/msec/msecperms.py:129
 msgid "Error: This application must be executed by root!"
-msgstr ""
+msgstr "錯誤：該程式必須由 root 執行！"
 
 #: ../src/msec/msec.py:111 ../src/msec/msecperms.py:130
 msgid "Run with --help to get help."
@@ -742,9 +716,8 @@ msgid "Switching to '%s' level."
 msgstr "正在由 %s 切換至 %s"
 
 #: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
-#, fuzzy
 msgid "Unable to save config!"
-msgstr "無法載入核心映像檔 %s"
+msgstr "儲存設定失敗!"
 
 #: ../src/msec/msecgui.py:50
 msgid ""
@@ -797,7 +770,7 @@ msgstr ""
 msgid ""
 "<big><b>File permissions</b></big>\n"
 "These options allow to fine-tune system permissions for important files and "
-"directories.\n"
+"directores.\n"
 "The following permissions are checked periodically, and any change to the "
 "owner, group,\n"
 "or current permission is reported. The permissions can be enforced, "
@@ -806,9 +779,8 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:77
-#, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "請稍待... 正在套用該設定"
+msgstr "儲存並套用新的設定？"
 
 #: ../src/msec/msecgui.py:143
 #, fuzzy
@@ -816,9 +788,8 @@ msgid "_File"
 msgstr "智利"
 
 #: ../src/msec/msecgui.py:145
-#, fuzzy
 msgid "_Save configuration"
-msgstr "音效設定"
+msgstr "儲存設定(_S)"
 
 #: ../src/msec/msecgui.py:147
 #, fuzzy
@@ -851,22 +822,18 @@ msgid "MSEC: System Security and Audit"
 msgstr "系統設定"
 
 #: ../src/msec/msecgui.py:200
-#, fuzzy
 msgid "Basic security"
-msgstr "每日安全檢查"
+msgstr "基礎安全設定"
 
 #: ../src/msec/msecgui.py:201
-#, fuzzy
 msgid "System security"
-msgstr "安全性"
+msgstr "系統安全性"
 
 #: ../src/msec/msecgui.py:202
-#, fuzzy
 msgid "Network security"
-msgstr "網路 profile"
+msgstr "網路安全性"
 
 #: ../src/msec/msecgui.py:203
-#, fuzzy
 msgid "Periodic checks"
 msgstr "週期性檢查"
 
@@ -879,14 +846,12 @@ msgid "MSEC option changes"
 msgstr ""
 
 #: ../src/msec/msecgui.py:237
-#, fuzzy
 msgid "option"
 msgstr "選項"
 
 #: ../src/msec/msecgui.py:238
-#, fuzzy
 msgid "System permissions changes"
-msgstr "系統選項"
+msgstr "系統權限變更"
 
 #: ../src/msec/msecgui.py:238
 #, fuzzy
@@ -906,9 +871,8 @@ msgid "removed %s <b>%s</b>"
 msgstr ""
 
 #: ../src/msec/msecgui.py:262
-#, fuzzy
 msgid "no changes"
-msgstr "不分享"
+msgstr "無變更"
 
 #: ../src/msec/msecgui.py:274
 #, fuzzy
@@ -953,14 +917,12 @@ msgid "Security Option"
 msgstr "指定選項"
 
 #: ../src/msec/msecgui.py:434
-#, fuzzy
 msgid "Description"
-msgstr "指定選項"
+msgstr "描述"
 
 #: ../src/msec/msecgui.py:439
-#, fuzzy
 msgid "Value"
-msgstr "帛琉群島"
+msgstr "值"
 
 #: ../src/msec/msecgui.py:449
 #, fuzzy
@@ -968,9 +930,8 @@ msgid "Invalid option '%s'!"
 msgstr "主要選項"
 
 #: ../src/msec/msecgui.py:499
-#, fuzzy
 msgid "Enable MSEC tool"
-msgstr "允許光碟開機？"
+msgstr "啟用 MSEC 工具"
 
 #: ../src/msec/msecgui.py:506
 #, fuzzy
@@ -982,14 +943,12 @@ msgid "Standard"
 msgstr "標準"
 
 #: ../src/msec/msecgui.py:523
-#, fuzzy
 msgid "Secure"
 msgstr "安全性"
 
 #: ../src/msec/msecgui.py:540
-#, fuzzy
 msgid "Send security alerts by email"
-msgstr "安全警示："
+msgstr "經由電子郵件發送安全警示"
 
 #: ../src/msec/msecgui.py:547
 #, fuzzy
@@ -1010,12 +969,10 @@ msgid "Path"
 msgstr "路徑"
 
 #: ../src/msec/msecgui.py:797
-#, fuzzy
 msgid "User"
-msgstr "使用"
+msgstr "使用者"
 
 #: ../src/msec/msecgui.py:803
-#, fuzzy
 msgid "Group"
 msgstr "群組 ID"
 
@@ -1058,19 +1015,16 @@ msgid "File: "
 msgstr "/檔案 (_F)"
 
 #: ../src/msec/msecgui.py:989
-#, fuzzy
 msgid "User: "
-msgstr "使用者 ID"
+msgstr "使用者："
 
 #: ../src/msec/msecgui.py:997
-#, fuzzy
 msgid "Group: "
-msgstr "群組 ID"
+msgstr "群組："
 
 #: ../src/msec/msecgui.py:1005
-#, fuzzy
 msgid "Permissions: "
-msgstr "權限"
+msgstr "權限："
 
 #: ../src/msec/msecgui.py:1066
 #, fuzzy
@@ -1087,18 +1041,16 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:1086
-#, fuzzy
 msgid "New value:"
-msgstr "新喀里多尼亞群島"
+msgstr "新值："
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
-msgstr ""
+msgstr "是否儲存變更？"
 
 #: ../src/msec/msecgui.py:1150
-#, fuzzy
 msgid "_Cancel"
-msgstr "取消"
+msgstr "取消(_C)"
 
 #: ../src/msec/msecgui.py:1151
 #, fuzzy
@@ -1106,28 +1058,24 @@ msgid "_Ignore"
 msgstr "忽略"
 
 #: ../src/msec/msecgui.py:1152
-#, fuzzy
 msgid "_Save"
-msgstr "儲存"
+msgstr "儲存(_S)"
 
 #: ../src/msec/msecgui.py:1154
-#, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "您想要儲存對 /etc/fstab 檔案的修改嗎？"
+msgstr "在您離開之前想要儲存變更嗎？"
 
 #: ../src/msec/plugins/pam.py:68
-#, fuzzy
 msgid "Using password to authenticate users"
 msgstr "使用密碼來認證使用者"
 
 #: ../src/msec/plugins/pam.py:72
-#, fuzzy
 msgid "Don't use password to authenticate users"
-msgstr "使用密碼來認證使用者"
+msgstr "不使用密碼來認證使用者"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
-msgstr ""
+msgstr "歷史密碼功能並未在 pam_tcb 支援"
 
 #: ../src/msec/plugins/pam.py:91
 #, fuzzy
@@ -1135,9 +1083,8 @@ msgid "Invalid maximum password history length: \"%s\""
 msgstr "密碼紀錄長度"
 
 #: ../src/msec/plugins/pam.py:106
-#, fuzzy
 msgid "Setting password history to %d."
-msgstr "密碼紀錄長度"
+msgstr "將密碼紀錄長度設定為 %d"
 
 #: ../src/msec/plugins/pam.py:112
 #, fuzzy
@@ -1160,21 +1107,20 @@ msgstr "啟用 su 只能讓 wheel 群組成員使用"
 
 #: ../src/msec/plugins/pam.py:173
 msgid "no wheel group"
-msgstr ""
+msgstr "沒有 wheel 群組"
 
 #: ../src/msec/plugins/pam.py:177
 msgid "wheel group is empty"
-msgstr ""
+msgstr "群組 wheel 是空的"
 
 #: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"
-msgstr ""
+msgstr "允許所有的使用者執行 su"
 
 #: ../src/msec/plugins/pam.py:204
 msgid "Allowing transparent root access for wheel group members"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:211
-#, fuzzy
 msgid "Disabling transparent root access for wheel group members"
-msgstr "啟用 su 只能讓 wheel 群組成員使用"
+msgstr "關閉 wheel 群組使用者直接使用 root 權限。"

@@ -1,4 +1,4 @@
-# translation of libDrakX.po to Euskara
+# translation of msec.po to Euskara
 # EUSKARA: Mandriva Linux translation.
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008, 2009 Free Software Foundation, Inc.
 #
@@ -6,21 +6,21 @@
 # Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2004.
 msgid ""
 msgstr ""
-"Project-Id-Version: libDrakX\n"
+"Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-04-14 23:47+0200\n"
+"PO-Revision-Date: 2009-04-19 13:41+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
-"Language-Team: Basque <kde-i18n-doc@kde.org>\n"
+"Language-Team: Euskara <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.3\n"
+"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ../src/msec/help.py:15
 msgid "Enable name resolution spoofing protection."
-msgstr "Izen-ebazpenaren iruzurren babesa gaitu."
+msgstr "Izen-ebazpen iruzurren babesa gaitu."
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
@@ -239,8 +239,7 @@ msgstr ""
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
-msgstr ""
-"Pasahitzak berriro ez erabiltzeko pasahitzen historiaren luzera ezarri."
+msgstr "Pasahitzak berriro ez erabiltzeko pasahitzen historiaren luzera ezarri."
 
 #: ../src/msec/help.py:97
 #, fuzzy
@@ -902,49 +901,44 @@ msgid "MSEC option changes"
 msgstr ""
 
 #: ../src/msec/msecgui.py:237
-#, fuzzy
 msgid "option"
-msgstr "Aukerak"
+msgstr "aukera"
 
 #: ../src/msec/msecgui.py:238
-#, fuzzy
 msgid "System permissions changes"
-msgstr "Sistema-aukerak"
+msgstr ""
 
 #: ../src/msec/msecgui.py:238
-#, fuzzy
 msgid "permission check"
-msgstr "Baimenak"
+msgstr "baimen egiaztapena"
 
 #: ../src/msec/msecgui.py:248
 msgid "changed %s <b>%s</b> (%s -> %s)"
-msgstr ""
+msgstr "%s aldatuta <b>%s</b> (%s -> %s)"
 
 #: ../src/msec/msecgui.py:253
 msgid "added %s <b>%s</b> (%s)"
-msgstr ""
+msgstr "%s erantsita <b>%s</b> (%s)"
 
 #: ../src/msec/msecgui.py:258
 msgid "removed %s <b>%s</b>"
-msgstr ""
+msgstr "%s ezabatuta <b>%s</b>"
 
 #: ../src/msec/msecgui.py:262
-#, fuzzy
 msgid "no changes"
-msgstr "Ez partekatu"
+msgstr "aldaketarik ez"
 
 #: ../src/msec/msecgui.py:274
-#, fuzzy
 msgid "Saving changes.."
-msgstr "Paketeak kentzen..."
+msgstr "Aldaketak gordetzen..."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
-msgstr ""
+msgstr "<b>%s:</b> <i>%s</i>\n"
 
 #: ../src/msec/msecgui.py:315
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
-msgstr ""
+msgstr "<b>MSEC azterketaren emaitzak:</b> <i>%s</i>"
 
 #: ../src/msec/msecgui.py:323
 msgid "Details"
@@ -952,11 +946,11 @@ msgstr "Xehetasunak"
 
 #: ../src/msec/msecgui.py:329
 msgid "MSEC messages (%s): %d"
-msgstr ""
+msgstr "MSEC mezuak (%s): %d"
 
 #: ../src/msec/msecgui.py:343
 msgid "Details (%d changes).."
-msgstr ""
+msgstr "Xehetasunak (%d aldaketa).."
 
 #: ../src/msec/msecgui.py:388
 msgid "No base msec level specified, using '%s'"
@@ -1167,8 +1161,7 @@ msgid "Disabling password history"
 msgstr "Pasahitzaren historiaren luzera"
 
 #: ../src/msec/plugins/pam.py:124
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:145

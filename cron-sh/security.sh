@@ -1,6 +1,10 @@
 #!/bin/bash
 
 . /etc/sysconfig/i18n
+if [[ -f /etc/profile.d/10lang.sh ]]; then
+    . /etc/profile.d/10lang.sh
+fi
+
 LCK=/var/run/msec-security.pid
 
 function cleanup() {

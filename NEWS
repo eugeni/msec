@@ -1,3 +1,5 @@
+- Properly support NTFS-3G partitions permissions (#50125).
+
 Version 0.60.18 - April 15 2009, Thierry Vignaud
 - Updated translations
 

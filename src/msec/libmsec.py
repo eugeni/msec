@@ -973,14 +973,13 @@ class MSEC:
     def set_win_parts_umask(self, umask):
         ''' Set umask option for mounting vfat and ntfs partitions. If umask is '0', default system umask is used.'''
         fstab = self.configfiles.get_config_file(FSTAB)
-
         if umask == "0":
             fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+)umask=\d+(\s.*)", "@1defaults@3", 0, 1)
             fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+)umask=\d+,(.*)", "@1@3", 0, 1)
             fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+\S+),umask=\d+(.*)", "@1@3", 0, 1)
         else:
-            fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+\S*)umask=\d+(.*)", "@1umask=0@3", 0, 1)
-            fstab.replace_line_matching("(.*\s(vfat|ntfs)\s+)(?!.*umask=)(\S+)(.*)", "@1@3,umask=0@4", 0, 1)
+            fstab.replace_line_matching("(.*\s(vfat|ntfs|ntfs-3g)\s+\S*)umask=\d+(.*)", "@1umask="+umask+"@3", 0, 1)
+            fstab.replace_line_matching("(.*\s(vfat|ntfs|ntfs-3g)\s+)(?!.*umask=)(\S+)(.*)", "@1@3,umask="+umask+"@4", 0, 1)
 
     def allow_reboot(self, arg):
         '''  Allow system reboot and shutdown to local users.'''

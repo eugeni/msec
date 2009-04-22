@@ -1,4 +1,4 @@
-# DrakX-fi - Finnish Translation
+# msec - Finnish Translation
 #
 # Copyright (C) 2002,2003, 2004, 2005 Free Software Foundation, Inc.
 # Copyright (C) 2002 Mandriva
@@ -9,32 +9,32 @@
 # Esa Linna <denzo@mbnet.fi>, 2004.
 # Thomas Backlund <tmb@mandrake.org>, 2002, 2003, 2004, 2005.
 # Anssi Hannula <anssi@mandriva.org>, 2008.
+# Jani Välimaa <jani.valimaa@gmail.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: DrakX-fi - LE2005 Release\n"
+"Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2008-03-31 17:58+0300\n"
-"Last-Translator: Anssi Hannula <anssi@mandriva.org>\n"
-"Language-Team: Finnish <fi@li.org>\n"
+"PO-Revision-Date: 2009-04-22 23:52+0300\n"
+"Last-Translator: Jani Välimaa <jani.valimaa@gmail.com>\n"
+"Language-Team: Finnish <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:15
-#, fuzzy
 msgid "Enable name resolution spoofing protection."
 msgstr "Koneen nimen huijaussuojaus"
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
+msgstr "Lähetä sähköpostiraportti vaikka muutoksia ei havaittu"
 
 #: ../src/msec/help.py:19
-#, fuzzy
 msgid "Accept broadcasted ICMP echo."
-msgstr "Hyväksy kuulutetut icmp echo viestit"
+msgstr "Salli Broadcast ICMP Echo."
 
 #: ../src/msec/help.py:21
 msgid ""
@@ -42,54 +42,54 @@ msgid ""
 "is set to 'wheel', users must belong to the 'wheel' group to be able to use "
 "sudo"
 msgstr ""
+"Salli käyttäjien tunnistautua salasanalla komennolle sudo.\n"
+"\n"
+"-jos asetus on \"wheel\", käyttäjän tulee olla ryhmän wheel jäsen "
+"käyttääkseen "
+"komentoa."
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
+msgstr "Salli yhteydet verkosta X-palvelimen TCP-porttiin 6000."
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr ""
+msgstr "Ota käyttöön rootkit-tarkistukset chkrootkitin avulla."
 
 #: ../src/msec/help.py:27
-#, fuzzy
 msgid "Enable checking for additions/removals of suid root files."
-msgstr "Tarkista 'suid root' tiedostojen lisäykset/poistamiset."
+msgstr "Tarkista suid root -tiedostojen muutokset."
 
 #: ../src/msec/help.py:29
-#, fuzzy
 msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
-"Ota käyttöön / poista käytöstä crontab ja at käyttäjille.\n"
+"Salli crontab ja at käyttäjille.\n"
 "\n"
-"Laita hyväksytyt käyttäjät tiedostoihin '/etc/cron.allow' ja '/etc/at."
-"allow'.\n"
-"(katso man at(1) ja crontab(1))."
+"Lisää sallitut käyttäjät tiedostoihin /etc/cron.allow "
+"ja /etc/at.allow. Lisätietoa komennoilla \"man at\" "
+"ja \"man crontab\"."
 
 #: ../src/msec/help.py:31
-#, fuzzy
 msgid "Accept bogus IPv4 error messages."
-msgstr "Hyväksy virheelliset IPv4 virheviestit"
+msgstr "Hyväksy virheelliset IPv4-virheviestit"
 
 #: ../src/msec/help.py:33
 msgid "Enable checksum verification for suid files."
-msgstr ""
+msgstr "Ota käyttöön suid-tiedostojen tarkistussumman laskeminen."
 
 #: ../src/msec/help.py:35
-#, fuzzy
 msgid "User email to receive security notifications."
-msgstr "Odota hetki, asetetaan turvaoptiot..."
+msgstr "Käyttäjän sähköpostiosoite, johon tietoturvailmoitukset lähetetään."
 
 #: ../src/msec/help.py:37
-#, fuzzy
 msgid "Allow autologin."
-msgstr "Salli / Estä automaattinen sisäänkirjautuminen."
+msgstr "Salli automaattinen kirjautuminen."
 
 #: ../src/msec/help.py:39
 msgid "Allow only users in wheel group to su to root."
-msgstr ""
+msgstr "Salli vain ryhmän wheel jäsenten käyttää komentoa su."
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -101,173 +101,185 @@ msgid ""
 "services considered safe). Note that the allowed services must be placed "
 "manually into the server.SERVER_LEVEL files when necessary."
 msgstr ""
+"Luo linkin /etc/security/msec/server, joka osoittaa tiedostoon\n"
+"/etc/security/msec/server.TIETOTURVATASO.\n"
+"\n"
+"Komento \"chkconfig --add\" käyttää tiedostoa /etc/security/msec/server "
+"apuna palveluiden lisäämiseen palveluita asennettaessa. Oletuksena "
+"käytetään kahta asetusta local ja remote, asetus local aktivoi vain "
+"paikalliset palvelut ja asetus remote aktivoi myös joitakin turvalliseksi "
+"katsomiaan etäpalveluita. Huomaa, että sallitut palvelut täytyy lisätä "
+"käsin tiedostoon server.TIETOTURVATASO tarvittaessa."
 
 #: ../src/msec/help.py:43
 msgid "Set the shell timeout. A value of zero means no timeout."
-msgstr "Asettaa komentotulkin aikaviiveen. Arvo 0 (nolla) poistaa aikaviiveen."
+msgstr ""
+"Komentotulkin aikakatkaisu.\n"
+"\n"
+"Asetus 0 (nolla) poistaa aikakatkaisun."
 
 #: ../src/msec/help.py:45
 msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
-msgstr ""
+msgstr "Ota käyttöön käyttäjien tiedostojen oikeustarkistukset."
 
 #: ../src/msec/help.py:47
-#, fuzzy
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr "Tarkista tyhjät salasanat tiedostossa /etc/shadow"
+msgstr "Tarkista tyhjät salasanat tiedostossa /etc/shadow."
 
 #: ../src/msec/help.py:49
 msgid ""
 "Use password to authenticate users. Take EXTREMELY care when disabling "
 "passwords, as it will leave the machine vulnerable."
 msgstr ""
+"Tunnista käyttäjät salasanan avulla.\n"
+"\n"
+"Asetusta EI TULISI POISTAA KÄYTÖSTÄ, koska se tekee "
+"järjestelmästä haavoittuvaisen."
 
 #: ../src/msec/help.py:51
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '0', "
 "default system umask is used."
 msgstr ""
+"Käytä asetusta umask liitettäessä VFAT- ja NTFS-osioita.\n"
+"\n"
+"Jos umask=0, käytetään järjestelmän oletusarvoa."
 
 #: ../src/msec/help.py:53
 msgid "Enable checking for open network ports."
-msgstr ""
+msgstr "Tarkista avoimet portit."
 
 #: ../src/msec/help.py:55
-#, fuzzy
 msgid "Enable logging of strange network packets."
-msgstr "Ota käyttöön epätavallisten IPv4 pakettien kirjaaminen lokiin"
+msgstr "Kirjaa epätavalliset paketit lokiin."
 
 #: ../src/msec/help.py:57
 msgid "Enable verification of installed RPM packages."
-msgstr ""
+msgstr "Tarkista asennettujen RPM-pakettien allekirjoitukset."
 
 #: ../src/msec/help.py:59
 msgid "Allow root access without password for the members of the wheel group."
 msgstr ""
+"Salli ryhmän wheel jäsenten saada pääkäyttäjän oikeudet ilman salasanaa."
 
 #: ../src/msec/help.py:61
-#, fuzzy
 msgid "Send security check results by email."
 msgstr "Raportoi tarkistuksen tulos sähköpostitse."
 
 #: ../src/msec/help.py:63
-#, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
-"Aseta salasanojen vähimmäispituus sekä vähimmäismäärä numeroita ja isoja "
-"kirjaimia."
+"Aseta salasanan vähimmäispituus sekä numeroiden ja isojen kirjaimien "
+"vähimmäismäärä.\n"
+"\n"
+"Asetus on muotoa pituus,numerot,isotkirjaimet."
 
 #: ../src/msec/help.py:65
-#, fuzzy
 msgid "Set the root umask."
-msgstr "Aseta root umask."
+msgstr "Aseta pääkäyttäjän umask-arvo."
 
 #: ../src/msec/help.py:67
-#, fuzzy
 msgid "Enable checking for additions/removals of sgid files."
-msgstr "Tarkista 'sgid' tiedostojen lisäämiset/poistamiset"
+msgstr "Tarkista sgid-tiedostojen muutokset."
 
 #: ../src/msec/help.py:69
-#, fuzzy
 msgid "Activate ethernet cards promiscuity check."
-msgstr "Ota käyttöön / poista käytöstä verkkokorttien 'promiscuous' tarkistus."
+msgstr "Ota käyttöön verkkokorttien promiscuous-tarkistus."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
-msgstr ""
+msgstr "Ota AppArmor-turvallisuusasetukset käyttöön käynnistymisen yhteydessä"
 
 #: ../src/msec/help.py:73
-#, fuzzy
 msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
-"Salli / Estä X-yhteydet:\n"
+"Salli paikalliset yhteydet X-palvelimeen.\n"
 "\n"
-"- KAIKKI  (kaikki yhteydet sallitaan)\n"
-"\n"
-"- PAIKALLINEN (ainoastaan paikalliset yhteydet)\n"
-"\n"
-"- EI (ei yhteyttä)."
+"-jos asetus on \"yes\", sallitaan kaikki yhteydet\n"
+"-jos asetus on \"local\", sallitaan vain paikalliset yhteydet\n"
+"-jos asetus on \"no\", yhteyksiä ei sallita"
 
 #: ../src/msec/help.py:75
-#, fuzzy
 msgid "Enable checking for files/directories writable by everybody."
-msgstr "Tarkistetaan sallivatko tiedostot/hakemistot kirjoituksen kaikille."
+msgstr "Tarkista kaikille kirjoituksen sallivat tiedostot/hakemistot."
 
 #: ../src/msec/help.py:77
 msgid "Log syslog messages on console terminal 12."
-msgstr ""
+msgstr "Tulosta syslog-viestit konsoliin numero 12."
 
 #: ../src/msec/help.py:79
-#, fuzzy
 msgid "Enable IP spoofing protection."
-msgstr "Ota käyttöön IP spoofing suojaus."
+msgstr "Ota käyttöön IP spoofing -suojaus."
 
 #: ../src/msec/help.py:81
 msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
-msgstr ""
+msgstr "Määrittelee turvatason, johon nykyiset asetukset perustuvat."
 
 #: ../src/msec/help.py:83
 msgid "Enable periodic permission checking for system files."
-msgstr ""
+msgstr "Tarkista järjestelmätiedostojen oikeudet säännöllisesti."
 
 #: ../src/msec/help.py:85
 msgid "Set shell commands history size. A value of -1 means unlimited."
 msgstr ""
-"Asettaa komentotulkin historian koon. Arvo -1 tarkoittaa rajoittamatonta."
+"Komentotulkin historian koko.\n"
+"\n"
+"Asetus -1 tarkoittaa rajoittamatonta."
 
 #: ../src/msec/help.py:87
-#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
-msgstr "Salli / Estä 'reboot' konsolin käyttäjille."
+msgstr "Salli paikallisten käyttäjien sammuttaa ja käynnistää kone uudelleen."
 
 #: ../src/msec/help.py:89
 msgid "Enables logging of periodic checks to system log."
-msgstr ""
+msgstr "Kirjaa säännöllisten tarkistusten tulokset järjestelmälokiin."
 
 #: ../src/msec/help.py:91
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr ""
+msgstr "Tarkista tiedostojen .rhosts ja .shosts \"vaaralliset\" asetukset."
 
 #: ../src/msec/help.py:93
 msgid ""
 "Enable password-related checks, such as empty passwords and strange super-"
 "user accounts."
 msgstr ""
+"Ota käyttöön salasanatarkistukset.\n"
+"\n"
+"Jos asetus on käytössä, etsitään tyhjiä salasanoja ja outoja "
+"pääkäyttäjätunnuksia."
 
 #: ../src/msec/help.py:95
-#, fuzzy
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
 msgstr ""
-"Aseta salasanojen historian pituus estääksesi salasanojen käyttämistä "
-"uudelleen."
+"Aseta salasanahistorian pituus rajoittamaan salasanojen käyttämistä "
+"uudelleen "
+"(pam_tcb ei tue ominaisuutta)."
 
 #: ../src/msec/help.py:97
-#, fuzzy
 msgid "Enable daily security checks."
-msgstr "Suorita päivittäiset turvallisuustarkistukset"
+msgstr "Ota käyttöön päivittäiset turvallisuustarkistukset."
 
 #: ../src/msec/help.py:99
-#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr "Salli / Estä root sisäänkirjautuminen paikallisesti."
+msgstr "Salli pääkäyttäjän paikallinen kirjautuminen."
 
 #: ../src/msec/help.py:101
-#, fuzzy
 msgid "Enable checking for unowned files."
-msgstr "Raportoi omistamattomat tiedostot"
+msgstr "Raportoi tiedostot, joilla ei ole omistajaa."
 
 #: ../src/msec/help.py:103
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
+msgstr "Salli näytönhallintasovellusten (KDM ja GDM) näyttää käyttäjälistaus."
 
 #: ../src/msec/help.py:105
 msgid ""
@@ -275,10 +287,14 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
+"Pakota hakemistojen ja tiedostojen oikeudet järjestelmän käynnistyessä.\n"
+"\n"
+"Jos asetus on \"enforce\", järjestelmän oikeudet pakotetaan automaattisesti "
+"turvallisuusasetusten mukaisesti."
 
 #: ../src/msec/help.py:107
 msgid "Show security notifications in system tray using libnotify."
-msgstr ""
+msgstr "Näytä turvallisuusilmoitukset ilmoitusalueella (libnotifyn avulla)."
 
 #: ../src/msec/help.py:109
 msgid ""
@@ -286,63 +302,66 @@ msgid ""
 "password, only public-key authentication logins are allowed. See sshd_config"
 "(5) man page for more information."
 msgstr ""
+"Salli pääkäyttäjän etäkirjautuminen SSH-palvelun avulla.\n"
+"\n"
+"-jos asetus on \"yes\", sallitaan kirjautuminen.\n"
+"-jos asetus on \"without-password\", sallitaan vain "
+"kirjautuminen julkisen avaimen avulla.\n"
+"\n"
+"Lisätietoja komennolla \"man sshd_config\"."
 
 #: ../src/msec/help.py:111
 msgid "Perform hourly security check for changes in system configuration."
-msgstr ""
+msgstr "Tarkista järjestelmäasetusten muutokset kerran tunnissa."
 
 #: ../src/msec/help.py:113
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
+"Kysy pääkäyttäjän salasanaa siirryttäessä \"single user\"-tilaan\n"
+"\n"
+"Lisätietoja komennolla \"man sulogin\"."
 
 #: ../src/msec/help.py:115
-#, fuzzy
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
 msgstr ""
-"Salli/Kiellä näytön edelleenohjaus\n"
-"kun siirrytään root-tilistä muihin käyttäjiin.\n"
+"Salli näytön edelleenohjaus siirryttäessä pääkäyttäjän "
+"tililtä muihin käyttäjätileihin.\n"
 "\n"
-"Katso pam_xauth(8) saadaaksesi lisää tietoa."
+"Lisätietoja komennolla \"man pam_xauth\"."
 
 #: ../src/msec/help.py:117
-#, fuzzy
 msgid "Set the user umask."
-msgstr "Aseta käyttäjän umask."
+msgstr "Aseta käyttäjien umask-arvo."
 
 #: ../src/msec/help.py:119
-#, fuzzy
 msgid "Accept ICMP echo."
-msgstr "Salli icmp echo"
+msgstr "Salli ICMP echo."
 
 #: ../src/msec/help.py:121
-#, fuzzy
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
 "local services are authorized. If no, the services must be authorized "
 "manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
-"Salli:\n"
+"Salli täysi pääsy tcp_wrapperin hallitsemiin verkkopalveluihin.\n"
 "\n"
-"- kaikki palvelut joita ohjataan tcp_wrappers:ien kautta (katso hosts.deny"
-"(5)) jos \"KAIKKI\",\n"
+"-jos asetus on \"yes\", pääsy kaikkiin palveluihin sallitaan\n"
+"-jos asetus on \"local\", sallitaan pääsy vain paikallisiin palveluihin\n"
+"-jos asetus on \"no\", pääsy täytyy sallia erikseen tiedostossa /etc/hosts."
+"allow\n"
 "\n"
-"- vain paikalliset jos \"PAIKALLINEN\",\n"
-"\n"
-"- ei yhtään jos \"EI\". \n"
-"\n"
-"Salliaksesi tarvitsemasi palvelut, käytä /etc/hosts.allow (katso hosts.allow"
-"(5))."
+"Lisätietoja komennoilla \"man hosts.deny\" ja \"man hosts.allow\"."
 
 #: ../src/msec/help.py:123
 msgid "Enforce MSEC settings on system startup"
-msgstr ""
+msgstr "Pakota MSEC-asetukset käyttöön järjestelmän käynnistyessä"
 
 #: ../src/msec/help.py:125
 msgid "Enable periodic security check results to terminal."
-msgstr ""
+msgstr "Ohjaa turvallisuustarkistusten tuloste ja tulokset konsoliin."
 
 #: ../src/msec/help.py:127
 msgid ""
@@ -350,432 +369,402 @@ msgid ""
 "enabled, only users in wheel group may change advanced PolicyKit permissions "
 "and settings"
 msgstr ""
+"Ota PolicyKit käyttöön kaikille käyttäjille.\n"
+"\n"
+"Jos asetus ei ole käytössä, vain ryhmän wheel jäsenet "
+"voivat vaihtaa PolicyKit-oikeuksia ja lisäasetuksia."
 
 #: ../src/msec/libmsec.py:326
 msgid "%s modified so launched command: %s"
-msgstr ""
+msgstr "Muokattiin asetusta %s, joten suoritettiin komento %s"
 
 #: ../src/msec/libmsec.py:335
 msgid "%s modified so should have run command: %s"
-msgstr ""
+msgstr "Muokattiin asetusta %s, joten komento %s olisi tullut suorittaa"
 
 #: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
-#, fuzzy
 msgid "deleted %s"
-msgstr "Poista"
+msgstr "Poistettiin %s"
 
 #: ../src/msec/libmsec.py:455
-#, fuzzy
 msgid "touched file %s"
-msgstr "Ei tiedostoa"
+msgstr "Koskettiin tiedostoon %s"
 
 #: ../src/msec/libmsec.py:475
-#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr "Vaihdetaan %s tyyppiin %s"
+msgstr "Luotiin linkki %s tiedostoon %s"
 
 #: ../src/msec/libmsec.py:478
 msgid "moved file %s to %s"
-msgstr ""
+msgstr "Siirrettiin tiedosto %s sijaintiin %s"
 
 #: ../src/msec/libmsec.py:528 ../src/msec/libmsec.py:544
 msgid "set variable %s to %s in %s"
-msgstr ""
+msgstr "Muutettiin %s arvoon %s tiedostossa %s"
 
 #: ../src/msec/libmsec.py:755
 msgid "Error loading plugin '%s' from %s: %s"
-msgstr ""
+msgstr "Virhe ladattaessa liitännäistä %s tiedostosta %s: %s"
 
 #: ../src/msec/libmsec.py:769
 msgid "Invalid callback: %s"
-msgstr ""
+msgstr "Virheellinen paluukutsu: %s"
 
 #: ../src/msec/libmsec.py:778
 msgid "Plugin %s not found"
-msgstr ""
+msgstr "Liitännäistä %s ei löytynyt"
 
 #: ../src/msec/libmsec.py:785
 msgid "Not supported function '%s' in '%s'"
-msgstr ""
+msgstr "Toiminto %s ei ole sallittu tiedostossa %s"
 
 #: ../src/msec/libmsec.py:792 ../src/msec/libmsec.py:1575
 msgid "In check-only mode, nothing is written back to disk."
-msgstr ""
+msgstr "Testitila, muutoksia ei tallenneta."
 
 #: ../src/msec/libmsec.py:809
-#, fuzzy
 msgid "'%s' is not available in this version"
-msgstr "Tämä %s versio ei tue laitetta %s."
+msgstr "Tämä versio ei tue ominaisuutta %s"
 
 #: ../src/msec/libmsec.py:819
 msgid "Invalid parameter for %s: '%s'. Valid parameters: '%s'."
-msgstr ""
+msgstr "Virheellinen asetus %s: %s. Mahdolliset asetukset: %s."
 
 #: ../src/msec/libmsec.py:834
 msgid "Allowing unrestricted chkconfig for packages"
-msgstr ""
+msgstr "Sallitaan rajoittamaton chkconfig paketeille"
 
 #: ../src/msec/libmsec.py:839
 msgid "Restricting chkconfig for packages according to \"%s\" profile"
-msgstr ""
+msgstr "Rajoitetaan pakettien chkconfig-asetuksia turvatason %s mukaisesti"
 
 #: ../src/msec/libmsec.py:849
-#, fuzzy
 msgid "Setting root umask to %s"
-msgstr "Vaihdetaan %s tyyppiin %s"
+msgstr "Asetetaan pääkäyttäjän umask-arvoksi %s"
 
 #: ../src/msec/libmsec.py:859
-#, fuzzy
 msgid "Setting users umask to %s"
-msgstr "Vaihdetaan %s tyyppiin %s"
+msgstr "Asetetaan käyttäjien umask-arvoksi %s"
 
 #: ../src/msec/libmsec.py:880
 msgid "Allowing users to connect X server from everywhere"
-msgstr ""
+msgstr "Sallitaan käyttäjien ottaa yhteyttä X-palvelimeen mistä tahansa"
 
 #: ../src/msec/libmsec.py:883
 msgid "Allowing users to connect X server from localhost"
-msgstr ""
+msgstr "Sallitaan käyttäjien ottaa yhteyttä X-palvelimeen paikallisesti"
 
 #: ../src/msec/libmsec.py:886
 msgid "Restricting X server connection to the console user"
-msgstr ""
+msgstr "Rajoitetaan yhteydet X-palvelimeen vain konsolikäyttäjille"
 
 #: ../src/msec/libmsec.py:889
 msgid "invalid allow_x_connections arg: %s"
-msgstr ""
+msgstr "Virheellinen allow_x_connections-asetuksen argumentti: %s"
 
 #: ../src/msec/libmsec.py:912
-#, fuzzy
 msgid "Allowing the X server to listen to tcp connections"
-msgstr "Salli X Window -yhteydet"
+msgstr "Sallitaan X-palvelimen kuunnella TCP-yhteyksiä"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
-msgstr ""
+msgstr "Estetään X-palvelimen TCP-yhteyksien kuuntelu"
 
 #: ../src/msec/libmsec.py:939
-#, fuzzy
 msgid "Invalid shell timeout \"%s\""
-msgstr "Komentotulkin aikaviive"
+msgstr "Virheellinen komentotulkin aikakatkaisun arvo %s"
 
 #: ../src/msec/libmsec.py:947
-#, fuzzy
 msgid "Setting shell timeout to %s"
-msgstr "Komentotulkin aikaviive"
+msgstr "Asetetaan komentotulkin aikakatkaisuksi %s sekuntia"
 
 #: ../src/msec/libmsec.py:955
-#, fuzzy
 msgid "Invalid shell history size \"%s\""
-msgstr "Komentotulkin historian koko"
+msgstr "Virheellinen komentotulkin historian koko %s"
 
 #: ../src/msec/libmsec.py:966
-#, fuzzy
 msgid "Setting shell history size to %s"
-msgstr "Komentotulkin historian koko"
+msgstr "Asetetaan komentotulkin historian kooksi %s"
 
 #: ../src/msec/libmsec.py:970
-#, fuzzy
 msgid "Removing limit on shell history size"
-msgstr "Komentotulkin historian koko"
+msgstr "Poistetaan komentotulkin historian kokorajoitus"
 
 #: ../src/msec/libmsec.py:1009
-#, fuzzy
 msgid "Allowing reboot and shutdown to the console user"
-msgstr "Salli / Estä 'reboot' konsolin käyttäjille."
+msgstr "Sallitaan konsolikäyttäjien sammuttaa tai käynnistää kone uudelleen"
 
 #: ../src/msec/libmsec.py:1016
-#, fuzzy
 msgid "Allowing SysRq key to the console user"
-msgstr "Salli / Estä 'reboot' konsolin käyttäjille."
+msgstr "Sallitaan konsolikäyttäjän käyttää SysRq-näppäintä"
 
 #: ../src/msec/libmsec.py:1019
 msgid "Allowing Shutdown/Reboot in GDM"
 msgstr ""
+"Sallitaan tietokoneen sammuttaminen tai käynnistäminen uudelleen "
+"GDM-kirjautumisikkunasta"
 
 #: ../src/msec/libmsec.py:1023
 msgid "Allowing Shutdown/Reboot in KDM"
 msgstr ""
+"Sallitaan tietokoneen sammuttaminen tai käynnistäminen uudelleen "
+"KDM-kirjautumisikkunasta"
 
 #: ../src/msec/libmsec.py:1026
 msgid "Allowing Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "Sallitaan Ctrl-Alt-Del konsolissa"
 
 #: ../src/msec/libmsec.py:1030
-#, fuzzy
 msgid "Forbidding reboot and shutdown to the console user"
-msgstr "Salli / Estä 'reboot' konsolin käyttäjille."
+msgstr ""
+"Estetään konsolikäyttäjältä tietokoneen sammuttaminen tai käynnistäminen "
+"uudelleen"
 
 #: ../src/msec/libmsec.py:1038
-#, fuzzy
 msgid "Forbidding SysRq key to the console user"
-msgstr "Uudelleenkäynnistys konsolikäyttäjällä"
+msgstr "Estetään konsolikäyttäjältä SysRq-näppäimen käyttäminen"
 
 #: ../src/msec/libmsec.py:1041
 msgid "Forbidding Shutdown/Reboot in GDM"
 msgstr ""
+"Estetään tietokoneen sammuttaminen tai käynnistäminen uudelleen "
+"GDM-kirjautumisikkunasta"
 
 #: ../src/msec/libmsec.py:1045
 msgid "Forbidding Shutdown/Reboot in KDM"
 msgstr ""
+"Estetään tietokoneen sammuttaminen tai käynnistäminen uudelleen "
+"KDM-kirjautumisikkunasta"
 
 #: ../src/msec/libmsec.py:1048
 msgid "Forbidding Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "Estetään Ctrl-Alt-Del konsolissa"
 
 #: ../src/msec/libmsec.py:1062
 msgid "Allowing list of users in KDM"
-msgstr ""
+msgstr "Sallitaan käyttäjälista KDM-kirjautumisikkunassa"
 
 #: ../src/msec/libmsec.py:1066
 msgid "Allowing list of users in GDM"
-msgstr ""
+msgstr "Sallitaan käyttäjälista GDM-kirjautumisikkunassa"
 
 #: ../src/msec/libmsec.py:1071
 msgid "Forbidding list of users in KDM"
-msgstr ""
+msgstr "Estetään käyttäjälistan näkyminen GDM-kirjautumisikkunassa"
 
 #: ../src/msec/libmsec.py:1075
 msgid "Forbidding list of users in GDM"
-msgstr ""
+msgstr "Estetään käyttäjälistan näkyminen KDM-kirjautumisikkunassa"
 
 #: ../src/msec/libmsec.py:1089
-#, fuzzy
 msgid "Allowing remote root login"
-msgstr "Salli root sisäänkirjautuminen etäyhteyksiltä."
+msgstr "Sallitaan pääkäyttäjän etäkirjautuminen"
 
 #: ../src/msec/libmsec.py:1093
-#, fuzzy
 msgid "Forbidding remote root login"
-msgstr "Salli / Estä root sisäänkirjautuminen etäyhteyksiltä."
+msgstr "Estetään pääkäyttäjän etäkirjautuminen"
 
 #: ../src/msec/libmsec.py:1097
-#, fuzzy
 msgid "Allowing remote root login only by passphrase"
-msgstr "Salli root sisäänkirjautuminen etäyhteyksiltä."
+msgstr "Sallitaan pääkäyttäjän etäkirjautuminen vain salasanalla"
 
 #: ../src/msec/libmsec.py:1109
-#, fuzzy
 msgid "Allowing autologin"
-msgstr "Salli / Estä automaattinen sisäänkirjautuminen."
+msgstr "Sallitaan automaattinen sisäänkirjautuminen"
 
 #: ../src/msec/libmsec.py:1112
-#, fuzzy
 msgid "Forbidding autologin"
-msgstr "Salli / Estä automaattinen sisäänkirjautuminen."
+msgstr "Estetään automaattinen sisäänkirjautuminen"
 
 #: ../src/msec/libmsec.py:1117
 msgid "Activating password in boot loader"
-msgstr ""
+msgstr "Otetaan käyttöön käynnistyslataimen salasana"
 
 #: ../src/msec/libmsec.py:1131
-#, fuzzy
 msgid "Removing password in boot loader"
-msgstr "Salasana ei vanhene"
+msgstr "Poistetaan käynnistyslataimen salasana"
 
 #: ../src/msec/libmsec.py:1146
-#, fuzzy
 msgid "Enabling log on console"
-msgstr "Ota käyttöön / poista käytöstä syslog:n raportin ohjaus konsoliin 12."
+msgstr "Otetaan käyttöön tietojen kirjaaminen konsoliin"
 
 #: ../src/msec/libmsec.py:1150
-#, fuzzy
 msgid "Disabling log on console"
-msgstr "Näytä logo konsolissa"
+msgstr "Poistetaan tietojen kirjaaminen konsoliin käytöstä"
 
 #: ../src/msec/libmsec.py:1162
-#, fuzzy
 msgid "Activating daily security check"
-msgstr "Ota käyttöön / poista käytöstä päivittäiset turvallisuustarkistukset."
+msgstr "Otetaan käyttöön päivittäiset turvallisuustarkistukset"
 
 #: ../src/msec/libmsec.py:1166
-#, fuzzy
 msgid "Disabling daily security check"
-msgstr "Päivittäiset turvallisuustarkistukset"
+msgstr "Poistetaan päivittäiset turvallisuustarkistukset käytöstä"
 
 #: ../src/msec/libmsec.py:1183
 msgid "Authorizing all services"
-msgstr ""
+msgstr "Sallitaan kaikki palvelut"
 
 #: ../src/msec/libmsec.py:1187
 msgid "Disabling all services"
-msgstr ""
+msgstr "Poistetaan kaikki palvelut käytöstä"
 
 #: ../src/msec/libmsec.py:1191
-#, fuzzy
 msgid "Disabling non local services"
-msgstr "Paikallisten kuvanlukijoiden jakaminen"
+msgstr "Poistetaan kaikki ei-paikalliset palvelut käytöstä"
 
 #: ../src/msec/libmsec.py:1224
-#, fuzzy
 msgid "Enabling name resolution spoofing protection"
-msgstr "Koneen nimen huijaussuojaus"
+msgstr "Otetaan koneen nimen huijaussuojaus käyttöön"
 
 #: ../src/msec/libmsec.py:1229
-#, fuzzy
 msgid "Disabling name resolution spoofing protection"
-msgstr "Koneen nimen huijaussuojaus"
+msgstr "Poistetaan koneen nimen huijaussuojaus käytöstä"
 
 #: ../src/msec/libmsec.py:1257
-#, fuzzy
 msgid "Enabling sulogin in single user runlevel"
-msgstr "Ota käyttöön / Poista käytöstä sulogin(8) yhden käyttäjän tasossa."
+msgstr "Otetaan käyttöön sulogin yhden käyttäjän tasolle (runlevel 1)"
 
 #: ../src/msec/libmsec.py:1261
-#, fuzzy
 msgid "Disabling sulogin in single user runlevel"
-msgstr "Ota käyttöön / Poista käytöstä sulogin(8) yhden käyttäjän tasossa."
+msgstr "Poistetaan käytöstä sulogin yhden käyttäjän tasolta (runlevel 1)"
 
 #: ../src/msec/libmsec.py:1272
-#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr "Otetaan käyttöön sivutusosiota %s"
+msgstr "Otetaan säännölliset tarkistukset käyttöön"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
-msgstr ""
+msgstr "Poistetaan säännölliset tarkistukset käytöstä"
 
 #: ../src/msec/libmsec.py:1289
-#, fuzzy
 msgid "Enabling crontab and at"
-msgstr "Salli \"crontab\" ja \"at\" käyttäjille"
+msgstr "Sallitaan crontab ja at käyttäjille"
 
 #: ../src/msec/libmsec.py:1296
-#, fuzzy
 msgid "Disabling crontab and at"
-msgstr "Salli \"crontab\" ja \"at\" käyttäjille"
+msgstr "Estetään crontab ja at käyttäjiltä"
 
 #: ../src/msec/libmsec.py:1308
 msgid "Allowing export display from root"
-msgstr ""
+msgstr "Sallitaan näytön edelleenohjaus pääkäyttäjälle"
 
 #: ../src/msec/libmsec.py:1312
 msgid "Forbidding export display from root"
-msgstr ""
+msgstr "Kielletään pääkäyttäjän näytön edelleenohjaus"
 
 #: ../src/msec/libmsec.py:1323
-#, fuzzy
 msgid "Activating periodic promiscuity check"
-msgstr "Ota käyttöön / poista käytöstä verkkokorttien 'promiscuous' tarkistus."
+msgstr "Otetaan käyttöön säännöllinen verkkokorttien promiscuous-tarkistus"
 
 #: ../src/msec/libmsec.py:1327
-#, fuzzy
 msgid "Disabling periodic promiscuity check"
-msgstr "Verkkokorttien 'promiscuous' tarkistus"
+msgstr "Poistetaan verkkokorttien säännöllinen promiscuous-tarkistus käytöstä"
 
 #: ../src/msec/libmsec.py:1353
-#, fuzzy
 msgid "Allowing direct root login"
-msgstr "Salli / Estä root sisäänkirjautuminen paikallisesti."
+msgstr "Sallitaan pääkäyttäjän paikallinen kirjautuminen"
 
 #: ../src/msec/libmsec.py:1370
-#, fuzzy
 msgid "Forbidding direct root login"
-msgstr "Salli / Estä root sisäänkirjautuminen paikallisesti."
+msgstr "Estetään pääkäyttäjän paikallinen kirjautuminen"
 
 #: ../src/msec/libmsec.py:1505
-#, fuzzy
 msgid "user name %s not found"
-msgstr "Käyttäjätunnus on liian pitkä"
+msgstr "Käyttäjää %s ei löytynyt"
 
 #: ../src/msec/libmsec.py:1517
 msgid "user name not found for id %d"
-msgstr ""
+msgstr "Käyttäjää ei löytynyt UID:lla %d"
 
 #: ../src/msec/libmsec.py:1529
 msgid "group name %s not found"
-msgstr ""
+msgstr "Ryhmää %s ei löytynyt"
 
 #: ../src/msec/libmsec.py:1541
 msgid "group name not found for id %d"
-msgstr ""
+msgstr "Ryhmää ei löytynyt GID:llä %d"
 
 #: ../src/msec/libmsec.py:1551
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
+"Tiedoston /proc/mount sisältöä ei voida tutkia. Oletetaan "
+"tiedostojärjestelmien olevan paikallisia."
 
 #: ../src/msec/libmsec.py:1590
-#, fuzzy
 msgid "Forcing ownership of %s to %s"
-msgstr "Vaihdetaan %s tyyppiin %s"
+msgstr "Pakotetaan %s omistajaksi %s"
 
 #: ../src/msec/libmsec.py:1594
-#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr "virhe irrotettaessa %s: %s"
+msgstr "Virhe vaihdettaessa %s omistajaa: %s"
 
 #: ../src/msec/libmsec.py:1596
 msgid "Wrong owner of %s: should be %s"
-msgstr ""
+msgstr "%s; väärä omistaja, omistajan pitäisi olla %s"
 
 #: ../src/msec/libmsec.py:1599
-#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr "Vaihdetaan %s tyyppiin %s"
+msgstr "Pakotetaan %s ryhmäksi %s"
 
 #: ../src/msec/libmsec.py:1603
-#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr "virhe irrotettaessa %s: %s"
+msgstr "Virhe vaihdettaessa %s ryhmää: %s"
 
 #: ../src/msec/libmsec.py:1605
 msgid "Wrong group of %s: should be %s"
-msgstr ""
+msgstr "%s; väärä tyhmä, ryhmän pitäisi olla %s"
 
 #: ../src/msec/libmsec.py:1610
 msgid "Enforcing permissions on %s to %o"
-msgstr ""
+msgstr "Pakotetaan %s oikeudet arvoon %0"
 
 #: ../src/msec/libmsec.py:1614
 msgid "Error changing permissions on %s: %s"
-msgstr ""
+msgstr "Virhe muutettaessa oikeuksia %s:%s"
 
 #: ../src/msec/libmsec.py:1616
 msgid "Wrong permissions of %s: should be %o"
-msgstr ""
+msgstr "%s; väärät oikeudet, oikeuksien tulisi olla %o"
 
 #: ../src/msec/libmsec.py:1633
 msgid "bad permissions for '%s': '%s'"
-msgstr ""
+msgstr "Virheelliset oikeudet, %s:%s"
 
 #: ../src/msec/libmsec.py:1658
 msgid "Non local file: \"%s\". Nothing changed."
-msgstr ""
+msgstr "Tiedosto %s ei ole paikallinen; ei muutoksia."
 
 #: ../src/msec/libmsec.py:1700
-#, fuzzy
 msgid "Checking paths: %s"
-msgstr "Tarkistetaan %s"
+msgstr "Tarkistetaan polkuja: %s"
 
 #: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
-#, fuzzy
 msgid "Invalid security level '%s'."
-msgstr "Turvataso"
+msgstr "Virheellinen turvallisuustaso %s."
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
-msgstr ""
+msgstr "Msec: Mandrivan turvallisuuskeskus (%s)\n"
 
 #: ../src/msec/msec.py:110 ../src/msec/msecperms.py:129
 msgid "Error: This application must be executed by root!"
-msgstr ""
+msgstr "Virhe: Ohjelma tulee suorittaa pääkäyttäjän oikeuksin!"
 
 #: ../src/msec/msec.py:111 ../src/msec/msecperms.py:130
 msgid "Run with --help to get help."
-msgstr ""
+msgstr "Käytä valitsinta --help saadaksesi apua."
 
 #: ../src/msec/msec.py:133 ../src/msec/msecperms.py:151
 msgid "Level '%s' not found, aborting."
-msgstr ""
+msgstr "Turvallisuustasoa %s ei löydy; keskeytetään."
 
 #: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
-#, fuzzy
 msgid "Switching to '%s' level."
-msgstr "Vaihdetaan %s tyyppiin %s"
+msgstr "Siirrytään turvallisuustasolle %s."
 
 #: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
 msgid "Unable to save config!"
-msgstr ""
+msgstr "Asetuksia ei voida tallentaa!"
 
 #: ../src/msec/msecgui.py:50
 msgid ""
@@ -783,6 +772,9 @@ msgid ""
 "This application allows you to configure your system security. If you wish\n"
 "to activate it, choose the appropriate security level: "
 msgstr ""
+"<big><b>Valitse turvallisuustaso</b></big>\n"
+"Tämä työkalu mahdollistaa järjestelmän turvallisuusasetusten muokkaamisen.\n"
+"Ota työkalu käyttöön ja valitse haluttu turvallisuustaso."
 
 #: ../src/msec/msecgui.py:54
 msgid ""
@@ -790,6 +782,8 @@ msgid ""
 "activates several non-intrusive periodic system checks. This is the "
 "suggested level for Desktop."
 msgstr ""
+"Kohtalaisen turvalliset asetukset; joitakin tarkistuksia suoritetaan "
+"säännöllisesti. Suositeltu taso työpöytäkäyttöön."
 
 #: ../src/msec/msecgui.py:56
 msgid ""
@@ -798,6 +792,10 @@ msgid ""
 "periodic checks. This level is suggested for Servers and security-concerned "
 "systems . "
 msgstr ""
+"Maksimoitu turvallisuus; osittain myös etäkäyttömahdollisuuksien "
+"kustannuksella, laajoja tarkistuksia suoritetaan säännöllisesti. "
+"Suositeltu turvallisuustaso palvelinkäyttöön ja koneille, joiden "
+"turvallisuudesta ollaan huolissaan."
 
 #: ../src/msec/msecgui.py:59
 msgid ""
@@ -808,6 +806,11 @@ msgid ""
 "file creation\n"
 "permissions.  "
 msgstr ""
+"<big><b>Järjestelmän turvallisuus</b></big>\n"
+"Asetuksilla määritellään paikalliset turvallisuusasetukset, kuten "
+"kirjautumisrajoitukset,\n"
+"salasanan asetukset, yhteistyö muiden turvallisuustyökalujen kanssa sekä "
+"tiedostonluontioikeudet."
 
 #: ../src/msec/msecgui.py:64
 msgid ""
@@ -816,6 +819,9 @@ msgid ""
 "unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
+"<big><b>Verkon turvallisuus</b></big>\n"
+"Asetuksilla määritellään verkon turvallisuusasetukset erilaisia etäuhkia,\n"
+"luvatonta käyttöä ja murtoyrityksiä vastaan."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
@@ -823,6 +829,8 @@ msgid ""
 "These options configure the security checks that should be executed "
 "periodically.  "
 msgstr ""
+"<big><b>Säännölliset tarkistukset</b></big>\n"
+"Asetuksilla määritellään säännöllisesti suoritettavat tarkistukset."
 
 #: ../src/msec/msecgui.py:71
 msgid ""
@@ -835,124 +843,114 @@ msgid ""
 "automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
+"<big><b>Tiedostojen oikeudet</b></big>\n"
+"Asetuksilla määritellään järjestelmän tärkeiden tiedostojen ja hakemistojen "
+"oikeudet.\n"
+"Oikeudet tarkistetaan säännöllisin väliajoin ja muutokset omistajaan, "
+"ryhmään ja nykyisiin\n"
+"oikeuksiin raportoidaan. Tiedostojen ja hakemistojen oikeudet voidaan "
+"pakottaa automaattisesti\n"
+"haluttuun arvoon havaittaessa muutos."
 
 #: ../src/msec/msecgui.py:77
-#, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "Odota hetki... Otetaan asetukset käyttöön"
+msgstr "Tallenna ja ota uudet asetukset käyttöön?"
 
 #: ../src/msec/msecgui.py:143
-#, fuzzy
 msgid "_File"
-msgstr "Chile"
+msgstr "_Tiedosto"
 
 #: ../src/msec/msecgui.py:145
-#, fuzzy
 msgid "_Save configuration"
-msgstr "Ääniasetukset"
+msgstr "Tallenna _asetukset"
 
 #: ../src/msec/msecgui.py:147
-#, fuzzy
 msgid "_Import configuration"
-msgstr "Ääniasetukset"
+msgstr "_Tuo asetukset"
 
 #: ../src/msec/msecgui.py:148
-#, fuzzy
 msgid "_Export configuration"
-msgstr "Ääniasetukset"
+msgstr "_Vie asetukset"
 
 #: ../src/msec/msecgui.py:150
-#, fuzzy
 msgid "_Quit"
-msgstr "Lopeta"
+msgstr "_Poistu"
 
 #: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
-#, fuzzy
 msgid "_Help"
-msgstr "Ohje"
+msgstr "_Apua"
 
 #: ../src/msec/msecgui.py:155
-#, fuzzy
 msgid "_About"
-msgstr "Tietoja"
+msgstr "_Tietoja"
 
 #: ../src/msec/msecgui.py:182
-#, fuzzy
 msgid "MSEC: System Security and Audit"
-msgstr "Järjestelmäasetukset"
+msgstr "MSEC: Järjestelmän turvallisuus- ja seuranta-asetukset"
 
 #: ../src/msec/msecgui.py:200
-#, fuzzy
 msgid "Basic security"
-msgstr "Päivittäiset turvallisuustarkistukset"
+msgstr "Perusasetukset"
 
 #: ../src/msec/msecgui.py:201
-#, fuzzy
 msgid "System security"
-msgstr "Tietoturva"
+msgstr "Järjestelmän turvallisuus"
 
 #: ../src/msec/msecgui.py:202
-#, fuzzy
 msgid "Network security"
-msgstr "Verkkoprofiili"
+msgstr "Verkon turvallisuus"
 
 #: ../src/msec/msecgui.py:203
-#, fuzzy
 msgid "Periodic checks"
-msgstr "Ajottaiset tarkistukset"
+msgstr "Säännölliset tarkistukset"
 
 #: ../src/msec/msecgui.py:204 ../src/msec/msecgui.py:809
 msgid "Permissions"
-msgstr "Oikeudet"
+msgstr "Tiedostojen oikeudet"
 
 #: ../src/msec/msecgui.py:237
 msgid "MSEC option changes"
-msgstr ""
+msgstr "MSEC-asetusten muutokset"
 
 #: ../src/msec/msecgui.py:237
-#, fuzzy
 msgid "option"
-msgstr "Optiot"
+msgstr "asetus"
 
 #: ../src/msec/msecgui.py:238
-#, fuzzy
 msgid "System permissions changes"
-msgstr "Järjestelmäoptiot"
+msgstr "Järjestelmän oikeuksien muutokset"
 
 #: ../src/msec/msecgui.py:238
-#, fuzzy
 msgid "permission check"
-msgstr "Oikeudet"
+msgstr "Oikeustarkistus"
 
 #: ../src/msec/msecgui.py:248
 msgid "changed %s <b>%s</b> (%s -> %s)"
-msgstr ""
+msgstr "%s <b>%s</b> muuttui (%s -> %s)"
 
 #: ../src/msec/msecgui.py:253
 msgid "added %s <b>%s</b> (%s)"
-msgstr ""
+msgstr "%s <b>%s</b> (%s) lisättiin"
 
 #: ../src/msec/msecgui.py:258
 msgid "removed %s <b>%s</b>"
-msgstr ""
+msgstr "%s <b>%s</b> poistettiin"
 
 #: ../src/msec/msecgui.py:262
-#, fuzzy
 msgid "no changes"
-msgstr "Ei jaettu"
+msgstr "ei muutoksia"
 
 #: ../src/msec/msecgui.py:274
-#, fuzzy
 msgid "Saving changes.."
-msgstr "Poistetaan paketteja..."
+msgstr "Tallennetaan muutoksia.."
 
 #: ../src/msec/msecgui.py:308
 msgid "<b>%s:</b> <i>%s</i>\n"
-msgstr ""
+msgstr "<b>%s:</b> <i>%s</i>\n"
 
 #: ../src/msec/msecgui.py:315
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
-msgstr ""
+msgstr "<b>MSEC-testin tulokset:</b> <i>%s</i>"
 
 #: ../src/msec/msecgui.py:323
 msgid "Details"
@@ -960,110 +958,96 @@ msgstr "Yksityiskohdat"
 
 #: ../src/msec/msecgui.py:329
 msgid "MSEC messages (%s): %d"
-msgstr ""
+msgstr "MSEC-viestit (%s): %d"
 
 #: ../src/msec/msecgui.py:343
 msgid "Details (%d changes).."
-msgstr ""
+msgstr "Yksityiskohdat (%d muutosta).."
 
 #: ../src/msec/msecgui.py:388
 msgid "No base msec level specified, using '%s'"
-msgstr ""
+msgstr "Perustasoa ei ole määritelty, käytetään tasoa %s"
 
 #: ../src/msec/msecgui.py:391
 msgid "Detected base msec level '%s'"
-msgstr ""
+msgstr "Havaittiin taso \"%s\""
 
 #: ../src/msec/msecgui.py:396
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr ""
+msgstr "Löydettiin mukautettu taso \"%s\", muutetaan tasoksi \"%s\""
 
 #: ../src/msec/msecgui.py:424
-#, fuzzy
 msgid "Security Option"
-msgstr "Lisäasetukset"
+msgstr "Asetus"
 
 #: ../src/msec/msecgui.py:434
-#, fuzzy
 msgid "Description"
-msgstr "Lisäasetukset"
+msgstr "Kuvaus"
 
 #: ../src/msec/msecgui.py:439
-#, fuzzy
 msgid "Value"
-msgstr "Palau"
+msgstr "Arvo"
 
 #: ../src/msec/msecgui.py:449
-#, fuzzy
 msgid "Invalid option '%s'!"
-msgstr "Päävalinnat"
+msgstr "Virheellinen asetus %s!"
 
 #: ../src/msec/msecgui.py:499
-#, fuzzy
 msgid "Enable MSEC tool"
-msgstr "Mahdollista CD-käynnistys?"
+msgstr "Ota MSEC-työkalu käyttöön"
 
 #: ../src/msec/msecgui.py:506
-#, fuzzy
 msgid "Select the base security level"
-msgstr "Valitse haluttu turvataso"
+msgstr "Turvallisuustaso"
 
 #: ../src/msec/msecgui.py:510
 msgid "Standard"
-msgstr "Vakio"
+msgstr "Normaali"
 
 #: ../src/msec/msecgui.py:523
-#, fuzzy
 msgid "Secure"
-msgstr "Tietoturva"
+msgstr "Turvallinen"
 
 #: ../src/msec/msecgui.py:540
-#, fuzzy
 msgid "Send security alerts by email"
-msgstr "Tietoturvahälytykset:"
+msgstr "Lähetä hälytykset sähköpostilla"
 
 # Asennuksen sivuvalikko
 #: ../src/msec/msecgui.py:547
-#, fuzzy
 msgid "System administrator email address:"
-msgstr "Aseta ylläpitäjän (\"root\") salasana"
+msgstr "Pääkäyttäjän sähköpostiosoite:"
 
 #: ../src/msec/msecgui.py:566
 msgid "Display security alerts on desktop"
-msgstr ""
+msgstr "Näytä hälytykset työpöydällä"
 
 #: ../src/msec/msecgui.py:727
-#, fuzzy
 msgid "Enable periodic security checks"
-msgstr "Ota käyttöön msec turvallisuustarkistukset joka tunti."
+msgstr "Ota säännölliset tarkistukset käyttöön"
 
 #: ../src/msec/msecgui.py:791
 msgid "Path"
 msgstr "Polku"
 
 #: ../src/msec/msecgui.py:797
-#, fuzzy
 msgid "User"
-msgstr "Käyttäjä-ID"
+msgstr "Käyttäjä"
 
 #: ../src/msec/msecgui.py:803
-#, fuzzy
 msgid "Group"
-msgstr "Ryhmä-ID"
+msgstr "Ryhmä"
 
 #: ../src/msec/msecgui.py:817
-#, fuzzy
 msgid "Enforce"
-msgstr "Älä huomioi"
+msgstr "Pakota"
 
 #: ../src/msec/msecgui.py:861
 msgid "Reset to default level permissions"
-msgstr ""
+msgstr "Palauta tason oletusarvoon"
 
 #: ../src/msec/msecgui.py:866
-#, fuzzy
 msgid "Add a rule"
-msgstr "Lisää käyttäjä"
+msgstr "Lisää sääntö"
 
 #: ../src/msec/msecgui.py:871
 msgid "Delete"
@@ -1071,11 +1055,11 @@ msgstr "Poista"
 
 #: ../src/msec/msecgui.py:954
 msgid "Changing permissions for %s"
-msgstr ""
+msgstr "Muutetaan %s oikeuksia"
 
 #: ../src/msec/msecgui.py:961
 msgid "Adding new permission check"
-msgstr ""
+msgstr "Lisätään uutta oikeustarkistusta"
 
 #: ../src/msec/msecgui.py:973
 msgid ""
@@ -1083,31 +1067,29 @@ msgid ""
 "Please specify new permissions, or use 'current' to keep current "
 "permissions.\n"
 msgstr ""
+"Muutetaan kohteen <b>%s</b> oikeuksia. "
+"Määrittele uudet oikeudet tai napsauta \"Peru\" "
+"säilyttääksesi vanhat asetukset.\n"
 
 #: ../src/msec/msecgui.py:981
-#, fuzzy
 msgid "File: "
-msgstr "/_Tiedosto"
+msgstr "Tiedosto: "
 
 #: ../src/msec/msecgui.py:989
-#, fuzzy
 msgid "User: "
-msgstr "Käyttäjä-ID"
+msgstr "Käyttäjä: "
 
 #: ../src/msec/msecgui.py:997
-#, fuzzy
 msgid "Group: "
-msgstr "Ryhmä-ID"
+msgstr "Ryhmä:    "
 
 #: ../src/msec/msecgui.py:1005
-#, fuzzy
 msgid "Permissions: "
-msgstr "Oikeudet"
+msgstr "Oikeudet: "
 
 #: ../src/msec/msecgui.py:1066
-#, fuzzy
 msgid "Select new value for %s"
-msgstr "Valitse firmware-tiedosto laitteelle %s"
+msgstr "Valitse arvolle %s uusi arvo"
 
 #: ../src/msec/msecgui.py:1075
 msgid ""
@@ -1117,100 +1099,95 @@ msgid ""
 "\t%sStandard level value:\t<i>%s</i>%s\n"
 "\t%sSecure level value:\t\t<i>%s</i>%s\n"
 msgstr ""
+"<i>%s</i>\n"
+"\n"
+"\tNykyinen asetus:\t\t\t<i>%s</i>\n"
+"\t%sNormaalitason asetus:\t<i>%s</i>%s\n"
+"\t%sTurvallisen tason asetus:\t\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1086
-#, fuzzy
 msgid "New value:"
-msgstr "Uusi-Kaledonia"
+msgstr "Uusi asetus:"
 
 #: ../src/msec/msecgui.py:1148
 msgid "Save your changes?"
-msgstr ""
+msgstr "Tallenna muutokset?"
 
 #: ../src/msec/msecgui.py:1150
-#, fuzzy
 msgid "_Cancel"
-msgstr "Peruuta"
+msgstr "_Peruuta"
 
 #: ../src/msec/msecgui.py:1151
-#, fuzzy
 msgid "_Ignore"
-msgstr "Älä huomioi"
+msgstr "_Hylkää"
 
 #: ../src/msec/msecgui.py:1152
-#, fuzzy
 msgid "_Save"
-msgstr "Tallenna"
+msgstr "_Tallenna"
 
 #: ../src/msec/msecgui.py:1154
-#, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "Haluatko tallentaa muutokset tiedostoon /etc/fstab"
+msgstr "Tallennetaanko muutokset ennen sulkemista?"
 
 #: ../src/msec/plugins/pam.py:68
-#, fuzzy
 msgid "Using password to authenticate users"
-msgstr "Käytä salasanoja käyttäjien tunnistamiseen."
+msgstr "Käytetään salasanoja käyttäjien tunnistamiseen"
 
 #: ../src/msec/plugins/pam.py:72
-#, fuzzy
 msgid "Don't use password to authenticate users"
-msgstr "Käytä salasanoja käyttäjien tunnistamiseen."
+msgstr "Älä käytä salasanoja käyttäjien tunnistamiseen"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
-msgstr ""
+msgstr "Salasanahistoriaa ei tueta pam_tcb:n kanssa."
 
 #: ../src/msec/plugins/pam.py:91
-#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr "Salasanahistorian pituus"
+msgstr "Virheellinen salasanahistorian pituus: %s"
 
 #: ../src/msec/plugins/pam.py:106
-#, fuzzy
 msgid "Setting password history to %d."
-msgstr "Salasanahistorian pituus"
+msgstr "Asetetaan salasanahistorian pituudeksi %d."
 
 #: ../src/msec/plugins/pam.py:112
-#, fuzzy
 msgid "Disabling password history"
-msgstr "Salasanahistorian pituus"
+msgstr "Otetaan salasanahistoria pois käytöstä"
 
 #: ../src/msec/plugins/pam.py:124
 msgid ""
 "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
+"Virheellinen salasanan pituus %s. Käytä muotoa "
+"\"pituus,numerot,isotkirjaimet\"."
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
-msgstr ""
+msgstr "Asetetaan salasanan vähimmäispituudeksi %d"
 
 #: ../src/msec/plugins/pam.py:169
-#, fuzzy
 msgid "Allowing su only from wheel group members"
-msgstr ""
-"Salli 'su' vain 'wheel' ryhmään kuuluville jäsenille, tai salli komento "
-"kaikille"
+msgstr "Sallitaan komento su vain ryhmän wheel jäsenille"
 
 #: ../src/msec/plugins/pam.py:173
 msgid "no wheel group"
-msgstr ""
+msgstr "ei ryhmää wheel"
 
 #: ../src/msec/plugins/pam.py:177
 msgid "wheel group is empty"
-msgstr ""
+msgstr "ryhmä wheel on tyhjä"
 
 #: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"
-msgstr ""
+msgstr "Sallitaan komento su kaikille"
 
 #: ../src/msec/plugins/pam.py:204
 msgid "Allowing transparent root access for wheel group members"
-msgstr ""
+msgstr "Sallitaan pääsy pääkäyttäjäksi ilman salasanaa ryhmän wheel jäsenille"
 
 #: ../src/msec/plugins/pam.py:211
-#, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
-"Salli 'su' vain 'wheel' ryhmään kuuluville jäsenille, tai salli komento "
-"kaikille"
+"Poistetaan käytöstä ryhmän wheel jäsenten pääsy pääkäyttäjäksi ilman "
+"salasanaa"
+
+

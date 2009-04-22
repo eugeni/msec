@@ -1,5 +1,7 @@
 Version 0.60.21 - April 22 2009, Eugeni Dodonov
 - Properly handle WIN_PARTS_UMASK parameters.
+- Fixed command inversion between DNS_SPOOFING_PROTECTION and
+  IP_SPOOFING_PROTECTION.
 
 Version 0.60.20 - April 21 2009, Eugeni Dodonov
 - Using correct locale when available (#44561).

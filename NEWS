@@ -1,3 +1,6 @@
+Version 0.60.22 - April 22 2009, Eugeni Dodonov
+- Changed default WIN_PARTS_UMASK to be with sync with diskdrake.
+
 Version 0.60.21 - April 22 2009, Eugeni Dodonov
 - Properly handle WIN_PARTS_UMASK parameters.
 - Fixed command inversion between DNS_SPOOFING_PROTECTION and

@@ -58,7 +58,7 @@ class pam:
         config.SETTINGS_SYSTEM.append('PASSWORD_LENGTH')
 
     def enable_password(self, arg):
-        ''' Use password to authenticate users. Take EXTREMELY care when disabling passwords, as it will leave the machine vulnerable.'''
+        ''' Use password to authenticate users. Take EXTREME care when disabling passwords, as it will leave the machine vulnerable.'''
         system_auth = self.configfiles.get_config_file(self.SYSTEM_AUTH)
 
         val = system_auth.get_match(self.PASSWORD_REGEXP)

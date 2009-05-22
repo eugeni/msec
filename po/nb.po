@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-05-22 15:30+0200\n"
+"PO-Revision-Date: 2009-05-22 16:11+0200\n"
 "Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -90,7 +90,7 @@ msgstr "Tillat autoinnlogging."
 
 #: ../src/msec/help.py:39
 msgid "Allow only users in wheel group to su to root."
-msgstr "Tillat kun brukere i wheel-gruppen at su til root."
+msgstr "Tillat kun brukere i wheel-gruppen su til root."
 
 #: ../src/msec/help.py:41
 msgid ""

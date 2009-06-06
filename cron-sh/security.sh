@@ -245,7 +245,7 @@ EOF
 }
 
 Notifylog() {
-	if [ ${NOTIFY_WARN} == yes ]; then
+	if [[ ${NOTIFY_WARN} == yes ]]; then
 		message=${1}
 		DBUS_SEND=`which dbus-send 2>/dev/null`
 		if [ -x "$DBUS_SEND" ]; then

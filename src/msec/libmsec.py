@@ -971,14 +971,14 @@ class MSEC:
                 msec.remove_line_matching('^HISTFILESIZE=')
 
     def set_win_parts_umask(self, umask):
-        ''' Set umask option for mounting vfat and ntfs partitions. If umask is '0', default system umask is used.'''
+        ''' Set umask option for mounting vfat and ntfs partitions. If umask is '-1', default system umask is used.'''
         fstab = self.configfiles.get_config_file(FSTAB)
         try:
             test_umask = int(umask)
         except:
             self.log.error(_('Invalid file system umask "%s"') % umask)
             return
-        if umask == "0":
+        if umask == "-1":
             fstab.replace_line_matching("(.*\s(vfat|ntfs|ntfs-3g)\s+)umask=\d+(\s.*)", "@1defaults@3", 0, 1)
             fstab.replace_line_matching("(.*\s(vfat|ntfs|ntfs-3g)\s+)umask=\d+,(.*)", "@1@3", 0, 1)
             fstab.replace_line_matching("(.*\s(vfat|ntfs|ntfs-3g)\s+\S+),umask=\d+(.*)", "@1@3", 0, 1)

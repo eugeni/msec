@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-05-22 16:11+0200\n"
+"PO-Revision-Date: 2009-06-09 18:07+0200\n"
 "Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr ""
 
 #: ../src/msec/help.py:15
 msgid "Enable name resolution spoofing protection."
-msgstr "Slå på beskyttelse mot navneoppslagsforfalskning."
+msgstr "Slå på beskytteslse mot navneoppslagsforfalskning."
 
 #: ../src/msec/help.py:17
 msgid "Send mail reports even if no changes were detected."
@@ -49,12 +49,12 @@ msgid ""
 "sudo"
 msgstr ""
 "Tillat brukere å autentisere med passordene sine for sudo. Hvis denne "
-"parametren er satt til 'wheel', må brukere som skal benytte sudo være "
+"parametren er satt til \"wheel\", må brukere som skal benytte sudo være "
 "medlemmer av denne gruppen."
 
 #: ../src/msec/help.py:23
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på tcp-port 6000."
+msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
 
 #: ../src/msec/help.py:25
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -90,7 +90,7 @@ msgstr "Tillat autoinnlogging."
 
 #: ../src/msec/help.py:39
 msgid "Allow only users in wheel group to su to root."
-msgstr "Tillat kun brukere i wheel-gruppen su til root."
+msgstr "Tillat kun brukere i wheel-gruppen at su til root."
 
 #: ../src/msec/help.py:41
 msgid ""
@@ -133,7 +133,7 @@ msgid ""
 "passwords, as it will leave the machine vulnerable."
 msgstr ""
 "Benytt passord for å autentisere brukere. Vær VELDIG forsiktig når du "
-"deaktiverer bruken av passord ettersom det vil gjøre maskinen sårbar."
+"slår av bruken av passord ettersom det vil gjøre maskinen sårbar."
 
 #: ../src/msec/help.py:51
 msgid ""
@@ -181,7 +181,7 @@ msgstr "Slå på sjekk for utvidelse/fjerning av sgid-filer."
 
 #: ../src/msec/help.py:69
 msgid "Activate ethernet cards promiscuity check."
-msgstr "Slå på løsaktighetsskontroll for ethernetkort."
+msgstr "Slå på løsaktighetsskontroll for Ethernet-kort."
 
 #: ../src/msec/help.py:71
 msgid "Enable AppArmor security framework on boot"
@@ -380,7 +380,7 @@ msgstr "Feil ved lasting av programtillegg '%s' fra %s: %s"
 
 #: ../src/msec/libmsec.py:769
 msgid "Invalid callback: %s"
-msgstr "Feil tilbakekall: %s"
+msgstr "Ugyldig tilbakekall: %s"
 
 #: ../src/msec/libmsec.py:778
 msgid "Plugin %s not found"
@@ -436,11 +436,11 @@ msgstr "ugyldig allow_x_connections arg: %s"
 
 #: ../src/msec/libmsec.py:912
 msgid "Allowing the X server to listen to tcp connections"
-msgstr "Tillater X-tjeneren å lytte på tcp-tilkoblinger"
+msgstr "Tillater X-tjeneren å lytte på TCP-tilkoblinger"
 
 #: ../src/msec/libmsec.py:923
 msgid "Forbidding the X server to listen to tcp connection"
-msgstr "Forbyr X-tjeneren å lytte på tcp-tilkoblinger"
+msgstr "Forbyr X-tjeneren å lytte på TCP-tilkoblinger"
 
 #: ../src/msec/libmsec.py:939
 msgid "Invalid shell timeout \"%s\""
@@ -592,11 +592,11 @@ msgstr "Slå av sulogin i enbrukermodus"
 
 #: ../src/msec/libmsec.py:1272
 msgid "Enabling msec periodic runs"
-msgstr "Slå på msec periodisk kjøring"
+msgstr "Slå på periodisk kjøring av MSEC"
 
 #: ../src/msec/libmsec.py:1276
 msgid "Disabling msec periodic runs"
-msgstr "Slå av msec periodisk kjøring"
+msgstr "Slå av periodisk kjøring av MSEC"
 
 #: ../src/msec/libmsec.py:1289
 msgid "Enabling crontab and at"
@@ -704,7 +704,7 @@ msgstr "ugyldig sikkerhetsnivå '%s'."
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Msec: Mandriva Security Center (%s)\n"
-msgstr "Msec: Mandriva Sikkerhetssenter (%s)\n"
+msgstr "MSEC: Mandriva Sikkerhetssenter (%s)\n"
 
 #: ../src/msec/msec.py:110 ../src/msec/msecperms.py:129
 msgid "Error: This application must be executed by root!"
@@ -734,7 +734,7 @@ msgid ""
 msgstr ""
 "<big><b>Velg sikkerhetsnivå</b></big>\n"
 "Dette programmet lar deg sette opp systemsikkerheten. Velg et passende\n"
-"sikkerhetsnivå, hvis du vil slå det på: "
+"sikkerhetsnivå hvis du vil slå det på: "
 
 #: ../src/msec/msecgui.py:54
 msgid ""
@@ -742,7 +742,7 @@ msgid ""
 "activates several non-intrusive periodic system checks. This is the "
 "suggested level for Desktop."
 msgstr ""
-"Denne profilen setter opp et forholdsvis sikkert system. Det aktiverer flere "
+"Denne profilen setter opp et forholdsvis sikkert system. Det slår på flere "
 "ikke-påtrengende periodiske systemsjekker. Dette er det anbefalte nivået for "
 "Skrivebord."
 
@@ -771,7 +771,8 @@ msgstr ""
 "Disse valgene kontrollerer det lokale sikkerhetsoppsettet som "
 "innloggingsbegrensninger,\n "
 "passordinnstillinger, integrasjon med andre sikkerhetsverktøy og "
-"forhåndsvalgte rettigheter ved opprettelse av filer."
+"forhåndsvalgte\n"
+"rettigheter ved opprettelse av filer."
 
 #: ../src/msec/msecgui.py:64
 msgid ""
@@ -792,13 +793,14 @@ msgid ""
 "periodically.  "
 msgstr ""
 "<big><b>Valg for periodiske sikkerhetssjekker</b></big>\n"
-"Disse valgene setter opp sikkerhetssjekker som skal kjøres periodisk."
+"Disse valgene setter opp sikkerhetssjekker som skal kjøres "
+"periodisk."
 
 #: ../src/msec/msecgui.py:71
 msgid ""
 "<big><b>File permissions</b></big>\n"
 "These options allow to fine-tune system permissions for important files and "
-"directories.\n"
+"directores.\n"
 "The following permissions are checked periodically, and any change to the "
 "owner, group,\n"
 "or current permission is reported. The permissions can be enforced, "
@@ -809,14 +811,14 @@ msgstr ""
 "Disse valgene lar deg finjustere systemtillatelsene for viktige filer og "
 "kataloger.\n"
 "De følgende tillatelsene blir sjekket periodevis, og forandring av eier, "
-"gruppe,\n "
+"gruppe,\n"
 "eller gjeldende rettigheter blir rapportert. Tillatelsene kan bli håndhevet "
 "automatisk\n"
 "ved forandring og settes tilbake til de spesifiserte verdiene."
 
 #: ../src/msec/msecgui.py:77
 msgid "Save and apply new configuration?"
-msgstr "Lagre og legge til nytt oppsett?"
+msgstr "Lagre og legg til nytt oppsett?"
 
 #: ../src/msec/msecgui.py:143
 msgid "_File"
@@ -928,11 +930,11 @@ msgstr "Detaljer (%d forandres).."
 
 #: ../src/msec/msecgui.py:388
 msgid "No base msec level specified, using '%s'"
-msgstr "Ingen grunnleggende msec-nivå spesifisert, bruker '%s'"
+msgstr "Ingen grunnleggende MSEC-nivå spesifisert, bruker '%s'"
 
 #: ../src/msec/msecgui.py:391
 msgid "Detected base msec level '%s'"
-msgstr "Oppdaget grunnleggende msec-nivå '%s'"
+msgstr "Oppdaget grunnleggende MSEC-nivå '%s'"
 
 #: ../src/msec/msecgui.py:396
 msgid "Custom base config level '%s' found. Will default to '%s'"
@@ -1029,7 +1031,7 @@ msgid ""
 "permissions.\n"
 msgstr ""
 "Forandrer rettigheter på <b>%s</b>\n"
-"Vær vennlig å spesifisere nye rettigheter eller benytt 'nåværende' "
+"Vær vennlig å oppgi nye rettigheter eller benytt 'nåværende' "
 "for å beholde nåværende rettigheter.\n"
 
 #: ../src/msec/msecgui.py:981
@@ -1038,15 +1040,15 @@ msgstr "Fil: "
 
 #: ../src/msec/msecgui.py:989
 msgid "User: "
-msgstr "Bruker: "
+msgstr "Bruker:"
 
 #: ../src/msec/msecgui.py:997
 msgid "Group: "
-msgstr "Gruppe: "
+msgstr "Gruppe :"
 
 #: ../src/msec/msecgui.py:1005
 msgid "Permissions: "
-msgstr "Rettigheter: "
+msgstr "Rettigheter:"
 
 #: ../src/msec/msecgui.py:1066
 msgid "Select new value for %s"
@@ -1061,9 +1063,8 @@ msgid ""
 "\t%sSecure level value:\t\t<i>%s</i>%s\n"
 msgstr ""
 "<i>%s</i>\n"
-"\n"
-"\tNåværende verdi:\t\t\t<i>%s</i>\n "
-"\t%sStandard nivåverdi:\t<i>%s</i>%s\n "
+"\tCurrent verdi:\t\t\t<i>%s</i>\n"
+"\t%sStandard nivåverdi: \t<i>%s</i>%s\n"
 "\t%sSecure nivåverdi:\t\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1086
@@ -1100,7 +1101,7 @@ msgstr "Ikke benytt passord for å autentisere brukere"
 
 #: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
-msgstr "Passordhistorie er ikke støttet med pam_tcb."
+msgstr "Passordhistorie er ikke støttet med pam_tcb"
 
 #: ../src/msec/plugins/pam.py:91
 msgid "Invalid maximum password history length: \"%s\""
@@ -1108,7 +1109,7 @@ msgstr "Ugyldig maksimum passordhistorielengde: \"%s\""
 
 #: ../src/msec/plugins/pam.py:106
 msgid "Setting password history to %d."
-msgstr "Setter passordhistorie til %d."
+msgstr "Setter passordhistorie til %d"
 
 #: ../src/msec/plugins/pam.py:112
 msgid "Disabling password history"

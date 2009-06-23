@@ -1,3 +1,4 @@
+- Added support for firewall configuration checks.
 - Add support for FIX_UNOWNED to change unowned files to nobody/nogroup (#51791).
 - Using WIN_PARTS_UMASK=-1 value instead of '0' when umask should not be set to
   prevent users and diskdrake confusion.

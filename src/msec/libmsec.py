@@ -1428,6 +1428,10 @@ class MSEC:
         """ Enable checking for open network ports."""
         pass
 
+    def check_firewall(self, param):
+        """ Enable checking for firewall settings ports."""
+        pass
+
     def check_passwd(self, param):
         """ Enable password-related checks, such as empty passwords and strange super-user accounts."""
         pass

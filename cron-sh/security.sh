@@ -133,7 +133,9 @@ if [[ -f ${CHKROOTKIT_TODAY} ]]; then
     mv -f ${CHKROOTKIT_TODAY} ${CHKROOTKIT_YESTERDAY}
 fi
 
-netstat -pvlA inet,inet6 2> /dev/null > ${OPEN_PORT_TODAY};
+if [[ ${CHECK_OPEN_PORT} == yes ]]; then
+	netstat -pvlA inet,inet6 2> /dev/null > ${OPEN_PORT_TODAY};
+fi
 
 ionice -c3 -p $$
 

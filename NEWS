@@ -1,3 +1,4 @@
+- Add support for FIX_UNOWNED to change unowned files to nobody/nogroup (#51791).
 - Using WIN_PARTS_UMASK=-1 value instead of '0' when umask should not be set to
   prevent users and diskdrake confusion.
 - Correctly handling empty NOTIFY_WARN variables (#51364, #51464).

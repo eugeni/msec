@@ -1420,6 +1420,10 @@ class MSEC:
         """ Enable checking for unowned files."""
         pass
 
+    def fix_unowned(self, param):
+        """ Fix owner and group of unowned files to use nobody/nogroup."""
+        pass
+
     def check_open_port(self, param):
         """ Enable checking for open network ports."""
         pass

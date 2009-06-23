@@ -40,7 +40,9 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
 	printf "\t( theses files now have user \"nobody\" as their owner. )\n" >> ${SECURITY}
 	cat ${UNOWNED_USER_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
         cat ${UNOWNED_USER_TODAY} | while read line; do
+	if [[ ${FIX_UNOWNED} == yes ]]; then
 	    chown nobody "${line}"; # Use quote if filename contain space. 
+	fi
 	done	
     fi
 
@@ -49,7 +51,9 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
         printf "\t( theses files now have group \"nogroup\" as their group owner. )\n" >> ${SECURITY}
 	cat ${UNOWNED_GROUP_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
 	cat ${UNOWNED_GROUP_TODAY} | while read line; do
+	if [[ ${FIX_UNOWNED} == yes ]]; then
 	    chgrp nogroup "${line}"; # Use quote if filename contain space. 
+	fi
 	done
     fi
 fi

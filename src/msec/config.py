@@ -61,6 +61,7 @@ SETTINGS =    {'BASE_LEVEL':                    ("libmsec.base_level",          
                'CHECK_SGID' :                   ("libmsec.check_sgid",                      ['yes', 'no']),
                'CHECK_WRITABLE' :               ("libmsec.check_writable",                  ['yes', 'no']),
                'CHECK_UNOWNED' :                ("libmsec.check_unowned",                   ['yes', 'no']),
+               'FIX_UNOWNED' :                  ("libmsec.fix_unowned",                     ['yes', 'no']),
                'CHECK_PROMISC' :                ("libmsec.check_promisc",                   ['yes', 'no']),
                'CHECK_OPEN_PORT' :              ("libmsec.check_open_port",                 ['yes', 'no']),
                'CHECK_PASSWD' :                 ("libmsec.check_passwd",                    ['yes', 'no']),
@@ -125,7 +126,7 @@ SETTINGS_NETWORK = ["ACCEPT_BOGUS_ERROR_RESPONSES", "ACCEPT_BROADCASTED_ICMP_ECH
                     ]
 # periodic checks
 SETTINGS_PERIODIC = ["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",
-                    "CHECK_WRITABLE", "CHECK_UNOWNED", "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_PASSWD",
+                    "CHECK_WRITABLE", "CHECK_UNOWNED", "FIX_UNOWNED", "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_PASSWD",
                     "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM", "CHECK_SHOSTS", "TTY_WARN", "SYSLOG_WARN",
                     "MAIL_EMPTY_CONTENT",
                     ]

@@ -1,4 +1,6 @@
-- Added support for firewall configuration checks.
+- Reworked auditing code, improved logging format, added support for
+  custom auditing plugins, simplified checks.
+- Added support for firewall configuration checks via CHECK_FIREWALL.
 - Add support for FIX_UNOWNED to change unowned files to nobody/nogroup (#51791).
 - Using WIN_PARTS_UMASK=-1 value instead of '0' when umask should not be set to
   prevent users and diskdrake confusion.

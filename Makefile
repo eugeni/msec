@@ -33,7 +33,8 @@ install: all
 	mkdir -p $(RPM_BUILD_ROOT)/usr/share/msec/plugins
 	mkdir -p $(RPM_BUILD_ROOT)/usr/sbin
 	cp init-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec
-	cp cron-sh/*.sh $(RPM_BUILD_ROOT)/usr/share/msec
+	# install shell scripts
+	$(MAKE) -C cron-sh $@
 	# install main msec files
 	for i in libmsec.py config.py msec.py msecperms.py msecgui.py help.py version.py; do \
 	    install -m755 src/msec/$$i $(RPM_BUILD_ROOT)/usr/share/msec ; \

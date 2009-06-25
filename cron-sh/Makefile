@@ -1,6 +1,6 @@
 all:
-	for f in *.sh; do bash -n $$f || exit 1; done
+	for f in *.sh scripts/*.sh; do bash -n $$f || exit 1; done
 
 install:
-	mkdir -p /etc/security/msec/cron-sh
-	cp *.sh /etc/security/msec/cron-sh
+	mkdir -p $(RPM_BUILD_ROOT)/usr/share/msec/scripts
+	for f in *.sh scripts/*.sh; do install -m755 $$f $(RPM_BUILD_ROOT)/usr/share/msec/$$f; done

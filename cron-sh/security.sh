@@ -1,27 +1,8 @@
 #!/bin/bash
-
-. /etc/sysconfig/i18n
-if [[ -f /etc/profile.d/10lang.sh ]]; then
-    . /etc/profile.d/10lang.sh
-fi
-
-LCK=/var/run/msec-security.pid
-
-function cleanup() {
-    rm -f $LCK
-}
-
-if [ -f $LCK ]; then
-    if [ -d /proc/`cat $LCK` ]; then
-    	exit 0
-    else
-    	rm -f $LCK
-    fi
-fi
-
-echo -n $$ > $LCK
-
-trap cleanup 0
+# msec: this is the main security auditing script
+#       it runs all executable scripts from /usr/share/msec/scripts
+#       which should be named NN_script_name.sh, where NN represents
+#       the order in which they should be executed
 
 if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
@@ -30,245 +11,92 @@ else
     exit 1
 fi
 
-if [ -r /etc/security/shell ]; then
-    . /etc/security/shell
+# is security check enabled?
+if [[ ${CHECK_SECURITY} != yes ]]; then
+    exit 0
 fi
 
-umask ${UMASK_ROOT=077}
+. /usr/share/msec/functions.sh
 
-[[ ${MAIL_WARN} == yes ]] && [ -z ${MAIL_USER} ] && MAIL_USER="root"
+# variables
+LCK=/var/run/msec-security.pid
+SECURITY_LOG="/var/log/security.log"
 
-export SUID_ROOT_TODAY="/var/log/security/suid_root.today"
-SUID_ROOT_YESTERDAY="/var/log/security/suid_root.yesterday"
-SUID_ROOT_DIFF="/var/log/security/suid_root.diff"
-export SGID_TODAY="/var/log/security/sgid.today"
-SGID_YESTERDAY="/var/log/security/sgid.yesterday"
-SGID_DIFF="/var/log/security/sgid.diff"
-export SUID_MD5_TODAY="/var/log/security/suid_md5.today"
-SUID_MD5_YESTERDAY="/var/log/security/suid_md5.yesterday"
-SUID_MD5_DIFF="/var/log/security/suid_md5.diff"
-export OPEN_PORT_TODAY="/var/log/security/open_port.today"
-OPEN_PORT_YESTERDAY="/var/log/security/open_port.yesterday"
-OPEN_PORT_DIFF="/var/log/security/open_port.diff"
-export FIREWALL_TODAY="/var/log/security/open_port.today"
-FIREWALL_YESTERDAY="/var/log/security/open_port.yesterday"
-FIREWALL_DIFF="/var/log/security/open_port.diff"
-export WRITABLE_TODAY="/var/log/security/writable.today"
-WRITABLE_YESTERDAY="/var/log/security/writable.yesterday"
-WRITABLE_DIFF="/var/log/security/writable.diff"
-export UNOWNED_USER_TODAY="/var/log/security/unowned_user.today"
-UNOWNED_USER_YESTERDAY="/var/log/security/unowned_user.yesterday"
-UNOWNED_USER_DIFF="/var/log/security/unowned_user.diff"
-export UNOWNED_GROUP_TODAY="/var/log/security/unowned_group.today"
-UNOWNED_GROUP_YESTERDAY="/var/log/security/unowned_group.yesterday"
-UNOWNED_GROUP_DIFF="/var/log/security/unowned_group.diff"
-export RPM_VA_TODAY="/var/log/security/rpm-va.today"
-RPM_VA_YESTERDAY="/var/log/security/rpm-va.yesterday"
-RPM_VA_DIFF="/var/log/security/rpm-va.diff"
-export RPM_VA_CONFIG_TODAY="/var/log/security/rpm-va-config.today"
-RPM_VA_CONFIG_YESTERDAY="/var/log/security/rpm-va-config.yesterday"
-RPM_VA_CONFIG_DIFF="/var/log/security/rpm-va-config.diff"
-export RPM_QA_TODAY="/var/log/security/rpm-qa.today"
-RPM_QA_YESTERDAY="/var/log/security/rpm-qa.yesterday"
-RPM_QA_DIFF="/var/log/security/rpm-qa.diff"
-export CHKROOTKIT_TODAY="/var/log/security/chkrootkit.today"
-CHKROOTKIT_YESTERDAY="/var/log/security/chkrootkit.yesterday"
-CHKROOTKIT_DIFF="/var/log/security/chkrootkit.diff"
-export EXCLUDE_REGEXP
+# log formatting
+REPORT_DATE=`date "+%b %W %H:%M:%S"`
+REPORT_HOSTNAME=`hostname`
+LOG_PREFIX="$REPORT_DATE $REPORT_HOSTNAME"
+SECURITY_PREFIX="$LOG_PREFIX security: "
+INFO_PREFIX="$LOG_PREFIX info: "
+DIFF_PREFIX="$LOG_PREFIX diff: "
 
-# Modified filters coming from debian security scripts.
-# rootfs is not listed among excluded types, because 
-# / is mounted twice, and filtering it would mess with excluded dir list
-TYPE_FILTER='(devpts|sysfs|usbfs|tmpfs|binfmt_misc|rpc_pipefs|securityfs|auto|proc|msdos|fat|vfat|iso9660|ncpfs|smbfs|hfs|nfs|afs|coda|cifs)'
-MOUNTPOINT_FILTER='^\/mnt|^\/media'
-DIR=`awk '$3 !~ /'$TYPE_FILTER'/ && $2 !~ /'$MOUNTPOINT_FILTER'/ \
-	{print $2}' /proc/mounts | uniq`
-PRINT="%h/%f\n"
-EXCLUDEDIR=`awk '$3 ~ /'$TYPE_FILTER'/ || $2 ~ /'$MOUNTPOINT_FILTER'/ \
-	{print $2}' /proc/mounts | uniq`
-export EXCLUDEDIR
 
+function cleanup() {
+    # removing temporary files
+    rm -f $LCK $MSEC_TMP $SECURITY $INFOS $DIFF
+}
+
+if [ -f $LCK ]; then
+    if [ -d /proc/`cat $LCK` ]; then
+        exit 0
+    else
+        rm -f $LCK
+    fi
+fi
+echo -n $$ > $LCK
+trap cleanup 0 1 2 15
+
+# temporary files
+MSEC_TMP=`mktemp /tmp/secure.XXXXXX`
+INFOS=`mktemp /tmp/secure.XXXXXX`
+SECURITY=`mktemp /tmp/secure.XXXXXX`
+DIFF=`mktemp /tmp/secure.XXXXXX`
+
+# creating security log dir if necessary
 if [[ ! -d /var/log/security ]]; then
     mkdir /var/log/security
 fi
 
-if [[ -f ${SUID_ROOT_TODAY} ]]; then
-    mv ${SUID_ROOT_TODAY} ${SUID_ROOT_YESTERDAY};
-fi
-
-if [[ -f ${SGID_TODAY} ]]; then
-    mv ${SGID_TODAY} ${SGID_YESTERDAY};
-fi
-
-if [[ -f ${WRITABLE_TODAY} ]]; then
-    mv ${WRITABLE_TODAY} ${WRITABLE_YESTERDAY};
-fi
-
-if [[ -f ${UNOWNED_USER_TODAY} ]]; then
-    mv ${UNOWNED_USER_TODAY} ${UNOWNED_USER_YESTERDAY};
-fi
-
-if [[ -f ${UNOWNED_GROUP_TODAY} ]]; then
-    mv ${UNOWNED_GROUP_TODAY} ${UNOWNED_GROUP_YESTERDAY};
-fi
-
-if [[ -f ${OPEN_PORT_TODAY} ]]; then
-    mv -f ${OPEN_PORT_TODAY} ${OPEN_PORT_YESTERDAY}
-fi
-
-if [[ -f ${FIREWALL_TODAY} ]]; then
-    mv -f ${FIREWALL_TODAY} ${FIREWALL_YESTERDAY}
-fi
-
-if [[ -f ${SUID_MD5_TODAY} ]]; then
-    mv ${SUID_MD5_TODAY} ${SUID_MD5_YESTERDAY};
-fi
-
-if [[ -f ${RPM_VA_TODAY} ]]; then
-    mv -f ${RPM_VA_TODAY} ${RPM_VA_YESTERDAY}
-fi
-
-if [[ -f ${RPM_VA_CONFIG_TODAY} ]]; then
-    mv -f ${RPM_VA_CONFIG_TODAY} ${RPM_VA_CONFIG_YESTERDAY}
-fi
-
-if [[ -f ${RPM_QA_TODAY} ]]; then
-    mv -f ${RPM_QA_TODAY} ${RPM_QA_YESTERDAY}
-fi
-
-if [[ -f ${CHKROOTKIT_TODAY} ]]; then
-    mv -f ${CHKROOTKIT_TODAY} ${CHKROOTKIT_YESTERDAY}
-fi
-
-if [[ ${CHECK_OPEN_PORT} == yes ]]; then
-	netstat -pvlA inet,inet6 2> /dev/null > ${OPEN_PORT_TODAY};
-fi
-
-if [[ ${CHECK_FIREWALL} == yes ]]; then
-	iptables -L 2>/dev/null > ${FIREWALL_TODAY}
-fi
-
 ionice -c3 -p $$
 
-# only running this check when really required
-if [[ ${CHECK_SUID_MD5} == yes || ${CHECK_SUID_ROOT} == yes || ${CHECK_SGID} == yes || ${CHECK_WRITABLE} == yes || ${CHECK_UNOWNED} == yes  ]]; then
+for script in /usr/share/msec/scripts/*sh; do
+        test -x $script && . $script
+        ret=$?
+        if [ $ret -ne 0 ]; then
+                echo "MSEC: audit script $script failed"
+        fi
+done
 
-	# Hard disk related file check; the less priority the better...
-	nice --adjustment=+19 /usr/bin/msec_find ${DIR}
+# fix permissions on newly created msec files according to system policy
+/usr/sbin/msecperms -e '/var/log/msec.log' "$SECURITY_LOG" "/var/log/security/*" &> ${MSEC_TMP}
+
+# email/show results
+
+# security check
+if [[ -s ${SECURITY} ]]; then
+    Syslog ${SECURITY}
+    Ttylog ${SECURITY}
+
+    echo "$SECURITY_PREFIX *** Security Check, ${REPORT_DATE} ***" >> ${SECURITY_LOG}
+    cat ${SECURITY} | sed -e "s/^/$SECURITY_PREFIX/g" >> ${SECURITY_LOG}
+    cat ${INFOS} | sed -e "s/^/$INFO_PREFIX/g" >> ${SECURITY_LOG}
+
+    Maillog "[msec] *** Security Check on ${REPORT_HOSTNAME}, ${REPORT_DATE} ***" "${SECURITY} ${INFOS}"
+    Notifylog "MSEC has performed Security Check on ${REPORT_HOSTNAME} on ${REPORT_DATE}"
 fi
 
-if [[ -f ${SUID_ROOT_TODAY} ]]; then
-    sort < ${SUID_ROOT_TODAY} > ${SUID_ROOT_TODAY}.tmp
-    mv -f ${SUID_ROOT_TODAY}.tmp ${SUID_ROOT_TODAY}
+# diff check
+if [[ -s ${DIFF} ]]; then
+    Syslog ${DIFF}
+    Ttylog ${DIFF}
+
+    echo "$DIFF_PREFIX *** Diff Check, ${REPORT_DATE} ***" >> ${SECURITY_LOG}
+    cat ${DIFF} | sed -e "s/^/$DIFF_PREFIX/g" >> ${SECURITY_LOG}
+
+    Notifylog "MSEC has performed Diff Check on ${REPORT_HOSTNAME} on ${REPORT_DATE}. Changes in system security were detected and are available in ${SECURITY_LOG}."
+else
+    Notifylog "MSEC has performed Diff Check on ${REPORT_HOSTNAME} on ${REPORT_DATE}. No changes were detected in system security."
 fi
 
-if [[ -f ${SGID_TODAY} ]]; then
-    sort < ${SGID_TODAY} > ${SGID_TODAY}.tmp
-    mv -f ${SGID_TODAY}.tmp ${SGID_TODAY}
-fi
-
-if [[ -f ${WRITABLE_TODAY} ]]; then
-    sort < ${WRITABLE_TODAY} | egrep -v '^(/var)?/tmp$' > ${WRITABLE_TODAY}.tmp
-    mv -f ${WRITABLE_TODAY}.tmp ${WRITABLE_TODAY}    
-fi
-
-if [[ -f ${UNOWNED_USER_TODAY} ]]; then
-    sort < ${UNOWNED_USER_TODAY} > ${UNOWNED_USER_TODAY}.tmp
-    mv -f ${UNOWNED_USER_TODAY}.tmp ${UNOWNED_USER_TODAY}
-fi
-
-if [[ -f ${UNOWNED_GROUP_TODAY} ]]; then
-    sort < ${UNOWNED_GROUP_TODAY} > ${UNOWNED_GROUP_TODAY}.tmp
-    mv -f ${UNOWNED_GROUP_TODAY}.tmp ${UNOWNED_GROUP_TODAY}
-fi
-
-if [[ -f ${SUID_ROOT_TODAY} ]]; then
-    while read line; do 
-	md5sum ${line}
-    done < ${SUID_ROOT_TODAY} > ${SUID_MD5_TODAY}
-fi
-
-### rpm database check
-
-if [[ ${CHECK_RPM} == yes ]]; then
-    rpm -qa --qf "%{NAME}-%{VERSION}-%{RELEASE}\t%{INSTALLTIME}\n" | sort > ${RPM_QA_TODAY}
-
-    rm -f ${RPM_VA_TODAY}.tmp
-    nice --adjustment=+19 rpm -Va --noscripts | grep '^..5' | sort > ${RPM_VA_TODAY}.tmp
-    grep -v '^..........c.'  ${RPM_VA_TODAY}.tmp | sed 's/^............//' | sort > ${RPM_VA_TODAY}
-    grep '^..........c.'  ${RPM_VA_TODAY}.tmp | sed 's/^............//' | sort > ${RPM_VA_CONFIG_TODAY}
-    rm -f ${RPM_VA_TODAY}.tmp
-fi
-
-### chkrootkit checks
-if [[ ${CHECK_CHKROOTKIT} == yes ]]; then
-    if [ -x /usr/sbin/chkrootkit ]; then
-	# do not check on NFS
-	/usr/sbin/chkrootkit -n ${CHKROOTKIT_OPTION} > ${CHKROOTKIT_TODAY}
-    fi
-fi
-
-### Functions ###
-
-Syslog() {
-    if [[ ${SYSLOG_WARN} == yes ]]; then
-    while read line; do
-        logger -t msec -- "${line}"
-    done < ${1}
-    fi
-}
-
-Ttylog() {
-    if [[ ${TTY_WARN} == yes ]]; then
-    for i in `w | grep -v "load\|TTY" | grep '^root' | awk '{print $2}'` ; do
-        cat ${1} > /dev/$i
-    done
-    fi
-}
-
-Maillog() {
-    subject=${1}
-    text=${2}
-    SOMETHING_TO_SEND=
-    
-    if [[ ${MAIL_WARN} == yes ]]; then
-	if [[ -z ${MAIL_USER} ]]; then 
-	    MAIL_USER="root"
-	fi
-	if [[ -x /bin/mail ]]; then
-	    for f in ${text}; do
-		if [[ -s $f ]]; then
-		    SOMETHING_TO_SEND=1
-		    break
-		fi
-	    done
-	    if [[ -z ${SOMETHING_TO_SEND} ]]; then
-		if [[ ${MAIL_EMPTY_CONTENT} != no ]]; then
-		    /bin/mail -s "${subject}" "${MAIL_USER}" <<EOF
-Nothing has changed since the last run.
-EOF
-                fi
-            else
-		# remove non-printable characters,
-                # see http://qa.mandriva.com/show_bug.cgi?id=36848 and https://qa.mandriva.com/show_bug.cgi?id=26773
-                cat ${text} | sed -e "s,[[:cntrl:]],,g" | LC_CTYPE=$LC_CTYPE /bin/mail -s "${subject}" "${MAIL_USER}"
-	    fi
-	fi
-    fi
-}
-
-Notifylog() {
-	if [[ ${NOTIFY_WARN} == yes ]]; then
-		message=${1}
-		DBUS_SEND=`which dbus-send 2>/dev/null`
-		if [ -x "$DBUS_SEND" ]; then
-			$DBUS_SEND --system --type=signal /com/mandriva/user com.mandriva.user.security_notification string:"$message"
-		fi
-	fi
-}
-
-##################
-
-. /usr/share/msec/diff_check.sh
-. /usr/share/msec/security_check.sh
+Maillog "[msec] *** Diff Check on ${REPORT_HOSTNAME}, ${REPORT_DATE} ***" "${DIFF}"
 

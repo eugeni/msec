@@ -1,4 +1,5 @@
 #!/bin/bash
+# TODO: this is incomplete for new msec framework
 
 # Writen by Vandoorselaere Yoann
 
@@ -26,23 +27,23 @@ LogPromisc() {
     echo "    A sniffer is probably running on your system." >> /var/log/security.log
 
 }
-    
+
 if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
 else
     echo "/etc/security/msec/security.conf don't exist."
-    exit 1
+    return 1
 fi
 
 if tail /var/log/security.log | grep -q "promiscuous"; then
     # Dont flood with warning.
-    exit 0
+    return 0
 fi
 
 # Check if a network interface is in promiscuous mode...
 
 if [[ ${CHECK_PROMISC} == no ]]; then
-    exit 0;
+    return 0;
 fi
 
 for INTERFACE in `/sbin/ip link list | grep PROMISC | cut -f 2 -d ':';/usr/bin/promisc_check -q`; do

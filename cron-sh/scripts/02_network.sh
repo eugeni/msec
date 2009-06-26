@@ -34,7 +34,7 @@ fi
 
 ### Changed open port
 if [[ ${CHECK_OPEN_PORT} == yes ]]; then
-    Diffcheck ${OPEN_PORT_TODAY} ${OPEN_PORT_YESTERDAY} ${OPEN_PORT_DIFF} "network ports"
+    Diffcheck ${OPEN_PORT_TODAY} ${OPEN_PORT_YESTERDAY} ${OPEN_PORT_DIFF} "network listening ports"
 fi
 
 ### Changed firewall

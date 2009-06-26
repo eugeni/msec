@@ -40,16 +40,16 @@ FILTER="\(`echo $EXCLUDEDIR | sed -e 's/ /\\\|/g'`\)"
 Diffcheck() {
     TODAY="$1"
     YESTERDAY="$2"
-    DIFF="$3"
+    DAY_DIFF="$3"
     MESSAGE="$4"
     if [[ -f ${YESTERDAY} ]]; then
-        if ! diff -u ${YESTERDAY} ${TODAY} > ${DIFF}; then
+        if ! diff -u ${YESTERDAY} ${TODAY} > ${DAY_DIFF}; then
             printf "\nSecurity Warning: change in $MESSAGE found :\n" >> ${DIFF}
-            grep '^+' ${DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t-       Newly added $MESSAGE : ${file}\n"
+            grep '^+' ${DAY_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
+                printf "\t\t-   Added $MESSAGE : ${file}\n"
             done >> ${DIFF}
-            grep '^-' ${DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t- No longer present $MESSAGE : ${file}\n"
+            grep '^-' ${DAY_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
+                printf "\t\t- Removed $MESSAGE : ${file}\n"
             done >> ${DIFF}
         fi
     fi

@@ -20,18 +20,8 @@ fi
 
 # check for changes in users
 if [[ ${CHECK_USERS} == yes ]]; then
-        getent passwd | cut -f 1 -d : | sort > ${USERS_LIST_TODAY}
-        if [[ -f ${USERS_LIST_YESTERDAY} ]]; then
-                if ! diff -u ${USERS_LIST_YESTERDAY} ${USERS_LIST_TODAY} > ${USERS_LIST_DIFF}; then
-                    printf "\nSecurity Warning: Changes in list of users found :\n" >> ${DIFF}
-                    grep '^+' ${USERS_LIST_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                        printf "\t\t-       Newly added users : ${file}\n"
-                    done >> ${DIFF}
-                    grep '^-' ${USERS_LIST_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                        printf "\t\t- No longer present users : ${file}\n"
-                    done >> ${DIFF}
-                fi
-        fi
+    getent passwd | cut -f 1 -d : | sort > ${USERS_LIST_TODAY}
+    Diffcheck ${USERS_LIST_TODAY} ${USERS_LIST_YESTERDAY} ${USERS_LIST_DIFF} "local users"
 fi
 
 # check for changes in groups
@@ -45,18 +35,8 @@ fi
 
 # check for changes in groups
 if [[ ${CHECK_GROUPS} == yes ]]; then
-        getent passwd | cut -f 1 -d : | sort > ${GROUPS_LIST_TODAY}
-        if [[ -f ${GROUPS_LIST_YESTERDAY} ]]; then
-                if ! diff -u ${GROUPS_LIST_YESTERDAY} ${GROUPS_LIST_TODAY} > ${GROUPS_LIST_DIFF}; then
-                    printf "\nSecurity Warning: Changes in list of groups found :\n" >> ${DIFF}
-                    grep '^+' ${GROUPS_LIST_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                        printf "\t\t-       Newly added groups : ${file}\n"
-                    done >> ${DIFF}
-                    grep '^-' ${GROUPS_LIST_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                        printf "\t\t- No longer present groups : ${file}\n"
-                    done >> ${DIFF}
-                fi
-        fi
+    getent passwd | cut -f 1 -d : | sort > ${GROUPS_LIST_TODAY}
+    Diffcheck ${GROUPS_LIST_TODAY} ${GROUPS_LIST_YESTERDAY} ${GROUPS_LIST_DIFF} "local groups"
 fi
 
 ### Passwd file check

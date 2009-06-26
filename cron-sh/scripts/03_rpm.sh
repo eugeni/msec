@@ -40,19 +40,7 @@ fi
 # list of installed packages
 if [[ ${CHECK_RPM_PACKAGES} == yes ]]; then
     rpm -qa --qf "%{NAME}-%{VERSION}-%{RELEASE}\t%{INSTALLTIME}\n" | sort > ${RPM_QA_TODAY}
-
-    if [[ -f ${RPM_QA_YESTERDAY} ]]; then
-        diff -u ${RPM_QA_YESTERDAY} ${RPM_QA_TODAY} > ${RPM_QA_DIFF}
-        if [ -s ${RPM_QA_DIFF} ]; then
-            printf "\nSecurity Warning: These packages have changed on the system :\n" >> ${DIFF}
-            grep '^+' ${RPM_QA_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t-   Newly installed package : ${file}\n"
-            done >> ${DIFF}
-            grep '^-' ${RPM_QA_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t- No longer present package : ${file}\n"
-            done >> ${DIFF}
-        fi
-    fi
+    Diffcheck ${RPM_QA_TODAY} ${RPM_QA_YESTERDAY} ${RPM_QA_DIFF} "installed packages"
 fi
 
 # integrity of installed packages
@@ -66,42 +54,16 @@ if [[ ${CHECK_RPM_INTEGRITY} == yes ]]; then
     # full check
     if [[ -s ${RPM_VA_TODAY} ]]; then
         printf "\nSecurity Warning: These files belonging to packages are modified on the system :\n" >> ${SECURITY}
-        cat ${RPM_VA_TODAY} | while read f; do
-            printf "\t\t- $f\n"
-        done >> ${SECURITY}
+        cat ${RPM_VA_TODAY} >> ${SECURITY}
     fi
 
     if [[ -s ${RPM_VA_CONFIG_TODAY} ]]; then
         printf "\nSecurity Warning: These config files belonging to packages are modified on the system :\n" >> ${SECURITY}
-        cat ${RPM_VA_CONFIG_TODAY} | while read f; do
-            printf "\t\t- $f\n"
-        done >> ${SECURITY}
+        cat ${RPM_VA_CONFIG_TODAY} >> ${SECURITY}
     fi
 
     # diff check
-    if [[ -f ${RPM_VA_YESTERDAY} ]]; then
-        diff -u ${RPM_VA_YESTERDAY} ${RPM_VA_TODAY} > ${RPM_VA_DIFF}
-        if [ -s ${RPM_VA_DIFF} ]; then
-            printf "\nSecurity Warning: These files belonging to packages have changed of status on the system :\n" >> ${DIFF}
-            grep '^+' ${RPM_VA_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t-     Newly modified : ${file}\n"
-            done >> ${DIFF}
-            grep '^-' ${RPM_VA_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t- No longer modified : ${file}\n"
-            done >> ${DIFF}
-        fi
-    fi
-    if [[ -f ${RPM_VA_CONFIG_YESTERDAY} ]]; then
-        diff -u ${RPM_VA_CONFIG_YESTERDAY} ${RPM_VA_CONFIG_TODAY} > ${RPM_VA_CONFIG_DIFF}
-        if [ -s ${RPM_VA_CONFIG_DIFF} ]; then
-            printf "\nSecurity Warning: These config files belonging to packages have changed of status on the system :\n" >> ${DIFF}
-            grep '^+' ${RPM_VA_CONFIG_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t-     Newly modified : ${file}\n"
-            done >> ${DIFF}
-            grep '^-' ${RPM_VA_CONFIG_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t- No longer modified : ${file}\n"
-            done >> ${DIFF}
-        fi
-    fi
+    Diffcheck ${RPM_VA_TODAY} ${RPM_VA_YESTERDAY} ${RPM_VA_DIFF} "files belonging to packages"
+    Diffcheck ${RPM_VA_CONFIG_TODAY} ${RPM_VA_CONFIG_YESTERDAY} ${RPM_VA_CONFIG_DIFF} "config files belonging to packages"
 fi
 

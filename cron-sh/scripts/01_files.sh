@@ -94,139 +94,60 @@ fi
 
 ### New Suid root files detection
 if [[ ${CHECK_SUID_ROOT} == yes ]]; then
-
-    if [[ -f ${SUID_ROOT_YESTERDAY} ]]; then
-        if ! diff -u ${SUID_ROOT_YESTERDAY} ${SUID_ROOT_TODAY} > ${SUID_ROOT_DIFF}; then
-            printf "\nSecurity Warning: Change in Suid Root files found :\n" >> ${DIFF}
-            grep '^+' ${SUID_ROOT_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t-       Newly added suid root file : ${file}\n"
-            done >> ${DIFF}
-            grep '^-' ${SUID_ROOT_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t- No longer present suid root file : ${file}\n"
-            done >> ${DIFF}
-        fi
-    fi
-
+        Diffcheck ${SUID_ROOT_TODAY} ${SUID_ROOT_YESTERDAY} ${SUID_ROOT_DIFF} "Suid Root files"
 fi
 
 ### New Sgid files detection
 if [[ ${CHECK_SGID} == yes ]]; then
-
-    if [[ -f ${SGID_YESTERDAY} ]]; then
-        if ! diff -u ${SGID_YESTERDAY} ${SGID_TODAY} > ${SGID_DIFF}; then
-            printf "\nSecurity Warning: Changes in Sgid files found :\n" >> ${DIFF}
-            grep '^+' ${SGID_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t-       Newly added sgid file : ${file}\n"
-            done >> ${DIFF}
-            grep '^-' ${SGID_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t- No longer present sgid file : ${file}\n"
-            done >> ${DIFF}
-        fi
-    fi
-
+        Diffcheck ${SGID_TODAY} ${SGID_YESTERDAY} ${SGID_DIFF} "Sgid files"
 fi
 
 ### Writable files detection
 if [[ ${CHECK_WRITABLE} == yes ]]; then
-
-    if [[ -f ${WRITABLE_YESTERDAY} ]]; then
-        diff -u ${WRITABLE_YESTERDAY} ${WRITABLE_TODAY} > ${WRITABLE_DIFF}
-        if [ -s ${WRITABLE_DIFF} ]; then
-            printf "\nSecurity Warning: Change in World Writable Files found :\n" >> ${DIFF}
-            grep '^+' ${WRITABLE_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t-       Newly added writable file : ${file}\n"
-            done >> ${DIFF}
-            grep '^-' ${WRITABLE_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t- No longer present writable file : ${file}\n"
-            done >> ${DIFF}
-        fi
-    fi
-
+        Diffcheck ${WRITABLE_TODAY} ${WRITABLE_YESTERDAY} ${WRITABLE_DIFF} "World Writable files"
 fi
 
 ### Search Non Owned files
 if [[ ${CHECK_UNOWNED} == yes ]]; then
-
-    if [[ -f ${UNOWNED_USER_YESTERDAY} ]]; then
-        diff -u ${UNOWNED_USER_YESTERDAY} ${UNOWNED_USER_TODAY} > ${UNOWNED_USER_DIFF}
-        if [ -s ${UNOWNED_USER_DIFF} ]; then
-            printf "\nSecurity Warning: the following files aren't owned by an user :\n" >> ${DIFF}
-            grep '^+' ${UNOWNED_USER_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t-       Newly added un-owned file : ${file}\n"
-            done >> ${DIFF}
-            grep '^-' ${UNOWNED_USER_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t- No longer present un-owned file : ${file}\n"
-            done >> ${DIFF}
-        fi
-    fi
-
-    if [[ -f ${UNOWNED_GROUP_YESTERDAY} ]]; then
-        diff -u ${UNOWNED_GROUP_YESTERDAY} ${UNOWNED_GROUP_TODAY} > ${UNOWNED_GROUP_DIFF}
-        if [ -s ${UNOWNED_GROUP_DIFF} ]; then
-            printf "\nSecurity Warning: the following files aren't owned by a group :\n" >> ${DIFF}
-            grep '^+' ${UNOWNED_GROUP_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t-       Newly added un-owned file : ${file}\n"
-            done >> ${DIFF}
-            grep '^-' ${UNOWNED_GROUP_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t- No longer present un-owned file : ${file}\n"
-            done >> ${DIFF}
-        fi
-    fi
-
+        Diffcheck ${UNOWNED_USER_TODAY} ${UNOWNED_USER_YESTERDAY} ${UNOWNED_USER_DIFF} "Un-owned files"
+        Diffcheck ${UNOWNED_GROUP_TODAY} ${UNOWNED_GROUP_YESTERDAY} ${UNOWNED_GROUP_DIFF} "Un-owned group files"
 fi
 
 ### Md5 check for SUID root fileg
 if [[ ${CHECK_SUID_MD5} == yes  ]]; then
-    ctrl_md5=0;
-
-    if [[ -f ${SUID_MD5_YESTERDAY} ]]; then
-        diff -u ${SUID_MD5_YESTERDAY} ${SUID_MD5_TODAY} > ${SUID_MD5_DIFF}
-        if [ -s ${SUID_MD5_DIFF} ]; then
-            grep '^+' ${SUID_MD5_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | awk '{print $2}' | while read file; do
-                if cat ${SUID_MD5_YESTERDAY} | awk '{print $2}' | grep -qw ${file}; then
-                    if [[ ${ctrl_md5} == 0 ]]; then
-                        printf "\nSecurity Warning: the md5 checksum for one of your SUID files has changed,\n" >> ${DIFF}
-                        printf "\tmaybe an intruder modified one of these suid binary in order to put in a backdoor...\n" >> ${DIFF}
-                        ctrl_md5=1;
-                    fi
-                    printf "\t\t- Checksum changed file : ${file}\n"
-                fi
-            done >> ${DIFF}
-        fi
-    fi
-
+        Diffcheck ${SUID_MD5_TODAY} ${SUID_MD5_YESTERDAY} ${SUID_MD5_DIFF} "SUID files MD5 checksum"
 fi
 
 ### Writable file detection
 if [[ ${CHECK_WRITABLE} == yes ]]; then
     if [[ -s ${WRITABLE_TODAY} ]]; then
-	printf "\nSecurity Warning: World Writable files found :\n" >> ${SECURITY}
-	cat ${WRITABLE_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
+        printf "\nSecurity Warning: World Writable files found :\n" >> ${SECURITY}
+        cat ${WRITABLE_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
     fi
 fi
 
 ### Search Un Owned file
 if [[ ${CHECK_UNOWNED} == yes ]]; then
     if [[ -s ${UNOWNED_USER_TODAY} ]]; then
-	printf "\nSecurity Warning : User Unowned files found :\n" >> ${SECURITY}
-	printf "\t( theses files now have user \"nobody\" as their owner. )\n" >> ${SECURITY}
-	cat ${UNOWNED_USER_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
+        printf "\nSecurity Warning : User Unowned files found :\n" >> ${SECURITY}
+        printf "\t( theses files now have user \"nobody\" as their owner. )\n" >> ${SECURITY}
+        cat ${UNOWNED_USER_TODAY} >> ${SECURITY}
         cat ${UNOWNED_USER_TODAY} | while read line; do
-	if [[ ${FIX_UNOWNED} == yes ]]; then
-	    chown nobody "${line}"; # Use quote if filename contain space.
-	fi
-	done
+        if [[ ${FIX_UNOWNED} == yes ]]; then
+            chown nobody "${line}"; # Use quote if filename contain space.
+        fi
+        done
     fi
 
     if [[ -s ${UNOWNED_GROUP_TODAY} ]]; then
-	printf "\nSecurity Warning : Group Unowned files found :\n" >> ${SECURITY}
+        printf "\nSecurity Warning : Group Unowned files found :\n" >> ${SECURITY}
         printf "\t( theses files now have group \"nogroup\" as their group owner. )\n" >> ${SECURITY}
-	cat ${UNOWNED_GROUP_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
-	cat ${UNOWNED_GROUP_TODAY} | while read line; do
-	if [[ ${FIX_UNOWNED} == yes ]]; then
-	    chgrp nogroup "${line}"; # Use quote if filename contain space.
-	fi
-	done
+        cat ${UNOWNED_GROUP_TODAY} >> ${SECURITY}
+        cat ${UNOWNED_GROUP_TODAY} | while read line; do
+        if [[ ${FIX_UNOWNED} == yes ]]; then
+            chgrp nogroup "${line}"; # Use quote if filename contain space.
+        fi
+        done
     fi
 fi
 
@@ -237,23 +158,23 @@ list=".netrc .rhosts .shosts .Xauthority .gnupg/secring.gpg \
 getent passwd | awk -F: '/^[^+-]/ { print $1 ":" $3 ":" $6 }' |
 while IFS=: read username uid homedir; do
     if ! expr "$homedir" : "$FILTER"  > /dev/null; then
-	for f in ${list} ; do
-	    file="${homedir}/${f}"
-	    if [[ -f "${file}" ]] ; then
-		res=`ls -LldcGn "${file}" | sed 's/ \{1,\}/:/g'`
-		printf "${uid}:${username}:${file}:${res}\n"
-	    fi
-	done
+        for f in ${list} ; do
+            file="${homedir}/${f}"
+            if [[ -f "${file}" ]] ; then
+                res=`ls -LldcGn "${file}" | sed 's/ \{1,\}/:/g'`
+                printf "${uid}:${username}:${file}:${res}\n"
+            fi
+        done
     fi
 done | awk -F: '$1 != $6 && $6 != "0" \
         { print "\t\t- " $3 " : file is owned by uid " $6 "." }
-	$4 ~ /^-...r/ \
+        $4 ~ /^-...r/ \
         { print "\t\t- " $3 " : file is group readable." }
-	$4 ~ /^-......r/ \
+        $4 ~ /^-......r/ \
         { print "\t\t- " $3 " : file is other readable." }
-	$4 ~ /^-....w/ \
+        $4 ~ /^-....w/ \
         { print "\t\t- " $3 " : file is group writable." }
-	$4 ~ /^-.......w/ \
+        $4 ~ /^-.......w/ \
         { print "\t\t- " $3 " : file is other writable." }' > ${MSEC_TMP}
 
 if [[ -s ${MSEC_TMP} ]]; then
@@ -271,12 +192,12 @@ list=".bashrc .bash_profile .bash_login .bash_logout .cshrc .emacs .exrc \
 getent passwd | awk -F: '/^[^+-]/ { print $1 ":" $3 ":" $6 }' | \
 while IFS=: read username uid homedir; do
     if ! expr "$homedir" : "$FILTER"  > /dev/null; then
-	for f in ${list} ; do
-	    file="${homedir}/${f}"
-	    if [[ -e "${file}" ]] ; then
-		res=`ls -LldcGn "${file}" | sed 's/ \{1,\}/:/g'`
-		printf "${uid}:${username}:${file}:${res}\n"
-	    fi
+        for f in ${list} ; do
+            file="${homedir}/${f}"
+            if [[ -e "${file}" ]] ; then
+                res=`ls -LldcGn "${file}" | sed 's/ \{1,\}/:/g'`
+                printf "${uid}:${username}:${file}:${res}\n"
+            fi
         done
     fi
 done | awk -F: '$1 != $6 && $6 != "0" \

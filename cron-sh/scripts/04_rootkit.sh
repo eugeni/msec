@@ -32,18 +32,6 @@ fi
 
 ### Changed chkrootkit
 if [[ ${CHECK_CHKROOTKIT} == yes ]]; then
-
-    if [[ -f ${CHKROOTKIT_YESTERDAY} ]]; then
-       diff -u ${CHKROOTKIT_YESTERDAY} ${CHKROOTKIT_TODAY} 1> ${CHKROOTKIT_DIFF}
-       if [ -s ${CHKROOTKIT_DIFF} ]; then
-           printf "\nSecurity Warning: There are modifications for chkrootkit results :\n" >> ${DIFF}
-           grep '^+' ${CHKROOTKIT_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-               printf "\t\t-  Added : ${file}\n"
-           done >> ${DIFF}
-           grep '^-' ${CHKROOTKIT_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-               printf "\t\t- Removed  : ${file}\n"
-           done >> ${DIFF}
-        fi
-    fi
+    Diffcheck ${CHKROOTKIT_TODAY} ${CHKROOTKIT_YESTERDAY} ${CHKROOTKIT_DIFF} "chkrootkit results"
 fi
 

@@ -34,43 +34,16 @@ fi
 
 ### Changed open port
 if [[ ${CHECK_OPEN_PORT} == yes ]]; then
-
-    if [[ -f ${OPEN_PORT_YESTERDAY} ]]; then
-        diff -u ${OPEN_PORT_YESTERDAY} ${OPEN_PORT_TODAY} 1> ${OPEN_PORT_DIFF}
-        if [ -s ${OPEN_PORT_DIFF} ]; then
-            printf "\nSecurity Warning: There are modifications for port listening on your machine :\n" >> ${DIFF}
-            grep '^+' ${OPEN_PORT_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t-  Opened ports : ${file}\n"
-            done >> ${DIFF}
-            grep '^-' ${OPEN_PORT_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t- Closed ports  : ${file}\n"
-            done >> ${DIFF}
-        fi
-    fi
-
+    Diffcheck ${OPEN_PORT_TODAY} ${OPEN_PORT_YESTERDAY} ${OPEN_PORT_DIFF} "network ports"
 fi
 
 ### Changed firewall
 if [[ ${CHECK_FIREWALL} == yes ]]; then
-
-    if [[ -f ${FIREWALL_YESTERDAY} ]]; then
-        diff -u ${FIREWALL_YESTERDAY} ${FIREWALL_TODAY} 1> ${FIREWALL_DIFF}
-        if [ -s ${FIREWALL_DIFF} ]; then
-            printf "\nSecurity Warning: There are modifications for firewall configuration on your machine :\n" >> ${DIFF}
-            grep '^+' ${FIREWALL_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t-      New entries : ${file}\n"
-            done >> ${DIFF}
-            grep '^-' ${FIREWALL_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
-                printf "\t\t- Removed entries  : ${file}\n"
-            done >> ${DIFF}
-        fi
-    fi
-
+    Diffcheck ${FIREWALL_TODAY} ${FIREWALL_YESTERDAY} ${FIREWALL_DIFF} "firewall rules"
 fi
 
 ### Dump a list of open port.
 if [[ ${CHECK_OPEN_PORT} == yes ]]; then
-
     if [[ -s ${OPEN_PORT_TODAY} ]]; then
         printf "\nThese are the ports listening on your machine :\n" >> ${INFOS}
         cat ${OPEN_PORT_TODAY} >> ${INFOS}

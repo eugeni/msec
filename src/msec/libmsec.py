@@ -1484,6 +1484,14 @@ class MSEC:
         """ Enable checking for dangerous options in users' .rhosts/.shosts files."""
         pass
 
+    def check_users(self, param):
+        """ Enable checking for changes in system users."""
+        pass
+
+    def check_groups(self, param):
+        """ Enable checking for changes in system groups."""
+        pass
+
     def enable_sudo(self, param):
         """Allow users to authenticate with their passwords for sudo. If this parameter is set to 'wheel', users must belong to the 'wheel' group to be able to use sudo"""
         pass

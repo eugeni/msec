@@ -69,6 +69,8 @@ SETTINGS =    {'BASE_LEVEL':                    ("libmsec.base_level",          
                'CHECK_CHKROOTKIT' :             ("libmsec.check_chkrootkit",                ['yes', 'no']),
                'CHECK_RPM' :                    ("libmsec.check_rpm",                       ['yes', 'no']),
                'CHECK_SHOSTS' :                 ("libmsec.check_shosts",                    ['yes', 'no']),
+               'CHECK_USERS' :                  ("libmsec.check_users",                     ['yes', 'no']),
+               'CHECK_GROUPS' :                 ("libmsec.check_groups",                    ['yes', 'no']),
                # notifications
                'TTY_WARN' :                     ("libmsec.tty_warn",                        ['yes', 'no']),
                'MAIL_WARN' :                    ("libmsec.mail_warn",                       ['yes', 'no']),
@@ -128,6 +130,7 @@ SETTINGS_NETWORK = ["ACCEPT_BOGUS_ERROR_RESPONSES", "ACCEPT_BROADCASTED_ICMP_ECH
 SETTINGS_PERIODIC = ["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",
                     "CHECK_WRITABLE", "CHECK_UNOWNED", "FIX_UNOWNED", "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_FIREWALL",
                     "CHECK_PASSWD", "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM", "CHECK_SHOSTS",
+                    "CHECK_USERS", "CHECK_GROUPS",
                     "TTY_WARN", "SYSLOG_WARN", "MAIL_EMPTY_CONTENT",
                     ]
 

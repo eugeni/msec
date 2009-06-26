@@ -9,6 +9,56 @@ if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECUR
         return 1
 fi
 
+# check for changes in users
+USERS_LIST_TODAY="/var/log/security/users_list.today"
+USERS_LIST_YESTERDAY="/var/log/security/users_list.yesterday"
+USERS_LIST_DIFF="/var/log/security/users_list.diff"
+
+if [[ -f ${USERS_LIST_TODAY} ]]; then
+    mv ${USERS_LIST_TODAY} ${USERS_LIST_YESTERDAY};
+fi
+
+# check for changes in users
+if [[ ${CHECK_USERS} == yes ]]; then
+        getent passwd | cut -f 1 -d : | sort > ${USERS_LIST_TODAY}
+        if [[ -f ${USERS_LIST_YESTERDAY} ]]; then
+                if ! diff -u ${USERS_LIST_YESTERDAY} ${USERS_LIST_TODAY} > ${USERS_LIST_DIFF}; then
+                    printf "\nSecurity Warning: Changes in list of users found :\n" >> ${DIFF}
+                    grep '^+' ${USERS_LIST_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
+                        printf "\t\t-       Newly added users : ${file}\n"
+                    done >> ${DIFF}
+                    grep '^-' ${USERS_LIST_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
+                        printf "\t\t- No longer present users : ${file}\n"
+                    done >> ${DIFF}
+                fi
+        fi
+fi
+
+# check for changes in groups
+GROUPS_LIST_TODAY="/var/log/security/groups_list.today"
+GROUPS_LIST_YESTERDAY="/var/log/security/groups_list.yesterday"
+GROUPS_LIST_DIFF="/var/log/security/groups_list.diff"
+
+if [[ -f ${GROUPS_LIST_TODAY} ]]; then
+    mv ${GROUPS_LIST_TODAY} ${GROUPS_LIST_YESTERDAY};
+fi
+
+# check for changes in groups
+if [[ ${CHECK_GROUPS} == yes ]]; then
+        getent passwd | cut -f 1 -d : | sort > ${GROUPS_LIST_TODAY}
+        if [[ -f ${GROUPS_LIST_YESTERDAY} ]]; then
+                if ! diff -u ${GROUPS_LIST_YESTERDAY} ${GROUPS_LIST_TODAY} > ${GROUPS_LIST_DIFF}; then
+                    printf "\nSecurity Warning: Changes in list of groups found :\n" >> ${DIFF}
+                    grep '^+' ${GROUPS_LIST_DIFF} | grep -vw "^+++ " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
+                        printf "\t\t-       Newly added groups : ${file}\n"
+                    done >> ${DIFF}
+                    grep '^-' ${GROUPS_LIST_DIFF} | grep -vw "^--- " | sed 's|^.||'|sed -e 's/%/%%/g' | while read file; do
+                        printf "\t\t- No longer present groups : ${file}\n"
+                    done >> ${DIFF}
+                fi
+        fi
+fi
+
 ### Passwd file check
 if [[ ${CHECK_PASSWD} == yes ]]; then
     getent passwd | awk -F: '{

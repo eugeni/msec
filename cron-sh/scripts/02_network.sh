@@ -29,7 +29,7 @@ if [[ ${CHECK_OPEN_PORT} == yes ]]; then
 fi
 
 if [[ ${CHECK_FIREWALL} == yes ]]; then
-        iptables -L 2>/dev/null > ${FIREWALL_TODAY}
+        iptables -S 2>/dev/null > ${FIREWALL_TODAY}
 fi
 
 ### Changed open port

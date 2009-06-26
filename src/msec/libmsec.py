@@ -1456,8 +1456,12 @@ class MSEC:
         """ Enable checking for known rootkits using chkrootkit."""
         pass
 
-    def check_rpm(self, param):
-        """ Enable verification of installed RPM packages."""
+    def check_rpm_packages(self, param):
+        """ Enable verification for changes in the installed RPM packages. This will notify you when new packages are installed or removed."""
+        pass
+
+    def check_rpm_integrity(self, param):
+        """ Enable verification of integrity of installed RPM packages. This will notify you if checksums of the installed files were changed, showing separate results for binary and configuration files."""
         pass
 
     def tty_warn(self, param):

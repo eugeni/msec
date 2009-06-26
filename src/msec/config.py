@@ -67,7 +67,8 @@ SETTINGS =    {'BASE_LEVEL':                    ("libmsec.base_level",          
                'CHECK_PASSWD' :                 ("libmsec.check_passwd",                    ['yes', 'no']),
                'CHECK_SHADOW' :                 ("libmsec.check_shadow",                    ['yes', 'no']),
                'CHECK_CHKROOTKIT' :             ("libmsec.check_chkrootkit",                ['yes', 'no']),
-               'CHECK_RPM' :                    ("libmsec.check_rpm",                       ['yes', 'no']),
+               'CHECK_RPM_PACKAGES' :           ("libmsec.check_rpm_packages",              ['yes', 'no']),
+               'CHECK_RPM_INTEGRITY' :          ("libmsec.check_rpm_integrity",             ['yes', 'no']),
                'CHECK_SHOSTS' :                 ("libmsec.check_shosts",                    ['yes', 'no']),
                'CHECK_USERS' :                  ("libmsec.check_users",                     ['yes', 'no']),
                'CHECK_GROUPS' :                 ("libmsec.check_groups",                    ['yes', 'no']),
@@ -129,8 +130,8 @@ SETTINGS_NETWORK = ["ACCEPT_BOGUS_ERROR_RESPONSES", "ACCEPT_BROADCASTED_ICMP_ECH
 # periodic checks
 SETTINGS_PERIODIC = ["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",
                     "CHECK_WRITABLE", "CHECK_UNOWNED", "FIX_UNOWNED", "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_FIREWALL",
-                    "CHECK_PASSWD", "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM", "CHECK_SHOSTS",
-                    "CHECK_USERS", "CHECK_GROUPS",
+                    "CHECK_PASSWD", "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM_PACKAGES", "CHECK_RPM_INTEGRITY",
+                    "CHECK_SHOSTS", "CHECK_USERS", "CHECK_GROUPS",
                     "TTY_WARN", "SYSLOG_WARN", "MAIL_EMPTY_CONTENT",
                     ]
 

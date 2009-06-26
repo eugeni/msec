@@ -12,9 +12,9 @@ fi
 export OPEN_PORT_TODAY="/var/log/security/open_port.today"
 OPEN_PORT_YESTERDAY="/var/log/security/open_port.yesterday"
 OPEN_PORT_DIFF="/var/log/security/open_port.diff"
-export FIREWALL_TODAY="/var/log/security/open_port.today"
-FIREWALL_YESTERDAY="/var/log/security/open_port.yesterday"
-FIREWALL_DIFF="/var/log/security/open_port.diff"
+export FIREWALL_TODAY="/var/log/security/firewall.today"
+FIREWALL_YESTERDAY="/var/log/security/firewall.yesterday"
+FIREWALL_DIFF="/var/log/security/firewall.diff"
 
 if [[ -f ${OPEN_PORT_TODAY} ]]; then
     mv -f ${OPEN_PORT_TODAY} ${OPEN_PORT_YESTERDAY}

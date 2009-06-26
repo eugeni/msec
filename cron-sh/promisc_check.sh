@@ -9,6 +9,7 @@ LogPromisc() {
     Syslog "    A sniffer is probably running on your system."
     Ttylog "\\033[1;31mSecurity warning : $1 is in promiscuous mode.\\033[0;39m"
     Ttylog "\\033[1;31mA sniffer is probably running on your system.\\033[0;39m"
+
     # are we being run from security.sh script?
     if [ ! -z "$SECURITY" ]; then
             printf "\nSecurity Warning: $1 is in promiscuous mode!" >> ${SECURITY}

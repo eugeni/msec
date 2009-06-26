@@ -77,3 +77,8 @@ if [[ ${CHECK_OPEN_PORT} == yes ]]; then
     fi
 fi
 
+### Check if network is in promisc mode
+if [[ ${CHECK_PROMISC} == yes ]]; then
+        # check_promisc handles this
+        . /usr/share/msec/promisc_check.sh
+fi

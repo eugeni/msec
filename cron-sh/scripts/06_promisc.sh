@@ -1,21 +1,7 @@
 #!/bin/bash
-# TODO: this is incomplete for new msec framework
+# msec: this checks if the network is in promiscuous mose
 
-# Writen by Vandoorselaere Yoann
-
-Syslog() {
-    if [[ ${SYSLOG_WARN} == yes ]]; then
-        logger -t msec -- "${1}"
-    fi
-}
-
-Ttylog() {
-    if [[ ${TTY_WARN} == yes ]]; then
-	w | grep -v "load\|TTY" | grep '^root' | awk '{print $2}' | while read line; do
-            echo -e "${1}" > /dev/$line
-        done
-    fi
-}
+. /usr/share/msec/functions.sh
 
 LogPromisc() {
     date=`date`
@@ -23,9 +9,11 @@ LogPromisc() {
     Syslog "    A sniffer is probably running on your system."
     Ttylog "\\033[1;31mSecurity warning : $1 is in promiscuous mode.\\033[0;39m"
     Ttylog "\\033[1;31mA sniffer is probably running on your system.\\033[0;39m"
-    echo -e "\n${date} Security warning : $1 is in promiscuous mode." >> /var/log/security.log
-    echo "    A sniffer is probably running on your system." >> /var/log/security.log
-
+    # are we being run from security.sh script?
+    if [ ! -z "$SECURITY" ]; then
+            printf "\nSecurity Warning: $1 is in promiscuous mode!" >> ${SECURITY}
+            printf "    A sniffer is probably running on your system." >> ${SECURITY}
+    fi
 }
 
 if [[ -f /etc/security/msec/security.conf ]]; then

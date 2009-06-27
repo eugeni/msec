@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-06-26 14:00+BRT\n"
+"POT-Creation-Date: 2009-06-26 16:31+BRT\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,63 +104,63 @@ msgid "Enable logging of strange network packets."
 msgstr ""
 
 #: ../src/msec/help.py:58
-msgid "Enable verification of installed RPM packages."
-msgstr ""
-
-#: ../src/msec/help.py:60
 msgid "Allow root access without password for the members of the wheel group."
 msgstr ""
 
-#: ../src/msec/help.py:62
+#: ../src/msec/help.py:60
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
 msgstr ""
 
-#: ../src/msec/help.py:64
+#: ../src/msec/help.py:62
 msgid "Send security check results by email."
 msgstr ""
 
-#: ../src/msec/help.py:66
+#: ../src/msec/help.py:64
 msgid "Set the password minimum length and minimum number of digit and minimum number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
 
-#: ../src/msec/help.py:68
+#: ../src/msec/help.py:66
 msgid "Set the root umask."
 msgstr ""
 
-#: ../src/msec/help.py:70
+#: ../src/msec/help.py:68
 msgid "Enable checking for additions/removals of sgid files."
 msgstr ""
 
-#: ../src/msec/help.py:72
-msgid "Activate ethernet cards promiscuity check."
+#: ../src/msec/help.py:70
+msgid "Enable verification of integrity of installed RPM packages. This will notify you if checksums of the installed files were changed, showing separate results for binary and configuration files."
 msgstr ""
 
-#: ../src/msec/help.py:74
+#: ../src/msec/help.py:72
 msgid "Enable AppArmor security framework on boot"
 msgstr ""
 
-#: ../src/msec/help.py:76
+#: ../src/msec/help.py:74
 msgid "Allow local users to connect to X server. Accepted arguments: yes (all connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
 
-#: ../src/msec/help.py:78
+#: ../src/msec/help.py:76
 msgid "Enable checking for files/directories writable by everybody."
 msgstr ""
 
-#: ../src/msec/help.py:80
+#: ../src/msec/help.py:78
 msgid "Log syslog messages on console terminal 12."
 msgstr ""
 
-#: ../src/msec/help.py:82
+#: ../src/msec/help.py:80
 msgid "Enable name resolution spoofing protection."
 msgstr ""
 
-#: ../src/msec/help.py:84
+#: ../src/msec/help.py:82
 msgid "Defines the base security level, on top of which the current configuration is based."
 msgstr ""
 
-#: ../src/msec/help.py:86
+#: ../src/msec/help.py:84
 msgid "Enable periodic permission checking for system files."
+msgstr ""
+
+#: ../src/msec/help.py:86
+msgid "Enable verification for changes in the installed RPM packages. This will notify you when new packages are installed or removed."
 msgstr ""
 
 #: ../src/msec/help.py:88
@@ -244,18 +244,22 @@ msgid "Allow full access to network services controlled by tcp_wrapper (see host
 msgstr ""
 
 #: ../src/msec/help.py:128
-msgid "Perform hourly security check for changes in system configuration."
+msgid "Activate ethernet cards promiscuity check."
 msgstr ""
 
 #: ../src/msec/help.py:130
-msgid "Enforce MSEC settings on system startup"
+msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
 
 #: ../src/msec/help.py:132
-msgid "Enable periodic security check results to terminal."
+msgid "Enforce MSEC settings on system startup"
 msgstr ""
 
 #: ../src/msec/help.py:134
+msgid "Enable periodic security check results to terminal."
+msgstr ""
+
+#: ../src/msec/help.py:136
 msgid "Enable PolicyKit security framework for all users. If this option is not enabled, only users in wheel group may change advanced PolicyKit permissions and settings"
 msgstr ""
 
@@ -303,7 +307,7 @@ msgstr ""
 msgid "Not supported function '%s' in '%s'"
 msgstr ""
 
-#: ../src/msec/libmsec.py:804 ../src/msec/libmsec.py:1607
+#: ../src/msec/libmsec.py:804 ../src/msec/libmsec.py:1611
 msgid "In check-only mode, nothing is written back to disk."
 msgstr ""
 
@@ -547,71 +551,71 @@ msgstr ""
 msgid "Forbidding direct root login"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1537
+#: ../src/msec/libmsec.py:1541
 msgid "user name %s not found"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1549
+#: ../src/msec/libmsec.py:1553
 msgid "user name not found for id %d"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1561
+#: ../src/msec/libmsec.py:1565
 msgid "group name %s not found"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1573
+#: ../src/msec/libmsec.py:1577
 msgid "group name not found for id %d"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1583
+#: ../src/msec/libmsec.py:1587
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
 
-#: ../src/msec/libmsec.py:1622
+#: ../src/msec/libmsec.py:1626
 msgid "Forcing ownership of %s to %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1626
+#: ../src/msec/libmsec.py:1630
 msgid "Error changing user on %s: %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1628
+#: ../src/msec/libmsec.py:1632
 msgid "Wrong owner of %s: should be %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1631
+#: ../src/msec/libmsec.py:1635
 msgid "Enforcing group on %s to %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1635
+#: ../src/msec/libmsec.py:1639
 msgid "Error changing group on %s: %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1637
+#: ../src/msec/libmsec.py:1641
 msgid "Wrong group of %s: should be %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1642
+#: ../src/msec/libmsec.py:1646
 msgid "Enforcing permissions on %s to %o"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1646
+#: ../src/msec/libmsec.py:1650
 msgid "Error changing permissions on %s: %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1648
+#: ../src/msec/libmsec.py:1652
 msgid "Wrong permissions of %s: should be %o"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1665
+#: ../src/msec/libmsec.py:1669
 msgid "bad permissions for '%s': '%s'"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1690
+#: ../src/msec/libmsec.py:1694
 msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
-#: ../src/msec/libmsec.py:1732
+#: ../src/msec/libmsec.py:1736
 msgid "Checking paths: %s"
 msgstr ""
 

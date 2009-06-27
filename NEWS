@@ -1,3 +1,4 @@
+Version 0.70.1 - June 26 2009, Eugeni Dodonov
 - Improved rpm check, splitted into CHECK_RPM_PACKAGES and CHECK_RPM_INTEGRITY.
 - Supporting check for changes in system users and groups.
 - Reworked auditing code, improved logging format, added support for

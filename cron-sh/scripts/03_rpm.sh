@@ -63,7 +63,7 @@ if [[ ${CHECK_RPM_INTEGRITY} == yes ]]; then
     fi
 
     # diff check
-    Diffcheck ${RPM_VA_TODAY} ${RPM_VA_YESTERDAY} ${RPM_VA_DIFF} "files belonging to packages"
-    Diffcheck ${RPM_VA_CONFIG_TODAY} ${RPM_VA_CONFIG_YESTERDAY} ${RPM_VA_CONFIG_DIFF} "config files belonging to packages"
+    Diffcheck ${RPM_VA_TODAY} ${RPM_VA_YESTERDAY} ${RPM_VA_DIFF} "modifications to package files"
+    Diffcheck ${RPM_VA_CONFIG_TODAY} ${RPM_VA_CONFIG_YESTERDAY} ${RPM_VA_CONFIG_DIFF} "modifications to package configuration files"
 fi
 

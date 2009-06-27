@@ -1,5 +1,5 @@
 PACKAGE = msec
-VERSION = 0.60.22
+VERSION = 0.70.1
 SVNPATH = svn+ssh://svn.mandriva.com/svn/soft/msec
 
 all: version promisc_check msec_find python manpages
@@ -65,7 +65,7 @@ install: all
 	for i in man/??* ; do \
 	    install -d $(RPM_BUILD_ROOT)/usr/share/man/`basename $$i`/man8 ; \
 	    install -m 644 $$i/*.8 $(RPM_BUILD_ROOT)/usr/share/man/`basename $$i`/man8 ; \
-	done	
+	done
 
 	# profile.d config
 	mkdir -p $(RPM_BUILD_ROOT)/etc/profile.d/

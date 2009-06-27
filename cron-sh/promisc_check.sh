@@ -21,18 +21,18 @@ if [[ -f /etc/security/msec/security.conf ]]; then
     . /etc/security/msec/security.conf
 else
     echo "/etc/security/msec/security.conf don't exist."
-    return 1
+    exit 1
 fi
 
 if tail /var/log/security.log | grep -q "promiscuous"; then
     # Dont flood with warning.
-    return 0
+    exit 0
 fi
 
 # Check if a network interface is in promiscuous mode...
 
 if [[ ${CHECK_PROMISC} == no ]]; then
-    return 0;
+    exit 0;
 fi
 
 for INTERFACE in `/sbin/ip link list | grep PROMISC | cut -f 2 -d ':';/usr/bin/promisc_check -q`; do

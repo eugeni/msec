@@ -14,8 +14,7 @@ import config
 
 # localization
 try:
-    cat = gettext.Catalog('msec')
-    _ = cat.gettext
+    gettext.install('msec')
 except IOError:
     _ = str
 

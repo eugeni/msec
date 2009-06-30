@@ -56,8 +56,7 @@ import config
 
 # localization
 try:
-    cat = gettext.Catalog('msec')
-    _ = cat.gettext
+    gettext.install('msec')
 except IOError:
     _ = str
 
@@ -218,11 +217,20 @@ class Log:
 
         self.logger.setLevel(log_level)
 
+    def trydecode(self, message):
+        """Attempts to decode a unicode message"""
+        try:
+            msg = message.decode('UTF-*')
+        except:
+            msg = message
+        return msg
+
     def info(self, message):
         """Informative message (normal msec operation)"""
         if self.quiet:
             # skip informative messages in quiet mode
             return
+        message = self.trydecode(message)
         if self.buffer:
             self.buffer["info"].append(message)
         else:
@@ -230,6 +238,7 @@ class Log:
 
     def error(self, message):
         """Error message (security has changed: authentication, passwords, etc)"""
+        message = self.trydecode(message)
         if self.buffer:
             self.buffer["error"].append(message)
         else:
@@ -237,6 +246,7 @@ class Log:
 
     def debug(self, message):
         """Debugging message"""
+        message = self.trydecode(message)
         if self.buffer:
             self.buffer["debug"].append(message)
         else:
@@ -244,6 +254,7 @@ class Log:
 
     def critical(self, message):
         """Critical message (big security risk, e.g., rootkit, etc)"""
+        message = self.trydecode(message)
         if self.buffer:
             self.buffer["critical"].append(message)
         else:
@@ -254,6 +265,7 @@ class Log:
         if self.quiet:
             # skip warning messages in quiet mode
             return
+        message = self.trydecode(message)
         if self.buffer:
             self.buffer["warn"].append(message)
         else:

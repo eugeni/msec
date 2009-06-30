@@ -40,7 +40,7 @@ fi
 # list of installed packages
 if [[ ${CHECK_RPM_PACKAGES} == yes ]]; then
     rpm -qa --qf "%{NAME}-%{VERSION}-%{RELEASE}\n" | sort > ${RPM_QA_TODAY}
-    Diffcheck ${RPM_QA_TODAY} ${RPM_QA_YESTERDAY} ${RPM_QA_DIFF} "installed packages"
+    Diffcheck ${RPM_QA_TODAY} ${RPM_QA_YESTERDAY} ${RPM_QA_DIFF} "packages"
 fi
 
 # integrity of installed packages

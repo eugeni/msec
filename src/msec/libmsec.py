@@ -553,7 +553,7 @@ class ConfigFile:
             lines.insert(idx, s)
 
         self.modified()
-        self.log.info(_('set variable %s to %s in %s') % (var, value, self.path,))
+        self.log.debug(_('set variable %s to %s in %s') % (var, value, self.path,))
         return self
 
     def get_shell_variable(self, var, start=None, end=None):

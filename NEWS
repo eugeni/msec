@@ -1,3 +1,4 @@
+- Added new variable SECURE_TMP to configure location of temporary files.
 - Improve description for changes in packages check.
 - Properly handle promisc_check when running standalone (#51903)
 

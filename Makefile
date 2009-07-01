@@ -14,6 +14,7 @@ clean:
 	rm -f src/msec_find/msec_find
 	rm -f *.bz2
 	make -C src/msec clean
+	make -C po clean
 
 promisc_check: 
 	make -C src/promisc_check

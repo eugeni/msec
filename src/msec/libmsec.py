@@ -1505,6 +1505,20 @@ class MSEC:
         pass
 
     # bogus functions
+    def secure_tmp(self, param):
+        """Use secure location for temporary files. If this parameter is set to 'yes', user home directory will be used for temporary files. Otherwise, /tmp will be used."""
+        shell = self.configfiles.get_config_file(SHELLCONF)
+
+        val = shell.get_shell_variable('SECURE_TMP')
+
+        if val != param:
+            if param == 'yes':
+                self.log.info(_('Using secure location for temporary files'))
+            else:
+                self.log.info(_('Not using secure location for temporary files'))
+            shell.set_shell_variable('SECURE_TMP', param)
+        pass
+
     def enable_startup_msec(self, param):
         """Enforce MSEC settings on system startup"""
         pass

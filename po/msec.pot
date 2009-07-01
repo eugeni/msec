@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-06-26 16:31+BRT\n"
+"POT-Creation-Date: 2009-07-01 10:51+BRT\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -192,74 +192,78 @@ msgid "Enable daily security checks."
 msgstr ""
 
 #: ../src/msec/help.py:102
-msgid "Allow direct root login on terminal."
+msgid "Use secure location for temporary files. If this parameter is set to 'yes', user home directory will be used for temporary files. Otherwise, /tmp will be used."
 msgstr ""
 
 #: ../src/msec/help.py:104
-msgid "Enable checking for changes in system users."
+msgid "Allow direct root login on terminal."
 msgstr ""
 
 #: ../src/msec/help.py:106
-msgid "Enable checking for unowned files."
+msgid "Enable checking for changes in system users."
 msgstr ""
 
 #: ../src/msec/help.py:108
-msgid "Allow display managers (kdm and gdm) to display list of local users."
+msgid "Enable checking for unowned files."
 msgstr ""
 
 #: ../src/msec/help.py:110
-msgid "Enforce MSEC file directory permissions on system startup. If this parameter is set to 'enforce', system permissions will be enforced automatically, according to system security settings."
+msgid "Allow display managers (kdm and gdm) to display list of local users."
 msgstr ""
 
 #: ../src/msec/help.py:112
-msgid "Show security notifications in system tray using libnotify."
+msgid "Enforce MSEC file directory permissions on system startup. If this parameter is set to 'enforce', system permissions will be enforced automatically, according to system security settings."
 msgstr ""
 
 #: ../src/msec/help.py:114
-msgid "Allow remote root login via sshd. If yes, login is allowed. If without-password, only public-key authentication logins are allowed. See sshd_config(5) man page for more information."
+msgid "Show security notifications in system tray using libnotify."
 msgstr ""
 
 #: ../src/msec/help.py:116
-msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
+msgid "Allow remote root login via sshd. If yes, login is allowed. If without-password, only public-key authentication logins are allowed. See sshd_config(5) man page for more information."
 msgstr ""
 
 #: ../src/msec/help.py:118
-msgid "Ask for root password when going to single user level (man sulogin(8))."
+msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
 msgstr ""
 
 #: ../src/msec/help.py:120
-msgid "Allow to export display when passing from the root account to the other users. See pam_xauth(8) for more details."
+msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
 
 #: ../src/msec/help.py:122
-msgid "Set the user umask."
+msgid "Allow to export display when passing from the root account to the other users. See pam_xauth(8) for more details."
 msgstr ""
 
 #: ../src/msec/help.py:124
-msgid "Accept ICMP echo."
+msgid "Set the user umask."
 msgstr ""
 
 #: ../src/msec/help.py:126
-msgid "Allow full access to network services controlled by tcp_wrapper (see hosts.deny(5)). If yes, all services are allowed. If local, only connections to local services are authorized. If no, the services must be authorized manually in /etc/hosts.allow (see hosts.allow(5))."
+msgid "Accept ICMP echo."
 msgstr ""
 
 #: ../src/msec/help.py:128
-msgid "Activate ethernet cards promiscuity check."
+msgid "Allow full access to network services controlled by tcp_wrapper (see hosts.deny(5)). If yes, all services are allowed. If local, only connections to local services are authorized. If no, the services must be authorized manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
 
 #: ../src/msec/help.py:130
-msgid "Perform hourly security check for changes in system configuration."
+msgid "Activate ethernet cards promiscuity check."
 msgstr ""
 
 #: ../src/msec/help.py:132
-msgid "Enforce MSEC settings on system startup"
+msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
 
 #: ../src/msec/help.py:134
-msgid "Enable periodic security check results to terminal."
+msgid "Enforce MSEC settings on system startup"
 msgstr ""
 
 #: ../src/msec/help.py:136
+msgid "Enable periodic security check results to terminal."
+msgstr ""
+
+#: ../src/msec/help.py:138
 msgid "Enable PolicyKit security framework for all users. If this option is not enabled, only users in wheel group may change advanced PolicyKit permissions and settings"
 msgstr ""
 
@@ -307,7 +311,7 @@ msgstr ""
 msgid "Not supported function '%s' in '%s'"
 msgstr ""
 
-#: ../src/msec/libmsec.py:804 ../src/msec/libmsec.py:1611
+#: ../src/msec/libmsec.py:804 ../src/msec/libmsec.py:1625
 msgid "In check-only mode, nothing is written back to disk."
 msgstr ""
 
@@ -551,71 +555,79 @@ msgstr ""
 msgid "Forbidding direct root login"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1541
+#: ../src/msec/libmsec.py:1516
+msgid "Using secure location for temporary files"
+msgstr ""
+
+#: ../src/msec/libmsec.py:1518
+msgid "Not using secure location for temporary files"
+msgstr ""
+
+#: ../src/msec/libmsec.py:1555
 msgid "user name %s not found"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1553
+#: ../src/msec/libmsec.py:1567
 msgid "user name not found for id %d"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1565
+#: ../src/msec/libmsec.py:1579
 msgid "group name %s not found"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1577
+#: ../src/msec/libmsec.py:1591
 msgid "group name not found for id %d"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1587
+#: ../src/msec/libmsec.py:1601
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
 
-#: ../src/msec/libmsec.py:1626
+#: ../src/msec/libmsec.py:1640
 msgid "Forcing ownership of %s to %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1630
+#: ../src/msec/libmsec.py:1644
 msgid "Error changing user on %s: %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1632
+#: ../src/msec/libmsec.py:1646
 msgid "Wrong owner of %s: should be %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1635
+#: ../src/msec/libmsec.py:1649
 msgid "Enforcing group on %s to %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1639
+#: ../src/msec/libmsec.py:1653
 msgid "Error changing group on %s: %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1641
+#: ../src/msec/libmsec.py:1655
 msgid "Wrong group of %s: should be %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1646
+#: ../src/msec/libmsec.py:1660
 msgid "Enforcing permissions on %s to %o"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1650
+#: ../src/msec/libmsec.py:1664
 msgid "Error changing permissions on %s: %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1652
+#: ../src/msec/libmsec.py:1666
 msgid "Wrong permissions of %s: should be %o"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1669
+#: ../src/msec/libmsec.py:1683
 msgid "bad permissions for '%s': '%s'"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1694
+#: ../src/msec/libmsec.py:1708
 msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
-#: ../src/msec/libmsec.py:1736
+#: ../src/msec/libmsec.py:1750
 msgid "Checking paths: %s"
 msgstr ""
 

@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-30 11:44+BRT\n"
-"PO-Revision-Date: 2009-07-04 22:51+0200\n"
+"POT-Creation-Date: 2009-07-01 10:51+BRT\n"
+"PO-Revision-Date: 2009-07-04 23:11+0200\n"
 "Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,19 +30,23 @@ msgstr ""
 "X-Generator: Lokalize 0.3\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
-#: ../src/msec/help.py:15
-msgid "Enable name resolution spoofing protection."
-msgstr "Slå på beskytteslse mot navneoppslagsforfalskning."
+#: ../src/msec/help.py:14
+msgid "Enable checking for firewall settings ports."
+msgstr "Slå på sjekk for setting av brannmursporter."
 
-#: ../src/msec/help.py:17
+#: ../src/msec/help.py:16
+msgid "Enable IP spoofing protection."
+msgstr "Slå på beskyttelse mot IP-forfalskning."
+
+#: ../src/msec/help.py:18
 msgid "Send mail reports even if no changes were detected."
 msgstr "Send e-post-rapporter selv om ingen forandringer ble oppdaget."
 
-#: ../src/msec/help.py:19
+#: ../src/msec/help.py:20
 msgid "Accept broadcasted ICMP echo."
 msgstr "Aksepter kringkastet ICMP-ekko."
 
-#: ../src/msec/help.py:21
+#: ../src/msec/help.py:22
 msgid ""
 "Allow users to authenticate with their passwords for sudo. If this parameter "
 "is set to 'wheel', users must belong to the 'wheel' group to be able to use "
@@ -52,19 +56,20 @@ msgstr ""
 "parametren er satt til \"wheel\", må brukere som skal benytte sudo være "
 "medlemmer av denne gruppen."
 
-#: ../src/msec/help.py:23
+#: ../src/msec/help.py:24
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
+msgstr ""
+"Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
 
-#: ../src/msec/help.py:25
+#: ../src/msec/help.py:26
 msgid "Enable checking for known rootkits using chkrootkit."
 msgstr "Slå på sjekk for kjente rootkit ved hjelp av chkrootkit."
 
-#: ../src/msec/help.py:27
+#: ../src/msec/help.py:28
 msgid "Enable checking for additions/removals of suid root files."
 msgstr "Slå på sjekk for utvidelser/fjerning av suid root-filer."
 
-#: ../src/msec/help.py:29
+#: ../src/msec/help.py:30
 msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
@@ -72,27 +77,27 @@ msgstr ""
 "Slå på crontab og at for brukere. Putt tillatte brukere i /etc/cron.allow "
 "og /etc/at.allow (se man at(1) og crontab(1))."
 
-#: ../src/msec/help.py:31
+#: ../src/msec/help.py:32
 msgid "Accept bogus IPv4 error messages."
 msgstr "Tillat ugyldige IPv4-feilmeldinger."
 
-#: ../src/msec/help.py:33
+#: ../src/msec/help.py:34
 msgid "Enable checksum verification for suid files."
 msgstr "Slå på sjekksumkontroll for suid-filer."
 
-#: ../src/msec/help.py:35
+#: ../src/msec/help.py:36
 msgid "User email to receive security notifications."
 msgstr "Bruker-e-post som skal motta sikkerhetsanmerkninger."
 
-#: ../src/msec/help.py:37
+#: ../src/msec/help.py:38
 msgid "Allow autologin."
 msgstr "Tillat autoinnlogging."
 
-#: ../src/msec/help.py:39
+#: ../src/msec/help.py:40
 msgid "Allow only users in wheel group to su to root."
 msgstr "Tillat kun brukere i wheel-gruppen at su til root."
 
-#: ../src/msec/help.py:41
+#: ../src/msec/help.py:42
 msgid ""
 "Creates the symlink /etc/security/msec/server to point to /etc/security/msec/"
 "server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --"
@@ -111,11 +116,11 @@ msgstr ""
 "tjenestene må bli plassert manuelt i server.SERVER_LEVEL-filene når det "
 "trengs."
 
-#: ../src/msec/help.py:43
+#: ../src/msec/help.py:44
 msgid "Set the shell timeout. A value of zero means no timeout."
 msgstr "Sett skallets tidsavbrudd. Null betyr ingen tidsavbrudd."
 
-#: ../src/msec/help.py:45
+#: ../src/msec/help.py:46
 msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
@@ -123,47 +128,47 @@ msgstr ""
 "Slå på rettighetssjekk for brukerfiler som ikke skal være eid av andre eller "
 "skrivbare."
 
-#: ../src/msec/help.py:47
+#: ../src/msec/help.py:48
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
 msgstr "Slå på sjekk for tomme passord i /etc/shadow (man shadow(5))."
 
-#: ../src/msec/help.py:49
+#: ../src/msec/help.py:50
 msgid ""
-"Use password to authenticate users. Take EXTREMELY care when disabling "
+"Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
 msgstr ""
-"Benytt passord for å autentisere brukere. Vær VELDIG forsiktig når du "
-"slår av bruken av passord ettersom det vil gjøre maskinen sårbar."
+"Benytt passord for å autentisere brukere. Vær VELDIG forsiktig hvis du slår "
+"av bruken av passord, ettersom det vil gjøre maskinen sårbar."
 
-#: ../src/msec/help.py:51
+#: ../src/msec/help.py:52
 msgid ""
-"Set umask option for mounting vfat and ntfs partitions. If umask is '0', "
+"Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
 "Sett umask-valg for montering av VFAT og NTFS-partisjoner. Hvis umask er '0' "
-"vil det forhåndsvalgte systemvalget benyttes."
+"vil systemvalget benyttes."
 
-#: ../src/msec/help.py:53
+#: ../src/msec/help.py:54
 msgid "Enable checking for open network ports."
 msgstr "Slå på sjekk for åpne nettverksporter."
 
-#: ../src/msec/help.py:55
+#: ../src/msec/help.py:56
 msgid "Enable logging of strange network packets."
 msgstr "Slå på logging av rare nettverkspakker."
 
-#: ../src/msec/help.py:57
-msgid "Enable verification of installed RPM packages."
-msgstr "Slå på kontroll for installerte RPM-pakker."
-
-#: ../src/msec/help.py:59
+#: ../src/msec/help.py:58
 msgid "Allow root access without password for the members of the wheel group."
 msgstr "Tillat root-tilgang uten passord for medlemmene i wheel-gruppen."
 
-#: ../src/msec/help.py:61
+#: ../src/msec/help.py:60
+msgid "Fix owner and group of unowned files to use nobody/nogroup."
+msgstr "Tilordne eier og gruppe av filer uten eier til nobody/nogroup."
+
+#: ../src/msec/help.py:62
 msgid "Send security check results by email."
 msgstr "Send resultater fra sikkerhetssjekk som e-post."
 
-#: ../src/msec/help.py:63
+#: ../src/msec/help.py:64
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
@@ -171,23 +176,29 @@ msgstr ""
 "Sett minimumslengden for passord og minimum av antall siffer og store "
 "bokstaver ved brukt av length,ndigits,nuppler-formatet."
 
-#: ../src/msec/help.py:65
+#: ../src/msec/help.py:66
 msgid "Set the root umask."
 msgstr "Sett rot-umask."
 
-#: ../src/msec/help.py:67
+#: ../src/msec/help.py:68
 msgid "Enable checking for additions/removals of sgid files."
 msgstr "Slå på sjekk for utvidelse/fjerning av sgid-filer."
 
-#: ../src/msec/help.py:69
-msgid "Activate ethernet cards promiscuity check."
-msgstr "Slå på løsaktighetsskontroll for Ethernet-kort."
+#: ../src/msec/help.py:70
+msgid ""
+"Enable verification of integrity of installed RPM packages. This will notify "
+"you if checksums of the installed files were changed, showing separate "
+"results for binary and configuration files."
+msgstr ""
+"Slå på integritetssjekk av innstallerte RPM-pakker. Dette vil gi deg beskjed "
+"hvis kontrollsummen for de innstallerte pakkene har blitt forandret. Det er "
+"separate resultater for binære og konfigurasjonsfiler."
 
-#: ../src/msec/help.py:71
+#: ../src/msec/help.py:72
 msgid "Enable AppArmor security framework on boot"
 msgstr "Slå på AppArmor sikkerhetsrammeverk under oppstart"
 
-#: ../src/msec/help.py:73
+#: ../src/msec/help.py:74
 msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
@@ -196,19 +207,19 @@ msgstr ""
 "tilkoblinger er tillatt), local (bare lokale tilkoblinger), nei (ingen "
 "tilkoblinger)."
 
-#: ../src/msec/help.py:75
+#: ../src/msec/help.py:76
 msgid "Enable checking for files/directories writable by everybody."
 msgstr "Slå på sjekk for filer/kataloger skrivbare for alle."
 
-#: ../src/msec/help.py:77
+#: ../src/msec/help.py:78
 msgid "Log syslog messages on console terminal 12."
 msgstr "Logg syslog-meldinger på konsollterminal 12."
 
-#: ../src/msec/help.py:79
-msgid "Enable IP spoofing protection."
-msgstr "Slå på beskyttelse mot IP-forfalskning."
+#: ../src/msec/help.py:80
+msgid "Enable name resolution spoofing protection."
+msgstr "Slå på beskytteslse mot navneoppslagsforfalskning."
 
-#: ../src/msec/help.py:81
+#: ../src/msec/help.py:82
 msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
@@ -216,27 +227,35 @@ msgstr ""
 "Definerer det grunnleggende sikkerhetsnivået som det nåværende oppsettet er "
 "basert på."
 
-#: ../src/msec/help.py:83
+#: ../src/msec/help.py:84
 msgid "Enable periodic permission checking for system files."
 msgstr "Slå på periodisk rettighetssjekk for systemfiler."
 
-#: ../src/msec/help.py:85
+#: ../src/msec/help.py:86
+msgid ""
+"Enable verification for changes in the installed RPM packages. This will "
+"notify you when new packages are installed or removed."
+msgstr ""
+"Slå på sjekk for å finne forandringer i de innstallerte RPM-pakkene. Dette "
+"vil gi deg beskjed når pakker blir innstallert eller fjernet."
+
+#: ../src/msec/help.py:88
 msgid "Set shell commands history size. A value of -1 means unlimited."
 msgstr "Setter skallets kommandohistoriestørrelse. -1 betyr ubegrenset."
 
-#: ../src/msec/help.py:87
+#: ../src/msec/help.py:90
 msgid "Allow system reboot and shutdown to local users."
 msgstr "Tillat omstart og nedstengning av systemet for lokale brukere."
 
-#: ../src/msec/help.py:89
+#: ../src/msec/help.py:92
 msgid "Enables logging of periodic checks to system log."
 msgstr "Slår på logging av periodiske sjekker i systemloggen."
 
-#: ../src/msec/help.py:91
-msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr "Slå på sjekk for farlige valg i brukeres: .rhosts/.shosts-filer."
+#: ../src/msec/help.py:94
+msgid "Enable checking for changes in system groups."
+msgstr "Slå på sjekk for forandringer i systemgrupper."
 
-#: ../src/msec/help.py:93
+#: ../src/msec/help.py:96
 msgid ""
 "Enable password-related checks, such as empty passwords and strange super-"
 "user accounts."
@@ -244,7 +263,7 @@ msgstr ""
 "Slå på passord-relaterte sjekker, som tomme passord og merkelige "
 "superbrukerkontoer."
 
-#: ../src/msec/help.py:95
+#: ../src/msec/help.py:98
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
@@ -252,23 +271,38 @@ msgstr ""
 "Sett lengden på passordhistorien for å forhindre gjenbruk av passord. Dette "
 "er ikke støttet av pam_tcb."
 
-#: ../src/msec/help.py:97
+#: ../src/msec/help.py:100
 msgid "Enable daily security checks."
 msgstr "Slå på daglige sikkerhetssjekker."
 
-#: ../src/msec/help.py:99
+#: ../src/msec/help.py:102
+msgid ""
+"Use secure location for temporary files. If this parameter is set to 'yes', "
+"user home directory will be used for temporary files. Otherwise, /tmp will "
+"be used."
+msgstr ""
+"Bruk sikker plassering for midlertidlige filer. Hvis denne parametren er "
+"satt til «ja», "
+"vil brukerens hjemmemappe brukes. Ellers vil /tmp bli brukt."
+
+#: ../src/msec/help.py:104
 msgid "Allow direct root login on terminal."
 msgstr "Tillat direkte root-innlogging på terminal."
 
-#: ../src/msec/help.py:101
+#: ../src/msec/help.py:106
+msgid "Enable checking for changes in system users."
+msgstr "Slå på sjekk for forandringer i systembrukere."
+
+#: ../src/msec/help.py:108
 msgid "Enable checking for unowned files."
 msgstr "Slå på sjekk for filer uten eier."
 
-#: ../src/msec/help.py:103
+#: ../src/msec/help.py:110
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr "Tillat sesjonshåndterere (KDM og GDM) å vise en liste med lokale brukere."
+msgstr ""
+"Tillat sesjonshåndterere (KDM og GDM) å vise en liste med lokale brukere."
 
-#: ../src/msec/help.py:105
+#: ../src/msec/help.py:112
 msgid ""
 "Enforce MSEC file directory permissions on system startup. If this parameter "
 "is set to 'enforce', system permissions will be enforced automatically, "
@@ -278,11 +312,11 @@ msgstr ""
 "parametren er satt til 'håndhev', vil systemtillatelsene bli håndhevet "
 "automatisk, i henhold til sikkerhetsinnstillingene for systemet."
 
-#: ../src/msec/help.py:107
+#: ../src/msec/help.py:114
 msgid "Show security notifications in system tray using libnotify."
 msgstr "Vis sikkerhetsanmerkninger i systemkurven ved bruk av libnotify."
 
-#: ../src/msec/help.py:109
+#: ../src/msec/help.py:116
 msgid ""
 "Allow remote root login via sshd. If yes, login is allowed. If without-"
 "password, only public-key authentication logins are allowed. See sshd_config"
@@ -292,15 +326,15 @@ msgstr ""
 "Hvis uten passord, er kun innlogging med offentlig nøkkel-autentisering "
 "tillatt. Se manualsiden sshd_config(5) for mer informasjon."
 
-#: ../src/msec/help.py:111
-msgid "Perform hourly security check for changes in system configuration."
-msgstr "Utfør sikkerhetssjekk for endringer i systemoppsettet hver time."
+#: ../src/msec/help.py:118
+msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
+msgstr "Slå på sjekk for farlige valg i brukeres: .rhosts/.shosts-filer."
 
-#: ../src/msec/help.py:113
+#: ../src/msec/help.py:120
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr "Spør etter root-passord når man går til enbrukernivå (man sulogin(8))."
 
-#: ../src/msec/help.py:115
+#: ../src/msec/help.py:122
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
@@ -308,15 +342,15 @@ msgstr ""
 "Tillatt å eksportere skjermen når man går fra root-kontoen til andre "
 "brukere. Se pam_xauth(8) for detaljer."
 
-#: ../src/msec/help.py:117
+#: ../src/msec/help.py:124
 msgid "Set the user umask."
 msgstr "Sett umask for bruker."
 
-#: ../src/msec/help.py:119
+#: ../src/msec/help.py:126
 msgid "Accept ICMP echo."
 msgstr "Aksepter ICMP-ekko."
 
-#: ../src/msec/help.py:121
+#: ../src/msec/help.py:128
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
@@ -328,15 +362,23 @@ msgstr ""
 "til lokale tjenester godtatt. Hvis Nei må tjenestene tillates manuelt i /etc/"
 "hosts.allow (se hosts.allow(5))."
 
-#: ../src/msec/help.py:123
+#: ../src/msec/help.py:130
+msgid "Activate ethernet cards promiscuity check."
+msgstr "Slå på løsaktighetsskontroll for Ethernet-kort."
+
+#: ../src/msec/help.py:132
+msgid "Perform hourly security check for changes in system configuration."
+msgstr "Utfør sikkerhetssjekk for endringer i systemoppsettet hver time."
+
+#: ../src/msec/help.py:134
 msgid "Enforce MSEC settings on system startup"
 msgstr "Håndhev MSEC-innstillinger på systemoppstart."
 
-#: ../src/msec/help.py:125
+#: ../src/msec/help.py:136
 msgid "Enable periodic security check results to terminal."
 msgstr "Slå på periodiske sikkerhetssjekkresultater til terminalen."
 
-#: ../src/msec/help.py:127
+#: ../src/msec/help.py:138
 msgid ""
 "Enable PolicyKit security framework for all users. If this option is not "
 "enabled, only users in wheel group may change advanced PolicyKit permissions "
@@ -346,383 +388,395 @@ msgstr ""
 "valget er aktivert, kan kun brukere i wheel-gruppen forandre avanserte "
 "PolicyKit-tillatelser og innstillinger."
 
-#: ../src/msec/libmsec.py:326
+#: ../src/msec/libmsec.py:338
 msgid "%s modified so launched command: %s"
 msgstr "%s modifisert, så startet kommando: %s"
 
-#: ../src/msec/libmsec.py:335
+#: ../src/msec/libmsec.py:347
 msgid "%s modified so should have run command: %s"
 msgstr "%s modifisert, så skulle ha kjørt kommandoen: %s"
 
-#: ../src/msec/libmsec.py:437 ../src/msec/libmsec.py:469
+#: ../src/msec/libmsec.py:449 ../src/msec/libmsec.py:481
 msgid "deleted %s"
 msgstr "slettet %s"
 
-#: ../src/msec/libmsec.py:455
+#: ../src/msec/libmsec.py:467
 msgid "touched file %s"
 msgstr "rørte filen %s"
 
-#: ../src/msec/libmsec.py:475
+#: ../src/msec/libmsec.py:487
 msgid "made symbolic link from %s to %s"
 msgstr "opprettet symbolsk lenke fra %s til %s"
 
-#: ../src/msec/libmsec.py:478
+#: ../src/msec/libmsec.py:490
 msgid "moved file %s to %s"
 msgstr "flyttet filen %s til %s"
 
-#: ../src/msec/libmsec.py:528 ../src/msec/libmsec.py:544
+#: ../src/msec/libmsec.py:540 ../src/msec/libmsec.py:556
 msgid "set variable %s to %s in %s"
 msgstr "sett variabel %s til %s i %s"
 
-#: ../src/msec/libmsec.py:755
+#: ../src/msec/libmsec.py:767
 msgid "Error loading plugin '%s' from %s: %s"
 msgstr "Feil ved lasting av programtillegg '%s' fra %s: %s"
 
-#: ../src/msec/libmsec.py:769
+#: ../src/msec/libmsec.py:781
 msgid "Invalid callback: %s"
 msgstr "Ugyldig tilbakekall: %s"
 
-#: ../src/msec/libmsec.py:778
+#: ../src/msec/libmsec.py:790
 msgid "Plugin %s not found"
 msgstr "Programtillegg %s ikke funnet"
 
-#: ../src/msec/libmsec.py:785
+#: ../src/msec/libmsec.py:797
 msgid "Not supported function '%s' in '%s'"
 msgstr "Ikke støttet funksjon '%s' i %s"
 
-#: ../src/msec/libmsec.py:792 ../src/msec/libmsec.py:1575
+#: ../src/msec/libmsec.py:804 ../src/msec/libmsec.py:1625
 msgid "In check-only mode, nothing is written back to disk."
 msgstr "I sjekkmodus, ingenting blir skrevet til disk."
 
-#: ../src/msec/libmsec.py:809
+#: ../src/msec/libmsec.py:821
 msgid "'%s' is not available in this version"
 msgstr "'%s' er ikke tilgjengelig i denne versjonen"
 
-#: ../src/msec/libmsec.py:819
+#: ../src/msec/libmsec.py:831
 msgid "Invalid parameter for %s: '%s'. Valid parameters: '%s'."
 msgstr "Ugyldig parameter for %s: '%s.' Gyldige parametre: '%s'."
 
-#: ../src/msec/libmsec.py:834
+#: ../src/msec/libmsec.py:846
 msgid "Allowing unrestricted chkconfig for packages"
 msgstr "Tillat ubegrenset chkconfig for pakker"
 
-#: ../src/msec/libmsec.py:839
+#: ../src/msec/libmsec.py:851
 msgid "Restricting chkconfig for packages according to \"%s\" profile"
 msgstr "Begrens chkconfig for pakker i følge \"%s\"-profil."
 
-#: ../src/msec/libmsec.py:849
+#: ../src/msec/libmsec.py:861
 msgid "Setting root umask to %s"
 msgstr "Setter rot-umask til %s"
 
-#: ../src/msec/libmsec.py:859
+#: ../src/msec/libmsec.py:871
 msgid "Setting users umask to %s"
 msgstr "Setter bruker umask til %s"
 
-#: ../src/msec/libmsec.py:880
+#: ../src/msec/libmsec.py:892
 msgid "Allowing users to connect X server from everywhere"
 msgstr "Tillater brukere å koble til X-tjeneren fra overalt"
 
-#: ../src/msec/libmsec.py:883
+#: ../src/msec/libmsec.py:895
 msgid "Allowing users to connect X server from localhost"
 msgstr "Tillater brukere å koble til X-tjeneren fra localhost"
 
-#: ../src/msec/libmsec.py:886
+#: ../src/msec/libmsec.py:898
 msgid "Restricting X server connection to the console user"
 msgstr "Begrenser tilkobling til X-tjeneren for konsollbrukeren."
 
-#: ../src/msec/libmsec.py:889
+#: ../src/msec/libmsec.py:901
 msgid "invalid allow_x_connections arg: %s"
 msgstr "ugyldig allow_x_connections arg: %s"
 
-#: ../src/msec/libmsec.py:912
+#: ../src/msec/libmsec.py:924
 msgid "Allowing the X server to listen to tcp connections"
 msgstr "Tillater X-tjeneren å lytte på TCP-tilkoblinger"
 
-#: ../src/msec/libmsec.py:923
+#: ../src/msec/libmsec.py:935
 msgid "Forbidding the X server to listen to tcp connection"
 msgstr "Forbyr X-tjeneren å lytte på TCP-tilkoblinger"
 
-#: ../src/msec/libmsec.py:939
+#: ../src/msec/libmsec.py:951
 msgid "Invalid shell timeout \"%s\""
 msgstr "Ugyldig skall-tidsavbrudd \"%s\""
 
-#: ../src/msec/libmsec.py:947
+#: ../src/msec/libmsec.py:959
 msgid "Setting shell timeout to %s"
 msgstr "Setter skall-tidsavbrudd til %s"
 
-#: ../src/msec/libmsec.py:955
+#: ../src/msec/libmsec.py:967
 msgid "Invalid shell history size \"%s\""
 msgstr "Ugyldig skall-historiestørrelse \"%s\""
 
-#: ../src/msec/libmsec.py:966
+#: ../src/msec/libmsec.py:978
 msgid "Setting shell history size to %s"
 msgstr "Setter størrelse for skallhistorie til %s"
 
-#: ../src/msec/libmsec.py:970
+#: ../src/msec/libmsec.py:982
 msgid "Removing limit on shell history size"
 msgstr "Fjerner begrensning på størrelse for skallhistorie"
 
-#: ../src/msec/libmsec.py:1009
+#: ../src/msec/libmsec.py:991
+msgid "Invalid file system umask \"%s\""
+msgstr "Ugyldig filsystemmaske «%s»"
+
+#: ../src/msec/libmsec.py:1025
 msgid "Allowing reboot and shutdown to the console user"
 msgstr "Tillater omstart og nedstengning for konsollbruker"
 
-#: ../src/msec/libmsec.py:1016
+#: ../src/msec/libmsec.py:1032
 msgid "Allowing SysRq key to the console user"
 msgstr "Tillater SysRq-tasten for konsollbruker"
 
-#: ../src/msec/libmsec.py:1019
+#: ../src/msec/libmsec.py:1035
 msgid "Allowing Shutdown/Reboot in GDM"
 msgstr "Tillater Nedstengning/Omstart i GDM"
 
-#: ../src/msec/libmsec.py:1023
+#: ../src/msec/libmsec.py:1039
 msgid "Allowing Shutdown/Reboot in KDM"
 msgstr "Tillater Nedstengning/Omstart i KDM"
 
-#: ../src/msec/libmsec.py:1026
+#: ../src/msec/libmsec.py:1042
 msgid "Allowing Ctrl-Alt-Del from console"
 msgstr "Tillater Ctrl-Alt-Del fra konsollet"
 
-#: ../src/msec/libmsec.py:1030
+#: ../src/msec/libmsec.py:1046
 msgid "Forbidding reboot and shutdown to the console user"
 msgstr "Forbyr omstart og nedstegning for konsollbrukeren"
 
-#: ../src/msec/libmsec.py:1038
+#: ../src/msec/libmsec.py:1054
 msgid "Forbidding SysRq key to the console user"
 msgstr "Forbyr SysRq-tasten for konsollbruker"
 
-#: ../src/msec/libmsec.py:1041
+#: ../src/msec/libmsec.py:1057
 msgid "Forbidding Shutdown/Reboot in GDM"
 msgstr "Forbyr Nedstengning/Omstart"
 
-#: ../src/msec/libmsec.py:1045
+#: ../src/msec/libmsec.py:1061
 msgid "Forbidding Shutdown/Reboot in KDM"
 msgstr "Forbyr Nedstengning/Omstart i KDM"
 
-#: ../src/msec/libmsec.py:1048
+#: ../src/msec/libmsec.py:1064
 msgid "Forbidding Ctrl-Alt-Del from console"
 msgstr "Forbyr Ctrl-Alt-Del fra konsollet"
 
-#: ../src/msec/libmsec.py:1062
+#: ../src/msec/libmsec.py:1078
 msgid "Allowing list of users in KDM"
 msgstr "Tillater visning av brukere i KDM"
 
-#: ../src/msec/libmsec.py:1066
+#: ../src/msec/libmsec.py:1082
 msgid "Allowing list of users in GDM"
 msgstr "Tillater visning av brukere i GDM"
 
-#: ../src/msec/libmsec.py:1071
+#: ../src/msec/libmsec.py:1087
 msgid "Forbidding list of users in KDM"
 msgstr "Forbyr visning av brukere i KDM"
 
-#: ../src/msec/libmsec.py:1075
+#: ../src/msec/libmsec.py:1091
 msgid "Forbidding list of users in GDM"
 msgstr "Forbyr visning av brukere i GDM"
 
-#: ../src/msec/libmsec.py:1089
+#: ../src/msec/libmsec.py:1105
 msgid "Allowing remote root login"
 msgstr "Tillater ekstern innlogging for root"
 
-#: ../src/msec/libmsec.py:1093
+#: ../src/msec/libmsec.py:1109
 msgid "Forbidding remote root login"
 msgstr "Forby ekstern innlogging for root"
 
-#: ../src/msec/libmsec.py:1097
+#: ../src/msec/libmsec.py:1113
 msgid "Allowing remote root login only by passphrase"
 msgstr "Tillat kun ekstern innlogging for root med adgangsfrase"
 
-#: ../src/msec/libmsec.py:1109
+#: ../src/msec/libmsec.py:1125
 msgid "Allowing autologin"
 msgstr "Tillater autoinnlogging"
 
-#: ../src/msec/libmsec.py:1112
+#: ../src/msec/libmsec.py:1128
 msgid "Forbidding autologin"
 msgstr "Forbyr autoinnlogging"
 
-#: ../src/msec/libmsec.py:1117
+#: ../src/msec/libmsec.py:1133
 msgid "Activating password in boot loader"
 msgstr "Slå på passord i oppstartslaster"
 
-#: ../src/msec/libmsec.py:1131
+#: ../src/msec/libmsec.py:1147
 msgid "Removing password in boot loader"
 msgstr "Fjerner passord fra oppstartslaster"
 
-#: ../src/msec/libmsec.py:1146
+#: ../src/msec/libmsec.py:1162
 msgid "Enabling log on console"
 msgstr "Slå på logging på konsollet"
 
-#: ../src/msec/libmsec.py:1150
+#: ../src/msec/libmsec.py:1166
 msgid "Disabling log on console"
 msgstr "Slå av visning av logg på konsollet"
 
-#: ../src/msec/libmsec.py:1162
+#: ../src/msec/libmsec.py:1178
 msgid "Activating daily security check"
 msgstr "Slå på daglige sikkerhetssjekker"
 
-#: ../src/msec/libmsec.py:1166
+#: ../src/msec/libmsec.py:1182
 msgid "Disabling daily security check"
 msgstr "Slå av daglige sikkerhetssjekker"
 
-#: ../src/msec/libmsec.py:1183
+#: ../src/msec/libmsec.py:1199
 msgid "Authorizing all services"
 msgstr "Autentiserer alle tjenester"
 
-#: ../src/msec/libmsec.py:1187
+#: ../src/msec/libmsec.py:1203
 msgid "Disabling all services"
 msgstr "Slå av alle tjenester"
 
-#: ../src/msec/libmsec.py:1191
+#: ../src/msec/libmsec.py:1207
 msgid "Disabling non local services"
 msgstr "Slå av ikke-lokale tjenester"
 
-#: ../src/msec/libmsec.py:1224
+#: ../src/msec/libmsec.py:1240
 msgid "Enabling name resolution spoofing protection"
 msgstr "Slå på beskyttelse mot navneoppslagsforfalskning"
 
-#: ../src/msec/libmsec.py:1229
+#: ../src/msec/libmsec.py:1245
 msgid "Disabling name resolution spoofing protection"
 msgstr "Slå av beskyttelse mot navneoppslagsforfalskning"
 
-#: ../src/msec/libmsec.py:1257
+#: ../src/msec/libmsec.py:1273
 msgid "Enabling sulogin in single user runlevel"
 msgstr "Slå på sulogin i enbrukermodus"
 
-#: ../src/msec/libmsec.py:1261
+#: ../src/msec/libmsec.py:1277
 msgid "Disabling sulogin in single user runlevel"
 msgstr "Slå av sulogin i enbrukermodus"
 
-#: ../src/msec/libmsec.py:1272
+#: ../src/msec/libmsec.py:1288
 msgid "Enabling msec periodic runs"
 msgstr "Slå på periodisk kjøring av MSEC"
 
-#: ../src/msec/libmsec.py:1276
+#: ../src/msec/libmsec.py:1292
 msgid "Disabling msec periodic runs"
 msgstr "Slå av periodisk kjøring av MSEC"
 
-#: ../src/msec/libmsec.py:1289
+#: ../src/msec/libmsec.py:1305
 msgid "Enabling crontab and at"
 msgstr "Slå på crontab og at"
 
-#: ../src/msec/libmsec.py:1296
+#: ../src/msec/libmsec.py:1312
 msgid "Disabling crontab and at"
 msgstr "Slå av crontab og at"
 
-#: ../src/msec/libmsec.py:1308
+#: ../src/msec/libmsec.py:1324
 msgid "Allowing export display from root"
 msgstr "Tillat eksportering av visning fra root"
 
-#: ../src/msec/libmsec.py:1312
+#: ../src/msec/libmsec.py:1328
 msgid "Forbidding export display from root"
 msgstr "Forbyr eksportering av skjerm fra root"
 
-#: ../src/msec/libmsec.py:1323
+#: ../src/msec/libmsec.py:1339
 msgid "Activating periodic promiscuity check"
 msgstr "Slår på periodisk løsaktighetssjekk"
 
-#: ../src/msec/libmsec.py:1327
+#: ../src/msec/libmsec.py:1343
 msgid "Disabling periodic promiscuity check"
 msgstr "Slår av periodisk løsaktighetssjekk"
 
-#: ../src/msec/libmsec.py:1353
+#: ../src/msec/libmsec.py:1369
 msgid "Allowing direct root login"
 msgstr "Tillater direkte root-innlogging"
 
-#: ../src/msec/libmsec.py:1370
+#: ../src/msec/libmsec.py:1386
 msgid "Forbidding direct root login"
 msgstr "Forbyr direkte root-innlogging"
 
-#: ../src/msec/libmsec.py:1505
+#: ../src/msec/libmsec.py:1516
+msgid "Using secure location for temporary files"
+msgstr "Bruker sikker plassering for midlertidlige filer."
+
+#: ../src/msec/libmsec.py:1518
+msgid "Not using secure location for temporary files"
+msgstr "Bruker ikke sikker plassering for midlertidlige filer."
+
+#: ../src/msec/libmsec.py:1555
 msgid "user name %s not found"
 msgstr "brukernavn %s ikke funnet"
 
-#: ../src/msec/libmsec.py:1517
+#: ../src/msec/libmsec.py:1567
 msgid "user name not found for id %d"
 msgstr "brukernavn ikke funnet for id %d"
 
-#: ../src/msec/libmsec.py:1529
+#: ../src/msec/libmsec.py:1579
 msgid "group name %s not found"
 msgstr "gruppenavn %s ikke funnet"
 
-#: ../src/msec/libmsec.py:1541
+#: ../src/msec/libmsec.py:1591
 msgid "group name not found for id %d"
 msgstr "gruppenavn ikke funnet for id %d"
 
-#: ../src/msec/libmsec.py:1551
+#: ../src/msec/libmsec.py:1601
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr "Kan ikke sjekke /proc/mounts. Antar at alle filsystem er lokale."
 
-#: ../src/msec/libmsec.py:1590
+#: ../src/msec/libmsec.py:1640
 msgid "Forcing ownership of %s to %s"
 msgstr "Tvinger eierskap av %s til %s"
 
-#: ../src/msec/libmsec.py:1594
+#: ../src/msec/libmsec.py:1644
 msgid "Error changing user on %s: %s"
 msgstr "Feil under forandring av bruker på %s: %s"
 
-#: ../src/msec/libmsec.py:1596
+#: ../src/msec/libmsec.py:1646
 msgid "Wrong owner of %s: should be %s"
 msgstr "Feil eier av %s: skal være %s"
 
-#: ../src/msec/libmsec.py:1599
+#: ../src/msec/libmsec.py:1649
 msgid "Enforcing group on %s to %s"
 msgstr "Håndhever gruppe på %s til %s"
 
-#: ../src/msec/libmsec.py:1603
+#: ../src/msec/libmsec.py:1653
 msgid "Error changing group on %s: %s"
 msgstr "Feil under forandring av gruppe på %s: %s"
 
-#: ../src/msec/libmsec.py:1605
+#: ../src/msec/libmsec.py:1655
 msgid "Wrong group of %s: should be %s"
 msgstr "Feil gruppe av %s: skal være %s"
 
-#: ../src/msec/libmsec.py:1610
+#: ../src/msec/libmsec.py:1660
 msgid "Enforcing permissions on %s to %o"
 msgstr "Håndhever rettigheter på %s til %o"
 
-#: ../src/msec/libmsec.py:1614
+#: ../src/msec/libmsec.py:1664
 msgid "Error changing permissions on %s: %s"
 msgstr "Feil under forandring av rettigheter på %s: %s"
 
-#: ../src/msec/libmsec.py:1616
+#: ../src/msec/libmsec.py:1666
 msgid "Wrong permissions of %s: should be %o"
 msgstr "Feil rettigheter på %s: skal være %o"
 
-#: ../src/msec/libmsec.py:1633
+#: ../src/msec/libmsec.py:1683
 msgid "bad permissions for '%s': '%s'"
 msgstr "dårlige rettigheter for '%s': '%s'"
 
-#: ../src/msec/libmsec.py:1658
+#: ../src/msec/libmsec.py:1708
 msgid "Non local file: \"%s\". Nothing changed."
 msgstr "Ikke lokal fil: \"%s\". Ingenting forandret."
 
-#: ../src/msec/libmsec.py:1700
+#: ../src/msec/libmsec.py:1750
 msgid "Checking paths: %s"
 msgstr "Sjekker stier: %s"
 
-#: ../src/msec/msec.py:86 ../src/msec/msecperms.py:99
+#: ../src/msec/msec.py:85 ../src/msec/msecperms.py:98
 msgid "Invalid security level '%s'."
 msgstr "ugyldig sikkerhetsnivå '%s'."
 
-#: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
+#: ../src/msec/msec.py:108 ../src/msec/msecperms.py:127
 msgid "Msec: Mandriva Security Center (%s)\n"
 msgstr "MSEC: Mandriva Sikkerhetssenter (%s)\n"
 
-#: ../src/msec/msec.py:110 ../src/msec/msecperms.py:129
+#: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Error: This application must be executed by root!"
 msgstr "Feil: Dette programmet må bli kjørt av root!"
 
-#: ../src/msec/msec.py:111 ../src/msec/msecperms.py:130
+#: ../src/msec/msec.py:110 ../src/msec/msecperms.py:129
 msgid "Run with --help to get help."
 msgstr "Kjør med --help for å få hjelp."
 
-#: ../src/msec/msec.py:133 ../src/msec/msecperms.py:151
+#: ../src/msec/msec.py:132 ../src/msec/msecperms.py:150
 msgid "Level '%s' not found, aborting."
 msgstr "Nivå '%s' ikke funnet, avbryter."
 
-#: ../src/msec/msec.py:135 ../src/msec/msecperms.py:153
+#: ../src/msec/msec.py:134 ../src/msec/msecperms.py:152
 msgid "Switching to '%s' level."
 msgstr "Bytter til '%s'-nivå."
 
-#: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
+#: ../src/msec/msec.py:150 ../src/msec/msecperms.py:169
 msgid "Unable to save config!"
 msgstr "Klarte ikke å lagre oppsett!"
 
@@ -793,28 +847,27 @@ msgid ""
 "periodically.  "
 msgstr ""
 "<big><b>Valg for periodiske sikkerhetssjekker</b></big>\n"
-"Disse valgene setter opp sikkerhetssjekker som skal kjøres "
-"periodisk."
+"Disse valgene setter opp sikkerhetssjekker som skal kjøres periodisk."
 
 #: ../src/msec/msecgui.py:71
 msgid ""
 "<big><b>File permissions</b></big>\n"
 "These options allow to fine-tune system permissions for important files and "
-"directores.\n"
+"directories.\n"
 "The following permissions are checked periodically, and any change to the "
 "owner, group,\n"
 "or current permission is reported. The permissions can be enforced, "
 "automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
-"<big><b>Filtillatelser</b></big>\n"
-"Disse valgene lar deg finjustere systemtillatelsene for viktige filer og "
+"<big><b>Filrettigheter</b></big>\n"
+"Disse valgene lar deg finjustere systemrettighetene for viktige filer og "
 "kataloger.\n"
-"De følgende tillatelsene blir sjekket periodevis, og forandring av eier, "
+"De følgende rettighetene blir sjekket periodevis, og forandring av eier, "
 "gruppe,\n"
-"eller gjeldende rettigheter blir rapportert. Tillatelsene kan bli håndhevet "
+"eller gjeldende rettigheter blir rapportert. Rettighetene kan bli håndhevet "
 "automatisk\n"
-"ved forandring og settes tilbake til de spesifiserte verdiene."
+"ved forandring og settes tilbake til de angitte verdiene."
 
 #: ../src/msec/msecgui.py:77
 msgid "Save and apply new configuration?"
@@ -938,7 +991,8 @@ msgstr "Oppdaget grunnleggende MSEC-nivå '%s'"
 
 #: ../src/msec/msecgui.py:396
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr "Tilpasset grunnleggende-oppsettsnivå '%s' funnet. Vil forhåndsvelge '%s'"
+msgstr ""
+"Tilpasset grunnleggende-oppsettsnivå '%s' funnet. Vil forhåndsvelge '%s'"
 
 #: ../src/msec/msecgui.py:424
 msgid "Security Option"
@@ -1031,8 +1085,8 @@ msgid ""
 "permissions.\n"
 msgstr ""
 "Forandrer rettigheter på <b>%s</b>\n"
-"Vær vennlig å oppgi nye rettigheter eller benytt 'nåværende' "
-"for å beholde nåværende rettigheter.\n"
+"Vær vennlig å oppgi nye rettigheter eller benytt 'nåværende' for å beholde "
+"nåværende rettigheter.\n"
 
 #: ../src/msec/msecgui.py:981
 msgid "File: "
@@ -1091,60 +1145,63 @@ msgstr "_Lagre"
 msgid "Do you want to save changes before closing?"
 msgstr "Ønsker du å lagre forandringene før avslutning?"
 
-#: ../src/msec/plugins/pam.py:68
+#: ../src/msec/plugins/pam.py:67
 msgid "Using password to authenticate users"
 msgstr "Benytter passord for å autentisere brukere"
 
-#: ../src/msec/plugins/pam.py:72
+#: ../src/msec/plugins/pam.py:71
 msgid "Don't use password to authenticate users"
 msgstr "Ikke benytt passord for å autentisere brukere"
 
-#: ../src/msec/plugins/pam.py:83
+#: ../src/msec/plugins/pam.py:82
 msgid "Password history not supported with pam_tcb."
 msgstr "Passordhistorie er ikke støttet med pam_tcb"
 
-#: ../src/msec/plugins/pam.py:91
+#: ../src/msec/plugins/pam.py:90
 msgid "Invalid maximum password history length: \"%s\""
 msgstr "Ugyldig maksimum passordhistorielengde: \"%s\""
 
-#: ../src/msec/plugins/pam.py:106
+#: ../src/msec/plugins/pam.py:105
 msgid "Setting password history to %d."
 msgstr "Setter passordhistorie til %d"
 
-#: ../src/msec/plugins/pam.py:112
+#: ../src/msec/plugins/pam.py:111
 msgid "Disabling password history"
 msgstr "Slå av passordhistorie"
 
-#: ../src/msec/plugins/pam.py:124
-msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
-msgstr "Ugyldig passordlengde \"%s\". Bruk \"length,ndigits,nupper\" som parametre."
+#: ../src/msec/plugins/pam.py:123
+msgid ""
+"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgstr ""
+"Ugyldig passordlengde \"%s\". Bruk \"length,ndigits,nupper\" som parametre."
 
-#: ../src/msec/plugins/pam.py:145
+#: ../src/msec/plugins/pam.py:144
 msgid "Setting minimum password length %d"
 msgstr "Setter minimum passordlengde %d"
 
-#: ../src/msec/plugins/pam.py:169
+#: ../src/msec/plugins/pam.py:168
 msgid "Allowing su only from wheel group members"
 msgstr "Tillater su kun for medlemmer av wheel-gruppen"
 
-#: ../src/msec/plugins/pam.py:173
+#: ../src/msec/plugins/pam.py:172
 msgid "no wheel group"
 msgstr "ingen wheel-gruppe"
 
-#: ../src/msec/plugins/pam.py:177
+#: ../src/msec/plugins/pam.py:176
 msgid "wheel group is empty"
 msgstr "wheel-gruppen er tom"
 
-#: ../src/msec/plugins/pam.py:185
+#: ../src/msec/plugins/pam.py:184
 msgid "Allowing su for all"
 msgstr "Tillat su for alle"
 
-#: ../src/msec/plugins/pam.py:204
+#: ../src/msec/plugins/pam.py:203
 msgid "Allowing transparent root access for wheel group members"
 msgstr "Tillater gjennomsiktig root-tilgang for medlemmer av wheel-gruppen"
 
-#: ../src/msec/plugins/pam.py:211
+#: ../src/msec/plugins/pam.py:210
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av gjennomsiktig root-tilgang for medlemmer av wheel-gruppen"
 
-
+#~ msgid "Enable verification of installed RPM packages."
+#~ msgstr "Slå på kontroll for installerte RPM-pakker."

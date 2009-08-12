@@ -18,7 +18,6 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:14
-#| msgid "Enable checking for open network ports."
 msgid "Enable checking for firewall settings ports."
 msgstr "Sjå etter opne brannmuroppsett-portar."
 
@@ -119,9 +118,6 @@ msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
 msgstr "Sjå etter tomme passord i «/etc/shadow» (man shadow(5))."
 
 #: ../src/msec/help.py:50
-#| msgid ""
-#| "Use password to authenticate users. Take EXTREMELY care when disabling "
-#| "passwords, as it will leave the machine vulnerable."
 msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
@@ -130,9 +126,6 @@ msgstr ""
 "av dette, då det vil gjera maskina sårbar."
 
 #: ../src/msec/help.py:52
-#| msgid ""
-#| "Set umask option for mounting vfat and ntfs partitions. If umask is '0', "
-#| "default system umask is used."
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
@@ -244,7 +237,6 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Loggfør regelmessige kontrollar i systemloggen."
 
 #: ../src/msec/help.py:94
-#| msgid "Enable checking for unowned files."
 msgid "Enable checking for changes in system groups."
 msgstr "Meld frå om endringar i systemgrupper."
 
@@ -283,7 +275,6 @@ msgid "Allow direct root login on terminal."
 msgstr "Godta direkte «root»-innlogging på terminalen."
 
 #: ../src/msec/help.py:106
-#| msgid "Enable checking for unowned files."
 msgid "Enable checking for changes in system users."
 msgstr "Meld frå om endringar i systembrukarar."
 
@@ -503,7 +494,6 @@ msgid "Removing limit on shell history size"
 msgstr "Fjernar grense på skalloggstorleik"
 
 #: ../src/msec/libmsec.py:991
-#| msgid "Invalid shell timeout \"%s\""
 msgid "Invalid file system umask \"%s\""
 msgstr "Ugyldig filsystem-umaske: %s"
 

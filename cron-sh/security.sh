@@ -23,7 +23,7 @@ LCK=/var/run/msec-security.pid
 SECURITY_LOG="/var/log/security.log"
 
 # log formatting
-REPORT_DATE=`date "+%b %W %H:%M:%S"`
+REPORT_DATE=`date "+%b %d %H:%M:%S"`
 REPORT_HOSTNAME=`hostname`
 LOG_PREFIX="$REPORT_DATE $REPORT_HOSTNAME"
 SECURITY_PREFIX="$LOG_PREFIX security: "

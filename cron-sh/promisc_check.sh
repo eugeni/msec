@@ -5,10 +5,14 @@
 
 LogPromisc() {
     date=`date`
-    Syslog "Security warning : $1 is in promiscuous mode."
-    Syslog "    A sniffer is probably running on your system."
-    Ttylog "\\033[1;31mSecurity warning : $1 is in promiscuous mode.\\033[0;39m"
-    Ttylog "\\033[1;31mA sniffer is probably running on your system.\\033[0;39m"
+    tempfile=`mktemp /tmp/promisc.XXXXXX`
+    echo "Security warning : $1 is in promiscuous mode." > $tempfile
+    echo "    A sniffer is probably running on your system." >> $tempfile
+    Syslog $tempfile
+    echo "\\033[1;31mSecurity warning : $1 is in promiscuous mode.\\033[0;39m" > $tempfile
+    echo "\\033[1;31mA sniffer is probably running on your system.\\033[0;39m" >> $tempfile
+    Ttylog $tempfile
+    rm -f $tempfile
 
     # are we being run from security.sh script?
     if [ ! -z "$SECURITY" ]; then

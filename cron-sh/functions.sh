@@ -42,6 +42,8 @@ Diffcheck() {
     YESTERDAY="$2"
     DAY_DIFF="$3"
     MESSAGE="$4"
+    # give the proper permission to files
+    msecperms -q -e "$TODAY" "$YESTERDAY"
     if [[ -f ${YESTERDAY} ]]; then
         if ! diff -u ${YESTERDAY} ${TODAY} > ${DAY_DIFF}; then
             printf "\nSecurity Warning: change in $MESSAGE found :\n" >> ${DIFF}
@@ -52,6 +54,7 @@ Diffcheck() {
                 printf "\t\t- Removed $MESSAGE : ${file}\n"
             done >> ${DIFF}
         fi
+            msecperms -q -e "$DAY_DIFF"
     fi
 }
 

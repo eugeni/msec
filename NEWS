@@ -1,3 +1,4 @@
+- give proper permissions to diff check files.
 - Properly log promisc messages.
 - msecgui: Added toolbar for msecgui.
 - msecgui: Showing logo when running inside MCC.

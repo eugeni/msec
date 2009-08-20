@@ -1,3 +1,4 @@
+# translation of nb.po to Norwegian Bokmål
 # translation of nb.po to
 # translation of libDrakX-standalone-nb.po to
 # KTranslator Generated File
@@ -21,18 +22,18 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-01 10:51+BRT\n"
-"PO-Revision-Date: 2009-07-04 23:11+0200\n"
+"PO-Revision-Date: 2009-08-20 18:51+0200\n"
 "Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
-"Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
+"Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.3\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=n != 1;\n"
 
 #: ../src/msec/help.py:14
 msgid "Enable checking for firewall settings ports."
-msgstr "Slå på sjekk for setting av brannmursporter."
+msgstr "Slå på sjekk for innstilling av brannmursporter."
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -58,8 +59,7 @@ msgstr ""
 
 #: ../src/msec/help.py:24
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
+msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
 
 #: ../src/msec/help.py:26
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -299,8 +299,7 @@ msgstr "Slå på sjekk for filer uten eier."
 
 #: ../src/msec/help.py:110
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
-"Tillat innloggingsbehandlere (KDM og GDM) å vise en liste med lokale brukere."
+msgstr "Tillat innloggingsbehandlere (KDM og GDM) å vise en liste med lokale brukere."
 
 #: ../src/msec/help.py:112
 msgid ""
@@ -372,7 +371,7 @@ msgstr "Utfør sikkerhetssjekk for endringer i systemoppsettet hver time."
 
 #: ../src/msec/help.py:134
 msgid "Enforce MSEC settings on system startup"
-msgstr "Håndhev MSEC-innstillinger på systemoppstart."
+msgstr "Håndhev innstillinger for MSEC på systemoppstart."
 
 #: ../src/msec/help.py:136
 msgid "Enable periodic security check results to terminal."
@@ -990,8 +989,7 @@ msgstr "Oppdaget grunnleggende nivå for MSEC «%s»"
 
 #: ../src/msec/msecgui.py:396
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr ""
-"Tilpassa grunnleggende oppsettsnivå «%s» funnet. Vil forhåndsvelge «%s»"
+msgstr "Tilpassa grunnleggende oppsettsnivå «%s» funnet. Vil forhåndsvelge «%s»"
 
 #: ../src/msec/msecgui.py:424
 msgid "Security Option"
@@ -1169,10 +1167,8 @@ msgid "Disabling password history"
 msgstr "Slå av passordhistorie"
 
 #: ../src/msec/plugins/pam.py:123
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
-msgstr ""
-"Ugyldig passordlengde «%s». Bruk «length,ndigits,nupper» som parametre."
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgstr "Ugyldig passordlengde «%s». Bruk «length,ndigits,nupper» som parametre."
 
 #: ../src/msec/plugins/pam.py:144
 msgid "Setting minimum password length %d"
@@ -1202,5 +1198,6 @@ msgstr "Tillater gjennomsiktig root-tilgang for medlemmer av gruppa wheel"
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av gjennomsiktig root-tilgang for medlemmer av gruppa wheel"
 
- msgid "Enable verification of installed RPM packages."
- msgstr "Slå på kontroll av installerte RPM-pakker."
+msgid "Enable verification of installed RPM packages."
+msgstr "Slå på kontroll av installerte RPM-pakker."
+

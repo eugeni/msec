@@ -1,3 +1,5 @@
+- do not crash if config files have empty lines
+
 Version 0.70.3 - August 18 2009, Eugeni Dodonov
 - give proper permissions to diff check files.
 - Properly log promisc messages.

@@ -231,6 +231,8 @@ class MsecConfig:
             return False
         for line in fd.readlines():
             line = line.strip()
+            if not line:
+                continue
             if line[0] == "#":
                 # comment
                 self.comments.append(line)
@@ -322,6 +324,8 @@ class PermConfig(MsecConfig):
             return False
         for line in fd.readlines():
             line = line.strip()
+            if not line:
+                continue
             if line[0] == "#":
                 # comment
                 self.comments.append(line)

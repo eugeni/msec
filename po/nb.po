@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-01 10:51+BRT\n"
+"POT-Creation-Date: 2009-08-29 10:52+BRT\n"
 "PO-Revision-Date: 2009-08-20 21:00+0200\n"
 "Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
@@ -59,7 +59,8 @@ msgstr ""
 
 #: ../src/msec/help.py:24
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
+msgstr ""
+"Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
 
 #: ../src/msec/help.py:26
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -98,6 +99,22 @@ msgid "Allow only users in wheel group to su to root."
 msgstr "Bare brukere i gruppa wheel kan bli root."
 
 #: ../src/msec/help.py:42
+msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
+msgstr "Slå på sjekk for tomme passord i /etc/shadow (man shadow(5))."
+
+#: ../src/msec/help.py:44
+msgid "Set the shell timeout. A value of zero means no timeout."
+msgstr "Sett skallets tidsavbrudd. Null betyr ingen tidsavbrudd."
+
+#: ../src/msec/help.py:46
+msgid ""
+"Enable permission checking on users' files that should not be owned by "
+"someone else, or writable."
+msgstr ""
+"Slå på rettighetssjekk for brukerfiler som ikke skal være eid av andre, "
+"eller skrivbare."
+
+#: ../src/msec/help.py:48
 msgid ""
 "Creates the symlink /etc/security/msec/server to point to /etc/security/msec/"
 "server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --"
@@ -115,22 +132,6 @@ msgstr ""
 "eksterne tjenester regnet som trygge.) Vær klar over at de tillatte "
 "tjenestene må bli plassert manuelt i server.SERVER_LEVEL-filene når det "
 "trengs."
-
-#: ../src/msec/help.py:44
-msgid "Set the shell timeout. A value of zero means no timeout."
-msgstr "Sett skallets tidsavbrudd. Null betyr ingen tidsavbrudd."
-
-#: ../src/msec/help.py:46
-msgid ""
-"Enable permission checking on users' files that should not be owned by "
-"someone else, or writable."
-msgstr ""
-"Slå på rettighetssjekk for brukerfiler som ikke skal være eid av andre, eller "
-"skrivbare."
-
-#: ../src/msec/help.py:48
-msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr "Slå på sjekk for tomme passord i /etc/shadow (man shadow(5))."
 
 #: ../src/msec/help.py:50
 msgid ""
@@ -282,8 +283,7 @@ msgid ""
 "be used."
 msgstr ""
 "Bruk sikker plassering for midlertidlige filer. Hvis denne parametren er "
-"satt til «ja», "
-"vil brukerens hjemmemappe brukes. Ellers vil /tmp bli brukt."
+"satt til «ja», vil brukerens hjemmemappe brukes. Ellers vil /tmp bli brukt."
 
 #: ../src/msec/help.py:104
 msgid "Allow direct root login on terminal."
@@ -299,7 +299,8 @@ msgstr "Slå på sjekk for filer uten eier."
 
 #: ../src/msec/help.py:110
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr "Tillat innloggingsbehandlere (KDM og GDM) å vise en liste med lokale brukere."
+msgstr ""
+"Tillat innloggingsbehandlere (KDM og GDM) å vise en liste med lokale brukere."
 
 #: ../src/msec/help.py:112
 msgid ""
@@ -312,10 +313,14 @@ msgstr ""
 "automatisk, i henhold til sikkerhetsinnstillingene for systemet."
 
 #: ../src/msec/help.py:114
+msgid "Include current directory into user PATH by default"
+msgstr ""
+
+#: ../src/msec/help.py:116
 msgid "Show security notifications in system tray using libnotify."
 msgstr "Vis sikkerhetsanmerkninger i systemkurven ved bruk av libnotify."
 
-#: ../src/msec/help.py:116
+#: ../src/msec/help.py:118
 msgid ""
 "Allow remote root login via sshd. If yes, login is allowed. If without-"
 "password, only public-key authentication logins are allowed. See sshd_config"
@@ -325,15 +330,15 @@ msgstr ""
 "Hvis uten passord, er kun innlogging med offentlig nøkkelautentisering "
 "tillatt. Se manualsiden sshd_config(5) for mer informasjon."
 
-#: ../src/msec/help.py:118
+#: ../src/msec/help.py:120
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
 msgstr "Slå på sjekk for farlige valg i brukeres .rhosts/.shosts-filer."
 
-#: ../src/msec/help.py:120
+#: ../src/msec/help.py:122
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr "Spør etter root-passord når man går til enbrukernivå (man sulogin(8))."
 
-#: ../src/msec/help.py:122
+#: ../src/msec/help.py:124
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
@@ -341,15 +346,15 @@ msgstr ""
 "Tillatt å eksportere skjermen når man går fra root-kontoen til andre "
 "brukere. Se pam_xauth(8) for detaljer."
 
-#: ../src/msec/help.py:124
+#: ../src/msec/help.py:126
 msgid "Set the user umask."
 msgstr "Sett umask for bruker."
 
-#: ../src/msec/help.py:126
+#: ../src/msec/help.py:128
 msgid "Accept ICMP echo."
 msgstr "Aksepter ICMP-ekko."
 
-#: ../src/msec/help.py:128
+#: ../src/msec/help.py:130
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
@@ -361,23 +366,23 @@ msgstr ""
 "til lokale tjenester godtatt. Hvis Nei må tjenestene tillates manuelt i /etc/"
 "hosts.allow (se hosts.allow(5))."
 
-#: ../src/msec/help.py:130
+#: ../src/msec/help.py:132
 msgid "Activate ethernet cards promiscuity check."
 msgstr "Slå på løsaktighetsskontroll for Ethernet-kort."
 
-#: ../src/msec/help.py:132
+#: ../src/msec/help.py:134
 msgid "Perform hourly security check for changes in system configuration."
 msgstr "Utfør sikkerhetssjekk for endringer i systemoppsettet hver time."
 
-#: ../src/msec/help.py:134
+#: ../src/msec/help.py:136
 msgid "Enforce MSEC settings on system startup"
 msgstr "Håndhev innstillinger for MSEC på systemoppstart"
 
-#: ../src/msec/help.py:136
+#: ../src/msec/help.py:138
 msgid "Enable periodic security check results to terminal."
 msgstr "Slå på regelmessige sikkerhetssjekkresultater til terminalen."
 
-#: ../src/msec/help.py:138
+#: ../src/msec/help.py:140
 msgid ""
 "Enable PolicyKit security framework for all users. If this option is not "
 "enabled, only users in wheel group may change advanced PolicyKit permissions "
@@ -431,7 +436,7 @@ msgstr "Programtillegg %s ikke funnet"
 msgid "Not supported function '%s' in '%s'"
 msgstr "Ikke støttet funksjon «%s» i %s"
 
-#: ../src/msec/libmsec.py:804 ../src/msec/libmsec.py:1625
+#: ../src/msec/libmsec.py:804 ../src/msec/libmsec.py:1638
 msgid "In check-only mode, nothing is written back to disk."
 msgstr "I sjekkmodus, ingenting blir skrevet til disk."
 
@@ -683,71 +688,79 @@ msgstr "Bruke sikker plassering for midlertidlige filer"
 msgid "Not using secure location for temporary files"
 msgstr "Bruker usikker plassering for midlertidlige filer"
 
-#: ../src/msec/libmsec.py:1555
+#: ../src/msec/libmsec.py:1538
+msgid "Allowing including current directory in path"
+msgstr ""
+
+#: ../src/msec/libmsec.py:1541
+msgid "Not allowing including current directory in path"
+msgstr ""
+
+#: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"
 msgstr "brukernavn %s ikke funnet"
 
-#: ../src/msec/libmsec.py:1567
+#: ../src/msec/libmsec.py:1580
 msgid "user name not found for id %d"
 msgstr "brukernavn ikke funnet for id %d"
 
-#: ../src/msec/libmsec.py:1579
+#: ../src/msec/libmsec.py:1592
 msgid "group name %s not found"
 msgstr "gruppenavn %s ikke funnet"
 
-#: ../src/msec/libmsec.py:1591
+#: ../src/msec/libmsec.py:1604
 msgid "group name not found for id %d"
 msgstr "gruppenavn ikke funnet for id %d"
 
-#: ../src/msec/libmsec.py:1601
+#: ../src/msec/libmsec.py:1614
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr "Kan ikke sjekke /proc/mounts. Antar at alle filsystem er lokale."
 
-#: ../src/msec/libmsec.py:1640
+#: ../src/msec/libmsec.py:1653
 msgid "Forcing ownership of %s to %s"
 msgstr "Tvinger eierskap av %s til %s"
 
-#: ../src/msec/libmsec.py:1644
+#: ../src/msec/libmsec.py:1657
 msgid "Error changing user on %s: %s"
 msgstr "Feil under forandring av bruker på %s: %s"
 
-#: ../src/msec/libmsec.py:1646
+#: ../src/msec/libmsec.py:1659
 msgid "Wrong owner of %s: should be %s"
 msgstr "Feil eier av %s: skal være %s"
 
-#: ../src/msec/libmsec.py:1649
+#: ../src/msec/libmsec.py:1662
 msgid "Enforcing group on %s to %s"
 msgstr "Håndhever gruppe på %s til %s"
 
-#: ../src/msec/libmsec.py:1653
+#: ../src/msec/libmsec.py:1666
 msgid "Error changing group on %s: %s"
 msgstr "Feil under forandring av gruppe på %s: %s"
 
-#: ../src/msec/libmsec.py:1655
+#: ../src/msec/libmsec.py:1668
 msgid "Wrong group of %s: should be %s"
 msgstr "Feil gruppe av %s: skal være %s"
 
-#: ../src/msec/libmsec.py:1660
+#: ../src/msec/libmsec.py:1673
 msgid "Enforcing permissions on %s to %o"
 msgstr "Håndhever rettigheter på %s til %o"
 
-#: ../src/msec/libmsec.py:1664
+#: ../src/msec/libmsec.py:1677
 msgid "Error changing permissions on %s: %s"
 msgstr "Feil under forandring av rettigheter på %s: %s"
 
-#: ../src/msec/libmsec.py:1666
+#: ../src/msec/libmsec.py:1679
 msgid "Wrong permissions of %s: should be %o"
 msgstr "Feil rettigheter på %s: skal være %o"
 
-#: ../src/msec/libmsec.py:1683
+#: ../src/msec/libmsec.py:1696
 msgid "bad permissions for '%s': '%s'"
 msgstr "dårlige rettigheter for «%s»: «%s»"
 
-#: ../src/msec/libmsec.py:1708
+#: ../src/msec/libmsec.py:1721
 msgid "Non local file: \"%s\". Nothing changed."
 msgstr "Ikke lokal fil: «%s». Ingenting forandret."
 
-#: ../src/msec/libmsec.py:1750
+#: ../src/msec/libmsec.py:1763
 msgid "Checking paths: %s"
 msgstr "Sjekker stier: %s"
 
@@ -796,15 +809,16 @@ msgid ""
 "suggested level for Desktop."
 msgstr ""
 "Denne profilen setter opp et forholdsvis sikkert system. Det slår på flere "
-"ikke-påtrengende regelmessige systemsjekker. Dette er det anbefalte nivået for "
-"Skrivebord."
+"ikke-påtrengende regelmessige systemsjekker. Dette er det anbefalte nivået "
+"for Skrivebord."
 
 #: ../src/msec/msecgui.py:56
+#, fuzzy
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. It also runs a wider set of "
 "periodic checks. This level is suggested for Servers and security-concerned "
-"systems. "
+"systems . "
 msgstr ""
 "Denne profilen er satt opp for å gi maksimum sikkerhet. Denne kjører også et "
 "bredere sett med regelmessige sjekker. Dette nivået er anbefalt for tjenere "
@@ -834,8 +848,8 @@ msgid ""
 "and breakin attempts.  "
 msgstr ""
 "<big><b>Valg for nettverkssikkerhet</b></big>\n"
-"Disse valgene angir nettverkssikkerheten for tiltak mot eksterne "
-"trusler, uautorisert tilgang,\n"
+"Disse valgene angir nettverkssikkerheten for tiltak mot eksterne trusler, "
+"uautorisert tilgang,\n"
 "og innbruddsforsøk.  "
 
 #: ../src/msec/msecgui.py:68
@@ -899,183 +913,195 @@ msgstr "_Hjelp"
 msgid "_About"
 msgstr "_Om"
 
-#: ../src/msec/msecgui.py:182
+#: ../src/msec/msecgui.py:183
 msgid "MSEC: System Security and Audit"
 msgstr "MSEC: Systemsikkerhet og overvåkning"
 
-#: ../src/msec/msecgui.py:200
+#: ../src/msec/msecgui.py:198
+#, fuzzy
+msgid "Save and apply current policy"
+msgstr "Lagre og legge til nytt oppsett?"
+
+#: ../src/msec/msecgui.py:204
+#, fuzzy
+msgid "Quit"
+msgstr "_Avslutt"
+
+#: ../src/msec/msecgui.py:220
 msgid "Basic security"
 msgstr "Grunnleggende sikkerhet"
 
-#: ../src/msec/msecgui.py:201
+#: ../src/msec/msecgui.py:221
 msgid "System security"
 msgstr "Systemsikkerhet"
 
-#: ../src/msec/msecgui.py:202
+#: ../src/msec/msecgui.py:222
 msgid "Network security"
 msgstr "Nettverkssikkerhet"
 
-#: ../src/msec/msecgui.py:203
+#: ../src/msec/msecgui.py:223
 msgid "Periodic checks"
 msgstr "Regelmessige sjekker"
 
-#: ../src/msec/msecgui.py:204 ../src/msec/msecgui.py:809
+#: ../src/msec/msecgui.py:224 ../src/msec/msecgui.py:829
 msgid "Permissions"
 msgstr "Rettigheter"
 
-#: ../src/msec/msecgui.py:237
+#: ../src/msec/msecgui.py:257
 msgid "MSEC option changes"
 msgstr "MSEC innstillingsforandringer"
 
-#: ../src/msec/msecgui.py:237
+#: ../src/msec/msecgui.py:257
 msgid "option"
 msgstr "valg"
 
-#: ../src/msec/msecgui.py:238
+#: ../src/msec/msecgui.py:258
 msgid "System permissions changes"
 msgstr "Forandinger i systemtillatelser"
 
-#: ../src/msec/msecgui.py:238
+#: ../src/msec/msecgui.py:258
 msgid "permission check"
 msgstr "Rettighetssjekk"
 
-#: ../src/msec/msecgui.py:248
+#: ../src/msec/msecgui.py:268
 msgid "changed %s <b>%s</b> (%s -> %s)"
 msgstr "forandret %s <b>%s</b>(%s -> %s)"
 
-#: ../src/msec/msecgui.py:253
+#: ../src/msec/msecgui.py:273
 msgid "added %s <b>%s</b> (%s)"
 msgstr "la til %s <b>%s</b> (%s)"
 
-#: ../src/msec/msecgui.py:258
+#: ../src/msec/msecgui.py:278
 msgid "removed %s <b>%s</b>"
 msgstr "fjernet %s <b>%s</b>"
 
-#: ../src/msec/msecgui.py:262
+#: ../src/msec/msecgui.py:282
 msgid "no changes"
 msgstr "ingen forandringer"
 
-#: ../src/msec/msecgui.py:274
-msgid "Saving changes…"
+#: ../src/msec/msecgui.py:294
+#, fuzzy
+msgid "Saving changes.."
 msgstr "Lagrer forandringer…"
 
-#: ../src/msec/msecgui.py:308
+#: ../src/msec/msecgui.py:328
 msgid "<b>%s:</b> <i>%s</i>\n"
 msgstr "<b>%s:</b> <i>%s</i>\n"
 
-#: ../src/msec/msecgui.py:315
+#: ../src/msec/msecgui.py:335
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
 msgstr "<b>MSEC testkjøringsresultater:</b><i>%s</i>"
 
-#: ../src/msec/msecgui.py:323
+#: ../src/msec/msecgui.py:343
 msgid "Details"
 msgstr "Detaljer"
 
-#: ../src/msec/msecgui.py:329
+#: ../src/msec/msecgui.py:349
 msgid "MSEC messages (%s): %d"
 msgstr "MSEC meldinger (%s): %d"
 
-#: ../src/msec/msecgui.py:343
-msgid "Details (%d changes)…"
+#: ../src/msec/msecgui.py:363
+#, fuzzy
+msgid "Details (%d changes).."
 msgstr "Detaljer (%d forandres) …"
 
-#: ../src/msec/msecgui.py:388
+#: ../src/msec/msecgui.py:408
 msgid "No base msec level specified, using '%s'"
 msgstr "Ingen grunnleggende nivå for MSEC angitt, bruker «%s»"
 
-#: ../src/msec/msecgui.py:391
+#: ../src/msec/msecgui.py:411
 msgid "Detected base msec level '%s'"
 msgstr "Oppdaget grunnleggende nivå «%s» for MSEC"
 
-#: ../src/msec/msecgui.py:396
+#: ../src/msec/msecgui.py:416
 msgid "Custom base config level '%s' found. Will default to '%s'"
 msgstr "Tilpassa grunnleggende oppsettsnivå «%s» funnet. Vil forhåndsvelge «%s»"
 
-#: ../src/msec/msecgui.py:424
+#: ../src/msec/msecgui.py:444
 msgid "Security Option"
 msgstr "Sikkerhetsvalg"
 
-#: ../src/msec/msecgui.py:434
+#: ../src/msec/msecgui.py:454
 msgid "Description"
 msgstr "Beskrivelse"
 
-#: ../src/msec/msecgui.py:439
+#: ../src/msec/msecgui.py:459
 msgid "Value"
 msgstr "Verdi"
 
-#: ../src/msec/msecgui.py:449
+#: ../src/msec/msecgui.py:469
 msgid "Invalid option '%s'!"
 msgstr "ugyldig valg «%s»."
 
-#: ../src/msec/msecgui.py:499
+#: ../src/msec/msecgui.py:519
 msgid "Enable MSEC tool"
 msgstr "Slå på MSEC-verktøy"
 
-#: ../src/msec/msecgui.py:506
+#: ../src/msec/msecgui.py:526
 msgid "Select the base security level"
 msgstr "Velg grunnleggende sikkerhetsnivå"
 
-#: ../src/msec/msecgui.py:510
+#: ../src/msec/msecgui.py:530
 msgid "Standard"
 msgstr "Standard"
 
-#: ../src/msec/msecgui.py:523
+#: ../src/msec/msecgui.py:543
 msgid "Secure"
 msgstr "Sikker"
 
-#: ../src/msec/msecgui.py:540
+#: ../src/msec/msecgui.py:560
 msgid "Send security alerts by email"
 msgstr "Send sikkerhetvarsler som e-post"
 
-#: ../src/msec/msecgui.py:547
+#: ../src/msec/msecgui.py:567
 msgid "System administrator email address:"
 msgstr "Systemadministrators e-postadresse:"
 
-#: ../src/msec/msecgui.py:566
+#: ../src/msec/msecgui.py:586
 msgid "Display security alerts on desktop"
 msgstr "Vis sikkerhetsvarsler på skrivebordet"
 
-#: ../src/msec/msecgui.py:727
+#: ../src/msec/msecgui.py:747
 msgid "Enable periodic security checks"
 msgstr "Slå på regelmessige sikkerhetssjekker"
 
-#: ../src/msec/msecgui.py:791
+#: ../src/msec/msecgui.py:811
 msgid "Path"
 msgstr "Sti"
 
-#: ../src/msec/msecgui.py:797
+#: ../src/msec/msecgui.py:817
 msgid "User"
 msgstr "Bruker"
 
-#: ../src/msec/msecgui.py:803
+#: ../src/msec/msecgui.py:823
 msgid "Group"
 msgstr "Gruppe"
 
-#: ../src/msec/msecgui.py:817
+#: ../src/msec/msecgui.py:837
 msgid "Enforce"
 msgstr "Håndhev"
 
-#: ../src/msec/msecgui.py:861
+#: ../src/msec/msecgui.py:881
 msgid "Reset to default level permissions"
 msgstr "Nullstill til forhåndsvalgte rettighetsnivåer"
 
-#: ../src/msec/msecgui.py:866
+#: ../src/msec/msecgui.py:886
 msgid "Add a rule"
 msgstr "Legg til en regel"
 
-#: ../src/msec/msecgui.py:871
+#: ../src/msec/msecgui.py:891
 msgid "Delete"
 msgstr "Slett"
 
-#: ../src/msec/msecgui.py:954
+#: ../src/msec/msecgui.py:974
 msgid "Changing permissions for %s"
 msgstr "Forandrer rettigheter for %s"
 
-#: ../src/msec/msecgui.py:961
+#: ../src/msec/msecgui.py:981
 msgid "Adding new permission check"
 msgstr "Legger til ny rettighetssjekk"
 
-#: ../src/msec/msecgui.py:973
+#: ../src/msec/msecgui.py:993
 msgid ""
 "Changing permissions on <b>%s</b>\n"
 "Please specify new permissions, or use 'current' to keep current "
@@ -1085,27 +1111,29 @@ msgstr ""
 "Vær vennlig å oppgi nye rettigheter eller benytt «nåværende» for å beholde "
 "nåværende rettigheter.\n"
 
-#: ../src/msec/msecgui.py:981
+#: ../src/msec/msecgui.py:1001
 msgid "File: "
 msgstr "Fil: "
 
-#: ../src/msec/msecgui.py:989
-msgid "User:"
+#: ../src/msec/msecgui.py:1009
+#, fuzzy
+msgid "User: "
 msgstr "Bruker:"
 
-#: ../src/msec/msecgui.py:997
+#: ../src/msec/msecgui.py:1017
 msgid "Group: "
 msgstr "Gruppe: "
 
-#: ../src/msec/msecgui.py:1005
-msgid "Permissions:"
+#: ../src/msec/msecgui.py:1025
+#, fuzzy
+msgid "Permissions: "
 msgstr "Rettigheter:"
 
-#: ../src/msec/msecgui.py:1066
+#: ../src/msec/msecgui.py:1086
 msgid "Select new value for %s"
 msgstr "Velg ny verdi for %s"
 
-#: ../src/msec/msecgui.py:1075
+#: ../src/msec/msecgui.py:1095
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1118,27 +1146,27 @@ msgstr ""
 "\t%sStandard nivåverdi: \t<i>%s</i>%s\n"
 "\t%sSecure nivåverdi:\t\t<i>%s</i>%s\n"
 
-#: ../src/msec/msecgui.py:1086
+#: ../src/msec/msecgui.py:1106
 msgid "New value:"
 msgstr "Ny verdi:"
 
-#: ../src/msec/msecgui.py:1148
+#: ../src/msec/msecgui.py:1168
 msgid "Save your changes?"
 msgstr "Lagre endringene?"
 
-#: ../src/msec/msecgui.py:1150
+#: ../src/msec/msecgui.py:1170
 msgid "_Cancel"
 msgstr "_Avbryt"
 
-#: ../src/msec/msecgui.py:1151
+#: ../src/msec/msecgui.py:1171
 msgid "_Ignore"
 msgstr "_Ignorer"
 
-#: ../src/msec/msecgui.py:1152
+#: ../src/msec/msecgui.py:1172
 msgid "_Save"
 msgstr "_Lagre"
 
-#: ../src/msec/msecgui.py:1154
+#: ../src/msec/msecgui.py:1174
 msgid "Do you want to save changes before closing?"
 msgstr "Ønsker du å lagre forandringene før avslutning?"
 
@@ -1167,7 +1195,8 @@ msgid "Disabling password history"
 msgstr "Slå av passordhistorie"
 
 #: ../src/msec/plugins/pam.py:123
-msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid ""
+"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr "Ugyldig passordlengde «%s». Bruk «length,ndigits,nupper» som parametre"
 
 #: ../src/msec/plugins/pam.py:144
@@ -1198,6 +1227,5 @@ msgstr "Tillater gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
 
-msgid "Enable verification of installed RPM packages."
-msgstr "Slå på kontroll av installerte RPM-pakker."
-
+#~ msgid "Enable verification of installed RPM packages."
+#~ msgstr "Slå på kontroll av installerte RPM-pakker."

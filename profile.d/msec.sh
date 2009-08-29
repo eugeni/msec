@@ -18,8 +18,8 @@ else
     fi
 fi
 
-if [ -n "$SECURE_LEVEL" ]; then
-    if [ "$SECURE_LEVEL" -le 1 ] && ! echo ${PATH} | fgrep -q :.; then
+if [ "$ALLOW_CURDIR_IN_PATH" == "yes" ]; then
+    if ! echo ${PATH} | fgrep -q :.; then
 	export PATH=$PATH:.
     fi
 fi

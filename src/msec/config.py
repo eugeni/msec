@@ -82,6 +82,7 @@ SETTINGS =    {'BASE_LEVEL':                    ("libmsec.base_level",          
                # security options
                'USER_UMASK':                    ("libmsec.set_user_umask",                  ['*']),
                'ROOT_UMASK':                    ("libmsec.set_root_umask",                  ['*']),
+               'ALLOW_CURDIR_IN_PATH':          ("libmsec.allow_curdir_in_path",            ['yes', 'no']),
                'WIN_PARTS_UMASK':               ("libmsec.set_win_parts_umask",             ['*']),
                'ACCEPT_BOGUS_ERROR_RESPONSES':  ("libmsec.accept_bogus_error_responses",    ['yes', 'no']),
                'ACCEPT_BROADCASTED_ICMP_ECHO':  ("libmsec.accept_broadcasted_icmp_echo",    ['yes', 'no']),
@@ -120,7 +121,7 @@ SETTINGS_SYSTEM = ["ENABLE_STARTUP_MSEC", "ENABLE_STARTUP_PERMS", "ENABLE_MSEC_C
                     "ALLOW_ROOT_LOGIN", "ALLOW_USER_LIST", "ALLOW_AUTOLOGIN",
                     "ENABLE_CONSOLE_LOG", "CREATE_SERVER_LINK", "ALLOW_XAUTH_FROM_ROOT",
                     "ALLOW_REBOOT", "SHELL_HISTORY_SIZE", "SHELL_TIMEOUT", "USER_UMASK", "ROOT_UMASK",
-                    "SECURE_TMP", "WIN_PARTS_UMASK"
+                    "SECURE_TMP", "WIN_PARTS_UMASK", "ALLOW_CURDIR_IN_PATH"
                     ]
 # network security settings
 SETTINGS_NETWORK = ["ACCEPT_BOGUS_ERROR_RESPONSES", "ACCEPT_BROADCASTED_ICMP_ECHO", "ACCEPT_ICMP_ECHO",

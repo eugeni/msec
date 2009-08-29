@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-07-01 10:51+BRT\n"
+"POT-Creation-Date: 2009-08-29 10:40+BRT\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,7 +72,7 @@ msgid "Allow only users in wheel group to su to root."
 msgstr ""
 
 #: ../src/msec/help.py:42
-msgid "Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages. By default, two presets are provided: local (which only enables local services) and remote (which also enables some remote services considered safe). Note that the allowed services must be placed manually into the server.SERVER_LEVEL files when necessary."
+msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
 msgstr ""
 
 #: ../src/msec/help.py:44
@@ -84,7 +84,7 @@ msgid "Enable permission checking on users' files that should not be owned by so
 msgstr ""
 
 #: ../src/msec/help.py:48
-msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
+msgid "Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages. By default, two presets are provided: local (which only enables local services) and remote (which also enables some remote services considered safe). Note that the allowed services must be placed manually into the server.SERVER_LEVEL files when necessary."
 msgstr ""
 
 #: ../src/msec/help.py:50
@@ -216,54 +216,58 @@ msgid "Enforce MSEC file directory permissions on system startup. If this parame
 msgstr ""
 
 #: ../src/msec/help.py:114
-msgid "Show security notifications in system tray using libnotify."
+msgid "Include current directory into user PATH by default"
 msgstr ""
 
 #: ../src/msec/help.py:116
-msgid "Allow remote root login via sshd. If yes, login is allowed. If without-password, only public-key authentication logins are allowed. See sshd_config(5) man page for more information."
+msgid "Show security notifications in system tray using libnotify."
 msgstr ""
 
 #: ../src/msec/help.py:118
-msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
+msgid "Allow remote root login via sshd. If yes, login is allowed. If without-password, only public-key authentication logins are allowed. See sshd_config(5) man page for more information."
 msgstr ""
 
 #: ../src/msec/help.py:120
-msgid "Ask for root password when going to single user level (man sulogin(8))."
+msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
 msgstr ""
 
 #: ../src/msec/help.py:122
-msgid "Allow to export display when passing from the root account to the other users. See pam_xauth(8) for more details."
+msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
 
 #: ../src/msec/help.py:124
-msgid "Set the user umask."
+msgid "Allow to export display when passing from the root account to the other users. See pam_xauth(8) for more details."
 msgstr ""
 
 #: ../src/msec/help.py:126
-msgid "Accept ICMP echo."
+msgid "Set the user umask."
 msgstr ""
 
 #: ../src/msec/help.py:128
-msgid "Allow full access to network services controlled by tcp_wrapper (see hosts.deny(5)). If yes, all services are allowed. If local, only connections to local services are authorized. If no, the services must be authorized manually in /etc/hosts.allow (see hosts.allow(5))."
+msgid "Accept ICMP echo."
 msgstr ""
 
 #: ../src/msec/help.py:130
-msgid "Activate ethernet cards promiscuity check."
+msgid "Allow full access to network services controlled by tcp_wrapper (see hosts.deny(5)). If yes, all services are allowed. If local, only connections to local services are authorized. If no, the services must be authorized manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
 
 #: ../src/msec/help.py:132
-msgid "Perform hourly security check for changes in system configuration."
+msgid "Activate ethernet cards promiscuity check."
 msgstr ""
 
 #: ../src/msec/help.py:134
-msgid "Enforce MSEC settings on system startup"
+msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
 
 #: ../src/msec/help.py:136
-msgid "Enable periodic security check results to terminal."
+msgid "Enforce MSEC settings on system startup"
 msgstr ""
 
 #: ../src/msec/help.py:138
+msgid "Enable periodic security check results to terminal."
+msgstr ""
+
+#: ../src/msec/help.py:140
 msgid "Enable PolicyKit security framework for all users. If this option is not enabled, only users in wheel group may change advanced PolicyKit permissions and settings"
 msgstr ""
 
@@ -311,7 +315,7 @@ msgstr ""
 msgid "Not supported function '%s' in '%s'"
 msgstr ""
 
-#: ../src/msec/libmsec.py:804 ../src/msec/libmsec.py:1625
+#: ../src/msec/libmsec.py:804 ../src/msec/libmsec.py:1638
 msgid "In check-only mode, nothing is written back to disk."
 msgstr ""
 
@@ -563,71 +567,79 @@ msgstr ""
 msgid "Not using secure location for temporary files"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1555
+#: ../src/msec/libmsec.py:1538
+msgid "Allowing including current directory in path"
+msgstr ""
+
+#: ../src/msec/libmsec.py:1541
+msgid "Not allowing including current directory in path"
+msgstr ""
+
+#: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1567
+#: ../src/msec/libmsec.py:1580
 msgid "user name not found for id %d"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1579
+#: ../src/msec/libmsec.py:1592
 msgid "group name %s not found"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1591
+#: ../src/msec/libmsec.py:1604
 msgid "group name not found for id %d"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1601
+#: ../src/msec/libmsec.py:1614
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
 
-#: ../src/msec/libmsec.py:1640
+#: ../src/msec/libmsec.py:1653
 msgid "Forcing ownership of %s to %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1644
+#: ../src/msec/libmsec.py:1657
 msgid "Error changing user on %s: %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1646
+#: ../src/msec/libmsec.py:1659
 msgid "Wrong owner of %s: should be %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1649
+#: ../src/msec/libmsec.py:1662
 msgid "Enforcing group on %s to %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1653
+#: ../src/msec/libmsec.py:1666
 msgid "Error changing group on %s: %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1655
+#: ../src/msec/libmsec.py:1668
 msgid "Wrong group of %s: should be %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1660
+#: ../src/msec/libmsec.py:1673
 msgid "Enforcing permissions on %s to %o"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1664
+#: ../src/msec/libmsec.py:1677
 msgid "Error changing permissions on %s: %s"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1666
+#: ../src/msec/libmsec.py:1679
 msgid "Wrong permissions of %s: should be %o"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1683
+#: ../src/msec/libmsec.py:1696
 msgid "bad permissions for '%s': '%s'"
 msgstr ""
 
-#: ../src/msec/libmsec.py:1708
+#: ../src/msec/libmsec.py:1721
 msgid "Non local file: \"%s\". Nothing changed."
 msgstr ""
 
-#: ../src/msec/libmsec.py:1750
+#: ../src/msec/libmsec.py:1763
 msgid "Checking paths: %s"
 msgstr ""
 
@@ -737,210 +749,218 @@ msgstr ""
 msgid "_About"
 msgstr ""
 
-#: ../src/msec/msecgui.py:182
+#: ../src/msec/msecgui.py:183
 msgid "MSEC: System Security and Audit"
 msgstr ""
 
-#: ../src/msec/msecgui.py:200
+#: ../src/msec/msecgui.py:198
+msgid "Save and apply current policy"
+msgstr ""
+
+#: ../src/msec/msecgui.py:204
+msgid "Quit"
+msgstr ""
+
+#: ../src/msec/msecgui.py:220
 msgid "Basic security"
 msgstr ""
 
-#: ../src/msec/msecgui.py:201
+#: ../src/msec/msecgui.py:221
 msgid "System security"
 msgstr ""
 
-#: ../src/msec/msecgui.py:202
+#: ../src/msec/msecgui.py:222
 msgid "Network security"
 msgstr ""
 
-#: ../src/msec/msecgui.py:203
+#: ../src/msec/msecgui.py:223
 msgid "Periodic checks"
 msgstr ""
 
-#: ../src/msec/msecgui.py:204 ../src/msec/msecgui.py:809
+#: ../src/msec/msecgui.py:224 ../src/msec/msecgui.py:829
 msgid "Permissions"
 msgstr ""
 
-#: ../src/msec/msecgui.py:237
+#: ../src/msec/msecgui.py:257
 msgid "MSEC option changes"
 msgstr ""
 
-#: ../src/msec/msecgui.py:237
+#: ../src/msec/msecgui.py:257
 msgid "option"
 msgstr ""
 
-#: ../src/msec/msecgui.py:238
+#: ../src/msec/msecgui.py:258
 msgid "System permissions changes"
 msgstr ""
 
-#: ../src/msec/msecgui.py:238
+#: ../src/msec/msecgui.py:258
 msgid "permission check"
 msgstr ""
 
-#: ../src/msec/msecgui.py:248
+#: ../src/msec/msecgui.py:268
 msgid "changed %s <b>%s</b> (%s -> %s)"
 msgstr ""
 
-#: ../src/msec/msecgui.py:253
+#: ../src/msec/msecgui.py:273
 msgid "added %s <b>%s</b> (%s)"
 msgstr ""
 
-#: ../src/msec/msecgui.py:258
+#: ../src/msec/msecgui.py:278
 msgid "removed %s <b>%s</b>"
 msgstr ""
 
-#: ../src/msec/msecgui.py:262
+#: ../src/msec/msecgui.py:282
 msgid "no changes"
 msgstr ""
 
-#: ../src/msec/msecgui.py:274
+#: ../src/msec/msecgui.py:294
 msgid "Saving changes.."
 msgstr ""
 
-#: ../src/msec/msecgui.py:308
+#: ../src/msec/msecgui.py:328
 msgid ""
 "<b>%s:</b> <i>%s</i>\n"
 msgstr ""
 
-#: ../src/msec/msecgui.py:315
+#: ../src/msec/msecgui.py:335
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
 msgstr ""
 
-#: ../src/msec/msecgui.py:323
+#: ../src/msec/msecgui.py:343
 msgid "Details"
 msgstr ""
 
-#: ../src/msec/msecgui.py:329
+#: ../src/msec/msecgui.py:349
 msgid "MSEC messages (%s): %d"
 msgstr ""
 
-#: ../src/msec/msecgui.py:343
+#: ../src/msec/msecgui.py:363
 msgid "Details (%d changes).."
 msgstr ""
 
-#: ../src/msec/msecgui.py:388
+#: ../src/msec/msecgui.py:408
 msgid "No base msec level specified, using '%s'"
 msgstr ""
 
-#: ../src/msec/msecgui.py:391
+#: ../src/msec/msecgui.py:411
 msgid "Detected base msec level '%s'"
 msgstr ""
 
-#: ../src/msec/msecgui.py:396
+#: ../src/msec/msecgui.py:416
 msgid "Custom base config level '%s' found. Will default to '%s'"
 msgstr ""
 
-#: ../src/msec/msecgui.py:424
+#: ../src/msec/msecgui.py:444
 msgid "Security Option"
 msgstr ""
 
-#: ../src/msec/msecgui.py:434
+#: ../src/msec/msecgui.py:454
 msgid "Description"
 msgstr ""
 
-#: ../src/msec/msecgui.py:439
+#: ../src/msec/msecgui.py:459
 msgid "Value"
 msgstr ""
 
-#: ../src/msec/msecgui.py:449
+#: ../src/msec/msecgui.py:469
 msgid "Invalid option '%s'!"
 msgstr ""
 
-#: ../src/msec/msecgui.py:499
+#: ../src/msec/msecgui.py:519
 msgid "Enable MSEC tool"
 msgstr ""
 
-#: ../src/msec/msecgui.py:506
+#: ../src/msec/msecgui.py:526
 msgid "Select the base security level"
 msgstr ""
 
-#: ../src/msec/msecgui.py:510
+#: ../src/msec/msecgui.py:530
 msgid "Standard"
 msgstr ""
 
-#: ../src/msec/msecgui.py:523
+#: ../src/msec/msecgui.py:543
 msgid "Secure"
 msgstr ""
 
-#: ../src/msec/msecgui.py:540
+#: ../src/msec/msecgui.py:560
 msgid "Send security alerts by email"
 msgstr ""
 
-#: ../src/msec/msecgui.py:547
+#: ../src/msec/msecgui.py:567
 msgid "System administrator email address:"
 msgstr ""
 
-#: ../src/msec/msecgui.py:566
+#: ../src/msec/msecgui.py:586
 msgid "Display security alerts on desktop"
 msgstr ""
 
-#: ../src/msec/msecgui.py:727
+#: ../src/msec/msecgui.py:747
 msgid "Enable periodic security checks"
 msgstr ""
 
-#: ../src/msec/msecgui.py:791
+#: ../src/msec/msecgui.py:811
 msgid "Path"
 msgstr ""
 
-#: ../src/msec/msecgui.py:797
+#: ../src/msec/msecgui.py:817
 msgid "User"
 msgstr ""
 
-#: ../src/msec/msecgui.py:803
+#: ../src/msec/msecgui.py:823
 msgid "Group"
 msgstr ""
 
-#: ../src/msec/msecgui.py:817
+#: ../src/msec/msecgui.py:837
 msgid "Enforce"
 msgstr ""
 
-#: ../src/msec/msecgui.py:861
+#: ../src/msec/msecgui.py:881
 msgid "Reset to default level permissions"
 msgstr ""
 
-#: ../src/msec/msecgui.py:866
+#: ../src/msec/msecgui.py:886
 msgid "Add a rule"
 msgstr ""
 
-#: ../src/msec/msecgui.py:871
+#: ../src/msec/msecgui.py:891
 msgid "Delete"
 msgstr ""
 
-#: ../src/msec/msecgui.py:954
+#: ../src/msec/msecgui.py:974
 msgid "Changing permissions for %s"
 msgstr ""
 
-#: ../src/msec/msecgui.py:961
+#: ../src/msec/msecgui.py:981
 msgid "Adding new permission check"
 msgstr ""
 
-#: ../src/msec/msecgui.py:973
+#: ../src/msec/msecgui.py:993
 msgid ""
 "Changing permissions on <b>%s</b>\n"
 "Please specify new permissions, or use 'current' to keep current permissions.\n"
 msgstr ""
 
-#: ../src/msec/msecgui.py:981
+#: ../src/msec/msecgui.py:1001
 msgid "File: "
 msgstr ""
 
-#: ../src/msec/msecgui.py:989
+#: ../src/msec/msecgui.py:1009
 msgid "User: "
 msgstr ""
 
-#: ../src/msec/msecgui.py:997
+#: ../src/msec/msecgui.py:1017
 msgid "Group: "
 msgstr ""
 
-#: ../src/msec/msecgui.py:1005
+#: ../src/msec/msecgui.py:1025
 msgid "Permissions: "
 msgstr ""
 
-#: ../src/msec/msecgui.py:1066
+#: ../src/msec/msecgui.py:1086
 msgid "Select new value for %s"
 msgstr ""
 
-#: ../src/msec/msecgui.py:1075
+#: ../src/msec/msecgui.py:1095
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -949,27 +969,27 @@ msgid ""
 "\t%sSecure level value:\t\t<i>%s</i>%s\n"
 msgstr ""
 
-#: ../src/msec/msecgui.py:1086
+#: ../src/msec/msecgui.py:1106
 msgid "New value:"
 msgstr ""
 
-#: ../src/msec/msecgui.py:1148
+#: ../src/msec/msecgui.py:1168
 msgid "Save your changes?"
 msgstr ""
 
-#: ../src/msec/msecgui.py:1150
+#: ../src/msec/msecgui.py:1170
 msgid "_Cancel"
 msgstr ""
 
-#: ../src/msec/msecgui.py:1151
+#: ../src/msec/msecgui.py:1171
 msgid "_Ignore"
 msgstr ""
 
-#: ../src/msec/msecgui.py:1152
+#: ../src/msec/msecgui.py:1172
 msgid "_Save"
 msgstr ""
 
-#: ../src/msec/msecgui.py:1154
+#: ../src/msec/msecgui.py:1174
 msgid "Do you want to save changes before closing?"
 msgstr ""
 

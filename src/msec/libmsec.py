@@ -1527,6 +1527,19 @@ class MSEC:
         """Enforce MSEC file directory permissions on system startup. If this parameter is set to 'enforce', system permissions will be enforced automatically, according to system security settings."""
         pass
 
+    def allow_curdir_in_path(self, param):
+        """Include current directory into user PATH by default"""
+        msec = self.configfiles.get_config_file(SHELLCONF)
+
+        val = msec.get_shell_variable('ALLOW_CURDIR_IN_PATH')
+
+        if val != param:
+            if param == 'yes':
+                self.log.info(_('Allowing including current directory in path'))
+                msec.set_shell_variable('ALLOW_CURDIR_IN_PATH', param)
+            else:
+                self.log.info(_('Not allowing including current directory in path'))
+                msec.set_shell_variable('ALLOW_CURDIR_IN_PATH', param)
 
 # }}}
 

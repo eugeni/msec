@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: libDrakX\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-01 10:51+BRT\n"
-"PO-Revision-Date: 2009-08-22 11:12+0200\n"
+"PO-Revision-Date: 2009-08-25 22:58+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -228,7 +228,7 @@ msgstr "Vel storleik på kommandologg for skal. Bruk «-1» for inga grense."
 
 #: ../src/msec/help.py:90
 msgid "Allow system reboot and shutdown to local users."
-msgstr "Lat lokale brukarar slå av eller starta maskina på nytt."
+msgstr "La lokale brukarar slå av eller starta maskina på nytt."
 
 #: ../src/msec/help.py:92
 msgid "Enables logging of periodic checks to system log."
@@ -283,7 +283,7 @@ msgstr "Meld frå om eigarlause filer."
 #: ../src/msec/help.py:110
 msgid "Allow display managers (kdm and gdm) to display list of local users."
 msgstr ""
-"Lat innloggingshandsamarane (KDM og GDM) å visa ei oversikt over lokale "
+"La innloggingshandsamarane (KDM og GDM) å visa ei oversikt over lokale "
 "brukarar."
 
 #: ../src/msec/help.py:112

@@ -70,8 +70,8 @@ install: all
 
 	# profile.d config
 	mkdir -p $(RPM_BUILD_ROOT)/etc/profile.d/
-	install -m755 profile.d/msec.sh $(RPM_BUILD_ROOT)/etc/profile.d/
-	install -m755 profile.d/msec.csh $(RPM_BUILD_ROOT)/etc/profile.d/
+	install -m755 profile.d/msec.sh $(RPM_BUILD_ROOT)/etc/profile.d/01msec.sh
+	install -m755 profile.d/msec.csh $(RPM_BUILD_ROOT)/etc/profile.d/01msec.csh
 
 	# logrotate
 	mkdir -p $(RPM_BUILD_ROOT)/etc/logrotate.d

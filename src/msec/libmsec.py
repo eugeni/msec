@@ -1441,7 +1441,7 @@ class MSEC:
         pass
 
     def check_firewall(self, param):
-        """ Enable checking for firewall settings ports."""
+        """ Enable checking for changes in firewall settings."""
         pass
 
     def check_passwd(self, param):

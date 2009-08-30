@@ -10,18 +10,19 @@
 # Thomas Backlund <tmb@mandrake.org>, 2002, 2003, 2004, 2005.
 # Anssi Hannula <anssi@mandriva.org>, 2008.
 # Jani Välimaa <jani.valimaa@gmail.com>, 2009.
+# Jani Välimaa <wally@mandriva.org>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-29 10:52+BRT\n"
-"PO-Revision-Date: 2009-04-22 23:52+0300\n"
-"Last-Translator: Jani Välimaa <jani.valimaa@gmail.com>\n"
+"PO-Revision-Date: 2009-08-30 19:00+0300\n"
+"Last-Translator: Jani Välimaa <wally@mandriva.org>\n"
 "Language-Team: Finnish <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.3\n"
+"X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:14
@@ -132,25 +133,23 @@ msgstr ""
 "server.TIETOTURVATASO tarvittaessa."
 
 #: ../src/msec/help.py:50
-#, fuzzy
 msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
 msgstr ""
 "Tunnista käyttäjät salasanan avulla.\n"
 "\n"
-"Asetusta EI TULISI POISTAA KÄYTÖSTÄ, koska se tekee järjestelmästä "
-"haavoittuvaisen."
+"MIETI TARKKAAN, jos olet poistamassa salasanatunnistusta "
+"käytöstä, koska se saattaa järjestelmän haavoittuvaiseksi."
 
 #: ../src/msec/help.py:52
-#, fuzzy
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
 "Käytä asetusta umask liitettäessä VFAT- ja NTFS-osioita.\n"
 "\n"
-"Jos umask=0, käytetään järjestelmän oletusarvoa."
+"Jos umask on -1, käytetään järjestelmän oletusarvoa."
 
 #: ../src/msec/help.py:54
 msgid "Enable checking for open network ports."
@@ -168,6 +167,7 @@ msgstr ""
 #: ../src/msec/help.py:60
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
 msgstr ""
+"Korjaa omistamattomien tiedostojen omistajaksi nobody ja ryhmäksi nogroup."
 
 #: ../src/msec/help.py:62
 msgid "Send security check results by email."
@@ -197,6 +197,9 @@ msgid ""
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
+"Ota RPM-pakettien tarkistus käyttöön. Käytettäessä asetusta, ilmoitetaan, "
+"jos asennettujen tiedostojen tarkistussumma on muuttunut. Binääri- ja "
+"asetustiedostot käsitellään erikseen."
 
 #: ../src/msec/help.py:72
 msgid "Enable AppArmor security framework on boot"
@@ -240,6 +243,8 @@ msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
+"Ota käyttöön asennettujen pakettien muutosten tarkistus. Käytettäessä "
+"asetusta, ilmoitetaan, jos paketteja asennetaan tai poistetaan."
 
 #: ../src/msec/help.py:88
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -257,9 +262,8 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Kirjaa säännöllisten tarkistusten tulokset järjestelmälokiin."
 
 #: ../src/msec/help.py:94
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Raportoi tiedostot, joilla ei ole omistajaa."
+msgstr "Ota käyttöön järjestelmän käyttäjäryhmien muutosten tarkistus."
 
 #: ../src/msec/help.py:96
 msgid ""
@@ -289,15 +293,18 @@ msgid ""
 "user home directory will be used for temporary files. Otherwise, /tmp will "
 "be used."
 msgstr ""
+"Käytä turvallista sijaintia tilapäisille tiedostoille.\n"
+"\n"
+"Jos asetus on käytössä, käytetään hakemistoa ~/tmp tilapäisille "
+"tiedostoille. Muuten käytetään hakemistoa /tmp."
 
 #: ../src/msec/help.py:104
 msgid "Allow direct root login on terminal."
 msgstr "Salli pääkäyttäjän paikallinen kirjautuminen."
 
 #: ../src/msec/help.py:106
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Raportoi tiedostot, joilla ei ole omistajaa."
+msgstr "Ota käyttöön muutoksien tarkistus järjestelmän käyttäjissä."
 
 #: ../src/msec/help.py:108
 msgid "Enable checking for unowned files."
@@ -320,7 +327,7 @@ msgstr ""
 
 #: ../src/msec/help.py:114
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Sisällytä nykyinen hakemisto PATH-muuttujaan oletusarvoisesti."
 
 #: ../src/msec/help.py:116
 msgid "Show security notifications in system tray using libnotify."
@@ -529,9 +536,8 @@ msgid "Removing limit on shell history size"
 msgstr "Poistetaan komentotulkin historian kokorajoitus"
 
 #: ../src/msec/libmsec.py:991
-#, fuzzy
 msgid "Invalid file system umask \"%s\""
-msgstr "Virheellinen komentotulkin aikakatkaisun arvo %s"
+msgstr "Virheellinen tiedostojärjestelmän umask-arvo %s"
 
 #: ../src/msec/libmsec.py:1025
 msgid "Allowing reboot and shutdown to the console user"
@@ -713,19 +719,19 @@ msgstr "Estetään pääkäyttäjän paikallinen kirjautuminen"
 
 #: ../src/msec/libmsec.py:1516
 msgid "Using secure location for temporary files"
-msgstr ""
+msgstr "Käytetään turvallista sijaintia tilapäisille tiedostoille"
 
 #: ../src/msec/libmsec.py:1518
 msgid "Not using secure location for temporary files"
-msgstr ""
+msgstr "Ei käytetä turvallista sijaintia tilapäisille tiedostoille"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Sisällytetään käytettävä hakemisto PATH-muuttujaan"
 
 #: ../src/msec/libmsec.py:1541
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Käytettävää hakemistoa ei sisällytetä PATH-muuttujaan"
 
 #: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"
@@ -948,14 +954,12 @@ msgid "MSEC: System Security and Audit"
 msgstr "MSEC: Järjestelmän turvallisuus- ja seuranta-asetukset"
 
 #: ../src/msec/msecgui.py:198
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Tallenna ja ota uudet asetukset käyttöön?"
+msgstr "Tallenna ja ota asetukset käyttöön"
 
 #: ../src/msec/msecgui.py:204
-#, fuzzy
 msgid "Quit"
-msgstr "_Poistu"
+msgstr "Poistu"
 
 #: ../src/msec/msecgui.py:220
 msgid "Basic security"

@@ -53,7 +53,7 @@ PLUGINS_DIR="/usr/share/msec/plugins"
 #               OPTION                           callback                            valid values
 SETTINGS =    {'BASE_LEVEL':                    ("libmsec.base_level",                      ['*']),
                'CHECK_SECURITY' :               ("libmsec.check_security",                  ['yes', 'no']),
-               'CHECK_PERMS' :                  ("libmsec.check_perms",                     ['yes', 'no']),
+               'CHECK_PERMS' :                  ("libmsec.check_perms",                     ['yes', 'no', 'enforce']),
                'CHECK_USER_FILES' :             ("libmsec.check_user_files",                ['yes', 'no']),
                'CHECK_SUID_ROOT' :              ("libmsec.check_suid_root",                 ['yes', 'no']),
                'CHECK_SUID_MD5' :               ("libmsec.check_suid_md5",                  ['yes', 'no']),

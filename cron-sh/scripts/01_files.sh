@@ -237,11 +237,16 @@ fi
 fi # End of CHECK_USER_FILES
 
 # now check default permissions
-if [[ ${CHECK_PERMS} == yes ]]; then
+if [[ ${CHECK_PERMS} == yes || ${CHECK_PERMS} == enforce ]]; then
+        if [[ ${CHECK_PERMS} == enforce ]]; then
+                MSECPERMS_PARAMS="-e"
+        else
+                MSECPERMS_PARAMS=""
+        fi
         # running msec_perms
-        /usr/sbin/msecperms > ${MSEC_TMP} 2>&1
+        /usr/sbin/msecperms $MSECPERMS_PARAMS > ${MSEC_TMP} 2>&1
         if [[ -s ${MSEC_TMP} ]]; then
-                printf "\nPermissions changes on system files:\n" >> ${SECURITY}
+                printf "\nPermissions changes on files watched by msec:\n" >> ${SECURITY}
                 cat ${MSEC_TMP} | sed -e 's/WARNING: //g' >> ${SECURITY}
         fi
 fi

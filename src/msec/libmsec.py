@@ -1405,7 +1405,7 @@ class MSEC:
         pass
 
     def check_perms(self, param):
-        """ Enable periodic permission checking for system files."""
+        """ Enable periodic permission checking for files specified in msec policy. If set to yes, the permissions are verified on every run. If set to enforce, incorrect permissions are restored to the ones specified in msec security policy."""
         pass
 
     def check_user_files(self, param):

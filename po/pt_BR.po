@@ -17,7 +17,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
-"POT-Creation-Date: 2009-08-29 10:52+BRT\n"
+"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
 "PO-Revision-Date: 2009-02-06 14:39-0200\n"
 "Last-Translator: Sergio Rafael Lemke <sergio@mandriva.com.br>\n"
 "Language-Team: Brazilian Portuguese <cooker-i18n@mandrivalinux.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 
 #: ../src/msec/help.py:14
 #, fuzzy
-msgid "Enable checking for firewall settings ports."
+msgid "Enable checking for changes in firewall settings."
 msgstr "Habilita checagem por portas de rede abertas."
 
 #: ../src/msec/help.py:16

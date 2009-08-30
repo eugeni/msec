@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libDrakX-sv\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-29 10:52+BRT\n"
+"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
 "PO-Revision-Date: 2008-09-26 22:07+0300\n"
 "Last-Translator: Thomas Backlund <tmb@mandriva.org>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: ../src/msec/help.py:14
 #, fuzzy
-msgid "Enable checking for firewall settings ports."
+msgid "Enable checking for changes in firewall settings."
 msgstr "Rapportera filer som inte ägs av någon"
 
 #: ../src/msec/help.py:16

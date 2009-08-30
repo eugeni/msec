@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX-hi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-29 10:52+BRT\n"
+"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
 "PO-Revision-Date: 2004-04-04 21:54+0530\n"
 "Last-Translator: धनञ्जय शर्मा (Dhananjaya Sharma) <dysxhi@yahoo.co.in>\n"
 "Language-Team: हिन्दी (Hindi) <dysxhi@yahoo.co.in>\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: ../src/msec/help.py:14
 #, fuzzy
-msgid "Enable checking for firewall settings ports."
+msgid "Enable checking for changes in firewall settings."
 msgstr "बिना स्वामित्व वाली संचिकाओं के बारे में बतायें"
 
 #: ../src/msec/help.py:16

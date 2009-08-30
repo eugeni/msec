@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mandriva DrakX.cy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-29 10:52+BRT\n"
+"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
 "PO-Revision-Date: 2009-02-27 08:42-0000\n"
 "Last-Translator: Rhoslyn Prys <post@meddal.com>\n"
 "Language-Team: Cymraeg <post@meddal.com>\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../src/msec/help.py:14
 #, fuzzy
-msgid "Enable checking for firewall settings ports."
+msgid "Enable checking for changes in firewall settings."
 msgstr "Adrodd ar ffeiliau heb berchennog."
 
 #: ../src/msec/help.py:16

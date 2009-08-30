@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-29 10:52+BRT\n"
+"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
 "PO-Revision-Date: 2008-03-29 21:33+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: Mandriva Linux i18n Team <cooker-i18n@mandrivalinux.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../src/msec/help.py:14
 #, fuzzy
-msgid "Enable checking for firewall settings ports."
+msgid "Enable checking for changes in firewall settings."
 msgstr "报告无主文件"
 
 #: ../src/msec/help.py:16

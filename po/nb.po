@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-29 10:52+BRT\n"
+"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
 "PO-Revision-Date: 2009-08-20 21:00+0200\n"
 "Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
@@ -32,7 +32,8 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:14
-msgid "Enable checking for firewall settings ports."
+#, fuzzy
+msgid "Enable checking for changes in firewall settings."
 msgstr "Slå på sjekk for innstilling av brannmursporter."
 
 #: ../src/msec/help.py:16

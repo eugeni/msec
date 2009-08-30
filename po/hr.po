@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX 0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-29 10:52+BRT\n"
+"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
 "PO-Revision-Date: 2005-01-04 21:25+CET\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../src/msec/help.py:14
 #, fuzzy
-msgid "Enable checking for firewall settings ports."
+msgid "Enable checking for changes in firewall settings."
 msgstr "Provjera dodavanja/uklanjanja suid root datoteka"
 
 #: ../src/msec/help.py:16

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-29 10:52+BRT\n"
+"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
 "PO-Revision-Date: 2003-03-12 18:31-0400\n"
 "Last-Translator: Vilhelmo Lutermano <vlutermano@free.fr>\n"
 "Language-Team: esperanto <eo@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Generator: KBabel 0.9.6\n"
 
 #: ../src/msec/help.py:14
-msgid "Enable checking for firewall settings ports."
+msgid "Enable checking for changes in firewall settings."
 msgstr ""
 
 #: ../src/msec/help.py:16

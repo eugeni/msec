@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-29 10:52+BRT\n"
+"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
 "PO-Revision-Date: 2009-08-30 19:00+0300\n"
 "Last-Translator: Jani Välimaa <wally@mandriva.org>\n"
 "Language-Team: Finnish <cooker-i18n@mandrivalinux.org>\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: ../src/msec/help.py:14
 #, fuzzy
-msgid "Enable checking for firewall settings ports."
+msgid "Enable checking for changes in firewall settings."
 msgstr "Tarkista avoimet portit."
 
 #: ../src/msec/help.py:16
@@ -139,8 +139,8 @@ msgid ""
 msgstr ""
 "Tunnista käyttäjät salasanan avulla.\n"
 "\n"
-"MIETI TARKKAAN, jos olet poistamassa salasanatunnistusta "
-"käytöstä, koska se saattaa järjestelmän haavoittuvaiseksi."
+"MIETI TARKKAAN, jos olet poistamassa salasanatunnistusta käytöstä, koska se "
+"saattaa järjestelmän haavoittuvaiseksi."
 
 #: ../src/msec/help.py:52
 msgid ""

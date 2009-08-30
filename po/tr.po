@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-29 10:52+BRT\n"
+"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
 "PO-Revision-Date: 2009-04-10 11:03+0300\n"
 "Last-Translator: Tanju Tascilar <tanju@elektronist.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -28,7 +28,7 @@ msgstr ""
 
 #: ../src/msec/help.py:14
 #, fuzzy
-msgid "Enable checking for firewall settings ports."
+msgid "Enable checking for changes in firewall settings."
 msgstr "Açık ağ portlarının denetimini etkinleştir"
 
 #: ../src/msec/help.py:16

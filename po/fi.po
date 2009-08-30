@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
+"POT-Creation-Date: 2009-08-30 20:48+BRT\n"
 "PO-Revision-Date: 2009-08-30 19:00+0300\n"
 "Last-Translator: Jani Välimaa <wally@mandriva.org>\n"
 "Language-Team: Finnish <cooker-i18n@mandrivalinux.org>\n"
@@ -235,8 +235,12 @@ msgid ""
 msgstr "Määrittelee turvatason, johon nykyiset asetukset perustuvat."
 
 #: ../src/msec/help.py:84
-msgid "Enable periodic permission checking for system files."
-msgstr "Tarkista järjestelmätiedostojen oikeudet säännöllisesti."
+msgid ""
+"Enable periodic permission checking for files specified in msec policy. If "
+"set to yes, the permissions are verified on every run. If set to enforce, "
+"incorrect permissions are restored to the ones specified in msec security "
+"policy."
+msgstr ""
 
 #: ../src/msec/help.py:86
 msgid ""
@@ -1261,6 +1265,9 @@ msgid "Disabling transparent root access for wheel group members"
 msgstr ""
 "Poistetaan käytöstä ryhmän wheel jäsenten pääsy pääkäyttäjäksi ilman "
 "salasanaa"
+
+#~ msgid "Enable periodic permission checking for system files."
+#~ msgstr "Tarkista järjestelmätiedostojen oikeudet säännöllisesti."
 
 #~ msgid "Enable verification of installed RPM packages."
 #~ msgstr "Tarkista asennettujen RPM-pakettien allekirjoitukset."

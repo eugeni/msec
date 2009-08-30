@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
+"POT-Creation-Date: 2009-08-30 20:48+BRT\n"
 "PO-Revision-Date: 2008-10-18 00:45+0800\n"
 "Last-Translator: You-Cheng Hsieh <yochenhsieh@gmail.com>\n"
 "Language-Team: Traditional Chinese <zh@li.org>\n"
@@ -206,8 +206,12 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:84
-msgid "Enable periodic permission checking for system files."
-msgstr "啟用定期檢查系統檔案權限。"
+msgid ""
+"Enable periodic permission checking for files specified in msec policy. If "
+"set to yes, the permissions are verified on every run. If set to enforce, "
+"incorrect permissions are restored to the ones specified in msec security "
+"policy."
+msgstr ""
 
 #: ../src/msec/help.py:86
 msgid ""
@@ -1194,6 +1198,9 @@ msgstr ""
 #: ../src/msec/plugins/pam.py:210
 msgid "Disabling transparent root access for wheel group members"
 msgstr "關閉 wheel 群組使用者直接使用 root 權限。"
+
+#~ msgid "Enable periodic permission checking for system files."
+#~ msgstr "啟用定期檢查系統檔案權限。"
 
 #~ msgid "Enable verification of installed RPM packages."
 #~ msgstr "啟用驗證已安裝的RPM"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libDrakX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
+"POT-Creation-Date: 2009-08-30 20:48+BRT\n"
 "PO-Revision-Date: 2009-08-30 10:51+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
@@ -212,8 +212,12 @@ msgstr ""
 "på."
 
 #: ../src/msec/help.py:84
-msgid "Enable periodic permission checking for system files."
-msgstr "Køyr regelmessige kontrollar av filløyve for systemfiler."
+msgid ""
+"Enable periodic permission checking for files specified in msec policy. If "
+"set to yes, the permissions are verified on every run. If set to enforce, "
+"incorrect permissions are restored to the ones specified in msec security "
+"policy."
+msgstr ""
 
 #: ../src/msec/help.py:86
 msgid ""
@@ -1207,6 +1211,9 @@ msgstr "Tillèt automatisk rottilgang for medlemmer av «wheel»-gruppa"
 #: ../src/msec/plugins/pam.py:210
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av automatisk rottilgang for medlemmer av «wheel»-gruppa"
+
+#~ msgid "Enable periodic permission checking for system files."
+#~ msgstr "Køyr regelmessige kontrollar av filløyve for systemfiler."
 
 #~ msgid "Enable verification of installed RPM packages."
 #~ msgstr "Kontroller installerte RPM-pakkar."

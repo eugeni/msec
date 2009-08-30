@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: da\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
+"POT-Creation-Date: 2009-08-30 20:48+BRT\n"
 "PO-Revision-Date: 2009-06-15 10:32+0200\n"
 "Last-Translator: Keld Simonsen <keld@dkuug.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -217,8 +217,12 @@ msgstr ""
 "baseret på."
 
 #: ../src/msec/help.py:84
-msgid "Enable periodic permission checking for system files."
-msgstr "Aktivér periodisk rettighedstjek for systemfiler."
+msgid ""
+"Enable periodic permission checking for files specified in msec policy. If "
+"set to yes, the permissions are verified on every run. If set to enforce, "
+"incorrect permissions are restored to the ones specified in msec security "
+"policy."
+msgstr ""
 
 #: ../src/msec/help.py:86
 msgid ""
@@ -1215,6 +1219,9 @@ msgstr "Tillader transparent root-adgang for medlemmer af wheel-gruppen"
 #: ../src/msec/plugins/pam.py:210
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Deaktiverer transparent root-adgang for medlemmer af wheel-gruppen"
+
+#~ msgid "Enable periodic permission checking for system files."
+#~ msgstr "Aktivér periodisk rettighedstjek for systemfiler."
 
 #~ msgid "Enable verification of installed RPM packages."
 #~ msgstr "Aktivér kontrol af installerede RPM-pakker."

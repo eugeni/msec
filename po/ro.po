@@ -43,7 +43,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: https://qa.mandriva.com\n"
-"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
+"POT-Creation-Date: 2009-08-30 20:48+BRT\n"
 "PO-Revision-Date: 2009-04-11 16:23+0100\n"
 "Last-Translator: Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>\n"
 "Language-Team: Mandrivausers.ro <piriu.cristian@rdslink.ro>\n"
@@ -263,8 +263,12 @@ msgstr ""
 "curentă."
 
 #: ../src/msec/help.py:84
-msgid "Enable periodic permission checking for system files."
-msgstr "Activează verificarea periodică de securitate pentru fișierele sistem."
+msgid ""
+"Enable periodic permission checking for files specified in msec policy. If "
+"set to yes, the permissions are verified on every run. If set to enforce, "
+"incorrect permissions are restored to the ones specified in msec security "
+"policy."
+msgstr ""
 
 #: ../src/msec/help.py:86
 msgid ""
@@ -1279,6 +1283,10 @@ msgstr "Se permite accesul transparent ca root pentru membrii grupului wheel"
 #: ../src/msec/plugins/pam.py:210
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Se dezactivează accesul root transparent pentru membrii grupului wheel"
+
+#~ msgid "Enable periodic permission checking for system files."
+#~ msgstr ""
+#~ "Activează verificarea periodică de securitate pentru fișierele sistem."
 
 #~ msgid "Enable verification of installed RPM packages."
 #~ msgstr "Activează verificarea pechetelor RPM instalate."

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
+"POT-Creation-Date: 2009-08-30 20:48+BRT\n"
 "PO-Revision-Date: 2009-04-10 11:03+0300\n"
 "Last-Translator: Tanju Tascilar <tanju@elektronist.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -226,8 +226,12 @@ msgstr ""
 "belirler"
 
 #: ../src/msec/help.py:84
-msgid "Enable periodic permission checking for system files."
-msgstr "Sistem dosyalarının periyodik olarak izin denetimini etkinleştirir"
+msgid ""
+"Enable periodic permission checking for files specified in msec policy. If "
+"set to yes, the permissions are verified on every run. If set to enforce, "
+"incorrect permissions are restored to the ones specified in msec security "
+"policy."
+msgstr ""
 
 #: ../src/msec/help.py:86
 msgid ""
@@ -1237,6 +1241,9 @@ msgstr "'wheel' grubu üyelerine saydam 'root' erişimi sağlanıyor"
 #: ../src/msec/plugins/pam.py:210
 msgid "Disabling transparent root access for wheel group members"
 msgstr "'wheel' grubu üyelerinin saydam 'root' erişimi kaldırılıyor"
+
+#~ msgid "Enable periodic permission checking for system files."
+#~ msgstr "Sistem dosyalarının periyodik olarak izin denetimini etkinleştirir"
 
 #~ msgid "Enable verification of installed RPM packages."
 #~ msgstr "Yüklü RPM paketlerinin doğrulanmasını etkinleştir"

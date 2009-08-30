@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
+"POT-Creation-Date: 2009-08-30 20:48+BRT\n"
 "PO-Revision-Date: 2009-03-31 15:56+0000\n"
 "Last-Translator: Pjetur G. Hjaltason <pjetur@pjetur.net>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
@@ -221,8 +221,12 @@ msgstr ""
 "Skilgreinir grunn-öryggis-þrep, sem núverandi öryggis-þrep byggir síðan á."
 
 #: ../src/msec/help.py:84
-msgid "Enable periodic permission checking for system files."
-msgstr "Virkja reglulega athugun á heimildum kerfisskráa."
+msgid ""
+"Enable periodic permission checking for files specified in msec policy. If "
+"set to yes, the permissions are verified on every run. If set to enforce, "
+"incorrect permissions are restored to the ones specified in msec security "
+"policy."
+msgstr ""
 
 #: ../src/msec/help.py:86
 msgid ""
@@ -1223,6 +1227,9 @@ msgstr "Leyfa gagnsæan kerfisstjórnunar-aðgang fyrir meðlimi í wheel hópnu
 #: ../src/msec/plugins/pam.py:210
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Aftengja gagnsæan kerfisstjórnunar-aðgang fyrir meðlimi í wheel hópnum"
+
+#~ msgid "Enable periodic permission checking for system files."
+#~ msgstr "Virkja reglulega athugun á heimildum kerfisskráa."
 
 #~ msgid "Enable verification of installed RPM packages."
 #~ msgstr "Virkja staðfestingu á innsettum RPM pökkum."

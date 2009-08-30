@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX-et\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
+"POT-Creation-Date: 2009-08-30 20:48+BRT\n"
 "PO-Revision-Date: 2009-04-17 17:21+0200\n"
 "Last-Translator: Marek Laane <bald@starman.ee>\n"
 "Language-Team: Estonian <et@li.org>\n"
@@ -212,8 +212,12 @@ msgid ""
 msgstr "Baasturvataseme määramine, millele tugineb kehtiv seadistus."
 
 #: ../src/msec/help.py:84
-msgid "Enable periodic permission checking for system files."
-msgstr "Süsteemsete failide perioodilise õiguste kontrolli lubamine."
+msgid ""
+"Enable periodic permission checking for files specified in msec policy. If "
+"set to yes, the permissions are verified on every run. If set to enforce, "
+"incorrect permissions are restored to the ones specified in msec security "
+"policy."
+msgstr ""
 
 #: ../src/msec/help.py:86
 msgid ""
@@ -1217,6 +1221,9 @@ msgstr "Läbipaistva administraatori ligipääsu lubamine grupi wheel liikmetele
 #: ../src/msec/plugins/pam.py:210
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Läbipaistva administraatori ligipääsu keelamine grupi wheel liikmetele"
+
+#~ msgid "Enable periodic permission checking for system files."
+#~ msgstr "Süsteemsete failide perioodilise õiguste kontrolli lubamine."
 
 #~ msgid "Enable verification of installed RPM packages."
 #~ msgstr "Paigaldatud RPM-pakettide kontrollimise lubamine."

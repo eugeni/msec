@@ -17,7 +17,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
-"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
+"POT-Creation-Date: 2009-08-30 20:48+BRT\n"
 "PO-Revision-Date: 2009-02-06 14:39-0200\n"
 "Last-Translator: Sergio Rafael Lemke <sergio@mandriva.com.br>\n"
 "Language-Team: Brazilian Portuguese <cooker-i18n@mandrivalinux.org>\n"
@@ -225,8 +225,12 @@ msgstr ""
 "atual."
 
 #: ../src/msec/help.py:84
-msgid "Enable periodic permission checking for system files."
-msgstr "Habilita checagem periódica de permissões nos arquivos do sistema."
+msgid ""
+"Enable periodic permission checking for files specified in msec policy. If "
+"set to yes, the permissions are verified on every run. If set to enforce, "
+"incorrect permissions are restored to the ones specified in msec security "
+"policy."
+msgstr ""
 
 #: ../src/msec/help.py:86
 msgid ""
@@ -1233,6 +1237,9 @@ msgstr "Permitindo acesso transparente root a membros do grupo wheel"
 #: ../src/msec/plugins/pam.py:210
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Desabilitando acesso transparente root a membros do grupo wheel"
+
+#~ msgid "Enable periodic permission checking for system files."
+#~ msgstr "Habilita checagem periódica de permissões nos arquivos do sistema."
 
 #~ msgid "Enable verification of installed RPM packages."
 #~ msgstr "Habilita checagem dos pacotes RPM instalados."

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
+"POT-Creation-Date: 2009-08-30 20:48+BRT\n"
 "PO-Revision-Date: 2009-04-02 06:50+0200\n"
 "Last-Translator: Moreno Manzini <moreno@mediacom.it>\n"
 "Language-Team: Italian <timl@freelist.org>\n"
@@ -238,8 +238,12 @@ msgstr ""
 "configurazione."
 
 #: ../src/msec/help.py:84
-msgid "Enable periodic permission checking for system files."
-msgstr "Abilita il controllo periodico dei permessi sui file del sistema"
+msgid ""
+"Enable periodic permission checking for files specified in msec policy. If "
+"set to yes, the permissions are verified on every run. If set to enforce, "
+"incorrect permissions are restored to the ones specified in msec security "
+"policy."
+msgstr ""
 
 #: ../src/msec/help.py:86
 msgid ""
@@ -1261,6 +1265,9 @@ msgstr "Permesso l'accesso trasparente a root agli utenti del gruppo 'wheel'."
 msgid "Disabling transparent root access for wheel group members"
 msgstr ""
 "Disabilitato l'accesso trasparente a root agli utenti del gruppo 'wheel'."
+
+#~ msgid "Enable periodic permission checking for system files."
+#~ msgstr "Abilita il controllo periodico dei permessi sui file del sistema"
 
 #~ msgid "Enable verification of installed RPM packages."
 #~ msgstr "Abilita la verifica dei pacchetti RPM installati."

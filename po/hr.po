@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX 0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
+"POT-Creation-Date: 2009-08-30 20:48+BRT\n"
 "PO-Revision-Date: 2005-01-04 21:25+CET\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -210,7 +210,11 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:84
-msgid "Enable periodic permission checking for system files."
+msgid ""
+"Enable periodic permission checking for files specified in msec policy. If "
+"set to yes, the permissions are verified on every run. If set to enforce, "
+"incorrect permissions are restored to the ones specified in msec security "
+"policy."
 msgstr ""
 
 #: ../src/msec/help.py:86

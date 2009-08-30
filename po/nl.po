@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-30 16:40+BRT\n"
+"POT-Creation-Date: 2009-08-30 20:48+BRT\n"
 "PO-Revision-Date: 2009-04-10 10:06+0200\n"
 "Last-Translator: Frederik Himpe <fhimpe@telenet.be>\n"
 "Language-Team: Nederlands\n"
@@ -230,8 +230,12 @@ msgstr ""
 "gebaseerd."
 
 #: ../src/msec/help.py:84
-msgid "Enable periodic permission checking for system files."
-msgstr "Regelmatig de toegangsrechten op systeembestanden nakijken."
+msgid ""
+"Enable periodic permission checking for files specified in msec policy. If "
+"set to yes, the permissions are verified on every run. If set to enforce, "
+"incorrect permissions are restored to the ones specified in msec security "
+"policy."
+msgstr ""
 
 #: ../src/msec/help.py:86
 msgid ""
@@ -1239,6 +1243,9 @@ msgstr "Transparante root-toegang toestaan voor leden van de groep wheel"
 #: ../src/msec/plugins/pam.py:210
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Transparante root-toegang uitschakelen voor leden van de groep wheel"
+
+#~ msgid "Enable periodic permission checking for system files."
+#~ msgstr "Regelmatig de toegangsrechten op systeembestanden nakijken."
 
 #~ msgid "Enable verification of installed RPM packages."
 #~ msgstr "Verifiëren van geïnstalleerde RPM-pakketten."

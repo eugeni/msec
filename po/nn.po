@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: libDrakX\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-29 10:52+BRT\n"
-"PO-Revision-Date: 2009-08-25 22:58+0200\n"
+"PO-Revision-Date: 2009-08-30 10:51+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -297,7 +297,7 @@ msgstr ""
 
 #: ../src/msec/help.py:114
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Ta med gjeldande mappe i søkjestigen (PATH) som standard."
 
 #: ../src/msec/help.py:116
 msgid "Show security notifications in system tray using libnotify."
@@ -677,11 +677,11 @@ msgstr "Brukar ikkje ein trygg lagringsplass for mellombelse filer"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Tillèt gjeldande mappe i søkjestigen"
 
 #: ../src/msec/libmsec.py:1541
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Tillèt ikkje gjeldande mappe i søkjestigen"
 
 #: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"
@@ -900,14 +900,12 @@ msgid "MSEC: System Security and Audit"
 msgstr "MSEC: Overvaking av systemtryggleik"
 
 #: ../src/msec/msecgui.py:198
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Vil du lagra og ta i bruk det nye oppsettet?"
+msgstr "Lagra og bruk oppsettet"
 
 #: ../src/msec/msecgui.py:204
-#, fuzzy
 msgid "Quit"
-msgstr "_Avslutt"
+msgstr "Avslutt"
 
 #: ../src/msec/msecgui.py:220
 msgid "Basic security"

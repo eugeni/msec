@@ -14,12 +14,13 @@
 # Wanderlei Antonio Cavassin <cavassin@mandriva.com>, 2006.
 # Felipe Arruda <felipemiguel@gmail.com>, 2006, 2007, 2008.
 # Sergio Rafael Lemke <sergio@mandriva.com.br>, 2009.
+# Sergio Rafael Lemke (bedi) <sergio@mandriva.com.br>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "POT-Creation-Date: 2009-08-30 20:48+BRT\n"
-"PO-Revision-Date: 2009-02-06 14:39-0200\n"
-"Last-Translator: Sergio Rafael Lemke <sergio@mandriva.com.br>\n"
+"PO-Revision-Date: 2009-08-31 11:48-0300\n"
+"Last-Translator: Sergio Rafael Lemke (bedi) <sergio@mandriva.com.br>\n"
 "Language-Team: Brazilian Portuguese <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,9 +29,8 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n > 1);\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Habilita checagem por portas de rede abertas."
+msgstr "Habilita checagem por alterações nas configurações do firewall."
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -131,7 +131,6 @@ msgstr ""
 "necessário."
 
 #: ../src/msec/help.py:50
-#, fuzzy
 msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
@@ -140,13 +139,12 @@ msgstr ""
 "senhas, já que isso deixa a máquina vulnerável."
 
 #: ../src/msec/help.py:52
-#, fuzzy
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
-"Define a opção umask para montar partições vfat e ntfs. Se umask é '0',o "
-"umask padrão do sistema será usado."
+"Define a opção umask para montar partições vfat e ntfs. Se umask for '-1', "
+"umask padrão do sistema é usado."
 
 #: ../src/msec/help.py:54
 msgid "Enable checking for open network ports."
@@ -253,9 +251,8 @@ msgstr ""
 "Permite gravação dos logs das checagens periódicas nos logs do sistema."
 
 #: ../src/msec/help.py:94
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Habilita checagem por arquivos órfãos."
+msgstr "Habilita checagem por alterações nos grupos do sistema."
 
 #: ../src/msec/help.py:96
 msgid ""
@@ -289,9 +286,8 @@ msgid "Allow direct root login on terminal."
 msgstr "Permite login direto do root no terminal."
 
 #: ../src/msec/help.py:106
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Habilita checagem por arquivos órfãos."
+msgstr "Habilita checagem por alterações nos usuários do sistema."
 
 #: ../src/msec/help.py:108
 msgid "Enable checking for unowned files."
@@ -517,9 +513,8 @@ msgid "Removing limit on shell history size"
 msgstr "Removendo limitação de tamanho para o histórico do shell"
 
 #: ../src/msec/libmsec.py:991
-#, fuzzy
 msgid "Invalid file system umask \"%s\""
-msgstr "Tempo de espera do shell inválido \"%s\""
+msgstr "Umask do sistema de arquivos inválido \"%s\""
 
 #: ../src/msec/libmsec.py:1025
 msgid "Allowing reboot and shutdown to the console user"
@@ -930,12 +925,10 @@ msgid "MSEC: System Security and Audit"
 msgstr "MSEC: Segurança do Sistema e Auditoria"
 
 #: ../src/msec/msecgui.py:198
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Salvar e Aplicar nova Configuração"
+msgstr "Salvar e Aplicar política corrente"
 
 #: ../src/msec/msecgui.py:204
-#, fuzzy
 msgid "Quit"
 msgstr "Sair"
 

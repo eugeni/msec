@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: DrakX-el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-30 20:48+BRT\n"
-"PO-Revision-Date: 2009-08-30 21:54+0200\n"
+"PO-Revision-Date: 2009-08-31 18:52+0200\n"
 "Last-Translator: Glentadakis Dimitrios <dglent@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -136,7 +136,6 @@ msgstr ""
 "απαραίτητο."
 
 #: ../src/msec/help.py:50
-#, fuzzy
 msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
@@ -146,13 +145,12 @@ msgstr ""
 "υπολογιστή εκτεθειμένο."
 
 #: ../src/msec/help.py:52
-#, fuzzy
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
 "Όρισε την επιλογή umask για την προσάρτηση κατατμήσεων vfat και ntfs. Αν το "
-"umask είναι '0', θα χρησιμοποιείται το umask του συστήματος από προεπιλογή."
+"umask είναι '-1', θα χρησιμοποιείται το umask του συστήματος από προεπιλογή."
 
 #: ../src/msec/help.py:54
 msgid "Enable checking for open network ports."
@@ -171,6 +169,8 @@ msgstr ""
 #: ../src/msec/help.py:60
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
 msgstr ""
+"Διόρθωση ιδιοκτήτη και ομάδας στα αρχεία χωρίς ιδιοκτήτη, ώστε να γίνεται "
+"χρήση του nobody/nogroup. "
 
 #: ../src/msec/help.py:62
 msgid "Send security check results by email."
@@ -199,6 +199,11 @@ msgid ""
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
+"Ενεργοποίηση επαλήθευσης της ακεραιότητας των εγκατεστημένων πακέτων RPM. Θα "
+"σας ειδοποιεί "
+"αν το άθροισμα ελέγχου των εγκατεστημένων αρχείων έχει αλλάξει, εμφανίζοντας "
+"ξεχωριστά "
+"τα αποτελέσματα για δυαδικά αρχεία και αρχεία ρυθμίσεων. "
 
 #: ../src/msec/help.py:72
 msgid "Enable AppArmor security framework on boot"
@@ -240,12 +245,20 @@ msgid ""
 "incorrect permissions are restored to the ones specified in msec security "
 "policy."
 msgstr ""
+"Ενεργοποίηση του περιοδικού ελέγχου αδειών των αρχείων που έχουν καθοριστεί "
+"στην πολιτική msec. Αν οριστεί σε «yes», οι άδειες θα ελέγχονται σε κάθε "
+"εκτέλεση. Αν οριστεί σε "
+"«enforce», θα γίνεται επαναφορά των εσφαλμένων αδειών σε αυτές που έχουν "
+"οριστεί στην πολιτική "
+"ασφαλείας msec. "
 
 #: ../src/msec/help.py:86
 msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
+"Ενεργοποίηση του ελέγχου για αλλαγές στα εγκατεστημένα πακέτα RPM. "
+"Θα σας ειδοποιεί όταν γίνεται εγκατάσταση νέων πακέτων ή απεγκατάσταση."
 
 #: ../src/msec/help.py:88
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -264,9 +277,8 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Ενεργοποίηση της καταγραφής των περιοδικών ελέγχων στο log συστήματος"
 
 #: ../src/msec/help.py:94
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Ενεργοποίηση ελέγχου για αρχεία χωρίς ιδιοκτήτη."
+msgstr "Ενεργοποίηση ελέγχου για αλλαγές στις ομάδες συστήματος."
 
 #: ../src/msec/help.py:96
 msgid ""
@@ -294,15 +306,18 @@ msgid ""
 "user home directory will be used for temporary files. Otherwise, /tmp will "
 "be used."
 msgstr ""
+"Χρήση ασφαλής τοποθεσίας για τα προσωρινά αρχεία. Αν αυτή η παράμετρος οριστεί "
+"σε «yes», θα χρησιμοποιείται για τα προσωρινά αρχεία ο κατάλογος home του "
+"χρήστη. "
+"Διαφορετικά θα χρησιμοποιείται το /tmp."
 
 #: ../src/msec/help.py:104
 msgid "Allow direct root login on terminal."
 msgstr "Επέτρεψε την απευθείας σύνδεση root στο τερματικό."
 
 #: ../src/msec/help.py:106
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Ενεργοποίηση ελέγχου για αρχεία χωρίς ιδιοκτήτη."
+msgstr "Ενεργοποίηση ελέγχου για αλλαγές στους χρήστες του συστήματος."
 
 #: ../src/msec/help.py:108
 msgid "Enable checking for unowned files."
@@ -480,8 +495,7 @@ msgstr "Επιτρέπεται απεριόριστο chkconfig, για τα π�
 
 #: ../src/msec/libmsec.py:851
 msgid "Restricting chkconfig for packages according to \"%s\" profile"
-msgstr ""
-"Περιορισμός του chkconfig, για τα πακέτα, σύμφωνα με με το προφίλ \"%s\""
+msgstr "Περιορισμός του chkconfig, για τα πακέτα, σύμφωνα με με το προφίλ \"%s\""
 
 #: ../src/msec/libmsec.py:861
 msgid "Setting root umask to %s"
@@ -620,8 +634,7 @@ msgstr "Απαγορεύεται η αυτόματη σύνδεση"
 
 #: ../src/msec/libmsec.py:1133
 msgid "Activating password in boot loader"
-msgstr ""
-"Ενεργοποίηση του κωδικού ασφαλείας στον διαχειριστή σύνδεσης των χρηστών"
+msgstr "Ενεργοποίηση του κωδικού ασφαλείας στον διαχειριστή σύνδεσης των χρηστών"
 
 #: ../src/msec/libmsec.py:1147
 msgid "Removing password in boot loader"
@@ -713,11 +726,11 @@ msgstr "Απαγόρευση της άμεσης σύνδεσης ως root"
 
 #: ../src/msec/libmsec.py:1516
 msgid "Using secure location for temporary files"
-msgstr ""
+msgstr "Χρήση ασφαλής τοποθεσίας για τα προσωρινά αρχεία"
 
 #: ../src/msec/libmsec.py:1518
 msgid "Not using secure location for temporary files"
-msgstr ""
+msgstr "Να μην γίνεται χρήση ασφαλής τοποθεσίας για τα προσωρινά αρχεία"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
@@ -955,14 +968,12 @@ msgid "MSEC: System Security and Audit"
 msgstr "MSEC: Ασφάλεια και Έλεγχοι Συστήματος"
 
 #: ../src/msec/msecgui.py:198
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Αποθήκευση και εφαρμογή των νέων ρυθμίσεων ;"
+msgstr "Αποθήκευση και εφαρμογή της τρέχουσας πολιτικής"
 
 #: ../src/msec/msecgui.py:204
-#, fuzzy
 msgid "Quit"
-msgstr "_Έξοδος"
+msgstr "Έξοδος"
 
 #: ../src/msec/msecgui.py:220
 msgid "Basic security"

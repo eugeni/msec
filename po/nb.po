@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-30 20:48+BRT\n"
-"PO-Revision-Date: 2009-08-20 21:00+0200\n"
+"PO-Revision-Date: 2009-08-31 17:28+0200\n"
 "Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,9 +32,8 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Slå på sjekk for innstilling av brannmursporter."
+msgstr "Slå på sjekk for endringer i for brannmursinnstillingene."
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -60,8 +59,7 @@ msgstr ""
 
 #: ../src/msec/help.py:24
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
+msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
 
 #: ../src/msec/help.py:26
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -304,8 +302,7 @@ msgstr "Slå på sjekk for filer uten eier."
 
 #: ../src/msec/help.py:110
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
-"Tillat innloggingsbehandlere (KDM og GDM) å vise en liste med lokale brukere."
+msgstr "Tillat innloggingsbehandlere (KDM og GDM) å vise en liste med lokale brukere."
 
 #: ../src/msec/help.py:112
 msgid ""
@@ -818,7 +815,6 @@ msgstr ""
 "for Skrivebord."
 
 #: ../src/msec/msecgui.py:56
-#, fuzzy
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. It also runs a wider set of "
@@ -923,14 +919,12 @@ msgid "MSEC: System Security and Audit"
 msgstr "MSEC: Systemsikkerhet og overvåkning"
 
 #: ../src/msec/msecgui.py:198
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Lagre og legge til nytt oppsett?"
+msgstr "Lagre og legge til gjeldende praksis?"
 
 #: ../src/msec/msecgui.py:204
-#, fuzzy
 msgid "Quit"
-msgstr "_Avslutt"
+msgstr "Avslutt"
 
 #: ../src/msec/msecgui.py:220
 msgid "Basic security"
@@ -985,7 +979,6 @@ msgid "no changes"
 msgstr "ingen forandringer"
 
 #: ../src/msec/msecgui.py:294
-#, fuzzy
 msgid "Saving changes.."
 msgstr "Lagrer forandringer…"
 
@@ -1006,7 +999,6 @@ msgid "MSEC messages (%s): %d"
 msgstr "MSEC meldinger (%s): %d"
 
 #: ../src/msec/msecgui.py:363
-#, fuzzy
 msgid "Details (%d changes).."
 msgstr "Detaljer (%d forandres) …"
 
@@ -1121,18 +1113,16 @@ msgid "File: "
 msgstr "Fil: "
 
 #: ../src/msec/msecgui.py:1009
-#, fuzzy
 msgid "User: "
-msgstr "Bruker:"
+msgstr "Bruker: "
 
 #: ../src/msec/msecgui.py:1017
 msgid "Group: "
 msgstr "Gruppe: "
 
 #: ../src/msec/msecgui.py:1025
-#, fuzzy
 msgid "Permissions: "
-msgstr "Rettigheter:"
+msgstr "Rettigheter: "
 
 #: ../src/msec/msecgui.py:1086
 msgid "Select new value for %s"
@@ -1200,8 +1190,7 @@ msgid "Disabling password history"
 msgstr "Slå av passordhistorie"
 
 #: ../src/msec/plugins/pam.py:123
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr "Ugyldig passordlengde «%s». Bruk «length,ndigits,nupper» som parametre"
 
 #: ../src/msec/plugins/pam.py:144
@@ -1232,8 +1221,3 @@ msgstr "Tillater gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
 
-#~ msgid "Enable periodic permission checking for system files."
-#~ msgstr "Slå på regelmessige rettighetssjekker for systemfiler."
-
-#~ msgid "Enable verification of installed RPM packages."
-#~ msgstr "Slå på kontroll av installerte RPM-pakker."

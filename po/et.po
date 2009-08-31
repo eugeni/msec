@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: DrakX-et\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-30 20:48+BRT\n"
-"PO-Revision-Date: 2009-04-17 17:21+0200\n"
+"PO-Revision-Date: 2009-08-31 11:32+0200\n"
 "Last-Translator: Marek Laane <bald@starman.ee>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,9 +17,8 @@ msgstr ""
 "X-Generator: KBabel 1.3\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Avatud võrguportide kontrollimise lubamine."
+msgstr "Tulemüüri seadistuste muutuste kontrollimise lubamine."
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -120,7 +119,6 @@ msgstr ""
 "SERVER_LEVEL failidesse käsitsi."
 
 #: ../src/msec/help.py:50
-#, fuzzy
 msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
@@ -129,13 +127,12 @@ msgstr ""
 "paroolid keelate, sest see muudab masina väga haavatavaks."
 
 #: ../src/msec/help.py:52
-#, fuzzy
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
 "Umask-i võtme määramine vfat- ja ntfs-partitsioonide haakimisel. Kui umask "
-"on '0', kasutatakse süsteemi vaikimisi umask-i."
+"on '-1', kasutatakse süsteemi vaikimisi umask-i."
 
 #: ../src/msec/help.py:54
 msgid "Enable checking for open network ports."
@@ -151,7 +148,7 @@ msgstr "Paroolita administraatori õiguste lubamine grupi wheel liikmetele."
 
 #: ../src/msec/help.py:60
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
-msgstr ""
+msgstr "Omanikuta failide omanikuks ja grupiks määratakse nobody ja nogroup."
 
 #: ../src/msec/help.py:62
 msgid "Send security check results by email."
@@ -179,6 +176,9 @@ msgid ""
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
+"Paigaldatud RPM-pakettide terviklikkuse kontrollimise lubamine. See annab "
+"märku, kui paigaldatud failide kontrollsumma peaks muutuma, näidates tulemusi "
+"eraldi binaar- ja seadistustefailide kohta."
 
 #: ../src/msec/help.py:72
 msgid "Enable AppArmor security framework on boot"
@@ -218,12 +218,18 @@ msgid ""
 "incorrect permissions are restored to the ones specified in msec security "
 "policy."
 msgstr ""
+"Mseci seadistuses määratud failide õiguste perioodilise kontrollimise "
+"lubamine. Väärtuse 'yes' korral kontrollitakse õigusi iga kord. Väärtuse "
+"'enforce' korral antakse vääratele õigustele uuesti selline õigus, nagu "
+"see on määratud mseci seadistusega."
 
 #: ../src/msec/help.py:86
 msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
+"Paigaldatud RPM-pakettide muutuste kontrollimise lubamine. See annab "
+"märku, kui on paigaldatud uusi pakette või seniseid eemaldatud."
 
 #: ../src/msec/help.py:88
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -239,9 +245,8 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Perioodiliste kontrollide logimise lubamine süsteemi logisse."
 
 #: ../src/msec/help.py:94
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Omanikuta failide kontrollimise lubamine."
+msgstr "Süsteemsete gruppide muutuste kontrollimise lubamine."
 
 #: ../src/msec/help.py:96
 msgid ""
@@ -269,15 +274,17 @@ msgid ""
 "user home directory will be used for temporary files. Otherwise, /tmp will "
 "be used."
 msgstr ""
+"Turvalise asukoha kasutamine ajutiste failide puhul. Kui väärtuseks määrata "
+"'yes', kasutatakse selleks kasutaja kodukataloogi, kõigil muudel juhtudel "
+"kataloogi /tmp."
 
 #: ../src/msec/help.py:104
 msgid "Allow direct root login on terminal."
 msgstr "Administraatori vahetu sisselogimise lubamine terminalis."
 
 #: ../src/msec/help.py:106
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Omanikuta failide kontrollimise lubamine."
+msgstr "Süsteemsete kasutajate muutuste kontrollimise lubamine."
 
 #: ../src/msec/help.py:108
 msgid "Enable checking for unowned files."
@@ -300,7 +307,7 @@ msgstr ""
 
 #: ../src/msec/help.py:114
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Aktiivse kataloogi vaikimisi lisamine kasutaja otsinguteele (PATH)."
 
 #: ../src/msec/help.py:116
 msgid "Show security notifications in system tray using libnotify."
@@ -501,9 +508,8 @@ msgid "Removing limit on shell history size"
 msgstr "Shelli puhvri suuruse piirangu eemaldamine"
 
 #: ../src/msec/libmsec.py:991
-#, fuzzy
 msgid "Invalid file system umask \"%s\""
-msgstr "Vigane shelli aegumine \"%s\""
+msgstr "Vigane failisüsteemi umask \"%s\""
 
 #: ../src/msec/libmsec.py:1025
 msgid "Allowing reboot and shutdown to the console user"
@@ -675,19 +681,19 @@ msgstr "Administraatori vahetu sisselogimise keelamine"
 
 #: ../src/msec/libmsec.py:1516
 msgid "Using secure location for temporary files"
-msgstr ""
+msgstr "Ajutiste failide turvalise asukoha kasutamine"
 
 #: ../src/msec/libmsec.py:1518
 msgid "Not using secure location for temporary files"
-msgstr ""
+msgstr "Ajutiste failide turvalise asukoha mittekasutamine"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Aktiivse kataloogi otsinguteele lisamise lubamine"
 
 #: ../src/msec/libmsec.py:1541
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Aktiivse kataloogi otsinguteele lisamise keelamine"
 
 #: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"
@@ -914,14 +920,12 @@ msgid "MSEC: System Security and Audit"
 msgstr "MSEC: süsteemi turvalisus ja audit"
 
 #: ../src/msec/msecgui.py:198
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Kas salvestada ja kehtestada uus seadistus?"
+msgstr "Salvesta ja kehtesta uus seadistus"
 
 #: ../src/msec/msecgui.py:204
-#, fuzzy
 msgid "Quit"
-msgstr "_Välju"
+msgstr "Välju"
 
 #: ../src/msec/msecgui.py:220
 msgid "Basic security"

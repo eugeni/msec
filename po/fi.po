@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-30 20:48+BRT\n"
-"PO-Revision-Date: 2009-08-30 19:00+0300\n"
+"PO-Revision-Date: 2009-09-01 12:06+0300\n"
 "Last-Translator: Jani Välimaa <wally@mandriva.org>\n"
 "Language-Team: Finnish <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -26,9 +26,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Tarkista avoimet portit."
+msgstr "Tarkista palomuurin asetusten muutokset."
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -36,7 +35,7 @@ msgstr "Ota käyttöön IP spoofing -suojaus."
 
 #: ../src/msec/help.py:18
 msgid "Send mail reports even if no changes were detected."
-msgstr "Lähetä sähköpostiraportti vaikka muutoksia ei havaittu"
+msgstr "Lähetä sähköpostiraportti vaikka muutoksia ei havaittu."
 
 #: ../src/msec/help.py:20
 msgid "Accept broadcasted ICMP echo."
@@ -241,6 +240,12 @@ msgid ""
 "incorrect permissions are restored to the ones specified in msec security "
 "policy."
 msgstr ""
+"Ota käyttöön ajoittaiset msec:n asetuksissa määriteltyjen tiedostojen "
+"oikeuksien tarkistus.\n"
+"\n"
+"-jos asetus on \"yes\", oikeudet tarkastetaan joka kerta\n"
+"-jos asetus on \"enforce\", virheelliset oikeudet palautetaan msec:n "
+"asetuksissa määritellyiksi."
 
 #: ../src/msec/help.py:86
 msgid ""

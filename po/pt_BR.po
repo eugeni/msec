@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "POT-Creation-Date: 2009-08-30 20:48+BRT\n"
-"PO-Revision-Date: 2009-08-31 11:48-0300\n"
+"PO-Revision-Date: 2009-09-02 14:55-0300\n"
 "Last-Translator: Sergio Rafael Lemke (bedi) <sergio@mandriva.com.br>\n"
 "Language-Team: Brazilian Portuguese <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -160,7 +160,7 @@ msgstr "Permite acesso root sem senha para membros do grupo wheel."
 
 #: ../src/msec/help.py:60
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
-msgstr ""
+msgstr "Colocar grupo e usuário nobody/nogroup para arquivos sem dono."
 
 #: ../src/msec/help.py:62
 msgid "Send security check results by email."
@@ -188,6 +188,9 @@ msgid ""
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
+"Habilita verificação de integridade dos pacotes RPM instalados. Isto vai "
+"notificar você se os checksums dos arquivos instalados foram alterados, "
+"mostrando resultados separados para binários e arquivos de configuração."
 
 #: ../src/msec/help.py:72
 msgid "Enable AppArmor security framework on boot"
@@ -229,12 +232,18 @@ msgid ""
 "incorrect permissions are restored to the ones specified in msec security "
 "policy."
 msgstr ""
+"Habilita verificação periódica de permissões para arquivos especificados "
+"na política do msec. Se marcar sim, as permissões são verificadas a cada "
+"execução. Se marcar enforce, permissões incorretas são restauradas para "
+"as específicadas na politica de segurança do msec."
 
 #: ../src/msec/help.py:86
 msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
+"Habilita verificação por alterações de pacotes RPM instalados. Isto vai "
+"notificar você quando novos programas são instalados ou removidos."
 
 #: ../src/msec/help.py:88
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -280,6 +289,9 @@ msgid ""
 "user home directory will be used for temporary files. Otherwise, /tmp will "
 "be used."
 msgstr ""
+"Usar localização segura para arquivos temporários. Se este parâmentro "
+"for marcado como 'sim', o diretório home do usuário será usado para "
+"arquivos temporários. Caso contrário, /tmp será usado."
 
 #: ../src/msec/help.py:104
 msgid "Allow direct root login on terminal."
@@ -312,7 +324,7 @@ msgstr ""
 
 #: ../src/msec/help.py:114
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Incluir, por padrão, o diretório corrente ao PATH do usuário"
 
 #: ../src/msec/help.py:116
 msgid "Show security notifications in system tray using libnotify."
@@ -686,19 +698,19 @@ msgstr "Proibindo login direto do root."
 
 #: ../src/msec/libmsec.py:1516
 msgid "Using secure location for temporary files"
-msgstr ""
+msgstr "Usando locação segura para arquivos temporários"
 
 #: ../src/msec/libmsec.py:1518
 msgid "Not using secure location for temporary files"
-msgstr ""
+msgstr "Não usando locação segura para arquivos temporários"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Permitindo inclusão do diretório corrente ao path"
 
 #: ../src/msec/libmsec.py:1541
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Não permitindo inclusão do diretório corrente ao path"
 
 #: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"

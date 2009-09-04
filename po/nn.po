@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: libDrakX\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-30 20:48+BRT\n"
-"PO-Revision-Date: 2009-08-30 10:51+0200\n"
+"PO-Revision-Date: 2009-09-04 21:08+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,8 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Sjå etter opne brannmuroppsett-portar."
+msgstr "Sjå etter endringar i brannmurinnstillingane."
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -218,6 +217,9 @@ msgid ""
 "incorrect permissions are restored to the ones specified in msec security "
 "policy."
 msgstr ""
+"Køyr regelmessig kontroll av filløyve basert på msec-reglane. Viss sett til "
+"«ja», vert løyva sjekka ved kvar køyring. Viss sett til «tving», vert feil "
+"løyve automatisk retta."
 
 #: ../src/msec/help.py:86
 msgid ""

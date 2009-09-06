@@ -76,7 +76,7 @@ msgstr ""
 "Project-Id-Version: DrakX-fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-30 20:48+BRT\n"
-"PO-Revision-Date: 2009-04-11 19:34+0200\n"
+"PO-Revision-Date: 2009-09-06 14:08+0200\n"
 "Last-Translator: Christophe Berthelé <berthy@mandriva.org>\n"
 "Language-Team: French <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -86,9 +86,8 @@ msgstr ""
 "Plural-Forms: nplurals=2;plural=(n>1);\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Vérifier les ports réseau ouverts."
+msgstr "Surveiller la modification des paramètres du parefeu."
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -194,23 +193,21 @@ msgstr ""
 "vous en avez besoin."
 
 #: ../src/msec/help.py:50
-#, fuzzy
 msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
 msgstr ""
-"Utiliser un mot de passe pour l'authentification des utilisateurs. Soyez "
+"Utiliser des mots de passe pour l'authentification des utilisateurs. Soyez "
 "EXTRÈMEMENT prudent si vous désactivez les mots de passe car la machine "
 "serait alors très vulnérable."
 
 #: ../src/msec/help.py:52
-#, fuzzy
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
-"Régler l'option pour le montage de partitions vfat et ntfs. Si umask est à 0 "
-"alors l'umask système par défaut est utilisé."
+"Régler l'option umask pour le montage de partitions vfat et ntfs. Si umask "
+"est à « -1 » alors l'umask système par défaut est utilisé."
 
 #: ../src/msec/help.py:54
 msgid "Enable checking for open network ports."
@@ -227,7 +224,7 @@ msgstr ""
 
 #: ../src/msec/help.py:60
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
-msgstr ""
+msgstr "Affecter les fichiers sans propriétaire à « nobody/nogroup »"
 
 #: ../src/msec/help.py:62
 msgid "Send security check results by email."
@@ -256,6 +253,10 @@ msgid ""
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
+"Activer la vérification de l'intégrité des paquetages RPM installés. Ceci "
+"vous avertira lorsque la somme de contrôle des fichiers installés n'est plus "
+"la même, en affichant séparement les résultats pour les fichiers binaires ou "
+"de configuration."
 
 #: ../src/msec/help.py:72
 msgid "Enable AppArmor security framework on boot"
@@ -297,12 +298,19 @@ msgid ""
 "incorrect permissions are restored to the ones specified in msec security "
 "policy."
 msgstr ""
+"Active la vérification périodique des fichiers spécifiés dans la politique "
+"msec. Si cette option est activée, les permissions sont vérifiées "
+"systématiquement. Si Forcer est sélectionné, les permissions incorrectes "
+"sont corrigées avec celles définies dans la politique sécurité msec."
 
 #: ../src/msec/help.py:86
 msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
+"Active la vérification des changements dans les paquetages installés. Vous "
+"serez alors averti lorsque des paquetages sont nouvellement installés ou "
+"supprimés."
 
 #: ../src/msec/help.py:88
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -320,9 +328,8 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Tracer les vérifications périodiques dans le journal système."
 
 #: ../src/msec/help.py:94
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Rechercher les fichiers n'appartenant à aucun utilisateur."
+msgstr "Activer la vérification des changements dans les groupes sytème."
 
 #: ../src/msec/help.py:96
 msgid ""
@@ -350,15 +357,17 @@ msgid ""
 "user home directory will be used for temporary files. Otherwise, /tmp will "
 "be used."
 msgstr ""
+"Utiliser un emplacement sécurisé pour les fichiers temporaires. Si ce "
+"paramètre est activé, le répertoire utilisateur sera utilisé pour les "
+"fichiers temporaires. Sinon, c'est /tmp qui le sera."
 
 #: ../src/msec/help.py:104
 msgid "Allow direct root login on terminal."
 msgstr "Permettre la connexion directe sur terminal en tant que root."
 
 #: ../src/msec/help.py:106
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Rechercher les fichiers n'appartenant à aucun utilisateur."
+msgstr "Activer la vérification des changements dans les utilisateurs système."
 
 #: ../src/msec/help.py:108
 msgid "Enable checking for unowned files."
@@ -376,14 +385,14 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
-"Appliquer les permissions MSEC sur les répertoires et les fichiers au "
+"Forcer les permissions MSEC sur les répertoires et les fichiers au "
 "démarrage. Si ce paramètre est positionné à « appliquer », les permissions du "
-"système seront appliquées automatiquement, en fonction de la configuration "
-"de sécurité du système."
+"système seront corrigées automatiquement en fonction de la configuration de "
+"sécurité du système."
 
 #: ../src/msec/help.py:114
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Inclure le répertoire courant dans le PATH utilisateur par défaut"
 
 #: ../src/msec/help.py:116
 msgid "Show security notifications in system tray using libnotify."
@@ -453,7 +462,7 @@ msgstr ""
 
 #: ../src/msec/help.py:136
 msgid "Enforce MSEC settings on system startup"
-msgstr "Appliquer les paramètres MSEC au démarrage"
+msgstr "Forcer les paramètres MSEC au démarrage"
 
 #: ../src/msec/help.py:138
 msgid "Enable periodic security check results to terminal."
@@ -591,9 +600,8 @@ msgid "Removing limit on shell history size"
 msgstr "Suppression de la limite de l'historique du shell"
 
 #: ../src/msec/libmsec.py:991
-#, fuzzy
 msgid "Invalid file system umask \"%s\""
-msgstr "Délai d'expiration de l'interpréteur de commande invalide « %s »"
+msgstr "L'umask « %s » du système de fichiers est invalide"
 
 #: ../src/msec/libmsec.py:1025
 msgid "Allowing reboot and shutdown to the console user"
@@ -772,19 +780,20 @@ msgstr "Interdiction de la connexion directe en tant que root"
 
 #: ../src/msec/libmsec.py:1516
 msgid "Using secure location for temporary files"
-msgstr ""
+msgstr "Utilisation d'un emplacement sécurisé pour les fichiers temporaires"
 
 #: ../src/msec/libmsec.py:1518
 msgid "Not using secure location for temporary files"
 msgstr ""
+"Pas d'utilisation d'un emplacement sécurisé pour les fichiers temporaires"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Autorisation d'ajouter le répertoire courant dans le PATH"
 
 #: ../src/msec/libmsec.py:1541
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Interdiction d'ajouter le répertoire courant dans le PATH"
 
 #: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"
@@ -972,7 +981,7 @@ msgstr ""
 "Les permissions suivantes sont vérifiées périodiquement et tout changement "
 "de propriétaire,\n"
 "de groupe ou de permissions est signalé. Les permissions peuvent être "
-"remplacées automatiquement \n"
+"corrigées automatiquement \n"
 "par les valeurs spécifiées quant un changement est détecté.  "
 
 #: ../src/msec/msecgui.py:77
@@ -1012,14 +1021,12 @@ msgid "MSEC: System Security and Audit"
 msgstr "MSEC : Sécurité du système et Audit"
 
 #: ../src/msec/msecgui.py:198
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Sauvegarder et appliquer la nouvelle configuration ?"
+msgstr "Sauvegarder et appliquer la politique courante"
 
 #: ../src/msec/msecgui.py:204
-#, fuzzy
 msgid "Quit"
-msgstr "_Quitter"
+msgstr "Quitter"
 
 #: ../src/msec/msecgui.py:220
 msgid "Basic security"
@@ -1171,7 +1178,7 @@ msgstr "Groupe"
 
 #: ../src/msec/msecgui.py:837
 msgid "Enforce"
-msgstr "Appliquer"
+msgstr "Forcer"
 
 #: ../src/msec/msecgui.py:881
 msgid "Reset to default level permissions"
@@ -1323,10 +1330,3 @@ msgid "Disabling transparent root access for wheel group members"
 msgstr ""
 "Désactivation d'accès administrateur transparent pour les membres du groupe "
 "wheel"
-
-#~ msgid "Enable periodic permission checking for system files."
-#~ msgstr ""
-#~ "Active la vérification périodique des permissions des fichiers système."
-
-#~ msgid "Enable verification of installed RPM packages."
-#~ msgstr "Vérifier les paquetages RPM installés."

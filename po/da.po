@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: da\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-30 20:48+BRT\n"
-"PO-Revision-Date: 2009-06-15 10:32+0200\n"
+"PO-Revision-Date: 2009-09-08 10:06+0200\n"
 "Last-Translator: Keld Simonsen <keld@dkuug.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -21,9 +21,8 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Aktivér kontrol for åbne netværksporte."
+msgstr "Aktivér kontrol for ændring af brandmursindstillinger."
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -49,8 +48,7 @@ msgstr ""
 
 #: ../src/msec/help.py:24
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Tillad X-serveren at acceptere tilkoblinger fra netværket på tcp-port 6000."
+msgstr "Tillad X-serveren at acceptere tilkoblinger fra netværket på tcp-port 6000."
 
 #: ../src/msec/help.py:26
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -123,21 +121,19 @@ msgstr ""
 "skal placeres manuelt i server.SERVER_LEVEL-filerne når det behøves."
 
 #: ../src/msec/help.py:50
-#, fuzzy
 msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
 msgstr ""
-"Brug adgangskode for at autentificere brugere. Vær YDERST forsigtig når du "
+"Brug adgangskode for at autentificere brugere. Vær YDERST forsigtig hvis du "
 "deaktiverer brugen af adgangskoder da det vil gøre maskinen sårbar."
 
 #: ../src/msec/help.py:52
-#, fuzzy
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
-"Sæt umask-valg for montering af VFAT og NTFS-partitioner. Hvis umask er '0' "
+"Sæt umask-valg for montering af vfat og ntfs-partitioner. Hvis umask er '-1' "
 "vil det normale systemvalg benyttes."
 
 #: ../src/msec/help.py:54
@@ -154,7 +150,7 @@ msgstr "Tillad root-adgang uden adgangskode for medlemmerne i wheel-gruppen."
 
 #: ../src/msec/help.py:60
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
-msgstr ""
+msgstr "Ret ejer og gruppe for ikke-ejede filer til at bruge nobody/nogroup."
 
 #: ../src/msec/help.py:62
 msgid "Send security check results by email."
@@ -232,8 +228,7 @@ msgstr ""
 
 #: ../src/msec/help.py:88
 msgid "Set shell commands history size. A value of -1 means unlimited."
-msgstr ""
-"Sæt historiklængden for kommandoskallen. En værdi på -1 betyder ubegrænset."
+msgstr "Sæt historiklængden for kommandoskallen. En værdi på -1 betyder ubegrænset."
 
 #: ../src/msec/help.py:90
 msgid "Allow system reboot and shutdown to local users."
@@ -244,9 +239,8 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Aktiverer logning af periodiske tjek i systemloggen."
 
 #: ../src/msec/help.py:94
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Aktivér tjek for filer der ikke ejes af nogen."
+msgstr ""
 
 #: ../src/msec/help.py:96
 msgid ""
@@ -280,9 +274,8 @@ msgid "Allow direct root login on terminal."
 msgstr "Tillad direkte root-logind på terminal."
 
 #: ../src/msec/help.py:106
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Aktivér tjek for filer der ikke ejes af nogen."
+msgstr ""
 
 #: ../src/msec/help.py:108
 msgid "Enable checking for unowned files."
@@ -290,8 +283,7 @@ msgstr "Aktivér tjek for filer der ikke ejes af nogen."
 
 #: ../src/msec/help.py:110
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
-"Tillad sessions-håndterere (KDM og GDM) at vise en liste med lokale brugere."
+msgstr "Tillad sessions-håndterere (KDM og GDM) at vise en liste med lokale brugere."
 
 #: ../src/msec/help.py:112
 msgid ""
@@ -503,9 +495,8 @@ msgid "Removing limit on shell history size"
 msgstr "Fjerner begrænsning af størrelse på historik i skallen"
 
 #: ../src/msec/libmsec.py:991
-#, fuzzy
 msgid "Invalid file system umask \"%s\""
-msgstr "Ugyldig udløbstid for skál '%s'"
+msgstr ""
 
 #: ../src/msec/libmsec.py:1025
 msgid "Allowing reboot and shutdown to the console user"
@@ -911,14 +902,12 @@ msgid "MSEC: System Security and Audit"
 msgstr "MSEC: Systemsikkerhed og overvågning"
 
 #: ../src/msec/msecgui.py:198
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Gem og aktivér ny opsætning?"
+msgstr "Gem og aktivér nuværende regler"
 
 #: ../src/msec/msecgui.py:204
-#, fuzzy
 msgid "Quit"
-msgstr "_Afslut"
+msgstr "Afslut"
 
 #: ../src/msec/msecgui.py:220
 msgid "Basic security"
@@ -1006,8 +995,7 @@ msgstr "Fundet grundlæggende msec-niveau '%s'"
 
 #: ../src/msec/msecgui.py:416
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr ""
-"Tilpasset grundlæggende opsætningsniveau '%s' fundet. Vil forhåndsvælge '%s'"
+msgstr "Tilpasset grundlæggende opsætningsniveau '%s' fundet. Vil forhåndsvælge '%s'"
 
 #: ../src/msec/msecgui.py:444
 msgid "Security Option"
@@ -1186,8 +1174,7 @@ msgid "Disabling password history"
 msgstr "Deaktivér adgangskodehistorik"
 
 #: ../src/msec/plugins/pam.py:123
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
 "Ugyldig adgangskodelængde \"%s\". Brug \"length,ndigits,nupper\" som "
 "parameter."
@@ -1220,8 +1207,3 @@ msgstr "Tillader transparent root-adgang for medlemmer af wheel-gruppen"
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Deaktiverer transparent root-adgang for medlemmer af wheel-gruppen"
 
-#~ msgid "Enable periodic permission checking for system files."
-#~ msgstr "Aktivér periodisk rettighedstjek for systemfiler."
-
-#~ msgid "Enable verification of installed RPM packages."
-#~ msgstr "Aktivér kontrol af installerede RPM-pakker."

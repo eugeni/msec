@@ -33,20 +33,20 @@
 #
 # Traducători de-a lungul timpului:
 #
-# Florin GRAD <florin@mandriva.com>, 1999, 2000
-# Dragos Marian BARBU <dragosb@softhome.net>, 2000
-# Ovidiu CONSTANTIN <ovidiu.constantin@gmx.net>, 2002, 2003
-# Harald ERSCH <harald@ersch.ro>, 2003
-# Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>, 2008, 2009
 #
+# Florin GRAD <florin@mandriva.com>, 1999, 2000.
+# Dragos Marian BARBU <dragosb@softhome.net>, 2000.
+# Ovidiu CONSTANTIN <ovidiu.constantin@gmx.net>, 2002, 2003.
+# Harald ERSCH <harald@ersch.ro>, 2003.
+# Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>, 2008, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: https://qa.mandriva.com\n"
 "POT-Creation-Date: 2009-08-30 20:48+BRT\n"
-"PO-Revision-Date: 2009-04-11 16:23+0100\n"
+"PO-Revision-Date: 2009-09-08 22:31+0200\n"
 "Last-Translator: Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>\n"
-"Language-Team: Mandrivausers.ro <piriu.cristian@rdslink.ro>\n"
+"Language-Team: Romanian <cooker-i18n@mandrivalinux.org  >\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -55,11 +55,11 @@ msgstr ""
 "X-Poedit-Language: Romanian\n"
 "X-Poedit-Country: ROMANIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Lokalize 0.3\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Activează verificarea de porturi de rețea deschise."
+msgstr "Activează verificarea petru modificări în configurările parafocului."
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -167,7 +167,6 @@ msgstr ""
 "SERVER_LEVEL cînd este necesar."
 
 #: ../src/msec/help.py:50
-#, fuzzy
 msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
@@ -176,13 +175,12 @@ msgstr ""
 "prudent cînd dezactivați parolele, asta va lăsa mașina complet vulnerabilă,"
 
 #: ../src/msec/help.py:52
-#, fuzzy
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
 "Configurați opțiunea umask pentru montarea partițiilor VFAT și NTFS. Dacă "
-"umask este „0”, atunci este utilizată valoarea umask implicită a sistemului."
+"umask este „-1”, atunci este utilizată valoarea umask implicită a sistemului."
 
 #: ../src/msec/help.py:54
 msgid "Enable checking for open network ports."
@@ -198,7 +196,7 @@ msgstr "Permite accesul ca root fără parolă pentru membrii grupului wheel."
 
 #: ../src/msec/help.py:60
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
-msgstr ""
+msgstr "Afectează fișierele fără proprietar la „nobody/nogroup”."
 
 #: ../src/msec/help.py:62
 msgid "Send security check results by email."
@@ -226,6 +224,9 @@ msgid ""
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
+"Activează verificarea integrității pachetelor RPM instalate. Aceasta vă va "
+"avertiza cînd sumele de control ale fișierelor instalate se vor schimba, "
+"afișînd rezultate separate pentru fișierele binare și de configurare."
 
 #: ../src/msec/help.py:72
 msgid "Enable AppArmor security framework on boot"
@@ -269,12 +270,18 @@ msgid ""
 "incorrect permissions are restored to the ones specified in msec security "
 "policy."
 msgstr ""
+"Activează verificarea periodică a permisiunilor pentru fișierele specificate "
+"în politica msec. Dacă este activată, permisiunile sînt verificate le "
+"fiecare rulare. Dacă este configurat pe impunere, permisiuni incorecte vor "
+"fi restaurate față de cele specificate în politica de securitate msec."
 
 #: ../src/msec/help.py:86
 msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
+"Activează verificarea pentru modificări în pachetele RPM instalate. Aceasta "
+"vă va avertiza cînd pachete noi sînt instalate sau înlăturate."
 
 #: ../src/msec/help.py:88
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -291,9 +298,8 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Activează înregistrarea în jurnalul sistem a verificărilor periodice."
 
 #: ../src/msec/help.py:94
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Activează verificarea fișierelor fără proprietar."
+msgstr "Activează verificarea pentru modificări în grupurile sistemului."
 
 #: ../src/msec/help.py:96
 msgid ""
@@ -321,15 +327,17 @@ msgid ""
 "user home directory will be used for temporary files. Otherwise, /tmp will "
 "be used."
 msgstr ""
+"Utilizează o locație securizată pentru fișierele temporare. Dacă acest "
+"parametru este activat, va fi utilizat directorul personal al utilizatorului "
+"pentru fișierele temporare. Altfel va fi utilizat /tmp."
 
 #: ../src/msec/help.py:104
 msgid "Allow direct root login on terminal."
 msgstr "Permite autentificarea directă cu root în terminal."
 
 #: ../src/msec/help.py:106
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Activează verificarea fișierelor fără proprietar."
+msgstr "Activează verificarea pentru modificările în utilizatorii sistemului."
 
 #: ../src/msec/help.py:108
 msgid "Enable checking for unowned files."
@@ -354,7 +362,7 @@ msgstr ""
 
 #: ../src/msec/help.py:114
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Include directorul curent în calea (PATH) utilizator implicită"
 
 #: ../src/msec/help.py:116
 msgid "Show security notifications in system tray using libnotify."
@@ -560,9 +568,8 @@ msgid "Removing limit on shell history size"
 msgstr "Se înlătură limita istoricului interpretorului de comenzi"
 
 #: ../src/msec/libmsec.py:991
-#, fuzzy
 msgid "Invalid file system umask \"%s\""
-msgstr "Perioadă invalidă de expirare a interpretorului de comenzi \"%s\""
+msgstr "Umask \"%s\" a sistemului de fișiere este invalidă  "
 
 #: ../src/msec/libmsec.py:1025
 msgid "Allowing reboot and shutdown to the console user"
@@ -734,19 +741,19 @@ msgstr "Se interzice autentificarea directă cu root"
 
 #: ../src/msec/libmsec.py:1516
 msgid "Using secure location for temporary files"
-msgstr ""
+msgstr "Se utilizează o locație sigură pentru fișierele temporare"
 
 #: ../src/msec/libmsec.py:1518
 msgid "Not using secure location for temporary files"
-msgstr ""
+msgstr "Nu se utilizează o locație sigură pentru fișierele temporare"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Este permisă includerea directorului curent în cale"
 
 #: ../src/msec/libmsec.py:1541
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Nu este permisă includerea directorului curent în cale"
 
 #: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"
@@ -974,14 +981,12 @@ msgid "MSEC: System Security and Audit"
 msgstr "MSEC: Securitate și audit de sistem"
 
 #: ../src/msec/msecgui.py:198
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Se salvează și se aplică noua configurație?"
+msgstr "Salvează și aplică politica actuală"
 
 #: ../src/msec/msecgui.py:204
-#, fuzzy
 msgid "Quit"
-msgstr "_Terminare"
+msgstr "Terminare"
 
 #: ../src/msec/msecgui.py:220
 msgid "Basic security"

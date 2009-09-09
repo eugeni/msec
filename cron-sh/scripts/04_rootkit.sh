@@ -18,15 +18,20 @@ if [[ ${CHECK_CHKROOTKIT} == yes ]]; then
     if [ -x /usr/sbin/chkrootkit ]; then
         # do not check on NFS
         /usr/sbin/chkrootkit -n ${CHKROOTKIT_OPTION} > ${CHKROOTKIT_TODAY}
-    fi
-fi
-
-### chkrootkit checks
-if [[ ${CHECK_CHKROOTKIT} == yes ]]; then
-
-    if [[ -s ${CHKROOTKIT_TODAY} ]]; then
-        printf "\nChkrootkit report:\n" >> ${SECURITY}
-        cat ${CHKROOTKIT_TODAY} >> ${SECURITY}
+        res=$?
+        if [ "$res" = "0" ]; then
+                chkrootkit_result="passed"
+        else
+                chkrootkit_result="failed"
+        fi
+        if [[ -s ${CHKROOTKIT_TODAY} ]]; then
+            printf "\nChkrootkit report:\n" >> ${SECURITY}
+            cat ${CHKROOTKIT_TODAY} >> ${SECURITY}
+            echo "Chkrootkit check: $chkrootkit_result" >> ${INFOS}
+        fi
+    else
+            printf "\nChkrootkit check skipped: chkrootkit not found" >> ${SECURITY}
+            echo "Chkrootkit check: skipped (chkrootkit not found)" >> ${INFOS}
     fi
 fi
 

@@ -58,6 +58,15 @@ Diffcheck() {
     fi
 }
 
+Count() {
+        # counts number of entries in a file
+        LOG="$1"
+        FILE="$2"
+        MESSAGE="$3"
+        NUM_ENTRIES=$(wc -l 2>/dev/null < $FILE)
+        echo "$MESSAGE: $NUM_ENTRIES" >> $LOG
+}
+
 Syslog() {
     if [[ ${SYSLOG_WARN} == yes ]]; then
     cat ${1} | while read line; do

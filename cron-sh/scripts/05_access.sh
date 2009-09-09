@@ -22,6 +22,7 @@ fi
 if [[ ${CHECK_USERS} == yes ]]; then
     getent passwd | cut -f 1 -d : | sort > ${USERS_LIST_TODAY}
     Diffcheck ${USERS_LIST_TODAY} ${USERS_LIST_YESTERDAY} ${USERS_LIST_DIFF} "local users"
+    Count ${INFOS} ${USERS_LIST_TODAY} "Total local users"
 fi
 
 # check for changes in groups
@@ -37,6 +38,7 @@ fi
 if [[ ${CHECK_GROUPS} == yes ]]; then
     getent passwd | cut -f 1 -d : | sort > ${GROUPS_LIST_TODAY}
     Diffcheck ${GROUPS_LIST_TODAY} ${GROUPS_LIST_YESTERDAY} ${GROUPS_LIST_DIFF} "local groups"
+    Count ${INFOS} ${GROUPS_LIST_TODAY} "Total local group"
 fi
 
 ### Passwd file check
@@ -53,6 +55,7 @@ if [[ ${CHECK_PASSWD} == yes ]]; then
     if [[ -s ${MSEC_TMP} ]]; then
         printf "\nSecurity Warning: /etc/passwd check :\n" >> ${SECURITY}
         cat ${MSEC_TMP} >> ${SECURITY}
+        Count ${INFOS} ${MSEC_TMP} "Issues found in /etc/passwd file"
     fi
 fi
 
@@ -66,6 +69,7 @@ if [[ ${CHECK_SHADOW} == yes ]]; then
     if [[ -s ${MSEC_TMP} ]]; then
         printf "\nSecurity Warning: /etc/shadow check :\n" >> ${SECURITY}
         cat ${MSEC_TMP} >> ${SECURITY}
+        Count ${INFOS} ${MSEC_TMP} "Issues found in /etc/shadow file"
     fi
 fi
 
@@ -88,6 +92,7 @@ if [[ -s /etc/exports ]] ; then
     if [[ -s ${MSEC_TMP} ]] ; then
         printf "\nSecurity Warning: Some NFS filesystem are exported globally :\n" >> ${SECURITY}
         cat ${MSEC_TMP} >> ${SECURITY}
+        Count ${INFOS} ${MSEC_TMP} "Issues found in NFS exports"
     fi
 fi
 
@@ -96,6 +101,7 @@ fi
 if [[ -s ${MSEC_TMP} ]] ; then
     printf "\nSecurity Warning: The following NFS mounts haven't got the nosuid option set :\n" >> ${SECURITY}
     cat ${MSEC_TMP} | awk '{ print "\t\t- "$0 }' >> ${SECURITY}
+    Count ${INFOS} ${MSEC_TMP} "Unsafe NFS exports"
 fi
 
 ### Files that should not have + signs.
@@ -134,6 +140,7 @@ if [[ ${CHECK_SHOSTS} == yes ]]; then
                         printf "\tthis probably mean that you trust certains users/domain\n" >> ${SECURITY}
                         printf "\tto connect on this host without proper authentication :\n" >> ${SECURITY}
                         cat ${MSEC_TMP} >> ${SECURITY}
+                        Count ${INFOS} ${MSEC_TMP} "Unsafe hosts trusting files"
                 fi
 fi
 
@@ -150,6 +157,7 @@ for file in ${list}; do
         printf "\nSecurity Warning: The following programs are executed in your mail\n" >> ${SECURITY}
         printf "\tvia ${file} files, this could lead to security problems :\n" >> ${SECURITY}
         cat ${MSEC_TMP} >> ${SECURITY}
+        Count ${INFOS} ${MSEC_TMP} "Unsafe mail aliases"
     fi
 done
 

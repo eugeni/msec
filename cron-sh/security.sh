@@ -78,8 +78,10 @@ if [[ -s ${SECURITY} ]]; then
     Ttylog ${SECURITY}
 
     echo "$SECURITY_PREFIX *** Security Check, ${REPORT_DATE} ***" >> ${SECURITY_LOG}
-    cat ${SECURITY} | sed -e "s/^/$SECURITY_PREFIX/g" >> ${SECURITY_LOG}
+    printf "Report summary:\n" >> ${SECURITY_LOG}
     cat ${INFOS} | sed -e "s/^/$INFO_PREFIX/g" >> ${SECURITY_LOG}
+    printf "\nDetailed report:\n" >> ${SECURITY_LOG}
+    cat ${SECURITY} | sed -e "s/^/$SECURITY_PREFIX/g" >> ${SECURITY_LOG}
 
     Maillog "[msec] *** Security Check on ${REPORT_HOSTNAME}, ${REPORT_DATE} ***" "${SECURITY} ${INFOS}"
     Notifylog "MSEC has performed Security Check on ${REPORT_HOSTNAME} on ${REPORT_DATE}"

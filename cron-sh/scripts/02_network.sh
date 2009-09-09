@@ -26,10 +26,12 @@ fi
 
 if [[ ${CHECK_OPEN_PORT} == yes ]]; then
         netstat -pvlA inet,inet6 2> /dev/null > ${OPEN_PORT_TODAY};
+        Count ${INFOS} ${OPEN_PORT_TODAY} "Total of open network ports"
 fi
 
 if [[ ${CHECK_FIREWALL} == yes ]]; then
         iptables -S 2>/dev/null > ${FIREWALL_TODAY}
+        Count ${INFOS} ${FIREWALL_TODAY} "Total of configured firewall rules"
 fi
 
 ### Changed open port
@@ -45,8 +47,8 @@ fi
 ### Dump a list of open port.
 if [[ ${CHECK_OPEN_PORT} == yes ]]; then
     if [[ -s ${OPEN_PORT_TODAY} ]]; then
-        printf "\nThese are the ports listening on your machine :\n" >> ${INFOS}
-        cat ${OPEN_PORT_TODAY} >> ${INFOS}
+        printf "\nThese are the ports listening on your machine :\n" >> ${SECURITY}
+        cat ${OPEN_PORT_TODAY} >> ${SECURITY}
     fi
 fi
 

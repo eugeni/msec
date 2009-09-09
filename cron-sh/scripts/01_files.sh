@@ -95,27 +95,33 @@ fi
 ### New Suid root files detection
 if [[ ${CHECK_SUID_ROOT} == yes ]]; then
         Diffcheck ${SUID_ROOT_TODAY} ${SUID_ROOT_YESTERDAY} ${SUID_ROOT_DIFF} "Suid Root files"
+        Count ${INFOS} ${SUID_ROOT_TODAY} "Total of Suid Root files"
 fi
 
 ### New Sgid files detection
 if [[ ${CHECK_SGID} == yes ]]; then
         Diffcheck ${SGID_TODAY} ${SGID_YESTERDAY} ${SGID_DIFF} "Sgid files"
+        Count ${INFOS} ${SGID_TODAY} "Total of Sgid files"
 fi
 
 ### Writable files detection
 if [[ ${CHECK_WRITABLE} == yes ]]; then
         Diffcheck ${WRITABLE_TODAY} ${WRITABLE_YESTERDAY} ${WRITABLE_DIFF} "World Writable files"
+        Count ${INFOS} ${WRITABLE_TODAY} "Total of World Writable files"
 fi
 
 ### Search Non Owned files
 if [[ ${CHECK_UNOWNED} == yes ]]; then
         Diffcheck ${UNOWNED_USER_TODAY} ${UNOWNED_USER_YESTERDAY} ${UNOWNED_USER_DIFF} "Un-owned files"
+        Count ${INFOS} ${UNOWNED_USER_TODAY} "Total of Un-owned files"
         Diffcheck ${UNOWNED_GROUP_TODAY} ${UNOWNED_GROUP_YESTERDAY} ${UNOWNED_GROUP_DIFF} "Un-owned group files"
+        Count ${INFOS} ${UNOWNED_GROUP_TODAY} "Total of Un-owned group files"
 fi
 
 ### Md5 check for SUID root fileg
 if [[ ${CHECK_SUID_MD5} == yes  ]]; then
         Diffcheck ${SUID_MD5_TODAY} ${SUID_MD5_YESTERDAY} ${SUID_MD5_DIFF} "SUID files MD5 checksum"
+        Count ${INFOS} ${SUID_MD5_TODAY} "Total of SUID files with controlled MD5 checksum"
 fi
 
 ### Writable file detection
@@ -178,6 +184,7 @@ done | awk -F: '$1 != $6 && $6 != "0" \
         { print "\t\t- " $3 " : file is other writable." }' > ${MSEC_TMP}
 
 if [[ -s ${MSEC_TMP} ]]; then
+    Count ${INFOS} ${MSEC_TMP} "Total of unsecure user files"
     printf "\nSecurity Warning: these files shouldn't be owned by someone else or readable :\n" >> ${SECURITY}
     cat ${MSEC_TMP} >> ${SECURITY}
 fi
@@ -208,6 +215,7 @@ done | awk -F: '$1 != $6 && $6 != "0" \
         { print "\t\t- " $3 " : file is other writable." }' > ${MSEC_TMP}
 
 if [[ -s ${MSEC_TMP} ]]; then
+    Count ${INFOS} ${MSEC_TMP} "Total of user files that should not be writable"
     printf "\nSecurity Warning: theses files should not be owned by someone else or writable :\n" >> ${SECURITY}
     cat ${MSEC_TMP} >> ${SECURITY}
 fi
@@ -231,6 +239,7 @@ done | awk -F: '$3 != $5 && $5 != "(0)" \
         { print "user=" $2 $3" : home directory is other writable." }' > ${MSEC_TMP}
 
 if [[ -s $MSEC_TMP ]] ; then
+        Count ${INFOS} ${MSEC_TMP} "Total of users whose home directories have unsafe permissions "
         printf "\nSecurity Warning: these home directory should not be owned by someone else or writable :\n" >> ${SECURITY}
         cat ${MSEC_TMP} >> ${SECURITY}
 fi
@@ -244,8 +253,9 @@ if [[ ${CHECK_PERMS} == yes || ${CHECK_PERMS} == enforce ]]; then
                 MSECPERMS_PARAMS=""
         fi
         # running msec_perms
-        /usr/sbin/msecperms $MSECPERMS_PARAMS > ${MSEC_TMP} 2>&1
+        /usr/sbin/msecperms $MSECPERMS_PARAMS | grep WARNING > ${MSEC_TMP} 2>&1
         if [[ -s ${MSEC_TMP} ]]; then
+                Count ${INFOS} ${MSEC_TMP} "Permission changes on files watched by msecperms"
                 printf "\nPermissions changes on files watched by msec:\n" >> ${SECURITY}
                 cat ${MSEC_TMP} | sed -e 's/WARNING: //g' >> ${SECURITY}
         fi

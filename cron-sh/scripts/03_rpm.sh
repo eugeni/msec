@@ -40,6 +40,7 @@ fi
 # list of installed packages
 if [[ ${CHECK_RPM_PACKAGES} == yes ]]; then
     rpm -qa --qf "%{NAME}-%{VERSION}-%{RELEASE}\n" | sort > ${RPM_QA_TODAY}
+    Count ${INFOS} ${RPM_QA_TODAY} "Total of installed packages"
     Diffcheck ${RPM_QA_TODAY} ${RPM_QA_YESTERDAY} ${RPM_QA_DIFF} "packages"
 fi
 
@@ -54,11 +55,13 @@ if [[ ${CHECK_RPM_INTEGRITY} == yes ]]; then
     # full check
     if [[ -s ${RPM_VA_TODAY} ]]; then
         printf "\nSecurity Warning: These files belonging to packages are modified on the system :\n" >> ${SECURITY}
+        Count ${INFOS} ${RPM_VA_TODAY} "Total of files belonging to packages that were modified since the install"
         cat ${RPM_VA_TODAY} >> ${SECURITY}
     fi
 
     if [[ -s ${RPM_VA_CONFIG_TODAY} ]]; then
         printf "\nSecurity Warning: These config files belonging to packages are modified on the system :\n" >> ${SECURITY}
+        Count ${INFOS} ${RPM_VA_CONFIG_TODAY} "Total of configuration files belonging to packages that were modified since the install"
         cat ${RPM_VA_CONFIG_TODAY} >> ${SECURITY}
     fi
 

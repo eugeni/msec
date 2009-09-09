@@ -67,6 +67,26 @@ Count() {
         echo "$MESSAGE: $NUM_ENTRIES" >> $LOG
 }
 
+Filter() {
+        # filters output according to defined rules
+        RULE="$1"
+        exceptions=/etc/security/msec/exceptions
+
+        if [ ! -s "$exceptions" -o "a$RULE" = "a" ]; then
+                FILTER="cat"
+        else
+                # get the rules
+                EXCEPTIONS=""
+                for except in $(cat $exceptions | sed -e "/^$RULE /!d; s/^$RULE \(.*\)/\1/g"); do
+                        exc=${except//\//\\\/}
+                        EXCEPTIONS="$EXCEPTIONS -e /${exc}/d"
+                done
+                FILTER="sed $EXCEPTIONS"
+        fi
+        $FILTER
+
+}
+
 Syslog() {
     if [[ ${SYSLOG_WARN} == yes ]]; then
     cat ${1} | while read line; do

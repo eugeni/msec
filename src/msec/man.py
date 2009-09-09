@@ -191,6 +191,38 @@ This is the GTK version of msec. It acts as frontend to all msec functionalities
     edit /etc/security/msec/level.my
     msecperms -f my
 
+.SH "DEFINING EXCEPTIONS FOR PERIODIC CHECKS"
+.B msec
+is capable of excluding certain patterns from periodic check reports. For
+this, it is possible to define the exceptions in
+\\fB/etc/security/msec/exceptions\\fP file, for each supported check.
+
+.PP
+For example, to exclude all items that match \\fB/mnt\\fP, Mandriva-based
+chrooted installations in \\fB/chroot\\fP and all backup files from the
+results of of check for unowned files on the system, it is sufficient to
+define the following entry in the exceptions file:
+
+.TP
+    CHECK_UNOWNED /mnt
+.TP
+    CHECK_UNOWNED /chroot/mdv_.*/
+.TP
+    CHECK_UNOWNED .*~
+
+.PP
+In a similar way, it is possible to exclude the results for the
+\\fBdeluge\\fP application from the list of open ports as follows:
+
+.TP
+    CHECK_OPEN_PORT /deluge
+
+.PP
+Each exception entry is a regular exception, and you might define as many
+exceptions as necessary.  See below for all msec options that support this
+feature.
+
+
 .SH "SECURITY OPTIONS"
 
 The following security options are supported by msec:
@@ -232,6 +264,9 @@ for variable in config.SETTINGS:
     func = msec.get_action(callback)
     if func:
         print function_str % (callback, func.__doc__.strip(), variable, ", ".join(params))
+    if variable in config.CHECKS_WITH_EXCEPTIONS:
+        # this check supports exceptions
+        print """(This check supports exceptions via %s variable defined in \\fB/etc/security/msec/exceptions\\fP file)""" % variable
 
 print footer
 

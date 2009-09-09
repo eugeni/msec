@@ -137,6 +137,13 @@ SETTINGS_PERIODIC = ["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHEC
                     "TTY_WARN", "SYSLOG_WARN", "MAIL_EMPTY_CONTENT",
                     ]
 
+# checks that support exceptions
+CHECKS_WITH_EXCEPTIONS = ["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",
+                    "CHECK_WRITABLE", "CHECK_UNOWNED", "CHECK_OPEN_PORT", "CHECK_FIREWALL",
+                    "CHECK_PASSWD", "CHECK_SHADOW", "CHECK_RPM_PACKAGES", "CHECK_RPM_INTEGRITY",
+                    "CHECK_SHOSTS", "CHECK_USERS", "CHECK_GROUPS"
+                    ]
+
 # localized help
 try:
     from help import HELP

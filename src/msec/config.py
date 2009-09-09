@@ -26,6 +26,7 @@ SECURITY_LEVEL="%s/etc/security/msec/level.%s"
 
 # msec configuration file
 SECURITYCONF = '/etc/security/msec/security.conf'
+EXCEPTIONSCONF = '/etc/security/msec/exceptions'
 
 # permissions
 PERMCONF = '/etc/security/msec/perms.conf'
@@ -304,6 +305,97 @@ class MsecConfig:
                 self.log.debug("Skipping %s" % option)
             else:
                 print >>fd, "%s=%s" % (option, self.options[option])
+        return True
+# }}}
+
+# {{{ ExceptionConfig
+class ExceptionConfig:
+    """Exceptions configuration parser"""
+    def __init__(self, log, config=EXCEPTIONSCONF):
+        self.config = config
+        self.options = []
+        self.comments = []
+        self.log = log
+
+    def reset(self):
+        """Resets all configuration"""
+        del self.options
+        self.options = []
+        del self.comments
+        self.comments = []
+
+    def load(self):
+        """Loads and parses configuration file"""
+        if not self.config:
+            # No associated file
+            return True
+        try:
+            fd = open(self.config)
+        except:
+            self.log.error(_("Unable to load configuration file %s: %s") % (self.config, sys.exc_value[1]))
+            return False
+        for line in fd.readlines():
+            line = line.strip()
+            if not line:
+                continue
+            if line[0] == "#":
+                # comment
+                self.comments.append(line)
+                continue
+            try:
+                option, val = line.split(" ", 1)
+                self.options.append((option, val))
+            except:
+                self.log.warn(_("Bad config option: %s") % line)
+                continue
+        fd.close()
+        return True
+
+    def get(self, pos, default=None):
+        """Gets a configuration option, or defines it if not defined"""
+        if pos > len(self.options):
+            return default
+        return self.options[pos]
+
+    def remove(self, pos):
+        """Removes a configuration option."""
+        if pos < len(self.options):
+            del self.options[pos]
+
+    def set(self, pos, value):
+        """Sets a configuration option"""
+        if pos > 0:
+            print "Pos: %d" % pos
+            self.options[pos] = value
+        else:
+            self.options.append(value)
+
+    def list_options(self):
+        """Sorts and returns configuration parameters"""
+        sortedparams = self.options
+        if sortedparams:
+            sortedparams.sort()
+        return sortedparams
+
+    def save(self):
+        """Saves configuration. Comments go on top"""
+        if not self.config:
+            # No associated file
+            return True
+        try:
+            fd = open(self.config, "w")
+        except:
+            self.log.error(_("Unable to save %s: %s") % (self.config, sys.exc_value))
+            return False
+        for comment in self.comments:
+            print >>fd, comment
+        # sorting keys
+        for option,value in self.options:
+            # TODO: integrate with remove()
+            if value == None or value == OPTION_DISABLED:
+                self.log.debug("Skipping %s" % option)
+            else:
+                print >>fd, "%s %s" % (option, value)
         return True
 # }}}
 

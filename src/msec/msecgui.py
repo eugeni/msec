@@ -68,6 +68,11 @@ and breakin attempts.  """)
 PERIODIC_SECURITY_TEXT=_("""<big><b>Periodic security checks</b></big>
 These options configure the security checks that should be executed periodically.  """)
 
+EXCEPTIONS_TEXT=_("""<big><b>Exceptions</b></big>
+Here you can configure the allowed exceptions for msec periodic security
+checks. For each supported test, you may add as many exceptions as you want
+for each check. Note that each exception is parsed as a regexp.""")
+
 PERMISSIONS_SECURITY_TEXT=_("""<big><b>File permissions</b></big>
 These options allow to fine-tune system permissions for important files and directories.
 The following permissions are checked periodically, and any change to the owner, group,
@@ -85,8 +90,9 @@ class MsecGui:
     # common columns
     (COLUMN_OPTION, COLUMN_DESCR, COLUMN_VALUE, COLUMN_CUSTOM) = range(4)
     (COLUMN_PATH, COLUMN_USER, COLUMN_GROUP, COLUMN_PERM, COLUMN_FORCE) = range(5)
+    (COLUMN_EXCEPTION, COLUMN_EXCEPTION_VALUE, COLUMN_POS) = range(3)
 
-    def __init__(self, log, msec, perms, msecconfig, permconfig, embed=None):
+    def __init__(self, log, msec, perms, msecconfig, permconfig, exceptions, embed=None):
         """Initializes gui"""
         self.log = log
         self.msec = msec
@@ -95,6 +101,7 @@ class MsecGui:
         # current configuration
         self.msecconfig = msecconfig
         self.permconfig = permconfig
+        self.exceptions = exceptions
 
         # pre-defined standard configurations
         self.msec_defaults = {
@@ -221,7 +228,8 @@ class MsecGui:
             (2, self.system_security_page, _("System security")),
             (3, self.network_security_page, _("Network security")),
             (4, self.periodic_security_page, _("Periodic checks")),
-            (5, self.permissions_security_page, _("Permissions")),
+            (5, self.exceptions_page, _("Exceptions")),
+            (6, self.permissions_security_page, _("Permissions")),
             ]
         for id, callback, label in tabs:
             self.notebook.append_page(callback(id), gtk.Label(label))
@@ -393,6 +401,9 @@ class MsecGui:
         # permconfig
         self.permconfig.reset()
         self.permconfig.load()
+        # exceptions
+        self.exceptions.reset()
+        self.exceptions.load()
         # saving old config
         self.oldconfig = {}
         for opt in self.msecconfig.list_options():
@@ -777,6 +788,75 @@ class MsecGui:
             self.msecconfig.set("CHECK_SECURITY", "no")
             options.set_sensitive(False)
 
+    def exceptions_page(self, id):
+        """Builds the exceptions page"""
+        vbox = gtk.VBox(homogeneous=False)
+
+        entry = gtk.Label(EXCEPTIONS_TEXT)
+        entry.set_use_markup(True)
+        vbox.pack_start(entry, False, False)
+
+        sw = gtk.ScrolledWindow()
+        sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
+        sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+
+        # list of options
+        lstore = gtk.ListStore(
+            gobject.TYPE_STRING,
+            gobject.TYPE_STRING
+            )
+
+        # treeview
+        treeview = gtk.TreeView(lstore)
+        treeview.set_rules_hint(True)
+        treeview.set_search_column(self.COLUMN_EXCEPTION)
+
+        # TODO: fix
+        treeview.connect('row-activated', self.exception_changed, lstore)
+
+        # configuring columns
+
+        # column for exception position
+        column = gtk.TreeViewColumn(_('Security check'), gtk.CellRendererText(), text=self.COLUMN_EXCEPTION)
+        column.set_sort_column_id(self.COLUMN_EXCEPTION)
+        column.set_expand(True)
+        treeview.append_column(column)
+
+        # column for check exception
+        column = gtk.TreeViewColumn(_('Exception'), gtk.CellRendererText(), text=self.COLUMN_EXCEPTION_VALUE)
+        column.set_sort_column_id(self.COLUMN_EXCEPTION_VALUE)
+        column.set_expand(True)
+        treeview.append_column(column)
+
+        sw.add(treeview)
+
+        for option, value in self.exceptions.list_options():
+            # building the option
+            iter = lstore.append()
+            lstore.set(iter,
+                    self.COLUMN_EXCEPTION, option,
+                    self.COLUMN_EXCEPTION_VALUE, value,
+                    )
+        vbox.pack_start(sw)
+        self.current_options_view[id] = (lstore, self.exceptions)
+
+        # buttons hbox
+        hbox = gtk.HBox(homogeneous=True, spacing=10)
+
+        # add
+        button = gtk.Button(_("Add a rule"))
+        button.connect('clicked', self.add_exception, lstore)
+        hbox.pack_start(button, False)
+
+        # delete
+        button = gtk.Button(_("Delete"))
+        button.connect('clicked', self.remove_exception, treeview)
+        hbox.pack_start(button, False)
+
+        vbox.pack_start(hbox, False, False)
+
+        return vbox
+
     def permissions_security_page(self, id):
         """Builds the network security page"""
         vbox = gtk.VBox(homogeneous=False)
@@ -927,6 +1007,18 @@ class MsecGui:
             # changing back force value
             self.permconfig.set(file, (user_s, group_s, perm_s, force_s))
 
+    def remove_exception(self, widget, treeview):
+        """Removes an exception from list"""
+        model, iter = treeview.get_selection().get_selected()
+        if not iter:
+            # nothing selected
+            return
+        pos, = model.get_path(iter)
+        self.exceptions.remove(pos)
+        model.remove(iter)
+
+        # save exceptions
+        self.exceptions.save()
 
     def remove_permission_check(self, widget, treeview):
         """Removes a permission check for file"""
@@ -961,6 +1053,76 @@ class MsecGui:
         """Adds a permission check"""
         return self.permission_changed(None, None, None, model)
 
+    def add_exception(self, widget, model):
+        """Adds a new exception"""
+        return self.exception_changed(None, None, None, model)
+
+    def exception_changed(self, treeview, path, col, model):
+        """Processes an exception change. If path is None, adds a new item."""
+        if path:
+            iter = model.get_iter(path)
+            exception_pos, = path
+            module = model.get_value(iter, self.COLUMN_EXCEPTION)
+            exception = model.get_value(iter, self.COLUMN_EXCEPTION_VALUE)
+            title = _("Editing exception")
+        else:
+            exception_pos = -1
+            module = ""
+            exception = ""
+            title = _("Adding new exception")
+
+        # asks for new parameter value
+        dialog = gtk.Dialog(title,
+                self.window, 0,
+                (gtk.STOCK_OK, gtk.RESPONSE_OK,
+                gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL))
+        label = gtk.Label(_("Editing exception. Please select the correspondent msec check and exception value\n"))
+        label.set_line_wrap(True)
+        label.set_use_markup(True)
+        dialog.vbox.pack_start(label, False, False)
+
+        # module
+        hbox = gtk.HBox()
+        hbox.pack_start(gtk.Label(_("Check: ")))
+        entry_module = gtk.combo_box_new_text()
+        pos = 0
+        for item in config.CHECKS_WITH_EXCEPTIONS:
+            entry_module.append_text(item)
+            if item == module:
+                entry_module.set_active(pos)
+            pos += 1
+        if not module:
+            entry_module.set_active(0)
+        hbox.pack_start(entry_module)
+        dialog.vbox.pack_start(hbox, False, False)
+
+        # exception
+        hbox = gtk.HBox()
+        hbox.pack_start(gtk.Label(_("Exception: ")))
+        entry_exception = gtk.Entry()
+        entry_exception.set_text(exception)
+        hbox.pack_start(entry_exception)
+        dialog.vbox.pack_start(hbox, False, False)
+
+        dialog.show_all()
+        response = dialog.run()
+        if response != gtk.RESPONSE_OK:
+            dialog.destroy()
+            return
+
+        new_check = entry_module.get_active_text()
+        new_exception = entry_exception.get_text()
+        dialog.destroy()
+
+        self.exceptions.set(exception_pos, (new_check, new_exception))
+        if not path:
+            # adding new entry
+            iter = model.append()
+        model.set(iter, self.COLUMN_EXCEPTION, new_check)
+        model.set(iter, self.COLUMN_EXCEPTION_VALUE, new_exception)
+
+        # save exceptions
+        self.exceptions.save()
 
     def permission_changed(self, treeview, path, col, model):
         """Processes a permission change. If path is None, adds a new item."""
@@ -990,7 +1152,7 @@ class MsecGui:
                 self.window, 0,
                 (gtk.STOCK_OK, gtk.RESPONSE_OK,
                 gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL))
-        label = gtk.Label(_("Changing permissions on <b>%s</b>\nPlease specify new permissions, or use 'current' to keep current permissions.\n") % (file))
+        label = gtk.Label(_("Changing permissions on <b>%s</b>\nPlease specify new permissions, or use 'current' to keep current permissions.\n") % (file or _("new file")))
         label.set_line_wrap(True)
         label.set_use_markup(True)
         dialog.vbox.pack_start(label, False, False)
@@ -1239,13 +1401,16 @@ if __name__ == "__main__":
     # loading permissions config
     perm_conf = config.PermConfig(log, config=config.PERMCONF)
 
+    # loading exceptions
+    exceptions = config.ExceptionConfig(log, config=config.EXCEPTIONSCONF)
+
     # creating an msec instance
     msec = MSEC(log)
     perms = PERMS(log)
 
     log.info("Starting gui..")
 
-    gui = MsecGui(log, msec, perms, msec_config, perm_conf, embed=PlugWindowID)
+    gui = MsecGui(log, msec, perms, msec_config, perm_conf, exceptions, embed=PlugWindowID)
     signal.signal(signal.SIGTERM, lambda s, f: gui.signal_quit(s))
     gtk.main()
 

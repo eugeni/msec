@@ -114,7 +114,8 @@ static int traverse(const char *file, const struct stat *sb, int flag, struct FT
             /*
              * Is world writable check.
              */
-            if ((sb->st_mode & 0002) && !(S_ISSOCK(sb->st_mode)) && !(S_ISFIFO(sb->st_mode)))
+            if ((sb->st_mode & 0002) && !(S_ISSOCK(sb->st_mode)) && !(S_ISFIFO(sb->st_mode)) 
+                    && !(S_ISCHR(sb->st_mode)) && !(S_ISBLK(sb->st_mode)))
                 fprintf(writable_fd, "%s\n", file);
 
             /*

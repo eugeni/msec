@@ -132,6 +132,7 @@ if __name__ == "__main__":
             log.error(_("Level '%s' not found, aborting.") % level)
             sys.exit(1)
         log.info(_("Switching to '%s' level.") % level)
+        msec_config.reset()
         for opt in params:
             msec_config.set(opt, levelconf.get(opt))
     else:

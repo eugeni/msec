@@ -150,6 +150,7 @@ if __name__ == "__main__":
             log.error(_("Level '%s' not found, aborting.") % level)
             sys.exit(1)
         log.info(_("Switching to '%s' level.") % level)
+        permconf.reset()
         for opt in params:
             permconf.set(opt, standard_permconf.get(opt))
     else:

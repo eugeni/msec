@@ -56,7 +56,7 @@ msgstr ""
 
 #: ../src/msec/help.py:24
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr "Habilita o servidor X a aceitar conexões da rede na porta TCP 6000."
+msgstr "Habilita o servidor X aceitar conexões da rede na porta TCP 6000."
 
 #: ../src/msec/help.py:26
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -71,7 +71,7 @@ msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
-"Habilita o crontab e at para usuários. Insira os usuários permitidos em/etc/"
+"Habilita o crontab e at para usuários. Insira os usuários permitidos em /etc/"
 "cron.allow e /etc/at.allow (veja o manual do at(1) e crontab(1))."
 
 #: ../src/msec/help.py:32
@@ -144,7 +144,7 @@ msgid ""
 "default system umask is used."
 msgstr ""
 "Define a opção umask para montar partições vfat e ntfs. Se umask for '-1', "
-"umask padrão do sistema é usado."
+"o umask padrão do sistema é usado."
 
 #: ../src/msec/help.py:54
 msgid "Enable checking for open network ports."
@@ -197,8 +197,8 @@ msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
-"Habilita usuários locais a conectar ao servidor gráfico X. Argumentosaceitos:"
-"yes (todas as conexões são permitidas), local (só conexões locais),no (sem "
+"Habilita usuários locais a conectar ao servidor gráfico X. Argumentos aceitos: "
+"yes (todas as conexões são permitidas), local (só conexões locais), no (sem "
 "conexões)."
 
 #: ../src/msec/help.py:74
@@ -313,9 +313,9 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
-"Reforçar permissões do MSEC nos arquivos e diretórios durante a "
-"inicialização.Este parâmetro no modo 'enforce' reforça as permissões do "
-"sistema automaticamentede acordo com as configurações de segurança do "
+"Introduzir permissões do MSEC nos arquivos e diretórios durante a "
+"inicialização. Este parâmetro no modo 'enforce' introduz as permissões do "
+"sistema automaticamente de acordo com as configurações de segurança do "
 "sistema."
 
 #: ../src/msec/help.py:112
@@ -345,15 +345,14 @@ msgstr ""
 
 #: ../src/msec/help.py:120
 msgid "Ask for root password when going to single user level (man sulogin(8))."
-msgstr ""
-"Pedir a senha de root quando for para o modo single user (man sulogin(8))."
+msgstr "Pedir a senha de root quando for para o modo single user (man sulogin(8))."
 
 #: ../src/msec/help.py:122
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
 msgstr ""
-"Permite exportar o display ao mudar da conta de root para outros usuários "
+"Permite exportar o display ao mudar da conta de root para outros usuários. "
 "Veja pam_xauth(8) para mais detalhes."
 
 #: ../src/msec/help.py:124
@@ -362,7 +361,7 @@ msgstr "Ajusta umask do usuário."
 
 #: ../src/msec/help.py:126
 msgid "Accept ICMP echo."
-msgstr "Aceitar eco ICMP(ping)."
+msgstr "Aceitar eco ICMP (ping)."
 
 #: ../src/msec/help.py:128
 msgid ""
@@ -373,21 +372,20 @@ msgid ""
 msgstr ""
 "Autorizar acesso a todos os serviços controlados por tcp_wrappers (vejahosts."
 "deny(5)). Se sim, todos os serviços são permitidos. Se local, "
-"somenteconexões a serviços locais são permitidas. Se não, o serviço tem que "
-"serautorizado manualmente em /etc/hosts.allow (veja hosts.allow(5))."
+"somente conexões a serviços locais são permitidas. Se não, o serviço tem que "
+"ser utorizado manualmente em /etc/hosts.allow (veja hosts.allow(5))."
 
 #: ../src/msec/help.py:130
 msgid "Activate ethernet cards promiscuity check."
-msgstr "Ativa a verificação do modo promíscuo em placas ethernet."
+msgstr "Ativa a checagem do modo promíscuo em placas ethernet."
 
 #: ../src/msec/help.py:132
 msgid "Perform hourly security check for changes in system configuration."
-msgstr ""
-"Checagem de segurança a cada hora por mudanças nas configurações do sistema."
+msgstr "Executar checagem de segurança de hora em hora por mudanças nas configurações do sistema."
 
 #: ../src/msec/help.py:134
 msgid "Enforce MSEC settings on system startup"
-msgstr "Reforçar configurações do MSEC na inicialização do sistema"
+msgstr "Introduzir configurações do MSEC na inicialização do sistema"
 
 #: ../src/msec/help.py:136
 msgid "Enable periodic security check results to terminal."
@@ -802,8 +800,8 @@ msgid ""
 "to activate it, choose the appropriate security level: "
 msgstr ""
 "<big><b>Escolha o nível de segurança</b></big>\n"
-"Essa aplicação permite configurar a segurança do sistema. Se você desejar\n"
-"ativar ela, escolha o nível de segurança apropriado: "
+"Essa aplicação permite configurar a segurança do sistema. Se você deseja\n"
+"ativá-la, escolha o nível de segurança apropriado: "
 
 #: ../src/msec/msecgui.py:54
 msgid ""
@@ -837,11 +835,11 @@ msgid ""
 "permissions.  "
 msgstr ""
 "<big><b>Opções de Segurança do Sistema</b></big>\n"
-"Estas opções controlam as configurações de segurança local, como login "
+"Estas opções controlam as configurações de segurança local, como login, "
 "restrições,\n"
-"configuração de senhas, integração com outras ferramentas de segurança, e "
+"configuração de senhas, integração com outras ferramentas de segurança e "
 "permissões\n"
-"padrão na criação de arquivos.  "
+"padrão para criação de arquivos."
 
 #: ../src/msec/msecgui.py:64
 msgid ""
@@ -852,7 +850,7 @@ msgid ""
 msgstr ""
 "<big><b>Opções de Segurança da Rede</b></big>\n"
 "Estas opções definem as opções da rede contra ataques remotos, acesso sem "
-"autorização,\n"
+"autorização\n"
 "e tentativas de invasão.  "
 
 #: ../src/msec/msecgui.py:68
@@ -862,7 +860,7 @@ msgid ""
 "periodically.  "
 msgstr ""
 "<big><b>Checagem Periódica de Segurança</b></big>\n"
-"Estas opções configuram as checagens de segurança que devem ser "
+"Estas opções configuram checagens de segurança que devem ser "
 "executadas periodicamente. "
 
 #: ../src/msec/msecgui.py:71
@@ -890,11 +888,11 @@ msgid ""
 "changing them to the specified values when a change is detected.  "
 msgstr ""
 "<big><b>Permissões de Arquivos</b></big>\n"
-"Estas opções permitem um ajuste fino nas permissões do sistema nos arquivos "
+"Estas opções permitem um ajuste fino nas permissões do sistema, nos arquivos "
 "importantes e diretórios.\n"
 "As seguintes permissões são checadas periodicamente, e qualquer mudança de "
 "dono, grupo,\n"
-"e permissão corrente são reportados. As permissões podem ser manipuladas, "
+"e permissão corrente serão reportados. As permissões podem ser manipuladas "
 "automaticamente\n"
 "alterando elas para um valor especificado quando uma mudança é detectada.  "
 
@@ -1072,7 +1070,7 @@ msgstr "Enviar alertas de Segurança por email:"
 
 #: ../src/msec/msecgui.py:578
 msgid "System administrator email address:"
-msgstr "Email do administrador do sistema:"
+msgstr "Email do administrador do sistema: "
 
 #: ../src/msec/msecgui.py:597
 msgid "Display security alerts on desktop"

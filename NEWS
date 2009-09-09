@@ -1,3 +1,4 @@
+- implemented exceptions for all msec checks (#51277)
 - do not check for permission changes in block/character devices (#53424)
 - create a summary for msec reports
 - simplified permissions policy for standard level

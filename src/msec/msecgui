@@ -8,24 +8,6 @@ if [ "`whoami`" != "root" ]; then
     exit 1
 fi
 
-LCK=/var/run/msec.pid
-
-function cleanup() {
-    rm -f $LCK
-}
-
-if [ -f $LCK ]; then
-    if [ -d /proc/`cat $LCK` ]; then
-    	exit 0
-    else
-    	rm -f $LCK
-    fi
-fi
-
-echo -n $$ > $LCK
-
-trap cleanup 0
-
 MSEC=/usr/share/msec/msecgui.py
 OPT="$@"
 

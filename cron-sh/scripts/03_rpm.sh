@@ -40,6 +40,7 @@ fi
 # list of installed packages
 if [[ ${CHECK_RPM_PACKAGES} == yes ]]; then
     rpm -qa --qf "%{NAME}-%{VERSION}-%{RELEASE}\n" | sort > ${RPM_QA_TODAY}
+    Filter ${RPM_QA_TODAY} CHECK_RPM_PACKAGES
     Count ${INFOS} ${RPM_QA_TODAY} "Total of installed packages"
     Diffcheck ${RPM_QA_TODAY} ${RPM_QA_YESTERDAY} ${RPM_QA_DIFF} "packages"
 fi
@@ -48,6 +49,7 @@ fi
 if [[ ${CHECK_RPM_INTEGRITY} == yes ]]; then
     rm -f ${RPM_VA_TODAY}.tmp
     nice --adjustment=+19 rpm -Va --noscripts | grep '^..5' | sort > ${RPM_VA_TODAY}.tmp
+    Filter ${RPM_VA_TODAY} CHECK_RPM_INTEGRITY
     grep -v '^..........c.'  ${RPM_VA_TODAY}.tmp | sed 's/^............//' | sort > ${RPM_VA_TODAY}
     grep '^..........c.'  ${RPM_VA_TODAY}.tmp | sed 's/^............//' | sort > ${RPM_VA_CONFIG_TODAY}
     rm -f ${RPM_VA_TODAY}.tmp

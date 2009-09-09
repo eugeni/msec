@@ -60,26 +60,32 @@ if [[ ${CHECK_SUID_MD5} == yes || ${CHECK_SUID_ROOT} == yes || ${CHECK_SGID} == 
 fi
 
 if [[ -f ${SUID_ROOT_TODAY} ]]; then
+    Filter ${SUID_ROOT_TODAY} CHECK_SUID_MD5
+    Filter ${SUID_ROOT_TODAY} CHECK_SUID_ROOT
     sort < ${SUID_ROOT_TODAY} > ${SUID_ROOT_TODAY}.tmp
     mv -f ${SUID_ROOT_TODAY}.tmp ${SUID_ROOT_TODAY}
 fi
 
 if [[ -f ${SGID_TODAY} ]]; then
+    Filter ${SGID_TODAY} CHECK_SGID
     sort < ${SGID_TODAY} > ${SGID_TODAY}.tmp
     mv -f ${SGID_TODAY}.tmp ${SGID_TODAY}
 fi
 
 if [[ -f ${WRITABLE_TODAY} ]]; then
+    Filter ${WRITABLE_TODAY} CHECK_WRITABLE
     sort < ${WRITABLE_TODAY} | egrep -v '^(/var)?/tmp$' > ${WRITABLE_TODAY}.tmp
     mv -f ${WRITABLE_TODAY}.tmp ${WRITABLE_TODAY}
 fi
 
 if [[ -f ${UNOWNED_USER_TODAY} ]]; then
+    Filter ${UNOWNED_USER_TODAY} CHECK_UNOWNED
     sort < ${UNOWNED_USER_TODAY} > ${UNOWNED_USER_TODAY}.tmp
     mv -f ${UNOWNED_USER_TODAY}.tmp ${UNOWNED_USER_TODAY}
 fi
 
 if [[ -f ${UNOWNED_GROUP_TODAY} ]]; then
+    Filter ${UNOWNED_GROUP_TODAY} CHECK_UNOWNED
     sort < ${UNOWNED_GROUP_TODAY} > ${UNOWNED_GROUP_TODAY}.tmp
     mv -f ${UNOWNED_GROUP_TODAY}.tmp ${UNOWNED_GROUP_TODAY}
 fi
@@ -182,6 +188,7 @@ done | awk -F: '$1 != $6 && $6 != "0" \
         { print "\t\t- " $3 " : file is group writable." }
         $4 ~ /^-.......w/ \
         { print "\t\t- " $3 " : file is other writable." }' > ${MSEC_TMP}
+Filter ${MSEC_TMP} CHECK_USER_FILES
 
 if [[ -s ${MSEC_TMP} ]]; then
     Count ${INFOS} ${MSEC_TMP} "Total of unsecure user files"
@@ -219,6 +226,7 @@ if [[ -s ${MSEC_TMP} ]]; then
     printf "\nSecurity Warning: theses files should not be owned by someone else or writable :\n" >> ${SECURITY}
     cat ${MSEC_TMP} >> ${SECURITY}
 fi
+Filter ${MSEC_TMP} CHECK_USER_FILES
 
 ### Check home directories.  Directories should not be owned by someone else or writable.
 getent passwd | awk -F: '/^[^+-]/ { print $1 ":" $3 ":" $6 }' | \
@@ -237,6 +245,7 @@ done | awk -F: '$3 != $5 && $5 != "(0)" \
         { print "user=" $2 $3" : home directory is group writable." }
      $1 ~ /^d.......w/ \
         { print "user=" $2 $3" : home directory is other writable." }' > ${MSEC_TMP}
+Filter ${MSEC_TMP} CHECK_USER_FILES
 
 if [[ -s $MSEC_TMP ]] ; then
         Count ${INFOS} ${MSEC_TMP} "Total of users whose home directories have unsafe permissions "
@@ -254,6 +263,7 @@ if [[ ${CHECK_PERMS} == yes || ${CHECK_PERMS} == enforce ]]; then
         fi
         # running msec_perms
         /usr/sbin/msecperms $MSECPERMS_PARAMS | grep WARNING > ${MSEC_TMP} 2>&1
+        Filter ${MSEC_TMP} CHECK_PERMS
         if [[ -s ${MSEC_TMP} ]]; then
                 Count ${INFOS} ${MSEC_TMP} "Permission changes on files watched by msecperms"
                 printf "\nPermissions changes on files watched by msec:\n" >> ${SECURITY}

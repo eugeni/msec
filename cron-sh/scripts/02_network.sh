@@ -26,11 +26,13 @@ fi
 
 if [[ ${CHECK_OPEN_PORT} == yes ]]; then
         netstat -pvlA inet,inet6 2> /dev/null > ${OPEN_PORT_TODAY};
+        Filter ${OPEN_PORT_TODAY} CHECK_OPEN_PORT
         Count ${INFOS} ${OPEN_PORT_TODAY} "Total of open network ports"
 fi
 
 if [[ ${CHECK_FIREWALL} == yes ]]; then
         iptables -S 2>/dev/null > ${FIREWALL_TODAY}
+        Filter ${FIREWALL_TODAY} CHECK_FIREWALL
         Count ${INFOS} ${FIREWALL_TODAY} "Total of configured firewall rules"
 fi
 

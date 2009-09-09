@@ -69,7 +69,8 @@ Count() {
 
 Filter() {
         # filters output according to defined rules
-        RULE="$1"
+        FILE="$1"
+        RULE="$2"
         exceptions=/etc/security/msec/exceptions
 
         if [ ! -s "$exceptions" -o "a$RULE" = "a" ]; then
@@ -83,7 +84,8 @@ Filter() {
                 done
                 FILTER="sed $EXCEPTIONS"
         fi
-        $FILTER
+        $FILTER < $FILE > ${FILE}.tmp
+        mv -f ${FILE}.tmp $FILE
 
 }
 

@@ -7,8 +7,7 @@ PGOAL = msec
 # perl files to search translatable strings in
 PL_FILES = ../src/msec/msec.py ../src/msec/msecperms.py ../src/msec/help.py \
 	   ../src/msec/msecgui.py ../src/msec/libmsec.py ../src/msec/help.py \
-	   ../src/msec/plugins/pam.py ../src/msec/plugins/apparmor.py \
-	   ../src/msec/plugins/policykit.py
+	   ../src/msec/plugins/pam.py
 # C-like files to search translatable strings in
 #CFILES = 
 

@@ -82,7 +82,11 @@ Filter() {
                         exc=${except//\//\\\/}
                         EXCEPTIONS="$EXCEPTIONS -e /${exc}/d"
                 done
-                FILTER="sed $EXCEPTIONS"
+                if [ ! -n "$EXCEPTIONS" ]; then
+                        FILTER="cat"
+                else
+                        FILTER="sed $EXCEPTIONS"
+                fi
         fi
         $FILTER < $FILE > ${FILE}.tmp
         mv -f ${FILE}.tmp $FILE

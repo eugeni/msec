@@ -1,3 +1,5 @@
+- do not check for permission changes in block/character devices (#53424)
+- create a summary for msec reports
 - simplified permissions policy for standard level
 - support enforcing file permissions in periodic msec runs
 - allow configuring inclusion of current directory into path

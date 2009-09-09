@@ -77,13 +77,15 @@ if [[ -s ${SECURITY} ]]; then
     Syslog ${SECURITY}
     Ttylog ${SECURITY}
 
-    echo "$SECURITY_PREFIX *** Security Check, ${REPORT_DATE} ***" >> ${SECURITY_LOG}
-    printf "Report summary:\n" >> ${SECURITY_LOG}
-    cat ${INFOS} | sed -e "s/^/$INFO_PREFIX/g" >> ${SECURITY_LOG}
-    printf "\nDetailed report:\n" >> ${SECURITY_LOG}
-    cat ${SECURITY} | sed -e "s/^/$SECURITY_PREFIX/g" >> ${SECURITY_LOG}
+    echo "*** Security Check, ${REPORT_DATE} ***" > ${MSEC_TMP}
+    printf "Report summary:\n" >> ${MSEC_TMP}
+    cat ${INFOS} >> ${MSEC_TMP}
+    printf "\nDetailed report:\n" >> ${MSEC_TMP}
+    cat ${SECURITY} >> ${MSEC_TMP}
 
-    Maillog "[msec] *** Security Check on ${REPORT_HOSTNAME}, ${REPORT_DATE} ***" "${SECURITY} ${INFOS}"
+    cat ${INFOS} | sed -e "s/^/$INFO_PREFIX/g" >> ${SECURITY_LOG}
+
+    Maillog "[msec] *** Security Check on ${REPORT_HOSTNAME}, ${REPORT_DATE} ***" "${MSEC_TMP}"
     Notifylog "MSEC has performed Security Check on ${REPORT_HOSTNAME} on ${REPORT_DATE}"
 fi
 

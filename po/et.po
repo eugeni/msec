@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX-et\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-30 20:48+BRT\n"
+"POT-Creation-Date: 2009-09-08 22:17+BRT\n"
 "PO-Revision-Date: 2009-08-31 11:32+0200\n"
 "Last-Translator: Marek Laane <bald@starman.ee>\n"
 "Language-Team: Estonian <et@li.org>\n"
@@ -177,14 +177,10 @@ msgid ""
 "results for binary and configuration files."
 msgstr ""
 "Paigaldatud RPM-pakettide terviklikkuse kontrollimise lubamine. See annab "
-"märku, kui paigaldatud failide kontrollsumma peaks muutuma, näidates tulemusi "
-"eraldi binaar- ja seadistustefailide kohta."
+"märku, kui paigaldatud failide kontrollsumma peaks muutuma, näidates "
+"tulemusi eraldi binaar- ja seadistustefailide kohta."
 
 #: ../src/msec/help.py:72
-msgid "Enable AppArmor security framework on boot"
-msgstr "AppArmori turvaraamistiku lubamine alglaadimisel."
-
-#: ../src/msec/help.py:74
 msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
@@ -193,25 +189,25 @@ msgstr ""
 "järgmisi argumente: jah (kõik ühendused on lubatud), kohalik (ainult "
 "kohalikud ühendused), ei (ühendusi ei lubata)."
 
-#: ../src/msec/help.py:76
+#: ../src/msec/help.py:74
 msgid "Enable checking for files/directories writable by everybody."
 msgstr "Kõigi kirjutatavate failide/kataloogide kontrollimise lubamine."
 
-#: ../src/msec/help.py:78
+#: ../src/msec/help.py:76
 msgid "Log syslog messages on console terminal 12."
 msgstr "Syslogi teadete logimine konsooli terminalis 12."
 
-#: ../src/msec/help.py:80
+#: ../src/msec/help.py:78
 msgid "Enable name resolution spoofing protection."
 msgstr "Nimelahenduse võltsimiskaitse lubamine."
 
-#: ../src/msec/help.py:82
+#: ../src/msec/help.py:80
 msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
 msgstr "Baasturvataseme määramine, millele tugineb kehtiv seadistus."
 
-#: ../src/msec/help.py:84
+#: ../src/msec/help.py:82
 msgid ""
 "Enable periodic permission checking for files specified in msec policy. If "
 "set to yes, the permissions are verified on every run. If set to enforce, "
@@ -220,35 +216,35 @@ msgid ""
 msgstr ""
 "Mseci seadistuses määratud failide õiguste perioodilise kontrollimise "
 "lubamine. Väärtuse 'yes' korral kontrollitakse õigusi iga kord. Väärtuse "
-"'enforce' korral antakse vääratele õigustele uuesti selline õigus, nagu "
-"see on määratud mseci seadistusega."
+"'enforce' korral antakse vääratele õigustele uuesti selline õigus, nagu see "
+"on määratud mseci seadistusega."
 
-#: ../src/msec/help.py:86
+#: ../src/msec/help.py:84
 msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
-"Paigaldatud RPM-pakettide muutuste kontrollimise lubamine. See annab "
-"märku, kui on paigaldatud uusi pakette või seniseid eemaldatud."
+"Paigaldatud RPM-pakettide muutuste kontrollimise lubamine. See annab märku, "
+"kui on paigaldatud uusi pakette või seniseid eemaldatud."
 
-#: ../src/msec/help.py:88
+#: ../src/msec/help.py:86
 msgid "Set shell commands history size. A value of -1 means unlimited."
 msgstr "Shellikäskude puhvri suuruse määramine. -1 tähendab piiramatu."
 
-#: ../src/msec/help.py:90
+#: ../src/msec/help.py:88
 msgid "Allow system reboot and shutdown to local users."
 msgstr ""
 "Kohalikele kasutajatele süsteemi taaskäivitamise ja seiskamise lubamine."
 
-#: ../src/msec/help.py:92
+#: ../src/msec/help.py:90
 msgid "Enables logging of periodic checks to system log."
 msgstr "Perioodiliste kontrollide logimise lubamine süsteemi logisse."
 
-#: ../src/msec/help.py:94
+#: ../src/msec/help.py:92
 msgid "Enable checking for changes in system groups."
 msgstr "Süsteemsete gruppide muutuste kontrollimise lubamine."
 
-#: ../src/msec/help.py:96
+#: ../src/msec/help.py:94
 msgid ""
 "Enable password-related checks, such as empty passwords and strange super-"
 "user accounts."
@@ -256,7 +252,7 @@ msgstr ""
 "Parooliga seotud kontrollide lubamine (näiteks tühjad paroolid ja kummalised "
 "administraatori kontod)."
 
-#: ../src/msec/help.py:98
+#: ../src/msec/help.py:96
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
@@ -264,11 +260,11 @@ msgstr ""
 "Paroolipuhvri suuruse määramine vältimaks selle taaskasutamist. Pam_tcb seda "
 "ei toeta."
 
-#: ../src/msec/help.py:100
+#: ../src/msec/help.py:98
 msgid "Enable daily security checks."
 msgstr "Igapäevase turvakontrolli lubamine."
 
-#: ../src/msec/help.py:102
+#: ../src/msec/help.py:100
 msgid ""
 "Use secure location for temporary files. If this parameter is set to 'yes', "
 "user home directory will be used for temporary files. Otherwise, /tmp will "
@@ -278,24 +274,24 @@ msgstr ""
 "'yes', kasutatakse selleks kasutaja kodukataloogi, kõigil muudel juhtudel "
 "kataloogi /tmp."
 
-#: ../src/msec/help.py:104
+#: ../src/msec/help.py:102
 msgid "Allow direct root login on terminal."
 msgstr "Administraatori vahetu sisselogimise lubamine terminalis."
 
-#: ../src/msec/help.py:106
+#: ../src/msec/help.py:104
 msgid "Enable checking for changes in system users."
 msgstr "Süsteemsete kasutajate muutuste kontrollimise lubamine."
 
-#: ../src/msec/help.py:108
+#: ../src/msec/help.py:106
 msgid "Enable checking for unowned files."
 msgstr "Omanikuta failide kontrollimise lubamine."
 
-#: ../src/msec/help.py:110
+#: ../src/msec/help.py:108
 msgid "Allow display managers (kdm and gdm) to display list of local users."
 msgstr ""
 "Kuvahalduritel (KDM ja GDM) kohalike kasutajate nimekirja näitamise lubamine."
 
-#: ../src/msec/help.py:112
+#: ../src/msec/help.py:110
 msgid ""
 "Enforce MSEC file directory permissions on system startup. If this parameter "
 "is set to 'enforce', system permissions will be enforced automatically, "
@@ -305,15 +301,15 @@ msgstr ""
 "parameetriks on määratud 'enforce', kehtestatakse süsteemi õigused "
 "automaatselt vastavalt süsteemi turvaseadistustele."
 
-#: ../src/msec/help.py:114
+#: ../src/msec/help.py:112
 msgid "Include current directory into user PATH by default"
 msgstr "Aktiivse kataloogi vaikimisi lisamine kasutaja otsinguteele (PATH)."
 
-#: ../src/msec/help.py:116
+#: ../src/msec/help.py:114
 msgid "Show security notifications in system tray using libnotify."
 msgstr "Turvateadete näitamine süsteemisalves libnotify abil."
 
-#: ../src/msec/help.py:118
+#: ../src/msec/help.py:116
 msgid ""
 "Allow remote root login via sshd. If yes, login is allowed. If without-"
 "password, only public-key authentication logins are allowed. See sshd_config"
@@ -324,18 +320,18 @@ msgstr ""
 "ainult avaliku võtmega autenditud sisselogimist. Täpsemalt vt sshd_config(5) "
 "manuaalilehekülge."
 
-#: ../src/msec/help.py:120
+#: ../src/msec/help.py:118
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
 msgstr ""
 "Ohtlike võtmete kontrolli lubamine kasutajate .rhosts/.shosts failides."
 
-#: ../src/msec/help.py:122
+#: ../src/msec/help.py:120
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
 "Administraatori parooli küsimine ainukasutaja tasandile suundudes (man "
 "sulogin(8))."
 
-#: ../src/msec/help.py:124
+#: ../src/msec/help.py:122
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
@@ -343,15 +339,15 @@ msgstr ""
 "Kuva ekspordi lubamine administraatori kontolt muude kasutajate kontole üle "
 "minnes. Vaadake täpsemalt pam_xauth(8)."
 
-#: ../src/msec/help.py:126
+#: ../src/msec/help.py:124
 msgid "Set the user umask."
 msgstr "Kasutaja umask-i määramine."
 
-#: ../src/msec/help.py:128
+#: ../src/msec/help.py:126
 msgid "Accept ICMP echo."
 msgstr "ICMP echo lubamine."
 
-#: ../src/msec/help.py:130
+#: ../src/msec/help.py:128
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
@@ -363,33 +359,23 @@ msgstr ""
 "'kohalik', on lubatud ainult ühendused kohalike teenustega. Kui on 'ei', "
 "tuleb teenused käsitsi lubada failis /etc/hosts.allow (vt. hosts.allow(5))."
 
-#: ../src/msec/help.py:132
+#: ../src/msec/help.py:130
 msgid "Activate ethernet cards promiscuity check."
 msgstr "Võrgukaardi mitte-eelisoleku kontrolli lubamine."
 
-#: ../src/msec/help.py:134
+#: ../src/msec/help.py:132
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
 "Igatunnise turvakontrolli sooritamine süsteemi seadistuste muudatuste "
 "tuvastamiseks."
 
-#: ../src/msec/help.py:136
+#: ../src/msec/help.py:134
 msgid "Enforce MSEC settings on system startup"
 msgstr "MSEC-i seadistuste kehtestamine süsteemi käivitamisel"
 
-#: ../src/msec/help.py:138
+#: ../src/msec/help.py:136
 msgid "Enable periodic security check results to terminal."
 msgstr "Perioodilise turvakontrolli tulemuste väljundi lubamine terminalis."
-
-#: ../src/msec/help.py:140
-msgid ""
-"Enable PolicyKit security framework for all users. If this option is not "
-"enabled, only users in wheel group may change advanced PolicyKit permissions "
-"and settings"
-msgstr ""
-"PolicyKiti turvaraamistiku kehtestamine kõigile kasutajatele. Kui see pole "
-"sisse lülitatud, saavad PolicyKiti põhjalikumaid õigusi ja seadistusi muuta "
-"ainult grupi wheel liikmed."
 
 #: ../src/msec/libmsec.py:338
 msgid "%s modified so launched command: %s"
@@ -789,7 +775,7 @@ msgstr "Taset '%s' ei leitud, loobutakse."
 msgid "Switching to '%s' level."
 msgstr "Lülitumine tasemele '%s'."
 
-#: ../src/msec/msec.py:150 ../src/msec/msecperms.py:169
+#: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
 msgid "Unable to save config!"
 msgstr "Seadistuste salvestamine nurjus!"
 
@@ -865,6 +851,14 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:71
 msgid ""
+"<big><b>Exceptions</b></big>\n"
+"Here you can configure the allowed exceptions for msec periodic security\n"
+"checks. For each supported test, you may add as many exceptions as you want\n"
+"for each check. Note that each exception is parsed as a regexp."
+msgstr ""
+
+#: ../src/msec/msecgui.py:76
+msgid ""
 "<big><b>File permissions</b></big>\n"
 "These options allow to fine-tune system permissions for important files and "
 "directories.\n"
@@ -883,223 +877,261 @@ msgstr ""
 "kehtestada ning\n"
 "anda neile kindlaks määratud väärtuse, kui tuvastatakse muudatus.  "
 
-#: ../src/msec/msecgui.py:77
+#: ../src/msec/msecgui.py:82
 msgid "Save and apply new configuration?"
 msgstr "Kas salvestada ja kehtestada uus seadistus?"
 
-#: ../src/msec/msecgui.py:143
+#: ../src/msec/msecgui.py:150
 msgid "_File"
 msgstr "_Fail"
 
-#: ../src/msec/msecgui.py:145
+#: ../src/msec/msecgui.py:152
 msgid "_Save configuration"
 msgstr "_Salvesta seadistus"
 
-#: ../src/msec/msecgui.py:147
+#: ../src/msec/msecgui.py:154
 msgid "_Import configuration"
 msgstr "_Impordi seadistus"
 
-#: ../src/msec/msecgui.py:148
+#: ../src/msec/msecgui.py:155
 msgid "_Export configuration"
 msgstr "_Ekspordi seadistus"
 
-#: ../src/msec/msecgui.py:150
+#: ../src/msec/msecgui.py:157
 msgid "_Quit"
 msgstr "_Välju"
 
-#: ../src/msec/msecgui.py:152 ../src/msec/msecgui.py:154
+#: ../src/msec/msecgui.py:159 ../src/msec/msecgui.py:161
 msgid "_Help"
 msgstr "_Abi"
 
-#: ../src/msec/msecgui.py:155
+#: ../src/msec/msecgui.py:162
 msgid "_About"
 msgstr "Tea_ve"
 
-#: ../src/msec/msecgui.py:183
+#: ../src/msec/msecgui.py:190
 msgid "MSEC: System Security and Audit"
 msgstr "MSEC: süsteemi turvalisus ja audit"
 
-#: ../src/msec/msecgui.py:198
+#: ../src/msec/msecgui.py:205
 msgid "Save and apply current policy"
 msgstr "Salvesta ja kehtesta uus seadistus"
 
-#: ../src/msec/msecgui.py:204
+#: ../src/msec/msecgui.py:211
 msgid "Quit"
 msgstr "Välju"
 
-#: ../src/msec/msecgui.py:220
+#: ../src/msec/msecgui.py:227
 msgid "Basic security"
 msgstr "Põhiseadistused"
 
-#: ../src/msec/msecgui.py:221
+#: ../src/msec/msecgui.py:228
 msgid "System security"
 msgstr "Süsteemi turvalisus"
 
-#: ../src/msec/msecgui.py:222
+#: ../src/msec/msecgui.py:229
 msgid "Network security"
 msgstr "Võrguturvalisus"
 
-#: ../src/msec/msecgui.py:223
+#: ../src/msec/msecgui.py:230
 msgid "Periodic checks"
 msgstr "Perioodilised kontrollid"
 
-#: ../src/msec/msecgui.py:224 ../src/msec/msecgui.py:829
+#: ../src/msec/msecgui.py:231
+#, fuzzy
+msgid "Exceptions"
+msgstr "valik"
+
+#: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
 msgstr "Õigused"
 
-#: ../src/msec/msecgui.py:257
+#: ../src/msec/msecgui.py:265
 msgid "MSEC option changes"
 msgstr "MSEC-i valikute muutused"
 
-#: ../src/msec/msecgui.py:257
+#: ../src/msec/msecgui.py:265
 msgid "option"
 msgstr "valik"
 
-#: ../src/msec/msecgui.py:258
+#: ../src/msec/msecgui.py:266
 msgid "System permissions changes"
 msgstr "Süsteemi õiguste muutused"
 
-#: ../src/msec/msecgui.py:258
+#: ../src/msec/msecgui.py:266
 msgid "permission check"
 msgstr "õiguste kontroll"
 
-#: ../src/msec/msecgui.py:268
+#: ../src/msec/msecgui.py:276
 msgid "changed %s <b>%s</b> (%s -> %s)"
 msgstr "muudeti %s <b>%s</b> (%s -> %s)"
 
-#: ../src/msec/msecgui.py:273
+#: ../src/msec/msecgui.py:281
 msgid "added %s <b>%s</b> (%s)"
 msgstr "lisati %s <b>%s</b> (%s)"
 
-#: ../src/msec/msecgui.py:278
+#: ../src/msec/msecgui.py:286
 msgid "removed %s <b>%s</b>"
 msgstr "eemaldati %s <b>%s</b>"
 
-#: ../src/msec/msecgui.py:282
+#: ../src/msec/msecgui.py:290
 msgid "no changes"
 msgstr "muutusi pole"
 
-#: ../src/msec/msecgui.py:294
+#: ../src/msec/msecgui.py:302
 msgid "Saving changes.."
 msgstr "Muutuste salvestamine..."
 
-#: ../src/msec/msecgui.py:328
+#: ../src/msec/msecgui.py:336
 msgid "<b>%s:</b> <i>%s</i>\n"
 msgstr "<b>%s:</b> <i>%s</i>\n"
 
-#: ../src/msec/msecgui.py:335
+#: ../src/msec/msecgui.py:343
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
 msgstr "<b>MSEC-i testi tulemused:</b> <i>%s</i>"
 
-#: ../src/msec/msecgui.py:343
+#: ../src/msec/msecgui.py:351
 msgid "Details"
 msgstr "Üksikasjad"
 
-#: ../src/msec/msecgui.py:349
+#: ../src/msec/msecgui.py:357
 msgid "MSEC messages (%s): %d"
 msgstr "MSEC-i teated (%s): %d"
 
-#: ../src/msec/msecgui.py:363
+#: ../src/msec/msecgui.py:371
 msgid "Details (%d changes).."
 msgstr "Üksikasjad (%d muutust)..."
 
-#: ../src/msec/msecgui.py:408
+#: ../src/msec/msecgui.py:419
 msgid "No base msec level specified, using '%s'"
 msgstr "Msec-i baastase pole määratud, kasutatakse '%s'"
 
-#: ../src/msec/msecgui.py:411
+#: ../src/msec/msecgui.py:422
 msgid "Detected base msec level '%s'"
 msgstr "Tuvastati msec-i baastase '%s'"
 
-#: ../src/msec/msecgui.py:416
+#: ../src/msec/msecgui.py:427
 msgid "Custom base config level '%s' found. Will default to '%s'"
 msgstr "Leiti kohandatud seadistuste baastase '%s'. Vaikimisi kasutatakse '%s'"
 
-#: ../src/msec/msecgui.py:444
+#: ../src/msec/msecgui.py:455
 msgid "Security Option"
 msgstr "Turvavalik"
 
-#: ../src/msec/msecgui.py:454
+#: ../src/msec/msecgui.py:465
 msgid "Description"
 msgstr "Kirjeldus"
 
-#: ../src/msec/msecgui.py:459
+#: ../src/msec/msecgui.py:470
 msgid "Value"
 msgstr "Väärtus"
 
-#: ../src/msec/msecgui.py:469
+#: ../src/msec/msecgui.py:480
 msgid "Invalid option '%s'!"
 msgstr "Vigane valik '%s'!"
 
-#: ../src/msec/msecgui.py:519
+#: ../src/msec/msecgui.py:530
 msgid "Enable MSEC tool"
 msgstr "MSEC-i tööriista lubamine"
 
-#: ../src/msec/msecgui.py:526
+#: ../src/msec/msecgui.py:537
 msgid "Select the base security level"
 msgstr "Baasturvataseme valimine"
 
-#: ../src/msec/msecgui.py:530
+#: ../src/msec/msecgui.py:541
 msgid "Standard"
 msgstr "Standardne"
 
-#: ../src/msec/msecgui.py:543
+#: ../src/msec/msecgui.py:554
 msgid "Secure"
 msgstr "Turvaline"
 
-#: ../src/msec/msecgui.py:560
+#: ../src/msec/msecgui.py:571
 msgid "Send security alerts by email"
 msgstr "Turvahoiatuste saatmine e-postiga"
 
-#: ../src/msec/msecgui.py:567
+#: ../src/msec/msecgui.py:578
 msgid "System administrator email address:"
 msgstr "Süsteemi administraatori e-posti aadress:"
 
-#: ../src/msec/msecgui.py:586
+#: ../src/msec/msecgui.py:597
 msgid "Display security alerts on desktop"
 msgstr "Turvahoiatuste näitamine töölaual"
 
-#: ../src/msec/msecgui.py:747
+#: ../src/msec/msecgui.py:758
 msgid "Enable periodic security checks"
 msgstr "Perioodiliste turvakontrollide lubamine"
 
-#: ../src/msec/msecgui.py:811
-msgid "Path"
-msgstr "Asukoht"
+#: ../src/msec/msecgui.py:820
+#, fuzzy
+msgid "Security check"
+msgstr "Perioodilised kontrollid"
 
-#: ../src/msec/msecgui.py:817
-msgid "User"
-msgstr "Kasutaja"
+#: ../src/msec/msecgui.py:826
+#, fuzzy
+msgid "Exception"
+msgstr "valik"
 
-#: ../src/msec/msecgui.py:823
-msgid "Group"
-msgstr "Grupp"
-
-#: ../src/msec/msecgui.py:837
-msgid "Enforce"
-msgstr "Jõuga kehtestamine"
-
-#: ../src/msec/msecgui.py:881
-msgid "Reset to default level permissions"
-msgstr "Taasta taseme vaikeõigused"
-
-#: ../src/msec/msecgui.py:886
+#: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
 msgstr "Lisa reegel"
 
-#: ../src/msec/msecgui.py:891
+#: ../src/msec/msecgui.py:852 ../src/msec/msecgui.py:971
 msgid "Delete"
 msgstr "Kustuta"
 
-#: ../src/msec/msecgui.py:974
+#: ../src/msec/msecgui.py:891
+msgid "Path"
+msgstr "Asukoht"
+
+#: ../src/msec/msecgui.py:897
+msgid "User"
+msgstr "Kasutaja"
+
+#: ../src/msec/msecgui.py:903
+msgid "Group"
+msgstr "Grupp"
+
+#: ../src/msec/msecgui.py:917
+msgid "Enforce"
+msgstr "Jõuga kehtestamine"
+
+#: ../src/msec/msecgui.py:961
+msgid "Reset to default level permissions"
+msgstr "Taasta taseme vaikeõigused"
+
+#: ../src/msec/msecgui.py:1067
+msgid "Editing exception"
+msgstr ""
+
+#: ../src/msec/msecgui.py:1072
+#, fuzzy
+msgid "Adding new exception"
+msgstr "Uue õiguse lisamine"
+
+#: ../src/msec/msecgui.py:1079
+msgid ""
+"Editing exception. Please select the correspondent msec check and exception "
+"value\n"
+msgstr ""
+
+#: ../src/msec/msecgui.py:1086
+msgid "Check: "
+msgstr ""
+
+#: ../src/msec/msecgui.py:1101
+msgid "Exception: "
+msgstr ""
+
+#: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
 msgstr "%s õiguste muutmine"
 
-#: ../src/msec/msecgui.py:981
+#: ../src/msec/msecgui.py:1143
 msgid "Adding new permission check"
 msgstr "Uue õiguse lisamine"
 
-#: ../src/msec/msecgui.py:993
+#: ../src/msec/msecgui.py:1155
 msgid ""
 "Changing permissions on <b>%s</b>\n"
 "Please specify new permissions, or use 'current' to keep current "
@@ -1109,27 +1141,31 @@ msgstr ""
 "Palun määra uued õigused või kirjuta 'current' kehtivate õiguste "
 "säilitamiseks.\n"
 
-#: ../src/msec/msecgui.py:1001
+#: ../src/msec/msecgui.py:1155
+msgid "new file"
+msgstr ""
+
+#: ../src/msec/msecgui.py:1163
 msgid "File: "
 msgstr "Fail: "
 
-#: ../src/msec/msecgui.py:1009
+#: ../src/msec/msecgui.py:1171
 msgid "User: "
 msgstr "Kasutaja: "
 
-#: ../src/msec/msecgui.py:1017
+#: ../src/msec/msecgui.py:1179
 msgid "Group: "
 msgstr "Grupp: "
 
-#: ../src/msec/msecgui.py:1025
+#: ../src/msec/msecgui.py:1187
 msgid "Permissions: "
 msgstr "Õigused: "
 
-#: ../src/msec/msecgui.py:1086
+#: ../src/msec/msecgui.py:1248
 msgid "Select new value for %s"
 msgstr "%s uue väärtuse valimine"
 
-#: ../src/msec/msecgui.py:1095
+#: ../src/msec/msecgui.py:1257
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1143,27 +1179,27 @@ msgstr ""
 "\t%sStandardtaseme väärtus:\t<i>%s</i>%s\n"
 "\t%sTurvalise taseme väärtus:\t\t<i>%s</i>%s\n"
 
-#: ../src/msec/msecgui.py:1106
+#: ../src/msec/msecgui.py:1268
 msgid "New value:"
 msgstr "Uus väärtus:"
 
-#: ../src/msec/msecgui.py:1168
+#: ../src/msec/msecgui.py:1330
 msgid "Save your changes?"
 msgstr "Kas salvestada muutused?"
 
-#: ../src/msec/msecgui.py:1170
+#: ../src/msec/msecgui.py:1332
 msgid "_Cancel"
 msgstr "Loo_bu"
 
-#: ../src/msec/msecgui.py:1171
+#: ../src/msec/msecgui.py:1333
 msgid "_Ignore"
 msgstr "E_ira"
 
-#: ../src/msec/msecgui.py:1172
+#: ../src/msec/msecgui.py:1334
 msgid "_Save"
 msgstr "_Salvesta"
 
-#: ../src/msec/msecgui.py:1174
+#: ../src/msec/msecgui.py:1336
 msgid "Do you want to save changes before closing?"
 msgstr "Kas salvestada enne sulgemist muutused?"
 
@@ -1225,6 +1261,18 @@ msgstr "Läbipaistva administraatori ligipääsu lubamine grupi wheel liikmetele
 #: ../src/msec/plugins/pam.py:210
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Läbipaistva administraatori ligipääsu keelamine grupi wheel liikmetele"
+
+#~ msgid "Enable AppArmor security framework on boot"
+#~ msgstr "AppArmori turvaraamistiku lubamine alglaadimisel."
+
+#~ msgid ""
+#~ "Enable PolicyKit security framework for all users. If this option is not "
+#~ "enabled, only users in wheel group may change advanced PolicyKit "
+#~ "permissions and settings"
+#~ msgstr ""
+#~ "PolicyKiti turvaraamistiku kehtestamine kõigile kasutajatele. Kui see "
+#~ "pole sisse lülitatud, saavad PolicyKiti põhjalikumaid õigusi ja "
+#~ "seadistusi muuta ainult grupi wheel liikmed."
 
 #~ msgid "Enable periodic permission checking for system files."
 #~ msgstr "Süsteemsete failide perioodilise õiguste kontrolli lubamine."

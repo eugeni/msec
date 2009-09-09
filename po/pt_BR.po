@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-09-02 14:55-0300\n"
+"PO-Revision-Date: 2009-09-09 11:37-0300\n"
 "Last-Translator: Sergio Rafael Lemke (bedi) <sergio@mandriva.com.br>\n"
 "Language-Team: Brazilian Portuguese <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -108,8 +108,8 @@ msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
 msgstr ""
-"Habilita checagem das permissões dos usuários, arquivos que não deveriam "
-"pertencer a alguém ou com permissão de escrita."
+"Habilita checagem de permissões nos arquivos do usuário que não "
+"deveriam pertencer a outros ou com permissão de escrita."
 
 #: ../src/msec/help.py:48
 msgid ""
@@ -277,7 +277,7 @@ msgstr ""
 
 #: ../src/msec/help.py:98
 msgid "Enable daily security checks."
-msgstr "Habilita checagem diária de segurança."
+msgstr "Habilita checagems diárias de segurança."
 
 #: ../src/msec/help.py:100
 msgid ""
@@ -340,7 +340,7 @@ msgstr ""
 #: ../src/msec/help.py:118
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
 msgstr ""
-"Habilita checagem por opções perigosas nos arquivos .rhosts/.shosts dos "
+"Habilita checagem por opções perigosas nos arquivos' .rhosts/.shosts dos "
 "usuários."
 
 #: ../src/msec/help.py:120
@@ -383,8 +383,7 @@ msgstr "Ativa a verificação do modo promíscuo em placas ethernet."
 #: ../src/msec/help.py:132
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
-"Executar checagem a cada hora procurando mudanças nas configurações do "
-"sistema."
+"Checagem de segurança a cada hora por mudanças nas configurações do sistema."
 
 #: ../src/msec/help.py:134
 msgid "Enforce MSEC settings on system startup"
@@ -440,7 +439,7 @@ msgstr "Função '%s' não suportada em '%s'"
 
 #: ../src/msec/libmsec.py:804 ../src/msec/libmsec.py:1638
 msgid "In check-only mode, nothing is written back to disk."
-msgstr "No modo somente checagem, nada depois é escrito no disco."
+msgstr "No modo somente checagem, nada é gravado em disco."
 
 #: ../src/msec/libmsec.py:821
 msgid "'%s' is not available in this version"
@@ -863,8 +862,8 @@ msgid ""
 "periodically.  "
 msgstr ""
 "<big><b>Checagem Periódica de Segurança</b></big>\n"
-"Estas opções configuram as checagens de segurança que deverão serexecutadas "
-"periodicamente.  "
+"Estas opções configuram as checagens de segurança que devem ser "
+"executadas periodicamente. "
 
 #: ../src/msec/msecgui.py:71
 msgid ""
@@ -873,6 +872,11 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Excessões</b></big>\n"
+"Aqui você pode configurar as excessões permitidas para as checagens "
+"periódicas\n"
+"de segurança do msec. Para cada teste suportado, adicione quantas excessões\n"
+"quiser para cada checagem. Note que cada excessão é interpretada como regexp."
 
 #: ../src/msec/msecgui.py:76
 msgid ""
@@ -955,9 +959,8 @@ msgid "Periodic checks"
 msgstr "Verificações periódicas"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "opção"
+msgstr "Excessões"
 
 #: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
@@ -1080,14 +1083,12 @@ msgid "Enable periodic security checks"
 msgstr "Ativar checagens periódicas de segurança"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "Verificações periódicas"
+msgstr "Checagem de segurança"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "opção"
+msgstr "Excessão"
 
 #: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
@@ -1119,26 +1120,28 @@ msgstr "Reiniciar para o nível de permissões padrão"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "Editando excessão"
 
 #: ../src/msec/msecgui.py:1072
-#, fuzzy
 msgid "Adding new exception"
-msgstr "Adicionando nova verificação de permissões"
+msgstr "Adicionando nova excessão"
 
 #: ../src/msec/msecgui.py:1079
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr ""
+"Editando excessão. Por favor selecione a checagem msec correspondende e o "
+"valor "
+"da excessão\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Checagem: "
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "Excessão: "
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
@@ -1160,7 +1163,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "novo arquivo"
 
 #: ../src/msec/msecgui.py:1163
 msgid "File: "

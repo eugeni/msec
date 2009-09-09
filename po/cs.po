@@ -8,20 +8,19 @@ msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-04-03 00:19+0200\n"
+"PO-Revision-Date: 2009-09-10 00:06+0200\n"
 "Last-Translator: Michal Bukovjan <bukm@centrum.cz>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 0.3\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Kontrolovat otevřené síťové porty."
+msgstr "Povolit kontrolu změn v nastavení firewallu."
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -122,7 +121,6 @@ msgstr ""
 "server.ÚROVEŇ_SERVERU ručně, pokud je to potřeba."
 
 #: ../src/msec/help.py:50
-#, fuzzy
 msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
@@ -131,13 +129,12 @@ msgstr ""
 "hesel, jelikož jejich vypnutí ponechá váš počítač zranitelný."
 
 #: ../src/msec/help.py:52
-#, fuzzy
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
 "Nastavit volbu umask při připojení oddílů VFAT a NTFS. Pokud je volba umask "
-"nastavena na „0”, použije se výchozí nastavení volby umask ze systému."
+"nastavena na „-1”, použije se výchozí nastavení volby umask ze systému."
 
 #: ../src/msec/help.py:54
 msgid "Enable checking for open network ports."
@@ -154,7 +151,7 @@ msgstr ""
 
 #: ../src/msec/help.py:60
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
-msgstr ""
+msgstr "Opravit vlastníka a skupinu u nevlastněných souborů na nobody/nogroup."
 
 #: ../src/msec/help.py:62
 msgid "Send security check results by email."
@@ -182,6 +179,9 @@ msgid ""
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
+"Povolit kontrolu integrity instalovaných balíčků RPM. Toto vás upozorní, "
+"pokud se kontrolní součty instalovaných souborů změní; zobrazí se zvlášť "
+"výsledky pro binární soubory a soubory s nastavením."
 
 #: ../src/msec/help.py:72
 msgid ""
@@ -219,12 +219,18 @@ msgid ""
 "incorrect permissions are restored to the ones specified in msec security "
 "policy."
 msgstr ""
+"Povolit pravidelné kontroly oprávnění u souborů stanovených v politice msec. "
+"Pokud je nastaveno na yes, oprávnění jsou kontrolována při každém spuštění. "
+"Pokud je nastaveno na enforce, nesprávná oprávnění jsou přepsána zpět na ta, "
+"která jsou zadána v bezpečnostní politice msec."
 
 #: ../src/msec/help.py:84
 msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
+"Povolit kontrolu změn v instalovaných balíčcích RPM. Budete upozorněni, "
+"pokud byly instalovány nové balíčky nebo byly nějaké odstraněny."
 
 #: ../src/msec/help.py:86
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -239,9 +245,8 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Zaznamenávat pravidelné kontroly do systémových záznamů."
 
 #: ../src/msec/help.py:92
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Vyhledávat soubory bez vlastníka."
+msgstr "Povolit kontrolu změn v systémových skupinách."
 
 #: ../src/msec/help.py:94
 msgid ""
@@ -269,15 +274,18 @@ msgid ""
 "user home directory will be used for temporary files. Otherwise, /tmp will "
 "be used."
 msgstr ""
+"Používat bezpečné umístění pro dočasné soubory. Pokud je tento parametr "
+"nastaven na „yes”, bude použit pro dočasné soubory domovský adresář "
+"uživatele. "
+"Jinak bude použit adresář /tmp."
 
 #: ../src/msec/help.py:102
 msgid "Allow direct root login on terminal."
 msgstr "Umožnit přímé přihlášení uživatele root na terminálu."
 
 #: ../src/msec/help.py:104
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Vyhledávat soubory bez vlastníka."
+msgstr "Povolit kontrolu změn v systémových uživatelích."
 
 #: ../src/msec/help.py:106
 msgid "Enable checking for unowned files."
@@ -300,7 +308,7 @@ msgstr ""
 
 #: ../src/msec/help.py:112
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Vkládat implicitně aktuální adresář do uživatelské proměnné PATH"
 
 #: ../src/msec/help.py:114
 msgid "Show security notifications in system tray using libnotify."
@@ -492,9 +500,8 @@ msgid "Removing limit on shell history size"
 msgstr "Odstraňuji omezení velikosti historie pro shell"
 
 #: ../src/msec/libmsec.py:991
-#, fuzzy
 msgid "Invalid file system umask \"%s\""
-msgstr "Neplatný dobu vypršení shellu „%s”"
+msgstr "Neplatné umask souborového systému „%s”"
 
 #: ../src/msec/libmsec.py:1025
 msgid "Allowing reboot and shutdown to the console user"
@@ -666,19 +673,19 @@ msgstr "Zakazuji přímé přihlášení uživatele root"
 
 #: ../src/msec/libmsec.py:1516
 msgid "Using secure location for temporary files"
-msgstr ""
+msgstr "Používá se bezpečné umístění pro dočasné soubory"
 
 #: ../src/msec/libmsec.py:1518
 msgid "Not using secure location for temporary files"
-msgstr ""
+msgstr "Nepoužívá se bezpečné umístění pro dočasné soubory"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Povoluje se vložení aktuálního adresáře do cesty"
 
 #: ../src/msec/libmsec.py:1541
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Nepovoluje se vložení aktuálního adresáře do cesty"
 
 #: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"
@@ -852,6 +859,12 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Výjimky</b></big>\n"
+"Zde můžete nastavit povolené výjimky pro pravidelné bezpečnostní kontroly "
+"aplikace "
+"msec. Pro každý z podporovaných testů a kontrol lze přidat tolik výjimek, "
+"kolik "
+"potřebujete. Každá z výjimek je pokládána za regulární výraz."
 
 #: ../src/msec/msecgui.py:76
 msgid ""
@@ -910,14 +923,12 @@ msgid "MSEC: System Security and Audit"
 msgstr "MSEC: Zabezpečení a audit systému"
 
 #: ../src/msec/msecgui.py:205
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Uložit a přijmout nové nastavení?"
+msgstr "Uložit a přijmout současnou politiku"
 
 #: ../src/msec/msecgui.py:211
-#, fuzzy
 msgid "Quit"
-msgstr "U_končit"
+msgstr "Ukončit"
 
 #: ../src/msec/msecgui.py:227
 msgid "Basic security"
@@ -936,9 +947,8 @@ msgid "Periodic checks"
 msgstr "Pravidelné kontroly"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "volba"
+msgstr "Výjimky"
 
 #: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
@@ -1063,14 +1073,12 @@ msgid "Enable periodic security checks"
 msgstr "Povolit pravidelné bezpečnostní kontroly"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "Pravidelné kontroly"
+msgstr "Kontrola zabezpečení"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "volba"
+msgstr "Výjimka"
 
 #: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
@@ -1102,26 +1110,27 @@ msgstr "Vrátit zpět na výchozí oprávnění úrovně"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "Úprava výjimky"
 
 #: ../src/msec/msecgui.py:1072
-#, fuzzy
 msgid "Adding new exception"
-msgstr "Přidávám novou kontrolu oprávnění"
+msgstr "Přidání nové výjimky"
 
 #: ../src/msec/msecgui.py:1079
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr ""
+"Úprava výjimky. Vyberte prosím odpovídající kontrolu msec "
+"a hodnotu výjimky\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Kontrola: "
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "Výjimka: "
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
@@ -1143,7 +1152,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "nový soubor"
 
 #: ../src/msec/msecgui.py:1163
 msgid "File: "

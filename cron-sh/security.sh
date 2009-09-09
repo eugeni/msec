@@ -77,8 +77,12 @@ if [[ -s ${SECURITY} ]]; then
     Syslog ${SECURITY}
     Ttylog ${SECURITY}
 
+    TEST_ENDED=`date "+%b %d %H:%M:%S"`
+
     echo "*** Security Check, ${REPORT_DATE} ***" > ${MSEC_TMP}
     printf "Report summary:\n" >> ${MSEC_TMP}
+    echo "Test started: $REPORT_DATE" >> ${MSEC_TMP}
+    echo "Test finished: $TEST_ENDED" >> ${MSEC_TMP}
     cat ${INFOS} >> ${MSEC_TMP}
     printf "\nDetailed report:\n" >> ${MSEC_TMP}
     cat ${SECURITY} >> ${MSEC_TMP}

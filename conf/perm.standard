@@ -15,21 +15,9 @@
 /etc/crontab					root.root		644
 /etc/dhcpcd/					root.root		755
 /etc/dhcpcd/*					root.root		644
-/etc/ftpaccess					root.root		644
-/etc/ftpconversions				root.root		644
-/etc/ftpgroups					root.root		644
-/etc/ftphosts					root.root		644
-/etc/ftpusers					root.root		644
-/etc/gettydefs					root.root		644
 /etc/hosts.allow				root.root		644
 /etc/hosts.deny					root.root		644
 /etc/hosts.equiv				root.root		644
-/etc/httpd/modules.d/*.conf			root.root		644
-/etc/httpd/conf/*.conf				root.root		644
-/etc/httpd/conf/addon-modules/*			root.root		644
-/etc/httpd/conf/vhosts.d/*			root.root		644
-/etc/httpd/conf/webapps.d/*			root.root		644
-/etc/inetd.conf					root.root		644
 /etc/inittab					root.root		644
 /etc/ld.so.conf					root.root		644
 /etc/mandrake-release				root.root		644
@@ -39,12 +27,8 @@
 /etc/profile.d/*				root.root		755
 /etc/rc.d/					root.root		755
 /etc/rc.d/init.d/				root.root		755
-/etc/rc.d/init.d/*				root.root		744
 /etc/rc.d/init.d/functions			root.root		644
-/etc/rc.d/init.d/mandrake_consmap		root.root		644
-/etc/rc.d/init.d/xprint				root.root		755
 /etc/securetty					root.root		644
-/etc/sendmail.cf				root.mail		644
 /etc/shutdown.allow				root.root		644
 /etc/ssh/ssh_config				root.root		644
 /etc/ssh/ssh_host_*key				root.root		600
@@ -52,7 +36,6 @@
 /etc/ssh/sshd_config				root.root		644
 /etc/sysconfig					root.root		755
 /etc/syslog.conf				root.root		644
-/etc/updatedb.conf				root.root		644
 /home/						root.root		755
 /home/*						current.current		755
 /lib/						root.root		755
@@ -77,23 +60,17 @@
 /usr/sbin/sendmail.postfix			root.root		755
 /usr/sbin/sendmail.sendmail			root.mail		2755
 /usr/sbin/traceroute				root.bin		4755
-/usr/share/doc					root.root		755
-/usr/share/man					root.root		755
 /usr/tmp					root.root		1777
 /var/						root.root		755
 /var/lib/rpm/Packages				rpm.rpm			644
 /var/lock/subsys				root.root		755
 /var/log/					root.root		755
-/var/log/*					root.adm		640
+/var/log/security.log				root.adm		640 force
+/var/log/msec.log				root.adm		640 force
+/var/log/security/				root.adm		740 force
+/var/log/security/*				root.adm		640 force
 /var/log/btmp					root.utmp		600 force
 /var/log/wtmp					root.utmp		664 force
-/var/log/Xorg.0.log				current.current		current
 /var/log/lp-errs				lp.lp			600
-/var/log/*/*					current.current		640
-/var/log/*/*/*					current.current		640
-/var/log/*/.					current.current		755
-/var/log/*/*/.					current.current		755
-/var/log/mailman/				root.mail		2775
-/var/log/mailman/*				root.mail		660
 /var/spool/mail/				root.mail		2775
 /var/tmp					root.root		1777

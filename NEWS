@@ -1,3 +1,4 @@
+- simplified permissions policy for standard level
 - support enforcing file permissions in periodic msec runs
 - allow configuring inclusion of current directory into path
 - do not crash if config files have empty lines (#53031)

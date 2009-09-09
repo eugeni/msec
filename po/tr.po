@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-04-10 11:03+0300\n"
+"PO-Revision-Date: 2009-09-10 02:10+0300\n"
 "Last-Translator: Tanju Tascilar <tanju@elektronist.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,9 +27,8 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Açık ağ portlarının denetimini etkinleştir"
+msgstr "Güvenlik duvarı ayarı değişikliklerinin denetimini etkinleştir"
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -131,7 +130,6 @@ msgstr ""
 "gerektiğini unutmayın. Gerektiğinde SERVER_LEVEL dosyaları."
 
 #: ../src/msec/help.py:50
-#, fuzzy
 msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
@@ -140,13 +138,12 @@ msgstr ""
 "bırakırken ÇOK DİKKATLİ olun, sisteminiz korumasız kalabilir."
 
 #: ../src/msec/help.py:52
-#, fuzzy
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
-"vfat ve ntfs bölümlerinin bağlanması için umask seçeneğini ayarla. umask 0 "
-"ise varsayılan sistem umask değeri kullanılır."
+"vfat ve ntfs bölümlerinin bağlanması için umask seçeneğini ayarla. umask '-"
+"1' ise varsayılan sistem umask değeri kullanılır."
 
 #: ../src/msec/help.py:54
 msgid "Enable checking for open network ports."
@@ -163,6 +160,7 @@ msgstr "Wheel grubu üyelerinin parola olmadan root erişimine izin ver"
 #: ../src/msec/help.py:60
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
 msgstr ""
+"nobody/nogroup kullanmak için sahipsiz dosyaların sahiplik ve grubunu düzelt."
 
 #: ../src/msec/help.py:62
 msgid "Send security check results by email."
@@ -250,9 +248,8 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Periyodik denetimlerin sistem kütüğüne kaydını etkinleştir."
 
 #: ../src/msec/help.py:92
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Sahipsiz dosyaların denetimini etkinleştir."
+msgstr "Sistem gruplarındaki değişikliklerin denetimini etkinleştir."
 
 #: ../src/msec/help.py:94
 msgid ""

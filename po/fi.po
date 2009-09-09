@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-09-01 12:06+0300\n"
+"PO-Revision-Date: 2009-09-09 19:43+0300\n"
 "Last-Translator: Jani Välimaa <wally@mandriva.org>\n"
 "Language-Team: Finnish <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -898,6 +898,11 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Poikkeukset</b></big>\n"
+"Täällä voidaan määritellä sallitut poikkeukset msec:n ajoittaisissa\n"
+"tarkastuksissa. Jokaista tuettua tarkistusta varten voidaan määritellä\n"
+"rajaton määrä poikkeuksia. Huomaa, että poikkeukset tulee ilmoittaa\n"
+"regexp-muodossa."
 
 #: ../src/msec/msecgui.py:76
 msgid ""
@@ -980,9 +985,8 @@ msgid "Periodic checks"
 msgstr "Säännölliset tarkistukset"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "asetus"
+msgstr "Poikkeukset"
 
 #: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
@@ -1106,14 +1110,12 @@ msgid "Enable periodic security checks"
 msgstr "Ota säännölliset tarkistukset käyttöön"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "Säännölliset tarkistukset"
+msgstr "Turvallisuustarkistus"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "asetus"
+msgstr "Poikkeus"
 
 #: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
@@ -1145,26 +1147,25 @@ msgstr "Palauta tason oletusarvoon"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "Muokkaa poikkeusta"
 
 #: ../src/msec/msecgui.py:1072
-#, fuzzy
 msgid "Adding new exception"
-msgstr "Lisätään uutta oikeustarkistusta"
+msgstr "Lisää uusi poikkeus"
 
 #: ../src/msec/msecgui.py:1079
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
-msgstr ""
+msgstr "Valitse haluttu tarkistus ja lisää poikkeus.\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Tarkistus: "
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "Poikkeus: "
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
@@ -1185,7 +1186,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "Uusi tiedosto"
 
 #: ../src/msec/msecgui.py:1163
 msgid "File: "

@@ -78,7 +78,7 @@ Filter() {
         else
                 # get the rules
                 EXCEPTIONS=""
-                for except in $(cat $exceptions | sed -e "/^$RULE /!d; s/^$RULE \(.*\)/\1/g"); do
+                for except in $(cat $exceptions | sed -e "/^\($RULE\|\*\) /!d; s/^\($RULE\|\*\) \(.*\)/\2/g"); do
                         exc=${except//\//\\\/}
                         EXCEPTIONS="$EXCEPTIONS -e /${exc}/d"
                 done

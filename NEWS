@@ -1,3 +1,5 @@
+- support excluding path from all checks
+
 Version 0.70.4 - September 08 2009, Eugeni Dodonov
 - implemented GUI for exception editing
 - implemented exceptions for all msec checks (#51277)

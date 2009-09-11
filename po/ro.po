@@ -44,7 +44,7 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: https://qa.mandriva.com\n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-09-08 22:31+0200\n"
+"PO-Revision-Date: 2009-09-11 21:59+0200\n"
 "Last-Translator: Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>\n"
 "Language-Team: Romanian <cooker-i18n@mandrivalinux.org  >\n"
 "MIME-Version: 1.0\n"
@@ -917,6 +917,12 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Excepții</b></big>\n"
+"Aici puteți configura excepțiile permise de la verificările periodice de "
+"securitate\n"
+"msec. Pentru fiecare test suportat, puteți adăuga cîte excepții doriți "
+"pentru\n"
+"fiecare verificare. Fiecare excepție este prelucrată ca regexp."
 
 #: ../src/msec/msecgui.py:76
 msgid ""
@@ -999,9 +1005,8 @@ msgid "Periodic checks"
 msgstr "Verificări periodice"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "opțiune"
+msgstr "Excepții"
 
 #: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
@@ -1126,14 +1131,12 @@ msgid "Enable periodic security checks"
 msgstr "Activează verificările periodice de securitate"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "Verificări periodice"
+msgstr "Verificare de securitate"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "opțiune"
+msgstr "Excepție"
 
 #: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
@@ -1165,26 +1168,27 @@ msgstr "Reinițializează la nivelul implicit de permisiuni"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "Editare excepție"
 
 #: ../src/msec/msecgui.py:1072
-#, fuzzy
 msgid "Adding new exception"
-msgstr "Se adaugă o verificare de permisiune nouă"
+msgstr "Adăugare excepție nouă"
 
 #: ../src/msec/msecgui.py:1079
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr ""
+"Editare excepție. Selectați verificarea msec corespondentă și valoare "
+"excepției\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Verificare: "
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "Excepție: "
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
@@ -1206,7 +1210,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "fișier nou"
 
 #: ../src/msec/msecgui.py:1163
 msgid "File: "

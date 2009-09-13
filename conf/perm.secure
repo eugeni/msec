@@ -82,6 +82,7 @@
 /usr/tmp					root.adm		1773
 /var/						root.root		755
 /var/lib/rpm/Packages				rpm.rpm			640
+/var/lib/svn					svn.svn			770
 /var/lock/subsys				root.adm		750
 /var/log/					root.adm		751
 /var/log/*					root.root		640

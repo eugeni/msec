@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: DrakX-et\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-08-31 11:32+0200\n"
+"PO-Revision-Date: 2009-09-14 17:10+0200\n"
 "Last-Translator: Marek Laane <bald@starman.ee>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -856,6 +856,10 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Erandid</b></big>\n"
+"Siin saab seadistada Mseci perioodiliste turbekontrollide erandeid.\n"
+"Iga kontrolli puhul võib lisada nii palju erandeid kui vaja.\n"
+"Pange tähele, et iga erandit analüüsitakse regulaaravaldisena."
 
 #: ../src/msec/msecgui.py:76
 msgid ""
@@ -938,9 +942,8 @@ msgid "Periodic checks"
 msgstr "Perioodilised kontrollid"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "valik"
+msgstr "Erandid"
 
 #: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
@@ -1060,17 +1063,15 @@ msgstr "Turvahoiatuste näitamine töölaual"
 
 #: ../src/msec/msecgui.py:758
 msgid "Enable periodic security checks"
-msgstr "Perioodiliste turvakontrollide lubamine"
+msgstr "Perioodiliste turbekontrollide lubamine"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "Perioodilised kontrollid"
+msgstr "Turbekontroll"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "valik"
+msgstr "Erand"
 
 #: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
@@ -1102,26 +1103,26 @@ msgstr "Taasta taseme vaikeõigused"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "Erandi muutmine"
 
 #: ../src/msec/msecgui.py:1072
-#, fuzzy
 msgid "Adding new exception"
-msgstr "Uue õiguse lisamine"
+msgstr "Uue erandi lisamine"
 
 #: ../src/msec/msecgui.py:1079
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr ""
+"Erandi muutmine. Palun valite vajalik Mseci kontroll ja erandi väärtus\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Kontroll: "
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "Erand: "
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
@@ -1143,7 +1144,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "uus fail"
 
 #: ../src/msec/msecgui.py:1163
 msgid "File: "

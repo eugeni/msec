@@ -14,13 +14,13 @@ msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-09-04 23:18+0500\n"
+"PO-Revision-Date: 2009-09-15 01:33+0500\n"
 "Last-Translator: akdengi <kazancas@mandriva.ru>\n"
 "Language-Team: Russian <gnu@mx.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=2; plural=(n!=1);\n"
+"Plural-Forms:  nplurals=2; plural=(n!=1);\n\n"
 "\n"
 "X-Generator: KBabel 1.11.4\n"
 
@@ -34,8 +34,7 @@ msgstr "Включить защиту от IP-спуфинга."
 
 #: ../src/msec/help.py:18
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
-"Отправлять отчёты по электронной почте, если изменения не были обнаружены."
+msgstr "Отправлять отчёты по электронной почте, если изменения не были обнаружены."
 
 #: ../src/msec/help.py:20
 msgid "Accept broadcasted ICMP echo."
@@ -82,8 +81,7 @@ msgstr "Включить проверку контрольной суммы дл
 
 #: ../src/msec/help.py:36
 msgid "User email to receive security notifications."
-msgstr ""
-"Адрес электронной почты пользователя для отправки уведомлений о безопасности."
+msgstr "Адрес электронной почты пользователя для отправки уведомлений о безопасности."
 
 #: ../src/msec/help.py:38
 msgid "Allow autologin."
@@ -159,8 +157,7 @@ msgstr "Включить регистрацию необычных пакето�
 
 #: ../src/msec/help.py:58
 msgid "Allow root access without password for the members of the wheel group."
-msgstr ""
-"Позволить доступ root без пароля для членов руководящей (wheel).группы."
+msgstr "Позволить доступ root без пароля для членов руководящей (wheel).группы."
 
 #: ../src/msec/help.py:60
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
@@ -256,8 +253,7 @@ msgstr ""
 
 #: ../src/msec/help.py:88
 msgid "Allow system reboot and shutdown to local users."
-msgstr ""
-"Разрешить пользователям из консоли перезагружать и завершать работу системы."
+msgstr "Разрешить пользователям из консоли перезагружать и завершать работу системы."
 
 #: ../src/msec/help.py:90
 msgid "Enables logging of periodic checks to system log."
@@ -332,8 +328,7 @@ msgstr "Включить текущую директорию в PATH польз�
 
 #: ../src/msec/help.py:114
 msgid "Show security notifications in system tray using libnotify."
-msgstr ""
-"Показывать сообщения безопасности в системном лотке используя libnotify."
+msgstr "Показывать сообщения безопасности в системном лотке используя libnotify."
 
 #: ../src/msec/help.py:116
 msgid ""
@@ -726,8 +721,7 @@ msgstr "Имя группы не найдено для id %d"
 
 #: ../src/msec/libmsec.py:1614
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
-msgstr ""
-"Невозможно проверить  /proc/mounts. Возможно все файловые системы локальные."
+msgstr "Невозможно проверить  /proc/mounts. Возможно все файловые системы локальные."
 
 #: ../src/msec/libmsec.py:1653
 msgid "Forcing ownership of %s to %s"
@@ -883,6 +877,10 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Исключения</b></big>\n"
+"Здесь вы можете задать разрешаемые исключения для периодических проверок \n"
+"безопасности msec. Для каждого поддерживаемого теста вы можете добавить столько исключений, сколько хотите\n"
+"для каждой проверки. Помните, что каждое исключение обрабатывается как регулярное выражение."
 
 #: ../src/msec/msecgui.py:76
 msgid ""
@@ -1131,7 +1129,7 @@ msgstr "Восстановить разрешения уровня по умол
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "Редактирование исключения"
 
 #: ../src/msec/msecgui.py:1072
 #, fuzzy
@@ -1142,15 +1140,15 @@ msgstr "Добавляет новые проверки прав"
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
-msgstr ""
+msgstr "Редактирование исключения. Выберите соответствующую проверку msec и значение исключения\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Проверка:"
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "Исключение:"
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
@@ -1171,7 +1169,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "новый файл"
 
 #: ../src/msec/msecgui.py:1163
 msgid "File: "
@@ -1256,8 +1254,7 @@ msgid "Disabling password history"
 msgstr "Отключить длину истории пароля"
 
 #: ../src/msec/plugins/pam.py:123
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
 "Недопустимая длина пароля «%s». Используйте «length,ndigits,nupper» как "
 "параметр"
@@ -1290,14 +1287,3 @@ msgstr "Разрешить прозрачный доступ root для все�
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Разрешить su только для членов группы wheel"
 
-#~ msgid "Enable AppArmor security framework on boot"
-#~ msgstr "Включить макет безопасности AppArmour при загрузке"
-
-#~ msgid ""
-#~ "Enable PolicyKit security framework for all users. If this option is not "
-#~ "enabled, only users in wheel group may change advanced PolicyKit "
-#~ "permissions and settings"
-#~ msgstr ""
-#~ "Включить макет безопасности PolicyKit для всех пользователей. Если этот "
-#~ "параметр не включен, только пользователи группы wheel могут изменять "
-#~ "расширенные права и настройки PolicyKit"

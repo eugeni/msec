@@ -268,8 +268,18 @@ msec = MSEC(log)
 
 print header
 
-for variable in config.SETTINGS:
-    callback, params = config.SETTINGS[variable]
+# sorting settings according to plugin
+callbacks = []
+settings_rev = {}
+for entry in config.SETTINGS.keys():
+    callback, params = config.SETTINGS[entry]
+    callbacks.append(callback)
+    settings_rev[callback] = (entry, params)
+callbacks.sort()
+
+# generating man in correct order
+for callback in callbacks:
+    variable, params = settings_rev[callback]
     func = msec.get_action(callback)
     if func:
         print function_str % (callback, func.__doc__.strip(), variable, ", ".join(params))

@@ -52,67 +52,22 @@ PLUGINS_DIR="/usr/share/msec/plugins"
 
 # msec callbacks and valid values
 #               OPTION                           callback                            valid values
-SETTINGS =    {'BASE_LEVEL':                    ("libmsec.base_level",                      ['*']),
-               # security checks from audit plugins
-               'CHECK_SECURITY':                ("libmsec.check_security",                    ['yes', 'no']),
-               # security options
-               'USER_UMASK':                    ("libmsec.set_user_umask",                  ['*']),
-               'ROOT_UMASK':                    ("libmsec.set_root_umask",                  ['*']),
-               'ALLOW_CURDIR_IN_PATH':          ("libmsec.allow_curdir_in_path",            ['yes', 'no']),
-               'WIN_PARTS_UMASK':               ("libmsec.set_win_parts_umask",             ['*']),
-               'ACCEPT_BOGUS_ERROR_RESPONSES':  ("libmsec.accept_bogus_error_responses",    ['yes', 'no']),
-               'ACCEPT_BROADCASTED_ICMP_ECHO':  ("libmsec.accept_broadcasted_icmp_echo",    ['yes', 'no']),
-               'ACCEPT_ICMP_ECHO':              ("libmsec.accept_icmp_echo",                ['yes', 'no']),
-               'ALLOW_AUTOLOGIN':               ("libmsec.allow_autologin",                 ['yes', 'no']),
-               'ALLOW_REBOOT':                  ("libmsec.allow_reboot",                    ['yes', 'no']),
-               'ALLOW_REMOTE_ROOT_LOGIN':       ("libmsec.allow_remote_root_login",         ['yes', 'no', 'without-password']),
-               'ALLOW_ROOT_LOGIN':              ("libmsec.allow_root_login",                ['yes', 'no']),
-               'ALLOW_USER_LIST':               ("libmsec.allow_user_list",                 ['yes', 'no']),
-               'ALLOW_X_CONNECTIONS':           ("libmsec.allow_x_connections",             ['yes', 'no', 'local']),
-               'ALLOW_XAUTH_FROM_ROOT':         ("libmsec.allow_xauth_from_root",           ['yes', 'no']),
-               'ALLOW_XSERVER_TO_LISTEN':       ("libmsec.allow_xserver_to_listen",         ['yes', 'no']),
-               'AUTHORIZE_SERVICES':            ("libmsec.authorize_services",              ['yes', 'no', 'local']),
-               'CREATE_SERVER_LINK':            ("libmsec.create_server_link",              ['no', 'remote', 'local']),
-               'ENABLE_AT_CRONTAB':             ("libmsec.enable_at_crontab",               ['yes', 'no']),
-               'ENABLE_CONSOLE_LOG':            ("libmsec.enable_console_log",              ['yes', 'no']),
-               'ENABLE_DNS_SPOOFING_PROTECTION':("libmsec.enable_dns_spoofing_protection",  ['yes', 'no']),
-               'ENABLE_IP_SPOOFING_PROTECTION': ("libmsec.enable_ip_spoofing_protection",   ['yes', 'no']),
-               'ENABLE_LOG_STRANGE_PACKETS':    ("libmsec.enable_log_strange_packets",      ['yes', 'no']),
-               'ENABLE_MSEC_CRON':              ("libmsec.enable_msec_cron",                ['yes', 'no']),
-               'ENABLE_SULOGIN':                ("libmsec.enable_sulogin",                  ['yes', 'no']),
-               'SECURE_TMP':                    ("libmsec.secure_tmp",                      ['yes', 'no']),
-               'SHELL_HISTORY_SIZE':            ("libmsec.set_shell_history_size",          ['*']),
-               'SHELL_TIMEOUT':                 ("libmsec.set_shell_timeout",               ['*']),
-               'ENABLE_STARTUP_MSEC':           ("libmsec.enable_startup_msec",             ['yes', 'no']),
-               'ENABLE_STARTUP_PERMS':          ("libmsec.enable_startup_perms",            ['yes', 'no', 'enforce']),
-               }
+SETTINGS =    {
+               'BASE_LEVEL':                    ("libmsec.base_level",                      ['*']),
+              }
 # text for disabled options
 OPTION_DISABLED=_("System default")
 
 # settings organizes by category
-# system security settings
-SETTINGS_SYSTEM = ["ENABLE_STARTUP_MSEC", "ENABLE_STARTUP_PERMS", "ENABLE_MSEC_CRON",
-                    "ENABLE_SULOGIN", "ENABLE_AT_CRONTAB",
-                    "ALLOW_ROOT_LOGIN", "ALLOW_USER_LIST", "ALLOW_AUTOLOGIN",
-                    "ENABLE_CONSOLE_LOG", "CREATE_SERVER_LINK", "ALLOW_XAUTH_FROM_ROOT",
-                    "ALLOW_REBOOT", "SHELL_HISTORY_SIZE", "SHELL_TIMEOUT", "USER_UMASK", "ROOT_UMASK",
-                    "SECURE_TMP", "WIN_PARTS_UMASK", "ALLOW_CURDIR_IN_PATH"
-                    ]
-# network security settings
-SETTINGS_NETWORK = ["ACCEPT_BOGUS_ERROR_RESPONSES", "ACCEPT_BROADCASTED_ICMP_ECHO", "ACCEPT_ICMP_ECHO",
-                    "ALLOW_REMOTE_ROOT_LOGIN", "ALLOW_X_CONNECTIONS", "ALLOW_XSERVER_TO_LISTEN",
-                    "AUTHORIZE_SERVICES", "ENABLE_DNS_SPOOFING_PROTECTION", "ENABLE_IP_SPOOFING_PROTECTION",
-                    "ENABLE_LOG_STRANGE_PACKETS",
-                    ]
+# system security settings - defined by 'msec' plugin
+SETTINGS_SYSTEM = []
+# network security settings - defined by 'msec' plugin
+SETTINGS_NETWORK = []
 # periodic checks - defined by 'audit' plugin
 SETTINGS_PERIODIC = []
 
-# checks that support exceptions
-CHECKS_WITH_EXCEPTIONS = ["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",
-                    "CHECK_WRITABLE", "CHECK_UNOWNED", "CHECK_OPEN_PORT", "CHECK_FIREWALL",
-                    "CHECK_PASSWD", "CHECK_SHADOW", "CHECK_RPM_PACKAGES", "CHECK_RPM_INTEGRITY",
-                    "CHECK_SHOSTS", "CHECK_USERS", "CHECK_GROUPS"
-                    ]
+# checks that support exceptions - defined by 'audit' plugin
+CHECKS_WITH_EXCEPTIONS = []
 
 # localized help
 try:

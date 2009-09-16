@@ -17,6 +17,7 @@ except IOError:
 CRON = '/etc/cron.d/msec'
 CRON_REGEX = '[^#]+/usr/share/msec/promisc_check.sh'
 CRON_ENTRY = '*/1 * * * *    root    /usr/share/msec/promisc_check.sh'
+SECURITYCRON = '/etc/cron.daily/msec'
 
 class audit:
     def __init__(self, log=None, configfiles=None, root=None):
@@ -54,6 +55,8 @@ class audit:
         config.SETTINGS['MAIL_EMPTY_CONTENT'] = ("audit.mail_empty_content", ['yes', 'no'])
         config.SETTINGS['SYSLOG_WARN'] = ("audit.syslog_warn", ['yes', 'no'])
         config.SETTINGS['NOTIFY_WARN'] = ("audit.notify_warn", ['yes', 'no'])
+        # security checks from audit plugins
+        config.SETTINGS['CHECK_SECURITY'] = ("audit.check_security", ['yes', 'no'])
 
         # preparing msecgui menu
         for check in ["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",
@@ -62,6 +65,13 @@ class audit:
                     "CHECK_SHOSTS", "CHECK_USERS", "CHECK_GROUPS",
                     "TTY_WARN", "SYSLOG_WARN", "MAIL_EMPTY_CONTENT"]:
             config.SETTINGS_PERIODIC.append(check)
+
+        # checks with exceptions
+        for check in ["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",
+                    "CHECK_WRITABLE", "CHECK_UNOWNED", "CHECK_OPEN_PORT", "CHECK_FIREWALL",
+                    "CHECK_PASSWD", "CHECK_SHADOW", "CHECK_RPM_PACKAGES", "CHECK_RPM_INTEGRITY",
+                    "CHECK_SHOSTS", "CHECK_USERS", "CHECK_GROUPS"]:
+            config.CHECKS_WITH_EXCEPTIONS.append(check)
 
     # The following checks are run from crontab. We only have these functions here
     # to get their descriptions.
@@ -176,4 +186,20 @@ class audit:
             if val:
                 self.log.info(_('Disabling periodic promiscuity check'))
                 cron.remove_line_matching('[^#]+/usr/share/msec/promisc_check.sh')
+
+    def check_security(self, arg):
+        """ Enable daily security checks."""
+        cron = self.configfiles.get_config_file(CRON)
+        cron.remove_line_matching('[^#]+/usr/share/msec/security.sh')
+
+        securitycron = self.configfiles.get_config_file(SECURITYCRON)
+
+        if arg == "yes":
+            if not securitycron.exists():
+                self.log.info(_('Activating daily security check'))
+                securitycron.symlink(SECURITYSH)
+        else:
+            if securitycron.exists():
+                self.log.info(_('Disabling daily security check'))
+                securitycron.unlink()
 

@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libDrakX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-09-04 21:08+0200\n"
+"POT-Creation-Date: 2009-09-08 23:01+BRT\n"
+"PO-Revision-Date: 2009-09-16 22:25+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -846,6 +846,10 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Unntak</b></big>\n"
+"Her kan du setja opp unntak for dei regelmessige msec-kontrollane.\n"
+"Du kan leggja til så mange unntak du ønskjer for kvar kontroll.\n"
+"Merk at unntak vert tolka som regulære unntak."
 
 #: ../src/msec/msecgui.py:76
 msgid ""
@@ -925,9 +929,8 @@ msgid "Periodic checks"
 msgstr "Regelmessige kontrollar"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "val"
+msgstr "Unntak"
 
 #: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
@@ -1050,14 +1053,12 @@ msgid "Enable periodic security checks"
 msgstr "Køyr regelmessige tryggleikskontrollar"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "Regelmessige kontrollar"
+msgstr "Tryggleikskontroll"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "val"
+msgstr "Unntak"
 
 #: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
@@ -1089,26 +1090,25 @@ msgstr "Tilbakestill til standardløyve for nivået"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "Endrar unntak"
 
 #: ../src/msec/msecgui.py:1072
-#, fuzzy
 msgid "Adding new exception"
-msgstr "Legg til ny løyvekontroll"
+msgstr "Legg til nytt unntak"
 
 #: ../src/msec/msecgui.py:1079
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
-msgstr ""
+msgstr "Endrar unntak. Vel msec-kontroll og unntaksverdi.\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Kontroll: "
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "Unntak: "
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
@@ -1130,7 +1130,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "Ny fil"
 
 #: ../src/msec/msecgui.py:1163
 msgid "File: "

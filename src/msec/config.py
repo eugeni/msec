@@ -53,33 +53,8 @@ PLUGINS_DIR="/usr/share/msec/plugins"
 # msec callbacks and valid values
 #               OPTION                           callback                            valid values
 SETTINGS =    {'BASE_LEVEL':                    ("libmsec.base_level",                      ['*']),
-               'CHECK_SECURITY' :               ("libmsec.check_security",                  ['yes', 'no']),
-               'CHECK_PERMS' :                  ("libmsec.check_perms",                     ['yes', 'no', 'enforce']),
-               'CHECK_USER_FILES' :             ("libmsec.check_user_files",                ['yes', 'no']),
-               'CHECK_SUID_ROOT' :              ("libmsec.check_suid_root",                 ['yes', 'no']),
-               'CHECK_SUID_MD5' :               ("libmsec.check_suid_md5",                  ['yes', 'no']),
-               'CHECK_SGID' :                   ("libmsec.check_sgid",                      ['yes', 'no']),
-               'CHECK_WRITABLE' :               ("libmsec.check_writable",                  ['yes', 'no']),
-               'CHECK_UNOWNED' :                ("libmsec.check_unowned",                   ['yes', 'no']),
-               'FIX_UNOWNED' :                  ("libmsec.fix_unowned",                     ['yes', 'no']),
-               'CHECK_PROMISC' :                ("libmsec.check_promisc",                   ['yes', 'no']),
-               'CHECK_OPEN_PORT' :              ("libmsec.check_open_port",                 ['yes', 'no']),
-               'CHECK_FIREWALL' :               ("libmsec.check_firewall",                  ['yes', 'no']),
-               'CHECK_PASSWD' :                 ("libmsec.check_passwd",                    ['yes', 'no']),
-               'CHECK_SHADOW' :                 ("libmsec.check_shadow",                    ['yes', 'no']),
-               'CHECK_CHKROOTKIT' :             ("libmsec.check_chkrootkit",                ['yes', 'no']),
-               'CHECK_RPM_PACKAGES' :           ("libmsec.check_rpm_packages",              ['yes', 'no']),
-               'CHECK_RPM_INTEGRITY' :          ("libmsec.check_rpm_integrity",             ['yes', 'no']),
-               'CHECK_SHOSTS' :                 ("libmsec.check_shosts",                    ['yes', 'no']),
-               'CHECK_USERS' :                  ("libmsec.check_users",                     ['yes', 'no']),
-               'CHECK_GROUPS' :                 ("libmsec.check_groups",                    ['yes', 'no']),
-               # notifications
-               'TTY_WARN' :                     ("libmsec.tty_warn",                        ['yes', 'no']),
-               'MAIL_WARN' :                    ("libmsec.mail_warn",                       ['yes', 'no']),
-               'MAIL_USER' :                    ("libmsec.mail_user",                       ['*']),
-               'MAIL_EMPTY_CONTENT':            ("libmsec.mail_empty_content",              ['yes', 'no']),
-               'SYSLOG_WARN' :                  ("libmsec.syslog_warn",                     ['yes', 'no']),
-               'NOTIFY_WARN' :                  ("libmsec.notify_warn",                     ['yes', 'no']),
+               # security checks from audit plugins
+               'CHECK_SECURITY':                ("libmsec.check_security",                    ['yes', 'no']),
                # security options
                'USER_UMASK':                    ("libmsec.set_user_umask",                  ['*']),
                'ROOT_UMASK':                    ("libmsec.set_root_umask",                  ['*']),
@@ -104,7 +79,6 @@ SETTINGS =    {'BASE_LEVEL':                    ("libmsec.base_level",          
                'ENABLE_IP_SPOOFING_PROTECTION': ("libmsec.enable_ip_spoofing_protection",   ['yes', 'no']),
                'ENABLE_LOG_STRANGE_PACKETS':    ("libmsec.enable_log_strange_packets",      ['yes', 'no']),
                'ENABLE_MSEC_CRON':              ("libmsec.enable_msec_cron",                ['yes', 'no']),
-               'ENABLE_SUDO':                   ("libmsec.enable_sudo",                     ['yes', 'no', 'wheel']),
                'ENABLE_SULOGIN':                ("libmsec.enable_sulogin",                  ['yes', 'no']),
                'SECURE_TMP':                    ("libmsec.secure_tmp",                      ['yes', 'no']),
                'SHELL_HISTORY_SIZE':            ("libmsec.set_shell_history_size",          ['*']),
@@ -130,13 +104,8 @@ SETTINGS_NETWORK = ["ACCEPT_BOGUS_ERROR_RESPONSES", "ACCEPT_BROADCASTED_ICMP_ECH
                     "AUTHORIZE_SERVICES", "ENABLE_DNS_SPOOFING_PROTECTION", "ENABLE_IP_SPOOFING_PROTECTION",
                     "ENABLE_LOG_STRANGE_PACKETS",
                     ]
-# periodic checks
-SETTINGS_PERIODIC = ["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",
-                    "CHECK_WRITABLE", "CHECK_UNOWNED", "FIX_UNOWNED", "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_FIREWALL",
-                    "CHECK_PASSWD", "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM_PACKAGES", "CHECK_RPM_INTEGRITY",
-                    "CHECK_SHOSTS", "CHECK_USERS", "CHECK_GROUPS",
-                    "TTY_WARN", "SYSLOG_WARN", "MAIL_EMPTY_CONTENT",
-                    ]
+# periodic checks - defined by 'audit' plugin
+SETTINGS_PERIODIC = []
 
 # checks that support exceptions
 CHECKS_WITH_EXCEPTIONS = ["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",

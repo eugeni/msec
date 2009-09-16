@@ -127,9 +127,6 @@ CTRALTDEL_REGEXP = '^ca::ctrlaltdel:/sbin/shutdown.*'
 CONSOLE_HELPER = 'consolehelper'
 # ssh PermitRootLogin
 PERMIT_ROOT_LOGIN_REGEXP = '^\s*PermitRootLogin\s+(no|yes|without-password|forced-commands-only)'
-# cron
-CRON_ENTRY = '*/1 * * * *    root    /usr/share/msec/promisc_check.sh'
-CRON_REGEX = '[^#]+/usr/share/msec/promisc_check.sh'
 # tcp_wrappers
 ALL_REGEXP = '^ALL:ALL:DENY'
 ALL_LOCAL_REGEXP = '^ALL:ALL EXCEPT 127\.0\.0\.1:DENY'
@@ -1166,8 +1163,8 @@ class MSEC:
                 self.log.info(_('Disabling log on console'))
                 syslogconf.exists() and syslogconf.remove_line_matching('\s*[^#]+/dev/')
 
-    def enable_security_check(self, arg):
-        '''  Activate daily security check.'''
+    def check_security(self, arg):
+        """ Enable daily security checks."""
         cron = self.configfiles.get_config_file(CRON)
         cron.remove_line_matching('[^#]+/usr/share/msec/security.sh')
 
@@ -1328,21 +1325,6 @@ class MSEC:
                 self.log.info(_('Forbidding export display from root'))
                 export.remove_line_matching('^\*$')
 
-    def check_promisc(self, param):
-        '''  Activate ethernet cards promiscuity check.'''
-        cron = self.configfiles.get_config_file(CRON)
-
-        val = cron.get_match(CRON_REGEX)
-
-        if param == "yes":
-            if val != CRON_ENTRY:
-                self.log.info(_('Activating periodic promiscuity check'))
-                cron.replace_line_matching(CRON_REGEX, CRON_ENTRY, 1)
-        else:
-            if val:
-                self.log.info(_('Disabling periodic promiscuity check'))
-                cron.remove_line_matching('[^#]+/usr/share/msec/promisc_check.sh')
-
     def allow_root_login(self, arg):
         '''  Allow direct root login on terminal.'''
         securetty = self.configfiles.get_config_file(SECURETTY)
@@ -1395,114 +1377,6 @@ class MSEC:
                             'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login') or
                           cnf.insert_at(0, 'auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login'))
                 securetty.remove_line_matching('.+', 1)
-
-    # The following checks are run from crontab. We only have these functions here
-    # to get their descriptions.
-
-    def check_security(self, param):
-        """ Enable daily security checks."""
-        self.enable_security_check(param)
-        pass
-
-    def check_perms(self, param):
-        """ Enable periodic permission checking for files specified in msec policy. If set to yes, the permissions are verified on every run. If set to enforce, incorrect permissions are restored to the ones specified in msec security policy."""
-        pass
-
-    def check_user_files(self, param):
-        """ Enable permission checking on users' files that should not be owned by someone else, or writable."""
-        pass
-
-    def check_suid_root(self, param):
-        """ Enable checking for additions/removals of suid root files."""
-        pass
-
-    def check_suid_md5(self, param):
-        """ Enable checksum verification for suid files."""
-        pass
-
-    def check_sgid(self, param):
-        """ Enable checking for additions/removals of sgid files."""
-        pass
-
-    def check_writable(self, param):
-        """ Enable checking for files/directories writable by everybody."""
-        pass
-
-    def check_unowned(self, param):
-        """ Enable checking for unowned files."""
-        pass
-
-    def fix_unowned(self, param):
-        """ Fix owner and group of unowned files to use nobody/nogroup."""
-        pass
-
-    def check_open_port(self, param):
-        """ Enable checking for open network ports."""
-        pass
-
-    def check_firewall(self, param):
-        """ Enable checking for changes in firewall settings."""
-        pass
-
-    def check_passwd(self, param):
-        """ Enable password-related checks, such as empty passwords and strange super-user accounts."""
-        pass
-
-    def check_shadow(self, param):
-        """ Enable checking for empty passwords in /etc/shadow (man shadow(5))."""
-        pass
-
-    def check_chkrootkit(self, param):
-        """ Enable checking for known rootkits using chkrootkit."""
-        pass
-
-    def check_rpm_packages(self, param):
-        """ Enable verification for changes in the installed RPM packages. This will notify you when new packages are installed or removed."""
-        pass
-
-    def check_rpm_integrity(self, param):
-        """ Enable verification of integrity of installed RPM packages. This will notify you if checksums of the installed files were changed, showing separate results for binary and configuration files."""
-        pass
-
-    def tty_warn(self, param):
-        """ Enable periodic security check results to terminal."""
-        pass
-
-    def mail_warn(self, param):
-        """ Send security check results by email."""
-        pass
-
-    def mail_empty_content(self, param):
-        """ Send mail reports even if no changes were detected."""
-        pass
-
-    def syslog_warn(self, param):
-        """ Enables logging of periodic checks to system log."""
-        pass
-
-    def mail_user(self, param):
-        """ User email to receive security notifications."""
-        pass
-
-    def check_shosts(self, param):
-        """ Enable checking for dangerous options in users' .rhosts/.shosts files."""
-        pass
-
-    def check_users(self, param):
-        """ Enable checking for changes in system users."""
-        pass
-
-    def check_groups(self, param):
-        """ Enable checking for changes in system groups."""
-        pass
-
-    def enable_sudo(self, param):
-        """Allow users to authenticate with their passwords for sudo. If this parameter is set to 'wheel', users must belong to the 'wheel' group to be able to use sudo"""
-        pass
-
-    def notify_warn(self, param):
-        """Show security notifications in system tray using libnotify."""
-        pass
 
     # bogus functions
     def secure_tmp(self, param):

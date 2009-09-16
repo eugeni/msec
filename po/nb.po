@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-08-31 17:28+0200\n"
+"PO-Revision-Date: 2009-09-16 23:33+0200\n"
 "Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -59,8 +59,7 @@ msgstr ""
 
 #: ../src/msec/help.py:24
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
+msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
 
 #: ../src/msec/help.py:26
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -231,6 +230,9 @@ msgid ""
 "incorrect permissions are restored to the ones specified in msec security "
 "policy."
 msgstr ""
+"Kjør regelmessig kontroll av filrettigheter basert på msec-reglene. Hvis satt til "
+"«ja», blir rettighetene sjekka ved hver kjøring. Hvis satt til «tving», blir feil "
+"rettighet automatisk retta."
 
 #: ../src/msec/help.py:84
 msgid ""
@@ -299,8 +301,7 @@ msgstr "Slå på sjekk for filer uten eier."
 
 #: ../src/msec/help.py:108
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
-"Tillat innloggingsbehandlere (KDM og GDM) å vise en liste med lokale brukere."
+msgstr "Tillat innloggingsbehandlere (KDM og GDM) å vise en liste med lokale brukere."
 
 #: ../src/msec/help.py:110
 msgid ""
@@ -314,7 +315,7 @@ msgstr ""
 
 #: ../src/msec/help.py:112
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Ta med gjeldende mappe i søkestien (PATH) som standard."
 
 #: ../src/msec/help.py:114
 msgid "Show security notifications in system tray using libnotify."
@@ -680,11 +681,11 @@ msgstr "Bruker usikker plassering for midlertidlige filer"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Tillat gjeldende mappe i søkestien"
 
 #: ../src/msec/libmsec.py:1541
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Tillat ikke gjeldende mappe i søkestien"
 
 #: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"
@@ -857,6 +858,10 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Unntak</b></big>\n"
+"Her kan du stille inn de tillate unntakene for MSECs periodiske sikkerhetsjekker.\n"
+"Du kan legge så mange unntak du vil til hver støttede test.\n"
+"Merk at hvert unntak tolkes som et regulært uttrykk."
 
 #: ../src/msec/msecgui.py:76
 msgid ""
@@ -869,14 +874,11 @@ msgid ""
 "automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
-"<big><b>Filrettigheter</b></big>\n"
-"Disse valgene lar deg finjustere systemrettighetene for viktige filer og "
-"mapper.\n"
-"De følgende rettighetene blir sjekket periodevis, og forandring av eier, "
-"gruppe,\n"
-"eller gjeldende rettigheter blir rapportert. Rettighetene kan bli håndhevet "
-"automatisk\n"
-"ved forandring og settes tilbake til de angitte verdiene.  "
+"<big><b>Filløyve</b></big>\n"
+"Disse valga lar deg skreddersy systemrettighetene for viktige filer og mapper.\n"
+"Disse rettighetene blir regelmessig kontrollerte, og eventuelle endringer i\n"
+"eier, gruppe eller rettighet blir rapportert. Deisse verdiene kan også\n"
+"tilbakestilles til standardverdiene automatisk hvis de blir endra."
 
 #: ../src/msec/msecgui.py:82
 msgid "Save and apply new configuration?"
@@ -939,9 +941,8 @@ msgid "Periodic checks"
 msgstr "Regelmessige sjekker"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "valg"
+msgstr "Unntak"
 
 #: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
@@ -1064,14 +1065,12 @@ msgid "Enable periodic security checks"
 msgstr "Slå på regelmessige sikkerhetssjekker"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "Regelmessige sjekker"
+msgstr "Sikkerhetsjekk"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "valg"
+msgstr "Unntak"
 
 #: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
@@ -1103,26 +1102,25 @@ msgstr "Nullstill til forhåndsvalgte rettighetsnivåer"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "Redigere unntak"
 
 #: ../src/msec/msecgui.py:1072
-#, fuzzy
 msgid "Adding new exception"
-msgstr "Legger til ny rettighetssjekk"
+msgstr "Legger til nytt unntak"
 
 #: ../src/msec/msecgui.py:1079
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
-msgstr ""
+msgstr "Redigere unntak. Vær vennlig å velge den tilhørende MSEC-sjekk og unntaksverdien\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Sjekk: "
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "Unntak: "
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
@@ -1144,7 +1142,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "ny fil"
 
 #: ../src/msec/msecgui.py:1163
 msgid "File: "
@@ -1228,8 +1226,7 @@ msgid "Disabling password history"
 msgstr "Slå av passordhistorie"
 
 #: ../src/msec/plugins/pam.py:123
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr "Ugyldig passordlengde «%s». Bruk «length,ndigits,nupper» som parametre"
 
 #: ../src/msec/plugins/pam.py:144
@@ -1260,14 +1257,3 @@ msgstr "Tillater gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
 
-#~ msgid "Enable AppArmor security framework on boot"
-#~ msgstr "Slå på AppArmor sikkerhetsrammeverk under oppstart"
-
-#~ msgid ""
-#~ "Enable PolicyKit security framework for all users. If this option is not "
-#~ "enabled, only users in wheel group may change advanced PolicyKit "
-#~ "permissions and settings"
-#~ msgstr ""
-#~ "Slå på sikkerhetsrammeverket PolicyKit for alle brukere. Hvis ikke dette "
-#~ "valget er aktivert, kan kun brukere i gruppa wheel forandre avanserte "
-#~ "tillatelser og innstillinger"

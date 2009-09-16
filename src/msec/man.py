@@ -219,8 +219,17 @@ In a similar way, it is possible to exclude the results for the
 
 .PP
 Each exception entry is a regular exception, and you might define as many
-exceptions as necessary.  See below for all msec options that support this
-feature.
+exceptions as necessary.
+
+.PP
+In order to exclude a path from all msec checks, you may use * for the check
+name. For example, the following would exclude /media/ from all msec checks:
+
+.TP
+    * /media/
+
+.PP
+See below for all msec options that support this feature.
 
 
 .SH "SECURITY OPTIONS"

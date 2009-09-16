@@ -73,6 +73,11 @@ Filter() {
         RULE="$2"
         exceptions=/etc/security/msec/exceptions
 
+        if [ ! -f "$FILE" ]; then
+                # file not found - probably test was not run
+                return
+        fi
+
         if [ ! -s "$exceptions" -o "a$RULE" = "a" ]; then
                 FILTER="cat"
         else

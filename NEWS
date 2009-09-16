@@ -1,3 +1,4 @@
+- man page entries are now sorted according to plugin
 - split libmsec functionality into different plugins: audit (for periodic checks),
   msec (for local security settings) and network (for network-related settings)
 - support excluding path from all checks

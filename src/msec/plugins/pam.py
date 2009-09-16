@@ -1,5 +1,5 @@
 #!/usr/bin/python
-"""PAM plugin for msec """
+"""Msec plugin for enforcing pam-related settings"""
 
 # main plugin class name
 PLUGIN = "pam"

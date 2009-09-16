@@ -1,5 +1,5 @@
 #!/usr/bin/plugin
-"""Msec plugin for enforcing security settings"""
+"""Msec plugin for enforcing local security settings"""
 
 # main plugin class name
 PLUGIN = "msec"
@@ -109,12 +109,8 @@ class msec:
         config.SETTINGS['ROOT_UMASK'] = ("msec.set_root_umask", ['*'])
         config.SETTINGS['ALLOW_CURDIR_IN_PATH'] = ("msec.allow_curdir_in_path", ['yes', 'no'])
         config.SETTINGS['WIN_PARTS_UMASK'] = ("msec.set_win_parts_umask", ['*'])
-        config.SETTINGS['ACCEPT_BOGUS_ERROR_RESPONSES'] = ("msec.accept_bogus_error_responses", ['yes', 'no'])
-        config.SETTINGS['ACCEPT_BROADCASTED_ICMP_ECHO'] = ("msec.accept_broadcasted_icmp_echo", ['yes', 'no'])
-        config.SETTINGS['ACCEPT_ICMP_ECHO'] = ("msec.accept_icmp_echo", ['yes', 'no'])
         config.SETTINGS['ALLOW_AUTOLOGIN'] = ("msec.allow_autologin", ['yes', 'no'])
         config.SETTINGS['ALLOW_REBOOT'] = ("msec.allow_reboot", ['yes', 'no'])
-        config.SETTINGS['ALLOW_REMOTE_ROOT_LOGIN'] = ("msec.allow_remote_root_login", ['yes', 'no', 'without-password'])
         config.SETTINGS['ALLOW_ROOT_LOGIN'] = ("msec.allow_root_login", ['yes', 'no'])
         config.SETTINGS['ALLOW_USER_LIST'] = ("msec.allow_user_list", ['yes', 'no'])
         config.SETTINGS['ALLOW_X_CONNECTIONS'] = ("msec.allow_x_connections", ['yes', 'no', 'local'])
@@ -124,9 +120,6 @@ class msec:
         config.SETTINGS['CREATE_SERVER_LINK'] = ("msec.create_server_link", ['no', 'remote', 'local'])
         config.SETTINGS['ENABLE_AT_CRONTAB'] = ("msec.enable_at_crontab", ['yes', 'no'])
         config.SETTINGS['ENABLE_CONSOLE_LOG'] = ("msec.enable_console_log", ['yes', 'no'])
-        config.SETTINGS['ENABLE_DNS_SPOOFING_PROTECTION'] = ("msec.enable_dns_spoofing_protection", ['yes', 'no'])
-        config.SETTINGS['ENABLE_IP_SPOOFING_PROTECTION'] = ("msec.enable_ip_spoofing_protection", ['yes', 'no'])
-        config.SETTINGS['ENABLE_LOG_STRANGE_PACKETS'] = ("msec.enable_log_strange_packets", ['yes', 'no'])
         config.SETTINGS['ENABLE_MSEC_CRON'] = ("msec.enable_msec_cron", ['yes', 'no'])
         config.SETTINGS['ENABLE_SULOGIN'] = ("msec.enable_sulogin", ['yes', 'no'])
         config.SETTINGS['SECURE_TMP'] = ("msec.secure_tmp", ['yes', 'no'])
@@ -137,20 +130,13 @@ class msec:
 
         # system settings
         for check in ["ENABLE_STARTUP_MSEC", "ENABLE_STARTUP_PERMS", "ENABLE_MSEC_CRON",
-                    "ENABLE_SULOGIN", "ENABLE_AT_CRONTAB",
+                    "ENABLE_SULOGIN", "ENABLE_AT_CRONTAB", "ALLOW_XSERVER_TO_LISTEN",
                     "ALLOW_ROOT_LOGIN", "ALLOW_USER_LIST", "ALLOW_AUTOLOGIN",
                     "ENABLE_CONSOLE_LOG", "CREATE_SERVER_LINK", "ALLOW_XAUTH_FROM_ROOT",
                     "ALLOW_REBOOT", "SHELL_HISTORY_SIZE", "SHELL_TIMEOUT", "USER_UMASK", "ROOT_UMASK",
                     "SECURE_TMP", "WIN_PARTS_UMASK", "ALLOW_CURDIR_IN_PATH"
                     ]:
             config.SETTINGS_SYSTEM.append(check)
-
-        # network settings
-        for check in ["ACCEPT_BOGUS_ERROR_RESPONSES", "ACCEPT_BROADCASTED_ICMP_ECHO", "ACCEPT_ICMP_ECHO",
-                    "ALLOW_REMOTE_ROOT_LOGIN", "ALLOW_X_CONNECTIONS", "ALLOW_XSERVER_TO_LISTEN",
-                    "AUTHORIZE_SERVICES", "ENABLE_DNS_SPOOFING_PROTECTION", "ENABLE_IP_SPOOFING_PROTECTION",
-                    "ENABLE_LOG_STRANGE_PACKETS"]:
-            config.SETTINGS_NETWORK.append(check)
 
     def create_server_link(self, param):
         '''  Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages. By default, two presets are provided: local (which only enables local services) and remote (which also enables some remote services considered safe). Note that the allowed services must be placed manually into the server.SERVER_LEVEL files when necessary.'''
@@ -406,29 +392,6 @@ class msec:
                     self.log.info(_("Forbidding list of users in GDM"))
                     gdmconf.set_shell_variable('Browser', 'false')
 
-    def allow_remote_root_login(self, arg):
-        '''  Allow remote root login via sshd. If yes, login is allowed. If without-password, only public-key authentication logins are allowed. See sshd_config(5) man page for more information.'''
-        sshd_config = self.configfiles.get_config_file(SSHDCONFIG)
-
-        if not sshd_config.exists():
-            return
-
-        val = sshd_config.get_match(PERMIT_ROOT_LOGIN_REGEXP, '@1')
-
-        if val != arg:
-            if arg == "yes":
-                self.log.info(_('Allowing remote root login'))
-                sshd_config.exists() and sshd_config.replace_line_matching(PERMIT_ROOT_LOGIN_REGEXP,
-                                                                           'PermitRootLogin yes', 1)
-            elif arg == "no":
-                self.log.info(_('Forbidding remote root login'))
-                sshd_config.exists() and sshd_config.replace_line_matching(PERMIT_ROOT_LOGIN_REGEXP,
-                                                                           'PermitRootLogin no', 1)
-            elif arg == "without-password":
-                self.log.info(_('Allowing remote root login only by passphrase'))
-                sshd_config.exists() and sshd_config.replace_line_matching(PERMIT_ROOT_LOGIN_REGEXP,
-                                                                           'PermitRootLogin without-password', 1)
-
     def allow_autologin(self, arg):
         '''  Allow autologin.'''
         autologin = self.configfiles.get_config_file(AUTOLOGIN)
@@ -506,60 +469,6 @@ class msec:
                 self.log.info(_('Disabling non local services'))
                 hostsdeny.remove_line_matching(ALL_REGEXP, 1)
                 hostsdeny.replace_line_matching(ALL_LOCAL_REGEXP, 'ALL:ALL EXCEPT 127.0.0.1:DENY', 1)
-
-    def set_zero_one_variable(self, file, variable, value, one_msg, zero_msg):
-        ''' Helper function for enable_ip_spoofing_protection, accept_icmp_echo, accept_broadcasted_icmp_echo,
-        # accept_bogus_error_responses and enable_log_strange_packets.'''
-        f = self.configfiles.get_config_file(file)
-        curvalue = f.get_shell_variable(variable)
-        if value == "yes":
-            value = "1"
-        else:
-            value = "0"
-        if value != curvalue:
-            if value == "1":
-                self.log.info(one_msg)
-                f.set_shell_variable(variable, 1)
-            else:
-                self.log.info(zero_msg)
-                f.set_shell_variable(variable, 0)
-
-    def enable_ip_spoofing_protection(self, arg, alert=1):
-        '''  Enable IP spoofing protection.'''
-        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.rp_filter', arg, 'Enabling ip spoofing protection', 'Disabling ip spoofing protection')
-
-    def enable_dns_spoofing_protection(self, arg, alert=1):
-        '''  Enable name resolution spoofing protection.'''
-        hostconf = self.configfiles.get_config_file(HOSTCONF)
-
-        val = hostconf.get_match('nospoof\s+on')
-
-        if arg:
-            if not val:
-                self.log.info(_('Enabling name resolution spoofing protection'))
-                hostconf.replace_line_matching('nospoof', 'nospoof on', 1)
-                hostconf.replace_line_matching('spoofalert', 'spoofalert on', (alert != 0))
-        else:
-            if val:
-                self.log.info(_('Disabling name resolution spoofing protection'))
-                hostconf.remove_line_matching('nospoof')
-                hostconf.remove_line_matching('spoofalert')
-
-    def accept_icmp_echo(self, arg):
-        ''' Accept ICMP echo.'''
-        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_all', invert(arg), 'Ignoring icmp echo', 'Accepting icmp echo')
-
-    def accept_broadcasted_icmp_echo(self, arg):
-        ''' Accept broadcasted ICMP echo.'''
-        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_echo_ignore_broadcasts', invert(arg), 'Ignoring broadcasted icmp echo', 'Accepting broadcasted icmp echo')
-
-    def accept_bogus_error_responses(self, arg):
-        '''  Accept bogus IPv4 error messages.'''
-        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.icmp_ignore_bogus_error_responses', invert(arg), 'Ignoring bogus icmp error responses', 'Accepting bogus icmp error responses')
-
-    def enable_log_strange_packets(self, arg):
-        '''  Enable logging of strange network packets.'''
-        self.set_zero_one_variable(SYSCTLCONF, 'net.ipv4.conf.all.log_martians', arg, 'Enabling logging of strange packets', 'Disabling logging of strange packets')
 
     def enable_sulogin(self, arg):
         ''' Ask for root password when going to single user level (man sulogin(8)).'''

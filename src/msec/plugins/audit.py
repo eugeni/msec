@@ -18,6 +18,7 @@ CRON = '/etc/cron.d/msec'
 CRON_REGEX = '[^#]+/usr/share/msec/promisc_check.sh'
 CRON_ENTRY = '*/1 * * * *    root    /usr/share/msec/promisc_check.sh'
 SECURITYCRON = '/etc/cron.daily/msec'
+SECURITYSH = '/usr/share/msec/security.sh'
 
 class audit:
     def __init__(self, log=None, configfiles=None, root=None):

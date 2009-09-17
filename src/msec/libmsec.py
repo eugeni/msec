@@ -740,7 +740,7 @@ class MSEC:
                 action = self.get_action(callback)
             if not action:
                 # The required functionality is not supported
-                self.log.info(_("'%s' is not available in this version") % opt)
+                self.log.debug("'%s' is not available in this version" % opt)
                 continue
             self.log.debug("Processing action %s: %s(%s)" % (opt, callback, curconfig.get(opt)))
             # validating parameters

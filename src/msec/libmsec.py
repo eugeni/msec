@@ -692,6 +692,9 @@ class MSEC:
         """Resets the configuration"""
         self.log.debug("Resetting msec data.")
         self.configfiles = ConfigFiles(self.log, root=self.root)
+        # updating plugins
+        for plugin in self.plugins:
+            self.plugins[plugin].configfiles = self.configfiles
 
     def get_action(self, name):
         """Determines correspondent function for requested action."""

@@ -17,9 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "报告无主文件"
+msgstr "启用对防火墙设置更改的检查。"
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -27,10 +26,9 @@ msgstr "启用 IP 欺骗保护。"
 
 #: ../src/msec/help.py:18
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
+msgstr "如果没有检测到更改，也发送邮件报告。"
 
 #: ../src/msec/help.py:20
-#, fuzzy
 msgid "Accept broadcasted ICMP echo."
 msgstr "接受广播 ICMP 回应。"
 
@@ -84,7 +82,7 @@ msgstr "允许自动登录。"
 
 #: ../src/msec/help.py:40
 msgid "Allow only users in wheel group to su to root."
-msgstr ""
+msgstr "只允许 wheel 组中的用户 su 到 root。"
 
 #: ../src/msec/help.py:42
 #, fuzzy
@@ -510,15 +508,15 @@ msgstr "允许控制台用户重新启动。"
 
 #: ../src/msec/libmsec.py:1035
 msgid "Allowing Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "允许在 GDM 中关机/重启"
 
 #: ../src/msec/libmsec.py:1039
 msgid "Allowing Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "允许在 KDM 中关机/重启"
 
 #: ../src/msec/libmsec.py:1042
 msgid "Allowing Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "允许在控制台按 Ctrl+Alt+Del"
 
 #: ../src/msec/libmsec.py:1046
 #, fuzzy
@@ -532,41 +530,39 @@ msgstr "控制台用户可重新启动"
 
 #: ../src/msec/libmsec.py:1057
 msgid "Forbidding Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "禁止在 GDM 中关机/重启"
 
 #: ../src/msec/libmsec.py:1061
 msgid "Forbidding Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "禁止在 KDM 中关机/重启"
 
 #: ../src/msec/libmsec.py:1064
 msgid "Forbidding Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "禁止在控制台按 Ctrl+Alt+Del"
 
 #: ../src/msec/libmsec.py:1078
 msgid "Allowing list of users in KDM"
-msgstr ""
+msgstr "允许在 KDM 中列出用户"
 
 #: ../src/msec/libmsec.py:1082
 msgid "Allowing list of users in GDM"
-msgstr ""
+msgstr "允许在 GDM 中列出用户"
 
 #: ../src/msec/libmsec.py:1087
 msgid "Forbidding list of users in KDM"
-msgstr ""
+msgstr "禁止在 KDM 中列出用户"
 
 #: ../src/msec/libmsec.py:1091
 msgid "Forbidding list of users in GDM"
-msgstr ""
+msgstr "禁止在 GDM 中列出用户"
 
 #: ../src/msec/libmsec.py:1105
-#, fuzzy
 msgid "Allowing remote root login"
 msgstr "允许远程 root 登录"
 
 #: ../src/msec/libmsec.py:1109
-#, fuzzy
 msgid "Forbidding remote root login"
-msgstr "允许远程 root 登录"
+msgstr "禁止远程 root 登录"
 
 #: ../src/msec/libmsec.py:1113
 #, fuzzy
@@ -574,9 +570,8 @@ msgid "Allowing remote root login only by passphrase"
 msgstr "允许远程 root 登录"
 
 #: ../src/msec/libmsec.py:1125
-#, fuzzy
 msgid "Allowing autologin"
-msgstr "允许自动登录。"
+msgstr "允许自动登录"
 
 #: ../src/msec/libmsec.py:1128
 #, fuzzy
@@ -881,84 +876,68 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:82
-#, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "请稍候...正在应用配置"
+msgstr "保存并应用新配置吗？"
 
 #: ../src/msec/msecgui.py:150
-#, fuzzy
 msgid "_File"
-msgstr "智利"
+msgstr "文件(_F)"
 
 #: ../src/msec/msecgui.py:152
-#, fuzzy
 msgid "_Save configuration"
-msgstr "声音配置"
+msgstr "保存配置(_S)"
 
 #: ../src/msec/msecgui.py:154
-#, fuzzy
 msgid "_Import configuration"
-msgstr "声音配置"
+msgstr "导入配置(_I)"
 
 #: ../src/msec/msecgui.py:155
-#, fuzzy
 msgid "_Export configuration"
-msgstr "声音配置"
+msgstr "导出配置(_E)"
 
 #: ../src/msec/msecgui.py:157
-#, fuzzy
 msgid "_Quit"
-msgstr "退出"
+msgstr "退出(_Q)"
 
 #: ../src/msec/msecgui.py:159 ../src/msec/msecgui.py:161
-#, fuzzy
 msgid "_Help"
-msgstr "帮助"
+msgstr "帮助(_H)"
 
 #: ../src/msec/msecgui.py:162
-#, fuzzy
 msgid "_About"
-msgstr "关于"
+msgstr "关于(_A)"
 
 #: ../src/msec/msecgui.py:190
-#, fuzzy
 msgid "MSEC: System Security and Audit"
-msgstr "系统设置"
+msgstr "MSEC: 系统安全审计"
 
 #: ../src/msec/msecgui.py:205
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "请稍候...正在应用配置"
+msgstr "保存和应用当前策略"
 
 #: ../src/msec/msecgui.py:211
-#, fuzzy
 msgid "Quit"
 msgstr "退出"
 
 #: ../src/msec/msecgui.py:227
-#, fuzzy
 msgid "Basic security"
-msgstr "每日安全检查"
+msgstr "基本安全"
 
 #: ../src/msec/msecgui.py:228
-#, fuzzy
 msgid "System security"
-msgstr "安全"
+msgstr "系统安全"
 
 #: ../src/msec/msecgui.py:229
-#, fuzzy
 msgid "Network security"
-msgstr "网络配置文件"
+msgstr "网络安全"
 
 #: ../src/msec/msecgui.py:230
-#, fuzzy
 msgid "Periodic checks"
 msgstr "定期检查"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "选项"
+msgstr "例外"
 
 #: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
@@ -966,22 +945,19 @@ msgstr "权限"
 
 #: ../src/msec/msecgui.py:265
 msgid "MSEC option changes"
-msgstr ""
+msgstr "MSEC 选项更改"
 
 #: ../src/msec/msecgui.py:265
-#, fuzzy
 msgid "option"
 msgstr "选项"
 
 #: ../src/msec/msecgui.py:266
-#, fuzzy
 msgid "System permissions changes"
-msgstr "系统选项"
+msgstr "系统权限更改"
 
 #: ../src/msec/msecgui.py:266
-#, fuzzy
 msgid "permission check"
-msgstr "权限"
+msgstr "权限检查"
 
 #: ../src/msec/msecgui.py:276
 msgid "changed %s <b>%s</b> (%s -> %s)"
@@ -996,22 +972,20 @@ msgid "removed %s <b>%s</b>"
 msgstr ""
 
 #: ../src/msec/msecgui.py:290
-#, fuzzy
 msgid "no changes"
-msgstr "禁止共享"
+msgstr "无更改"
 
 #: ../src/msec/msecgui.py:302
-#, fuzzy
 msgid "Saving changes.."
-msgstr "正在删除软件包..."
+msgstr "正在保存更改..."
 
 #: ../src/msec/msecgui.py:336
 msgid "<b>%s:</b> <i>%s</i>\n"
-msgstr ""
+msgstr "<b>%s:</b> <i>%s</i>\n"
 
 #: ../src/msec/msecgui.py:343
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
-msgstr ""
+msgstr "<b>MSEC 测试运行结果:</b> <i>%s</i>"
 
 #: ../src/msec/msecgui.py:351
 msgid "Details"
@@ -1023,7 +997,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:371
 msgid "Details (%d changes).."
-msgstr ""
+msgstr "细节(%d 处更改)..."
 
 #: ../src/msec/msecgui.py:419
 msgid "No base msec level specified, using '%s'"
@@ -1038,72 +1012,60 @@ msgid "Custom base config level '%s' found. Will default to '%s'"
 msgstr ""
 
 #: ../src/msec/msecgui.py:455
-#, fuzzy
 msgid "Security Option"
-msgstr "指定选项"
+msgstr "安全选项"
 
 #: ../src/msec/msecgui.py:465
-#, fuzzy
 msgid "Description"
-msgstr "指定选项"
+msgstr "描述"
 
 #: ../src/msec/msecgui.py:470
-#, fuzzy
 msgid "Value"
-msgstr "帕劳"
+msgstr "值"
 
 #: ../src/msec/msecgui.py:480
-#, fuzzy
 msgid "Invalid option '%s'!"
-msgstr "主选项"
+msgstr "无效的选项“%s”!
 
 #: ../src/msec/msecgui.py:530
-#, fuzzy
 msgid "Enable MSEC tool"
-msgstr "允许 CD 启动?"
+msgstr "允许 MSEC 工具"
 
 #: ../src/msec/msecgui.py:537
-#, fuzzy
 msgid "Select the base security level"
-msgstr "请选择期望的安全级别"
+msgstr "选择基础安全级别"
 
 #: ../src/msec/msecgui.py:541
 msgid "Standard"
 msgstr "标准"
 
 #: ../src/msec/msecgui.py:554
-#, fuzzy
 msgid "Secure"
 msgstr "安全"
 
 #: ../src/msec/msecgui.py:571
-#, fuzzy
 msgid "Send security alerts by email"
-msgstr "安全警告: "
+msgstr "通过电子邮件发送安全警告"
 
 #: ../src/msec/msecgui.py:578
-#, fuzzy
 msgid "System administrator email address:"
-msgstr "设定管理员(root)密码"
+msgstr "系统管理员电子邮件地址:"
 
 #: ../src/msec/msecgui.py:597
 msgid "Display security alerts on desktop"
-msgstr ""
+msgstr "在桌面上显示安全警告"
 
 #: ../src/msec/msecgui.py:758
-#, fuzzy
 msgid "Enable periodic security checks"
-msgstr "启用 msec 每小时安全检查"
+msgstr "启用定期安全检查"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "定期检查"
+msgstr "安全检查"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "选项"
+msgstr "例外"
 
 #: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
@@ -1118,54 +1080,50 @@ msgid "Path"
 msgstr "路径"
 
 #: ../src/msec/msecgui.py:897
-#, fuzzy
 msgid "User"
-msgstr "使用"
+msgstr "用户"
 
 #: ../src/msec/msecgui.py:903
-#, fuzzy
 msgid "Group"
-msgstr "组 ID"
+msgstr "组"
 
 #: ../src/msec/msecgui.py:917
-#, fuzzy
 msgid "Enforce"
-msgstr "忽略"
+msgstr "强制"
 
 #: ../src/msec/msecgui.py:961
-#, fuzzy
 msgid "Reset to default level permissions"
-msgstr "将混音器重置为默认值"
+msgstr "重置为默认级别权限"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "编辑例外"
 
 #: ../src/msec/msecgui.py:1072
 msgid "Adding new exception"
-msgstr ""
+msgstr "添加新例外"
 
 #: ../src/msec/msecgui.py:1079
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
-msgstr ""
+msgstr "编辑例外。请选择相应的 msec 检查及例外值"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "检查: "
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "例外: "
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
-msgstr ""
+msgstr "更改 %s 的权限"
 
 #: ../src/msec/msecgui.py:1143
 msgid "Adding new permission check"
-msgstr ""
+msgstr "添加新的权限检查"
 
 #: ../src/msec/msecgui.py:1155
 msgid ""
@@ -1173,35 +1131,32 @@ msgid ""
 "Please specify new permissions, or use 'current' to keep current "
 "permissions.\n"
 msgstr ""
+"更改 <b>%s</b> 的权限\n"
+"请指定新权限，或者使用“current”保持当前权限。\n"
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "新玩法嘛"
 
 #: ../src/msec/msecgui.py:1163
-#, fuzzy
 msgid "File: "
-msgstr "/文件(_F)"
+msgstr "文件: "
 
 #: ../src/msec/msecgui.py:1171
-#, fuzzy
 msgid "User: "
-msgstr "用户 ID"
+msgstr "用户: "
 
 #: ../src/msec/msecgui.py:1179
-#, fuzzy
 msgid "Group: "
-msgstr "组 ID"
+msgstr "组: "
 
 #: ../src/msec/msecgui.py:1187
-#, fuzzy
 msgid "Permissions: "
-msgstr "权限"
+msgstr "权限: "
 
 #: ../src/msec/msecgui.py:1248
-#, fuzzy
 msgid "Select new value for %s"
-msgstr "选择 %s 的固件文件"
+msgstr "选择 %s 的新值"
 
 #: ../src/msec/msecgui.py:1257
 msgid ""
@@ -1211,96 +1166,89 @@ msgid ""
 "\t%sStandard level value:\t<i>%s</i>%s\n"
 "\t%sSecure level value:\t\t<i>%s</i>%s\n"
 msgstr ""
+"<i>%s</i>\n"
+"\n"
+"\t当前值:\t\t\t<i>%s</i>\n"
+"\t%s标准级别值:\t<i>%s</i>%s\n"
+"\t%s安全级别值:\t\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1268
-#, fuzzy
 msgid "New value:"
-msgstr "新喀里多尼亚"
+msgstr "新值:"
 
 #: ../src/msec/msecgui.py:1330
 msgid "Save your changes?"
-msgstr ""
+msgstr "保存更改吗?"
 
 #: ../src/msec/msecgui.py:1332
-#, fuzzy
 msgid "_Cancel"
-msgstr "取消"
+msgstr "取消(_C)"
 
 #: ../src/msec/msecgui.py:1333
-#, fuzzy
 msgid "_Ignore"
-msgstr "忽略"
+msgstr "忽略(_I)"
 
 #: ../src/msec/msecgui.py:1334
-#, fuzzy
 msgid "_Save"
-msgstr "保存"
+msgstr "保存(_S)"
 
 #: ../src/msec/msecgui.py:1336
-#, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "您想要保存 /etc/fstab 修改吗?"
+msgstr "您在关闭前想要保存更改吗?"
 
 #: ../src/msec/plugins/pam.py:67
-#, fuzzy
 msgid "Using password to authenticate users"
 msgstr "使用密码验证用户"
 
 #: ../src/msec/plugins/pam.py:71
-#, fuzzy
 msgid "Don't use password to authenticate users"
-msgstr "使用密码验证用户"
+msgstr "不使用密码验证用户"
 
 #: ../src/msec/plugins/pam.py:82
 msgid "Password history not supported with pam_tcb."
-msgstr ""
+msgstr "pam_tcb 不支持密码历史。"
 
 #: ../src/msec/plugins/pam.py:90
-#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr "密码历史长度"
+msgstr "无效的最大密码历史长度: “%s”"
 
 #: ../src/msec/plugins/pam.py:105
-#, fuzzy
 msgid "Setting password history to %d."
-msgstr "密码历史长度"
+msgstr "将密码设置为 %d。"
 
 #: ../src/msec/plugins/pam.py:111
-#, fuzzy
 msgid "Disabling password history"
-msgstr "密码历史长度"
+msgstr "禁用密码历史"
 
 #: ../src/msec/plugins/pam.py:123
 msgid ""
 "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
-msgstr ""
+msgstr "无效的密码长度“%s”。请使用“长度,数字数,大写字母数”作为参数"
 
 #: ../src/msec/plugins/pam.py:144
 msgid "Setting minimum password length %d"
-msgstr ""
+msgstr "设置最小的密码长度 %d"
 
 #: ../src/msec/plugins/pam.py:168
-#, fuzzy
 msgid "Allowing su only from wheel group members"
 msgstr "只对 wheel 组成员启用 su"
 
 #: ../src/msec/plugins/pam.py:172
 msgid "no wheel group"
-msgstr ""
+msgstr "没有 wheel 组"
 
 #: ../src/msec/plugins/pam.py:176
 msgid "wheel group is empty"
-msgstr ""
+msgstr "whell 组为空"
 
 #: ../src/msec/plugins/pam.py:184
 msgid "Allowing su for all"
-msgstr ""
+msgstr "允许所有人 su"
 
 #: ../src/msec/plugins/pam.py:203
 msgid "Allowing transparent root access for wheel group members"
-msgstr ""
+msgstr "允许 wheel 组的成员执行 root 的透明访问"
 
 #: ../src/msec/plugins/pam.py:210
-#, fuzzy
 msgid "Disabling transparent root access for wheel group members"
-msgstr "只对 wheel 组成员启用 su"
+msgstr "禁止 wheel 组的成员执行 root 的透明访问"

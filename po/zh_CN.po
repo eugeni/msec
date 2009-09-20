@@ -1025,7 +1025,7 @@ msgstr "值"
 
 #: ../src/msec/msecgui.py:480
 msgid "Invalid option '%s'!"
-msgstr "无效的选项“%s”!
+msgstr "无效的选项“%s”!"
 
 #: ../src/msec/msecgui.py:530
 msgid "Enable MSEC tool"
@@ -1107,7 +1107,7 @@ msgstr "添加新例外"
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
-msgstr "编辑例外。请选择相应的 msec 检查及例外值"
+msgstr "编辑例外。请选择相应的 msec 检查及例外值\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "

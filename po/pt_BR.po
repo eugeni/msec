@@ -38,7 +38,7 @@ msgstr "Habilita proteção para IP spoofing."
 
 #: ../src/msec/help.py:18
 msgid "Send mail reports even if no changes were detected."
-msgstr "Envia relatórios por email mesmo se nenhuma alteração foi detectada."
+msgstr "Envia relatórios por e-mail mesmo se nenhuma alteração foi detectada."
 
 #: ../src/msec/help.py:20
 msgid "Accept broadcasted ICMP echo."
@@ -84,7 +84,7 @@ msgstr "Habilita verificação checksum de arquivos suid."
 
 #: ../src/msec/help.py:36
 msgid "User email to receive security notifications."
-msgstr "Email do usuário para receber notificações de segurança."
+msgstr "E-mail do usuário para receber notificações de segurança."
 
 #: ../src/msec/help.py:38
 msgid "Allow autologin."
@@ -1066,11 +1066,11 @@ msgstr "Seguro"
 
 #: ../src/msec/msecgui.py:571
 msgid "Send security alerts by email"
-msgstr "Enviar alertas de Segurança por email:"
+msgstr "Enviar alertas de Segurança por e-mail:"
 
 #: ../src/msec/msecgui.py:578
 msgid "System administrator email address:"
-msgstr "Email do administrador do sistema: "
+msgstr "E-mail do administrador do sistema:"
 
 #: ../src/msec/msecgui.py:597
 msgid "Display security alerts on desktop"

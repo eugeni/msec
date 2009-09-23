@@ -1,4 +1,4 @@
-#!/usr/bin/plugin
+#!/usr/bin/python
 """Msec plugin for enforcing network security settings"""
 
 # main plugin class name

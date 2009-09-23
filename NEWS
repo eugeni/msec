@@ -1,3 +1,4 @@
+Version 0.70.5 - September 23 2009, Eugeni Dodonov
 - do not show error messages for non-existent audit files
 - man page entries are now sorted according to plugin
 - split libmsec functionality into different plugins: audit (for periodic checks),

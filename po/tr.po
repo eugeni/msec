@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-09-10 02:10+0300\n"
+"PO-Revision-Date: 2009-09-26 01:17+0300\n"
 "Last-Translator: Tanju Tascilar <tanju@elektronist.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -189,6 +189,9 @@ msgid ""
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
+"Kurulan RPM paketlerinin içeriğini doğrulamayı etkinleştir. Bu işlev kurulu "
+"dosyaların boyutları değişmişse, ikili dosyalar ve yapılandırma dosyaları "
+"için ayrı sonuçlar göstererek uyaracaktır."
 
 #: ../src/msec/help.py:72
 msgid ""
@@ -232,6 +235,8 @@ msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
+"Kurulu RPM paketlerindeki değişikliklerin doğrulanmasını etkinleştir. Bu "
+"işlev, yeni paketler kurulduğunda veya kaldırıldığında sizi uyaracaktır."
 
 #: ../src/msec/help.py:86
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -277,15 +282,17 @@ msgid ""
 "user home directory will be used for temporary files. Otherwise, /tmp will "
 "be used."
 msgstr ""
+"Geçici dosyalar için güvenli konum kullan. Bu parametre 'evet' olarak "
+"ayarlanmışsa kullanıcının ev dizini geçici dosyalar için kullanılacaktır. "
+"Aksi takdirde, /tmp kullanılacaktır."
 
 #: ../src/msec/help.py:102
 msgid "Allow direct root login on terminal."
 msgstr "Terminalde doğrudan kök kullanıcı girişine izin ver."
 
 #: ../src/msec/help.py:104
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Sahipsiz dosyaların denetimini etkinleştir."
+msgstr "Sistem kullanıcılarındaki değişikliklerin denetimini etkinleştir."
 
 #: ../src/msec/help.py:106
 msgid "Enable checking for unowned files."
@@ -309,7 +316,7 @@ msgstr ""
 
 #: ../src/msec/help.py:112
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Öntanımlı olarak geçerli dizini kullanıcının YOLunda konumlandır."
 
 #: ../src/msec/help.py:114
 msgid "Show security notifications in system tray using libnotify."
@@ -502,9 +509,8 @@ msgid "Removing limit on shell history size"
 msgstr "Kabuk geçmişinde boyut sınırı kaldırılıyor."
 
 #: ../src/msec/libmsec.py:991
-#, fuzzy
 msgid "Invalid file system umask \"%s\""
-msgstr "Geçersiz kabuk zamanaşımı \"%s\""
+msgstr "Geçersiz dosya sistemi umask' ı \"%s\""
 
 #: ../src/msec/libmsec.py:1025
 msgid "Allowing reboot and shutdown to the console user"
@@ -678,19 +684,19 @@ msgstr "Doğrudan 'root' girişini yasaklar"
 
 #: ../src/msec/libmsec.py:1516
 msgid "Using secure location for temporary files"
-msgstr ""
+msgstr "Geçici dosyalar için güvenli konum kullan"
 
 #: ../src/msec/libmsec.py:1518
 msgid "Not using secure location for temporary files"
-msgstr ""
+msgstr "Geçici dosyalar için güvenli konum kullanılmıyor"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Geçerli dizinin yolda konumlandırılmasına izin veriliyor"
 
 #: ../src/msec/libmsec.py:1541
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Geçerli dizinin yolda konumlandırılmasına izin verilmiyor"
 
 #: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"
@@ -925,14 +931,12 @@ msgid "MSEC: System Security and Audit"
 msgstr "MSEC: Sistem Güvenliği ve Denetimi"
 
 #: ../src/msec/msecgui.py:205
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Yeni yapılandırmayı kaydet ve uygula"
+msgstr "Yeni kuralı kaydet ve uygula"
 
 #: ../src/msec/msecgui.py:211
-#, fuzzy
 msgid "Quit"
-msgstr "_Çık"
+msgstr "Çık"
 
 #: ../src/msec/msecgui.py:227
 msgid "Basic security"
@@ -951,9 +955,8 @@ msgid "Periodic checks"
 msgstr "Periyodik denetimler"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "seçenek"
+msgstr "İstisnalar"
 
 #: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
@@ -1076,14 +1079,12 @@ msgid "Enable periodic security checks"
 msgstr "Periyodik güvenlik denetimini etkinleştir"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "Periyodik denetimler"
+msgstr "Güvenlik denetimi"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "seçenek"
+msgstr "İstisna"
 
 #: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
@@ -1115,26 +1116,27 @@ msgstr "Varsayılan seviye değerlerine getir"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "İstisna kuralı düzenleniyor"
 
 #: ../src/msec/msecgui.py:1072
-#, fuzzy
 msgid "Adding new exception"
-msgstr "Yeni yetki denetimi ekleniyor"
+msgstr "Yeni istisna kuralı ekleniyor"
 
 #: ../src/msec/msecgui.py:1079
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr ""
+"İstisna kuralı düzenleniyor. Lütfen uygun msec denetimi ve istisna değerini "
+"girin\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Denetleme:"
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "İstisna:"
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
@@ -1156,7 +1158,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "yeni dosya"
 
 #: ../src/msec/msecgui.py:1163
 msgid "File: "

@@ -76,7 +76,7 @@ msgstr ""
 "Project-Id-Version: DrakX-fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-09-06 14:08+0200\n"
+"PO-Revision-Date: 2009-09-26 11:19+0200\n"
 "Last-Translator: Christophe Berthelé <berthy@mandriva.org>\n"
 "Language-Team: French <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -957,6 +957,12 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Exceptions</b></big>\n"
+"Vous pouvez définir ici les exceptions associées aux vérifications "
+"périodiques\n"
+"de sécurité. Pour chaque vérification, vous pouvez ajouter autant "
+"d'exceptions\n"
+"que vous le souhaitez. Chaque exception est analysée comme une regexp."
 
 #: ../src/msec/msecgui.py:76
 msgid ""
@@ -1039,9 +1045,8 @@ msgid "Periodic checks"
 msgstr "Vérifications périodiques"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "option"
+msgstr "Exceptions"
 
 #: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
@@ -1164,14 +1169,12 @@ msgid "Enable periodic security checks"
 msgstr "Activer les vérifications périodiques"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "Vérifications périodiques"
+msgstr "Vérifications de sécurité"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "option"
+msgstr "Exception"
 
 #: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
@@ -1203,26 +1206,27 @@ msgstr "Remettre les valeurs par défaut pour ce niveau"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "Édition d'exception"
 
 #: ../src/msec/msecgui.py:1072
-#, fuzzy
 msgid "Adding new exception"
-msgstr "Ajout d'une nouvelle vérification périodique"
+msgstr "Ajout d'une nouvelle exception"
 
 #: ../src/msec/msecgui.py:1079
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr ""
+"Édition d'exception. Veuillez choisir la vérification msec associée et la "
+"valeur de l'exception\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Vérification : "
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "Exception : "
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
@@ -1244,7 +1248,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "nouveau fichier"
 
 #: ../src/msec/msecgui.py:1163
 msgid "File: "
@@ -1366,15 +1370,3 @@ msgid "Disabling transparent root access for wheel group members"
 msgstr ""
 "Désactivation d'accès administrateur transparent pour les membres du groupe "
 "wheel"
-
-#~ msgid "Enable AppArmor security framework on boot"
-#~ msgstr "Activer la structure de sécurité AppArmor au démarrage"
-
-#~ msgid ""
-#~ "Enable PolicyKit security framework for all users. If this option is not "
-#~ "enabled, only users in wheel group may change advanced PolicyKit "
-#~ "permissions and settings"
-#~ msgstr ""
-#~ "Activer la structure de sécurité PolicyKit pour tous les utilisateurs. Si "
-#~ "cette option n'est pas activée, seuls les utilisateurs du groupe wheel "
-#~ "pourront changer les permissions et les paramètres avancés de PolicyKit."

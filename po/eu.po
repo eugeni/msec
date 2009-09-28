@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-09-19 12:01+0200\n"
+"PO-Revision-Date: 2009-09-28 21:28+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
 "Language-Team: Basque <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -267,6 +267,9 @@ msgid ""
 "Enable password-related checks, such as empty passwords and strange super-"
 "user accounts."
 msgstr ""
+"Gaitu pasahitzen inguruko egiaztapenak, pasahitz hutsarena eta "
+"super-erabiltaile "
+"susmagarriena esaterako."
 
 #: ../src/msec/help.py:96
 msgid ""
@@ -286,6 +289,9 @@ msgid ""
 "user home directory will be used for temporary files. Otherwise, /tmp will "
 "be used."
 msgstr ""
+"Erabili kokapen seguruak aldiuneko fitxategientzat. Parametro hau 'bai' "
+"ezarri ezkero, erabiltzailearen etxe karpeta erabiliko da aldiuneko "
+"fitxategientzat. Bestela, /tmp erabiliko da."
 
 #: ../src/msec/help.py:102
 msgid "Allow direct root login on terminal."
@@ -314,11 +320,12 @@ msgstr ""
 
 #: ../src/msec/help.py:112
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Erantsi uneko karpeta erabiltzailearen PATH (bidean) era lehenetsian"
 
 #: ../src/msec/help.py:114
 msgid "Show security notifications in system tray using libnotify."
 msgstr ""
+"Erakutsi segurtasun jakinarazpenak sistemaren erretiluan libnotify erabiliz."
 
 #: ../src/msec/help.py:116
 msgid ""
@@ -326,35 +333,39 @@ msgid ""
 "password, only public-key authentication logins are allowed. See sshd_config"
 "(5) man page for more information."
 msgstr ""
+"Baimendu root-aren urruneko saio hasiera sshd bitartez. Baldin bai, saio "
+"hasiera "
+"onartzen da. Baldin eta pasahitz gabe, soilik gako-publiko autentikazioa "
+"onartuko"
+"da. Begiratu sshd_config (5) man orria informazio gehiago jasotzeko."
 
 #: ../src/msec/help.py:118
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
 msgstr ""
+"Gaitu aukera arriskutsuen egiaztapena erabiltaileen .rhosts/.shosts "
+"fitxategietan."
 
 #: ../src/msec/help.py:120
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
+"Eskatu root-aren pasahitza \"erabiltzaile bakarreko\" mailara igarotzeko "
+"(man sulogin(8))."
 
 #: ../src/msec/help.py:122
-#, fuzzy
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
 msgstr ""
-"Root kontutik beste erabiltzaileetara pasatzerakoan bistaratzea esportatzea "
-"onartu.\n"
-"\n"
-"Begiratu pam_xauth(8) xehetasun gehiago izateko. "
+"Baimendu bistaratzea esportatzea root kontutik beste erabiltzaileetara "
+"aldatzerakoan. Begiratu pam_xauth(8) xehetasun gehiago izateko. "
 
 #: ../src/msec/help.py:124
-#, fuzzy
 msgid "Set the user umask."
-msgstr "Ezarri erabiltzaileen fitxategi modua sortzeko maskara."
+msgstr "Ezarri erabiltzailearen umask."
 
 #: ../src/msec/help.py:126
-#, fuzzy
 msgid "Accept ICMP echo."
-msgstr "Onartu icmp echo"
+msgstr "Onartu ICMP echo."
 
 #: ../src/msec/help.py:128
 #, fuzzy
@@ -383,14 +394,16 @@ msgstr "Aktibatu ethernet txartelen promiskuotasun egiaztapena."
 #: ../src/msec/help.py:132
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
+"Egin orduoro segurtasun egiaztapenak sistemaren konfiguraketan aldaketak "
+"atzemateko."
 
 #: ../src/msec/help.py:134
 msgid "Enforce MSEC settings on system startup"
-msgstr ""
+msgstr "Betearazi MSEC ezarpenak sistemaren abioan"
 
 #: ../src/msec/help.py:136
 msgid "Enable periodic security check results to terminal."
-msgstr ""
+msgstr "Gaitu aldizkako segurtasun egiaztapen emaitzak terminalean erakustea."
 
 #: ../src/msec/libmsec.py:338
 msgid "%s modified so launched command: %s"
@@ -401,9 +414,8 @@ msgid "%s modified so should have run command: %s"
 msgstr ""
 
 #: ../src/msec/libmsec.py:449 ../src/msec/libmsec.py:481
-#, fuzzy
 msgid "deleted %s"
-msgstr "Ezabatu"
+msgstr "%s ezabatu"
 
 #: ../src/msec/libmsec.py:467
 #, fuzzy
@@ -411,21 +423,20 @@ msgid "touched file %s"
 msgstr "Ez dago horrelako fitxategirik"
 
 #: ../src/msec/libmsec.py:487
-#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr "%s-tik %s-ra aldatu"
+msgstr "esteka sinbolikoa %s-tik %s-ra eginda"
 
 #: ../src/msec/libmsec.py:490
 msgid "moved file %s to %s"
-msgstr ""
+msgstr "fitxategia %s-tik %s-ra mugituta"
 
 #: ../src/msec/libmsec.py:540 ../src/msec/libmsec.py:556
 msgid "set variable %s to %s in %s"
-msgstr ""
+msgstr "ezarri %s aldagaia %s balioa %s-n"
 
 #: ../src/msec/libmsec.py:767
 msgid "Error loading plugin '%s' from %s: %s"
-msgstr ""
+msgstr "Akatsa '%s' plugina %s-tik zamatzerakoan: %s"
 
 #: ../src/msec/libmsec.py:781
 msgid "Invalid callback: %s"
@@ -433,7 +444,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:790
 msgid "Plugin %s not found"
-msgstr ""
+msgstr "%s plugina ez da aurkitu"
 
 #: ../src/msec/libmsec.py:797
 msgid "Not supported function '%s' in '%s'"
@@ -444,9 +455,8 @@ msgid "In check-only mode, nothing is written back to disk."
 msgstr ""
 
 #: ../src/msec/libmsec.py:821
-#, fuzzy
 msgid "'%s' is not available in this version"
-msgstr "%s ez du onartzen %s(r)en bertsio honek."
+msgstr "'%s' ez dago eskuragarri bertsio honetan"
 
 #: ../src/msec/libmsec.py:831
 msgid "Invalid parameter for %s: '%s'. Valid parameters: '%s'."
@@ -1324,4 +1334,5 @@ msgstr ""
 #, fuzzy
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Onartu su soilik wheel taldeko kideentzat"
+
 

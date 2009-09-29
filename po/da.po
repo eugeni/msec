@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: da\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-09-08 10:06+0200\n"
+"PO-Revision-Date: 2009-09-29 21:43+0200\n"
 "Last-Translator: Keld Simonsen <keld@dkuug.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -48,8 +48,7 @@ msgstr ""
 
 #: ../src/msec/help.py:24
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Tillad X-serveren at acceptere tilkoblinger fra netværket på tcp-port 6000."
+msgstr "Tillad X-serveren at acceptere tilkoblinger fra netværket på tcp-port 6000."
 
 #: ../src/msec/help.py:26
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -225,8 +224,7 @@ msgstr ""
 
 #: ../src/msec/help.py:86
 msgid "Set shell commands history size. A value of -1 means unlimited."
-msgstr ""
-"Sæt historiklængden for kommandoskallen. En værdi på -1 betyder ubegrænset."
+msgstr "Sæt historiklængden for kommandoskallen. En værdi på -1 betyder ubegrænset."
 
 #: ../src/msec/help.py:88
 msgid "Allow system reboot and shutdown to local users."
@@ -281,8 +279,7 @@ msgstr "Aktivér tjek for filer der ikke ejes af nogen."
 
 #: ../src/msec/help.py:108
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
-"Tillad sessions-håndterere (KDM og GDM) at vise en liste med lokale brugere."
+msgstr "Tillad sessions-håndterere (KDM og GDM) at vise en liste med lokale brugere."
 
 #: ../src/msec/help.py:110
 msgid ""
@@ -923,9 +920,8 @@ msgid "Periodic checks"
 msgstr "Periodiske kontroller"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "valg"
+msgstr "Undtagelser"
 
 #: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
@@ -997,8 +993,7 @@ msgstr "Fundet grundlæggende msec-niveau '%s'"
 
 #: ../src/msec/msecgui.py:427
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr ""
-"Tilpasset grundlæggende opsætningsniveau '%s' fundet. Vil forhåndsvælge '%s'"
+msgstr "Tilpasset grundlæggende opsætningsniveau '%s' fundet. Vil forhåndsvælge '%s'"
 
 #: ../src/msec/msecgui.py:455
 msgid "Security Option"
@@ -1049,14 +1044,12 @@ msgid "Enable periodic security checks"
 msgstr "Aktivér periodiske sikkerhedskontroller"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "Periodiske kontroller"
+msgstr "Sikkerhedstjek"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "valg"
+msgstr "Undtagelse"
 
 #: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
@@ -1088,12 +1081,11 @@ msgstr "Nulstil til forhåndsvalgte niveau for rettigheder"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "Retter undtagelse"
 
 #: ../src/msec/msecgui.py:1072
-#, fuzzy
 msgid "Adding new exception"
-msgstr "Tilføjer nyt rettighedstjek"
+msgstr "Tilføjer ny undtagelse"
 
 #: ../src/msec/msecgui.py:1079
 msgid ""
@@ -1214,8 +1206,7 @@ msgid "Disabling password history"
 msgstr "Deaktivér adgangskodehistorik"
 
 #: ../src/msec/plugins/pam.py:123
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
 "Ugyldig adgangskodelængde \"%s\". Brug \"length,ndigits,nupper\" som "
 "parameter."
@@ -1248,14 +1239,3 @@ msgstr "Tillader transparent root-adgang for medlemmer af wheel-gruppen"
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Deaktiverer transparent root-adgang for medlemmer af wheel-gruppen"
 
-#~ msgid "Enable AppArmor security framework on boot"
-#~ msgstr "Aktivér sikkerheds-rammeværket AppArmor ved opstart"
-
-#~ msgid ""
-#~ "Enable PolicyKit security framework for all users. If this option is not "
-#~ "enabled, only users in wheel group may change advanced PolicyKit "
-#~ "permissions and settings"
-#~ msgstr ""
-#~ "Aktivér PolicyKit-sikkerheds-rammeværk for alle brugere. Hvis ikke dette "
-#~ "valget er aktiveret, kan kun brugere i wheel-gruppen ændre avancerede "
-#~ "PolicyKit-rettigheder og indstillinger."

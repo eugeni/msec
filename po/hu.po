@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: msec-2010.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-09-13 19:52+0100\n"
+"PO-Revision-Date: 2009-09-29 10:36+0100\n"
 "Last-Translator: Gergely Lónyai <aleph@mandriva.org>\n"
 "Language-Team: Hungarian <aleph@mandriva.org>\n"
 "MIME-Version: 1.0\n"
@@ -927,7 +927,7 @@ msgstr "Szabványos"
 
 #: ../src/msec/msecgui.py:554
 msgid "Secure"
-msgstr "Biztonság"
+msgstr "Biztonságos"
 
 #: ../src/msec/msecgui.py:571
 msgid "Send security alerts by email"

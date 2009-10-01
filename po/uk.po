@@ -13,20 +13,19 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-04-10 10:27+0300\n"
+"PO-Revision-Date: 2009-09-27 12:30+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation@linux.org.ua>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 0.3\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Увімкнути перевірку відкритих мережевих портів."
+msgstr "Увімкнути перевірку змін у параметрах брандмауера."
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -128,7 +127,6 @@ msgstr ""
 "потреби, вручну вказати у файлах server.SERVER_LEVEL."
 
 #: ../src/msec/help.py:50
-#, fuzzy
 msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
@@ -137,13 +135,12 @@ msgstr ""
 "з вимиканням паролів, оскільки подібне вимикання зробить систему вразливою."
 
 #: ../src/msec/help.py:52
-#, fuzzy
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
 "Встановити параметр umask для монтування розділів з vfat і ntfs. Якщо "
-"значенням umask є «0», буде використано типове системне значення umask."
+"значенням umask є «-1», буде використано типове системне значення umask."
 
 #: ../src/msec/help.py:54
 msgid "Enable checking for open network ports."
@@ -162,7 +159,7 @@ msgstr ""
 
 #: ../src/msec/help.py:60
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
-msgstr ""
+msgstr "Змінювати власника і групу нічийних файлів на nobody/nogroup."
 
 #: ../src/msec/help.py:62
 msgid "Send security check results by email."
@@ -190,6 +187,9 @@ msgid ""
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
+"Увімкнути перевірку цілісності встановлених пакунків RPM. Програма "
+"повідомлятиме вас про зміни у контрольних сумах встановлених файлів і "
+"показуватиме результати окремо для бінарних файлів і для файлів налаштування."
 
 #: ../src/msec/help.py:72
 msgid ""
@@ -229,12 +229,18 @@ msgid ""
 "incorrect permissions are restored to the ones specified in msec security "
 "policy."
 msgstr ""
+"Увімкнути періодичні перевірки прав доступу до файлів, вказаних у правилах "
+"msec. Якщо таку перевірку буде увімкнено, програма перевірятиме права доступу "
+"під час кожного запуску. Якщо буде увімкнено примусовий режим, програма "
+"змінюватиме права доступу на вказані у правилах безпеки msec."
 
 #: ../src/msec/help.py:84
 msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
+"Увімкнути перевірку змін у встановлених пакунках RPM. Якщо перевірку буде "
+"увімкнено, програма повідомлятиме вам про встановлення або вилучення пакунків."
 
 #: ../src/msec/help.py:86
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -253,9 +259,8 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Вмикає запис до журналу системи результатів регулярних перевірок."
 
 #: ../src/msec/help.py:92
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Увімкнути пошук файлів без власника."
+msgstr "Увімкнути перевірку змін у переліку груп системи."
 
 #: ../src/msec/help.py:94
 msgid ""
@@ -283,15 +288,18 @@ msgid ""
 "user home directory will be used for temporary files. Otherwise, /tmp will "
 "be used."
 msgstr ""
+"Використовувати безпечну адресу зберігання тимчасових файлів. Якщо буде "
+"встановлено значення «так», для зберігання тимчасових файлів "
+"використовуватиметься домашній каталог користувача. Якщо буде встановлено "
+"інше значення, використовуватиметься /tmp."
 
 #: ../src/msec/help.py:102
 msgid "Allow direct root login on terminal."
 msgstr "Надання дозволу на безпосередню реєстрацію root у терміналі"
 
 #: ../src/msec/help.py:104
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Увімкнути пошук файлів без власника."
+msgstr "Увімкнути перевірку змін у переліку користувачів системи."
 
 #: ../src/msec/help.py:106
 msgid "Enable checking for unowned files."
@@ -316,7 +324,7 @@ msgstr ""
 
 #: ../src/msec/help.py:112
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Типово, включати поточний каталог до PATH користувача"
 
 #: ../src/msec/help.py:114
 msgid "Show security notifications in system tray using libnotify."
@@ -511,9 +519,8 @@ msgid "Removing limit on shell history size"
 msgstr "Вилучення обмеження на розмір журналу оболонки"
 
 #: ../src/msec/libmsec.py:991
-#, fuzzy
 msgid "Invalid file system umask \"%s\""
-msgstr "Некоректний час очікування оболонки «%s»"
+msgstr "Некоректний umask файлової системи «%s»"
 
 #: ../src/msec/libmsec.py:1025
 msgid "Allowing reboot and shutdown to the console user"
@@ -686,19 +693,19 @@ msgstr "Заборона безпосередньої реєстрації root"
 
 #: ../src/msec/libmsec.py:1516
 msgid "Using secure location for temporary files"
-msgstr ""
+msgstr "Використання безпечної адреси для тимчасових файлів"
 
 #: ../src/msec/libmsec.py:1518
 msgid "Not using secure location for temporary files"
-msgstr ""
+msgstr "Скасування використання безпечної адреси для тимчасових файлів"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Додавання поточного каталогу до PATH увімкнено"
 
 #: ../src/msec/libmsec.py:1541
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Додавання поточного каталогу до PATH вимкнено"
 
 #: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"
@@ -872,6 +879,10 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Винятки</b></big>\n"
+"Тут ви можете налаштувати винятки для регулярних перевірок msec.\n"
+"Для будь-якої перевірки ви можете додати довільну кількість винятків.\n"
+"Зауважте, що програма оброблятиме записи винятків як формальні вирази."
 
 #: ../src/msec/msecgui.py:76
 msgid ""
@@ -929,12 +940,10 @@ msgid "MSEC: System Security and Audit"
 msgstr "MSEC: Контроль безпеки системи"
 
 #: ../src/msec/msecgui.py:205
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Застосувати і зберегти нові налаштування?"
+msgstr "Зберегти і застосувати поточні правила"
 
 #: ../src/msec/msecgui.py:211
-#, fuzzy
 msgid "Quit"
 msgstr "Вийти"
 
@@ -955,9 +964,8 @@ msgid "Periodic checks"
 msgstr "Періодичні перевірки"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "параметр"
+msgstr "Винятки"
 
 #: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
@@ -1080,14 +1088,12 @@ msgid "Enable periodic security checks"
 msgstr "Увімкнути періодичні перевірки безпеки"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "Періодичні перевірки"
+msgstr "Перевірка безпеки"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "параметр"
+msgstr "Виняток"
 
 #: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
@@ -1119,26 +1125,27 @@ msgstr "Скинути в типові права доступу"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "Редагування винятку"
 
 #: ../src/msec/msecgui.py:1072
-#, fuzzy
 msgid "Adding new exception"
-msgstr "Додається перевірка нових прав доступу"
+msgstr "Додавання нового винятку"
 
 #: ../src/msec/msecgui.py:1079
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr ""
+"Редагування винятку. Будь ласка, оберіть відповідну перевірку msec і значення "
+"винятку\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Перевірка:"
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "Виняток:"
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
@@ -1160,7 +1167,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "новий файл"
 
 #: ../src/msec/msecgui.py:1163
 msgid "File: "

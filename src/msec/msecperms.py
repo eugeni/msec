@@ -65,6 +65,7 @@ Available parameters:
                             will perform.
     -r, --root <path>       path to use as root
     -q, --quiet             run quietly
+    -s, --save <level>      save current configuration as a new security level
 """ % (version, config.PERMCONF, config.PERMCONF)
 # }}}
 
@@ -76,10 +77,11 @@ if __name__ == "__main__":
     enforce = False
     quiet = False
     root = ''
+    save = False
 
     # parse command line
     try:
-        opt, args = getopt.getopt(sys.argv[1:], 'hel:f:dpr:q', ['help', 'enforce', 'list=', 'force=', 'debug', 'pretend', 'root=', 'quiet'])
+        opt, args = getopt.getopt(sys.argv[1:], 'hel:f:dpr:qs:', ['help', 'enforce', 'list=', 'force=', 'debug', 'pretend', 'root=', 'quiet', 'save='])
     except getopt.error:
         usage()
         sys.exit(1)
@@ -107,6 +109,10 @@ if __name__ == "__main__":
         elif o[0] == '-f' or o[0] == '--force':
             level = o[1]
             force_level = True
+        # save as new security level
+        elif o[0] == '-s' or o[0] == '--save':
+            level = o[1]
+            save = True
         # debugging
         elif o[0] == '-d' or o[0] == '--debug':
             log_level = logging.DEBUG
@@ -155,6 +161,13 @@ if __name__ == "__main__":
             permconf.set(opt, standard_permconf.get(opt))
     else:
         permconf.load()
+
+    # saving current setting as new level
+    if save:
+        newlevel = config.MsecConfig(log, config=config.SECURITY_LEVEL % (root, level))
+        newlevel.merge(permconf)
+        newlevel.save()
+        sys.exit(0)
 
     # load the main permission class
     perm = PERMS(log, root=root)

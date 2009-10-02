@@ -53,6 +53,7 @@ Arguments to msec:
                             will perform.
     -r, --root <path>       path to use as root
     -q, --quiet             run quietly
+    -s, --save <level>      save current configuration as a new security level
 """ % version
 # }}}
 
@@ -63,10 +64,11 @@ if __name__ == "__main__":
     commit = True
     root = ''
     quiet = False
+    save = False
 
     # parse command line
     try:
-        opt, args = getopt.getopt(sys.argv[1:], 'hl:f:dpr:q', ['help', 'list=', 'force=', 'debug', 'pretend', 'root=', 'quiet'])
+        opt, args = getopt.getopt(sys.argv[1:], 'hl:f:dpr:qs:', ['help', 'list=', 'force=', 'debug', 'pretend', 'root=', 'quiet', 'save='])
     except getopt.error:
         usage()
         sys.exit(1)
@@ -91,6 +93,10 @@ if __name__ == "__main__":
         elif o[0] == '-f' or o[0] == '--force':
             level = o[1]
             force_level = True
+        # save as new security level
+        elif o[0] == '-s' or o[0] == '--save':
+            level = o[1]
+            save = True
         # custom root
         elif o[0] == '-r' or o[0] == '--root':
             root = o[1]
@@ -137,6 +143,15 @@ if __name__ == "__main__":
             msec_config.set(opt, levelconf.get(opt))
     else:
         msec_config.load()
+
+    # saving current setting as new level
+    if save:
+        newlevel = config.MsecConfig(log, config=config.SECURITY_LEVEL % (root, level))
+        newlevel.merge(msec_config)
+        # update new level name
+        newlevel.set("BASE_LEVEL", level)
+        newlevel.save()
+        sys.exit(0)
 
     # load the msec library
     msec = MSEC(log, root=root)

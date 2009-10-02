@@ -334,6 +334,14 @@ class PermConfig(MsecConfig):
         self.log = log
         self.regexp = re.compile("^([^\s]*)\s*([a-z]*)\.([a-z]*)\s*([\d]?\d\d\d|current)\s*(force)?$")
 
+    def merge(self, newconfig, overwrite=False):
+        """Merges parameters from newconfig to current config"""
+        for opt in newconfig.list_options():
+            if overwrite:
+                self.set(opt, newconfig.get(opt))
+            else:
+                self.get(opt, newconfig.get(opt))
+
     def reset(self):
         MsecConfig.reset(self)
         del self.options_order

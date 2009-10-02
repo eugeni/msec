@@ -164,8 +164,8 @@ if __name__ == "__main__":
 
     # saving current setting as new level
     if save:
-        newlevel = config.MsecConfig(log, config=config.SECURITY_LEVEL % (root, level))
-        newlevel.merge(permconf)
+        newlevel = config.PermConfig(log, config=config.PERMISSIONS_LEVEL % (root, level))
+        newlevel.merge(permconf, overwrite=True)
         newlevel.save()
         sys.exit(0)
 

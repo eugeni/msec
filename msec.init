@@ -8,9 +8,11 @@
 ### BEGIN INIT INFO
 # Provides: msec
 # Default-Start: 3 4 5
-# Short-Description: Enables MSEC security policy
-# Description: Enables MSEC security settings, defined by current policy
+# Short-Description: Enables MSEC security policy on boot
+# Description: Enables MSEC security settings on boot
 ### END INIT INFO
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
 
 # Source function library.
 . /etc/rc.d/init.d/functions

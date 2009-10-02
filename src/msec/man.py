@@ -109,6 +109,15 @@ either on first install, on when a transition to a different level is required.
 doing anything to the system. In this mode of operation, msec performs all the
 required tasks, except effectively writting data back to disk.
 
+\\fB\-r, --root <path>\\fR
+    Use path as root. Can be used to perform msec actions in chroot.
+
+\\fB\-q\\fR
+    Run quietly
+
+\\fB\-s, --save <level>\\fR
+    Save current settings as a new security level.
+
 .TP
 \\fBmsecperms\\fR:
 .PP
@@ -143,6 +152,15 @@ either on first install, on when a transition to a different level is required.
 doing anything to the system. In this mode of operation, msec performs all the
 required tasks, except effectively writting data back to disk.
 
+\\fB\-r, --root <path>\\fR
+    Use path as root. Can be used to perform msec actions in chroot.
+
+\\fB\-q\\fR
+    Run quietly
+
+\\fB\-s, --save <level>\\fR
+    Save current settings as a new security level.
+
 .TP
 \\fBmsecgui\\fR:
 .PP
@@ -174,6 +192,9 @@ This is the GTK version of msec. It acts as frontend to all msec functionalities
     edit /etc/security/msec/level.my
     msec -f my
 
+\\fBExport current security settings to create a new security level named 'office':\\fP
+   msec -s office
+
 \\fBEnforce system permissions according to /etc/security/msec/perms.conf file:\\fP
     msecperms
 
@@ -190,6 +211,9 @@ This is the GTK version of msec. It acts as frontend to all msec functionalities
     cp /etc/security/msec/perm.secure /etc/security/msec/perm.my
     edit /etc/security/msec/level.my
     msecperms -f my
+
+\\fBExport current security settings to create a new security level named 'office':\\fP
+   msecperms -s office
 
 .SH "DEFINING EXCEPTIONS FOR PERIODIC CHECKS"
 .B msec

@@ -30,18 +30,30 @@ case "$1" in
 	if [ "$ENABLE_STARTUP_MSEC" = "yes" ]; then
 		gprintf "Enabling MSEC security policy"
 		/usr/sbin/msec -q
-		echo_success
+		if [ $? == 0 ]; then
+			echo_success
+		else
+			echo_failure
+		fi
 		echo
 	fi
 	if [ "$ENABLE_STARTUP_PERMS" = "yes" ]; then
 		gprintf "Setting and checking MSEC permissions"
 		/usr/sbin/msecperms -q
-		echo_success
+		if [ $? == 0 ]; then
+			echo_success
+		else
+			echo_failure
+		fi
 		echo
 	elif [ "$ENABLE_STARTUP_PERMS" = "enforce" ]; then
 		gprintf "Setting and enforcing MSEC permissions"
 		/usr/sbin/msecperms -e -q
-		echo_success
+		if [ $? == 0 ]; then
+			echo_success
+		else
+			echo_failure
+		fi
 		echo
 	fi
 	;;

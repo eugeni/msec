@@ -1,3 +1,5 @@
+- added option to skip security checks when running on battery power (CHECK_ON_BATTERY)
+
 Version 0.70.5 - September 23 2009, Eugeni Dodonov
 - do not show error messages for non-existent audit files
 - man page entries are now sorted according to plugin

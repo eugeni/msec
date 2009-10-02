@@ -16,6 +16,16 @@ if [[ ${CHECK_SECURITY} != yes ]]; then
     exit 0
 fi
 
+# are we running on battery power?
+if [[ ${CHECK_ON_BATTERY} == no ]]; then
+    grep 'charging state' /proc/acpi/battery/*/state 2>/dev/null | grep -q 'discharging'
+    ret=$?
+    if [[ $ret = 0 ]]; then
+        # skipping check as we are running on battery power
+        exit 0
+    fi
+fi
+
 . /usr/share/msec/functions.sh
 
 # variables

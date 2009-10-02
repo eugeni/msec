@@ -58,13 +58,14 @@ class audit:
         config.SETTINGS['NOTIFY_WARN'] = ("audit.notify_warn", ['yes', 'no'])
         # security checks from audit plugins
         config.SETTINGS['CHECK_SECURITY'] = ("audit.check_security", ['yes', 'no'])
+        config.SETTINGS['CHECK_ON_BATTERY'] = ("audit.check_on_battery", ['yes', 'no'])
 
         # preparing msecgui menu
         for check in ["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",
                     "CHECK_WRITABLE", "CHECK_UNOWNED", "FIX_UNOWNED", "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_FIREWALL",
                     "CHECK_PASSWD", "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM_PACKAGES", "CHECK_RPM_INTEGRITY",
                     "CHECK_SHOSTS", "CHECK_USERS", "CHECK_GROUPS",
-                    "TTY_WARN", "SYSLOG_WARN", "MAIL_EMPTY_CONTENT"]:
+                    "TTY_WARN", "SYSLOG_WARN", "MAIL_EMPTY_CONTENT", "CHECK_ON_BATTERY"]:
             config.SETTINGS_PERIODIC.append(check)
 
         # checks with exceptions
@@ -171,6 +172,10 @@ class audit:
 
     def notify_warn(self, param):
         """Show security notifications in system tray using libnotify."""
+        pass
+
+    def check_on_battery(self, param):
+        """Run security checks when machine is running on battery power."""
         pass
 
     def check_promisc(self, param):

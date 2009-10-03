@@ -13,20 +13,19 @@ msgstr ""
 "Project-Id-Version: sl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-04-19 20:14+0200\n"
+"PO-Revision-Date: 2009-10-03 19:27+0200\n"
 "Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.3\n"
+"X-Generator: Lokalize 1.0\n"
 "Plural-Forms:  nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3);\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Omogoči preverjanje za odprta omrežna vrata."
+msgstr "Omogoči preverjanje za spremembe nastavitev požarnega zidu."
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -135,7 +134,6 @@ msgstr ""
 "STREŽNIŠKA_STOPNJA."
 
 #: ../src/msec/help.py:50
-#, fuzzy
 msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
@@ -144,13 +142,12 @@ msgstr ""
 "onemogočanju gesel, saj bo računalnik s tem zelo ranljiv."
 
 #: ../src/msec/help.py:52
-#, fuzzy
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
 "Nastavi uporabniško masko za priklapljanje razdelkov VFAT in NTFS. Če je "
-"maska »0«, se uporabi privzeta sistemska uporabniška maska."
+"maska »-1«, se uporabi privzeta sistemska uporabniška maska."
 
 #: ../src/msec/help.py:54
 msgid "Enable checking for open network ports."
@@ -166,7 +163,7 @@ msgstr "Članom skupine wheel omogoči dostop do uporabnika root brez gesla."
 
 #: ../src/msec/help.py:60
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
-msgstr ""
+msgstr "Popravi lastnika in skupino datotek brez lastnika na nobody/nogroup."
 
 #: ../src/msec/help.py:62
 msgid "Send security check results by email."
@@ -196,6 +193,9 @@ msgid ""
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
+"Omogoči potrjevanje integritete nameščenih paketov RPM. Če se nadzorne vsote "
+"nameščenih datotek spremenijo, boste o tem obveščeni. Rezultati za binarne in "
+"nastavitvene datoteke bodo prikazani ločeno."
 
 #: ../src/msec/help.py:72
 msgid ""
@@ -232,12 +232,18 @@ msgid ""
 "incorrect permissions are restored to the ones specified in msec security "
 "policy."
 msgstr ""
+"Omogoči redno preverjanje za dovoljenja za datoteke določene v pravilih msec. "
+"Če je nastavljeno na »yes«, bodo dovoljenja preverjena ob vsakem zagonu. Če "
+"je »enforce«, bodo napačna dovoljenja povrnjena na dovoljenja določena v "
+"varnostnih pravilih msec."
 
 #: ../src/msec/help.py:84
 msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
+"Omogoči potrjevanje sprememb v nameščenih paketih RPM. Obveščeni boste o novo "
+"nameščenih in odstranjenih paketih."
 
 #: ../src/msec/help.py:86
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -253,9 +259,8 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Omogoči beleženje rednih preverjanj v sistemski dnevnik."
 
 #: ../src/msec/help.py:92
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Omogoči preverjanje za datoteke brez lastnika."
+msgstr "Omogoči preverjanje za spremembe v sistemskih skupinah."
 
 #: ../src/msec/help.py:94
 msgid ""
@@ -283,15 +288,17 @@ msgid ""
 "user home directory will be used for temporary files. Otherwise, /tmp will "
 "be used."
 msgstr ""
+"Za začasne datoteke uporabi varno lokacijo. Če je nastavljeno na »yes«, bo za "
+"začasne datoteke uporabljena domača mapa, v nasprotnem bo uporabljena mapa "
+"/tmp."
 
 #: ../src/msec/help.py:102
 msgid "Allow direct root login on terminal."
 msgstr "V konzoli dovoli neposredno prijavo uporabnika root."
 
 #: ../src/msec/help.py:104
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Omogoči preverjanje za datoteke brez lastnika."
+msgstr "Omogoči preverjanje za spremembe v sistemskih uporabnikih."
 
 #: ../src/msec/help.py:106
 msgid "Enable checking for unowned files."
@@ -315,7 +322,7 @@ msgstr ""
 
 #: ../src/msec/help.py:112
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Privzeto vključi trenutno mapo v uporabniški PATH"
 
 #: ../src/msec/help.py:114
 msgid "Show security notifications in system tray using libnotify."
@@ -507,9 +514,8 @@ msgid "Removing limit on shell history size"
 msgstr "Odstranjevanje omejitve velikosti zgodovine za lupino"
 
 #: ../src/msec/libmsec.py:991
-#, fuzzy
 msgid "Invalid file system umask \"%s\""
-msgstr "Neveljaven čas za potek za lupino (%s)"
+msgstr "Neveljavna uporabniška maska »%s« na datotečnem sistemu"
 
 #: ../src/msec/libmsec.py:1025
 msgid "Allowing reboot and shutdown to the console user"
@@ -681,19 +687,19 @@ msgstr "Prepovedovanje neposredne prijave uporabnika root"
 
 #: ../src/msec/libmsec.py:1516
 msgid "Using secure location for temporary files"
-msgstr ""
+msgstr "Uporaba varne lokacije za začasne datoteke"
 
 #: ../src/msec/libmsec.py:1518
 msgid "Not using secure location for temporary files"
-msgstr ""
+msgstr "Brez uporabe varne lokacije za začasne datoteke"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Dovoljevanje vključitve trenutne mape v pot"
 
 #: ../src/msec/libmsec.py:1541
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Prepovedovanje vključitve trenutne mape v pot"
 
 #: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"
@@ -867,6 +873,11 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Izjeme</b></big>\n"
+"Tu lahko nastavite dovoljene izjeme za redna varnostna preverjanja msec.\n"
+"Za vsak podprt test in za vsako preverjanje lahko dodate poljubno število "
+"izjem.\n"
+"Vedite, da je vsaka izjema razčlenjena kot regularni izraz."
 
 #: ../src/msec/msecgui.py:76
 msgid ""
@@ -924,14 +935,12 @@ msgid "MSEC: System Security and Audit"
 msgstr "MSEC: sistemska varnost in nadzor"
 
 #: ../src/msec/msecgui.py:205
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Ali shranim in uveljavim nove nastavitve?"
+msgstr "Shrani in uveljavi trenutna pravila"
 
 #: ../src/msec/msecgui.py:211
-#, fuzzy
 msgid "Quit"
-msgstr "_Končaj"
+msgstr "Končaj"
 
 #: ../src/msec/msecgui.py:227
 msgid "Basic security"
@@ -950,9 +959,8 @@ msgid "Periodic checks"
 msgstr "Redna preverjanja"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "možnost"
+msgstr "Izjeme"
 
 #: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
@@ -1075,14 +1083,12 @@ msgid "Enable periodic security checks"
 msgstr "Omogoči redna varnostna preverjanja"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "Redna preverjanja"
+msgstr "Varnostno preverjanje"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "možnost"
+msgstr "Izjema"
 
 #: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
@@ -1114,26 +1120,26 @@ msgstr "Ponastavi na privzeta dovoljenja stopnje"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "Urejanje izjeme"
 
 #: ../src/msec/msecgui.py:1072
-#, fuzzy
 msgid "Adding new exception"
-msgstr "Dodajanje novega preverjanja dovoljenj"
+msgstr "Dodajanje nove izjeme"
 
 #: ../src/msec/msecgui.py:1079
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr ""
+"Urejanje izjeme. Izberite ustrezno preverjanje msec in vrednost izjeme\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Preverjanje: "
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "Izjema: "
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
@@ -1155,7 +1161,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "nova datoteka"
 
 #: ../src/msec/msecgui.py:1163
 msgid "File: "

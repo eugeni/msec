@@ -1,3 +1,4 @@
+- use users' home directory for temporary files (SECURE_TMP) by default
 - improved startup script
 - added option to skip security checks when running on battery power (CHECK_ON_BATTERY)
 

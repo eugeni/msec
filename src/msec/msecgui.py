@@ -10,6 +10,7 @@ import getopt
 import signal
 import traceback
 import Queue
+from textwrap import wrap
 
 # PyGTK
 import warnings
@@ -51,9 +52,9 @@ LEVEL_SECURITY_TEXT=_("""<big><b>Choose security level</b></big>
 This application allows you to configure your system security. If you wish
 to activate it, choose the appropriate security level: """)
 
-STANDARD_LEVEL_DESCRIPTION=_("""This profile configures a reasonably safe set of security features. It activates several non-intrusive periodic system checks. This is the suggested level for Desktop.""")
+STANDARD_LEVEL_DESCRIPTION="\n".join(wrap(_("""This profile configures a reasonably safe set of security features. It activates several non-intrusive periodic system checks. This is the suggested level for Desktop."""), 80))
 
-SECURE_LEVEL_DESCRIPTION=_("""This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks. This level is suggested for Servers and security-concerned systems . """)
+SECURE_LEVEL_DESCRIPTION="\n".join(wrap(_("""This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks. This level is suggested for Servers and security-concerned systems . """), 80))
 
 
 SYSTEM_SECURITY_TEXT=_("""<big><b>System security options</b></big>
@@ -150,10 +151,10 @@ class MsecGui:
                     (_("_File"),
                     [
                         (_("_Save configuration"), self.ok),
-                        (None, None),
-                        (_("_Import configuration"), None),
-                        (_("_Export configuration"), None),
-                        (None, None),
+#                        (None, None),
+#                        (_("_Import configuration"), None),
+#                        (_("_Export configuration"), None),
+#                        (None, None),
                         (_("_Quit"), self.quit),
                     ]),
                     (_("_Help"),
@@ -544,11 +545,7 @@ class MsecGui:
             self.button_default.set_active(True)
         levels_vbox.pack_start(self.button_default, False, False)
         # default level description
-        buffer = gtk.TextBuffer()
-        buffer.set_text(STANDARD_LEVEL_DESCRIPTION)
-        label = gtk.TextView(buffer)
-        label.set_wrap_mode(gtk.WRAP_WORD_CHAR)
-        label.set_editable(False)
+        label = gtk.Label(STANDARD_LEVEL_DESCRIPTION)
         levels_vbox.pack_start(label, False, False)
         # secure
         self.button_secure = gtk.RadioButton(group=self.button_default, label=_("Secure"))
@@ -557,11 +554,7 @@ class MsecGui:
             self.button_secure.set_active(True)
         levels_vbox.pack_start(self.button_secure, False, False)
         # secure level description
-        buffer = gtk.TextBuffer()
-        buffer.set_text(SECURE_LEVEL_DESCRIPTION)
-        label = gtk.TextView(buffer)
-        label.set_wrap_mode(gtk.WRAP_WORD_CHAR)
-        label.set_editable(False)
+        label = gtk.Label(SECURE_LEVEL_DESCRIPTION)
         levels_vbox.pack_start(label, False, False)
 
         # putting levels to vbox

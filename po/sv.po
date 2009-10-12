@@ -8,26 +8,25 @@
 # Mattias Newzella <newzella@linux.nu>, 2001, 2002,2003.
 # Magnus Björklöf <bjorklof@nic.fi>, 2003.
 # Lars Westergren <lars.westergren@home.se>, 2003, 2004, 2005.
-# Thomas Backlund <tmb@mandriva.org>, 2004, 2005, 2006, 2008.
+# Thomas Backlund <tmb@mandriva.org>, 2004, 2005, 2006, 2008, 2009.
 # Kenneth Krekula <kenneth.krekula@kiruna.se>, 2005, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: libDrakX-sv\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2008-09-26 22:07+0300\n"
+"PO-Revision-Date: 2009-10-13 00:28+0300\n"
 "Last-Translator: Thomas Backlund <tmb@mandriva.org>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.0\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Rapportera filer som inte ägs av någon"
+msgstr "Aktivera kontroll av ändringar i brandväggs-inställningar."
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -35,12 +34,11 @@ msgstr "Aktivera skydd mot IP lurendrejeri."
 
 #: ../src/msec/help.py:18
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
+msgstr "Sänd e-post-rapport även om inga ändringar upptäckts."
 
 #: ../src/msec/help.py:20
-#, fuzzy
 msgid "Accept broadcasted ICMP echo."
-msgstr "Acceptera broadcast icmp echo."
+msgstr "Acceptera broadcast ICMP echo."
 
 #: ../src/msec/help.py:22
 msgid ""
@@ -48,30 +46,30 @@ msgid ""
 "is set to 'wheel', users must belong to the 'wheel' group to be able to use "
 "sudo"
 msgstr ""
+"Tillåt användare att autentisera med sina lösenord för sudo. Om denna "
+"parameter är satt till 'wheel', måste användarna höra till gruppen 'wheel' "
+"för att använda sudo."
 
 #: ../src/msec/help.py:24
 msgid "Allow X server to accept connections from network on tcp port 6000."
 msgstr ""
+"Tillåt X-servern att acceptera anslutningar från nätverket på tcp port 6000."
 
 #: ../src/msec/help.py:26
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr ""
+msgstr "Aktivera kontroll av kända rootkits med chrootkit."
 
 #: ../src/msec/help.py:28
-#, fuzzy
 msgid "Enable checking for additions/removals of suid root files."
-msgstr "Kontrollera tillägg/borttag av suid root-filer."
+msgstr "Aktivera kontroll av tillägg/borttag av suid root-filer."
 
 #: ../src/msec/help.py:30
-#, fuzzy
 msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
-"Aktivera crontab och at för anändare.\n"
-"\n"
-"Lägg till godkända användare i /etc/cron.allow och /etc/at.allow\n"
-"(se man at(1) och crontab(1))."
+"Aktivera crontab och at för anändare. Lägg till godkända användare i "
+"/etc/cron.allow och /etc/at.allow (se man at(1) och crontab(1))."
 
 #: ../src/msec/help.py:32
 msgid "Accept bogus IPv4 error messages."
@@ -79,12 +77,11 @@ msgstr "Acceptera falska IPv4 felmeddelanden."
 
 #: ../src/msec/help.py:34
 msgid "Enable checksum verification for suid files."
-msgstr ""
+msgstr "Aktivera checksum kontroll för suid filer."
 
 #: ../src/msec/help.py:36
-#, fuzzy
 msgid "User email to receive security notifications."
-msgstr "Vänta, ställer in säkerhetsalternativ..."
+msgstr "Användar e-post som skall ta emot säkerhets-meddelanden."
 
 #: ../src/msec/help.py:38
 msgid "Allow autologin."
@@ -92,12 +89,11 @@ msgstr "Tillåt automatisk inloggning."
 
 #: ../src/msec/help.py:40
 msgid "Allow only users in wheel group to su to root."
-msgstr ""
+msgstr "Tillåt endast användare i gruppen 'wheel\" att använda su till root."
 
 #: ../src/msec/help.py:42
-#, fuzzy
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr "Kontrollera tomma lösenord i /etc/shadow"
+msgstr "Aktivera kontroll av tomma lösenord i /etc/shadow (man shadow(5))."
 
 #: ../src/msec/help.py:44
 msgid "Set the shell timeout. A value of zero means no timeout."
@@ -108,6 +104,8 @@ msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
 msgstr ""
+"Aktivera kontroll av behörigheter på användares filer som inte borde vara "
+"ägda av någon annan, eller skrivbara."
 
 #: ../src/msec/help.py:48
 msgid ""
@@ -119,59 +117,65 @@ msgid ""
 "services considered safe). Note that the allowed services must be placed "
 "manually into the server.SERVER_LEVEL files when necessary."
 msgstr ""
+"Skapar den symboliska länken /etc/security/msec/server att peka till "
+"/etc/security/msec/server.SERVER_NIVÅ. /etc/security/msec/server används "
+"av chkconfig --add för att besluta om en tjänst skall läggas till om den "
+"existerar i filen när programmet installeras. Som standard finns två "
+"förinställningar: local (som endast aktiverar lokala tjänster) och remote "
+"(som aktiverar fjärr- tjänster som anses säkra). Observera att tillåtna "
+"tjänster måste läggas till manuellt till server.SERVER_NIVÅ vid behov."
 
 #: ../src/msec/help.py:50
 msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
 msgstr ""
+"Använd lösenord för att autentisera användare. Var VÄLDIGT försiktig om "
+"du inaktiverar lösenord, eftersom det lämnar din maskin sårbar."
 
 #: ../src/msec/help.py:52
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
+"Sätt umask för montering av vfat och ntfs partitioner. Om umask är '-1', "
+"används standard system umask."
 
 #: ../src/msec/help.py:54
 msgid "Enable checking for open network ports."
-msgstr ""
+msgstr "Aktivera kontroll av öppna nätverks-portar."
 
 #: ../src/msec/help.py:56
-#, fuzzy
 msgid "Enable logging of strange network packets."
-msgstr "Aktivera loggning av märkliga IPv4 paket.."
+msgstr "Aktivera loggning av märkliga nätverks-paket."
 
 #: ../src/msec/help.py:58
 msgid "Allow root access without password for the members of the wheel group."
-msgstr ""
+msgstr "Tillåt root access utan lösenord för medlemmar i gruppen 'wheel'."
 
 #: ../src/msec/help.py:60
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
-msgstr ""
+msgstr "Ändra ägare och grupp på icke-ägda filer till nobody/nogroup."
 
 #: ../src/msec/help.py:62
-#, fuzzy
 msgid "Send security check results by email."
-msgstr "Rapportera kontrollresultat via e-post"
+msgstr "Rapportera resultat av säkerhetskontroll via e-post."
 
 #: ../src/msec/help.py:64
-#, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
 "Ställ in minimal längd för lösenord, minimalt antal siffror, och minimalt "
-"antal stora bokstäver."
+"antal stora bokstäver, genom att använda formatet Nlängd,Nnummer,Nstora."
 
 #: ../src/msec/help.py:66
-#, fuzzy
 msgid "Set the root umask."
 msgstr "Ange roots \"umask\"."
 
 #: ../src/msec/help.py:68
-#, fuzzy
 msgid "Enable checking for additions/removals of sgid files."
-msgstr "Kontrollera tillägg/borttag av sgid-filer"
+msgstr "Aktivera kontroll av tillägg/borttag av sgid-filer."
 
 #: ../src/msec/help.py:70
 msgid ""
@@ -179,40 +183,39 @@ msgid ""
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
+"Aktivera integritets-kontroll av installerade rpm-paket. Detta vill "
+"rapportera åt dig om kontrollsumman de installerade filerna har "
+"ändrats, och visar separata resultat för binära och konfigurations- "
+"filer."
 
 #: ../src/msec/help.py:72
-#, fuzzy
 msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
-"Tillåt X anslutningar:\n"
-"\n"
-"- \"All\" (alla anslutningar tillåtna),\n"
-"\n"
-"- \"Local\" (endast anslutningar från den lokala maskinen),\n"
-"\n"
-"- \"None\" (inga anslutningar)."
+"Tillåt lokala användare att ansluta mot X-servern. Godkända argument: "
+"yes (alla anslutningar tillåtna), local (endast lokala anslutningar), "
+"no (inga anslutningar)."
 
 #: ../src/msec/help.py:74
-#, fuzzy
 msgid "Enable checking for files/directories writable by everybody."
-msgstr "Kontrollera filer/kataloger som alla kan skriva till"
+msgstr "Kontrollera filer/kataloger som alla kan skriva till."
 
 #: ../src/msec/help.py:76
 msgid "Log syslog messages on console terminal 12."
-msgstr ""
+msgstr "Visa syslog meddelanden på konsolterminal 12."
 
 #: ../src/msec/help.py:78
-#, fuzzy
 msgid "Enable name resolution spoofing protection."
-msgstr "Skydd för namnöversättningsbluffar"
+msgstr "Skydd för namnöversättnings-bluffar."
 
 #: ../src/msec/help.py:80
 msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
 msgstr ""
+"Definierar den säkerhetsnivå, på vilken nuvarande inställningar "
+"baserar sig på."
 
 #: ../src/msec/help.py:82
 msgid ""
@@ -221,49 +224,54 @@ msgid ""
 "incorrect permissions are restored to the ones specified in msec security "
 "policy."
 msgstr ""
+"Aktivera regelbundna behörighets-kontroller av filer specifierade i msec "
+"policyn. Om detta är satt till ja verifieras behörigheterna på filerna vid "
+"varje körning. Om detta är satt till tvinga, återställs filernas behörighet "
+"enligt vad som specifierats i msecs säkerhetspolicy."
 
 #: ../src/msec/help.py:84
 msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
+"Aktivera verifiering av ändringar i installerade RPM paket. Detta kommer "
+"att meddela dig när nya paket blir installerade eller gamla av-installerade."
 
 #: ../src/msec/help.py:86
 msgid "Set shell commands history size. A value of -1 means unlimited."
 msgstr "Ange skalkommandons historikstorlek. Värdet -1 betyder obegränsat."
 
 #: ../src/msec/help.py:88
-#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
-msgstr "Tillåt konsol-användare att starta om."
+msgstr "Tillåt lokala användare att starta om och stänga av systemet."
 
 #: ../src/msec/help.py:90
 msgid "Enables logging of periodic checks to system log."
-msgstr ""
+msgstr "Aktiverar loggning av regelbundna kontroller till systemloggen."
 
 #: ../src/msec/help.py:92
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Rapportera filer som inte ägs av någon"
+msgstr "Aktivera kontroll av ändringar i systemets grupper."
 
 #: ../src/msec/help.py:94
 msgid ""
 "Enable password-related checks, such as empty passwords and strange super-"
 "user accounts."
 msgstr ""
+"Aktivera lösenords-relaterade kontroller, såsom tomma lösenord eller "
+"märkliga root-lösenord."
 
 #: ../src/msec/help.py:96
-#, fuzzy
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
 msgstr ""
-"Ange historiken på lösenordslängd för att förhindra lösenordsåteranvändning."
+"Ange historiken på lösenords-längd för att förhindra återanvändning "
+"av lösenord. Detta är inte stött av pam_tcb."
 
 #: ../src/msec/help.py:98
-#, fuzzy
 msgid "Enable daily security checks."
-msgstr "Kör de dagliga säkerhetskontrollerna"
+msgstr "Aktivera dagliga säkerhetskontroller."
 
 #: ../src/msec/help.py:100
 msgid ""
@@ -271,25 +279,26 @@ msgid ""
 "user home directory will be used for temporary files. Otherwise, /tmp will "
 "be used."
 msgstr ""
+"Använd en säker plats för temporära filer. Om denna parameter är "
+"satt till 'ja' används användarens egen hemkatalog för temporära "
+"filer. Annars används /tmp."
 
 #: ../src/msec/help.py:102
-#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr "Tillåt direkt root-inloggning."
+msgstr "Tillåt direkt root-inloggning via terminal."
 
 #: ../src/msec/help.py:104
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Rapportera filer som inte ägs av någon"
+msgstr "Aktivera kontroll av ändringar av systemanvändare."
 
 #: ../src/msec/help.py:106
-#, fuzzy
 msgid "Enable checking for unowned files."
-msgstr "Rapportera filer som inte ägs av någon"
+msgstr "Aktivera kontroll av filer som inte ägs av någon."
 
 #: ../src/msec/help.py:108
 msgid "Allow display managers (kdm and gdm) to display list of local users."
 msgstr ""
+"Tillåt skärmhanterare (kdm och gdm) att visa lista på lokala användare."
 
 #: ../src/msec/help.py:110
 msgid ""
@@ -297,14 +306,17 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
+"Tvinga MSEC fil- och katalog-behörigheter vid systemstart. Om denna "
+"parameter är satt till 'tvinga', kommer systembehörigheterna att "
+"påtvingas automatiskt i enlighet med systemets säkerhetsinställningar."
 
 #: ../src/msec/help.py:112
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Inkludera befintlig katalog i användarens PATH som standard"
 
 #: ../src/msec/help.py:114
 msgid "Show security notifications in system tray using libnotify."
-msgstr ""
+msgstr "Visa systemets säkerhetsmeddelanden via libnotify."
 
 #: ../src/msec/help.py:116
 msgid ""
@@ -312,54 +324,50 @@ msgid ""
 "password, only public-key authentication logins are allowed. See sshd_config"
 "(5) man page for more information."
 msgstr ""
+"Tillåt fjärrinloggning via sshd. Om 'yes', är inloggning tillåten. Om "
+"'without-password' är endast inloggning via autentisering med "
+"publik nyckel godkänd. Se mera in sshd_config(5) manual."
 
 #: ../src/msec/help.py:118
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
 msgstr ""
+"Aktivera kontroll av farliga alternativ i användarnas .rhosts/.shosts filer."
 
 #: ../src/msec/help.py:120
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
+"Fråga efter root-lösenord när du växlar till en-användar-nivå (man "
+"sulogin(8))."
 
 #: ../src/msec/help.py:122
-#, fuzzy
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
 msgstr ""
-"Tillåt exportering av skärm vid\n"
-"växling från root konto till andra användare.\n"
-"\n"
-"Se pam_xauth(8) för mera detaljer."
+"Tillåt exportering av skärm vid växling från root konto till andra användare."
+" "
+"Se pam_xauth(8) manual för mera detaljer."
 
 #: ../src/msec/help.py:124
-#, fuzzy
 msgid "Set the user umask."
 msgstr "Ange användares \"umask\"."
 
 #: ../src/msec/help.py:126
-#, fuzzy
 msgid "Accept ICMP echo."
-msgstr "Acceptera icmp echo."
+msgstr "Acceptera ICMP echo."
 
 #: ../src/msec/help.py:128
-#, fuzzy
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
 "local services are authorized. If no, the services must be authorized "
 "manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
-"Auktorisera:\n"
-"\n"
-"- \"ALL\" - alla tjänster kontrollerade med tcp_wrappers (se hosts.deny(5) "
-"manual,\n"
-"\n"
-"- \"Local\" - endast lokala tjänster,\n"
-"\n"
-"- \"None\" - inga tjänster.\n"
-"\n"
-"För att tillåta de tjänster du behöver, använd /etc/hosts.allow (se hosts."
+"Tillåt full åtkomst till tjänster kontrollerade med tcp_wrappers (se hosts."
+"deny(5) "
+"manual). Om 'yes', tillåt alla tjänster. Om 'local', tillåts endast lokala "
+"tjänster. Om "
+"'no', måste varje tjänst tillåtas manuellt i /etc/hosts.allow (see hosts."
 "allow(5))."
 
 #: ../src/msec/help.py:130
@@ -368,463 +376,417 @@ msgstr "Aktivera promiskuös kontroll av nätverkskort."
 
 #: ../src/msec/help.py:132
 msgid "Perform hourly security check for changes in system configuration."
-msgstr ""
+msgstr "Utför kontroller varje timme för ändringar i systeminställningar."
 
 #: ../src/msec/help.py:134
 msgid "Enforce MSEC settings on system startup"
-msgstr ""
+msgstr "Tvinga MSEC inställningar vid systemstart."
 
 #: ../src/msec/help.py:136
 msgid "Enable periodic security check results to terminal."
 msgstr ""
+"Aktivera rapportering av regelbundna säkerhetskontroller till terminalen."
 
 #: ../src/msec/libmsec.py:338
 msgid "%s modified so launched command: %s"
-msgstr ""
+msgstr "%s ändrad så kommandot: %s körs."
 
 #: ../src/msec/libmsec.py:347
 msgid "%s modified so should have run command: %s"
-msgstr ""
+msgstr "%s ändrad så kommandot %s skulle ha körts."
 
 #: ../src/msec/libmsec.py:449 ../src/msec/libmsec.py:481
-#, fuzzy
 msgid "deleted %s"
-msgstr "Ta bort"
+msgstr "tog bort %s"
 
 #: ../src/msec/libmsec.py:467
-#, fuzzy
 msgid "touched file %s"
-msgstr "Filen existerar ej"
+msgstr "stämplade filen %s"
 
 #: ../src/msec/libmsec.py:487
-#, fuzzy
 msgid "made symbolic link from %s to %s"
-msgstr "Byter från %s till %s"
+msgstr "skapade en symbolisk länk från %s till %s"
 
 #: ../src/msec/libmsec.py:490
 msgid "moved file %s to %s"
-msgstr ""
+msgstr "flyttade fil %s till %s"
 
 #: ../src/msec/libmsec.py:540 ../src/msec/libmsec.py:556
 msgid "set variable %s to %s in %s"
-msgstr ""
+msgstr "sätter variabel %s till %s i %s"
 
 #: ../src/msec/libmsec.py:767
 msgid "Error loading plugin '%s' from %s: %s"
-msgstr ""
+msgstr "Fel vid laddande av plugin '%s' från %s: %s"
 
 #: ../src/msec/libmsec.py:781
 msgid "Invalid callback: %s"
-msgstr ""
+msgstr "Ogiltigt återanrop: %s"
 
 #: ../src/msec/libmsec.py:790
 msgid "Plugin %s not found"
-msgstr ""
+msgstr "Plugin %s kunde inte hittas"
 
 #: ../src/msec/libmsec.py:797
 msgid "Not supported function '%s' in '%s'"
-msgstr ""
+msgstr "Icke stödd funktion '%s' i '%s'"
 
 #: ../src/msec/libmsec.py:804 ../src/msec/libmsec.py:1638
 msgid "In check-only mode, nothing is written back to disk."
-msgstr ""
+msgstr "Vid kontrollera-endast läge, skrivs inget tillbaka till hårddisk."
 
 #: ../src/msec/libmsec.py:821
-#, fuzzy
 msgid "'%s' is not available in this version"
-msgstr "%s stöds inte av den här versionen av %s."
+msgstr "'%s' är inte tillgängligt i den här versionen"
 
 #: ../src/msec/libmsec.py:831
 msgid "Invalid parameter for %s: '%s'. Valid parameters: '%s'."
-msgstr ""
+msgstr "Ogiltig parameter för %s: '%s'. Godkända parametrar: '%s'."
 
 #: ../src/msec/libmsec.py:846
 msgid "Allowing unrestricted chkconfig for packages"
-msgstr ""
+msgstr "Tillåter obegränsad chkconfig för paket"
 
 #: ../src/msec/libmsec.py:851
 msgid "Restricting chkconfig for packages according to \"%s\" profile"
-msgstr ""
+msgstr "Begränsa chkconfig för paket enligt profil \"%s\""
 
 #: ../src/msec/libmsec.py:861
-#, fuzzy
 msgid "Setting root umask to %s"
-msgstr "Byter från %s till %s"
+msgstr "Sätter root umask till %s"
 
 #: ../src/msec/libmsec.py:871
-#, fuzzy
 msgid "Setting users umask to %s"
-msgstr "Byter från %s till %s"
+msgstr "Sätter användares umask till %s"
 
 #: ../src/msec/libmsec.py:892
 msgid "Allowing users to connect X server from everywhere"
-msgstr ""
+msgstr "Tillåter användare att ansluta till X-servern utan begränsningar"
 
 #: ../src/msec/libmsec.py:895
 msgid "Allowing users to connect X server from localhost"
-msgstr ""
+msgstr "Tillåter användare att ansluta till X-servern från lokala maskinen"
 
 #: ../src/msec/libmsec.py:898
 msgid "Restricting X server connection to the console user"
-msgstr ""
+msgstr "Begränsar X-server anslutningar till konsol-användare"
 
 #: ../src/msec/libmsec.py:901
 msgid "invalid allow_x_connections arg: %s"
-msgstr ""
+msgstr "ogiltig allow_x_connections arg: %s"
 
 #: ../src/msec/libmsec.py:924
-#, fuzzy
 msgid "Allowing the X server to listen to tcp connections"
-msgstr "Tillåt X Windows-anslutningar"
+msgstr "Tillåt X-servern att lyssna efter tcp-anslutningar"
 
 #: ../src/msec/libmsec.py:935
 msgid "Forbidding the X server to listen to tcp connection"
-msgstr ""
+msgstr "Förbjuder X-servern att lyssna efter tcp-anslutningar"
 
 #: ../src/msec/libmsec.py:951
-#, fuzzy
 msgid "Invalid shell timeout \"%s\""
-msgstr "Tidsgräns för skal"
+msgstr "Ogiltig tidsgräns för skal \"%s\""
 
 #: ../src/msec/libmsec.py:959
-#, fuzzy
 msgid "Setting shell timeout to %s"
-msgstr "Tidsgräns för skal"
+msgstr "Sätter tidsgräns för skal till %s"
 
 #: ../src/msec/libmsec.py:967
-#, fuzzy
 msgid "Invalid shell history size \"%s\""
-msgstr "Storlek på skalhistorik"
+msgstr "Ogiltig storlek på skalhistorik \"%s\""
 
 #: ../src/msec/libmsec.py:978
-#, fuzzy
 msgid "Setting shell history size to %s"
-msgstr "Storlek på skalhistorik"
+msgstr "Sätter storlek på skalhistorik till %s"
 
 #: ../src/msec/libmsec.py:982
-#, fuzzy
 msgid "Removing limit on shell history size"
-msgstr "Storlek på skalhistorik"
+msgstr "Tar bort begränsning av storlek på skalhistorik"
 
 #: ../src/msec/libmsec.py:991
-#, fuzzy
 msgid "Invalid file system umask \"%s\""
-msgstr "Tidsgräns för skal"
+msgstr "Ogiltigt filsystem umask \"%s\""
 
 #: ../src/msec/libmsec.py:1025
-#, fuzzy
 msgid "Allowing reboot and shutdown to the console user"
-msgstr "Tillåt konsol-användare att starta om."
+msgstr "Tillåter konsol-användare att stänga av och starta om"
 
 #: ../src/msec/libmsec.py:1032
-#, fuzzy
 msgid "Allowing SysRq key to the console user"
-msgstr "Tillåt konsol-användare att starta om."
+msgstr "Tillåter konsol-användare att använda SysRq tangent"
 
 #: ../src/msec/libmsec.py:1035
 msgid "Allowing Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "Tillåter Stäng av / Starta om i GDM"
 
 #: ../src/msec/libmsec.py:1039
 msgid "Allowing Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "Tillåter Stäng av / Starta om i KDM"
 
 #: ../src/msec/libmsec.py:1042
 msgid "Allowing Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "Tillåter Ctrl-Alt-Del från konsolen"
 
 #: ../src/msec/libmsec.py:1046
-#, fuzzy
 msgid "Forbidding reboot and shutdown to the console user"
-msgstr "Tillåt konsol-användare att starta om."
+msgstr "Förbjuder konsol-användare att stänga av och starta om"
 
 #: ../src/msec/libmsec.py:1054
-#, fuzzy
 msgid "Forbidding SysRq key to the console user"
-msgstr "Omstart av konsoll-användare"
+msgstr "Förbjuder användning av SysRq tangent för konsol-användare"
 
 #: ../src/msec/libmsec.py:1057
 msgid "Forbidding Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "Förbjuder Stäng av / Starta om i GDM"
 
 #: ../src/msec/libmsec.py:1061
 msgid "Forbidding Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "Förbjuder Stäng av / Starta om i KDM"
 
 #: ../src/msec/libmsec.py:1064
 msgid "Forbidding Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "Förbjuder Ctrl-Alt-Del från konsolen"
 
 #: ../src/msec/libmsec.py:1078
 msgid "Allowing list of users in KDM"
-msgstr ""
+msgstr "Tillåter listning av användare i KDM"
 
 #: ../src/msec/libmsec.py:1082
 msgid "Allowing list of users in GDM"
-msgstr ""
+msgstr "Tillåter listning av användare i GDM"
 
 #: ../src/msec/libmsec.py:1087
 msgid "Forbidding list of users in KDM"
-msgstr ""
+msgstr "Förbjuder listning av användare i KDM"
 
 #: ../src/msec/libmsec.py:1091
 msgid "Forbidding list of users in GDM"
-msgstr ""
+msgstr "Förbjuder listning av användare i GDM"
 
 #: ../src/msec/libmsec.py:1105
-#, fuzzy
 msgid "Allowing remote root login"
-msgstr "Tillåt root-fjärrinloggning"
+msgstr "Tillåter root-fjärrinloggning"
 
 #: ../src/msec/libmsec.py:1109
-#, fuzzy
 msgid "Forbidding remote root login"
-msgstr "Tillåt root-fjärrinloggning"
+msgstr "Förbjuder root-fjärrinloggning"
 
 #: ../src/msec/libmsec.py:1113
-#, fuzzy
 msgid "Allowing remote root login only by passphrase"
-msgstr "Tillåt root-fjärrinloggning"
+msgstr "Tillåter root-fjärrinloggning endast med lösenord"
 
 #: ../src/msec/libmsec.py:1125
-#, fuzzy
 msgid "Allowing autologin"
-msgstr "Tillåt automatisk inloggning."
+msgstr "Tillåter automatisk inloggning"
 
 #: ../src/msec/libmsec.py:1128
-#, fuzzy
 msgid "Forbidding autologin"
-msgstr "Tillåt automatisk inloggning."
+msgstr "Förbjuder automatisk inloggning"
 
 #: ../src/msec/libmsec.py:1133
 msgid "Activating password in boot loader"
-msgstr ""
+msgstr "Aktiverar lösenord i starthanterare"
 
 #: ../src/msec/libmsec.py:1147
-#, fuzzy
 msgid "Removing password in boot loader"
-msgstr "Inget bäst före datum för lösenordet för"
+msgstr "Tar bort lösenordet i  starthanterare"
 
 #: ../src/msec/libmsec.py:1162
-#, fuzzy
 msgid "Enabling log on console"
-msgstr "Aktivera syslog rapporter till konsol 12"
+msgstr "Aktiverar loggning till konsol"
 
 #: ../src/msec/libmsec.py:1166
-#, fuzzy
 msgid "Disabling log on console"
-msgstr "Visa logo på konsoll"
+msgstr "Inaktiverar loggning till konsol"
 
 #: ../src/msec/libmsec.py:1178
-#, fuzzy
 msgid "Activating daily security check"
-msgstr "Aktivera dagliga säkerhetskontroller."
+msgstr "Aktiverar dagliga säkerhetskontroller"
 
 #: ../src/msec/libmsec.py:1182
-#, fuzzy
 msgid "Disabling daily security check"
-msgstr "Daglig säkerhetskontroll"
+msgstr "Inaktiverar daglig säkerhetskontroll"
 
 #: ../src/msec/libmsec.py:1199
 msgid "Authorizing all services"
-msgstr ""
+msgstr "Auktoriserar alla tjänster"
 
 #: ../src/msec/libmsec.py:1203
 msgid "Disabling all services"
-msgstr ""
+msgstr "Inaktiverar alla tjänster"
 
 #: ../src/msec/libmsec.py:1207
-#, fuzzy
 msgid "Disabling non local services"
-msgstr "Utdelning av lokala bildläsare"
+msgstr "Inaktiverar icke-lokala tjänster"
 
 #: ../src/msec/libmsec.py:1240
-#, fuzzy
 msgid "Enabling name resolution spoofing protection"
-msgstr "Skydd för namnöversättningsbluffar"
+msgstr "Aktiverar skydd för namnöversättnings-bluffar"
 
 #: ../src/msec/libmsec.py:1245
-#, fuzzy
 msgid "Disabling name resolution spoofing protection"
-msgstr "Skydd för namnöversättningsbluffar"
+msgstr "Inaktiverar skydd för namnöversättnings-bluffar"
 
 #: ../src/msec/libmsec.py:1273
-#, fuzzy
 msgid "Enabling sulogin in single user runlevel"
-msgstr "Aktivera sulogin(8) på användarnivå."
+msgstr "Aktiverar sulogin på en-användar-nivå"
 
 #: ../src/msec/libmsec.py:1277
-#, fuzzy
 msgid "Disabling sulogin in single user runlevel"
-msgstr "Aktivera sulogin(8) på användarnivå."
+msgstr "Inaktiverar sulogin på en-användar-nivå"
 
 #: ../src/msec/libmsec.py:1288
-#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr "Formaterar växlingspartition %s"
+msgstr "Aktiverar regelbundna kontroller med msec"
 
 #: ../src/msec/libmsec.py:1292
 msgid "Disabling msec periodic runs"
-msgstr ""
+msgstr "Inaktiverar regelbundna kontroller med msec"
 
 #: ../src/msec/libmsec.py:1305
-#, fuzzy
 msgid "Enabling crontab and at"
-msgstr "Aktivera \"crontab\" och \"at\" för användare"
+msgstr "Aktiverar crontab och at"
 
 #: ../src/msec/libmsec.py:1312
-#, fuzzy
 msgid "Disabling crontab and at"
-msgstr "Aktivera \"crontab\" och \"at\" för användare"
+msgstr "Inaktiverar crontab och at"
 
 #: ../src/msec/libmsec.py:1324
 msgid "Allowing export display from root"
-msgstr ""
+msgstr "Tillåter exportering av skärm för root"
 
 #: ../src/msec/libmsec.py:1328
 msgid "Forbidding export display from root"
-msgstr ""
+msgstr "Förbjuder exportering av skärm för root"
 
 #: ../src/msec/libmsec.py:1339
-#, fuzzy
 msgid "Activating periodic promiscuity check"
-msgstr "Aktivera promiskuös kontroll av nätverkskort."
+msgstr "Aktiverar regelbundna promiskuösa kontroller"
 
 #: ../src/msec/libmsec.py:1343
-#, fuzzy
 msgid "Disabling periodic promiscuity check"
-msgstr "Promiscuity-kontroll för Ethernet-kort"
+msgstr "Inaktiverar regelbundna promiskuösa kontroller"
 
 #: ../src/msec/libmsec.py:1369
-#, fuzzy
 msgid "Allowing direct root login"
-msgstr "Tillåt direkt root-inloggning."
+msgstr "Tillåter direkt root-inloggning"
 
 #: ../src/msec/libmsec.py:1386
-#, fuzzy
 msgid "Forbidding direct root login"
-msgstr "Tillåt direkt root-inloggning."
+msgstr "Förbjuder direkt root-inloggning"
 
 #: ../src/msec/libmsec.py:1516
 msgid "Using secure location for temporary files"
-msgstr ""
+msgstr "Använder säker plats för temporära filer"
 
 #: ../src/msec/libmsec.py:1518
 msgid "Not using secure location for temporary files"
-msgstr ""
+msgstr "Använder inte säker plats för temporära filer"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Tillåter tillägg av nuvarande sökväg i PATH"
 
 #: ../src/msec/libmsec.py:1541
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Tillåter inte tillägg av nuvarande sökväg i PATH"
 
 #: ../src/msec/libmsec.py:1568
-#, fuzzy
 msgid "user name %s not found"
-msgstr "Användarnamnet är för långt"
+msgstr "användarnamnet %s hittas inte"
 
 #: ../src/msec/libmsec.py:1580
 msgid "user name not found for id %d"
-msgstr ""
+msgstr "användarnamn hittas inte för id %d"
 
 #: ../src/msec/libmsec.py:1592
 msgid "group name %s not found"
-msgstr ""
+msgstr "gruppnamn %s hittas inte"
 
 #: ../src/msec/libmsec.py:1604
 msgid "group name not found for id %d"
-msgstr ""
+msgstr "gruppnamn hittas inte för id %d"
 
 #: ../src/msec/libmsec.py:1614
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
+"Kan inte kontrollera /proc/mounts. Utgår från att alla filsystem är lokala."
 
 #: ../src/msec/libmsec.py:1653
-#, fuzzy
 msgid "Forcing ownership of %s to %s"
-msgstr "Byter från %s till %s"
+msgstr "Tvingar ägarskap av %s till %s"
 
 #: ../src/msec/libmsec.py:1657
-#, fuzzy
 msgid "Error changing user on %s: %s"
-msgstr "fel vid avmontering %s: %s"
+msgstr "Fel vid ändring av användare på %s: %s"
 
 #: ../src/msec/libmsec.py:1659
 msgid "Wrong owner of %s: should be %s"
-msgstr ""
+msgstr "Fel ägare på %s: borde vara %s"
 
 #: ../src/msec/libmsec.py:1662
-#, fuzzy
 msgid "Enforcing group on %s to %s"
-msgstr "Byter från %s till %s"
+msgstr "Tvingar grupp på %s till %s"
 
 #: ../src/msec/libmsec.py:1666
-#, fuzzy
 msgid "Error changing group on %s: %s"
-msgstr "fel vid avmontering %s: %s"
+msgstr "Fel vid ändring av grupp på %s: %s"
 
 #: ../src/msec/libmsec.py:1668
 msgid "Wrong group of %s: should be %s"
-msgstr ""
+msgstr "Fel grupp på %s: borde vara %s"
 
 #: ../src/msec/libmsec.py:1673
 msgid "Enforcing permissions on %s to %o"
-msgstr ""
+msgstr "Tvingar behörigheter på %s till %o"
 
 #: ../src/msec/libmsec.py:1677
 msgid "Error changing permissions on %s: %s"
-msgstr ""
+msgstr "Fel vid ändring av behörigheter på %s: %s"
 
 #: ../src/msec/libmsec.py:1679
 msgid "Wrong permissions of %s: should be %o"
-msgstr ""
+msgstr "Fel behörighet på %s: borde vara %o"
 
 #: ../src/msec/libmsec.py:1696
 msgid "bad permissions for '%s': '%s'"
-msgstr ""
+msgstr "fel behörigheter för '%s': '%s'"
 
 #: ../src/msec/libmsec.py:1721
 msgid "Non local file: \"%s\". Nothing changed."
-msgstr ""
+msgstr "Icke-lokal fil: \"%s\". Ingenting ändrat."
 
 #: ../src/msec/libmsec.py:1763
-#, fuzzy
 msgid "Checking paths: %s"
-msgstr "Kontrollerar %s"
+msgstr "Kontrollerar sökvägar: %s"
 
 #: ../src/msec/msec.py:85 ../src/msec/msecperms.py:98
-#, fuzzy
 msgid "Invalid security level '%s'."
-msgstr "Säkerhetsnivå"
+msgstr "Felaktig säkerhetsnivå '%s'."
 
 #: ../src/msec/msec.py:108 ../src/msec/msecperms.py:127
 msgid "Msec: Mandriva Security Center (%s)\n"
-msgstr ""
+msgstr "Msec: Mandriva Säkerhets-center (%s)\n"
 
 #: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
 msgid "Error: This application must be executed by root!"
-msgstr ""
+msgstr "Fel: Detta program måste köras som root!"
 
 #: ../src/msec/msec.py:110 ../src/msec/msecperms.py:129
 msgid "Run with --help to get help."
-msgstr ""
+msgstr "Kör med --help för att få hjälp."
 
 #: ../src/msec/msec.py:132 ../src/msec/msecperms.py:150
 msgid "Level '%s' not found, aborting."
-msgstr ""
+msgstr "Nivå '%s' hittas inte, avbryter."
 
 #: ../src/msec/msec.py:134 ../src/msec/msecperms.py:152
-#, fuzzy
 msgid "Switching to '%s' level."
-msgstr "Byter från %s till %s"
+msgstr "Byter till nivå '%s'."
 
 #: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
-#, fuzzy
 msgid "Unable to save config!"
-msgstr "Kan inte ladda bildfil %s"
+msgstr "Kan inte spara inställningar!"
 
 #: ../src/msec/msecgui.py:50
 msgid ""
@@ -832,6 +794,9 @@ msgid ""
 "This application allows you to configure your system security. If you wish\n"
 "to activate it, choose the appropriate security level: "
 msgstr ""
+"<big><b>Välj säkerhetsnivå</b></big>\n"
+"Detta program låter dig ställa in säkerheten i ditt system. Om du vill\n"
+"aktivera det, bör du välja önskad säkerhetsnivå:"
 
 #: ../src/msec/msecgui.py:54
 msgid ""
@@ -839,6 +804,9 @@ msgid ""
 "activates several non-intrusive periodic system checks. This is the "
 "suggested level for Desktop."
 msgstr ""
+"Denna profil ställer in en rimlig nivå av säkerhets-funktioner. Den "
+"aktiverar flera icke-störande regelbundna system-kontroller. Detta "
+"är den rekommenderade nivån för skrivbords-miljöer."
 
 #: ../src/msec/msecgui.py:56
 msgid ""
@@ -847,6 +815,10 @@ msgid ""
 "periodic checks. This level is suggested for Servers and security-concerned "
 "systems . "
 msgstr ""
+"Denna profil ställer in en maximal säkerhets-nivå, även på bekostnad "
+"av begränsande av fjärr-åtkomst till systemet. Den kör också ett bredare "
+"set av regelbundna kontroller. Detta är den rekommenderade nivån för "
+"servrar och säkerhets-känsliga system."
 
 #: ../src/msec/msecgui.py:59
 msgid ""
@@ -857,6 +829,10 @@ msgid ""
 "file creation\n"
 "permissions.  "
 msgstr ""
+"<big><b>Systemets Säkerhetsalternativ</b></big>\n"
+"Dessa alternativ kontrollerar lokala säkerhetsinställningar, såsom\n"
+"inloggnings-restriktioner, lösenords-inställningar, integrering med andra\n"
+"säkerhets-verktyg, samt standard behörighet för nya filer."
 
 #: ../src/msec/msecgui.py:64
 msgid ""
@@ -865,6 +841,9 @@ msgid ""
 "unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
+"<big><b>Nätverk Säkerhetsinställningar</b></big>\n"
+"Dessa alternativ definierar nätverkets säkerhet mot fjärrhot,\n"
+"olovlig åtkomst och inbrotts-försök."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
@@ -872,6 +851,9 @@ msgid ""
 "These options configure the security checks that should be executed "
 "periodically.  "
 msgstr ""
+"<big><b>Regelbundna säkerhetskontroller</b></big>\n"
+"Dessa alternativ ställer id de säkerhetskontroller som borde köras "
+"regelbundet."
 
 #: ../src/msec/msecgui.py:71
 msgid ""
@@ -880,6 +862,10 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Undantag</b></big>\n"
+"Här kan du ange tillåtna undantag för msecs regelbunda säkerhets-\n"
+"kontroller. För varje kontroll kan du ange så många undantag som du\n"
+"behöver. Observera att undantagen tolkas som reguljära uttryck."
 
 #: ../src/msec/msecgui.py:76
 msgid ""
@@ -892,86 +878,78 @@ msgid ""
 "automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
+"<big><b>Fil-behörigheter</b></big>\n"
+"Dessa alternativ låter dig fin-justera system-behörigheter för viktiga "
+"filer\n"
+"och kataloger. Följande test utförs regelbundet, och alla ändringar av "
+"ägare,\n"
+"grupp, eller nuvarande behörigheter rapporteras. Dessa behörigheter kan\n"
+"påtvingas, så att de automatiskt återställs till angivna värden när en\n"
+"ändring upptäckts."
 
 #: ../src/msec/msecgui.py:82
-#, fuzzy
 msgid "Save and apply new configuration?"
-msgstr "Vänta... verkställer konfigurationen"
+msgstr "Spara och aktivera nya inställningar?"
 
 #: ../src/msec/msecgui.py:150
-#, fuzzy
 msgid "_File"
-msgstr "Chile"
+msgstr "_Fil"
 
 #: ../src/msec/msecgui.py:152
-#, fuzzy
 msgid "_Save configuration"
-msgstr "Ljudkonfiguration"
+msgstr "_Spara inställningar"
 
 #: ../src/msec/msecgui.py:154
-#, fuzzy
 msgid "_Import configuration"
-msgstr "Ljudkonfiguration"
+msgstr "_Importera inställningar"
 
 #: ../src/msec/msecgui.py:155
-#, fuzzy
 msgid "_Export configuration"
-msgstr "Ljudkonfiguration"
+msgstr "_Exportera inställningar"
 
 #: ../src/msec/msecgui.py:157
-#, fuzzy
 msgid "_Quit"
-msgstr "Avsluta"
+msgstr "_Avsluta"
 
 #: ../src/msec/msecgui.py:159 ../src/msec/msecgui.py:161
-#, fuzzy
 msgid "_Help"
-msgstr "Hjälp"
+msgstr "_Hjälp"
 
 #: ../src/msec/msecgui.py:162
-#, fuzzy
 msgid "_About"
-msgstr "Om"
+msgstr "_Om"
 
 #: ../src/msec/msecgui.py:190
-#, fuzzy
 msgid "MSEC: System Security and Audit"
-msgstr "Systeminställningar"
+msgstr "MSEC: Systemsäkerhet och kontroll"
 
 #: ../src/msec/msecgui.py:205
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Vänta... verkställer konfigurationen"
+msgstr "Spara och aktivera nuvarande policy"
 
 #: ../src/msec/msecgui.py:211
-#, fuzzy
 msgid "Quit"
 msgstr "Avsluta"
 
 #: ../src/msec/msecgui.py:227
-#, fuzzy
 msgid "Basic security"
-msgstr "Daglig säkerhetskontroll"
+msgstr "Bassäkerhet"
 
 #: ../src/msec/msecgui.py:228
-#, fuzzy
 msgid "System security"
-msgstr "Säkerhet"
+msgstr "System-säkerhet"
 
 #: ../src/msec/msecgui.py:229
-#, fuzzy
 msgid "Network security"
-msgstr "Nätverksprofil"
+msgstr "Nätverks-säkerhet"
 
 #: ../src/msec/msecgui.py:230
-#, fuzzy
 msgid "Periodic checks"
-msgstr "Periodiska kontroller"
+msgstr "Regelbundna kontroller"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "Alternativ"
+msgstr "Undantag"
 
 #: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
 msgid "Permissions"
@@ -979,52 +957,47 @@ msgstr "Behörigheter"
 
 #: ../src/msec/msecgui.py:265
 msgid "MSEC option changes"
-msgstr ""
+msgstr "Ändrade MSEC alternativ"
 
 #: ../src/msec/msecgui.py:265
-#, fuzzy
 msgid "option"
-msgstr "Alternativ"
+msgstr "alternativ"
 
 #: ../src/msec/msecgui.py:266
-#, fuzzy
 msgid "System permissions changes"
-msgstr "Systemalternativ"
+msgstr "Ändrade System-behörigheter"
 
 #: ../src/msec/msecgui.py:266
-#, fuzzy
 msgid "permission check"
-msgstr "Behörigheter"
+msgstr "behörighets-kontroll"
 
 #: ../src/msec/msecgui.py:276
 msgid "changed %s <b>%s</b> (%s -> %s)"
-msgstr ""
+msgstr "ändrade %s <b>%s</b> (%s -> %s)"
 
 #: ../src/msec/msecgui.py:281
 msgid "added %s <b>%s</b> (%s)"
-msgstr ""
+msgstr "lade till %s <b>%s</b> (%s)"
 
 #: ../src/msec/msecgui.py:286
 msgid "removed %s <b>%s</b>"
-msgstr ""
+msgstr "tog bort %s <b>%s</b>"
 
 #: ../src/msec/msecgui.py:290
-#, fuzzy
 msgid "no changes"
-msgstr "Ingen utdelning"
+msgstr "inga ändringar"
 
 #: ../src/msec/msecgui.py:302
-#, fuzzy
 msgid "Saving changes.."
-msgstr "Tar bort paket..."
+msgstr "Sparar ändringar..."
 
 #: ../src/msec/msecgui.py:336
 msgid "<b>%s:</b> <i>%s</i>\n"
-msgstr ""
+msgstr "<b>%s:</b> <i>%s</i>\n"
 
 #: ../src/msec/msecgui.py:343
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
-msgstr ""
+msgstr "<b>MSEC testkörnings-resultat:</b> <i>%s</i>"
 
 #: ../src/msec/msecgui.py:351
 msgid "Details"
@@ -1032,91 +1005,79 @@ msgstr "Detaljer"
 
 #: ../src/msec/msecgui.py:357
 msgid "MSEC messages (%s): %d"
-msgstr ""
+msgstr "MSEC meddelanden (%s): %d"
 
 #: ../src/msec/msecgui.py:371
 msgid "Details (%d changes).."
-msgstr ""
+msgstr "Detaljer (%d ändringar).."
 
 #: ../src/msec/msecgui.py:419
 msgid "No base msec level specified, using '%s'"
-msgstr ""
+msgstr "Ingen basnivå för msec angiven, använder '%s'"
 
 #: ../src/msec/msecgui.py:422
 msgid "Detected base msec level '%s'"
-msgstr ""
+msgstr "Upptäckte msec basnivå '%s'"
 
 #: ../src/msec/msecgui.py:427
 msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr ""
+msgstr "Anpassad basnivå-inställning '%s' hittad. Väljer '%s' som bas"
 
 #: ../src/msec/msecgui.py:455
-#, fuzzy
 msgid "Security Option"
-msgstr "Ange alternativ"
+msgstr "Säkerhetsalternativ"
 
 #: ../src/msec/msecgui.py:465
-#, fuzzy
 msgid "Description"
-msgstr "Ange alternativ"
+msgstr "Beskrivning"
 
 #: ../src/msec/msecgui.py:470
-#, fuzzy
 msgid "Value"
-msgstr "Palau"
+msgstr "Värde"
 
 #: ../src/msec/msecgui.py:480
-#, fuzzy
 msgid "Invalid option '%s'!"
-msgstr "Huvudalternativ"
+msgstr "Ogiltigt alternativ '%s'!"
 
 #: ../src/msec/msecgui.py:530
-#, fuzzy
 msgid "Enable MSEC tool"
-msgstr "Aktivera cd-start?"
+msgstr "Aktivera MSEC verktyg"
 
 #: ../src/msec/msecgui.py:537
-#, fuzzy
 msgid "Select the base security level"
-msgstr "Välj önskad säkerhetsnivå"
+msgstr "Välj önskad basnivå för säkerhet"
 
 #: ../src/msec/msecgui.py:541
 msgid "Standard"
 msgstr "Standard"
 
 #: ../src/msec/msecgui.py:554
-#, fuzzy
 msgid "Secure"
-msgstr "Säkerhet"
+msgstr "Säker"
 
 #: ../src/msec/msecgui.py:571
-#, fuzzy
 msgid "Send security alerts by email"
-msgstr "Säkerhetsunderrättelser:"
+msgstr "Sänd säkerhetsunderrättelser med e-post"
 
 #: ../src/msec/msecgui.py:578
-#, fuzzy
 msgid "System administrator email address:"
-msgstr "Ange administratörens (roots) lösenord"
+msgstr "Ange administratörens e-post:"
 
 #: ../src/msec/msecgui.py:597
 msgid "Display security alerts on desktop"
-msgstr ""
+msgstr "Visa säkerhetsunderrättelser på skrivbordet"
 
 #: ../src/msec/msecgui.py:758
-#, fuzzy
 msgid "Enable periodic security checks"
-msgstr "Aktivera msec-säkerhetskontroll varje timme"
+msgstr "Aktivera regelbundna säkerhetskontroller"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "Periodiska kontroller"
+msgstr "Säkerhetskontroll"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "Alternativ"
+msgstr "Undantag"
 
 #: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
 msgid "Add a rule"
@@ -1131,54 +1092,50 @@ msgid "Path"
 msgstr "Sökväg"
 
 #: ../src/msec/msecgui.py:897
-#, fuzzy
 msgid "User"
-msgstr "Använd"
+msgstr "Användare"
 
 #: ../src/msec/msecgui.py:903
-#, fuzzy
 msgid "Group"
-msgstr "Grupp-id"
+msgstr "Grupp"
 
 #: ../src/msec/msecgui.py:917
-#, fuzzy
 msgid "Enforce"
-msgstr "Ignorera"
+msgstr "Tvinga"
 
 #: ../src/msec/msecgui.py:961
-#, fuzzy
 msgid "Reset to default level permissions"
-msgstr "Återställ ljudmixer till standardvärden"
+msgstr "Återställ behörigheter till standardnivå"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "Redigerar undantag"
 
 #: ../src/msec/msecgui.py:1072
 msgid "Adding new exception"
-msgstr ""
+msgstr "Lägger till ett undantag"
 
 #: ../src/msec/msecgui.py:1079
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
-msgstr ""
+msgstr "Redigerar undantag. Välj msec kontroll motsvarande värde på undantag\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Kontroll: "
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "Undantag: "
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
-msgstr ""
+msgstr "Ändrar behörighet för %s"
 
 #: ../src/msec/msecgui.py:1143
 msgid "Adding new permission check"
-msgstr ""
+msgstr "Lägger till ny behörighetskontroll"
 
 #: ../src/msec/msecgui.py:1155
 msgid ""
@@ -1186,35 +1143,33 @@ msgid ""
 "Please specify new permissions, or use 'current' to keep current "
 "permissions.\n"
 msgstr ""
+"Ändrar behörigheter på <b>%s</b>\n"
+"Ange nya behörigheter, eller använd 'current' för att behålla "
+"nuvarande behörigheter.\n"
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "ny fil"
 
 #: ../src/msec/msecgui.py:1163
-#, fuzzy
 msgid "File: "
-msgstr "/_Arkiv"
+msgstr "Fil: "
 
 #: ../src/msec/msecgui.py:1171
-#, fuzzy
 msgid "User: "
-msgstr "Användar-id"
+msgstr "Användare: "
 
 #: ../src/msec/msecgui.py:1179
-#, fuzzy
 msgid "Group: "
-msgstr "Grupp-id"
+msgstr "Grupp: "
 
 #: ../src/msec/msecgui.py:1187
-#, fuzzy
 msgid "Permissions: "
-msgstr "Behörigheter"
+msgstr "Behörigheter: "
 
 #: ../src/msec/msecgui.py:1248
-#, fuzzy
 msgid "Select new value for %s"
-msgstr "Välj firmware fil för %s."
+msgstr "Välj nytt värde för %s"
 
 #: ../src/msec/msecgui.py:1257
 msgid ""
@@ -1224,96 +1179,92 @@ msgid ""
 "\t%sStandard level value:\t<i>%s</i>%s\n"
 "\t%sSecure level value:\t\t<i>%s</i>%s\n"
 msgstr ""
+"<i>%s</i>\n"
+"\n"
+"\tNuvarande värde:\t\t\t<i>%s</i>\n"
+"\t%sVärde vid standard-nivå:\t<i>%s</i>%s\n"
+"\t%sVärde vid säker nivå:\t\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1268
-#, fuzzy
 msgid "New value:"
-msgstr "Nya Caledonien"
+msgstr "Nytt värde:"
 
 #: ../src/msec/msecgui.py:1330
 msgid "Save your changes?"
-msgstr ""
+msgstr "Spara dina ändringar?"
 
 #: ../src/msec/msecgui.py:1332
-#, fuzzy
 msgid "_Cancel"
-msgstr "Avbryt"
+msgstr "_Avbryt"
 
 #: ../src/msec/msecgui.py:1333
-#, fuzzy
 msgid "_Ignore"
-msgstr "Ignorera"
+msgstr "_Ignorera"
 
 #: ../src/msec/msecgui.py:1334
-#, fuzzy
 msgid "_Save"
-msgstr "Spara"
+msgstr "_Spara"
 
 #: ../src/msec/msecgui.py:1336
-#, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "Vill du spara /etc/fstab-ändringar?"
+msgstr "Vill du spara ändringar förrän du stänger?"
 
 #: ../src/msec/plugins/pam.py:67
-#, fuzzy
 msgid "Using password to authenticate users"
-msgstr "Använd lösenord för att autentisera användare"
+msgstr "Använder lösenord för att autentisera användare"
 
 #: ../src/msec/plugins/pam.py:71
-#, fuzzy
 msgid "Don't use password to authenticate users"
-msgstr "Använd lösenord för att autentisera användare"
+msgstr "Använd inte lösenord för att autentisera användare"
 
 #: ../src/msec/plugins/pam.py:82
 msgid "Password history not supported with pam_tcb."
-msgstr ""
+msgstr "Lösenordshistorik stöds inte med pam_tcb."
 
 #: ../src/msec/plugins/pam.py:90
-#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr "Längd på lösenordshistorik"
+msgstr "Ogiltig maxlängd på lösenordshistorik: \"%s\""
 
 #: ../src/msec/plugins/pam.py:105
-#, fuzzy
 msgid "Setting password history to %d."
-msgstr "Längd på lösenordshistorik"
+msgstr "Sätter längd på lösenordshistorik till %d."
 
 #: ../src/msec/plugins/pam.py:111
-#, fuzzy
 msgid "Disabling password history"
-msgstr "Längd på lösenordshistorik"
+msgstr "Inaktivera lösenordshistorik"
 
 #: ../src/msec/plugins/pam.py:123
 msgid ""
 "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
+"Ogiltig lösenordslängd \"%s\". Använd \"Nlängd,Nnummer,Nstora\" som parameter"
 
 #: ../src/msec/plugins/pam.py:144
 msgid "Setting minimum password length %d"
-msgstr ""
+msgstr "Sätter minsta lösenordslängd %d"
 
 #: ../src/msec/plugins/pam.py:168
-#, fuzzy
 msgid "Allowing su only from wheel group members"
-msgstr "Aktivera 'su' endast för medlemmar i gruppen 'wheel'"
+msgstr "Tillåter 'su' endast för medlemmar i gruppen 'wheel'"
 
 #: ../src/msec/plugins/pam.py:172
 msgid "no wheel group"
-msgstr ""
+msgstr "ingen 'wheel' grupp"
 
 #: ../src/msec/plugins/pam.py:176
 msgid "wheel group is empty"
-msgstr ""
+msgstr "gruppen 'wheel' är tom"
 
 #: ../src/msec/plugins/pam.py:184
 msgid "Allowing su for all"
-msgstr ""
+msgstr "Tillåter su för alla"
 
 #: ../src/msec/plugins/pam.py:203
 msgid "Allowing transparent root access for wheel group members"
-msgstr ""
+msgstr "Tillåter transparent root åtkomst för medlemmar i gruppen 'wheel'"
 
 #: ../src/msec/plugins/pam.py:210
-#, fuzzy
 msgid "Disabling transparent root access for wheel group members"
-msgstr "Aktivera 'su' endast för medlemmar i gruppen 'wheel'"
+msgstr "Inaktiverar transparent root åtkomst för medlemmar i gruppen 'wheel'"
+
+

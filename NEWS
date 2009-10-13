@@ -1,3 +1,5 @@
+- fix issue which prevents msec from exiting correctly in some cases (#54470)
+
 Version 0.70.6 - Oct 07 2009, Eugeni Dodonov
 - use users' home directory for temporary files (SECURE_TMP) by default
 - improved startup script

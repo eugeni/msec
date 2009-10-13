@@ -60,9 +60,6 @@ try:
 except IOError:
     _ = str
 
-# backup file suffix
-SUFFIX = '.msec'
-
 # ConfigFile constants
 STRING_TYPE = type('')
 

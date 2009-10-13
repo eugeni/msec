@@ -23,6 +23,9 @@ except IOError:
 
 # list of config files
 
+# backup file suffix
+SUFFIX = '.msec'
+
 ATALLOW = '/etc/at.allow'
 AUTOLOGIN = '/etc/sysconfig/autologin'
 BASTILLENOLOGIN = '/etc/bastille-no-login'

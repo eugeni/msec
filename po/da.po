@@ -1,4 +1,4 @@
-# translation of da.po to Danish
+# translation of da1.po to Danish
 # translation of da1.po to
 # translation of da.po to
 # Copyright (C) 2000,2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
@@ -8,10 +8,10 @@
 # Keld Simonsen <keld@rap.dk>, 2005, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: da\n"
+"Project-Id-Version: da1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-09-29 21:43+0200\n"
+"PO-Revision-Date: 2009-09-30 02:30+0200\n"
 "Last-Translator: Keld Simonsen <keld@dkuug.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -178,6 +178,10 @@ msgid ""
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
+"Aktivér integritetstjek af installerede pakker. Dette vil give dig "
+"besked hvis kontrolsummen for de installerede pakker er blevet "
+"ændret. Der er separate resultater for binære filer og "
+"konfigurationsfiler."
 
 #: ../src/msec/help.py:72
 msgid ""
@@ -215,12 +219,17 @@ msgid ""
 "incorrect permissions are restored to the ones specified in msec security "
 "policy."
 msgstr ""
+"Kør regelmæssig kontrol af filrettigheder baseret på msec-reglerne. Hvis "
+"sat til 'ja' bliver rettighedene tjekket ved hver kørsel. Hvis sat til "
+"'gennemtving', bliver forkerte rettigheder automatisk rettet."
 
 #: ../src/msec/help.py:84
 msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
+"Aktivér kontrol for at finde ændringer i de installerede RPM-pakker. "
+"Dette vil give dig besked når pakker bliver installeret eller fjernet."
 
 #: ../src/msec/help.py:86
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -236,7 +245,7 @@ msgstr "Aktiverer logning af periodiske tjek i systemloggen."
 
 #: ../src/msec/help.py:92
 msgid "Enable checking for changes in system groups."
-msgstr ""
+msgstr "Aktivér kontrol for ændringer i systemgrupper."
 
 #: ../src/msec/help.py:94
 msgid ""
@@ -264,6 +273,8 @@ msgid ""
 "user home directory will be used for temporary files. Otherwise, /tmp will "
 "be used."
 msgstr ""
+"Brug sikker placering for midlertidlige filer. Hvis denne parameter er "
+"sat til 'ja', vil brugerens hjemmemappe blive brugt. Ellers vil /tmp blive brugt."
 
 #: ../src/msec/help.py:102
 msgid "Allow direct root login on terminal."
@@ -271,7 +282,7 @@ msgstr "Tillad direkte root-logind på terminal."
 
 #: ../src/msec/help.py:104
 msgid "Enable checking for changes in system users."
-msgstr ""
+msgstr "Aktivér kontrol for ændringer i systembrugere."
 
 #: ../src/msec/help.py:106
 msgid "Enable checking for unowned files."
@@ -294,7 +305,7 @@ msgstr ""
 
 #: ../src/msec/help.py:112
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Medtag gældende katalog i søgestien (PATH) som standard."
 
 #: ../src/msec/help.py:114
 msgid "Show security notifications in system tray using libnotify."
@@ -482,7 +493,7 @@ msgstr "Fjerner begrænsning af størrelse på historik i skallen"
 
 #: ../src/msec/libmsec.py:991
 msgid "Invalid file system umask \"%s\""
-msgstr ""
+msgstr "Ugyldig filsystemmaske '%s'"
 
 #: ../src/msec/libmsec.py:1025
 msgid "Allowing reboot and shutdown to the console user"
@@ -654,19 +665,19 @@ msgstr "Forbyder direkte root-logind"
 
 #: ../src/msec/libmsec.py:1516
 msgid "Using secure location for temporary files"
-msgstr ""
+msgstr "Bruger sikker placering for midlertidlige filer"
 
 #: ../src/msec/libmsec.py:1518
 msgid "Not using secure location for temporary files"
-msgstr ""
+msgstr "Bruger ikke sikker placering for midlertidlige filer"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Tillad medtagelse af gældende katalog i søgestien"
 
 #: ../src/msec/libmsec.py:1541
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Tillad ikke medtagelse af gældende katalog i søgestien"
 
 #: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"
@@ -839,6 +850,11 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Unntak</b></big>\n"
+"Her kan du indstille de tillade undtagelser for MSECs periodiske "
+"sikkerhedtjek.\n"
+"Du kan tilføje så mange undtagelser du vil til hver understøttede test.\n"
+"Bemærk at hver undtagelse tolkes som et regulært udtryk."
 
 #: ../src/msec/msecgui.py:76
 msgid ""
@@ -1092,14 +1108,16 @@ msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr ""
+"Redigerer undtagelse. Vær venlig at vælge det tilhørende MSEC-tjek og "
+"undtagelsesværdi\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Tjek: "
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "Undtagelse: "
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
@@ -1121,7 +1139,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "ny fil"
 
 #: ../src/msec/msecgui.py:1163
 msgid "File: "

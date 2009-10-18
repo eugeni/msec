@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-09-28 21:28+0200\n"
+"PO-Revision-Date: 2009-10-18 11:34+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
 "Language-Team: Basque <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -1183,19 +1183,19 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "
-msgstr ""
+msgstr "Egiaztatu:"
 
 #: ../src/msec/msecgui.py:1101
 msgid "Exception: "
-msgstr ""
+msgstr "Salbuespena:"
 
 #: ../src/msec/msecgui.py:1136
 msgid "Changing permissions for %s"
-msgstr ""
+msgstr "%s-rentzako baimenak aldatzen"
 
 #: ../src/msec/msecgui.py:1143
 msgid "Adding new permission check"
-msgstr ""
+msgstr "Baimen egiaztapen berria eransten"
 
 #: ../src/msec/msecgui.py:1155
 msgid ""
@@ -1203,35 +1203,33 @@ msgid ""
 "Please specify new permissions, or use 'current' to keep current "
 "permissions.\n"
 msgstr ""
+"<b>%s</b>-(e)n baimenak aldatzen\n"
+"Mesedez hautatu baimen berriak, edo erabili 'unekoa' uneko baimenak "
+"mantentzeko.\n"
 
 #: ../src/msec/msecgui.py:1155
 msgid "new file"
-msgstr ""
+msgstr "fitxategi berria"
 
 #: ../src/msec/msecgui.py:1163
-#, fuzzy
 msgid "File: "
-msgstr "/_Fitxategia"
+msgstr "Fitxategia:"
 
 #: ../src/msec/msecgui.py:1171
-#, fuzzy
 msgid "User: "
-msgstr "Erabiltzaile ID"
+msgstr "Erabiltzailea:"
 
 #: ../src/msec/msecgui.py:1179
-#, fuzzy
 msgid "Group: "
-msgstr "Talde ID"
+msgstr "Taldea:"
 
 #: ../src/msec/msecgui.py:1187
-#, fuzzy
 msgid "Permissions: "
-msgstr "Baimenak"
+msgstr "Baimenak:"
 
 #: ../src/msec/msecgui.py:1248
-#, fuzzy
 msgid "Select new value for %s"
-msgstr "Instalatu firmware-fitxategia %s(r)entzat"
+msgstr "Hautatu %s-rentzako balio berria"
 
 #: ../src/msec/msecgui.py:1257
 msgid ""
@@ -1241,98 +1239,93 @@ msgid ""
 "\t%sStandard level value:\t<i>%s</i>%s\n"
 "\t%sSecure level value:\t\t<i>%s</i>%s\n"
 msgstr ""
+"<i>%s</i>\n"
+"\n"
+"\tUneko balioa:\t\t\t<i>%s</i>\n"
+"\t%sMaila arrunteko balioa:\t<i>%s</i>%s\n"
+"\t%sMaila seguruaren balioa:\t\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1268
-#, fuzzy
 msgid "New value:"
-msgstr "Kaledonia Berria"
+msgstr "Balio berria:"
 
 #: ../src/msec/msecgui.py:1330
 msgid "Save your changes?"
-msgstr ""
+msgstr "Zure aldaketak gorde?"
 
 #: ../src/msec/msecgui.py:1332
-#, fuzzy
 msgid "_Cancel"
-msgstr "Utzi"
+msgstr "_Utzi"
 
 #: ../src/msec/msecgui.py:1333
-#, fuzzy
 msgid "_Ignore"
-msgstr "Ez ikusi egin"
+msgstr "_Ez ikusi egin"
 
 #: ../src/msec/msecgui.py:1334
-#, fuzzy
 msgid "_Save"
-msgstr "Gorde"
+msgstr "_Gorde"
 
 #: ../src/msec/msecgui.py:1336
-#, fuzzy
 msgid "Do you want to save changes before closing?"
-msgstr "/etc/fstab aldaketak gorde nahi dituzu?"
+msgstr "Itxi aurretik aldaketak gorde nahi dituzu?"
 
 #: ../src/msec/plugins/pam.py:67
-#, fuzzy
 msgid "Using password to authenticate users"
 msgstr "Erabili pasahitza erabiltzaileak autentifikatzeko"
 
 #: ../src/msec/plugins/pam.py:71
-#, fuzzy
 msgid "Don't use password to authenticate users"
-msgstr "Erabili pasahitza erabiltzaileak autentifikatzeko"
+msgstr "Ez erabili pasahitza erabiltzaileak autentifikatzeko"
 
 #: ../src/msec/plugins/pam.py:82
 msgid "Password history not supported with pam_tcb."
-msgstr ""
+msgstr "Pasahitzen historia euskarririk ez pam_tcb-rekin."
 
 #: ../src/msec/plugins/pam.py:90
-#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr "Pasahitzaren historiaren luzera"
+msgstr "Pasahitzen gehienezko historiaren luzera baliogabea: \"%s\""
 
 #: ../src/msec/plugins/pam.py:105
-#, fuzzy
 msgid "Setting password history to %d."
-msgstr "Pasahitzaren historiaren luzera"
+msgstr "Pasahitzen historiaren %d ezartzen."
 
 #: ../src/msec/plugins/pam.py:111
-#, fuzzy
 msgid "Disabling password history"
-msgstr "Pasahitzaren historiaren luzera"
+msgstr "Pasahitzen historia ezgaitzen"
 
 #: ../src/msec/plugins/pam.py:123
 msgid ""
 "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
+"Pasahitz luzera baliogabea \"%s\". Erabili \"luzera,ndigito,nmaiuskula\" "
+"parametro gisa"
 
 #: ../src/msec/plugins/pam.py:144
 msgid "Setting minimum password length %d"
-msgstr ""
+msgstr "Pasahitzaren gutxieneko luzera %d ezartzen"
 
 #: ../src/msec/plugins/pam.py:168
-#, fuzzy
 msgid "Allowing su only from wheel group members"
-msgstr "Onartu su soilik wheel taldeko kideentzat"
+msgstr "Onartu su soilik wheel taldeko kideei"
 
 #: ../src/msec/plugins/pam.py:172
 msgid "no wheel group"
-msgstr ""
+msgstr "ez dago wheel taldea"
 
 #: ../src/msec/plugins/pam.py:176
 msgid "wheel group is empty"
-msgstr ""
+msgstr "wheel taldea hutsik dago"
 
 #: ../src/msec/plugins/pam.py:184
 msgid "Allowing su for all"
-msgstr ""
+msgstr "Onartu su guztientzako"
 
 #: ../src/msec/plugins/pam.py:203
 msgid "Allowing transparent root access for wheel group members"
-msgstr ""
+msgstr "Gaitu root sarbide gardena wheel taldeko kideentzat"
 
 #: ../src/msec/plugins/pam.py:210
-#, fuzzy
 msgid "Disabling transparent root access for wheel group members"
-msgstr "Onartu su soilik wheel taldeko kideentzat"
+msgstr "Ezgaitu root sarbide gardena wheel taldeko kideentzat"
 
 

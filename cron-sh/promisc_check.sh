@@ -1,5 +1,5 @@
 #!/bin/bash
-# msec: this checks if the network is in promiscuous mose
+# msec: this checks if the network is in promiscuous mode
 
 . /usr/share/msec/functions.sh
 

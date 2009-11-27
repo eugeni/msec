@@ -53,6 +53,7 @@ snortd
 squid
 sshd
 syslog
+syslog-ng
 rsyslog
 usb
 xfs

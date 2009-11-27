@@ -18,6 +18,7 @@ resolvconf
 shorewall
 snortd
 syslog
+syslog-ng
 rsyslog
 usb
 xfs

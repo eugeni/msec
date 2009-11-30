@@ -936,7 +936,7 @@ class PERMS:
                     continue
 
                 if self.fs_regexp and self.fs_regexp.search(f):
-                    self.log.info(_('Non local file: "%s". Nothing changed.') % f
+                    self.log.info(_('Non local file: "%s". Nothing changed.') % f)
                     continue
 
                 curperm = perm

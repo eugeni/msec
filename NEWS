@@ -1,3 +1,4 @@
+Version 0.60.42 - November 30 2009, Eugeni Dodonov
 - Fix error shown when a file is found on ignored partition (#55869)
 - Prevent crashes when empty lines are found in configuration file
 

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-09-09 19:43+0300\n"
+"PO-Revision-Date: 2009-11-19 20:45+0200\n"
 "Last-Translator: Jani Välimaa <wally@mandriva.org>\n"
 "Language-Team: Finnish <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -771,7 +771,7 @@ msgstr "Virhe vaihdettaessa %s ryhmää: %s"
 
 #: ../src/msec/libmsec.py:1668
 msgid "Wrong group of %s: should be %s"
-msgstr "%s; väärä tyhmä, ryhmän pitäisi olla %s"
+msgstr "%s; väärä ryhmä, ryhmän pitäisi olla %s"
 
 #: ../src/msec/libmsec.py:1673
 msgid "Enforcing permissions on %s to %o"

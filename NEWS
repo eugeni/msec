@@ -1,3 +1,6 @@
+- Fix error shown when a file is found on ignored partition (#55869)
+- Prevent crashes when empty lines are found in configuration file
+
 Version 0.60.23 - June 30 2009, Eugeni Dodonov
 - Updated translations
 - Properly handling NOTIFY_WARN variables (#51364, #51464)

@@ -743,7 +743,7 @@ msgstr "Grupo de %s errado: deveria ser %s"
 
 #: ../src/msec/libmsec.py:1673
 msgid "Enforcing permissions on %s to %o"
-msgstr "Reforaçando permissõem em %s para %o"
+msgstr "Reforçando permissões em %s para %o"
 
 #: ../src/msec/libmsec.py:1677
 msgid "Error changing permissions on %s: %s"

@@ -179,7 +179,7 @@ class MsecGui:
                     menuitem.set_sensitive(False)
                 menu.add(menuitem)
 
-        # creating logo if running inside mcc
+        # show logo
         banner = gtk.HBox(homogeneous=False, spacing=10)
         try:
             # logo

@@ -1,3 +1,5 @@
+- do not show toolbar, as it leads to confusion
+
 Version 0.80.1 - Nov 30 2009, Eugeni Dodonov
 - updated list of allowed services
 - fix error which prevents 'msec save' from working correctly

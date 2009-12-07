@@ -229,6 +229,7 @@ fi
 Filter ${MSEC_TMP} CHECK_USER_FILES
 
 ### Check home directories.  Directories should not be owned by someone else or writable.
+# The 'mail' and 'gdm' user directories are skipped as they are group-writable by design (#56064)
 getent passwd | awk -F: '/^[^+-]/ { print $1 ":" $3 ":" $6 }' | \
 while IFS=: read username uid homedir; do
     if ! expr "$homedir" : "$FILTER"  > /dev/null; then
@@ -241,7 +242,7 @@ while IFS=: read username uid homedir; do
     fi
 done | awk -F: '$3 != $5 && $5 != "(0)" \
         { print "user=" $2 $3 " : home directory is owned by " $4 $5 "." }
-     $1 ~ /^d....w/ && $2 != "lp" && $2 != "mail" \
+     $1 ~ /^d....w/ && $2 != "lp" && $2 != "mail" && $2 != "gdm" \
         { print "user=" $2 $3" : home directory is group writable." }
      $1 ~ /^d.......w/ \
         { print "user=" $2 $3" : home directory is other writable." }' > ${MSEC_TMP}

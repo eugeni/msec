@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 22:17+BRT\n"
-"PO-Revision-Date: 2009-09-27 03:42+0100\n"
-"Last-Translator: Tomasz Paweł Gajc <tpg@mandriva.org>\n"
+"PO-Revision-Date: 2010-01-11 20:09+0100\n"
+"Last-Translator: Marek Walczak <kubdat@poczta.fm>\n"
 "Language-Team:  <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,9 +32,8 @@ msgstr ""
 "X-Poedit-Country: POLAND\n"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Aktywuj kontrolę otwartych portów."
+msgstr "Aktywuj kontrolę zmian w ustawieniach zapory sieciowej."
 
 #: ../src/msec/help.py:16
 msgid "Enable IP spoofing protection."
@@ -105,14 +104,12 @@ msgid "Creates the symlink /etc/security/msec/server to point to /etc/security/m
 msgstr "Tworzy link symboliczny  /etc/security/msec/server wskazujący na /etc/security/msec/server.SERVER_LEVEL. Plik /etc/security/msec/server jest wykorzystywany przez polecenie chkconfig --add do określenia czy należy dodać usługę podczas instalacji pakietów. Domyślnie dozwolone są dwa ustawienia: lokalny (aktywuje tylko lokalne usługi) i zdalny (aktywuje także niektóre usługi zdalne, które uznaje się za bezpieczne). Należy zwrócić uwagę, że jeżeli to konieczne usługi muszą być dodane ręcznie do plików server.SERVER_LEVEL"
 
 #: ../src/msec/help.py:50
-#, fuzzy
 msgid "Use password to authenticate users. Take EXTREME care when disabling passwords, as it will leave the machine vulnerable."
-msgstr "Użycie hasła do uwierzytelniania użytkowników. Postępuj BARDZO ostrożnie wyłączając hasła, ponieważ sprawi to że komputer będzie podatny na atak."
+msgstr "Użyj hasła do uwierzytelniania użytkowników. Postępuj BARDZO ostrożnie wyłączając hasła, ponieważ sprawi to że komputer będzie podatny na atak."
 
 #: ../src/msec/help.py:52
-#, fuzzy
 msgid "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', default system umask is used."
-msgstr "Ustaw opcję umask dla montowanych partycji vfat i ntfs. Jeżeli umask ma wartość '0' stosowana jest domyślna wartość systemowa umask."
+msgstr "Ustaw opcję umask dla montowanych partycji vfat i ntfs. Jeżeli umask ma wartość '-1', stosowana jest domyślna wartość systemowa umask."
 
 #: ../src/msec/help.py:54
 msgid "Enable checking for open network ports."
@@ -172,11 +169,11 @@ msgstr "Definiuje podstawowy poziom bezpieczeństwa, na bazie którego stworzono
 
 #: ../src/msec/help.py:82
 msgid "Enable periodic permission checking for files specified in msec policy. If set to yes, the permissions are verified on every run. If set to enforce, incorrect permissions are restored to the ones specified in msec security policy."
-msgstr ""
+msgstr "Aktywuj okresowe kontrole uprawnień dla plików określonych w konfiguracji msec. Jeśli ustawiony jest na tak, uprawnienia są weryfikowane przy każdym uruchomieniu. Jeśli ustawiony jest na wymuś, niepoprawne uprawnienia są przywracane do tych określonych w konfiguracji bezpieczeństwa msec."
 
 #: ../src/msec/help.py:84
 msgid "Enable verification for changes in the installed RPM packages. This will notify you when new packages are installed or removed."
-msgstr ""
+msgstr "Aktywuj weryfikację zmian w zainstalowanych pakietach RPM. Będziesz informowany kiedy nowe pakiety są instalowane lub usuwane."
 
 #: ../src/msec/help.py:86
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -191,9 +188,8 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Aktywuj logowanie okresowych kontroli w logach systemowych."
 
 #: ../src/msec/help.py:92
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Aktywuj kontrolę plików bez właściciela."
+msgstr "Aktywuj kontrolę zmian w systemie grup."
 
 #: ../src/msec/help.py:94
 msgid "Enable password-related checks, such as empty passwords and strange super-user accounts."
@@ -209,16 +205,15 @@ msgstr "Aktywuj codzienną kontrolę bezpieczeństwa."
 
 #: ../src/msec/help.py:100
 msgid "Use secure location for temporary files. If this parameter is set to 'yes', user home directory will be used for temporary files. Otherwise, /tmp will be used."
-msgstr ""
+msgstr "Użyj bezpiecznego miejsca na pliki tymczasowe. Jeśli ten parametr jest ustawiony na 'tak', katalog domowy użytkownika zostanie wykorzystany na pliki tymczasowe. W przeciwnym razie, zostanie użyty /tmp."
 
 #: ../src/msec/help.py:102
 msgid "Allow direct root login on terminal."
 msgstr "Zezwalaj na bezpośrednie logowanie użytkownika root."
 
 #: ../src/msec/help.py:104
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Aktywuj kontrolę plików bez właściciela."
+msgstr "Aktywuj kontrolę zmian w systemie uzytkowników."
 
 #: ../src/msec/help.py:106
 msgid "Enable checking for unowned files."
@@ -234,7 +229,7 @@ msgstr "Podczas startu systemu wymuś prawa dostępu do plików określone w MSE
 
 #: ../src/msec/help.py:112
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "Dołącz bieżący katalog do domyślnej ŚCIEŻKI użytkownika"
 
 #: ../src/msec/help.py:114
 msgid "Show security notifications in system tray using libnotify."
@@ -404,9 +399,8 @@ msgid "Removing limit on shell history size"
 msgstr "Usuwanie ograniczeń rozmiaru historii powłoki"
 
 #: ../src/msec/libmsec.py:991
-#, fuzzy
 msgid "Invalid file system umask \"%s\""
-msgstr "Nieprawidłowe opóźnienie powłoki \"%s\""
+msgstr "Nieprawidłowy plik systemu umask \"%s\""
 
 #: ../src/msec/libmsec.py:1025
 msgid "Allowing reboot and shutdown to the console user"
@@ -586,11 +580,11 @@ msgstr "Nie używaj bezpiecznej lokalizacji dla plików tymczasowych"
 
 #: ../src/msec/libmsec.py:1538
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Zezwalaj na dołączanie bieżącego katalogu do ścieżki"
 
 #: ../src/msec/libmsec.py:1541
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Nie zezwalaj na dołączanie bieżącego katalogu do ścieżki"
 
 #: ../src/msec/libmsec.py:1568
 msgid "user name %s not found"
@@ -750,6 +744,10 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Wyjątki</b></big>\n"
+"Tutaj można skonfigurować dozwolone wyjątki dla okresowych kontroli\n"
+"bezpieczeństwa msec. Dla każdego obsługiwanego testu możesz dodać dowolną\n"
+"ilość wyjątków. Należy pamiętać, że każdy wyjątek jest analizowany jako wyrażenie regularne."
 
 #: ../src/msec/msecgui.py:76
 msgid ""
@@ -803,14 +801,12 @@ msgid "MSEC: System Security and Audit"
 msgstr "MSEC: bezpieczeństwo systemu i audyt"
 
 #: ../src/msec/msecgui.py:205
-#, fuzzy
 msgid "Save and apply current policy"
-msgstr "Czy zapisać i zastosować konfigurację?"
+msgstr "Zapisz i zastosuj konfigurację"
 
 #: ../src/msec/msecgui.py:211
-#, fuzzy
 msgid "Quit"
-msgstr "Za_kończ"
+msgstr "Zamknij"
 
 #: ../src/msec/msecgui.py:227
 msgid "Basic security"
@@ -829,9 +825,8 @@ msgid "Periodic checks"
 msgstr "Okresowe kontrole"
 
 #: ../src/msec/msecgui.py:231
-#, fuzzy
 msgid "Exceptions"
-msgstr "opcja"
+msgstr "Wyjątki"
 
 #: ../src/msec/msecgui.py:232
 #: ../src/msec/msecgui.py:909
@@ -955,14 +950,12 @@ msgid "Enable periodic security checks"
 msgstr "Aktywuj okresową kontrolę bezpieczeństwa"
 
 #: ../src/msec/msecgui.py:820
-#, fuzzy
 msgid "Security check"
-msgstr "Okresowe kontrole"
+msgstr "Kontrola bezpieczeństwa"
 
 #: ../src/msec/msecgui.py:826
-#, fuzzy
 msgid "Exception"
-msgstr "opcja"
+msgstr "Wyjątek"
 
 #: ../src/msec/msecgui.py:847
 #: ../src/msec/msecgui.py:966
@@ -996,16 +989,15 @@ msgstr "Zresetuj ustawienia poziomu domyślnego"
 
 #: ../src/msec/msecgui.py:1067
 msgid "Editing exception"
-msgstr ""
+msgstr "Edycja wyjątku"
 
 #: ../src/msec/msecgui.py:1072
-#, fuzzy
 msgid "Adding new exception"
-msgstr "Dodawanie nowej kontroli uprawnień"
+msgstr "Dodawanie nowych wyjątków"
 
 #: ../src/msec/msecgui.py:1079
 msgid "Editing exception. Please select the correspondent msec check and exception value\n"
-msgstr ""
+msgstr "Edycja wyjątku. Wybierz odpowiednią kontrolę msec i wartość wyjątku\n"
 
 #: ../src/msec/msecgui.py:1086
 msgid "Check: "

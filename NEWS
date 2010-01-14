@@ -1,3 +1,5 @@
+- save the entire log that is sent by email in /var/log/security to allow
+  consulting it without relying on email messages
 - do not show toolbar, as it leads to confusion
 
 Version 0.80.1 - Nov 30 2009, Eugeni Dodonov

@@ -783,7 +783,7 @@ class PERMS:
             try:
                 self.USER[name] = pwd.getpwnam(name)[2]
             except KeyError:
-                error(_('user name %s not found') % name)
+                self.log.error(_('user name %s not found') % name)
                 self.USER[name] = -1
         return self.USER[name]
 
@@ -795,7 +795,7 @@ class PERMS:
             try:
                 self.USERID[id] = pwd.getpwuid(id)[0]
             except KeyError:
-                error(_('user name not found for id %d') % id)
+                self.log.error(_('user name not found for id %d') % id)
                 self.USERID[id] = str(id)
         return self.USERID[id]
 
@@ -807,7 +807,7 @@ class PERMS:
             try:
                 self.GROUP[name] = grp.getgrnam(name)[2]
             except KeyError:
-                error(_('group name %s not found') % name)
+                self.log.error(_('group name %s not found') % name)
                 self.GROUP[name] = -1
         return self.GROUP[name]
 
@@ -819,7 +819,7 @@ class PERMS:
             try:
                 self.GROUPID[id] = grp.getgrgid(id)[0]
             except KeyError:
-                error(_('group name not found for id %d') % id)
+                self.log.error(_('group name not found for id %d') % id)
                 self.GROUPID[id] = str(id)
         return self.GROUPID[id]
 

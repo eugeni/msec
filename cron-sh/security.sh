@@ -31,6 +31,8 @@ fi
 # variables
 LCK=/var/run/msec-security.pid
 SECURITY_LOG="/var/log/security.log"
+MAIL_LOG_TODAY="/var/log/security/mail.today"
+MAIL_LOG_YESTERDAY="/var/log/security/mail.yesterday"
 
 # log formatting
 REPORT_DATE=`date "+%b %d %H:%M:%S"`
@@ -99,8 +101,14 @@ if [[ -s ${SECURITY} ]]; then
 
     cat ${INFOS} | sed -e "s/^/$INFO_PREFIX/g" >> ${SECURITY_LOG}
 
+    # save the complete mail text somewhere
+    if [[ -f ${MAIL_LOG_TODAY} ]]; then
+        mv ${MAIL_LOG_TODAY} ${MAIL_LOG_YESTERDAY};
+    fi
+    cat ${MSEC_TMP} > ${MAIL_LOG_TODAY}
+
     Maillog "[msec] *** Security Check on ${REPORT_HOSTNAME}, ${REPORT_DATE} ***" "${MSEC_TMP}"
-    Notifylog "MSEC has performed Security Check on ${REPORT_HOSTNAME} on ${REPORT_DATE}"
+    Notifylog "MSEC has performed Security Check on ${REPORT_HOSTNAME} on ${REPORT_DATE}. Detailed results are available in ${MAIL_LOG_TODAY}"
 fi
 
 # diff check

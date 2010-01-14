@@ -1,3 +1,6 @@
+- save the entire log that is sent by email in /var/log/security to allow
+  consulting it later without relying on email system
+
 Version 0.70.10 - Dec 18 2009, Eugeni Dodonov
 - bugus report fix: do not report group writable files for gdm user (#56064)
 - properly use error logger (#56180)

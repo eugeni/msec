@@ -1,3 +1,4 @@
+Version 0.70.11 - Jan 14 2010, Eugeni Dodonov
 - save the entire log that is sent by email in /var/log/security to allow
   consulting it later without relying on email system
 

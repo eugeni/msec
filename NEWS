@@ -1,3 +1,4 @@
+Version 0.80.2 - Jan 14 2010, Eugeni Dodonov
 - save the entire log that is sent by email in /var/log/security to allow
   consulting it without relying on email messages
 - do not show toolbar, as it leads to confusion

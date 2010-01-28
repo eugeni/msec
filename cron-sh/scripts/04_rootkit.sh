@@ -13,6 +13,10 @@ export CHKROOTKIT_TODAY="/var/log/security/chkrootkit.today"
 CHKROOTKIT_YESTERDAY="/var/log/security/chkrootkit.yesterday"
 CHKROOTKIT_DIFF="/var/log/security/chkrootkit.diff"
 
+if [[ -f ${CHKROOTKIT_TODAY} ]]; then
+    mv ${CHKROOTKIT_TODAY} ${CHKROOTKIT_YESTERDAY};
+fi
+
 ### chkrootkit checks
 if [[ ${CHECK_CHKROOTKIT} == yes ]]; then
     if [ -x /usr/sbin/chkrootkit ]; then

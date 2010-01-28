@@ -192,6 +192,8 @@ if [[ ${CHECK_CHKROOTKIT} == yes ]]; then
     if [ -x /usr/sbin/chkrootkit ]; then
 	# do not check on NFS
 	/usr/sbin/chkrootkit -n ${CHKROOTKIT_OPTION} > ${CHKROOTKIT_TODAY}
+    else
+	echo "Security Warning: chkrootkit check is enabled but chkrootkit is not installed." > ${CHKROOTKIT_TODAY}
     fi
 fi
 

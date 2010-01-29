@@ -141,36 +141,11 @@ if __name__ == "__main__":
     permconf = config.PermConfig(log, config="%s%s" % (root, config.PERMCONF))
     permconf.load()
 
-    # TODO: move to main msec
-    ## forcing new level
-    #if force_level:
-    #    # first load the default configuration for level
-    #    standard_permconf = config.load_default_perms(log, level, root=root)
-    #    params = standard_permconf.list_options()
-    #    if not params:
-    #        log.error(_("Level '%s' not found, aborting.") % level)
-    #        sys.exit(1)
-    #    log.info(_("Switching to '%s' level.") % level)
-    #    # updating base level
-    #    base_level = msec_config.get_base_level(level)
-    #    permconf.reset()
-    #    permconf.merge(standard_permconf, overwrite=True)
-    #else:
-    #    permconf.load()
-
     # load variables from base level
     config.merge_with_baselevel(log, permconf, base_level, config.load_default_perms, root='')
 
     # reloading levelconf for base level
     levelconf = config.load_default_perms(log, base_level, root=root)
-
-    # TODO: move to main msec
-    ## saving current setting as new level
-    #if save:
-    #    newlevel = config.PermConfig(log, config=config.PERMISSIONS_LEVEL % (root, level))
-    #    newlevel.merge(permconf, overwrite=True)
-    #    newlevel.save(levelconf)
-    #    sys.exit(0)
 
     # load the main permission class
     perm = PERMS(log, root=root)

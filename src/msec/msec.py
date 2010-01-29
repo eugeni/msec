@@ -128,6 +128,10 @@ if __name__ == "__main__":
 
     # loading initial config
     msec_config = config.MsecConfig(log, config="%s%s" % (root, config.SECURITYCONF))
+    permconf = None
+    # loading permissions
+    permconf = config.PermConfig(log, config="%s%s" % (root, config.PERMCONF))
+    permconf.load()
 
     # forcing new level
     if force_level:
@@ -140,11 +144,21 @@ if __name__ == "__main__":
         log.info(_("Switching to '%s' level.") % level)
         msec_config.reset()
         msec_config.merge(levelconf, overwrite=True)
+        # now saving new permissions
+        standard_permconf = config.load_default_perms(log, level, root=root)
+        params = standard_permconf.list_options()
+        if not params:
+            log.error(_("No custom file permissions for level '%s'.") % level)
+        log.info(_("Saving file permissions to '%s' level.") % level)
+        # updating base level
+        permconf.reset()
+        permconf.merge(standard_permconf, overwrite=True)
     else:
         msec_config.load()
 
-    # load variables from base level
+    # load variables from base levels
     config.merge_with_baselevel(log, msec_config, msec_config.get_base_level(), config.load_defaults, root='')
+    config.merge_with_baselevel(log, permconf, msec_config.get_base_level(), config.load_default_perms, root='')
 
     # saving current setting as new level
     if save:
@@ -152,7 +166,11 @@ if __name__ == "__main__":
         newlevel.merge(msec_config, overwrite=True)
         # update new level name
         newlevel.set("BASE_LEVEL", level)
-        newlevel.save(levelconf)
+        newlevel.save()
+        # saving new file permissions, if any
+        newpermlevel = config.PermConfig(log, config=config.PERMISSIONS_LEVEL % (root, level))
+        newpermlevel.merge(permconf, overwrite=True)
+        newpermlevel.save()
         sys.exit(0)
 
     # load the msec library
@@ -166,4 +184,6 @@ if __name__ == "__main__":
     if force_level and commit:
         if not msec_config.save(levelconf):
             log.error(_("Unable to save config!"))
+        if not permconf.save(standard_permconf):
+            log.error(_("Unable to save file system permissions!"))
     sys.exit(0)

@@ -58,6 +58,12 @@ SETTINGS =    {
 # text for disabled options
 OPTION_DISABLED=_("System default")
 
+# some checks require installation of additional packages if a specific option was activated
+REQUIRE_PACKAGES = {
+        # the format is: 'OPTION_NAME': ('option value which requires package installation', 'list of packages')
+        # for example, 'CHECK_CHKROOTKIT': ('yes', 'chkrootkit')
+        }
+
 # settings organizes by category
 # system security settings - defined by 'msec' plugin
 SETTINGS_SYSTEM = []
@@ -100,7 +106,6 @@ def find_doc(msec, option, cached=None):
     if cached:
         cached[option] = doc
     return doc
-
 
 def find_callback(param):
     '''Finds a callback for security option'''

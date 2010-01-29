@@ -49,7 +49,7 @@ If no paths to check are specified, all permissions stored in
 Otherwise, only the enties in the list of paths are expanded and checked.
 
 For example:
-    drakperms '/tmp/*' '/etc/*'
+    msecperms '/tmp/*' '/etc/*'
 will cover only files which are covered by '/tmp/*' and '/etc/*' rules of
 %s.
 
@@ -57,31 +57,27 @@ Available parameters:
     -h, --help              displays this helpful message.
     -l, --level <level>     displays configuration for specified security
                             level.
-    -f, --force <level>     force new level, overwriting user settings.
-    -e, --enforce <level>   enforce permissions on all files.
+    -e, --enforce           enforce permissions on all files.
     -d                      enable debugging messages.
     -p, --pretend           only pretend to change the level, perform no real
                             actions. Use this to see what operations msec
                             will perform.
     -r, --root <path>       path to use as root
     -q, --quiet             run quietly
-    -s, --save <level>      save current configuration as a new security level
 """ % (version, config.PERMCONF, config.PERMCONF)
 # }}}
 
 if __name__ == "__main__":
     # default options
     log_level = logging.INFO
-    force_level = False
     commit = True
     enforce = False
     quiet = False
     root = ''
-    save = False
 
     # parse command line
     try:
-        opt, args = getopt.getopt(sys.argv[1:], 'hel:f:dpr:qs:', ['help', 'enforce', 'list=', 'force=', 'debug', 'pretend', 'root=', 'quiet', 'save='])
+        opt, args = getopt.getopt(sys.argv[1:], 'hel=dpr:q', ['help', 'enforce', 'list=', 'debug', 'pretend', 'root=', 'quiet'])
     except getopt.error:
         usage()
         sys.exit(1)
@@ -105,14 +101,6 @@ if __name__ == "__main__":
                     print "!! forcing permissions on %s" % file
                 print "%s: %s.%s perm %s" % (file, user, group, perm)
             sys.exit(0)
-        # force new level
-        elif o[0] == '-f' or o[0] == '--force':
-            level = o[1]
-            force_level = True
-        # save as new security level
-        elif o[0] == '-s' or o[0] == '--save':
-            level = o[1]
-            save = True
         # debugging
         elif o[0] == '-d' or o[0] == '--debug':
             log_level = logging.DEBUG
@@ -144,40 +132,55 @@ if __name__ == "__main__":
         log_level = logging.WARN
         log = Log(log_path="%s%s" % (root, config.SECURITYLOG), interactive=True, log_syslog=False, log_level=log_level, quiet=quiet)
 
+    # loading msec config
+    msec_config = config.MsecConfig(log, config="%s%s" % (root, config.SECURITYCONF))
+    msec_config.load()
+    # find out the base level
+    base_level = msec_config.get_base_level()
     # loading permissions
     permconf = config.PermConfig(log, config="%s%s" % (root, config.PERMCONF))
+    permconf.load()
 
-    # forcing new level
-    if force_level:
-        # first load the default configuration for level
-        standard_permconf = config.load_default_perms(log, level, root=root)
-        params = standard_permconf.list_options()
-        if not params:
-            log.error(_("Level '%s' not found, aborting.") % level)
-            sys.exit(1)
-        log.info(_("Switching to '%s' level.") % level)
-        permconf.reset()
-        permconf.merge(standard_permconf, overwrite=True)
-    else:
-        permconf.load()
+    # TODO: move to main msec
+    ## forcing new level
+    #if force_level:
+    #    # first load the default configuration for level
+    #    standard_permconf = config.load_default_perms(log, level, root=root)
+    #    params = standard_permconf.list_options()
+    #    if not params:
+    #        log.error(_("Level '%s' not found, aborting.") % level)
+    #        sys.exit(1)
+    #    log.info(_("Switching to '%s' level.") % level)
+    #    # updating base level
+    #    base_level = msec_config.get_base_level(level)
+    #    permconf.reset()
+    #    permconf.merge(standard_permconf, overwrite=True)
+    #else:
+    #    permconf.load()
 
-    # saving current setting as new level
-    if save:
-        newlevel = config.PermConfig(log, config=config.PERMISSIONS_LEVEL % (root, level))
-        newlevel.merge(permconf, overwrite=True)
-        newlevel.save()
-        sys.exit(0)
+    # load variables from base level
+    config.merge_with_baselevel(log, permconf, base_level, config.load_default_perms, root='')
+
+    # reloading levelconf for base level
+    levelconf = config.load_default_perms(log, base_level, root=root)
+
+    # TODO: move to main msec
+    ## saving current setting as new level
+    #if save:
+    #    newlevel = config.PermConfig(log, config=config.PERMISSIONS_LEVEL % (root, level))
+    #    newlevel.merge(permconf, overwrite=True)
+    #    newlevel.save(levelconf)
+    #    sys.exit(0)
 
     # load the main permission class
     perm = PERMS(log, root=root)
-
     # check permissions
     changed_files = perm.check_perms(permconf, files_to_check=args)
 
     # writing back changes
     perm.commit(really_commit=commit, enforce=enforce)
     # saving updated config
-    if force_level and commit:
-        if not permconf.save():
+    if commit:
+        if not permconf.save(levelconf):
             log.error(_("Unable to save config!"))
     sys.exit(0)

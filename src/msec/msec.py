@@ -143,13 +143,16 @@ if __name__ == "__main__":
     else:
         msec_config.load()
 
+    # load variables from base level
+    config.merge_with_baselevel(log, msec_config, msec_config.get_base_level(), config.load_defaults, root='')
+
     # saving current setting as new level
     if save:
         newlevel = config.MsecConfig(log, config=config.SECURITY_LEVEL % (root, level))
         newlevel.merge(msec_config, overwrite=True)
         # update new level name
         newlevel.set("BASE_LEVEL", level)
-        newlevel.save()
+        newlevel.save(levelconf)
         sys.exit(0)
 
     # load the msec library
@@ -161,6 +164,6 @@ if __name__ == "__main__":
     msec.commit(commit)
     # saving updated config
     if force_level and commit:
-        if not msec_config.save():
+        if not msec_config.save(levelconf):
             log.error(_("Unable to save config!"))
     sys.exit(0)

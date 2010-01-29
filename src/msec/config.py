@@ -140,6 +140,13 @@ def load_default_perms(log, level, root=''):
     config.load()
     return config
 
+def merge_with_baselevel(log, config, base_level, load_func, root=''):
+    """Merges a config with its base level"""
+    # reloading levelconf for base level
+    levelconf = load_func(log, base_level, root=root)
+    config.merge(levelconf)
+
+
 # {{{ MsecConfig
 class MsecConfig:
     """Msec configuration parser"""
@@ -148,6 +155,7 @@ class MsecConfig:
         self.options = {}
         self.comments = []
         self.log = log
+        self.base_level = None
 
     def merge(self, newconfig, overwrite=False):
         """Merges parameters from newconfig to current config"""
@@ -163,6 +171,13 @@ class MsecConfig:
         self.options = {}
         del self.comments
         self.comments = []
+
+    def get_base_level(self, base_level=None):
+        """Configures base level for current level, so the settings could be pulled from it"""
+        if not base_level:
+            base_level = self.get('BASE_LEVEL')
+        self.base_level = base_level
+        return self.base_level
 
     def load(self):
         """Loads and parses configuration file"""
@@ -200,7 +215,7 @@ class MsecConfig:
     def remove(self, option):
         """Removes a configuration option."""
         if option in self.options:
-            del self.options[option]
+            self.options[option]=None
 
     def set(self, option, value):
         """Sets a configuration option"""
@@ -213,8 +228,8 @@ class MsecConfig:
             sortedparams.sort()
         return sortedparams
 
-    def save(self):
-        """Saves configuration. Comments go on top"""
+    def save(self, base_level=None):
+        """Saves configuration. Comments go on top. If a variable is present in base_level, and it is identical to the one to be saved, it is skipped"""
         if not self.config:
             # No associated file
             return True
@@ -228,6 +243,12 @@ class MsecConfig:
         # sorting keys
         for option in self.list_options():
             value = self.options[option]
+            # is it already on base level?
+            if base_level:
+                if option in base_level.options and option != "BASE_LEVEL":
+                    if value == base_level.get(option):
+                        self.log.debug("Option %s=%s already on base level!" % (option, value))
+                        continue
             # prevent saving empty options
             # TODO: integrate with remove()
             if value == None or value == OPTION_DISABLED:
@@ -395,14 +416,20 @@ class PermConfig(MsecConfig):
         """Sorts and returns configuration parameters"""
         return self.options_order
 
+    def get(self, option, default=None):
+        """Gets a configuration option, or defines it if not defined"""
+        if option not in self.options:
+            self.set(option, default)
+        return self.options[option]
+
     def set(self, option, value):
         """Sets a configuration option"""
         self.options[option] = value
         if option not in self.options_order:
             self.options_order.append(option)
 
-    def save(self):
-        """Saves configuration. Comments go on top"""
+    def save(self, base_level=None):
+        """Saves configuration. Comments go on top. If a variable is present in base_level, and it is identical to the one to be saved, it is skipped"""
         try:
             fd = open(self.config, "w")
         except:
@@ -412,7 +439,14 @@ class PermConfig(MsecConfig):
             print >>fd, comment
         # sorting keys
         for file in self.options_order:
-            user, group, perm, force = self.options[file]
+            value = self.options[file]
+            if base_level:
+                if file in base_level.options:
+                    new_value = base_level.get(file)
+                    if value == new_value:
+                        self.log.debug("Option %s=%s already on base level!" % (file, value))
+                        continue
+            user, group, perm, force = value
             if force:
                 force = "\tforce"
             else:

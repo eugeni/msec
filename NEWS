@@ -1,3 +1,7 @@
+- handle level-switching and saving in msec, using msecperms only for checking
+  and settings file permissions
+- do not duplicate variables present in BASE_LEVEL in security.conf and
+  perms.conf files
 - properly check if chkrootkit is present (#51309)
 
 Version 0.80.2 - Jan 14 2010, Eugeni Dodonov

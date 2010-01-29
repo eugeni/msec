@@ -746,7 +746,7 @@ class MSEC:
             # validating parameters
             param = curconfig.get(opt)
             # if param is None, this option is to be skipped
-            if param == None:
+            if param == None or len(param) == 0:
                 self.log.debug("Skipping %s" % opt)
                 continue
             if param not in valid_params and '*' not in valid_params:

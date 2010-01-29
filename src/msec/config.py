@@ -253,8 +253,8 @@ class MsecConfig:
             # TODO: integrate with remove()
             if value == None or value == OPTION_DISABLED:
                 self.log.debug("Skipping %s" % option)
-            else:
-                print >>fd, "%s=%s" % (option, self.options[option])
+                value=""
+            print >>fd, "%s=%s" % (option, value)
         return True
 # }}}
 
@@ -446,6 +446,9 @@ class PermConfig(MsecConfig):
                     if value == new_value:
                         self.log.debug("Option %s=%s already on base level!" % (file, value))
                         continue
+            if not value:
+                # the option was removed
+                continue
             user, group, perm, force = value
             if force:
                 force = "\tforce"

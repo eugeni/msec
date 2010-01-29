@@ -362,13 +362,16 @@ class MsecGui:
 
         # new base level
         self.msecconfig.set("BASE_LEVEL", self.base_level)
+        levelconf = config.load_defaults(log, self.base_level)
+        standard_permconf = config.load_default_perms(log, self.base_level)
+
         # saving the configuration
-        self.msecconfig.save()
+        self.msecconfig.save(levelconf)
         self.msec.apply(self.msecconfig)
         self.msec.commit(True)
 
         # saving permissions
-        self.permconfig.save()
+        self.permconfig.save(standard_permconf)
 
         self.reload_config()
 
@@ -379,9 +382,11 @@ class MsecGui:
         # msecconfig
         self.msecconfig.reset()
         self.msecconfig.load()
+        config.merge_with_baselevel(log, self.msecconfig, self.msecconfig.get_base_level(), config.load_defaults, root='')
         # permconfig
         self.permconfig.reset()
         self.permconfig.load()
+        config.merge_with_baselevel(log, self.permconfig, self.msecconfig.get_base_level(), config.load_default_perms, root='')
         # exceptions
         self.exceptions.reset()
         self.exceptions.load()
@@ -664,6 +669,9 @@ class MsecGui:
                     iter = options.iter_next(iter)
             elif curconfig.__class__ == config.PermConfig:
                 # Use should enforce it in the Permission tab
+                print options
+                print self.base_level
+                self.reset_permissions(None, options, level=level)
                 pass
             else:
                 #print curconfig.__class__
@@ -930,10 +938,10 @@ class MsecGui:
         # button.connect('clicked', self.move_rule_up, lstore)
         # hbox.pack_start(button, False)
 
-        # default
-        button = gtk.Button(_("Reset to default level permissions"))
-        button.connect('clicked', self.reset_permissions, lstore)
-        hbox.pack_start(button, False)
+        # # default
+        # button = gtk.Button(_("Reset to default level permissions"))
+        # button.connect('clicked', self.reset_permissions, lstore)
+        # hbox.pack_start(button, False)
 
         # add
         button = gtk.Button(_("Add a rule"))
@@ -954,11 +962,14 @@ class MsecGui:
 
         return vbox
 
-    def reset_permissions(self, widget, model):
+    def reset_permissions(self, widget, model, level=None):
         """Reset permissions to default specified by level"""
         model.clear()
         self.permconfig.reset()
-        defperms = self.perm_defaults[self.base_level]
+        if not level:
+            defperms = self.perm_defaults[self.base_level]
+        else:
+            defperms = self.perm_defaults[level]
         for file in defperms.list_options():
             user_s, group_s, perm_s, force_s = defperms.get(file)
 

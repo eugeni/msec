@@ -156,6 +156,12 @@ if __name__ == "__main__":
     else:
         msec_config.load()
 
+    # load base levels
+    baselevel_name = msec_config.get_base_level()
+    if baselevel_name:
+        levelconf = config.load_defaults(log, baselevel_name, root=root)
+        standard_permconf = config.load_default_perms(log, baselevel_name, root=root)
+
     # load variables from base levels
     config.merge_with_baselevel(log, msec_config, msec_config.get_base_level(), config.load_defaults, root='')
     config.merge_with_baselevel(log, permconf, msec_config.get_base_level(), config.load_default_perms, root='')
@@ -181,7 +187,7 @@ if __name__ == "__main__":
     # writing back changes
     msec.commit(commit)
     # saving updated config
-    if force_level and commit:
+    if commit:
         if not msec_config.save(levelconf):
             log.error(_("Unable to save config!"))
         if not permconf.save(standard_permconf):

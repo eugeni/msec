@@ -157,8 +157,7 @@ if __name__ == "__main__":
             sys.exit(1)
         log.info(_("Switching to '%s' level.") % level)
         permconf.reset()
-        for opt in params:
-            permconf.set(opt, standard_permconf.get(opt))
+        permconf.merge(standard_permconf, overwrite=True)
     else:
         permconf.load()
 

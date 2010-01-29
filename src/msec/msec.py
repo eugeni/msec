@@ -139,8 +139,7 @@ if __name__ == "__main__":
             sys.exit(1)
         log.info(_("Switching to '%s' level.") % level)
         msec_config.reset()
-        for opt in params:
-            msec_config.set(opt, levelconf.get(opt))
+        msec_config.merge(levelconf, overwrite=True)
     else:
         msec_config.load()
 

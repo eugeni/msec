@@ -1,12 +1,12 @@
 # Translation of msec to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2004, 2005, 2006, 2007, 2008, 2009.
+# Karl Ove Hufthammer <karl@huftis.org>, 2004, 2005, 2006, 2007, 2008, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: libDrakX\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-08 23:01+BRT\n"
-"PO-Revision-Date: 2009-09-16 22:25+0200\n"
+"PO-Revision-Date: 2010-02-07 16:47+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -97,6 +97,7 @@ msgstr ""
 "Kontroller løyve på brukarfiler som ikkje skal eigast eller kunna endrast av "
 "andre."
 
+# skip-rule: server
 #: ../src/msec/help.py:48
 msgid ""
 "Creates the symlink /etc/security/msec/server to point to /etc/security/msec/"
@@ -478,15 +479,15 @@ msgstr "Fastset skal-tidsavbrot til %s"
 
 #: ../src/msec/libmsec.py:967
 msgid "Invalid shell history size \"%s\""
-msgstr "Ugyldig skalloggstorleik: %s"
+msgstr "Ugyldig skal-loggstorleik: %s"
 
 #: ../src/msec/libmsec.py:978
 msgid "Setting shell history size to %s"
-msgstr "Fastset skalloggstorleiken til %s"
+msgstr "Fastset skal-loggstorleiken til %s"
 
 #: ../src/msec/libmsec.py:982
 msgid "Removing limit on shell history size"
-msgstr "Fjernar grense på skalloggstorleik"
+msgstr "Fjernar grense på skal-loggstorleik"
 
 #: ../src/msec/libmsec.py:991
 msgid "Invalid file system umask \"%s\""

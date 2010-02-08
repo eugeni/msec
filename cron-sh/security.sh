@@ -99,6 +99,7 @@ if [[ -s ${SECURITY} ]]; then
     TEST_ENDED=`date "+%b %d %H:%M:%S"`
 
     echo "*** Security Check, ${REPORT_DATE} ***" > ${MSEC_TMP}
+    echo "*** Check executed from: $0 ***" >> ${MSEC_TMP}
     printf "Report summary:\n" >> ${MSEC_TMP}
     echo "Test started: $REPORT_DATE" >> ${MSEC_TMP}
     echo "Test finished: $TEST_ENDED" >> ${MSEC_TMP}

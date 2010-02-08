@@ -38,7 +38,7 @@ class audit:
         config.SETTINGS['CHECK_SGID'] = ("audit.check_sgid", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_WRITABLE'] = ("audit.check_writable", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_UNOWNED'] = ("audit.check_unowned", config.VALUES_PERIODIC)
-        config.SETTINGS['FIX_UNOWNED'] = ("audit.fix_unowned", config.VALUES_PERIODIC)
+        config.SETTINGS['FIX_UNOWNED'] = ("audit.fix_unowned", config.VALUES_YESNO)
         config.SETTINGS['CHECK_PROMISC'] = ("audit.check_promisc", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_OPEN_PORT'] = ("audit.check_open_port", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_FIREWALL'] = ("audit.check_firewall", config.VALUES_PERIODIC)

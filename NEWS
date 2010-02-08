@@ -1,3 +1,4 @@
+- improved error message when the wheel group is empty (#57463).
 - added support for defining periodicity for individual security checks
 - added support for sectool checks
 - handle level-switching and saving in msec, using msecperms only for checking

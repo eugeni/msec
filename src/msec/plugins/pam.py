@@ -173,7 +173,7 @@ class pam:
                     return
                 members = ent[3]
                 if members == [] or members == ['root']:
-                    self.log.error(_('wheel group is empty'))
+                    self.log.error(_('Security configuration is defined to allow only members of the wheel group to su to root, but this group is empty. Please add the allowed users into the wheel group.'))
                     return
                 if su.exists():
                     (su.replace_line_matching('^[#\s]*auth\s+required\s+(?:/lib/security/)?pam_wheel.so\s+use_uid\s*$',

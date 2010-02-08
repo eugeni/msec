@@ -41,5 +41,5 @@ class sectool:
         pass
 
     def check_sectool_level(self, param):
-        """Defines the sectool level to use during the periodic security check. You may use the sectool-gui application to select individual tests for each level."""
+        """Defines the sectool level to use during the periodic security check. You may use the sectool-gui application to select individual tests for each level. If this variable is not defined, the default level defined in sectool configuration will be used."""
         pass

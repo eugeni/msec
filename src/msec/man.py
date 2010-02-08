@@ -136,11 +136,6 @@ should by run as root.
 \\fB\-l, --level <level>\\fR
     List the default configuration for given security level.
 
-\\fB\-f, --force <level>\\fR
-    Apply the specified security level to the system, overwritting all local
-changes in /etc/security/msec/perms.conf. This usually should be performed
-either on first install, on when a transition to a different level is required.
-
 \\fB\-e, --enforce\\fR
     Enforce the default permissions on all files.
 
@@ -157,9 +152,6 @@ required tasks, except effectively writting data back to disk.
 
 \\fB\-q\\fR
     Run quietly
-
-\\fB\-s, --save <level>\\fR
-    Save current settings as a new security level.
 
 .TP
 \\fBmsecgui\\fR:

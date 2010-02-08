@@ -41,32 +41,6 @@ try:
 except IOError:
     _ = str
 
-# reverse translations
-# the strings for reverse translations are defined with N_ instead of _,
-# and are saved in config._translations{} with their reverse mapping
-# config._value_mapping{} stores the mapping between raw and translated
-# values in forward-compatible way
-_translations={}
-_value_mapping={}
-def N_(s):
-    """Translates string and stores the reverse mapping"""
-    trans = _(s)
-    _translations[trans] = s
-    _value_mapping[s] = trans
-    return trans
-
-def translate_to_raw(s):
-    """Recovers reverse mapping of a translated string (if any)"""
-    if s in _translations:
-        return _translations[s]
-    return s
-
-def translate_from_raw(s):
-    """Maps a value into its translated version"""
-    if s in _value_mappings:
-        return _value_mappings[s]
-    return s
-
 # shared strings
 MODIFICATIONS_FOUND = _('Modified system files')
 MODIFICATIONS_NOT_FOUND = _('No changes in system files')
@@ -82,12 +56,12 @@ SETTINGS =    {
                'BASE_LEVEL':                    ("libmsec.base_level",                      ['*']),
               }
 # text for disabled options
-OPTION_DISABLED=N_("Disabled")
+OPTION_DISABLED=_("Disabled")
 
 # options for periodic checks
-VALUES_PERIODIC=[N_('manual'), N_('daily'), N_('weekly'), N_('monthly'), N_('no')]
+VALUES_PERIODIC=['manual', 'daily', 'weekly', 'monthly', 'no']
 # options for yes-no checks
-VALUES_YESNO=[N_('yes'), N_('no')]
+VALUES_YESNO=['yes', 'no']
 
 # some checks require installation of additional packages if a specific option was activated
 REQUIRE_PACKAGES = {

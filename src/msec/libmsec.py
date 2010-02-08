@@ -749,10 +749,6 @@ class MSEC:
             if param == None or len(param) == 0:
                 self.log.debug("Skipping %s" % opt)
                 continue
-            # checking if parameter value was translated
-            print "Before: %s" % param
-            param = config.translate_to_raw(param)
-            print "After: %s" % param
             if param not in valid_params and '*' not in valid_params:
                 self.log.error(_("Invalid parameter for %s: '%s'. Valid parameters: '%s'.") % (opt,
                             param, valid_params))

@@ -30,38 +30,42 @@ class audit:
         self.root = root
 
         # defining the checks
-        config.SETTINGS['CHECK_PERMS'] = ("audit.check_perms", ['yes', 'no', 'enforce'])
-        config.SETTINGS['CHECK_USER_FILES'] = ("audit.check_user_files", ['yes', 'no'])
-        config.SETTINGS['CHECK_SUID_ROOT'] = ("audit.check_suid_root", ['yes', 'no'])
-        config.SETTINGS['CHECK_SUID_MD5'] = ("audit.check_suid_md5", ['yes', 'no'])
-        config.SETTINGS['CHECK_SGID'] = ("audit.check_sgid", ['yes', 'no'])
-        config.SETTINGS['CHECK_WRITABLE'] = ("audit.check_writable", ['yes', 'no'])
-        config.SETTINGS['CHECK_UNOWNED'] = ("audit.check_unowned", ['yes', 'no'])
-        config.SETTINGS['FIX_UNOWNED'] = ("audit.fix_unowned", ['yes', 'no'])
-        config.SETTINGS['CHECK_PROMISC'] = ("audit.check_promisc", ['yes', 'no'])
-        config.SETTINGS['CHECK_OPEN_PORT'] = ("audit.check_open_port", ['yes', 'no'])
-        config.SETTINGS['CHECK_FIREWALL'] = ("audit.check_firewall", ['yes', 'no'])
-        config.SETTINGS['CHECK_PASSWD'] = ("audit.check_passwd", ['yes', 'no'])
-        config.SETTINGS['CHECK_SHADOW'] = ("audit.check_shadow", ['yes', 'no'])
-        config.SETTINGS['CHECK_CHKROOTKIT'] = ("audit.check_chkrootkit", ['yes', 'no'])
-        config.SETTINGS['CHECK_RPM_PACKAGES'] = ("audit.check_rpm_packages", ['yes', 'no'])
-        config.SETTINGS['CHECK_RPM_INTEGRITY'] = ("audit.check_rpm_integrity", ['yes', 'no'])
-        config.SETTINGS['CHECK_SHOSTS'] = ("audit.check_shosts", ['yes', 'no'])
-        config.SETTINGS['CHECK_USERS'] = ("audit.check_users", ['yes', 'no'])
-        config.SETTINGS['CHECK_GROUPS'] = ("audit.check_groups", ['yes', 'no'])
+        config.SETTINGS['CHECK_PERMS'] = ("audit.check_perms", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_PERMS_ENFORCE'] = ("audit.check_perms_enforce", config.VALUES_YESNO)
+        config.SETTINGS['CHECK_USER_FILES'] = ("audit.check_user_files", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_SUID_ROOT'] = ("audit.check_suid_root", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_SUID_MD5'] = ("audit.check_suid_md5", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_SGID'] = ("audit.check_sgid", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_WRITABLE'] = ("audit.check_writable", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_UNOWNED'] = ("audit.check_unowned", config.VALUES_PERIODIC)
+        config.SETTINGS['FIX_UNOWNED'] = ("audit.fix_unowned", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_PROMISC'] = ("audit.check_promisc", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_OPEN_PORT'] = ("audit.check_open_port", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_FIREWALL'] = ("audit.check_firewall", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_PASSWD'] = ("audit.check_passwd", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_SHADOW'] = ("audit.check_shadow", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_CHKROOTKIT'] = ("audit.check_chkrootkit", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_RPM_PACKAGES'] = ("audit.check_rpm_packages", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_RPM_INTEGRITY'] = ("audit.check_rpm_integrity", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_SHOSTS'] = ("audit.check_shosts", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_USERS'] = ("audit.check_users", config.VALUES_PERIODIC)
+        config.SETTINGS['CHECK_GROUPS'] = ("audit.check_groups", config.VALUES_PERIODIC)
         # notifications
-        config.SETTINGS['TTY_WARN'] = ("audit.tty_warn", ['yes', 'no'])
-        config.SETTINGS['MAIL_WARN'] = ("audit.mail_warn", ['yes', 'no'])
+        config.SETTINGS['TTY_WARN'] = ("audit.tty_warn", config.VALUES_YESNO)
+        config.SETTINGS['MAIL_WARN'] = ("audit.mail_warn", config.VALUES_YESNO)
         config.SETTINGS['MAIL_USER'] = ("audit.mail_user", ['*'])
-        config.SETTINGS['MAIL_EMPTY_CONTENT'] = ("audit.mail_empty_content", ['yes', 'no'])
-        config.SETTINGS['SYSLOG_WARN'] = ("audit.syslog_warn", ['yes', 'no'])
-        config.SETTINGS['NOTIFY_WARN'] = ("audit.notify_warn", ['yes', 'no'])
+        config.SETTINGS['MAIL_EMPTY_CONTENT'] = ("audit.mail_empty_content", config.VALUES_YESNO)
+        config.SETTINGS['SYSLOG_WARN'] = ("audit.syslog_warn", config.VALUES_YESNO)
+        config.SETTINGS['NOTIFY_WARN'] = ("audit.notify_warn", config.VALUES_YESNO)
         # security checks from audit plugins
-        config.SETTINGS['CHECK_SECURITY'] = ("audit.check_security", ['yes', 'no'])
-        config.SETTINGS['CHECK_ON_BATTERY'] = ("audit.check_on_battery", ['yes', 'no'])
+        config.SETTINGS['CHECK_SECURITY'] = ("audit.check_security", config.VALUES_YESNO)
+        config.SETTINGS['CHECK_ON_BATTERY'] = ("audit.check_on_battery", config.VALUES_YESNO)
+
+        # defining additional packages that should be installed
+        config.REQUIRE_PACKAGES['CHECK_CHKROOTKIT'] = (['yes'], ['chkrootkit'])
 
         # preparing msecgui menu
-        for check in ["CHECK_PERMS", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",
+        for check in ["CHECK_PERMS", "CHECK_PERMS_ENFORCE", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",
                     "CHECK_WRITABLE", "CHECK_UNOWNED", "FIX_UNOWNED", "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_FIREWALL",
                     "CHECK_PASSWD", "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM_PACKAGES", "CHECK_RPM_INTEGRITY",
                     "CHECK_SHOSTS", "CHECK_USERS", "CHECK_GROUPS",
@@ -79,7 +83,11 @@ class audit:
     # to get their descriptions.
 
     def check_perms(self, param):
-        """ Enable periodic permission checking for files specified in msec policy. If set to yes, the permissions are verified on every run. If set to enforce, incorrect permissions are restored to the ones specified in msec security policy."""
+        """ Enable periodic permission checking for files specified in msec policy."""
+        pass
+
+    def check_perms_enforce(self, param):
+        """ Enable msec to enforce file permissions to the values specified in the msec security policy."""
         pass
 
     def check_user_files(self, param):

@@ -28,6 +28,10 @@ if check_is_enabled "${CHECK_SECTOOL}" ; then
         fi
         sectool $sectool_params > ${SECTOOL_TODAY}
         Filter ${SECTOOL_TODAY} CHECK_SECTOOL
+        if [[ -s ${SECTOOL_TODAY} ]]; then
+            printf "\nSectool report:\n" >> ${SECURITY}
+            cat ${SECTOOL_TODAY} >> ${SECURITY}
+        fi
         Diffcheck ${SECTOOL_TODAY} ${SECTOOL_YESTERDAY} ${SECTOOL_DIFF} "sectool results"
     else
         printf "\nSectool check skipped: sectool not found" >> ${SECURITY}

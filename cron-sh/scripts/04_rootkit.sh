@@ -17,11 +17,11 @@ if [[ -f ${CHKROOTKIT_TODAY} ]]; then
     mv ${CHKROOTKIT_TODAY} ${CHKROOTKIT_YESTERDAY};
     if [ ! -x /usr/sbin/chkrootkit ]; then
         printf "\nSecurity Warning: chkrootkit is enabled but was uninstalled\n" >> ${CHKROOTKIT_DIFF}
-    fi    
+    fi
 fi
 
 ### chkrootkit checks
-if [[ ${CHECK_CHKROOTKIT} == yes ]]; then
+if check_is_enabled "${CHECK_CHKROOTKIT}" ; then
     if [ -x /usr/sbin/chkrootkit ]; then
         # do not check on NFS
         /usr/sbin/chkrootkit -n ${CHKROOTKIT_OPTION} > ${CHKROOTKIT_TODAY}
@@ -43,7 +43,7 @@ if [[ ${CHECK_CHKROOTKIT} == yes ]]; then
 fi
 
 ### Changed chkrootkit
-if [[ ${CHECK_CHKROOTKIT} == yes ]]; then
+if check_is_enabled "${CHECK_CHKROOTKIT}" ; then
     if [ -x /usr/sbin/chkrootkit ]; then
         Diffcheck ${CHKROOTKIT_TODAY} ${CHKROOTKIT_YESTERDAY} ${CHKROOTKIT_DIFF} "chkrootkit results"
     fi

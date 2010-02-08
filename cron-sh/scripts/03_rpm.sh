@@ -38,7 +38,7 @@ fi
 ### rpm database check
 
 # list of installed packages
-if [[ ${CHECK_RPM_PACKAGES} == yes ]]; then
+if check_is_enabled "${CHECK_RPM_PACKAGES}" ; then
     rpm -qa --qf "%{NAME}-%{VERSION}-%{RELEASE}\n" | sort > ${RPM_QA_TODAY}
     Filter ${RPM_QA_TODAY} CHECK_RPM_PACKAGES
     Count ${INFOS} ${RPM_QA_TODAY} "Total of installed packages"
@@ -46,7 +46,7 @@ if [[ ${CHECK_RPM_PACKAGES} == yes ]]; then
 fi
 
 # integrity of installed packages
-if [[ ${CHECK_RPM_INTEGRITY} == yes ]]; then
+if check_is_enabled "${CHECK_RPM_INTEGRITY}" ; then
     rm -f ${RPM_VA_TODAY}.tmp
     nice --adjustment=+19 rpm -Va --noscripts | grep '^..5' | sort > ${RPM_VA_TODAY}.tmp
     Filter ${RPM_VA_TODAY} CHECK_RPM_INTEGRITY

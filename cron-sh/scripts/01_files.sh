@@ -53,8 +53,7 @@ if [[ -f ${UNOWNED_GROUP_TODAY} ]]; then
 fi
 
 # only running this check when really required
-if [[ ${CHECK_SUID_MD5} == yes || ${CHECK_SUID_ROOT} == yes || ${CHECK_SGID} == yes || ${CHECK_WRITABLE} == yes || ${CHECK_UNOWNED} == yes  ]]; then
-
+if check_is_enabled "${CHECK_SUID_MD5}" || check_is_enabled "${CHECK_SUID_ROOT}" || check_is_enabled "${CHECK_SGID}" || check_is_enabled "${CHECK_WRITABLE}" || check_is_enabled "${CHECK_UNOWNED}" ; then
         # Hard disk related file check; the less priority the better...
         nice --adjustment=+19 /usr/bin/msec_find ${DIR}
 fi
@@ -90,7 +89,7 @@ if [[ -f ${UNOWNED_GROUP_TODAY} ]]; then
     mv -f ${UNOWNED_GROUP_TODAY}.tmp ${UNOWNED_GROUP_TODAY}
 fi
 
-if [[ -f ${SUID_ROOT_TODAY} && ${CHECK_SUID_MD5} == yes ]]; then
+if check_is_enabled "${CHECK_SUID_MD5}" && [[ -f ${SUID_ROOT_TODAY} ]]; then
     while read line; do
         md5sum ${line}
     done < ${SUID_ROOT_TODAY} > ${SUID_MD5_TODAY}
@@ -99,25 +98,25 @@ else
 fi
 
 ### New Suid root files detection
-if [[ ${CHECK_SUID_ROOT} == yes ]]; then
+if check_is_enabled "${CHECK_SUID_ROOT}" ; then
         Diffcheck ${SUID_ROOT_TODAY} ${SUID_ROOT_YESTERDAY} ${SUID_ROOT_DIFF} "Suid Root files"
         Count ${INFOS} ${SUID_ROOT_TODAY} "Total of Suid Root files"
 fi
 
 ### New Sgid files detection
-if [[ ${CHECK_SGID} == yes ]]; then
+if check_is_enabled "${CHECK_SGID}" ; then
         Diffcheck ${SGID_TODAY} ${SGID_YESTERDAY} ${SGID_DIFF} "Sgid files"
         Count ${INFOS} ${SGID_TODAY} "Total of Sgid files"
 fi
 
 ### Writable files detection
-if [[ ${CHECK_WRITABLE} == yes ]]; then
+if check_is_enabled "${CHECK_WRITABLE}" ; then
         Diffcheck ${WRITABLE_TODAY} ${WRITABLE_YESTERDAY} ${WRITABLE_DIFF} "World Writable files"
         Count ${INFOS} ${WRITABLE_TODAY} "Total of World Writable files"
 fi
 
 ### Search Non Owned files
-if [[ ${CHECK_UNOWNED} == yes ]]; then
+if check_is_enabled "${CHECK_UNOWNED}" ; then
         Diffcheck ${UNOWNED_USER_TODAY} ${UNOWNED_USER_YESTERDAY} ${UNOWNED_USER_DIFF} "Un-owned files"
         Count ${INFOS} ${UNOWNED_USER_TODAY} "Total of Un-owned files"
         Diffcheck ${UNOWNED_GROUP_TODAY} ${UNOWNED_GROUP_YESTERDAY} ${UNOWNED_GROUP_DIFF} "Un-owned group files"
@@ -125,13 +124,13 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
 fi
 
 ### Md5 check for SUID root fileg
-if [[ ${CHECK_SUID_MD5} == yes  ]]; then
+if check_is_enabled "${CHECK_SUID_MD5}" ; then
         Diffcheck ${SUID_MD5_TODAY} ${SUID_MD5_YESTERDAY} ${SUID_MD5_DIFF} "SUID files MD5 checksum"
         Count ${INFOS} ${SUID_MD5_TODAY} "Total of SUID files with controlled MD5 checksum"
 fi
 
 ### Writable file detection
-if [[ ${CHECK_WRITABLE} == yes ]]; then
+if check_is_enabled "${CHECK_WRITABLE}" ; then
     if [[ -s ${WRITABLE_TODAY} ]]; then
         printf "\nSecurity Warning: World Writable files found :\n" >> ${SECURITY}
         cat ${WRITABLE_TODAY} | awk '{print "\t\t- " $0}' >> ${SECURITY}
@@ -139,7 +138,7 @@ if [[ ${CHECK_WRITABLE} == yes ]]; then
 fi
 
 ### Search Un Owned file
-if [[ ${CHECK_UNOWNED} == yes ]]; then
+if check_is_enabled "${CHECK_UNOWNED}" ; then
     if [[ -s ${UNOWNED_USER_TODAY} ]]; then
         printf "\nSecurity Warning : User Unowned files found :\n" >> ${SECURITY}
         printf "\t( theses files now have user \"nobody\" as their owner. )\n" >> ${SECURITY}
@@ -163,7 +162,7 @@ if [[ ${CHECK_UNOWNED} == yes ]]; then
     fi
 fi
 
-if [[ ${CHECK_USER_FILES} == yes ]]; then
+if check_is_enabled "${CHECK_USER_FILES}" ; then
 # Files that should not be owned by someone else or readable.
 list=".netrc .rhosts .shosts .Xauthority .gnupg/secring.gpg \
 .pgp/secring.pgp .ssh/identity .ssh/id_dsa .ssh/id_rsa .ssh/random_seed"
@@ -256,8 +255,8 @@ fi
 fi # End of CHECK_USER_FILES
 
 # now check default permissions
-if [[ ${CHECK_PERMS} == yes || ${CHECK_PERMS} == enforce ]]; then
-        if [[ ${CHECK_PERMS} == enforce ]]; then
+if check_is_enabled "${CHECK_PERMS}" ; then
+        if [[ ${CHECK_PERMS_ENFORCE} == yes ]]; then
                 MSECPERMS_PARAMS="-e"
         else
                 MSECPERMS_PARAMS=""

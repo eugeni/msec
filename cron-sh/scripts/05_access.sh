@@ -19,7 +19,7 @@ if [[ -f ${USERS_LIST_TODAY} ]]; then
 fi
 
 # check for changes in users
-if [[ ${CHECK_USERS} == yes ]]; then
+if check_is_enabled "${CHECK_USERS}" ; then
     getent passwd | cut -f 1 -d : | sort > ${USERS_LIST_TODAY}
     Filter ${USERS_LIST_TODAY} CHECK_USERS
     Diffcheck ${USERS_LIST_TODAY} ${USERS_LIST_YESTERDAY} ${USERS_LIST_DIFF} "local users"
@@ -36,7 +36,7 @@ if [[ -f ${GROUPS_LIST_TODAY} ]]; then
 fi
 
 # check for changes in groups
-if [[ ${CHECK_GROUPS} == yes ]]; then
+if check_is_enabled "${CHECK_GROUPS}" ; then
     getent passwd | cut -f 1 -d : | sort > ${GROUPS_LIST_TODAY}
     Filter ${GROUPS_LIST_TODAY} CHECK_GROUPS
     Diffcheck ${GROUPS_LIST_TODAY} ${GROUPS_LIST_YESTERDAY} ${GROUPS_LIST_DIFF} "local groups"
@@ -44,7 +44,7 @@ if [[ ${CHECK_GROUPS} == yes ]]; then
 fi
 
 ### Passwd file check
-if [[ ${CHECK_PASSWD} == yes ]]; then
+if check_is_enabled "${CHECK_PASSWD}" ; then
     getent passwd | awk -F: '{
         if ( $2 == "" )
             printf("\t\t- /etc/passwd:%d: User \"%s\" has no password !\n", FNR, $1);
@@ -63,7 +63,7 @@ if [[ ${CHECK_PASSWD} == yes ]]; then
 fi
 
 ### Shadow password file Check
-if [[ ${CHECK_SHADOW} == yes ]]; then
+if check_is_enabled "${CHECK_SHADOW}" ; then
     awk -F: '{
         if ( $2 == "" )
             printf("\t\t- /etc/shadow:%d: User \"%s\" has no password !\n", FNR, $1);
@@ -126,7 +126,7 @@ for file in $list ; do
 done > ${MSEC_TMP}
 
 ### Passwd file check
-if [[ ${CHECK_SHOSTS} == yes ]]; then
+if check_is_enabled "${CHECK_SHOSTS}" ; then
         getent passwd | awk -F: '{print $1" "$6}' |
         while read username homedir; do
                 if ! expr "$homedir" : "$FILTER"  > /dev/null; then

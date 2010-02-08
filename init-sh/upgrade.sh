@@ -87,10 +87,18 @@ if [ -f /etc/security/msec/security.conf ]; then
         /etc/security/msec/security.conf
     # CHECK_RPM split into CHECK_RPM_PACKAGES and CHECK_RPM_INTEGRITY
     sed -i -e 's/CHECK_RPM=\(.*\)/CHECK_RPM_PACKAGES=\1\nCHECK_RPM_INTEGRITY=\1/g' /etc/security/msec/security.conf
-    # starting with 2010.1, each check can have a different periodicity
+    # starting with 2010.1, each periodic check can have a different periodicity
     # therefore, for the enabled tests we define their periodicity to 'daily'
     # to have the same behavior as on previous versions
-    sed -i -e 's/\(CHECK_.*\)=yes/\1=daily/g' /etc/security/msec/security.conf
+    CHECK_STRING=""
+    for z in PERMS USER_FILES SUID_ROOT SUID_MD5 SGID WRITABLE UNOWNED PROMISC OPEN_PORT FIREWALL PASSWD SHADOW CHKROOTKIT RPM_PACKAGES RPM_INTEGRITY SHOSTS USERS GROUPS; do
+            if [ -z "$CHECK_STRING" ]; then
+                    CHECK_STRING=$z
+            else
+                    CHECK_STRING="$CHECK_STRING\|$z"
+            fi
+    done
+    sed -i -e "s/\(CHECK_\($CHECK_STRING\)\)=yes/\1=daily/g" /etc/security/msec/security.conf
     # removing duplicated entries
     TEMPFILE=`mktemp /etc/security/msec/upgrade.XXXXXX`
     cat /etc/security/msec/security.conf | sort | uniq > $TEMPFILE 2>/dev/null && mv -f $TEMPFILE /etc/security/msec/security.conf

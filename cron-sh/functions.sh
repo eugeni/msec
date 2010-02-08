@@ -45,26 +45,22 @@ function check_is_enabled() {
         check=$1
         SCRIPT_DIR=$(dirname $0)
         if [ "a$check" = "ano" ]; then
-                echo no
-                return 0
+                return 1
         fi
         # check if the test is supposed to be executed on this run
         echo $SCRIPT_DIR | grep -q $check
         val=$?
         if [ "$val" = "0" ]; then
-                echo yes
-                return 1
+                return 0
         fi
-        # is it a manual check?
-        istty=$(tty -s)
-        if $istty && [ "$check" = "manual" ]; then
-                echo yes
-                return 1
+        # is the check being run manually (e.g., it is not a crontab symlink?)
+        # NOTE: this only checks if the file is a symlink, assuming that the manual check
+        # is performed by running the /usr/share/msec/security.sh directly
+        if [ "$check" = "manual" -a ! -L $0 ]; then
+                return 0
         fi
-        echo no
-        return 0
+        return 1
 }
-
 
 
 Diffcheck() {

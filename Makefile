@@ -42,7 +42,7 @@ install: all
 	    install -m755 src/msec/$${i}o $(RPM_BUILD_ROOT)/usr/share/msec ; \
 	done
 	# install plugins
-	for i in pam.py audit.py msec.py network.py ; do \
+	for i in pam.py audit.py msec.py network.py sectool.py ; do \
 	    install -m755 src/msec/plugins/$$i $(RPM_BUILD_ROOT)/usr/share/msec/plugins ; \
 	    install -m755 src/msec/plugins/$${i}o $(RPM_BUILD_ROOT)/usr/share/msec/plugins ; \
 	done

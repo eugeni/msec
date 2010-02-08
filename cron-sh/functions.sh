@@ -37,6 +37,36 @@ FILTER="\(`echo $EXCLUDEDIR | sed -e 's/ /\\\|/g'`\)"
 
 ### Functions ###
 
+function check_is_enabled() {
+        # checks if a periodic check should run by matching the directory from where
+        # the main script is run against check value. E.g., daily checks will work if
+        # executed from /etc/cron.daily or any directory containing 'daily'; weekly checks
+        # will run if run withing a directory containing 'weekly', and so on
+        check=$1
+        SCRIPT_DIR=$(dirname $0)
+        if [ "a$check" = "ano" ]; then
+                echo no
+                return 0
+        fi
+        # check if the test is supposed to be executed on this run
+        echo $SCRIPT_DIR | grep -q $check
+        val=$?
+        if [ "$val" = "0" ]; then
+                echo yes
+                return 1
+        fi
+        # is it a manual check?
+        istty=$(tty -s)
+        if $istty && [ "$check" = "manual" ]; then
+                echo yes
+                return 1
+        fi
+        echo no
+        return 0
+}
+
+
+
 Diffcheck() {
     TODAY="$1"
     YESTERDAY="$2"

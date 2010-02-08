@@ -5,6 +5,13 @@
 #       the order in which they should be executed
 
 if [[ -f /etc/security/msec/security.conf ]]; then
+    # load settings from base level
+    BASE_LEVEL=$(sed -n 's/BASE_LEVEL=//p' /etc/security/msec/security.conf)
+    if [[ ! -f /etc/security/msec/level.$BASE_LEVEL ]]; then
+        echo "Error: base level $BASE_LEVEL not found"
+        exit 1
+    fi
+    . /etc/security/msec/level.$BASE_LEVEL
     . /etc/security/msec/security.conf
 else
     echo "/etc/security/msec/security.conf don't exist."

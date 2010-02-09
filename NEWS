@@ -1,3 +1,7 @@
+Version 0.80.3 - Feb 08 2010, Eugeni Dodonov
+- improved log message when unowned or world-writable files are found
+- running file-related periodic checks weekly on standard security level
+  to easy disk I/O load
 - improved error message when the wheel group is empty (#57463).
 - added support for defining periodicity for individual security checks
 - added support for sectool checks

@@ -207,14 +207,15 @@ class audit:
         cron.remove_line_matching('[^#]+/usr/share/msec/security.sh')
 
         if arg == "yes":
-            for securitycron in SECURITYCRON:
-                securitycron = self.configfiles.get_config_file(SECURITYCRON)
+            for cron in SECURITYCRON:
+                securitycron = self.configfiles.get_config_file(cron)
 
                 if not securitycron.exists():
                     self.log.info(_('Activating daily security check'))
                     securitycron.symlink(SECURITYSH)
         else:
-            for securitycron in SECURITYCRON:
+            for cron in SECURITYCRON:
+                securitycron = self.configfiles.get_config_file(cron)
                 if securitycron.exists():
                     self.log.info(_('Disabling daily security check'))
                     securitycron.unlink()

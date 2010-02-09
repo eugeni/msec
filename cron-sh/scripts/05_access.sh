@@ -65,7 +65,7 @@ fi
 ### Shadow password file Check
 if check_is_enabled "${CHECK_SHADOW}" ; then
     awk -F: '{
-        if ( $2 == "" )
+        if ( $2 == "" && $1 != "xguest" )
             printf("\t\t- /etc/shadow:%d: User \"%s\" has no password !\n", FNR, $1);
     }' < /etc/shadow > ${MSEC_TMP}
     Filter ${MSEC_TMP} CHECK_SHADOW

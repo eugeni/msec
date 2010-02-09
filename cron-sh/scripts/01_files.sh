@@ -111,15 +111,15 @@ fi
 
 ### Writable files detection
 if check_is_enabled "${CHECK_WRITABLE}" ; then
-        Diffcheck ${WRITABLE_TODAY} ${WRITABLE_YESTERDAY} ${WRITABLE_DIFF} "World Writable files"
+        Diffcheck ${WRITABLE_TODAY} ${WRITABLE_YESTERDAY} ${WRITABLE_DIFF} "World Writable permissions on files"
         Count ${INFOS} ${WRITABLE_TODAY} "Total of World Writable files"
 fi
 
 ### Search Non Owned files
 if check_is_enabled "${CHECK_UNOWNED}" ; then
-        Diffcheck ${UNOWNED_USER_TODAY} ${UNOWNED_USER_YESTERDAY} ${UNOWNED_USER_DIFF} "Un-owned files"
+        Diffcheck ${UNOWNED_USER_TODAY} ${UNOWNED_USER_YESTERDAY} ${UNOWNED_USER_DIFF} "Unknown owner for files"
         Count ${INFOS} ${UNOWNED_USER_TODAY} "Total of Un-owned files"
-        Diffcheck ${UNOWNED_GROUP_TODAY} ${UNOWNED_GROUP_YESTERDAY} ${UNOWNED_GROUP_DIFF} "Un-owned group files"
+        Diffcheck ${UNOWNED_GROUP_TODAY} ${UNOWNED_GROUP_YESTERDAY} ${UNOWNED_GROUP_DIFF} "Unknown group for files"
         Count ${INFOS} ${UNOWNED_GROUP_TODAY} "Total of Un-owned group files"
 fi
 

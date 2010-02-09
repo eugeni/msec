@@ -1,3 +1,4 @@
+- xguest user does not have a password, so silence report about it
 - added plugin to define log file retention period.
 
 Version 0.80.3 - Feb 08 2010, Eugeni Dodonov

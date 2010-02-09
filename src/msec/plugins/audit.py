@@ -17,7 +17,7 @@ except IOError:
 CRON = '/etc/cron.d/msec'
 CRON_REGEX = '[^#]+/usr/share/msec/promisc_check.sh'
 CRON_ENTRY = '*/1 * * * *    root    /usr/share/msec/promisc_check.sh'
-SECURITYCRON = '/etc/cron.daily/msec'
+SECURITYCRON = ['/etc/cron.daily/msec', '/etc/cron.weekly/msec', '/etc/cron.monthly/msec']
 SECURITYSH = '/usr/share/msec/security.sh'
 
 class audit:
@@ -206,14 +206,16 @@ class audit:
         cron = self.configfiles.get_config_file(CRON)
         cron.remove_line_matching('[^#]+/usr/share/msec/security.sh')
 
-        securitycron = self.configfiles.get_config_file(SECURITYCRON)
-
         if arg == "yes":
-            if not securitycron.exists():
-                self.log.info(_('Activating daily security check'))
-                securitycron.symlink(SECURITYSH)
+            for securitycron in SECURITYCRON:
+                securitycron = self.configfiles.get_config_file(SECURITYCRON)
+
+                if not securitycron.exists():
+                    self.log.info(_('Activating daily security check'))
+                    securitycron.symlink(SECURITYSH)
         else:
-            if securitycron.exists():
-                self.log.info(_('Disabling daily security check'))
-                securitycron.unlink()
+            for securitycron in SECURITYCRON:
+                if securitycron.exists():
+                    self.log.info(_('Disabling daily security check'))
+                    securitycron.unlink()
 

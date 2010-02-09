@@ -1,3 +1,5 @@
+- added plugin to define log file retention period.
+
 Version 0.80.3 - Feb 08 2010, Eugeni Dodonov
 - improved log message when unowned or world-writable files are found
 - running file-related periodic checks weekly on standard security level

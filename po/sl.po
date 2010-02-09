@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-08 22:17+BRT\n"
+"POT-Creation-Date: 2010-02-04 11:31+BRST\n"
 "PO-Revision-Date: 2009-10-03 19:27+0200\n"
 "Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -23,50 +23,129 @@ msgstr ""
 "Plural-Forms:  nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3);\n"
 
+#: ../src/msec/config.py:45
+msgid "Modified system files"
+msgstr ""
+
+#: ../src/msec/config.py:46
+#, fuzzy
+msgid "No changes in system files"
+msgstr "Omogoči preverjanje za spremembe v sistemskih uporabnikih."
+
+#: ../src/msec/config.py:59
+msgid "Disabled"
+msgstr ""
+
+#: ../src/msec/config.py:195 ../src/msec/config.py:290
+#: ../src/msec/config.py:393
+msgid "Unable to load configuration file %s: %s"
+msgstr ""
+
+#: ../src/msec/config.py:209 ../src/msec/config.py:304
+#: ../src/msec/config.py:415
+#, fuzzy
+msgid "Bad config option: %s"
+msgstr "_Shrani nastavitve"
+
+#: ../src/msec/config.py:244 ../src/msec/config.py:343
+#: ../src/msec/config.py:441
+#, fuzzy
+msgid "Unable to save %s: %s"
+msgstr "Ni moč shraniti nastavitev."
+
 #: ../src/msec/help.py:14
-msgid "Enable checking for changes in firewall settings."
-msgstr "Omogoči preverjanje za spremembe nastavitev požarnega zidu."
+msgid ""
+"Allow local users to connect to X server. Accepted arguments: yes (all "
+"connections are allowed), local (only local connection), no (no connection)."
+msgstr ""
+"Krajevnim uporabnikom dovoli povezavo z grafičnim strežnikom X. Možni "
+"argumenti: yes (dovoljene so vse povezave), local (samo krajevne povezave), "
+"no (nobena povezava)."
 
 #: ../src/msec/help.py:16
-msgid "Enable IP spoofing protection."
-msgstr "Omogoči zaščito pred lažnim predstavljanjem naslova IP."
+msgid "Enable checking for files/directories writable by everybody."
+msgstr "Omogoči preverjanje datotek in map, v katere lahko piše vsakdo."
 
 #: ../src/msec/help.py:18
+msgid "Log syslog messages on console terminal 12."
+msgstr "Prikazuj zapise v sistemski dnevnik v konzoli 12."
+
+#: ../src/msec/help.py:20
 msgid "Send mail reports even if no changes were detected."
 msgstr "Pošlji poročilo po pošti, četudi ni zaznane nobene spremembe."
 
-#: ../src/msec/help.py:20
+#: ../src/msec/help.py:22
+msgid ""
+"Defines the base security level, on top of which the current configuration "
+"is based."
+msgstr ""
+"Določa osnovno varnostno stopnjo, na kateri temeljijo trenutne nastavitve."
+
+#: ../src/msec/help.py:24
 msgid "Accept broadcasted ICMP echo."
 msgstr "Sprejmi odmev ICMP, ki je bil oddan večim."
 
-#: ../src/msec/help.py:22
+#: ../src/msec/help.py:26
 msgid ""
-"Allow users to authenticate with their passwords for sudo. If this parameter "
-"is set to 'wheel', users must belong to the 'wheel' group to be able to use "
-"sudo"
+"Enable msec to enforce file permissions to the values specified in the msec "
+"security policy."
 msgstr ""
-"Omogoči, da se uporabniki za ukaz sudo overijo z geslom. Če je ta parameter "
-"nastavljen na »wheel«, morajo biti uporabniki za uporabo ukaza sudo člani "
-"skupine »wheel«."
 
-#: ../src/msec/help.py:24
+#: ../src/msec/help.py:28
+#, fuzzy
+msgid "Enable periodic permission checking for files specified in msec policy."
+msgstr "Omogoči redno preverjanje dovoljenj za sistemske datoteke."
+
+#: ../src/msec/help.py:30
 msgid "Allow X server to accept connections from network on tcp port 6000."
 msgstr ""
 "Grafičnemu strežniku X omogoči sprejemanje omrežnih povezav na vratih TCP "
 "6000."
 
-#: ../src/msec/help.py:26
+#: ../src/msec/help.py:32
 msgid "Enable checking for known rootkits using chkrootkit."
 msgstr ""
 "Omogoči pregledovanje za škodljivimi programi, z uporabo orodja chkrootkit."
 
-#: ../src/msec/help.py:28
+#: ../src/msec/help.py:34
+msgid ""
+"Enable verification for changes in the installed RPM packages. This will "
+"notify you when new packages are installed or removed."
+msgstr ""
+"Omogoči potrjevanje sprememb v nameščenih paketih RPM. Obveščeni boste o "
+"novo nameščenih in odstranjenih paketih."
+
+#: ../src/msec/help.py:36
+msgid ""
+"Enable sectools checks. This check will run all sectool checks for a "
+"security level configuration. The security level to be used during this test "
+"is determined by the CHECK_SECTOOL_LEVELS variable."
+msgstr ""
+
+#: ../src/msec/help.py:38
+msgid "Set shell commands history size. A value of -1 means unlimited."
+msgstr ""
+"Nastavi velikost zgodovine ukazov v lupini. Vrednost -1 pomeni neomejeno."
+
+#: ../src/msec/help.py:40
+msgid "Allow system reboot and shutdown to local users."
+msgstr "Krajevnim uporabnikom dovoli ponovni zagon in izklop sistema."
+
+#: ../src/msec/help.py:42
+msgid "Enable checking for changes in firewall settings."
+msgstr "Omogoči preverjanje za spremembe nastavitev požarnega zidu."
+
+#: ../src/msec/help.py:44
 msgid "Enable checking for additions/removals of suid root files."
 msgstr ""
 "Omogoči preverjanje, ali so bile dodane/odstranjene datoteke, ki se zaženejo "
 "s pravicami uporabnika root."
 
-#: ../src/msec/help.py:30
+#: ../src/msec/help.py:46
+msgid "Enables logging of periodic checks to system log."
+msgstr "Omogoči beleženje rednih preverjanj v sistemski dnevnik."
+
+#: ../src/msec/help.py:48
 msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
@@ -74,39 +153,103 @@ msgstr ""
 "Omogoči uporabo »crontab« in »at«. Uporabnike z dovoljenjem vpišite v /etc/"
 "cron.allow in v /etc/at.allow (več o tem v man at(1) in man crontab(1))."
 
-#: ../src/msec/help.py:32
-msgid "Accept bogus IPv4 error messages."
-msgstr "Sprejmi lažna sporočila o napakah IPv4."
+#: ../src/msec/help.py:50
+msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
+msgstr ""
+"Omogoči preverjanje za nevarne možnosti v uporabniških datotekah .rhosts in ."
+"shosts."
 
-#: ../src/msec/help.py:34
+#: ../src/msec/help.py:52
+msgid ""
+"Enable password-related checks, such as empty passwords and strange super-"
+"user accounts."
+msgstr ""
+"Omogoči preverjanja povezana z gesli, npr. prazna gesla in čudne račune za "
+"super-uporabnike."
+
+#: ../src/msec/help.py:54
+msgid ""
+"Set the password history length to prevent password reuse. This is not "
+"supported by pam_tcb."
+msgstr ""
+"Nastavi dolžino zgodovine gesel, da se prepreči ponovna uporaba gesla. To ni "
+"podprto v pam_tcb."
+
+#: ../src/msec/help.py:56
 msgid "Enable checksum verification for suid files."
 msgstr ""
 "Omogoči potrjevanje datotek, ki se zaženejo s pravicami uporabnika root, s "
 "kontrolno vsoto."
 
-#: ../src/msec/help.py:36
+#: ../src/msec/help.py:58
+msgid ""
+"Use secure location for temporary files. If this parameter is set to 'yes', "
+"user home directory will be used for temporary files. Otherwise, /tmp will "
+"be used."
+msgstr ""
+"Za začasne datoteke uporabi varno lokacijo. Če je nastavljeno na »yes«, bo za "
+"začasne datoteke uporabljena domača mapa, v nasprotnem bo uporabljena mapa /"
+"tmp."
+
+#: ../src/msec/help.py:60
 msgid "User email to receive security notifications."
 msgstr "E-pošta uporabnika, ki bo prejemal varnostna obvestila."
 
-#: ../src/msec/help.py:38
-msgid "Allow autologin."
-msgstr "Dovoli samodejno prijavo."
+#: ../src/msec/help.py:62
+msgid "Set the user umask."
+msgstr "Nastavi uporabniško masko uporabnikov."
 
-#: ../src/msec/help.py:40
+#: ../src/msec/help.py:64
 msgid "Allow only users in wheel group to su to root."
 msgstr ""
 "Omogoči samo uporabnikom v skupini wheel, da se z ukazom su spremenijo v "
 "uporabnika root."
 
-#: ../src/msec/help.py:42
+#: ../src/msec/help.py:66
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
 msgstr "Omogoči preverjanje za prazna gesla v /etc/shadow (man shadow(5))."
 
-#: ../src/msec/help.py:44
+#: ../src/msec/help.py:68
+msgid "Allow autologin."
+msgstr "Dovoli samodejno prijavo."
+
+#: ../src/msec/help.py:70
+msgid "Enable checking for changes in system users."
+msgstr "Omogoči preverjanje za spremembe v sistemskih uporabnikih."
+
+#: ../src/msec/help.py:72
+msgid "Enable checking for unowned files."
+msgstr "Omogoči preverjanje za datoteke brez lastnika."
+
+#: ../src/msec/help.py:74
 msgid "Set the shell timeout. A value of zero means no timeout."
 msgstr "Določi časovno omejitev lupine. Vrednost nič pomeni, da omejitve ni."
 
-#: ../src/msec/help.py:46
+#: ../src/msec/help.py:76
+msgid "Allow display managers (kdm and gdm) to display list of local users."
+msgstr ""
+"Dovoli upravljalnikom zaslona (KDM in GDM) prikaz seznama krajevnih "
+"uporabnikov."
+
+#: ../src/msec/help.py:78
+msgid "Enable name resolution spoofing protection."
+msgstr "Zaščita pred lažnim predstavljanjem pri razreševanju imen."
+
+#: ../src/msec/help.py:80
+msgid ""
+"Enforce MSEC file directory permissions on system startup. If this parameter "
+"is set to 'enforce', system permissions will be enforced automatically, "
+"according to system security settings."
+msgstr ""
+"Ob zagonu sistema vsili dovoljenja za datoteke/mape iz MSEC. Če je ta "
+"parameter nastavljen na »enforce«, bodo sistemska dovoljenja vsiljena "
+"samodejno, kakor je določeno v nastavitvah sistemske varnosti."
+
+#: ../src/msec/help.py:82
+msgid "Include current directory into user PATH by default"
+msgstr "Privzeto vključi trenutno mapo v uporabniški PATH"
+
+#: ../src/msec/help.py:84
 msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
@@ -114,7 +257,7 @@ msgstr ""
 "Omogoči preverjanje dovoljenj za datoteke uporabnikov, ki si jih ne bi smel "
 "lastiti nekdo drug, ali ne bi smele biti zapisljive."
 
-#: ../src/msec/help.py:48
+#: ../src/msec/help.py:86
 msgid ""
 "Creates the symlink /etc/security/msec/server to point to /etc/security/msec/"
 "server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --"
@@ -133,7 +276,7 @@ msgstr ""
 "potrebno, morajo biti dovoljene storitve ročno vnešene v datoteke server."
 "STREŽNIŠKA_STOPNJA."
 
-#: ../src/msec/help.py:50
+#: ../src/msec/help.py:88
 msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
@@ -141,7 +284,11 @@ msgstr ""
 "Za overjanje uporabnikov uporabi gesla. Bodite IZREDNO pazljivi pri "
 "onemogočanju gesel, saj bo računalnik s tem zelo ranljiv."
 
-#: ../src/msec/help.py:52
+#: ../src/msec/help.py:90
+msgid "Show security notifications in system tray using libnotify."
+msgstr "Prikazuj varnostna obvestila v sistemski vrstici."
+
+#: ../src/msec/help.py:92
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
@@ -149,186 +296,23 @@ msgstr ""
 "Nastavi uporabniško masko za priklapljanje razdelkov VFAT in NTFS. Če je "
 "maska »-1«, se uporabi privzeta sistemska uporabniška maska."
 
-#: ../src/msec/help.py:54
+#: ../src/msec/help.py:94
 msgid "Enable checking for open network ports."
 msgstr "Omogoči preverjanje za odprta omrežna vrata."
 
-#: ../src/msec/help.py:56
-msgid "Enable logging of strange network packets."
-msgstr "Omogoči beleženje čudnih omrežnih paketov."
-
-#: ../src/msec/help.py:58
-msgid "Allow root access without password for the members of the wheel group."
-msgstr "Članom skupine wheel omogoči dostop do uporabnika root brez gesla."
-
-#: ../src/msec/help.py:60
-msgid "Fix owner and group of unowned files to use nobody/nogroup."
-msgstr "Popravi lastnika in skupino datotek brez lastnika na nobody/nogroup."
-
-#: ../src/msec/help.py:62
-msgid "Send security check results by email."
-msgstr "Sporočaj rezulate varnostnih preverjanj po pošti."
-
-#: ../src/msec/help.py:64
-msgid ""
-"Set the password minimum length and minimum number of digit and minimum "
-"number of capitalized letters, using length,ndigits,nupper format."
-msgstr ""
-"Nastavi najkrajšo dolžino gesla in števila števk ter velikih črk. Pri tem se "
-"uporabi obliko »dolžina,števk,velikih«."
-
-#: ../src/msec/help.py:66
-msgid "Set the root umask."
-msgstr "Nastavi uporabniško masko root-a."
-
-#: ../src/msec/help.py:68
-msgid "Enable checking for additions/removals of sgid files."
-msgstr ""
-"Omogoči preverjanje, ali so bile dodane/odstranjene datoteke, ki se zaženejo "
-"s pravicami njihovih skupin."
-
-#: ../src/msec/help.py:70
-msgid ""
-"Enable verification of integrity of installed RPM packages. This will notify "
-"you if checksums of the installed files were changed, showing separate "
-"results for binary and configuration files."
-msgstr ""
-"Omogoči potrjevanje integritete nameščenih paketov RPM. Če se nadzorne vsote "
-"nameščenih datotek spremenijo, boste o tem obveščeni. Rezultati za binarne in "
-"nastavitvene datoteke bodo prikazani ločeno."
-
-#: ../src/msec/help.py:72
-msgid ""
-"Allow local users to connect to X server. Accepted arguments: yes (all "
-"connections are allowed), local (only local connection), no (no connection)."
-msgstr ""
-"Krajevnim uporabnikom dovoli povezavo z grafičnim strežnikom X. Možni "
-"argumenti: yes (dovoljene so vse povezave), local (samo krajevne povezave), "
-"no (nobena povezava)."
-
-#: ../src/msec/help.py:74
-msgid "Enable checking for files/directories writable by everybody."
-msgstr "Omogoči preverjanje datotek in map, v katere lahko piše vsakdo."
-
-#: ../src/msec/help.py:76
-msgid "Log syslog messages on console terminal 12."
-msgstr "Prikazuj zapise v sistemski dnevnik v konzoli 12."
-
-#: ../src/msec/help.py:78
-msgid "Enable name resolution spoofing protection."
-msgstr "Zaščita pred lažnim predstavljanjem pri razreševanju imen."
-
-#: ../src/msec/help.py:80
-msgid ""
-"Defines the base security level, on top of which the current configuration "
-"is based."
-msgstr ""
-"Določa osnovno varnostno stopnjo, na kateri temeljijo trenutne nastavitve."
-
-#: ../src/msec/help.py:82
-msgid ""
-"Enable periodic permission checking for files specified in msec policy. If "
-"set to yes, the permissions are verified on every run. If set to enforce, "
-"incorrect permissions are restored to the ones specified in msec security "
-"policy."
-msgstr ""
-"Omogoči redno preverjanje za dovoljenja za datoteke določene v pravilih msec. "
-"Če je nastavljeno na »yes«, bodo dovoljenja preverjena ob vsakem zagonu. Če "
-"je »enforce«, bodo napačna dovoljenja povrnjena na dovoljenja določena v "
-"varnostnih pravilih msec."
-
-#: ../src/msec/help.py:84
-msgid ""
-"Enable verification for changes in the installed RPM packages. This will "
-"notify you when new packages are installed or removed."
-msgstr ""
-"Omogoči potrjevanje sprememb v nameščenih paketih RPM. Obveščeni boste o novo "
-"nameščenih in odstranjenih paketih."
-
-#: ../src/msec/help.py:86
-msgid "Set shell commands history size. A value of -1 means unlimited."
-msgstr ""
-"Nastavi velikost zgodovine ukazov v lupini. Vrednost -1 pomeni neomejeno."
-
-#: ../src/msec/help.py:88
-msgid "Allow system reboot and shutdown to local users."
-msgstr "Krajevnim uporabnikom dovoli ponovni zagon in izklop sistema."
-
-#: ../src/msec/help.py:90
-msgid "Enables logging of periodic checks to system log."
-msgstr "Omogoči beleženje rednih preverjanj v sistemski dnevnik."
-
-#: ../src/msec/help.py:92
-msgid "Enable checking for changes in system groups."
-msgstr "Omogoči preverjanje za spremembe v sistemskih skupinah."
-
-#: ../src/msec/help.py:94
-msgid ""
-"Enable password-related checks, such as empty passwords and strange super-"
-"user accounts."
-msgstr ""
-"Omogoči preverjanja povezana z gesli, npr. prazna gesla in čudne račune za "
-"super-uporabnike."
-
 #: ../src/msec/help.py:96
-msgid ""
-"Set the password history length to prevent password reuse. This is not "
-"supported by pam_tcb."
-msgstr ""
-"Nastavi dolžino zgodovine gesel, da se prepreči ponovna uporaba gesla. To ni "
-"podprto v pam_tcb."
-
-#: ../src/msec/help.py:98
-msgid "Enable daily security checks."
-msgstr "Omogoči dnevna varnostna preverjanja."
-
-#: ../src/msec/help.py:100
-msgid ""
-"Use secure location for temporary files. If this parameter is set to 'yes', "
-"user home directory will be used for temporary files. Otherwise, /tmp will "
-"be used."
-msgstr ""
-"Za začasne datoteke uporabi varno lokacijo. Če je nastavljeno na »yes«, bo za "
-"začasne datoteke uporabljena domača mapa, v nasprotnem bo uporabljena mapa "
-"/tmp."
-
-#: ../src/msec/help.py:102
 msgid "Allow direct root login on terminal."
 msgstr "V konzoli dovoli neposredno prijavo uporabnika root."
 
-#: ../src/msec/help.py:104
-msgid "Enable checking for changes in system users."
-msgstr "Omogoči preverjanje za spremembe v sistemskih uporabnikih."
-
-#: ../src/msec/help.py:106
-msgid "Enable checking for unowned files."
-msgstr "Omogoči preverjanje za datoteke brez lastnika."
-
-#: ../src/msec/help.py:108
-msgid "Allow display managers (kdm and gdm) to display list of local users."
+#: ../src/msec/help.py:98
+msgid "Run security checks when machine is running on battery power."
 msgstr ""
-"Dovoli upravljalnikom zaslona (KDM in GDM) prikaz seznama krajevnih "
-"uporabnikov."
 
-#: ../src/msec/help.py:110
-msgid ""
-"Enforce MSEC file directory permissions on system startup. If this parameter "
-"is set to 'enforce', system permissions will be enforced automatically, "
-"according to system security settings."
-msgstr ""
-"Ob zagonu sistema vsili dovoljenja za datoteke/mape iz MSEC. Če je ta "
-"parameter nastavljen na »enforce«, bodo sistemska dovoljenja vsiljena "
-"samodejno, kakor je določeno v nastavitvah sistemske varnosti."
+#: ../src/msec/help.py:100
+msgid "Enable checking for changes in system groups."
+msgstr "Omogoči preverjanje za spremembe v sistemskih skupinah."
 
-#: ../src/msec/help.py:112
-msgid "Include current directory into user PATH by default"
-msgstr "Privzeto vključi trenutno mapo v uporabniški PATH"
-
-#: ../src/msec/help.py:114
-msgid "Show security notifications in system tray using libnotify."
-msgstr "Prikazuj varnostna obvestila v sistemski vrstici."
-
-#: ../src/msec/help.py:116
+#: ../src/msec/help.py:102
 msgid ""
 "Allow remote root login via sshd. If yes, login is allowed. If without-"
 "password, only public-key authentication logins are allowed. See sshd_config"
@@ -339,19 +323,33 @@ msgstr ""
 "overjanjem s pomočjo javnega ključa. Za več podatkov si oglejte man "
 "sshd_config(5)."
 
-#: ../src/msec/help.py:118
-msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr ""
-"Omogoči preverjanje za nevarne možnosti v uporabniških datotekah .rhosts in ."
-"shosts."
+#: ../src/msec/help.py:104
+msgid "Enable logging of strange network packets."
+msgstr "Omogoči beleženje čudnih omrežnih paketov."
 
-#: ../src/msec/help.py:120
+#: ../src/msec/help.py:106
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
 "Ob prehodu na stopnjo za enega uporabnika vprašaj za geslo uporabnika root "
 "(man sulogin(8))."
 
-#: ../src/msec/help.py:122
+#: ../src/msec/help.py:108
+msgid "Enable IP spoofing protection."
+msgstr "Omogoči zaščito pred lažnim predstavljanjem naslova IP."
+
+#: ../src/msec/help.py:110
+msgid "Allow root access without password for the members of the wheel group."
+msgstr "Članom skupine wheel omogoči dostop do uporabnika root brez gesla."
+
+#: ../src/msec/help.py:112
+msgid "Fix owner and group of unowned files to use nobody/nogroup."
+msgstr "Popravi lastnika in skupino datotek brez lastnika na nobody/nogroup."
+
+#: ../src/msec/help.py:114
+msgid "Send security check results by email."
+msgstr "Sporočaj rezulate varnostnih preverjanj po pošti."
+
+#: ../src/msec/help.py:116
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
@@ -359,15 +357,31 @@ msgstr ""
 "Ob prehodu iz računa uporabnika root v račun drugega uporabnika dovoli izvoz "
 "prikazovalnika. Za podrobnosti si oglejte man pam_xauth(8)."
 
-#: ../src/msec/help.py:124
-msgid "Set the user umask."
-msgstr "Nastavi uporabniško masko uporabnikov."
+#: ../src/msec/help.py:118
+msgid ""
+"Defines the sectool level to use during the periodic security check. You may "
+"use the sectool-gui application to select individual tests for each level. "
+"If this variable is not defined, the default level defined in sectool "
+"configuration will be used."
+msgstr ""
 
-#: ../src/msec/help.py:126
+#: ../src/msec/help.py:120
+msgid "Enable daily security checks."
+msgstr "Omogoči dnevna varnostna preverjanja."
+
+#: ../src/msec/help.py:122
 msgid "Accept ICMP echo."
 msgstr "Sprejmi odmev ICMP."
 
-#: ../src/msec/help.py:128
+#: ../src/msec/help.py:124
+msgid ""
+"Set the password minimum length and minimum number of digit and minimum "
+"number of capitalized letters, using length,ndigits,nupper format."
+msgstr ""
+"Nastavi najkrajšo dolžino gesla in števila števk ter velikih črk. Pri tem se "
+"uporabi obliko »dolžina,števk,velikih«."
+
+#: ../src/msec/help.py:126
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
@@ -379,9 +393,19 @@ msgstr ""
 "Če je to »no«, morajo biti storitve dovoljene ročno z vpisom v /etc/hosts."
 "allow (oglejte si man hosts.allow(5))."
 
+#: ../src/msec/help.py:128
+msgid ""
+"Enable verification of integrity of installed RPM packages. This will notify "
+"you if checksums of the installed files were changed, showing separate "
+"results for binary and configuration files."
+msgstr ""
+"Omogoči potrjevanje integritete nameščenih paketov RPM. Če se nadzorne vsote "
+"nameščenih datotek spremenijo, boste o tem obveščeni. Rezultati za binarne "
+"in nastavitvene datoteke bodo prikazani ločeno."
+
 #: ../src/msec/help.py:130
-msgid "Activate ethernet cards promiscuity check."
-msgstr "Omogoči preverjanje promiskuitete omrežne kartice."
+msgid "Set the root umask."
+msgstr "Nastavi uporabniško masko root-a."
 
 #: ../src/msec/help.py:132
 msgid "Perform hourly security check for changes in system configuration."
@@ -396,410 +420,186 @@ msgstr "Ob zagonu sistema vsili nastavitve MSEC"
 msgid "Enable periodic security check results to terminal."
 msgstr "Omogoči izpis rezultatov rednih varnostnih preverjanj v terminal."
 
-#: ../src/msec/libmsec.py:338
+#: ../src/msec/help.py:138
+msgid "Accept bogus IPv4 error messages."
+msgstr "Sprejmi lažna sporočila o napakah IPv4."
+
+#: ../src/msec/help.py:140
+msgid "Enable checking for additions/removals of sgid files."
+msgstr ""
+"Omogoči preverjanje, ali so bile dodane/odstranjene datoteke, ki se zaženejo "
+"s pravicami njihovih skupin."
+
+#: ../src/msec/help.py:142
+msgid "Activate ethernet cards promiscuity check."
+msgstr "Omogoči preverjanje promiskuitete omrežne kartice."
+
+#: ../src/msec/libmsec.py:266
 msgid "%s modified so launched command: %s"
 msgstr "%s je bila spremenjena, zato je bil zagnan ukaz: %s"
 
-#: ../src/msec/libmsec.py:347
+#: ../src/msec/libmsec.py:275
 msgid "%s modified so should have run command: %s"
 msgstr "%s je bila spremenjena, zato bi moral biti zagnan ukaz: %s"
 
-#: ../src/msec/libmsec.py:449 ../src/msec/libmsec.py:481
+#: ../src/msec/libmsec.py:377 ../src/msec/libmsec.py:409
 msgid "deleted %s"
 msgstr "zbrisana je bila %s"
 
-#: ../src/msec/libmsec.py:467
+#: ../src/msec/libmsec.py:395
 msgid "touched file %s"
 msgstr "dotaknjena je bila datoteka %s"
 
-#: ../src/msec/libmsec.py:487
+#: ../src/msec/libmsec.py:415
 msgid "made symbolic link from %s to %s"
 msgstr "ustvarjena je bila simbolna povezava od %s do %s"
 
-#: ../src/msec/libmsec.py:490
+#: ../src/msec/libmsec.py:418
 msgid "moved file %s to %s"
 msgstr "datoteka %s je bila premaknjena v %s"
 
-#: ../src/msec/libmsec.py:540 ../src/msec/libmsec.py:556
+#: ../src/msec/libmsec.py:468 ../src/msec/libmsec.py:484
 msgid "set variable %s to %s in %s"
 msgstr "spremenljivka %s je bila nastavljena na %s v %s"
 
-#: ../src/msec/libmsec.py:767
+#: ../src/msec/libmsec.py:686
 msgid "Error loading plugin '%s' from %s: %s"
 msgstr "Napaka nalaganja vstavka »%s« iz %s: %s"
 
-#: ../src/msec/libmsec.py:781
+#: ../src/msec/libmsec.py:703
 msgid "Invalid callback: %s"
 msgstr "Neveljaven povratni klic: %s"
 
-#: ../src/msec/libmsec.py:790
+#: ../src/msec/libmsec.py:712
 msgid "Plugin %s not found"
 msgstr "Vstavek %s ni bil najden"
 
-#: ../src/msec/libmsec.py:797
+#: ../src/msec/libmsec.py:719
 msgid "Not supported function '%s' in '%s'"
 msgstr "Nepodprta funkcija »%s« v »%s«"
 
-#: ../src/msec/libmsec.py:804 ../src/msec/libmsec.py:1638
+#: ../src/msec/libmsec.py:726 ../src/msec/libmsec.py:856
 msgid "In check-only mode, nothing is written back to disk."
 msgstr "V načinu samo za preverjanje. Nič ni zapisano na disk."
 
-#: ../src/msec/libmsec.py:821
-msgid "'%s' is not available in this version"
-msgstr "»%s« v tej različici ni na voljo"
-
-#: ../src/msec/libmsec.py:831
+#: ../src/msec/libmsec.py:753
 msgid "Invalid parameter for %s: '%s'. Valid parameters: '%s'."
 msgstr "Neveljaven parameter za %s: »%s«. Veljavni parametri: »%s«"
 
-#: ../src/msec/libmsec.py:846
-msgid "Allowing unrestricted chkconfig for packages"
-msgstr "Dovoljevanje neomejenega chkconfig za pakete"
-
-#: ../src/msec/libmsec.py:851
-msgid "Restricting chkconfig for packages according to \"%s\" profile"
-msgstr "Omejevanje chkconfig za pakete, kakor določa profil »%s«"
-
-#: ../src/msec/libmsec.py:861
-msgid "Setting root umask to %s"
-msgstr "Nastavljanje uporabniške maske root-a na %s"
-
-#: ../src/msec/libmsec.py:871
-msgid "Setting users umask to %s"
-msgstr "Nastavljanje uporabniške maske uporabnikov na %s"
-
-#: ../src/msec/libmsec.py:892
-msgid "Allowing users to connect X server from everywhere"
-msgstr "Dovoljevanje uporabnikom povezavo s strežnikom X od kjerkoli"
-
-#: ../src/msec/libmsec.py:895
-msgid "Allowing users to connect X server from localhost"
-msgstr ""
-"Dovoljevanje uporabnikom povezavo s strežnikom X s krajevnega gostitelja"
-
-#: ../src/msec/libmsec.py:898
-msgid "Restricting X server connection to the console user"
-msgstr "Omejevanje povezave s strežnikom X na uporabnika konzole"
-
-#: ../src/msec/libmsec.py:901
-msgid "invalid allow_x_connections arg: %s"
-msgstr "neveljaven argument allow_x_connections: %s"
-
-#: ../src/msec/libmsec.py:924
-msgid "Allowing the X server to listen to tcp connections"
-msgstr "Dovoljevanje strežniku X, da posluša za povezave TCP"
-
-#: ../src/msec/libmsec.py:935
-msgid "Forbidding the X server to listen to tcp connection"
-msgstr "Prepovedovanje strežniku X, da bi poslušal za povezave TCP"
-
-#: ../src/msec/libmsec.py:951
-msgid "Invalid shell timeout \"%s\""
-msgstr "Neveljaven čas za potek za lupino (%s)"
-
-#: ../src/msec/libmsec.py:959
-msgid "Setting shell timeout to %s"
-msgstr "Nastavljanje časa za potek za lupino na %s"
-
-#: ../src/msec/libmsec.py:967
-msgid "Invalid shell history size \"%s\""
-msgstr "Neveljavna velikost zgodovine za lupino (%s)"
-
-#: ../src/msec/libmsec.py:978
-msgid "Setting shell history size to %s"
-msgstr "Nastavljanje velikost zgodovine za lupino na %s"
-
-#: ../src/msec/libmsec.py:982
-msgid "Removing limit on shell history size"
-msgstr "Odstranjevanje omejitve velikosti zgodovine za lupino"
-
-#: ../src/msec/libmsec.py:991
-msgid "Invalid file system umask \"%s\""
-msgstr "Neveljavna uporabniška maska »%s« na datotečnem sistemu"
-
-#: ../src/msec/libmsec.py:1025
-msgid "Allowing reboot and shutdown to the console user"
-msgstr "Dovoljevanje izklopa in ponovnega zagona za uporabnike konzole"
-
-#: ../src/msec/libmsec.py:1032
-msgid "Allowing SysRq key to the console user"
-msgstr "Dovoljevanje tipke SysRq za uporabnike konzole"
-
-#: ../src/msec/libmsec.py:1035
-msgid "Allowing Shutdown/Reboot in GDM"
-msgstr "Dovoljevanje izklopa in ponovnega zagona v GDM"
-
-#: ../src/msec/libmsec.py:1039
-msgid "Allowing Shutdown/Reboot in KDM"
-msgstr "Dovoljevanje izklopa in ponovnega zagona v KDM"
-
-#: ../src/msec/libmsec.py:1042
-msgid "Allowing Ctrl-Alt-Del from console"
-msgstr "Dovoljevanje Ctrl+Alt+Del v konzoli"
-
-#: ../src/msec/libmsec.py:1046
-msgid "Forbidding reboot and shutdown to the console user"
-msgstr "Prepovedovanje izklopa in ponovnega zagona za uporabnike konzole"
-
-#: ../src/msec/libmsec.py:1054
-msgid "Forbidding SysRq key to the console user"
-msgstr "Prepovedovanje tipke SysRq za uporabnike konzole"
-
-#: ../src/msec/libmsec.py:1057
-msgid "Forbidding Shutdown/Reboot in GDM"
-msgstr "Prepovedovanje izklopa in ponovnega zagona v GDM"
-
-#: ../src/msec/libmsec.py:1061
-msgid "Forbidding Shutdown/Reboot in KDM"
-msgstr "Prepovedovanje izklopa in ponovnega zagona v KDM"
-
-#: ../src/msec/libmsec.py:1064
-msgid "Forbidding Ctrl-Alt-Del from console"
-msgstr "Prepovedovanje Ctrl+Alt+Del v konzoli"
-
-#: ../src/msec/libmsec.py:1078
-msgid "Allowing list of users in KDM"
-msgstr "Dovoljevanje seznama uporabnikov v KDM"
-
-#: ../src/msec/libmsec.py:1082
-msgid "Allowing list of users in GDM"
-msgstr "Dovoljevanje seznama uporabnikov v GDM"
-
-#: ../src/msec/libmsec.py:1087
-msgid "Forbidding list of users in KDM"
-msgstr "Prepovedovanje seznama uporabnikov v KDM"
-
-#: ../src/msec/libmsec.py:1091
-msgid "Forbidding list of users in GDM"
-msgstr "Prepovedovanje seznama uporabnikov v GDM"
-
-#: ../src/msec/libmsec.py:1105
-msgid "Allowing remote root login"
-msgstr "Dovoljevanje oddaljene prijave uporabnika root"
-
-#: ../src/msec/libmsec.py:1109
-msgid "Forbidding remote root login"
-msgstr "Prepovedovanje oddaljene prijave uporabnika root"
-
-#: ../src/msec/libmsec.py:1113
-msgid "Allowing remote root login only by passphrase"
-msgstr "Dovoljevanje oddaljene prijave uporabnika root samo s šifrirno frazo"
-
-#: ../src/msec/libmsec.py:1125
-msgid "Allowing autologin"
-msgstr "Dovoljevanje samodejne prijave"
-
-#: ../src/msec/libmsec.py:1128
-msgid "Forbidding autologin"
-msgstr "Prepovedovanje samodejne prijave"
-
-#: ../src/msec/libmsec.py:1133
-msgid "Activating password in boot loader"
-msgstr "Omogočanje gesla v zagonskem nalagalniku"
-
-#: ../src/msec/libmsec.py:1147
-msgid "Removing password in boot loader"
-msgstr "Odstranjevanje gesla iz zagonskega nalagalnika"
-
-#: ../src/msec/libmsec.py:1162
-msgid "Enabling log on console"
-msgstr "Omogočanje dnevnika v konzoli"
-
-#: ../src/msec/libmsec.py:1166
-msgid "Disabling log on console"
-msgstr "Onemogočanje dnevnika v konzoli"
-
-#: ../src/msec/libmsec.py:1178
-msgid "Activating daily security check"
-msgstr "Omogočanje dnevnega preverjanja varnosti"
-
-#: ../src/msec/libmsec.py:1182
-msgid "Disabling daily security check"
-msgstr "Onemogočanje dnevnega preverjanja varnosti"
-
-#: ../src/msec/libmsec.py:1199
-msgid "Authorizing all services"
-msgstr "Dovoljevanje vseh storitev"
-
-#: ../src/msec/libmsec.py:1203
-msgid "Disabling all services"
-msgstr "Onemogočanje vseh storitev"
-
-#: ../src/msec/libmsec.py:1207
-msgid "Disabling non local services"
-msgstr "Onemogočanje ne-krajevnih storitev"
-
-#: ../src/msec/libmsec.py:1240
-msgid "Enabling name resolution spoofing protection"
-msgstr "Omogočanje zaščite pred lažnim predstavljanjem pri razreševanju imen"
-
-#: ../src/msec/libmsec.py:1245
-msgid "Disabling name resolution spoofing protection"
-msgstr "Onemogočanje zaščite pred lažnim predstavljanjem pri razreševanju imen"
-
-#: ../src/msec/libmsec.py:1273
-msgid "Enabling sulogin in single user runlevel"
-msgstr "Omogočanje sulogin-a v eno-uporabniškem načinu"
-
-#: ../src/msec/libmsec.py:1277
-msgid "Disabling sulogin in single user runlevel"
-msgstr "Onemogočanje sulogin-a v eno-uporabniškem načinu"
-
-#: ../src/msec/libmsec.py:1288
-msgid "Enabling msec periodic runs"
-msgstr "Omogočanje rednega zaganjanja MSEC"
-
-#: ../src/msec/libmsec.py:1292
-msgid "Disabling msec periodic runs"
-msgstr "Onemogočanje rednega zaganjanja MSEC"
-
-#: ../src/msec/libmsec.py:1305
-msgid "Enabling crontab and at"
-msgstr "Omogočanje crontab-a in at-a"
-
-#: ../src/msec/libmsec.py:1312
-msgid "Disabling crontab and at"
-msgstr "Onemogočanje crontab-a in at-a"
-
-#: ../src/msec/libmsec.py:1324
-msgid "Allowing export display from root"
-msgstr "Dovoljevanje izvoza prikazovalnika uporabniku root"
-
-#: ../src/msec/libmsec.py:1328
-msgid "Forbidding export display from root"
-msgstr "Prepovedovanje izvoza prikazovalnika uporabniku root"
-
-#: ../src/msec/libmsec.py:1339
-msgid "Activating periodic promiscuity check"
-msgstr "Omogočanje rednega preverjanja promiskuitete"
-
-#: ../src/msec/libmsec.py:1343
-msgid "Disabling periodic promiscuity check"
-msgstr "Onemogočanje rednega preverjanja promiskuitete"
-
-#: ../src/msec/libmsec.py:1369
-msgid "Allowing direct root login"
-msgstr "Dovoljevanje neposredne prijave uporabnika root"
-
-#: ../src/msec/libmsec.py:1386
-msgid "Forbidding direct root login"
-msgstr "Prepovedovanje neposredne prijave uporabnika root"
-
-#: ../src/msec/libmsec.py:1516
-msgid "Using secure location for temporary files"
-msgstr "Uporaba varne lokacije za začasne datoteke"
-
-#: ../src/msec/libmsec.py:1518
-msgid "Not using secure location for temporary files"
-msgstr "Brez uporabe varne lokacije za začasne datoteke"
-
-#: ../src/msec/libmsec.py:1538
-msgid "Allowing including current directory in path"
-msgstr "Dovoljevanje vključitve trenutne mape v pot"
-
-#: ../src/msec/libmsec.py:1541
-msgid "Not allowing including current directory in path"
-msgstr "Prepovedovanje vključitve trenutne mape v pot"
-
-#: ../src/msec/libmsec.py:1568
+#: ../src/msec/libmsec.py:786
 msgid "user name %s not found"
 msgstr "ime uporabnika %s ni bilo najdeno"
 
-#: ../src/msec/libmsec.py:1580
+#: ../src/msec/libmsec.py:798
 msgid "user name not found for id %d"
 msgstr "ime uporabnika za ID %d ni bilo najdeno"
 
-#: ../src/msec/libmsec.py:1592
+#: ../src/msec/libmsec.py:810
 msgid "group name %s not found"
 msgstr "ime skupine %s ni bilo najdeno"
 
-#: ../src/msec/libmsec.py:1604
+#: ../src/msec/libmsec.py:822
 msgid "group name not found for id %d"
 msgstr "ime skupine za ID %d ni bilo najdeno"
 
-#: ../src/msec/libmsec.py:1614
+#: ../src/msec/libmsec.py:832
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
 "Ni moč preveriti /proc/mounts. Predpostavljanje, da so vsi datotečni sistemi "
 "krajevni."
 
-#: ../src/msec/libmsec.py:1653
+#: ../src/msec/libmsec.py:871
 msgid "Forcing ownership of %s to %s"
 msgstr "Vsiljevanje lastnika za %s na %s"
 
-#: ../src/msec/libmsec.py:1657
+#: ../src/msec/libmsec.py:875
 msgid "Error changing user on %s: %s"
 msgstr "Napaka pri spreminjanju lastnika za %s: %s"
 
-#: ../src/msec/libmsec.py:1659
+#: ../src/msec/libmsec.py:877
 msgid "Wrong owner of %s: should be %s"
 msgstr "Napačen lastnik za %s: moral bi biti %s"
 
-#: ../src/msec/libmsec.py:1662
+#: ../src/msec/libmsec.py:880
 msgid "Enforcing group on %s to %s"
 msgstr "Vsiljevanje skupine za %s na %s"
 
-#: ../src/msec/libmsec.py:1666
+#: ../src/msec/libmsec.py:884
 msgid "Error changing group on %s: %s"
 msgstr "Napaka pri spreminjanju skupine za %s: %s"
 
-#: ../src/msec/libmsec.py:1668
+#: ../src/msec/libmsec.py:886
 msgid "Wrong group of %s: should be %s"
 msgstr "Napačna skupina za %s: morala bi biti %s"
 
-#: ../src/msec/libmsec.py:1673
+#: ../src/msec/libmsec.py:891
 msgid "Enforcing permissions on %s to %o"
 msgstr "Vsiljevanje dovoljenj za %s na %o"
 
-#: ../src/msec/libmsec.py:1677
+#: ../src/msec/libmsec.py:895
 msgid "Error changing permissions on %s: %s"
 msgstr "Napaka pri spreminjanju dovoljenj za %s: %s"
 
-#: ../src/msec/libmsec.py:1679
+#: ../src/msec/libmsec.py:897
 msgid "Wrong permissions of %s: should be %o"
 msgstr "Napačna dovoljenja za %s: morala bi biti %o"
 
-#: ../src/msec/libmsec.py:1696
+#: ../src/msec/libmsec.py:914
 msgid "bad permissions for '%s': '%s'"
 msgstr "slaba dovoljenja za »%s«: »%s«"
 
-#: ../src/msec/libmsec.py:1721
+#: ../src/msec/libmsec.py:939
 msgid "Non local file: \"%s\". Nothing changed."
 msgstr "Ne-krajevna datoteka: »%s«. Nič se ni spremenilo."
 
-#: ../src/msec/libmsec.py:1763
+#: ../src/msec/libmsec.py:981
 msgid "Checking paths: %s"
 msgstr "Preverjanje poti: %s"
 
-#: ../src/msec/msec.py:85 ../src/msec/msecperms.py:98
+#: ../src/msec/msec.py:87 ../src/msec/msecperms.py:96
 msgid "Invalid security level '%s'."
 msgstr "Neveljavna varnostna stopnja »%s«."
 
-#: ../src/msec/msec.py:108 ../src/msec/msecperms.py:127
+#: ../src/msec/msec.py:114 ../src/msec/msecperms.py:121
 msgid "Msec: Mandriva Security Center (%s)\n"
 msgstr "MSEC: Mandrivino varnostno središče (%s)\n"
 
-#: ../src/msec/msec.py:109 ../src/msec/msecperms.py:128
+#: ../src/msec/msec.py:115 ../src/msec/msecperms.py:122
 msgid "Error: This application must be executed by root!"
 msgstr "Napaka: ta program mora zagnati uporabnik root."
 
-#: ../src/msec/msec.py:110 ../src/msec/msecperms.py:129
+#: ../src/msec/msec.py:116 ../src/msec/msecperms.py:123
 msgid "Run with --help to get help."
 msgstr "Za pomoč zaženite z možnostjo --help."
 
-#: ../src/msec/msec.py:132 ../src/msec/msecperms.py:150
+#: ../src/msec/msec.py:142
 msgid "Level '%s' not found, aborting."
 msgstr "Stopnja »%s« ni bila najdena, prekinjanje."
 
-#: ../src/msec/msec.py:134 ../src/msec/msecperms.py:152
+#: ../src/msec/msec.py:144
 msgid "Switching to '%s' level."
 msgstr "Preklapljam na stopnjo »%s«."
 
-#: ../src/msec/msec.py:151 ../src/msec/msecperms.py:170
+#: ../src/msec/msec.py:151
+#, fuzzy
+msgid "No custom file permissions for level '%s'."
+msgstr "slaba dovoljenja za »%s«: »%s«"
+
+#: ../src/msec/msec.py:152
+#, fuzzy
+msgid "Saving file permissions to '%s' level."
+msgstr "Spreminjanje dovoljenj za %s"
+
+#: ../src/msec/msec.py:192 ../src/msec/msecperms.py:160
 msgid "Unable to save config!"
 msgstr "Ni moč shraniti nastavitev."
 
-#: ../src/msec/msecgui.py:50
+#: ../src/msec/msec.py:194
+#, fuzzy
+msgid "Unable to save file system permissions!"
+msgstr "Ponastavi na privzeta dovoljenja stopnje"
+
+#: ../src/msec/msecgui.py:51
 msgid ""
 "<big><b>Choose security level</b></big>\n"
 "This application allows you to configure your system security. If you wish\n"
@@ -809,7 +609,7 @@ msgstr ""
 "Ta program vam omogoča nastaviti varnost sistema. Če želite\n"
 " omogočiti varovanje, izberite ustrezno varnostno stopnjo: "
 
-#: ../src/msec/msecgui.py:54
+#: ../src/msec/msecgui.py:55
 msgid ""
 "This profile configures a reasonably safe set of security features. It "
 "activates several non-intrusive periodic system checks. This is the "
@@ -819,7 +619,7 @@ msgstr ""
 "nemotečih rednih preverjanj sistema. To je priporočljiva stopnja za običajno "
 "namizje."
 
-#: ../src/msec/msecgui.py:56
+#: ../src/msec/msecgui.py:57
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. It also runs a wider set of "
@@ -830,7 +630,7 @@ msgstr ""
 "do sistema. Prav tako se zažene širši nabor rednih preverjanj. Ta stopnja je "
 "priporočljiva za strežnike in sisteme, kjer je varnost zelo pomembna."
 
-#: ../src/msec/msecgui.py:59
+#: ../src/msec/msecgui.py:60
 msgid ""
 "<big><b>System security options</b></big>\n"
 "These options control the local security configuration, such as the login "
@@ -845,7 +645,7 @@ msgstr ""
 "možnostmi za gesla, integracijo z drugimi varnostnimi orodji in privzetimi\n"
 "dovoljenji za ustvarjanje datotek.  "
 
-#: ../src/msec/msecgui.py:64
+#: ../src/msec/msecgui.py:65
 msgid ""
 "<big><b>Network security options</b></big>\n"
 "These options define the network security against remote threats, "
@@ -857,7 +657,7 @@ msgstr ""
 "nedovoljenimi dostopi\n"
 "in poskusi vdretja.   "
 
-#: ../src/msec/msecgui.py:68
+#: ../src/msec/msecgui.py:69
 msgid ""
 "<big><b>Periodic security checks</b></big>\n"
 "These options configure the security checks that should be executed "
@@ -866,7 +666,7 @@ msgstr ""
 "<big><b>Varnostna preverjanja</b></big>\n"
 "Te možnosti nastavljajo varnostna preverjanja, ki se redno izvajajo.  "
 
-#: ../src/msec/msecgui.py:71
+#: ../src/msec/msecgui.py:72
 msgid ""
 "<big><b>Exceptions</b></big>\n"
 "Here you can configure the allowed exceptions for msec periodic security\n"
@@ -879,7 +679,7 @@ msgstr ""
 "izjem.\n"
 "Vedite, da je vsaka izjema razčlenjena kot regularni izraz."
 
-#: ../src/msec/msecgui.py:76
+#: ../src/msec/msecgui.py:77
 msgid ""
 "<big><b>File permissions</b></big>\n"
 "These options allow to fine-tune system permissions for important files and "
@@ -898,35 +698,27 @@ msgstr ""
 "bo sporočena. Dovoljenja je moč vsiliti samodejno, tako da se ob spremembi "
 "nastavijo na tu določene nastavitve.  "
 
-#: ../src/msec/msecgui.py:82
+#: ../src/msec/msecgui.py:83
 msgid "Save and apply new configuration?"
 msgstr "Ali shranim in uveljavim nove nastavitve?"
 
-#: ../src/msec/msecgui.py:150
+#: ../src/msec/msecgui.py:151
 msgid "_File"
 msgstr "_Datoteka"
 
-#: ../src/msec/msecgui.py:152
+#: ../src/msec/msecgui.py:153
 msgid "_Save configuration"
 msgstr "_Shrani nastavitve"
 
-#: ../src/msec/msecgui.py:154
-msgid "_Import configuration"
-msgstr "_Uvozi nastavitve"
-
-#: ../src/msec/msecgui.py:155
-msgid "_Export configuration"
-msgstr "_Izvozi nastavitve"
-
-#: ../src/msec/msecgui.py:157
+#: ../src/msec/msecgui.py:158
 msgid "_Quit"
 msgstr "_Končaj"
 
-#: ../src/msec/msecgui.py:159 ../src/msec/msecgui.py:161
+#: ../src/msec/msecgui.py:160 ../src/msec/msecgui.py:162
 msgid "_Help"
 msgstr "_Pomoč"
 
-#: ../src/msec/msecgui.py:162
+#: ../src/msec/msecgui.py:163
 msgid "_About"
 msgstr "_O programu"
 
@@ -934,222 +726,210 @@ msgstr "_O programu"
 msgid "MSEC: System Security and Audit"
 msgstr "MSEC: sistemska varnost in nadzor"
 
-#: ../src/msec/msecgui.py:205
-msgid "Save and apply current policy"
-msgstr "Shrani in uveljavi trenutna pravila"
-
-#: ../src/msec/msecgui.py:211
-msgid "Quit"
-msgstr "Končaj"
-
-#: ../src/msec/msecgui.py:227
+#: ../src/msec/msecgui.py:208
 msgid "Basic security"
 msgstr "Osnovna varnost"
 
-#: ../src/msec/msecgui.py:228
+#: ../src/msec/msecgui.py:209
 msgid "System security"
 msgstr "Sistemska varnost"
 
-#: ../src/msec/msecgui.py:229
+#: ../src/msec/msecgui.py:210
 msgid "Network security"
 msgstr "Omrežna varnost"
 
-#: ../src/msec/msecgui.py:230
+#: ../src/msec/msecgui.py:211
 msgid "Periodic checks"
 msgstr "Redna preverjanja"
 
-#: ../src/msec/msecgui.py:231
+#: ../src/msec/msecgui.py:212
 msgid "Exceptions"
 msgstr "Izjeme"
 
-#: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:909
+#: ../src/msec/msecgui.py:213 ../src/msec/msecgui.py:890
 msgid "Permissions"
 msgstr "Dovoljenja"
 
-#: ../src/msec/msecgui.py:265
+#: ../src/msec/msecgui.py:246
 msgid "MSEC option changes"
 msgstr "Spremembe možnosti MSEC"
 
-#: ../src/msec/msecgui.py:265
+#: ../src/msec/msecgui.py:246
 msgid "option"
 msgstr "možnost"
 
-#: ../src/msec/msecgui.py:266
+#: ../src/msec/msecgui.py:247
 msgid "System permissions changes"
 msgstr "Spremembe sistemskih dovoljenj"
 
-#: ../src/msec/msecgui.py:266
+#: ../src/msec/msecgui.py:247
 msgid "permission check"
 msgstr "preverjanje dovoljenj"
 
-#: ../src/msec/msecgui.py:276
+#: ../src/msec/msecgui.py:257
 msgid "changed %s <b>%s</b> (%s -> %s)"
 msgstr "sprememba %s <b>%s</b> (%s → %s)"
 
-#: ../src/msec/msecgui.py:281
+#: ../src/msec/msecgui.py:262
 msgid "added %s <b>%s</b> (%s)"
 msgstr "dodatek %s <b>%s</b> (%s)"
 
-#: ../src/msec/msecgui.py:286
+#: ../src/msec/msecgui.py:267
 msgid "removed %s <b>%s</b>"
 msgstr "odstranitev %s <b>%s</b>"
 
-#: ../src/msec/msecgui.py:290
+#: ../src/msec/msecgui.py:271
 msgid "no changes"
 msgstr "brez sprememb"
 
-#: ../src/msec/msecgui.py:302
+#: ../src/msec/msecgui.py:283
 msgid "Saving changes.."
 msgstr "Shranjevanje sprememb ..."
 
-#: ../src/msec/msecgui.py:336
+#: ../src/msec/msecgui.py:317
 msgid "<b>%s:</b> <i>%s</i>\n"
 msgstr "<b>%s:</b> <i>%s</i>\n"
 
-#: ../src/msec/msecgui.py:343
+#: ../src/msec/msecgui.py:324
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
 msgstr "<b>Rezultati poskusnega zagona MSEC:</b> <i>%s</i>"
 
-#: ../src/msec/msecgui.py:351
+#: ../src/msec/msecgui.py:332
 msgid "Details"
 msgstr "Podrobnosti"
 
-#: ../src/msec/msecgui.py:357
+#: ../src/msec/msecgui.py:338
 msgid "MSEC messages (%s): %d"
 msgstr "Sporočila od MSEC (%s): %d"
 
-#: ../src/msec/msecgui.py:371
+#: ../src/msec/msecgui.py:352
 msgid "Details (%d changes).."
 msgstr "Podrobnosti (sprememb: %d) ..."
 
-#: ../src/msec/msecgui.py:419
+#: ../src/msec/msecgui.py:405
 msgid "No base msec level specified, using '%s'"
 msgstr "Osnovna stopnja MSEC ni nastavljena, uporabljanje »%s«"
 
-#: ../src/msec/msecgui.py:422
+#: ../src/msec/msecgui.py:408
 msgid "Detected base msec level '%s'"
 msgstr "Zaznana osnovna stopnja MSEC »%s«"
 
-#: ../src/msec/msecgui.py:427
+#: ../src/msec/msecgui.py:413
 msgid "Custom base config level '%s' found. Will default to '%s'"
 msgstr "Najdena osnovna stopnja po meri »%s«. Privzeto se bo uporabila »%s«"
 
-#: ../src/msec/msecgui.py:455
+#: ../src/msec/msecgui.py:441
 msgid "Security Option"
 msgstr "Varnostna možnost"
 
-#: ../src/msec/msecgui.py:465
+#: ../src/msec/msecgui.py:451
 msgid "Description"
 msgstr "Opis"
 
-#: ../src/msec/msecgui.py:470
+#: ../src/msec/msecgui.py:456
 msgid "Value"
 msgstr "Vrednost"
 
-#: ../src/msec/msecgui.py:480
+#: ../src/msec/msecgui.py:466
 msgid "Invalid option '%s'!"
 msgstr "Neveljavna možnost »%s«."
 
-#: ../src/msec/msecgui.py:530
+#: ../src/msec/msecgui.py:516
 msgid "Enable MSEC tool"
 msgstr "Omogoči orodje MSEC"
 
-#: ../src/msec/msecgui.py:537
+#: ../src/msec/msecgui.py:523
 msgid "Select the base security level"
 msgstr "Izberite osnovno varnostno stopnjo"
 
-#: ../src/msec/msecgui.py:541
+#: ../src/msec/msecgui.py:527
 msgid "Standard"
 msgstr "Standardno"
 
-#: ../src/msec/msecgui.py:554
+#: ../src/msec/msecgui.py:536
 msgid "Secure"
 msgstr "Varno"
 
-#: ../src/msec/msecgui.py:571
+#: ../src/msec/msecgui.py:549
 msgid "Send security alerts by email"
 msgstr "Pošiljaj varnostna opozorila po pošti"
 
-#: ../src/msec/msecgui.py:578
+#: ../src/msec/msecgui.py:556
 msgid "System administrator email address:"
 msgstr "E-poštni naslov skrbnika sistema:"
 
-#: ../src/msec/msecgui.py:597
+#: ../src/msec/msecgui.py:575
 msgid "Display security alerts on desktop"
 msgstr "Prikazuj varnostna opozorila na namizju"
 
-#: ../src/msec/msecgui.py:758
+#: ../src/msec/msecgui.py:739
 msgid "Enable periodic security checks"
 msgstr "Omogoči redna varnostna preverjanja"
 
-#: ../src/msec/msecgui.py:820
+#: ../src/msec/msecgui.py:801
 msgid "Security check"
 msgstr "Varnostno preverjanje"
 
-#: ../src/msec/msecgui.py:826
+#: ../src/msec/msecgui.py:807
 msgid "Exception"
 msgstr "Izjema"
 
-#: ../src/msec/msecgui.py:847 ../src/msec/msecgui.py:966
+#: ../src/msec/msecgui.py:828 ../src/msec/msecgui.py:947
 msgid "Add a rule"
 msgstr "Dodaj pravilo"
 
-#: ../src/msec/msecgui.py:852 ../src/msec/msecgui.py:971
+#: ../src/msec/msecgui.py:833 ../src/msec/msecgui.py:952
 msgid "Delete"
 msgstr "Zbriši"
 
-#: ../src/msec/msecgui.py:891
+#: ../src/msec/msecgui.py:872
 msgid "Path"
 msgstr "Pot"
 
-#: ../src/msec/msecgui.py:897
+#: ../src/msec/msecgui.py:878
 msgid "User"
 msgstr "Uporabnik"
 
-#: ../src/msec/msecgui.py:903
+#: ../src/msec/msecgui.py:884
 msgid "Group"
 msgstr "Skupina"
 
-#: ../src/msec/msecgui.py:917
+#: ../src/msec/msecgui.py:898
 msgid "Enforce"
 msgstr "Vsili"
 
-#: ../src/msec/msecgui.py:961
-msgid "Reset to default level permissions"
-msgstr "Ponastavi na privzeta dovoljenja stopnje"
-
-#: ../src/msec/msecgui.py:1067
+#: ../src/msec/msecgui.py:1051
 msgid "Editing exception"
 msgstr "Urejanje izjeme"
 
-#: ../src/msec/msecgui.py:1072
+#: ../src/msec/msecgui.py:1056
 msgid "Adding new exception"
 msgstr "Dodajanje nove izjeme"
 
-#: ../src/msec/msecgui.py:1079
+#: ../src/msec/msecgui.py:1063
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr ""
 "Urejanje izjeme. Izberite ustrezno preverjanje msec in vrednost izjeme\n"
 
-#: ../src/msec/msecgui.py:1086
+#: ../src/msec/msecgui.py:1070
 msgid "Check: "
 msgstr "Preverjanje: "
 
-#: ../src/msec/msecgui.py:1101
+#: ../src/msec/msecgui.py:1085
 msgid "Exception: "
 msgstr "Izjema: "
 
-#: ../src/msec/msecgui.py:1136
+#: ../src/msec/msecgui.py:1120
 msgid "Changing permissions for %s"
 msgstr "Spreminjanje dovoljenj za %s"
 
-#: ../src/msec/msecgui.py:1143
+#: ../src/msec/msecgui.py:1127
 msgid "Adding new permission check"
 msgstr "Dodajanje novega preverjanja dovoljenj"
 
-#: ../src/msec/msecgui.py:1155
+#: ../src/msec/msecgui.py:1139
 msgid ""
 "Changing permissions on <b>%s</b>\n"
 "Please specify new permissions, or use 'current' to keep current "
@@ -1159,31 +939,31 @@ msgstr ""
 "Nastavite nova dovoljenja, ali pa uporabite »current«, da obdržite obstoječa "
 "dovoljenja.\n"
 
-#: ../src/msec/msecgui.py:1155
+#: ../src/msec/msecgui.py:1139
 msgid "new file"
 msgstr "nova datoteka"
 
-#: ../src/msec/msecgui.py:1163
+#: ../src/msec/msecgui.py:1147
 msgid "File: "
 msgstr "Datoteka: "
 
-#: ../src/msec/msecgui.py:1171
+#: ../src/msec/msecgui.py:1155
 msgid "User: "
 msgstr "Uporabnik: "
 
-#: ../src/msec/msecgui.py:1179
+#: ../src/msec/msecgui.py:1163
 msgid "Group: "
 msgstr "Skupina: "
 
-#: ../src/msec/msecgui.py:1187
+#: ../src/msec/msecgui.py:1171
 msgid "Permissions: "
 msgstr "Dovoljenja: "
 
-#: ../src/msec/msecgui.py:1248
+#: ../src/msec/msecgui.py:1232
 msgid "Select new value for %s"
 msgstr "Izberite novo vrednost za %s"
 
-#: ../src/msec/msecgui.py:1257
+#: ../src/msec/msecgui.py:1241
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1197,29 +977,262 @@ msgstr ""
 "\t%sVrednost običajne stopnje:\t<i>%s</i>%s\n"
 "\t%sVrednost varne stopnje:\t\t<i>%s</i>%s\n"
 
-#: ../src/msec/msecgui.py:1268
+#: ../src/msec/msecgui.py:1252
 msgid "New value:"
 msgstr "Nova vrednost:"
 
-#: ../src/msec/msecgui.py:1330
+#: ../src/msec/msecgui.py:1314
 msgid "Save your changes?"
 msgstr "Ali shranim spremembe?"
 
-#: ../src/msec/msecgui.py:1332
+#: ../src/msec/msecgui.py:1316
 msgid "_Cancel"
 msgstr "_Prekliči"
 
-#: ../src/msec/msecgui.py:1333
+#: ../src/msec/msecgui.py:1317
 msgid "_Ignore"
 msgstr "_Zanemari"
 
-#: ../src/msec/msecgui.py:1334
+#: ../src/msec/msecgui.py:1318
 msgid "_Save"
 msgstr "_Shrani"
 
-#: ../src/msec/msecgui.py:1336
+#: ../src/msec/msecgui.py:1320
 msgid "Do you want to save changes before closing?"
 msgstr "Ali želite pred zaprtjem shraniti spremembe?"
+
+#: ../src/msec/plugins/msec.py:149
+msgid "Allowing unrestricted chkconfig for packages"
+msgstr "Dovoljevanje neomejenega chkconfig za pakete"
+
+#: ../src/msec/plugins/msec.py:154
+msgid "Restricting chkconfig for packages according to \"%s\" profile"
+msgstr "Omejevanje chkconfig za pakete, kakor določa profil »%s«"
+
+#: ../src/msec/plugins/msec.py:164
+msgid "Setting root umask to %s"
+msgstr "Nastavljanje uporabniške maske root-a na %s"
+
+#: ../src/msec/plugins/msec.py:174
+msgid "Setting users umask to %s"
+msgstr "Nastavljanje uporabniške maske uporabnikov na %s"
+
+#: ../src/msec/plugins/msec.py:195
+msgid "Allowing users to connect X server from everywhere"
+msgstr "Dovoljevanje uporabnikom povezavo s strežnikom X od kjerkoli"
+
+#: ../src/msec/plugins/msec.py:198
+msgid "Allowing users to connect X server from localhost"
+msgstr ""
+"Dovoljevanje uporabnikom povezavo s strežnikom X s krajevnega gostitelja"
+
+#: ../src/msec/plugins/msec.py:201
+msgid "Restricting X server connection to the console user"
+msgstr "Omejevanje povezave s strežnikom X na uporabnika konzole"
+
+#: ../src/msec/plugins/msec.py:204
+msgid "invalid allow_x_connections arg: %s"
+msgstr "neveljaven argument allow_x_connections: %s"
+
+#: ../src/msec/plugins/msec.py:227
+msgid "Allowing the X server to listen to tcp connections"
+msgstr "Dovoljevanje strežniku X, da posluša za povezave TCP"
+
+#: ../src/msec/plugins/msec.py:238
+msgid "Forbidding the X server to listen to tcp connection"
+msgstr "Prepovedovanje strežniku X, da bi poslušal za povezave TCP"
+
+#: ../src/msec/plugins/msec.py:254
+msgid "Invalid shell timeout \"%s\""
+msgstr "Neveljaven čas za potek za lupino (%s)"
+
+#: ../src/msec/plugins/msec.py:262
+msgid "Setting shell timeout to %s"
+msgstr "Nastavljanje časa za potek za lupino na %s"
+
+#: ../src/msec/plugins/msec.py:270
+msgid "Invalid shell history size \"%s\""
+msgstr "Neveljavna velikost zgodovine za lupino (%s)"
+
+#: ../src/msec/plugins/msec.py:281
+msgid "Setting shell history size to %s"
+msgstr "Nastavljanje velikost zgodovine za lupino na %s"
+
+#: ../src/msec/plugins/msec.py:285
+msgid "Removing limit on shell history size"
+msgstr "Odstranjevanje omejitve velikosti zgodovine za lupino"
+
+#: ../src/msec/plugins/msec.py:294
+msgid "Invalid file system umask \"%s\""
+msgstr "Neveljavna uporabniška maska »%s« na datotečnem sistemu"
+
+#: ../src/msec/plugins/msec.py:328
+msgid "Allowing reboot and shutdown to the console user"
+msgstr "Dovoljevanje izklopa in ponovnega zagona za uporabnike konzole"
+
+#: ../src/msec/plugins/msec.py:335
+msgid "Allowing SysRq key to the console user"
+msgstr "Dovoljevanje tipke SysRq za uporabnike konzole"
+
+#: ../src/msec/plugins/msec.py:338
+msgid "Allowing Shutdown/Reboot in GDM"
+msgstr "Dovoljevanje izklopa in ponovnega zagona v GDM"
+
+#: ../src/msec/plugins/msec.py:342
+msgid "Allowing Shutdown/Reboot in KDM"
+msgstr "Dovoljevanje izklopa in ponovnega zagona v KDM"
+
+#: ../src/msec/plugins/msec.py:345
+msgid "Allowing Ctrl-Alt-Del from console"
+msgstr "Dovoljevanje Ctrl+Alt+Del v konzoli"
+
+#: ../src/msec/plugins/msec.py:349
+msgid "Forbidding reboot and shutdown to the console user"
+msgstr "Prepovedovanje izklopa in ponovnega zagona za uporabnike konzole"
+
+#: ../src/msec/plugins/msec.py:357
+msgid "Forbidding SysRq key to the console user"
+msgstr "Prepovedovanje tipke SysRq za uporabnike konzole"
+
+#: ../src/msec/plugins/msec.py:360
+msgid "Forbidding Shutdown/Reboot in GDM"
+msgstr "Prepovedovanje izklopa in ponovnega zagona v GDM"
+
+#: ../src/msec/plugins/msec.py:364
+msgid "Forbidding Shutdown/Reboot in KDM"
+msgstr "Prepovedovanje izklopa in ponovnega zagona v KDM"
+
+#: ../src/msec/plugins/msec.py:367
+msgid "Forbidding Ctrl-Alt-Del from console"
+msgstr "Prepovedovanje Ctrl+Alt+Del v konzoli"
+
+#: ../src/msec/plugins/msec.py:381
+msgid "Allowing list of users in KDM"
+msgstr "Dovoljevanje seznama uporabnikov v KDM"
+
+#: ../src/msec/plugins/msec.py:385
+msgid "Allowing list of users in GDM"
+msgstr "Dovoljevanje seznama uporabnikov v GDM"
+
+#: ../src/msec/plugins/msec.py:390
+msgid "Forbidding list of users in KDM"
+msgstr "Prepovedovanje seznama uporabnikov v KDM"
+
+#: ../src/msec/plugins/msec.py:394
+msgid "Forbidding list of users in GDM"
+msgstr "Prepovedovanje seznama uporabnikov v GDM"
+
+#: ../src/msec/plugins/msec.py:405
+msgid "Allowing autologin"
+msgstr "Dovoljevanje samodejne prijave"
+
+#: ../src/msec/plugins/msec.py:408
+msgid "Forbidding autologin"
+msgstr "Prepovedovanje samodejne prijave"
+
+#: ../src/msec/plugins/msec.py:413
+msgid "Activating password in boot loader"
+msgstr "Omogočanje gesla v zagonskem nalagalniku"
+
+#: ../src/msec/plugins/msec.py:427
+msgid "Removing password in boot loader"
+msgstr "Odstranjevanje gesla iz zagonskega nalagalnika"
+
+#: ../src/msec/plugins/msec.py:442
+msgid "Enabling log on console"
+msgstr "Omogočanje dnevnika v konzoli"
+
+#: ../src/msec/plugins/msec.py:446
+msgid "Disabling log on console"
+msgstr "Onemogočanje dnevnika v konzoli"
+
+#: ../src/msec/plugins/msec.py:463
+msgid "Authorizing all services"
+msgstr "Dovoljevanje vseh storitev"
+
+#: ../src/msec/plugins/msec.py:467
+msgid "Disabling all services"
+msgstr "Onemogočanje vseh storitev"
+
+#: ../src/msec/plugins/msec.py:471
+msgid "Disabling non local services"
+msgstr "Onemogočanje ne-krajevnih storitev"
+
+#: ../src/msec/plugins/msec.py:483
+msgid "Enabling sulogin in single user runlevel"
+msgstr "Omogočanje sulogin-a v eno-uporabniškem načinu"
+
+#: ../src/msec/plugins/msec.py:487
+msgid "Disabling sulogin in single user runlevel"
+msgstr "Onemogočanje sulogin-a v eno-uporabniškem načinu"
+
+#: ../src/msec/plugins/msec.py:498
+msgid "Enabling msec periodic runs"
+msgstr "Omogočanje rednega zaganjanja MSEC"
+
+#: ../src/msec/plugins/msec.py:502
+msgid "Disabling msec periodic runs"
+msgstr "Onemogočanje rednega zaganjanja MSEC"
+
+#: ../src/msec/plugins/msec.py:515
+msgid "Enabling crontab and at"
+msgstr "Omogočanje crontab-a in at-a"
+
+#: ../src/msec/plugins/msec.py:522
+msgid "Disabling crontab and at"
+msgstr "Onemogočanje crontab-a in at-a"
+
+#: ../src/msec/plugins/msec.py:534
+msgid "Allowing export display from root"
+msgstr "Dovoljevanje izvoza prikazovalnika uporabniku root"
+
+#: ../src/msec/plugins/msec.py:538
+msgid "Forbidding export display from root"
+msgstr "Prepovedovanje izvoza prikazovalnika uporabniku root"
+
+#: ../src/msec/plugins/msec.py:564
+msgid "Allowing direct root login"
+msgstr "Dovoljevanje neposredne prijave uporabnika root"
+
+#: ../src/msec/plugins/msec.py:581
+msgid "Forbidding direct root login"
+msgstr "Prepovedovanje neposredne prijave uporabnika root"
+
+#: ../src/msec/plugins/msec.py:603
+msgid "Using secure location for temporary files"
+msgstr "Uporaba varne lokacije za začasne datoteke"
+
+#: ../src/msec/plugins/msec.py:605
+msgid "Not using secure location for temporary files"
+msgstr "Brez uporabe varne lokacije za začasne datoteke"
+
+#: ../src/msec/plugins/msec.py:625
+msgid "Allowing including current directory in path"
+msgstr "Dovoljevanje vključitve trenutne mape v pot"
+
+#: ../src/msec/plugins/msec.py:628
+msgid "Not allowing including current directory in path"
+msgstr "Prepovedovanje vključitve trenutne mape v pot"
+
+#: ../src/msec/plugins/network.py:134
+msgid "Allowing remote root login"
+msgstr "Dovoljevanje oddaljene prijave uporabnika root"
+
+#: ../src/msec/plugins/network.py:138
+msgid "Forbidding remote root login"
+msgstr "Prepovedovanje oddaljene prijave uporabnika root"
+
+#: ../src/msec/plugins/network.py:142
+msgid "Allowing remote root login only by passphrase"
+msgstr "Dovoljevanje oddaljene prijave uporabnika root samo s šifrirno frazo"
+
+#: ../src/msec/plugins/network.py:175
+msgid "Enabling name resolution spoofing protection"
+msgstr "Omogočanje zaščite pred lažnim predstavljanjem pri razreševanju imen"
+
+#: ../src/msec/plugins/network.py:180
+msgid "Disabling name resolution spoofing protection"
+msgstr "Onemogočanje zaščite pred lažnim predstavljanjem pri razreševanju imen"
 
 #: ../src/msec/plugins/pam.py:67
 msgid "Using password to authenticate users"
@@ -1283,6 +1296,53 @@ msgstr ""
 "Onemogočanje transparentnega dostopa do uporabnika root za člane skupine "
 "wheel"
 
+#~ msgid ""
+#~ "Allow users to authenticate with their passwords for sudo. If this "
+#~ "parameter is set to 'wheel', users must belong to the 'wheel' group to be "
+#~ "able to use sudo"
+#~ msgstr ""
+#~ "Omogoči, da se uporabniki za ukaz sudo overijo z geslom. Če je ta "
+#~ "parameter nastavljen na »wheel«, morajo biti uporabniki za uporabo ukaza "
+#~ "sudo člani skupine »wheel«."
+
+#~ msgid ""
+#~ "Enable periodic permission checking for files specified in msec policy. "
+#~ "If set to yes, the permissions are verified on every run. If set to "
+#~ "enforce, incorrect permissions are restored to the ones specified in msec "
+#~ "security policy."
+#~ msgstr ""
+#~ "Omogoči redno preverjanje za dovoljenja za datoteke določene v pravilih "
+#~ "msec. Če je nastavljeno na »yes«, bodo dovoljenja preverjena ob vsakem "
+#~ "zagonu. Če je »enforce«, bodo napačna dovoljenja povrnjena na dovoljenja "
+#~ "določena v varnostnih pravilih msec."
+
+#~ msgid "'%s' is not available in this version"
+#~ msgstr "»%s« v tej različici ni na voljo"
+
+#~ msgid "Activating daily security check"
+#~ msgstr "Omogočanje dnevnega preverjanja varnosti"
+
+#~ msgid "Disabling daily security check"
+#~ msgstr "Onemogočanje dnevnega preverjanja varnosti"
+
+#~ msgid "Activating periodic promiscuity check"
+#~ msgstr "Omogočanje rednega preverjanja promiskuitete"
+
+#~ msgid "Disabling periodic promiscuity check"
+#~ msgstr "Onemogočanje rednega preverjanja promiskuitete"
+
+#~ msgid "_Import configuration"
+#~ msgstr "_Uvozi nastavitve"
+
+#~ msgid "_Export configuration"
+#~ msgstr "_Izvozi nastavitve"
+
+#~ msgid "Save and apply current policy"
+#~ msgstr "Shrani in uveljavi trenutna pravila"
+
+#~ msgid "Quit"
+#~ msgstr "Končaj"
+
 #~ msgid "Enable AppArmor security framework on boot"
 #~ msgstr "Ob zagonu omogoči varnostno ogrodje AppArmor"
 
@@ -1294,9 +1354,6 @@ msgstr ""
 #~ "Omogoči varnostno ogrodje PolicyKit za vse uporabnike. Če ta možnost ni "
 #~ "omogočena, lahko napredna dovoljenja in nastavitve za PolicyKit "
 #~ "spremenijo le uporabniki iz skupine wheel"
-
-#~ msgid "Enable periodic permission checking for system files."
-#~ msgstr "Omogoči redno preverjanje dovoljenj za sistemske datoteke."
 
 #~ msgid "Enable verification of installed RPM packages."
 #~ msgstr "Omogoči potrjevanje nameščenih paketov RPM."

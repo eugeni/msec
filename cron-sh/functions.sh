@@ -37,20 +37,33 @@ FILTER="\(`echo $EXCLUDEDIR | sed -e 's/ /\\\|/g'`\)"
 
 ### Functions ###
 
+function current_check_type() {
+        # determines current check type by matching the directory from where
+        # the main script is executed against possible check values. Currently,
+        # the following checks are supported: daily, weekly, monthly
+        # if nothing matches those directories, it is assumed that the check is "manual"
+        SCRIPT_DIR=$(dirname $0)
+        for check in daily weekly monthly; do
+                echo $SCRIPT_DIR | grep -q $check
+                ret=$?
+                if [ $ret = "0" ]; then
+                        echo $check
+                        return
+                fi
+        done
+        # nothing matches, so assuming a manual check
+        echo "manual"
+        return
+}
+
 function check_is_enabled() {
         # checks if a periodic check should run by matching the directory from where
         # the main script is run against check value. E.g., daily checks will work if
         # executed from /etc/cron.daily or any directory containing 'daily'; weekly checks
         # will run if run withing a directory containing 'weekly', and so on
         check=$1
-        SCRIPT_DIR=$(dirname $0)
-        if [ "a$check" = "ano" ]; then
-                return 1
-        fi
-        # check if the test is supposed to be executed on this run
-        echo $SCRIPT_DIR | grep -q $check
-        val=$?
-        if [ "$val" = "0" ]; then
+        current_check=$(current_check_type)
+        if [ "$check" = "$current_check" ]; then
                 return 0
         fi
         # is the check being run manually (e.g., it is not a crontab symlink?)

@@ -2,16 +2,16 @@
 # msec: rootkit security check
 
 # check if we are run from main script
-if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECURITY_LOG" ]; then
+if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECURITY_LOG" -o -z "${CURRENT_CHECK_TYPE}" ]; then
         # variables are set in security.sh and propagated to the subscripts
         echo "Error: this check should be run by the main msec security check!"
         echo "       do not run it directly unless you know what you are doing."
         return 1
 fi
 
-export CHKROOTKIT_TODAY="/var/log/security/chkrootkit.today"
-CHKROOTKIT_YESTERDAY="/var/log/security/chkrootkit.yesterday"
-CHKROOTKIT_DIFF="/var/log/security/chkrootkit.diff"
+export CHKROOTKIT_TODAY="/var/log/security/chkrootkit.${CURRENT_CHECK_TYPE}.today"
+CHKROOTKIT_YESTERDAY="/var/log/security/chkrootkit.${CURRENT_CHECK_TYPE}.yesterday"
+CHKROOTKIT_DIFF="/var/log/security/chkrootkit.${CURRENT_CHECK_TYPE}.diff"
 
 if [[ -f ${CHKROOTKIT_TODAY} ]]; then
     mv ${CHKROOTKIT_TODAY} ${CHKROOTKIT_YESTERDAY};

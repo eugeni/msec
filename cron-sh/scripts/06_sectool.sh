@@ -2,7 +2,7 @@
 # msec: sectool check
 
 # check if we are run from main script
-if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECURITY_LOG" ]; then
+if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECURITY_LOG" -o -z "${CURRENT_CHECK_TYPE}" ]; then
         # variables are set in security.sh and propagated to the subscripts
         echo "Error: this check should be run by the main msec security check!"
         echo "       do not run it directly unless you know what you are doing."
@@ -10,9 +10,9 @@ if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECUR
 fi
 
 # check for changes in users
-SECTOOL_TODAY="/var/log/security/sectool.today"
-SECTOOL_YESTERDAY="/var/log/security/sectool.yesterday"
-SECTOOL_DIFF="/var/log/security/sectool.diff"
+SECTOOL_TODAY="/var/log/security/sectool.${CURRENT_CHECK_TYPE}.today"
+SECTOOL_YESTERDAY="/var/log/security/sectool.${CURRENT_CHECK_TYPE}.yesterday"
+SECTOOL_DIFF="/var/log/security/sectool.${CURRENT_CHECK_TYPE}.diff"
 
 if [[ -f ${SECTOOL_TODAY} ]]; then
     mv ${SECTOOL_TODAY} ${SECTOOL_YESTERDAY};

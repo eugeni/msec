@@ -2,22 +2,22 @@
 # msec: rpm security check
 
 # check if we are run from main script
-if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECURITY_LOG" ]; then
+if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECURITY_LOG" -o -z "${CURRENT_CHECK_TYPE}" ]; then
         # variables are set in security.sh and propagated to the subscripts
         echo "Error: this check should be run by the main msec security check!"
         echo "       do not run it directly unless you know what you are doing."
         return 1
 fi
 
-export RPM_VA_TODAY="/var/log/security/rpm-va.today"
-RPM_VA_YESTERDAY="/var/log/security/rpm-va.yesterday"
-RPM_VA_DIFF="/var/log/security/rpm-va.diff"
-export RPM_VA_CONFIG_TODAY="/var/log/security/rpm-va-config.today"
-RPM_VA_CONFIG_YESTERDAY="/var/log/security/rpm-va-config.yesterday"
-RPM_VA_CONFIG_DIFF="/var/log/security/rpm-va-config.diff"
-export RPM_QA_TODAY="/var/log/security/rpm-qa.today"
-RPM_QA_YESTERDAY="/var/log/security/rpm-qa.yesterday"
-RPM_QA_DIFF="/var/log/security/rpm-qa.diff"
+export RPM_VA_TODAY="/var/log/security/rpm-va.${CURRENT_CHECK_TYPE}.today"
+RPM_VA_YESTERDAY="/var/log/security/rpm-va.${CURRENT_CHECK_TYPE}.yesterday"
+RPM_VA_DIFF="/var/log/security/rpm-va.${CURRENT_CHECK_TYPE}.diff"
+export RPM_VA_CONFIG_TODAY="/var/log/security/rpm-va-config.${CURRENT_CHECK_TYPE}.today"
+RPM_VA_CONFIG_YESTERDAY="/var/log/security/rpm-va-config.${CURRENT_CHECK_TYPE}.yesterday"
+RPM_VA_CONFIG_DIFF="/var/log/security/rpm-va-config.${CURRENT_CHECK_TYPE}.diff"
+export RPM_QA_TODAY="/var/log/security/rpm-qa.${CURRENT_CHECK_TYPE}.today"
+RPM_QA_YESTERDAY="/var/log/security/rpm-qa.${CURRENT_CHECK_TYPE}.yesterday"
+RPM_QA_DIFF="/var/log/security/rpm-qa.${CURRENT_CHECK_TYPE}.diff"
 
 if [[ -f ${RPM_VA_TODAY} ]]; then
     mv -f ${RPM_VA_TODAY} ${RPM_VA_YESTERDAY}

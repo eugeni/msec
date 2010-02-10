@@ -35,6 +35,9 @@ fi
 
 . /usr/share/msec/functions.sh
 
+# discover current check type
+CURRENT_CHECK_TYPE=$(current_check_type)
+
 # variables
 LCK=/var/run/msec-security.pid
 SECURITY_LOG="/var/log/security.log"

@@ -2,19 +2,19 @@
 # msec: network security checks
 
 # check if we are run from main script
-if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECURITY_LOG" ]; then
+if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECURITY_LOG" -o -z "${CURRENT_CHECK_TYPE}" ]; then
         # variables are set in security.sh and propagated to the subscripts
         echo "Error: this check should be run by the main msec security check!"
         echo "       do not run it directly unless you know what you are doing."
         return 1
 fi
 
-export OPEN_PORT_TODAY="/var/log/security/open_port.today"
-OPEN_PORT_YESTERDAY="/var/log/security/open_port.yesterday"
-OPEN_PORT_DIFF="/var/log/security/open_port.diff"
-export FIREWALL_TODAY="/var/log/security/firewall.today"
-FIREWALL_YESTERDAY="/var/log/security/firewall.yesterday"
-FIREWALL_DIFF="/var/log/security/firewall.diff"
+export OPEN_PORT_TODAY="/var/log/security/open_port.${CURRENT_CHECK_TYPE}.today"
+OPEN_PORT_YESTERDAY="/var/log/security/open_port.${CURRENT_CHECK_TYPE}.yesterday"
+OPEN_PORT_DIFF="/var/log/security/open_port.${CURRENT_CHECK_TYPE}.diff"
+export FIREWALL_TODAY="/var/log/security/firewall.${CURRENT_CHECK_TYPE}.today"
+FIREWALL_YESTERDAY="/var/log/security/firewall.${CURRENT_CHECK_TYPE}.yesterday"
+FIREWALL_DIFF="/var/log/security/firewall.${CURRENT_CHECK_TYPE}.diff"
 
 if [[ -f ${OPEN_PORT_TODAY} ]]; then
     mv -f ${OPEN_PORT_TODAY} ${OPEN_PORT_YESTERDAY}

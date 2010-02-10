@@ -2,31 +2,31 @@
 # msec: security check for suid_root binaries
 
 # check if we are run from main script
-if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECURITY_LOG" ]; then
+if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECURITY_LOG" -o -z "${CURRENT_CHECK_TYPE}" ]; then
         # variables are set in security.sh and propagated to the subscripts
         echo "Error: this check should be run by the main msec security check!"
         echo "       do not run it directly unless you know what you are doing."
         return 1
 fi
 
-export SUID_ROOT_TODAY="/var/log/security/suid_root.today"
-SUID_ROOT_YESTERDAY="/var/log/security/suid_root.yesterday"
-SUID_ROOT_DIFF="/var/log/security/suid_root.diff"
-export SGID_TODAY="/var/log/security/sgid.today"
-SGID_YESTERDAY="/var/log/security/sgid.yesterday"
-SGID_DIFF="/var/log/security/sgid.diff"
-export SUID_MD5_TODAY="/var/log/security/suid_md5.today"
-SUID_MD5_YESTERDAY="/var/log/security/suid_md5.yesterday"
-SUID_MD5_DIFF="/var/log/security/suid_md5.diff"
-export WRITABLE_TODAY="/var/log/security/writable.today"
-WRITABLE_YESTERDAY="/var/log/security/writable.yesterday"
-WRITABLE_DIFF="/var/log/security/writable.diff"
-export UNOWNED_USER_TODAY="/var/log/security/unowned_user.today"
-UNOWNED_USER_YESTERDAY="/var/log/security/unowned_user.yesterday"
-UNOWNED_USER_DIFF="/var/log/security/unowned_user.diff"
-export UNOWNED_GROUP_TODAY="/var/log/security/unowned_group.today"
-UNOWNED_GROUP_YESTERDAY="/var/log/security/unowned_group.yesterday"
-UNOWNED_GROUP_DIFF="/var/log/security/unowned_group.diff"
+export SUID_ROOT_TODAY="/var/log/security/suid_root.${CURRENT_CHECK_TYPE}.today"
+SUID_ROOT_YESTERDAY="/var/log/security/suid_root.${CURRENT_CHECK_TYPE}.yesterday"
+SUID_ROOT_DIFF="/var/log/security/suid_root.${CURRENT_CHECK_TYPE}.diff"
+export SGID_TODAY="/var/log/security/sgid.${CURRENT_CHECK_TYPE}.today"
+SGID_YESTERDAY="/var/log/security/sgid.${CURRENT_CHECK_TYPE}.yesterday"
+SGID_DIFF="/var/log/security/sgid.${CURRENT_CHECK_TYPE}.diff"
+export SUID_MD5_TODAY="/var/log/security/suid_md5.${CURRENT_CHECK_TYPE}.today"
+SUID_MD5_YESTERDAY="/var/log/security/suid_md5.${CURRENT_CHECK_TYPE}.yesterday"
+SUID_MD5_DIFF="/var/log/security/suid_md5.${CURRENT_CHECK_TYPE}.diff"
+export WRITABLE_TODAY="/var/log/security/writable.${CURRENT_CHECK_TYPE}.today"
+WRITABLE_YESTERDAY="/var/log/security/writable.${CURRENT_CHECK_TYPE}.yesterday"
+WRITABLE_DIFF="/var/log/security/writable.${CURRENT_CHECK_TYPE}.diff"
+export UNOWNED_USER_TODAY="/var/log/security/unowned_user.${CURRENT_CHECK_TYPE}.today"
+UNOWNED_USER_YESTERDAY="/var/log/security/unowned_user.${CURRENT_CHECK_TYPE}.yesterday"
+UNOWNED_USER_DIFF="/var/log/security/unowned_user.${CURRENT_CHECK_TYPE}.diff"
+export UNOWNED_GROUP_TODAY="/var/log/security/unowned_group.${CURRENT_CHECK_TYPE}.today"
+UNOWNED_GROUP_YESTERDAY="/var/log/security/unowned_group.${CURRENT_CHECK_TYPE}.yesterday"
+UNOWNED_GROUP_DIFF="/var/log/security/unowned_group.${CURRENT_CHECK_TYPE}.diff"
 
 if [[ -f ${SUID_ROOT_TODAY} ]]; then
     mv ${SUID_ROOT_TODAY} ${SUID_ROOT_YESTERDAY};

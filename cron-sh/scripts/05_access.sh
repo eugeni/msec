@@ -2,7 +2,7 @@
 # msec: system access
 
 # check if we are run from main script
-if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECURITY_LOG" ]; then
+if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECURITY_LOG" -o -z "${CURRENT_CHECK_TYPE}" ]; then
         # variables are set in security.sh and propagated to the subscripts
         echo "Error: this check should be run by the main msec security check!"
         echo "       do not run it directly unless you know what you are doing."
@@ -10,9 +10,9 @@ if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECUR
 fi
 
 # check for changes in users
-USERS_LIST_TODAY="/var/log/security/users_list.today"
-USERS_LIST_YESTERDAY="/var/log/security/users_list.yesterday"
-USERS_LIST_DIFF="/var/log/security/users_list.diff"
+USERS_LIST_TODAY="/var/log/security/users_list.${CURRENT_CHECK_TYPE}.today"
+USERS_LIST_YESTERDAY="/var/log/security/users_list.${CURRENT_CHECK_TYPE}.yesterday"
+USERS_LIST_DIFF="/var/log/security/users_list.${CURRENT_CHECK_TYPE}.diff"
 
 if [[ -f ${USERS_LIST_TODAY} ]]; then
     mv ${USERS_LIST_TODAY} ${USERS_LIST_YESTERDAY};
@@ -27,9 +27,9 @@ if check_is_enabled "${CHECK_USERS}" ; then
 fi
 
 # check for changes in groups
-GROUPS_LIST_TODAY="/var/log/security/groups_list.today"
-GROUPS_LIST_YESTERDAY="/var/log/security/groups_list.yesterday"
-GROUPS_LIST_DIFF="/var/log/security/groups_list.diff"
+GROUPS_LIST_TODAY="/var/log/security/groups_list.${CURRENT_CHECK_TYPE}.today"
+GROUPS_LIST_YESTERDAY="/var/log/security/groups_list.${CURRENT_CHECK_TYPE}.yesterday"
+GROUPS_LIST_DIFF="/var/log/security/groups_list.${CURRENT_CHECK_TYPE}.diff"
 
 if [[ -f ${GROUPS_LIST_TODAY} ]]; then
     mv ${GROUPS_LIST_TODAY} ${GROUPS_LIST_YESTERDAY};

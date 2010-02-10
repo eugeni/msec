@@ -1,3 +1,4 @@
+- properly separate logs for different type of checks (daily, weekly, monthly and manual)
 - xguest user does not have a password, so silence report about it
 - added plugin to define log file retention period.
 

@@ -1,4 +1,4 @@
-# translation of nb.po to Norwegian Bokmål
+# translation of nb.po to dansk
 # translation of nb.po to
 # translation of libDrakX-standalone-nb.po to
 # KTranslator Generated File
@@ -17,14 +17,15 @@
 # Marius Laache <blakern_@hotmail.com>, 2007.
 # Per Øyvind Karlsen <peroyvind@mandriva.org>, 2007.
 # Olav Dahlum <odahlum@gmail.com>, 2009.
+# Keld Simonsen <keld@keldix.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-04 11:31+BRST\n"
-"PO-Revision-Date: 2009-09-16 23:33+0200\n"
-"Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
-"Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
+"PO-Revision-Date: 2010-02-14 03:50+0200\n"
+"Last-Translator: Keld Simonsen <keld@keldix.com>\n"
+"Language-Team: dansk <dnask@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -57,9 +58,8 @@ msgstr "_Lagre oppsett"
 
 #: ../src/msec/config.py:244 ../src/msec/config.py:343
 #: ../src/msec/config.py:441
-#, fuzzy
 msgid "Unable to save %s: %s"
-msgstr "Klarte ikke å lagre oppsettet."
+msgstr "Klarte ikke å lagre %s: %s"
 
 #: ../src/msec/help.py:14
 msgid ""
@@ -106,8 +106,7 @@ msgstr ""
 
 #: ../src/msec/help.py:30
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
+msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
 
 #: ../src/msec/help.py:32
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -223,8 +222,7 @@ msgstr "Sett skallets tidsavbrudd. Null betyr ingen tidsavbrudd."
 
 #: ../src/msec/help.py:76
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
-"Tillat innloggingsbehandlere (KDM og GDM) å vise en liste med lokale brukere."
+msgstr "Tillat innloggingsbehandlere (KDM og GDM) å vise en liste med lokale brukere."
 
 #: ../src/msec/help.py:78
 msgid "Enable name resolution spoofing protection."
@@ -573,9 +571,8 @@ msgid "No custom file permissions for level '%s'."
 msgstr "dårlige rettigheter for «%s»: «%s»"
 
 #: ../src/msec/msec.py:152
-#, fuzzy
 msgid "Saving file permissions to '%s' level."
-msgstr "Forandrer rettigheter for %s"
+msgstr "Lagrer filrettigheter til %s-nivå"
 
 #: ../src/msec/msec.py:192 ../src/msec/msecperms.py:160
 msgid "Unable to save config!"
@@ -1245,8 +1242,7 @@ msgid "Disabling password history"
 msgstr "Slå av passordhistorie"
 
 #: ../src/msec/plugins/pam.py:123
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr "Ugyldig passordlengde «%s». Bruk «length,ndigits,nupper» som parametre"
 
 #: ../src/msec/plugins/pam.py:144
@@ -1277,48 +1273,3 @@ msgstr "Tillater gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
 
-#~ msgid ""
-#~ "Allow users to authenticate with their passwords for sudo. If this "
-#~ "parameter is set to 'wheel', users must belong to the 'wheel' group to be "
-#~ "able to use sudo"
-#~ msgstr ""
-#~ "Tillat brukere å autentisere med passordene sine for sudo. Hvis denne "
-#~ "parametren er satt til wheel, må brukere som skal benytte sudo være "
-#~ "medlemmer av denne gruppa"
-
-#~ msgid ""
-#~ "Enable periodic permission checking for files specified in msec policy. "
-#~ "If set to yes, the permissions are verified on every run. If set to "
-#~ "enforce, incorrect permissions are restored to the ones specified in msec "
-#~ "security policy."
-#~ msgstr ""
-#~ "Kjør regelmessig kontroll av filrettigheter basert på msec-reglene. Hvis "
-#~ "satt til «ja», blir rettighetene sjekka ved hver kjøring. Hvis satt til "
-#~ "«tving», blir feil rettighet automatisk retta."
-
-#~ msgid "'%s' is not available in this version"
-#~ msgstr "«%s» er ikke tilgjengelig i denne versjonen"
-
-#~ msgid "Activating daily security check"
-#~ msgstr "Slår på daglige sikkerhetssjekker"
-
-#~ msgid "Disabling daily security check"
-#~ msgstr "Slår av daglige sikkerhetssjekker"
-
-#~ msgid "Activating periodic promiscuity check"
-#~ msgstr "Slår på regelmessig løsaktighetssjekk"
-
-#~ msgid "Disabling periodic promiscuity check"
-#~ msgstr "Slår av regelmessig løsaktighetssjekk"
-
-#~ msgid "_Import configuration"
-#~ msgstr "_Importer oppsett"
-
-#~ msgid "_Export configuration"
-#~ msgstr "_Eksporter oppsett"
-
-#~ msgid "Save and apply current policy"
-#~ msgstr "Lagre og legge til gjeldende praksis?"
-
-#~ msgid "Quit"
-#~ msgstr "Avslutt"

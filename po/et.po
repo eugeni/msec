@@ -1,14 +1,14 @@
 # Translation of DrakX.po to Estonian.
 # Copyright (C) 2003 Free Software Foundation, Inc.
 # Riho Kurg <rx@linux.ee>, 1999-2003.
-# Marek Laane <bald@starman.ee>, 2002-2009.
+# Marek Laane <bald@starman.ee>, 2002-2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: DrakX-et\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-04 11:31+BRST\n"
-"PO-Revision-Date: 2009-09-14 17:10+0200\n"
+"PO-Revision-Date: 2010-02-15 13:55+0200\n"
 "Last-Translator: Marek Laane <bald@starman.ee>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,33 +18,30 @@ msgstr ""
 
 #: ../src/msec/config.py:45
 msgid "Modified system files"
-msgstr ""
+msgstr "Muudetud süsteemsed failid"
 
 #: ../src/msec/config.py:46
-#, fuzzy
 msgid "No changes in system files"
-msgstr "Süsteemsete kasutajate muutuste kontrollimise lubamine."
+msgstr "Süsteemsetes failides muutusi pole"
 
 #: ../src/msec/config.py:59
 msgid "Disabled"
-msgstr ""
+msgstr "Keelatud"
 
 #: ../src/msec/config.py:195 ../src/msec/config.py:290
 #: ../src/msec/config.py:393
 msgid "Unable to load configuration file %s: %s"
-msgstr ""
+msgstr "Seadistusfaili %s laadimine nurjus: %s"
 
 #: ../src/msec/config.py:209 ../src/msec/config.py:304
 #: ../src/msec/config.py:415
-#, fuzzy
 msgid "Bad config option: %s"
-msgstr "_Salvesta seadistus"
+msgstr "Vigane seadistusvalik: %s"
 
 #: ../src/msec/config.py:244 ../src/msec/config.py:343
 #: ../src/msec/config.py:441
-#, fuzzy
 msgid "Unable to save %s: %s"
-msgstr "Seadistuste salvestamine nurjus!"
+msgstr "%s salvestamine nurjus: %s"
 
 #: ../src/msec/help.py:14
 msgid ""
@@ -71,7 +68,7 @@ msgstr "Aruande saatmine e-postiga ka siis, kui muudatusi ei tuvastatud."
 msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
-msgstr "Baasturvataseme määramine, millele tugineb kehtiv seadistus."
+msgstr "Baasturbetaseme määramine, millele tugineb kehtiv seadistus."
 
 #: ../src/msec/help.py:24
 msgid "Accept broadcasted ICMP echo."
@@ -82,11 +79,12 @@ msgid ""
 "Enable msec to enforce file permissions to the values specified in the msec "
 "security policy."
 msgstr ""
+"Msecile õiguse andmine kehtestada failiõiguste väärtused, mis on määratud "
+"Mseci turbereegliga."
 
 #: ../src/msec/help.py:28
-#, fuzzy
 msgid "Enable periodic permission checking for files specified in msec policy."
-msgstr "Süsteemsete failide perioodilise õiguste kontrolli lubamine."
+msgstr "Mseci reegliga määratud failide perioodilise õiguste kontrolli lubamine."
 
 #: ../src/msec/help.py:30
 msgid "Allow X server to accept connections from network on tcp port 6000."
@@ -110,6 +108,9 @@ msgid ""
 "security level configuration. The security level to be used during this test "
 "is determined by the CHECK_SECTOOL_LEVELS variable."
 msgstr ""
+"Sectooli kontrollide lubamine. See lubab käivitada kõik Sectooli kontrollid, "
+"mida näeb ette turbetaseme seadistus. Testis kasutatav turbetase on kindlaks "
+"määratud muutujaga CHECK_SECTOOL_LEVELS."
 
 #: ../src/msec/help.py:38
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -177,7 +178,7 @@ msgstr ""
 
 #: ../src/msec/help.py:60
 msgid "User email to receive security notifications."
-msgstr "Kasutaja e-posti aadress, kuhu saadetakse turvateated."
+msgstr "Kasutaja e-posti aadress, kuhu saadetakse turbeteated."
 
 #: ../src/msec/help.py:62
 msgid "Set the user umask."
@@ -225,7 +226,7 @@ msgid ""
 msgstr ""
 "Kataloogide õiguste kehtestamise lubamine süsteemi käivitamisel. Kui "
 "parameetriks on määratud 'enforce', kehtestatakse süsteemi õigused "
-"automaatselt vastavalt süsteemi turvaseadistustele."
+"automaatselt vastavalt süsteemi turbeseadistustele."
 
 #: ../src/msec/help.py:82
 msgid "Include current directory into user PATH by default"
@@ -268,7 +269,7 @@ msgstr ""
 
 #: ../src/msec/help.py:90
 msgid "Show security notifications in system tray using libnotify."
-msgstr "Turvateadete näitamine süsteemisalves libnotify abil."
+msgstr "Turbeteadete näitamine süsteemisalves libnotify abil."
 
 #: ../src/msec/help.py:92
 msgid ""
@@ -288,7 +289,7 @@ msgstr "Administraatori vahetu sisselogimise lubamine terminalis."
 
 #: ../src/msec/help.py:98
 msgid "Run security checks when machine is running on battery power."
-msgstr ""
+msgstr "Turbekontrollide käivitamine, kui masin on akutoitel."
 
 #: ../src/msec/help.py:100
 msgid "Enable checking for changes in system groups."
@@ -329,7 +330,7 @@ msgstr "Omanikuta failide omanikuks ja grupiks määratakse nobody ja nogroup."
 
 #: ../src/msec/help.py:114
 msgid "Send security check results by email."
-msgstr "Turvakontrolli tulemustest e-kirjaga teatamine."
+msgstr "Turbekontrolli tulemustest e-kirjaga teatamine."
 
 #: ../src/msec/help.py:116
 msgid ""
@@ -346,10 +347,13 @@ msgid ""
 "If this variable is not defined, the default level defined in sectool "
 "configuration will be used."
 msgstr ""
+"Sectooli tase, mida kasutatakse perioodiliste turbekontrollide ajal. Igale "
+"tasemele saab konkreetsed testid valida rakendusega sectool-gui. Kui muutuja "
+"pole määratud, kasutatakse Sectooli seadistuses kindlaks määratud vaiketaset."
 
 #: ../src/msec/help.py:120
 msgid "Enable daily security checks."
-msgstr "Igapäevase turvakontrolli lubamine."
+msgstr "Igapäevase turbekontrolli lubamine."
 
 #: ../src/msec/help.py:122
 msgid "Accept ICMP echo."
@@ -392,7 +396,7 @@ msgstr "Administraatori umask-i määramine."
 #: ../src/msec/help.py:132
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
-"Igatunnise turvakontrolli sooritamine süsteemi seadistuste muudatuste "
+"Igatunnise turbekontrolli sooritamine süsteemi seadistuste muudatuste "
 "tuvastamiseks."
 
 #: ../src/msec/help.py:134
@@ -401,7 +405,7 @@ msgstr "MSEC-i seadistuste kehtestamine süsteemi käivitamisel"
 
 #: ../src/msec/help.py:136
 msgid "Enable periodic security check results to terminal."
-msgstr "Perioodilise turvakontrolli tulemuste väljundi lubamine terminalis."
+msgstr "Perioodilise turbekontrolli tulemuste väljundi lubamine terminalis."
 
 #: ../src/msec/help.py:138
 msgid "Accept bogus IPv4 error messages."
@@ -539,7 +543,7 @@ msgstr "Asukohtade kontrollimine: %s"
 
 #: ../src/msec/msec.py:87 ../src/msec/msecperms.py:96
 msgid "Invalid security level '%s'."
-msgstr "Vigane turvatase '%s'."
+msgstr "Vigane turbetase '%s'."
 
 #: ../src/msec/msec.py:114 ../src/msec/msecperms.py:121
 msgid "Msec: Mandriva Security Center (%s)\n"
@@ -562,23 +566,20 @@ msgid "Switching to '%s' level."
 msgstr "Lülitumine tasemele '%s'."
 
 #: ../src/msec/msec.py:151
-#, fuzzy
 msgid "No custom file permissions for level '%s'."
-msgstr "halvad '%s' õigused: '%s'"
+msgstr "Tasemel '%s' puuduvad kohandatud failiõigused."
 
 #: ../src/msec/msec.py:152
-#, fuzzy
 msgid "Saving file permissions to '%s' level."
-msgstr "%s õiguste muutmine"
+msgstr "Failiõiguste salvestamine tasemel '%s'."
 
 #: ../src/msec/msec.py:192 ../src/msec/msecperms.py:160
 msgid "Unable to save config!"
 msgstr "Seadistuste salvestamine nurjus!"
 
 #: ../src/msec/msec.py:194
-#, fuzzy
 msgid "Unable to save file system permissions!"
-msgstr "Taasta taseme vaikeõigused"
+msgstr "Failisüsteemi õiguste salvestamine nurjus!"
 
 #: ../src/msec/msecgui.py:51
 msgid ""
@@ -586,9 +587,9 @@ msgid ""
 "This application allows you to configure your system security. If you wish\n"
 "to activate it, choose the appropriate security level: "
 msgstr ""
-"<big><b>Turvataseme valik</b></big>\n"
+"<big><b>Turbetaseme valik</b></big>\n"
 "See rakendus võimaldab seadistada süsteemi turvalisust. Aktiveerimiseks\n"
-"valige sobiv turvatase: "
+"valige sobiv turbetase: "
 
 #: ../src/msec/msecgui.py:55
 msgid ""
@@ -596,7 +597,7 @@ msgid ""
 "activates several non-intrusive periodic system checks. This is the "
 "suggested level for Desktop."
 msgstr ""
-"See profiil kehtestab üsna mõistlikud turvaseadistused. Aktiveeritakse mõned "
+"See profiil kehtestab üsna mõistlikud turbeseadistused. Aktiveeritakse mõned "
 "vähe tüli tekitavad perioodilised süsteemi kontrollid. Seda on soovitatav "
 "kasutada tavalise tööarvuti puhul."
 
@@ -622,9 +623,9 @@ msgid ""
 "permissions.  "
 msgstr ""
 "<big><b>Süsteemi turvalisuse valikud</b></big>\n"
-"Need valikud määravad ära kohaliku turvaseadistuse, näiteks sisselogimise "
+"Need valikud määravad ära kohaliku turbeseadistuse, näiteks sisselogimise "
 "piirangud,\n"
-"parooliseadistused, lõimimise teiste turvatööriistadega ning vaikeõigused "
+"parooliseadistused, lõimimise teiste turbetööriistadega ning vaikeõigused "
 "failide\n"
 "loomisel.  "
 
@@ -646,8 +647,8 @@ msgid ""
 "These options configure the security checks that should be executed "
 "periodically.  "
 msgstr ""
-"<big><b>Perioodilised turvakontrollid</b></big>\n"
-"Need valikud sätestavad turvakontrollid, mis tuleb käivitada "
+"<big><b>Perioodilised turbekontrollid</b></big>\n"
+"Need valikud sätestavad turbekontrollid, mis tuleb käivitada "
 "perioodiliselt.  "
 
 #: ../src/msec/msecgui.py:72
@@ -804,7 +805,7 @@ msgstr "Leiti kohandatud seadistuste baastase '%s'. Vaikimisi kasutatakse '%s'"
 
 #: ../src/msec/msecgui.py:441
 msgid "Security Option"
-msgstr "Turvavalik"
+msgstr "Turbevalik"
 
 #: ../src/msec/msecgui.py:451
 msgid "Description"
@@ -824,7 +825,7 @@ msgstr "MSEC-i tööriista lubamine"
 
 #: ../src/msec/msecgui.py:523
 msgid "Select the base security level"
-msgstr "Baasturvataseme valimine"
+msgstr "Baasturbetaseme valimine"
 
 #: ../src/msec/msecgui.py:527
 msgid "Standard"
@@ -836,7 +837,7 @@ msgstr "Turvaline"
 
 #: ../src/msec/msecgui.py:549
 msgid "Send security alerts by email"
-msgstr "Turvahoiatuste saatmine e-postiga"
+msgstr "Turbehoiatuste saatmine e-postiga"
 
 #: ../src/msec/msecgui.py:556
 msgid "System administrator email address:"
@@ -844,7 +845,7 @@ msgstr "Süsteemi administraatori e-posti aadress:"
 
 #: ../src/msec/msecgui.py:575
 msgid "Display security alerts on desktop"
-msgstr "Turvahoiatuste näitamine töölaual"
+msgstr "Turbehoiatuste näitamine töölaual"
 
 #: ../src/msec/msecgui.py:739
 msgid "Enable periodic security checks"

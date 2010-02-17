@@ -1,4 +1,4 @@
-# translation of nb.po to dansk
+# translation of nb.po to Norwegian Bokmål
 # translation of nb.po to
 # translation of libDrakX-standalone-nb.po to
 # KTranslator Generated File
@@ -16,16 +16,16 @@
 # Per Øyvind Karlsen <pkarlsen@mandriva.com>, 2005, 2006.
 # Marius Laache <blakern_@hotmail.com>, 2007.
 # Per Øyvind Karlsen <peroyvind@mandriva.org>, 2007.
-# Olav Dahlum <odahlum@gmail.com>, 2009.
+# Olav Dahlum <odahlum@gmail.com>, 2009, 2010.
 # Keld Simonsen <keld@keldix.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-04 11:31+BRST\n"
-"PO-Revision-Date: 2010-02-14 03:50+0200\n"
-"Last-Translator: Keld Simonsen <keld@keldix.com>\n"
-"Language-Team: dansk <dnask@dansk-gruppen.dk>\n"
+"PO-Revision-Date: 2010-02-17 01:24+0100\n"
+"Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
+"Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,27 +34,25 @@ msgstr ""
 
 #: ../src/msec/config.py:45
 msgid "Modified system files"
-msgstr ""
+msgstr "Endret systemfiler"
 
 #: ../src/msec/config.py:46
-#, fuzzy
 msgid "No changes in system files"
-msgstr "Slå på sjekk for forandringer i systembrukere."
+msgstr "Ingen endringer i systemfiler"
 
 #: ../src/msec/config.py:59
 msgid "Disabled"
-msgstr ""
+msgstr "Slått av"
 
 #: ../src/msec/config.py:195 ../src/msec/config.py:290
 #: ../src/msec/config.py:393
 msgid "Unable to load configuration file %s: %s"
-msgstr ""
+msgstr "Kunne ikke laste oppsettsfil %s: %s"
 
 #: ../src/msec/config.py:209 ../src/msec/config.py:304
 #: ../src/msec/config.py:415
-#, fuzzy
 msgid "Bad config option: %s"
-msgstr "_Lagre oppsett"
+msgstr "Ugyldig oppsettsvalg: %s"
 
 #: ../src/msec/config.py:244 ../src/msec/config.py:343
 #: ../src/msec/config.py:441
@@ -299,7 +297,7 @@ msgstr "Tillat direkte root-innlogging på terminal."
 
 #: ../src/msec/help.py:98
 msgid "Run security checks when machine is running on battery power."
-msgstr ""
+msgstr "Kjør sikkerhetssjekker når maskina bruker batteri."
 
 #: ../src/msec/help.py:100
 msgid "Enable checking for changes in system groups."
@@ -566,9 +564,8 @@ msgid "Switching to '%s' level."
 msgstr "Bytter til nivå «%s»."
 
 #: ../src/msec/msec.py:151
-#, fuzzy
 msgid "No custom file permissions for level '%s'."
-msgstr "dårlige rettigheter for «%s»: «%s»"
+msgstr "Ingen tilpassede rettigheter for nivå «%s»"
 
 #: ../src/msec/msec.py:152
 msgid "Saving file permissions to '%s' level."
@@ -579,9 +576,8 @@ msgid "Unable to save config!"
 msgstr "Klarte ikke å lagre oppsettet."
 
 #: ../src/msec/msec.py:194
-#, fuzzy
 msgid "Unable to save file system permissions!"
-msgstr "Nullstill til forhåndsvalgte rettighetsnivåer"
+msgstr "Kan ikke lagre tilgangsrettigheter for filsystem."
 
 #: ../src/msec/msecgui.py:51
 msgid ""

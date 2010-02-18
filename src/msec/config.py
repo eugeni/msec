@@ -303,7 +303,9 @@ class ExceptionConfig:
         try:
             fd = open(self.config)
         except:
-            self.log.error(_("Unable to load configuration file %s: %s") % (self.config, sys.exc_value[1]))
+            # this file is optional, so if it is not found that's not fatal
+            self.log.info(_("loading exceptions file %s: %s") % (self.config, sys.exc_value[1]))
+            self.log.info(_("No exceptions loaded"))
             return False
         for line in fd.readlines():
             line = line.strip()

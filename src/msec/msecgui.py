@@ -300,17 +300,25 @@ class MsecGui:
         # return what we found
         return num_changes, changes, messages
 
-    def ok(self, widget):
+    def ok(self, widget, ask_ignore=False):
         """Ok button"""
         curconfig = self.msecconfig
         curperms = self.permconfig
 
         # creating preview window
-        dialog = gtk.Dialog(_("Saving changes.."),
-                self.window, gtk.DIALOG_MODAL,
-                (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
-                gtk.STOCK_OK, gtk.RESPONSE_OK)
-                )
+        if ask_ignore:
+            dialog = gtk.Dialog(_("Saving changes.."),
+                    self.window, gtk.DIALOG_MODAL,
+                    (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                    _("Ignore and quit"), gtk.RESPONSE_REJECT,
+                    gtk.STOCK_OK, gtk.RESPONSE_OK)
+                    )
+        else:
+            dialog = gtk.Dialog(_("Saving changes.."),
+                    self.window, gtk.DIALOG_MODAL,
+                    (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                    gtk.STOCK_OK, gtk.RESPONSE_OK)
+                    )
 
         dialog.set_default_size(640, 300)
         dialog.set_default_response(gtk.RESPONSE_OK)
@@ -383,7 +391,7 @@ class MsecGui:
         response = dialog.run()
         if response != gtk.RESPONSE_OK:
             dialog.destroy()
-            return False
+            return response
         dialog.destroy()
 
         # new base level
@@ -401,7 +409,7 @@ class MsecGui:
 
         self.reload_config()
 
-        return True
+        return response
 
     def reload_config(self):
         """Reloads config files"""
@@ -1388,37 +1396,17 @@ class MsecGui:
 
     def quit(self, widget, event=None):
         """Quits the application"""
-
-        # were there changes in configuration?
         num_changes, allchanges, messages = self.check_for_changes(self.msecconfig, self.permconfig)
 
-        if num_changes > 0:
-            # there were changes
-            # asks for new parameter value
-            dialog = gtk.Dialog(_("Save your changes?"),
-                    self.window, 0,
-                    (_("_Cancel"), gtk.RESPONSE_CANCEL,
-                        _("_Ignore"), gtk.RESPONSE_CLOSE,
-                        _("_Save"), gtk.RESPONSE_OK))
-            # option title
-            label = gtk.Label(_("Do you want to save changes before closing?"))
-            dialog.vbox.pack_start(label, False, False, padding=DEFAULT_SPACING)
-
-            dialog.show_all()
-            response = dialog.run()
-            dialog.destroy()
-            if response == gtk.RESPONSE_OK:
-                ret = self.ok(widget)
-                if not ret:
-                    # haven't saved
-                    return True
-            elif response == gtk.RESPONSE_CLOSE:
-                # leaving
+        if num_changes == 0:
+            gtk.main_quit()
+            return False
+        else:
+            ret = self.ok(widget, ask_ignore=True)
+            if ret == gtk.RESPONSE_OK or ret == gtk.RESPONSE_REJECT:
                 gtk.main_quit()
             else:
                 return True
-
-        gtk.main_quit()
 
 
 # {{{ usage

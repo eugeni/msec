@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-04 11:31+BRST\n"
+"POT-Creation-Date: 2010-02-18 17:14+BRST\n"
 "PO-Revision-Date: 2009-04-10 10:06+0200\n"
 "Last-Translator: Frederik Himpe <fhimpe@telenet.be>\n"
 "Language-Team: Nederlands\n"
@@ -24,35 +24,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/msec/config.py:45
+#: ../src/msec/config.py:46
 msgid "Modified system files"
 msgstr ""
 
-#: ../src/msec/config.py:46
+#: ../src/msec/config.py:47
 #, fuzzy
 msgid "No changes in system files"
 msgstr "Controleren op bestanden zonder eigenaar."
 
-#: ../src/msec/config.py:59
+#: ../src/msec/config.py:60
 msgid "Disabled"
 msgstr ""
 
-#: ../src/msec/config.py:195 ../src/msec/config.py:290
-#: ../src/msec/config.py:393
+#: ../src/msec/config.py:211 ../src/msec/config.py:411
 msgid "Unable to load configuration file %s: %s"
 msgstr ""
 
-#: ../src/msec/config.py:209 ../src/msec/config.py:304
-#: ../src/msec/config.py:415
+#: ../src/msec/config.py:225 ../src/msec/config.py:322
+#: ../src/msec/config.py:433
 #, fuzzy
 msgid "Bad config option: %s"
 msgstr "Configuratie Op_slaan"
 
-#: ../src/msec/config.py:244 ../src/msec/config.py:343
-#: ../src/msec/config.py:441
+#: ../src/msec/config.py:260 ../src/msec/config.py:361
+#: ../src/msec/config.py:459
 #, fuzzy
 msgid "Unable to save %s: %s"
 msgstr "Onmogelijk om de configuratie op te slaan!"
+
+#: ../src/msec/config.py:307
+#, fuzzy
+msgid "loading exceptions file %s: %s"
+msgstr "Fout bij het laden van plugin \"%s\" van %s: %s"
+
+#: ../src/msec/config.py:308
+#, fuzzy
+msgid "No exceptions loaded"
+msgstr "Optie"
 
 #: ../src/msec/help.py:14
 msgid ""
@@ -329,28 +338,36 @@ msgid "Enable logging of strange network packets."
 msgstr "In logboek bijhouden van vreemde netwerkpakketten."
 
 #: ../src/msec/help.py:106
+msgid ""
+"Define the default retention period for logs, in weeks. Some countries "
+"require that the log files should be kept for 12 months, other do not have "
+"such strict requirements. This variable defines the number of past log files "
+"that should be kept by logrotate on the system."
+msgstr ""
+
+#: ../src/msec/help.py:108
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
 "Root-wachtwoord vragen wanneer naar single user level wordt gegaan (zie man-"
 "pagina sulogin(8))."
 
-#: ../src/msec/help.py:108
+#: ../src/msec/help.py:110
 msgid "Enable IP spoofing protection."
 msgstr "Bescherming tegen vervalste IP's."
 
-#: ../src/msec/help.py:110
+#: ../src/msec/help.py:112
 msgid "Allow root access without password for the members of the wheel group."
 msgstr "Root-toegang zonder wachtwoord toelaten voor leden van de groep wheel."
 
-#: ../src/msec/help.py:112
+#: ../src/msec/help.py:114
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
 msgstr ""
 
-#: ../src/msec/help.py:114
+#: ../src/msec/help.py:116
 msgid "Send security check results by email."
 msgstr "Resultaten van veiligheidscontrole via e-mail versturen."
 
-#: ../src/msec/help.py:116
+#: ../src/msec/help.py:118
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
@@ -359,7 +376,7 @@ msgstr ""
 "naar andere gebruiker wordt overgeschakeld. Zie de man-pagina pam_xauth (8) "
 "voor meer details."
 
-#: ../src/msec/help.py:118
+#: ../src/msec/help.py:120
 msgid ""
 "Defines the sectool level to use during the periodic security check. You may "
 "use the sectool-gui application to select individual tests for each level. "
@@ -367,15 +384,15 @@ msgid ""
 "configuration will be used."
 msgstr ""
 
-#: ../src/msec/help.py:120
+#: ../src/msec/help.py:122
 msgid "Enable daily security checks."
 msgstr "Dagelijkse beveiligingscontroles uitvoeren."
 
-#: ../src/msec/help.py:122
+#: ../src/msec/help.py:124
 msgid "Accept ICMP echo."
 msgstr "ICMP-echo accepteren."
 
-#: ../src/msec/help.py:124
+#: ../src/msec/help.py:126
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
@@ -384,7 +401,7 @@ msgstr ""
 "en hoofdletters, volgens het formaat lengte,aantal-cijfers,aantal-"
 "hoofdletters."
 
-#: ../src/msec/help.py:126
+#: ../src/msec/help.py:128
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
@@ -397,39 +414,39 @@ msgstr ""
 "\", moeten de systeemdiensten handmatig toegevoegd worden aan /etc/hosts."
 "allow (zie hosts.allow(5))."
 
-#: ../src/msec/help.py:128
+#: ../src/msec/help.py:130
 msgid ""
 "Enable verification of integrity of installed RPM packages. This will notify "
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
 
-#: ../src/msec/help.py:130
+#: ../src/msec/help.py:132
 msgid "Set the root umask."
 msgstr "Instellen van de umask voor root."
 
-#: ../src/msec/help.py:132
+#: ../src/msec/help.py:134
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
 "Elk uur een veiligheidscontrole op veranderingen in de systeemconfiguratie."
 
-#: ../src/msec/help.py:134
+#: ../src/msec/help.py:136
 msgid "Enforce MSEC settings on system startup"
 msgstr "MSEC-instellingen afdwingen bij systeemopstart"
 
-#: ../src/msec/help.py:136
+#: ../src/msec/help.py:138
 msgid "Enable periodic security check results to terminal."
 msgstr "Resulaten van periode veiligheidscontroles tonen op de terminal."
 
-#: ../src/msec/help.py:138
+#: ../src/msec/help.py:140
 msgid "Accept bogus IPv4 error messages."
 msgstr "IPv4-onzinfoutmeldingen accepteren."
 
-#: ../src/msec/help.py:140
+#: ../src/msec/help.py:142
 msgid "Enable checking for additions/removals of sgid files."
 msgstr "Nagaan van toegevoegde/verwijderde sgid-bestanden."
 
-#: ../src/msec/help.py:142
+#: ../src/msec/help.py:144
 msgid "Activate ethernet cards promiscuity check."
 msgstr "Controleren op afluistermodus van ethernetkaarten."
 
@@ -608,7 +625,7 @@ msgstr ""
 "Deze toepassing maakt het mogelijk om de systeemveiligheid te configureren.\n"
 "Als u dit wenst te activeren, kies het gepaste veiligheidsniveau: "
 
-#: ../src/msec/msecgui.py:55
+#: ../src/msec/msecgui.py:57
 msgid ""
 "This profile configures a reasonably safe set of security features. It "
 "activates several non-intrusive periodic system checks. This is the "
@@ -618,7 +635,13 @@ msgstr ""
 "activeert verschillende niet-hinderlijke periodieke veiligheidscontroles. "
 "Dit is het aangeraden niveau voor werkstations."
 
-#: ../src/msec/msecgui.py:57
+#: ../src/msec/msecgui.py:58
+msgid ""
+"This profile is focused on netbook or low-end devices, which are only "
+"accessed by local users and run on batteries."
+msgstr ""
+
+#: ../src/msec/msecgui.py:60
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. It also runs a wider set of "
@@ -630,7 +653,25 @@ msgstr ""
 "periodieke controles. Dit niveau wordt aangeraden voor servers en andere "
 "systemen waarvoor maximale veiligheid onontbeerlijk is."
 
-#: ../src/msec/msecgui.py:60
+#: ../src/msec/msecgui.py:62
+msgid ""
+"This profile is targeted on storage-oriented servers, such as FTP, SAMBA or "
+"NFS servers, or database servers, which do not receive accesses from "
+"unauthorized Internet users."
+msgstr ""
+
+#: ../src/msec/msecgui.py:64
+msgid ""
+"This profile is similar to the 'Fileserver', but it assumes that the server "
+"receives connection from unauthorized Internet users."
+msgstr ""
+
+#: ../src/msec/msecgui.py:71
+#, fuzzy
+msgid "Custom security level."
+msgstr "Systeemveiligheid"
+
+#: ../src/msec/msecgui.py:74
 msgid ""
 "<big><b>System security options</b></big>\n"
 "These options control the local security configuration, such as the login "
@@ -645,7 +686,7 @@ msgstr ""
 "wachtwoordconfiguratie, integratie met andere veiligheidshulpmidddelen en\n"
 "standaardtoegangsrechten bij het aanmaken van bestanden.  "
 
-#: ../src/msec/msecgui.py:65
+#: ../src/msec/msecgui.py:79
 msgid ""
 "<big><b>Network security options</b></big>\n"
 "These options define the network security against remote threats, "
@@ -657,7 +698,7 @@ msgstr ""
 "ongeoorloofde\n"
 "toegang en pogingen tot inbraak.  "
 
-#: ../src/msec/msecgui.py:69
+#: ../src/msec/msecgui.py:83
 msgid ""
 "<big><b>Periodic security checks</b></big>\n"
 "These options configure the security checks that should be executed "
@@ -667,7 +708,7 @@ msgstr ""
 "Deze opties configureren de veiligheidscontroles die regelmatig moeten "
 "worden uitgevoerd."
 
-#: ../src/msec/msecgui.py:72
+#: ../src/msec/msecgui.py:86
 msgid ""
 "<big><b>Exceptions</b></big>\n"
 "Here you can configure the allowed exceptions for msec periodic security\n"
@@ -675,7 +716,7 @@ msgid ""
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
 
-#: ../src/msec/msecgui.py:77
+#: ../src/msec/msecgui.py:91
 msgid ""
 "<big><b>File permissions</b></big>\n"
 "These options allow to fine-tune system permissions for important files and "
@@ -697,241 +738,243 @@ msgstr ""
 "te\n"
 "wijzigen wanneer een aanpassing wordt gedetecteerd."
 
-#: ../src/msec/msecgui.py:83
+#: ../src/msec/msecgui.py:97
 msgid "Save and apply new configuration?"
 msgstr "Nieuwe configuratie opslaan en toepassen?"
 
-#: ../src/msec/msecgui.py:151
+#: ../src/msec/msecgui.py:130
+msgid "Unable to load configuration for level '%s'"
+msgstr ""
+
+#: ../src/msec/msecgui.py:136
+#, fuzzy
+msgid "Unable to load permissions for level '%s'"
+msgstr "Verkeerde toegangsrechten voor ‘%s’: ‘%s’"
+
+#: ../src/msec/msecgui.py:170
 msgid "_File"
 msgstr "_Bestand"
 
-#: ../src/msec/msecgui.py:153
+#: ../src/msec/msecgui.py:172
 msgid "_Save configuration"
 msgstr "Configuratie Op_slaan"
 
-#: ../src/msec/msecgui.py:158
+#: ../src/msec/msecgui.py:177
 msgid "_Quit"
 msgstr "_Afsluiten"
 
-#: ../src/msec/msecgui.py:160 ../src/msec/msecgui.py:162
+#: ../src/msec/msecgui.py:179 ../src/msec/msecgui.py:181
 msgid "_Help"
 msgstr "_Hulp"
 
-#: ../src/msec/msecgui.py:163
+#: ../src/msec/msecgui.py:182
 msgid "_About"
 msgstr "_Info"
 
-#: ../src/msec/msecgui.py:190
+#: ../src/msec/msecgui.py:209
 msgid "MSEC: System Security and Audit"
 msgstr "MSEC: systeemveiligheid en audit"
 
-#: ../src/msec/msecgui.py:208
+#: ../src/msec/msecgui.py:227
 msgid "Basic security"
 msgstr "Basisveiligheid"
 
-#: ../src/msec/msecgui.py:209
+#: ../src/msec/msecgui.py:228
 msgid "System security"
 msgstr "Systeemveiligheid"
 
-#: ../src/msec/msecgui.py:210
+#: ../src/msec/msecgui.py:229
 msgid "Network security"
 msgstr "Netwerkveiligheid"
 
-#: ../src/msec/msecgui.py:211
+#: ../src/msec/msecgui.py:230
 msgid "Periodic checks"
 msgstr "Periodieke controles"
 
-#: ../src/msec/msecgui.py:212
+#: ../src/msec/msecgui.py:231
 #, fuzzy
 msgid "Exceptions"
 msgstr "Optie"
 
-#: ../src/msec/msecgui.py:213 ../src/msec/msecgui.py:890
+#: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:987
 msgid "Permissions"
 msgstr "Toegangsrechten"
 
-#: ../src/msec/msecgui.py:246
+#: ../src/msec/msecgui.py:272
 msgid "MSEC option changes"
 msgstr "MSEC aanpassingen aan opties"
 
-#: ../src/msec/msecgui.py:246
+#: ../src/msec/msecgui.py:272
 msgid "option"
 msgstr "Optie"
 
-#: ../src/msec/msecgui.py:247
+#: ../src/msec/msecgui.py:273
 msgid "System permissions changes"
 msgstr "Aanpassingen systeemtoegangsrechten"
 
-#: ../src/msec/msecgui.py:247
+#: ../src/msec/msecgui.py:273
 msgid "permission check"
 msgstr "controle toegangsrechten"
 
-#: ../src/msec/msecgui.py:257
+#: ../src/msec/msecgui.py:283
 msgid "changed %s <b>%s</b> (%s -> %s)"
 msgstr "%s aangepast <b>%s</b> (%s -> %s)"
 
-#: ../src/msec/msecgui.py:262
+#: ../src/msec/msecgui.py:288
 msgid "added %s <b>%s</b> (%s)"
 msgstr "%s toegevoegd <b>%s</b> (%s)"
 
-#: ../src/msec/msecgui.py:267
+#: ../src/msec/msecgui.py:293
 msgid "removed %s <b>%s</b>"
 msgstr "%s verwijderd <b>%s</b>"
 
-#: ../src/msec/msecgui.py:271
+#: ../src/msec/msecgui.py:297
 msgid "no changes"
 msgstr "geen veranderingen"
 
-#: ../src/msec/msecgui.py:283
+#: ../src/msec/msecgui.py:310 ../src/msec/msecgui.py:317
 msgid "Saving changes.."
 msgstr "Wijzigingen opslaan…"
 
-#: ../src/msec/msecgui.py:317
+#: ../src/msec/msecgui.py:313
+msgid "Ignore and quit"
+msgstr ""
+
+#: ../src/msec/msecgui.py:351
 msgid "<b>%s:</b> <i>%s</i>\n"
 msgstr "<b>%s:</b> <i>%s</i>\n"
 
-#: ../src/msec/msecgui.py:324
+#: ../src/msec/msecgui.py:358
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
 msgstr "<b>Resultaten van MSEC testproces:</b> <i>%s</i>"
 
-#: ../src/msec/msecgui.py:332
+#: ../src/msec/msecgui.py:366
 msgid "Details"
 msgstr "Details"
 
-#: ../src/msec/msecgui.py:338
+#: ../src/msec/msecgui.py:372
 msgid "MSEC messages (%s): %d"
 msgstr "MSEC boodschappen (%s): %d"
 
-#: ../src/msec/msecgui.py:352
+#: ../src/msec/msecgui.py:386
 msgid "Details (%d changes).."
 msgstr "Details (%d aanpassingen)."
 
-#: ../src/msec/msecgui.py:405
+#: ../src/msec/msecgui.py:439
 msgid "No base msec level specified, using '%s'"
 msgstr "Geen msec-basisniveau gedefinieerd, ‘%s’ gebruiken"
 
-#: ../src/msec/msecgui.py:408
+#: ../src/msec/msecgui.py:442
 msgid "Detected base msec level '%s'"
 msgstr "Msec-basisniveau ‘%s’ gevonden"
 
-#: ../src/msec/msecgui.py:413
-msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr "Aangepast basisniveau ‘%s’ gevonden. Zal standaard ‘%s’ gebruiken"
-
-#: ../src/msec/msecgui.py:441
+#: ../src/msec/msecgui.py:470
 msgid "Security Option"
 msgstr "Veiligheidsoptie"
 
-#: ../src/msec/msecgui.py:451
+#: ../src/msec/msecgui.py:480 ../src/msec/msecgui.py:585
 msgid "Description"
 msgstr "Beschrijving"
 
-#: ../src/msec/msecgui.py:456
+#: ../src/msec/msecgui.py:485
 msgid "Value"
 msgstr "Waarde"
 
-#: ../src/msec/msecgui.py:466
+#: ../src/msec/msecgui.py:495
 msgid "Invalid option '%s'!"
 msgstr "Ongeldige optie \"%s\"!"
 
-#: ../src/msec/msecgui.py:516
+#: ../src/msec/msecgui.py:545
 msgid "Enable MSEC tool"
 msgstr "MSEC inschakelen"
 
-#: ../src/msec/msecgui.py:523
+#: ../src/msec/msecgui.py:552
 msgid "Select the base security level"
 msgstr "Kies het basisveiligheidsniveau"
 
-#: ../src/msec/msecgui.py:527
-msgid "Standard"
-msgstr "Standaard"
+#: ../src/msec/msecgui.py:575
+msgid "Level name"
+msgstr ""
 
-#: ../src/msec/msecgui.py:536
-msgid "Secure"
-msgstr "Veilig"
-
-#: ../src/msec/msecgui.py:549
-msgid "Send security alerts by email"
+#: ../src/msec/msecgui.py:631
+#, fuzzy
+msgid "Send security alerts by email to:"
 msgstr "Beveiligingswaarschuwingen via e-mail versturen"
 
-#: ../src/msec/msecgui.py:556
-msgid "System administrator email address:"
-msgstr "E-mailadres van de systeembeheerder:"
-
-#: ../src/msec/msecgui.py:575
+#: ../src/msec/msecgui.py:653
 msgid "Display security alerts on desktop"
 msgstr "Toon veiligheidswaarschuwingen op het bureaublad"
 
-#: ../src/msec/msecgui.py:739
+#: ../src/msec/msecgui.py:836
 msgid "Enable periodic security checks"
 msgstr "Periodieke veiligheidscontroles inschakelen"
 
-#: ../src/msec/msecgui.py:801
+#: ../src/msec/msecgui.py:898
 #, fuzzy
 msgid "Security check"
 msgstr "Periodieke controles"
 
-#: ../src/msec/msecgui.py:807
+#: ../src/msec/msecgui.py:904
 #, fuzzy
 msgid "Exception"
 msgstr "Optie"
 
-#: ../src/msec/msecgui.py:828 ../src/msec/msecgui.py:947
+#: ../src/msec/msecgui.py:925 ../src/msec/msecgui.py:1044
 msgid "Add a rule"
 msgstr "Regel toevoegen"
 
-#: ../src/msec/msecgui.py:833 ../src/msec/msecgui.py:952
+#: ../src/msec/msecgui.py:930 ../src/msec/msecgui.py:1049
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: ../src/msec/msecgui.py:872
+#: ../src/msec/msecgui.py:969
 msgid "Path"
 msgstr "Pad"
 
-#: ../src/msec/msecgui.py:878
+#: ../src/msec/msecgui.py:975
 msgid "User"
 msgstr "Gebruiker"
 
-#: ../src/msec/msecgui.py:884
+#: ../src/msec/msecgui.py:981
 msgid "Group"
 msgstr "Groep"
 
-#: ../src/msec/msecgui.py:898
+#: ../src/msec/msecgui.py:995
 msgid "Enforce"
 msgstr "Afdwingen"
 
-#: ../src/msec/msecgui.py:1051
+#: ../src/msec/msecgui.py:1148
 msgid "Editing exception"
 msgstr ""
 
-#: ../src/msec/msecgui.py:1056
+#: ../src/msec/msecgui.py:1153
 #, fuzzy
 msgid "Adding new exception"
 msgstr "Nieuwe toegangsrechtencontrole toevoegen"
 
-#: ../src/msec/msecgui.py:1063
+#: ../src/msec/msecgui.py:1160
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr ""
 
-#: ../src/msec/msecgui.py:1070
+#: ../src/msec/msecgui.py:1167
 msgid "Check: "
 msgstr ""
 
-#: ../src/msec/msecgui.py:1085
+#: ../src/msec/msecgui.py:1182
 msgid "Exception: "
 msgstr ""
 
-#: ../src/msec/msecgui.py:1120
+#: ../src/msec/msecgui.py:1217
 msgid "Changing permissions for %s"
 msgstr "Toegangsrechten op %s worden aangepast"
 
-#: ../src/msec/msecgui.py:1127
+#: ../src/msec/msecgui.py:1224
 msgid "Adding new permission check"
 msgstr "Nieuwe toegangsrechtencontrole toevoegen"
 
-#: ../src/msec/msecgui.py:1139
+#: ../src/msec/msecgui.py:1236
 msgid ""
 "Changing permissions on <b>%s</b>\n"
 "Please specify new permissions, or use 'current' to keep current "
@@ -941,37 +984,37 @@ msgstr ""
 "Definieer nieuwe toegangsrechten of gebruik \"huidige\" om de huidige "
 "toegangsrechten te behouden.\n"
 
-#: ../src/msec/msecgui.py:1139
+#: ../src/msec/msecgui.py:1236
 msgid "new file"
 msgstr ""
 
-#: ../src/msec/msecgui.py:1147
+#: ../src/msec/msecgui.py:1244
 msgid "File: "
 msgstr "Bestand:"
 
-#: ../src/msec/msecgui.py:1155
+#: ../src/msec/msecgui.py:1252
 msgid "User: "
 msgstr "Gebruiker:"
 
-#: ../src/msec/msecgui.py:1163
+#: ../src/msec/msecgui.py:1260
 msgid "Group: "
 msgstr "Groep:"
 
-#: ../src/msec/msecgui.py:1171
+#: ../src/msec/msecgui.py:1268
 msgid "Permissions: "
 msgstr "Toegangsrechten:"
 
-#: ../src/msec/msecgui.py:1232
+#: ../src/msec/msecgui.py:1325
 msgid "Select new value for %s"
 msgstr "Nieuwe waarde voor %s selecteren"
 
-#: ../src/msec/msecgui.py:1241
+#: ../src/msec/msecgui.py:1334
+#, fuzzy
 msgid ""
 "<i>%s</i>\n"
 "\n"
 "\tCurrent value:\t\t\t<i>%s</i>\n"
-"\t%sStandard level value:\t<i>%s</i>%s\n"
-"\t%sSecure level value:\t\t<i>%s</i>%s\n"
+"\t%sDefault level value:\t<i>%s</i>%s\n"
 msgstr ""
 "<i>%s</i>\n"
 "\n"
@@ -979,29 +1022,9 @@ msgstr ""
 "\t%sWaarde standaardniveau:\t<i>%s</i>%s\n"
 "\t%sWaarde veilig niveau:\t\t<i>%s</i>%s\n"
 
-#: ../src/msec/msecgui.py:1252
+#: ../src/msec/msecgui.py:1344
 msgid "New value:"
 msgstr "Nieuwe waarde:"
-
-#: ../src/msec/msecgui.py:1314
-msgid "Save your changes?"
-msgstr "Aanpassingen opslaan?"
-
-#: ../src/msec/msecgui.py:1316
-msgid "_Cancel"
-msgstr "_Annuleren"
-
-#: ../src/msec/msecgui.py:1317
-msgid "_Ignore"
-msgstr "_Negeren"
-
-#: ../src/msec/msecgui.py:1318
-msgid "_Save"
-msgstr "_Opslaan"
-
-#: ../src/msec/msecgui.py:1320
-msgid "Do you want to save changes before closing?"
-msgstr "Wilt u de aanpassingen opslaan alvorens af te sluiten?"
 
 #: ../src/msec/plugins/msec.py:149
 msgid "Allowing unrestricted chkconfig for packages"
@@ -1280,8 +1303,11 @@ msgid "no wheel group"
 msgstr "geen groep wheel"
 
 #: ../src/msec/plugins/pam.py:176
-msgid "wheel group is empty"
-msgstr "groep wheel is leeg"
+msgid ""
+"Security configuration is defined to allow only members of the wheel group "
+"to su to root, but this group is empty. Please add the allowed users into "
+"the wheel group."
+msgstr ""
 
 #: ../src/msec/plugins/pam.py:184
 msgid "Allowing su for all"
@@ -1294,6 +1320,36 @@ msgstr "Transparante root-toegang toestaan voor leden van de groep wheel"
 #: ../src/msec/plugins/pam.py:210
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Transparante root-toegang uitschakelen voor leden van de groep wheel"
+
+#~ msgid "Custom base config level '%s' found. Will default to '%s'"
+#~ msgstr "Aangepast basisniveau ‘%s’ gevonden. Zal standaard ‘%s’ gebruiken"
+
+#~ msgid "Standard"
+#~ msgstr "Standaard"
+
+#~ msgid "Secure"
+#~ msgstr "Veilig"
+
+#~ msgid "System administrator email address:"
+#~ msgstr "E-mailadres van de systeembeheerder:"
+
+#~ msgid "Save your changes?"
+#~ msgstr "Aanpassingen opslaan?"
+
+#~ msgid "_Cancel"
+#~ msgstr "_Annuleren"
+
+#~ msgid "_Ignore"
+#~ msgstr "_Negeren"
+
+#~ msgid "_Save"
+#~ msgstr "_Opslaan"
+
+#~ msgid "Do you want to save changes before closing?"
+#~ msgstr "Wilt u de aanpassingen opslaan alvorens af te sluiten?"
+
+#~ msgid "wheel group is empty"
+#~ msgstr "groep wheel is leeg"
 
 #~ msgid ""
 #~ "Allow users to authenticate with their passwords for sudo. If this "

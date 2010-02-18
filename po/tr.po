@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-04 11:31+BRST\n"
+"POT-Creation-Date: 2010-02-18 17:14+BRST\n"
 "PO-Revision-Date: 2010-02-15 12:37+0200\n"
 "Last-Translator: Atilla ÖNTAŞ <atilla_ontas@mandriva.org>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
@@ -27,39 +27,50 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 1.0\n"
 
-#: ../src/msec/config.py:45
+#: ../src/msec/config.py:46
 msgid "Modified system files"
 msgstr "Değiştirilmiş sistem dosyaları"
 
-#: ../src/msec/config.py:46
+#: ../src/msec/config.py:47
 msgid "No changes in system files"
 msgstr "Sistem dosyalarında değişiklik yok."
 
-#: ../src/msec/config.py:59
+#: ../src/msec/config.py:60
 msgid "Disabled"
 msgstr "Devredışı"
 
-#: ../src/msec/config.py:195
-#: ../src/msec/config.py:290
-#: ../src/msec/config.py:393
+#: ../src/msec/config.py:211 ../src/msec/config.py:411
 msgid "Unable to load configuration file %s: %s"
 msgstr "%s yapılandırma dosyası yüklenemiyor: %s"
 
-#: ../src/msec/config.py:209
-#: ../src/msec/config.py:304
-#: ../src/msec/config.py:415
+#: ../src/msec/config.py:225 ../src/msec/config.py:322
+#: ../src/msec/config.py:433
 msgid "Bad config option: %s"
 msgstr "Kötü ayar seçeneği: %s"
 
-#: ../src/msec/config.py:244
-#: ../src/msec/config.py:343
-#: ../src/msec/config.py:441
+#: ../src/msec/config.py:260 ../src/msec/config.py:361
+#: ../src/msec/config.py:459
 msgid "Unable to save %s: %s"
 msgstr "%s kaydedilemiyor: %s"
 
+#: ../src/msec/config.py:307
+#, fuzzy
+msgid "loading exceptions file %s: %s"
+msgstr "%s yapılandırma dosyası yüklenemiyor: %s"
+
+#: ../src/msec/config.py:308
+#, fuzzy
+msgid "No exceptions loaded"
+msgstr "İstisnalar"
+
 #: ../src/msec/help.py:14
-msgid "Allow local users to connect to X server. Accepted arguments: yes (all connections are allowed), local (only local connection), no (no connection)."
-msgstr "Yerel kullanıcıların X sunucusuna bağlanmasına izin ver. Kullanılabilir seçenekler: evet (bütün bağlantılar), yerel (sadece yerel bağlantılar) hayır (hiçbir bağlantı)."
+msgid ""
+"Allow local users to connect to X server. Accepted arguments: yes (all "
+"connections are allowed), local (only local connection), no (no connection)."
+msgstr ""
+"Yerel kullanıcıların X sunucusuna bağlanmasına izin ver. Kullanılabilir "
+"seçenekler: evet (bütün bağlantılar), yerel (sadece yerel bağlantılar) hayır "
+"(hiçbir bağlantı)."
 
 #: ../src/msec/help.py:16
 msgid "Enable checking for files/directories writable by everybody."
@@ -74,40 +85,63 @@ msgid "Send mail reports even if no changes were detected."
 msgstr "Hiçbir değişiklik algılanmasa da e-posta bildirimlerini gönder."
 
 #: ../src/msec/help.py:22
-msgid "Defines the base security level, on top of which the current configuration is based."
-msgstr "Mevcut yapılandırmanın temel aldığına bakılarak temel güvenlik seviyesini belirler"
+msgid ""
+"Defines the base security level, on top of which the current configuration "
+"is based."
+msgstr ""
+"Mevcut yapılandırmanın temel aldığına bakılarak temel güvenlik seviyesini "
+"belirler"
 
 #: ../src/msec/help.py:24
 msgid "Accept broadcasted ICMP echo."
 msgstr "Yayımlanan icmp yankısını kabul et."
 
 #: ../src/msec/help.py:26
-msgid "Enable msec to enforce file permissions to the values specified in the msec security policy."
-msgstr "Dosya izinlerini msec güvenlik kurallarında belirlenmiş değerlere zorlamak için msec' e yetki ver."
+msgid ""
+"Enable msec to enforce file permissions to the values specified in the msec "
+"security policy."
+msgstr ""
+"Dosya izinlerini msec güvenlik kurallarında belirlenmiş değerlere zorlamak "
+"için msec' e yetki ver."
 
 #: ../src/msec/help.py:28
 msgid "Enable periodic permission checking for files specified in msec policy."
-msgstr "Msec kuralındaki dosyaların periyodik olarak izin denetimini etkinleştirir"
+msgstr ""
+"Msec kuralındaki dosyaların periyodik olarak izin denetimini etkinleştirir"
 
 #: ../src/msec/help.py:30
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr "X sunucusunun tcp 6000 portundan ağ bağlantılarını kabul etmesine izin ver"
+msgstr ""
+"X sunucusunun tcp 6000 portundan ağ bağlantılarını kabul etmesine izin ver"
 
 #: ../src/msec/help.py:32
 msgid "Enable checking for known rootkits using chkrootkit."
 msgstr "Chkrootkit kullanarak bilinen rootkit denetimini etkinleştir."
 
 #: ../src/msec/help.py:34
-msgid "Enable verification for changes in the installed RPM packages. This will notify you when new packages are installed or removed."
-msgstr "Kurulu RPM paketlerindeki değişikliklerin doğrulanmasını etkinleştir. Bu işlev, yeni paketler kurulduğunda veya kaldırıldığında sizi uyaracaktır."
+msgid ""
+"Enable verification for changes in the installed RPM packages. This will "
+"notify you when new packages are installed or removed."
+msgstr ""
+"Kurulu RPM paketlerindeki değişikliklerin doğrulanmasını etkinleştir. Bu "
+"işlev, yeni paketler kurulduğunda veya kaldırıldığında sizi uyaracaktır."
 
 #: ../src/msec/help.py:36
-msgid "Enable sectools checks. This check will run all sectool checks for a security level configuration. The security level to be used during this test is determined by the CHECK_SECTOOL_LEVELS variable."
-msgstr "Sectools denetimlerini etkinleştir. Bu, tüm sectool denetimlerini bir güvenlik seviyesi yapılandırması çerçevesinde denetler. Bu denetleme sırasında kullanılan güvenlik seviyesi CHECK_SECTOOL_LEVELS değişkenince belirlenmiştir."
+msgid ""
+"Enable sectools checks. This check will run all sectool checks for a "
+"security level configuration. The security level to be used during this test "
+"is determined by the CHECK_SECTOOL_LEVELS variable."
+msgstr ""
+"Sectools denetimlerini etkinleştir. Bu, tüm sectool denetimlerini bir "
+"güvenlik seviyesi yapılandırması çerçevesinde denetler. Bu denetleme "
+"sırasında kullanılan güvenlik seviyesi CHECK_SECTOOL_LEVELS değişkenince "
+"belirlenmiştir."
 
 #: ../src/msec/help.py:38
 msgid "Set shell commands history size. A value of -1 means unlimited."
-msgstr "Kabuk komutlarının geçmiş kayıtları için boyut belirle. -1 değeri sınırsız demektir."
+msgstr ""
+"Kabuk komutlarının geçmiş kayıtları için boyut belirle. -1 değeri sınırsız "
+"demektir."
 
 #: ../src/msec/help.py:40
 msgid "Allow system reboot and shutdown to local users."
@@ -126,28 +160,49 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Periyodik denetimlerin sistem kütüğüne kaydını etkinleştir."
 
 #: ../src/msec/help.py:48
-msgid "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow (see man at(1) and crontab(1))."
-msgstr "Kullanıcılar için crontab ve at etkinleştir. İzin verilen kullanıcıları /etc/cron.allow ve /etc/at.allow dosyalarına yerleştir. (at(1) ve crontab(1) el kitaplarına bakın)"
+msgid ""
+"Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
+"etc/at.allow (see man at(1) and crontab(1))."
+msgstr ""
+"Kullanıcılar için crontab ve at etkinleştir. İzin verilen kullanıcıları /etc/"
+"cron.allow ve /etc/at.allow dosyalarına yerleştir. (at(1) ve crontab(1) el "
+"kitaplarına bakın)"
 
 #: ../src/msec/help.py:50
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr "Kullanıcıların .rhosts/.shosts dosyalarındaki tehlikeli seçeneklerin denetimini etkinleştirir."
+msgstr ""
+"Kullanıcıların .rhosts/.shosts dosyalarındaki tehlikeli seçeneklerin "
+"denetimini etkinleştirir."
 
 #: ../src/msec/help.py:52
-msgid "Enable password-related checks, such as empty passwords and strange super-user accounts."
-msgstr "Boş parolalar ya da garip süper kullanıcı hesapları gibi parola ile ilgili denetimleri etkinleştir."
+msgid ""
+"Enable password-related checks, such as empty passwords and strange super-"
+"user accounts."
+msgstr ""
+"Boş parolalar ya da garip süper kullanıcı hesapları gibi parola ile ilgili "
+"denetimleri etkinleştir."
 
 #: ../src/msec/help.py:54
-msgid "Set the password history length to prevent password reuse. This is not supported by pam_tcb."
-msgstr "Parola geçmişi kaydı uzunluğunu parolaların yeniden kullanımını engelleyecek şekilde belirle. Bu özellik pam_tcb ile desteklenmemektedir. "
+msgid ""
+"Set the password history length to prevent password reuse. This is not "
+"supported by pam_tcb."
+msgstr ""
+"Parola geçmişi kaydı uzunluğunu parolaların yeniden kullanımını engelleyecek "
+"şekilde belirle. Bu özellik pam_tcb ile desteklenmemektedir. "
 
 #: ../src/msec/help.py:56
 msgid "Enable checksum verification for suid files."
 msgstr "Suid dosyalar için checksum denetimini etkinleştir."
 
 #: ../src/msec/help.py:58
-msgid "Use secure location for temporary files. If this parameter is set to 'yes', user home directory will be used for temporary files. Otherwise, /tmp will be used."
-msgstr "Geçici dosyalar için güvenli konum kullan. Bu parametre 'evet' olarak ayarlanmışsa kullanıcının ev dizini geçici dosyalar için kullanılacaktır. Aksi takdirde, /tmp kullanılacaktır."
+msgid ""
+"Use secure location for temporary files. If this parameter is set to 'yes', "
+"user home directory will be used for temporary files. Otherwise, /tmp will "
+"be used."
+msgstr ""
+"Geçici dosyalar için güvenli konum kullan. Bu parametre 'evet' olarak "
+"ayarlanmışsa kullanıcının ev dizini geçici dosyalar için kullanılacaktır. "
+"Aksi takdirde, /tmp kullanılacaktır."
 
 #: ../src/msec/help.py:60
 msgid "User email to receive security notifications."
@@ -163,7 +218,8 @@ msgstr "Sadece 'wheel' grubu üyelerinin 'root' için 'su' kullanımına izin ve
 
 #: ../src/msec/help.py:66
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr "/etc/shadow (man shadow(5)) içindeki boş parolaların denetimini etkinleştir."
+msgstr ""
+"/etc/shadow (man shadow(5)) içindeki boş parolaların denetimini etkinleştir."
 
 #: ../src/msec/help.py:68
 msgid "Allow autologin."
@@ -183,39 +239,74 @@ msgstr "Kabuk zamanaşımını ayarla. Sıfır değeri zamanaşımı yok demekti
 
 #: ../src/msec/help.py:76
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr "Görüntü yöneticilerinin (kdm ve gdm) yerel kullanıcıların listesini görüntülemesine izin ver."
+msgstr ""
+"Görüntü yöneticilerinin (kdm ve gdm) yerel kullanıcıların listesini "
+"görüntülemesine izin ver."
 
 #: ../src/msec/help.py:78
 msgid "Enable name resolution spoofing protection."
 msgstr "Ad çözümlemesi sızdırma korumasını etkinleştir."
 
 #: ../src/msec/help.py:80
-msgid "Enforce MSEC file directory permissions on system startup. If this parameter is set to 'enforce', system permissions will be enforced automatically, according to system security settings."
-msgstr "MSEC dosya/dizin yetkilendirmelerini sistem açılışında zorla uygula. Bu seçenek 'enforce' olarak ayarlanmış ise sistem yetkilendirmeleri otomatik olarak sistem güvenlik ayarlarına göre yapılacaktır. "
+msgid ""
+"Enforce MSEC file directory permissions on system startup. If this parameter "
+"is set to 'enforce', system permissions will be enforced automatically, "
+"according to system security settings."
+msgstr ""
+"MSEC dosya/dizin yetkilendirmelerini sistem açılışında zorla uygula. Bu "
+"seçenek 'enforce' olarak ayarlanmış ise sistem yetkilendirmeleri otomatik "
+"olarak sistem güvenlik ayarlarına göre yapılacaktır. "
 
 #: ../src/msec/help.py:82
 msgid "Include current directory into user PATH by default"
 msgstr "Öntanımlı olarak geçerli dizini kullanıcının YOLunda konumlandır."
 
 #: ../src/msec/help.py:84
-msgid "Enable permission checking on users' files that should not be owned by someone else, or writable."
-msgstr "Başkaları tarafından sahiplenmemesi veya yazılmaması gereken kullanıcı dosyalarında izin denetimlerini etkinleştir."
+msgid ""
+"Enable permission checking on users' files that should not be owned by "
+"someone else, or writable."
+msgstr ""
+"Başkaları tarafından sahiplenmemesi veya yazılmaması gereken kullanıcı "
+"dosyalarında izin denetimlerini etkinleştir."
 
 #: ../src/msec/help.py:86
-msgid "Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages. By default, two presets are provided: local (which only enables local services) and remote (which also enables some remote services considered safe). Note that the allowed services must be placed manually into the server.SERVER_LEVEL files when necessary."
-msgstr "/etc/security/msec/server dosyasına bağlı /etc/security/msec/server kısayolu oluşturur. SERVER_LEVEL./etc/security/msec/server, chkconfig --add tarafından kurulum sırasında paket içindeyse bir hizmeti eklemeye karar vermede kullanılır. Ön tanımlı olarak, iki ayar sunulur: yerel (sadece yerel hizmetleri etkinleştirir.) ve uzak (ayrıca güvenli sayılan uzak hizmetleri de etkinleştirir.) İzin verilen hizmetlerin sunucuya elle eklenmesi gerektiğini unutmayın. Gerektiğinde SERVER_LEVEL dosyaları."
+msgid ""
+"Creates the symlink /etc/security/msec/server to point to /etc/security/msec/"
+"server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --"
+"add to decide to add a service if it is present in the file during the "
+"installation of packages. By default, two presets are provided: local (which "
+"only enables local services) and remote (which also enables some remote "
+"services considered safe). Note that the allowed services must be placed "
+"manually into the server.SERVER_LEVEL files when necessary."
+msgstr ""
+"/etc/security/msec/server dosyasına bağlı /etc/security/msec/server kısayolu "
+"oluşturur. SERVER_LEVEL./etc/security/msec/server, chkconfig --add "
+"tarafından kurulum sırasında paket içindeyse bir hizmeti eklemeye karar "
+"vermede kullanılır. Ön tanımlı olarak, iki ayar sunulur: yerel (sadece yerel "
+"hizmetleri etkinleştirir.) ve uzak (ayrıca güvenli sayılan uzak hizmetleri "
+"de etkinleştirir.) İzin verilen hizmetlerin sunucuya elle eklenmesi "
+"gerektiğini unutmayın. Gerektiğinde SERVER_LEVEL dosyaları."
 
 #: ../src/msec/help.py:88
-msgid "Use password to authenticate users. Take EXTREME care when disabling passwords, as it will leave the machine vulnerable."
-msgstr "Kullanıcılara izin vermek için parolaları kullan. Parolaları devredışı bırakırken ÇOK DİKKATLİ olun, sisteminiz korumasız kalabilir."
+msgid ""
+"Use password to authenticate users. Take EXTREME care when disabling "
+"passwords, as it will leave the machine vulnerable."
+msgstr ""
+"Kullanıcılara izin vermek için parolaları kullan. Parolaları devredışı "
+"bırakırken ÇOK DİKKATLİ olun, sisteminiz korumasız kalabilir."
 
 #: ../src/msec/help.py:90
 msgid "Show security notifications in system tray using libnotify."
-msgstr "Sistem güvenlik bildirimlerini libnotify kullanarak sistem tepsisinde göster."
+msgstr ""
+"Sistem güvenlik bildirimlerini libnotify kullanarak sistem tepsisinde göster."
 
 #: ../src/msec/help.py:92
-msgid "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', default system umask is used."
-msgstr "vfat ve ntfs bölümlerinin bağlanması için umask seçeneğini ayarla. umask '-1' ise varsayılan sistem umask değeri kullanılır."
+msgid ""
+"Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
+"default system umask is used."
+msgstr ""
+"vfat ve ntfs bölümlerinin bağlanması için umask seçeneğini ayarla. umask '-"
+"1' ise varsayılan sistem umask değeri kullanılır."
 
 #: ../src/msec/help.py:94
 msgid "Enable checking for open network ports."
@@ -234,86 +325,136 @@ msgid "Enable checking for changes in system groups."
 msgstr "Sistem gruplarındaki değişikliklerin denetimini etkinleştir."
 
 #: ../src/msec/help.py:102
-msgid "Allow remote root login via sshd. If yes, login is allowed. If without-password, only public-key authentication logins are allowed. See sshd_config(5) man page for more information."
-msgstr "sshd üzerinden uzaktan 'root' girişine izin ver. Seçenek 'evet'(yes) ise girişe izin verilir, 'parolasız' ise yalnızca açık anahtar kimlikleme ile girişe izin verilir. Daha fazla bilgi için bakınız: sshd_config (5) man sayfası."
+msgid ""
+"Allow remote root login via sshd. If yes, login is allowed. If without-"
+"password, only public-key authentication logins are allowed. See sshd_config"
+"(5) man page for more information."
+msgstr ""
+"sshd üzerinden uzaktan 'root' girişine izin ver. Seçenek 'evet'(yes) ise "
+"girişe izin verilir, 'parolasız' ise yalnızca açık anahtar kimlikleme ile "
+"girişe izin verilir. Daha fazla bilgi için bakınız: sshd_config (5) man "
+"sayfası."
 
 #: ../src/msec/help.py:104
 msgid "Enable logging of strange network packets."
 msgstr "Garip ağ paketlerinin kütüğe kaydını etkinleştir"
 
 #: ../src/msec/help.py:106
+msgid ""
+"Define the default retention period for logs, in weeks. Some countries "
+"require that the log files should be kept for 12 months, other do not have "
+"such strict requirements. This variable defines the number of past log files "
+"that should be kept by logrotate on the system."
+msgstr ""
+
+#: ../src/msec/help.py:108
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr "Tek kullanıcılı seviyeye geçişte root parolası sor (man sulogin(8))."
 
-#: ../src/msec/help.py:108
+#: ../src/msec/help.py:110
 msgid "Enable IP spoofing protection."
 msgstr "IP sızdırmaya karşı korumayı etkinleştir"
 
-#: ../src/msec/help.py:110
+#: ../src/msec/help.py:112
 msgid "Allow root access without password for the members of the wheel group."
 msgstr "Wheel grubu üyelerinin parola olmadan root erişimine izin ver"
 
-#: ../src/msec/help.py:112
-msgid "Fix owner and group of unowned files to use nobody/nogroup."
-msgstr "nobody/nogroup kullanmak için sahipsiz dosyaların sahiplik ve grubunu düzelt."
-
 #: ../src/msec/help.py:114
+msgid "Fix owner and group of unowned files to use nobody/nogroup."
+msgstr ""
+"nobody/nogroup kullanmak için sahipsiz dosyaların sahiplik ve grubunu düzelt."
+
+#: ../src/msec/help.py:116
 msgid "Send security check results by email."
 msgstr "Güvenlik denetimi sonuçlarını e-posta ile gönder"
 
-#: ../src/msec/help.py:116
-msgid "Allow to export display when passing from the root account to the other users. See pam_xauth(8) for more details."
-msgstr "'root' hesabından diğer kullanıcılara geçişte ekran görüntüsünün aktarımına izin ver. Ayrıntılar için: pam_xauth(8)."
-
 #: ../src/msec/help.py:118
-msgid "Defines the sectool level to use during the periodic security check. You may use the sectool-gui application to select individual tests for each level. If this variable is not defined, the default level defined in sectool configuration will be used."
-msgstr "Periyodik güvenlik denetimi sırasında kullanılacak sectool seviyesini tanımlar. Sectool-gui uygulamasını kullanarak her seviye için farklı denetimleri seçebilirsiniz. Bu değişken tanımlanmamışsa, sectool yapılandırmasındaki öntanımlı seviye kullanılır."
+msgid ""
+"Allow to export display when passing from the root account to the other "
+"users. See pam_xauth(8) for more details."
+msgstr ""
+"'root' hesabından diğer kullanıcılara geçişte ekran görüntüsünün aktarımına "
+"izin ver. Ayrıntılar için: pam_xauth(8)."
 
 #: ../src/msec/help.py:120
+msgid ""
+"Defines the sectool level to use during the periodic security check. You may "
+"use the sectool-gui application to select individual tests for each level. "
+"If this variable is not defined, the default level defined in sectool "
+"configuration will be used."
+msgstr ""
+"Periyodik güvenlik denetimi sırasında kullanılacak sectool seviyesini "
+"tanımlar. Sectool-gui uygulamasını kullanarak her seviye için farklı "
+"denetimleri seçebilirsiniz. Bu değişken tanımlanmamışsa, sectool "
+"yapılandırmasındaki öntanımlı seviye kullanılır."
+
+#: ../src/msec/help.py:122
 msgid "Enable daily security checks."
 msgstr "Günlük güvenlik denetimlerini etkinleştir."
 
-#: ../src/msec/help.py:122
+#: ../src/msec/help.py:124
 msgid "Accept ICMP echo."
 msgstr "ICMP yankısını kabul et."
 
-#: ../src/msec/help.py:124
-msgid "Set the password minimum length and minimum number of digit and minimum number of capitalized letters, using length,ndigits,nupper format."
-msgstr "Uzunluk, sayı, büyük harf sayısı biçimini kullanarak parolada kullanılabilecek en az harf, en az rakam ve en az büyük harf sayısını belirle."
-
 #: ../src/msec/help.py:126
-msgid "Allow full access to network services controlled by tcp_wrapper (see hosts.deny(5)). If yes, all services are allowed. If local, only connections to local services are authorized. If no, the services must be authorized manually in /etc/hosts.allow (see hosts.allow(5))."
-msgstr "tcp_wrapper ile kontrol edilen ağ servislerine tam erişime izin ver (bakınız: hosts.deny(5)). Seçim 'evet' ise servislere izin verilir, 'yerel' ise yalnızca yerel servislere bağlantıya izin verilir, 'hayır' ise servisler /etc/hosts.allow dosyası ile düzenlenmelidir. (Bkz: hosts.allow(5))."
+msgid ""
+"Set the password minimum length and minimum number of digit and minimum "
+"number of capitalized letters, using length,ndigits,nupper format."
+msgstr ""
+"Uzunluk, sayı, büyük harf sayısı biçimini kullanarak parolada "
+"kullanılabilecek en az harf, en az rakam ve en az büyük harf sayısını "
+"belirle."
 
 #: ../src/msec/help.py:128
-msgid "Enable verification of integrity of installed RPM packages. This will notify you if checksums of the installed files were changed, showing separate results for binary and configuration files."
-msgstr "Kurulan RPM paketlerinin içeriğini doğrulamayı etkinleştir. Bu işlev kurulu dosyaların boyutları değişmişse, ikili dosyalar ve yapılandırma dosyaları için ayrı sonuçlar göstererek uyaracaktır."
+msgid ""
+"Allow full access to network services controlled by tcp_wrapper (see hosts."
+"deny(5)). If yes, all services are allowed. If local, only connections to "
+"local services are authorized. If no, the services must be authorized "
+"manually in /etc/hosts.allow (see hosts.allow(5))."
+msgstr ""
+"tcp_wrapper ile kontrol edilen ağ servislerine tam erişime izin ver "
+"(bakınız: hosts.deny(5)). Seçim 'evet' ise servislere izin verilir, 'yerel' "
+"ise yalnızca yerel servislere bağlantıya izin verilir, 'hayır' ise "
+"servisler /etc/hosts.allow dosyası ile düzenlenmelidir. (Bkz: hosts.allow"
+"(5))."
 
 #: ../src/msec/help.py:130
+msgid ""
+"Enable verification of integrity of installed RPM packages. This will notify "
+"you if checksums of the installed files were changed, showing separate "
+"results for binary and configuration files."
+msgstr ""
+"Kurulan RPM paketlerinin içeriğini doğrulamayı etkinleştir. Bu işlev kurulu "
+"dosyaların boyutları değişmişse, ikili dosyalar ve yapılandırma dosyaları "
+"için ayrı sonuçlar göstererek uyaracaktır."
+
+#: ../src/msec/help.py:132
 msgid "Set the root umask."
 msgstr "'root' için umask değerini belirle"
 
-#: ../src/msec/help.py:132
-msgid "Perform hourly security check for changes in system configuration."
-msgstr "Sistem yapılandırmasındaki değişiklikler için saatte bir güvenlik denetimi yap."
-
 #: ../src/msec/help.py:134
+msgid "Perform hourly security check for changes in system configuration."
+msgstr ""
+"Sistem yapılandırmasındaki değişiklikler için saatte bir güvenlik denetimi "
+"yap."
+
+#: ../src/msec/help.py:136
 msgid "Enforce MSEC settings on system startup"
 msgstr "Sistem açılışında MSEC ayarlarını zorla."
 
-#: ../src/msec/help.py:136
+#: ../src/msec/help.py:138
 msgid "Enable periodic security check results to terminal."
 msgstr "Periyodik güvenlik denetimi sonuçlarını terminale gönder."
 
-#: ../src/msec/help.py:138
+#: ../src/msec/help.py:140
 msgid "Accept bogus IPv4 error messages."
 msgstr "Taklit IPv4 hata iletilerini kabul et."
 
-#: ../src/msec/help.py:140
+#: ../src/msec/help.py:142
 msgid "Enable checking for additions/removals of sgid files."
 msgstr "sgid dosyaları için ekleme/çıkarma denetimini etkinleştir"
 
-#: ../src/msec/help.py:142
+#: ../src/msec/help.py:144
 msgid "Activate ethernet cards promiscuity check."
 msgstr "Ethernet kartları karışıklık denetimini etkinleştir."
 
@@ -325,8 +466,7 @@ msgstr "%s değiştirildi. Kullanılan komut: %s"
 msgid "%s modified so should have run command: %s"
 msgstr "% değiştirildi. Kullanılması gereken komut: %s"
 
-#: ../src/msec/libmsec.py:377
-#: ../src/msec/libmsec.py:409
+#: ../src/msec/libmsec.py:377 ../src/msec/libmsec.py:409
 msgid "deleted %s"
 msgstr "%s silindi"
 
@@ -342,8 +482,7 @@ msgstr "%s ile %s arasında sembolik bağ yapıldı"
 msgid "moved file %s to %s"
 msgstr "dosya nakledildi %s > %s"
 
-#: ../src/msec/libmsec.py:468
-#: ../src/msec/libmsec.py:484
+#: ../src/msec/libmsec.py:468 ../src/msec/libmsec.py:484
 msgid "set variable %s to %s in %s"
 msgstr "%s değişkenini %s olarak %s içinde değiştir"
 
@@ -363,8 +502,7 @@ msgstr "%s eklentisi yok."
 msgid "Not supported function '%s' in '%s'"
 msgstr "%s fonksiyonu %s içinde desteklenmiyor."
 
-#: ../src/msec/libmsec.py:726
-#: ../src/msec/libmsec.py:856
+#: ../src/msec/libmsec.py:726 ../src/msec/libmsec.py:856
 msgid "In check-only mode, nothing is written back to disk."
 msgstr "Salt denetim durumunda diske bir şey yazılmaz."
 
@@ -390,7 +528,9 @@ msgstr "%d ID'li grup adı bulunamadı"
 
 #: ../src/msec/libmsec.py:832
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
-msgstr "/proc/mounts denetlenemiyor. Tüm dosya sistemleri yerel olarak kabul edilecek."
+msgstr ""
+"/proc/mounts denetlenemiyor. Tüm dosya sistemleri yerel olarak kabul "
+"edilecek."
 
 #: ../src/msec/libmsec.py:871
 msgid "Forcing ownership of %s to %s"
@@ -440,23 +580,19 @@ msgstr "Yerel olmayan dosya: \"%s\". Değişiklik yapılmadı."
 msgid "Checking paths: %s"
 msgstr "Yol denetleniyor: %s"
 
-#: ../src/msec/msec.py:87
-#: ../src/msec/msecperms.py:96
+#: ../src/msec/msec.py:87 ../src/msec/msecperms.py:96
 msgid "Invalid security level '%s'."
 msgstr "Geçersiz güvenlik seviyesi '%s'."
 
-#: ../src/msec/msec.py:114
-#: ../src/msec/msecperms.py:121
+#: ../src/msec/msec.py:114 ../src/msec/msecperms.py:121
 msgid "Msec: Mandriva Security Center (%s)\n"
 msgstr "Msec: Mandriva Güvenlik Merkezi (%s)\n"
 
-#: ../src/msec/msec.py:115
-#: ../src/msec/msecperms.py:122
+#: ../src/msec/msec.py:115 ../src/msec/msecperms.py:122
 msgid "Error: This application must be executed by root!"
 msgstr "Hata: Bu uygulama 'root' tarafından çalıştırılmalı!"
 
-#: ../src/msec/msec.py:116
-#: ../src/msec/msecperms.py:123
+#: ../src/msec/msec.py:116 ../src/msec/msecperms.py:123
 msgid "Run with --help to get help."
 msgstr "Yardım almak için --help ile çalıştırın."
 
@@ -476,8 +612,7 @@ msgstr " '%s' seviyesi için kişisel dosya izni yok"
 msgid "Saving file permissions to '%s' level."
 msgstr "'%s ' seviyesine dosya izinleri kaydediliyor."
 
-#: ../src/msec/msec.py:192
-#: ../src/msec/msecperms.py:160
+#: ../src/msec/msec.py:192 ../src/msec/msecperms.py:160
 msgid "Unable to save config!"
 msgstr "Yapılandırma kaydedilemiyor."
 
@@ -495,45 +630,91 @@ msgstr ""
 "Bu uygulama sistem güvenliğinizi ayarlamanızı sağlar: Eğer isterseniz\n"
 "etkinleştirmek için uygun bir güvenlik seviyesi seçiniz: "
 
-#: ../src/msec/msecgui.py:55
-msgid "This profile configures a reasonably safe set of security features. It activates several non-intrusive periodic system checks. This is the suggested level for Desktop."
-msgstr "Bu durumda makul seviyede güvenlik özellikleri ayarlanır. Bazı zorlamayan sistem denetimleri etkinleştirilir. Bu masaüstü kullanımı için önerilen seviyedir."
-
 #: ../src/msec/msecgui.py:57
-msgid "This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks. This level is suggested for Servers and security-concerned systems . "
-msgstr "Bu durumda en yüksek güvenlik seviyesi sağlanır. Sonucunda sistemin uzaktan kullanımı da sınırlanır. Aynı zamanda daha geniş periyodik denetimleri de çalıştırır. Bu sunucular ve yüksek güvenlik gerektiren durumlar için önerilen seviyedir."
+msgid ""
+"This profile configures a reasonably safe set of security features. It "
+"activates several non-intrusive periodic system checks. This is the "
+"suggested level for Desktop."
+msgstr ""
+"Bu durumda makul seviyede güvenlik özellikleri ayarlanır. Bazı zorlamayan "
+"sistem denetimleri etkinleştirilir. Bu masaüstü kullanımı için önerilen "
+"seviyedir."
+
+#: ../src/msec/msecgui.py:58
+msgid ""
+"This profile is focused on netbook or low-end devices, which are only "
+"accessed by local users and run on batteries."
+msgstr ""
 
 #: ../src/msec/msecgui.py:60
 msgid ""
+"This profile is configured to provide maximum security, even at the cost of "
+"limiting the remote access to the system. It also runs a wider set of "
+"periodic checks. This level is suggested for Servers and security-concerned "
+"systems . "
+msgstr ""
+"Bu durumda en yüksek güvenlik seviyesi sağlanır. Sonucunda sistemin uzaktan "
+"kullanımı da sınırlanır. Aynı zamanda daha geniş periyodik denetimleri de "
+"çalıştırır. Bu sunucular ve yüksek güvenlik gerektiren durumlar için "
+"önerilen seviyedir."
+
+#: ../src/msec/msecgui.py:62
+msgid ""
+"This profile is targeted on storage-oriented servers, such as FTP, SAMBA or "
+"NFS servers, or database servers, which do not receive accesses from "
+"unauthorized Internet users."
+msgstr ""
+
+#: ../src/msec/msecgui.py:64
+msgid ""
+"This profile is similar to the 'Fileserver', but it assumes that the server "
+"receives connection from unauthorized Internet users."
+msgstr ""
+
+#: ../src/msec/msecgui.py:71
+#, fuzzy
+msgid "Custom security level."
+msgstr "Sistem güvenliği"
+
+#: ../src/msec/msecgui.py:74
+msgid ""
 "<big><b>System security options</b></big>\n"
-"These options control the local security configuration, such as the login restrictions,\n"
-"password configurations, integration with other security tools, and default file creation\n"
+"These options control the local security configuration, such as the login "
+"restrictions,\n"
+"password configurations, integration with other security tools, and default "
+"file creation\n"
 "permissions.  "
 msgstr ""
 "<big><b>Sistem güvenliği seçenekleri</b></big>\n"
-"Bu seçenekler sisteme giriş sınırlamaları, parola yapılandırmaları, diğer güvenlik,\n"
-"araçları ile entegrasyon ve varsayılan dosya oluşturma yetkileri gibi yerel güvenlik \n"
+"Bu seçenekler sisteme giriş sınırlamaları, parola yapılandırmaları, diğer "
+"güvenlik,\n"
+"araçları ile entegrasyon ve varsayılan dosya oluşturma yetkileri gibi yerel "
+"güvenlik \n"
 "yapılandırması ile ilgilidir."
 
-#: ../src/msec/msecgui.py:65
+#: ../src/msec/msecgui.py:79
 msgid ""
 "<big><b>Network security options</b></big>\n"
-"These options define the network security against remote threats, unauthorized accesses,\n"
+"These options define the network security against remote threats, "
+"unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
 "<big><b>Ağ güvenliği seçenekleri</b></big>\n"
-"Bu seçenekler uzaktan saldırılar, yetkisiz erişimler ve kırma girişimlerine karşı \n"
+"Bu seçenekler uzaktan saldırılar, yetkisiz erişimler ve kırma girişimlerine "
+"karşı \n"
 "ağ güvenliğini belirler."
 
-#: ../src/msec/msecgui.py:69
+#: ../src/msec/msecgui.py:83
 msgid ""
 "<big><b>Periodic security checks</b></big>\n"
-"These options configure the security checks that should be executed periodically.  "
+"These options configure the security checks that should be executed "
+"periodically.  "
 msgstr ""
 "<big><b>Periyodik güvenlik denetimleri</b></big>\n"
-"Bu seçenekler periyodik olarak yapılması gereken güvenlik denetimlerini ayarlar."
+"Bu seçenekler periyodik olarak yapılması gereken güvenlik denetimlerini "
+"ayarlar."
 
-#: ../src/msec/msecgui.py:72
+#: ../src/msec/msecgui.py:86
 msgid ""
 "<big><b>Exceptions</b></big>\n"
 "Here you can configure the allowed exceptions for msec periodic security\n"
@@ -541,295 +722,308 @@ msgid ""
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
 "<big><b>İstisnalar</b></big>\n"
-"Burada, msec düzenli güvenlik denetimlerinde izin verilen istisnaları ayarlayabilirsiniz.\n"
-"Her desteklenen deneme için, her denetlmeye özgü bir çok istisna ekleyebilirsiniz.\n"
+"Burada, msec düzenli güvenlik denetimlerinde izin verilen istisnaları "
+"ayarlayabilirsiniz.\n"
+"Her desteklenen deneme için, her denetlmeye özgü bir çok istisna "
+"ekleyebilirsiniz.\n"
 "Her istisnanın bir regexp olarak işleneceğini not edin."
 
-#: ../src/msec/msecgui.py:77
+#: ../src/msec/msecgui.py:91
 msgid ""
 "<big><b>File permissions</b></big>\n"
-"These options allow to fine-tune system permissions for important files and directories.\n"
-"The following permissions are checked periodically, and any change to the owner, group,\n"
-"or current permission is reported. The permissions can be enforced, automatically\n"
+"These options allow to fine-tune system permissions for important files and "
+"directories.\n"
+"The following permissions are checked periodically, and any change to the "
+"owner, group,\n"
+"or current permission is reported. The permissions can be enforced, "
+"automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
 "<big><b>Dosya yetkileri</b></big>\n"
-"Bu seçenekler önemli dosya ve dizinler için sistem yetkilerinin ince ayarı içindir.\n"
-"Aşağıdaki seçenekler periyodik olarak denetlenir ve sahiplik, grup ya da mevcut \n"
-"yetkilerdeki herhangi bir değişiklik rapor edilir. Yetkilerin bir değişiklik algılandığında \n"
+"Bu seçenekler önemli dosya ve dizinler için sistem yetkilerinin ince ayarı "
+"içindir.\n"
+"Aşağıdaki seçenekler periyodik olarak denetlenir ve sahiplik, grup ya da "
+"mevcut \n"
+"yetkilerdeki herhangi bir değişiklik rapor edilir. Yetkilerin bir değişiklik "
+"algılandığında \n"
 "otomatik olarak belirlenmiş bir değere getirilmesi zorlanabilir."
 
-#: ../src/msec/msecgui.py:83
+#: ../src/msec/msecgui.py:97
 msgid "Save and apply new configuration?"
 msgstr "Yeni yapılandırmayı kaydet ve uygula"
 
-#: ../src/msec/msecgui.py:151
+#: ../src/msec/msecgui.py:130
+#, fuzzy
+msgid "Unable to load configuration for level '%s'"
+msgstr "%s yapılandırma dosyası yüklenemiyor: %s"
+
+#: ../src/msec/msecgui.py:136
+#, fuzzy
+msgid "Unable to load permissions for level '%s'"
+msgstr " '%s' seviyesi için kişisel dosya izni yok"
+
+#: ../src/msec/msecgui.py:170
 msgid "_File"
 msgstr "_Dosya"
 
-#: ../src/msec/msecgui.py:153
+#: ../src/msec/msecgui.py:172
 msgid "_Save configuration"
 msgstr "Ayarları _Kaydet"
 
-#: ../src/msec/msecgui.py:158
+#: ../src/msec/msecgui.py:177
 msgid "_Quit"
 msgstr "_Çık"
 
-#: ../src/msec/msecgui.py:160
-#: ../src/msec/msecgui.py:162
+#: ../src/msec/msecgui.py:179 ../src/msec/msecgui.py:181
 msgid "_Help"
 msgstr "_Yardım"
 
-#: ../src/msec/msecgui.py:163
+#: ../src/msec/msecgui.py:182
 msgid "_About"
 msgstr "Hakkında"
 
-#: ../src/msec/msecgui.py:190
+#: ../src/msec/msecgui.py:209
 msgid "MSEC: System Security and Audit"
 msgstr "MSEC: Sistem Güvenliği ve Denetimi"
 
-#: ../src/msec/msecgui.py:208
+#: ../src/msec/msecgui.py:227
 msgid "Basic security"
 msgstr "Temel güvenlik"
 
-#: ../src/msec/msecgui.py:209
+#: ../src/msec/msecgui.py:228
 msgid "System security"
 msgstr "Sistem güvenliği"
 
-#: ../src/msec/msecgui.py:210
+#: ../src/msec/msecgui.py:229
 msgid "Network security"
 msgstr "Ağ güvenliği"
 
-#: ../src/msec/msecgui.py:211
+#: ../src/msec/msecgui.py:230
 msgid "Periodic checks"
 msgstr "Periyodik denetimler"
 
-#: ../src/msec/msecgui.py:212
+#: ../src/msec/msecgui.py:231
 msgid "Exceptions"
 msgstr "İstisnalar"
 
-#: ../src/msec/msecgui.py:213
-#: ../src/msec/msecgui.py:890
+#: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:987
 msgid "Permissions"
 msgstr "Yetkiler"
 
-#: ../src/msec/msecgui.py:246
+#: ../src/msec/msecgui.py:272
 msgid "MSEC option changes"
 msgstr "MSEC seçenek değişiklikleri"
 
-#: ../src/msec/msecgui.py:246
+#: ../src/msec/msecgui.py:272
 msgid "option"
 msgstr "seçenek"
 
-#: ../src/msec/msecgui.py:247
+#: ../src/msec/msecgui.py:273
 msgid "System permissions changes"
 msgstr "Sistem yetkileri değişiklikleri"
 
-#: ../src/msec/msecgui.py:247
+#: ../src/msec/msecgui.py:273
 msgid "permission check"
 msgstr "yetki denetimi"
 
-#: ../src/msec/msecgui.py:257
+#: ../src/msec/msecgui.py:283
 msgid "changed %s <b>%s</b> (%s -> %s)"
 msgstr "değişen %s <b>%s</b> (%s -> %s)"
 
-#: ../src/msec/msecgui.py:262
+#: ../src/msec/msecgui.py:288
 msgid "added %s <b>%s</b> (%s)"
 msgstr "eklenen %s <b>%s</b> (%s)"
 
-#: ../src/msec/msecgui.py:267
+#: ../src/msec/msecgui.py:293
 msgid "removed %s <b>%s</b>"
 msgstr "silinen %s <b>%s</b>"
 
-#: ../src/msec/msecgui.py:271
+#: ../src/msec/msecgui.py:297
 msgid "no changes"
 msgstr "değişiklik yok"
 
-#: ../src/msec/msecgui.py:283
+#: ../src/msec/msecgui.py:310 ../src/msec/msecgui.py:317
 msgid "Saving changes.."
 msgstr "Değişiklikler kaydediliyor.."
 
-#: ../src/msec/msecgui.py:317
+#: ../src/msec/msecgui.py:313
+msgid "Ignore and quit"
+msgstr ""
+
+#: ../src/msec/msecgui.py:351
 msgid "<b>%s:</b> <i>%s</i>\n"
 msgstr "<b>%s:</b> <i>%s</i>\n"
 
-#: ../src/msec/msecgui.py:324
+#: ../src/msec/msecgui.py:358
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
 msgstr "<b>MSEC testi sonuçları:</b> <i>%s</i>"
 
-#: ../src/msec/msecgui.py:332
+#: ../src/msec/msecgui.py:366
 msgid "Details"
 msgstr "Ayrıntılar"
 
-#: ../src/msec/msecgui.py:338
+#: ../src/msec/msecgui.py:372
 msgid "MSEC messages (%s): %d"
 msgstr "MSEC mesajları (%s): %d"
 
-#: ../src/msec/msecgui.py:352
+#: ../src/msec/msecgui.py:386
 msgid "Details (%d changes).."
 msgstr "Ayrıntılar (%d değişiklik).."
 
-#: ../src/msec/msecgui.py:405
+#: ../src/msec/msecgui.py:439
 msgid "No base msec level specified, using '%s'"
 msgstr "Temel msec seviyesi tanımlanmamış, '%s' kullanılacak"
 
-#: ../src/msec/msecgui.py:408
+#: ../src/msec/msecgui.py:442
 msgid "Detected base msec level '%s'"
 msgstr "Bulunan temel msec seviyesi '%s'"
 
-#: ../src/msec/msecgui.py:413
-msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr "Özel temel ayar seviyesi '%s' bulundu. '%s' yapılacak"
-
-#: ../src/msec/msecgui.py:441
+#: ../src/msec/msecgui.py:470
 msgid "Security Option"
 msgstr "Güvenlik Seçeneği"
 
-#: ../src/msec/msecgui.py:451
+#: ../src/msec/msecgui.py:480 ../src/msec/msecgui.py:585
 msgid "Description"
 msgstr "Tanım"
 
-#: ../src/msec/msecgui.py:456
+#: ../src/msec/msecgui.py:485
 msgid "Value"
 msgstr "Değer"
 
-#: ../src/msec/msecgui.py:466
+#: ../src/msec/msecgui.py:495
 msgid "Invalid option '%s'!"
 msgstr "Geçersiz seçenek '%s'!"
 
-#: ../src/msec/msecgui.py:516
+#: ../src/msec/msecgui.py:545
 msgid "Enable MSEC tool"
 msgstr "MSEC aracını etkinleştir"
 
-#: ../src/msec/msecgui.py:523
+#: ../src/msec/msecgui.py:552
 msgid "Select the base security level"
 msgstr "Temel güvenlik seviyesini seçiniz"
 
-#: ../src/msec/msecgui.py:527
-msgid "Standard"
-msgstr "Standart"
+#: ../src/msec/msecgui.py:575
+msgid "Level name"
+msgstr ""
 
-#: ../src/msec/msecgui.py:536
-msgid "Secure"
-msgstr "Güvenli"
-
-#: ../src/msec/msecgui.py:549
-msgid "Send security alerts by email"
+#: ../src/msec/msecgui.py:631
+#, fuzzy
+msgid "Send security alerts by email to:"
 msgstr "Güvenlik uyarılarını e-posta ile yolla"
 
-#: ../src/msec/msecgui.py:556
-msgid "System administrator email address:"
-msgstr "Sistem yöneticisinin e-posta adresi:"
-
-#: ../src/msec/msecgui.py:575
+#: ../src/msec/msecgui.py:653
 msgid "Display security alerts on desktop"
 msgstr "Güvenlik uyarılarını masaüstünde göster"
 
-#: ../src/msec/msecgui.py:739
+#: ../src/msec/msecgui.py:836
 msgid "Enable periodic security checks"
 msgstr "Periyodik güvenlik denetimini etkinleştir"
 
-#: ../src/msec/msecgui.py:801
+#: ../src/msec/msecgui.py:898
 msgid "Security check"
 msgstr "Güvenlik denetimi"
 
-#: ../src/msec/msecgui.py:807
+#: ../src/msec/msecgui.py:904
 msgid "Exception"
 msgstr "İstisna"
 
-#: ../src/msec/msecgui.py:828
-#: ../src/msec/msecgui.py:947
+#: ../src/msec/msecgui.py:925 ../src/msec/msecgui.py:1044
 msgid "Add a rule"
 msgstr "Bir kural ekle"
 
-#: ../src/msec/msecgui.py:833
-#: ../src/msec/msecgui.py:952
+#: ../src/msec/msecgui.py:930 ../src/msec/msecgui.py:1049
 msgid "Delete"
 msgstr "Sil"
 
-#: ../src/msec/msecgui.py:872
+#: ../src/msec/msecgui.py:969
 msgid "Path"
 msgstr "Yol"
 
-#: ../src/msec/msecgui.py:878
+#: ../src/msec/msecgui.py:975
 msgid "User"
 msgstr "Kullanıcı"
 
-#: ../src/msec/msecgui.py:884
+#: ../src/msec/msecgui.py:981
 msgid "Group"
 msgstr "Grup"
 
-#: ../src/msec/msecgui.py:898
+#: ../src/msec/msecgui.py:995
 msgid "Enforce"
 msgstr "Zorla"
 
-#: ../src/msec/msecgui.py:1051
+#: ../src/msec/msecgui.py:1148
 msgid "Editing exception"
 msgstr "İstisna kuralı düzenleniyor"
 
-#: ../src/msec/msecgui.py:1056
+#: ../src/msec/msecgui.py:1153
 msgid "Adding new exception"
 msgstr "Yeni istisna kuralı ekleniyor"
 
-#: ../src/msec/msecgui.py:1063
-msgid "Editing exception. Please select the correspondent msec check and exception value\n"
-msgstr "İstisna kuralı düzenleniyor. Lütfen uygun msec denetimi ve istisna değerini girin\n"
+#: ../src/msec/msecgui.py:1160
+msgid ""
+"Editing exception. Please select the correspondent msec check and exception "
+"value\n"
+msgstr ""
+"İstisna kuralı düzenleniyor. Lütfen uygun msec denetimi ve istisna değerini "
+"girin\n"
 
-#: ../src/msec/msecgui.py:1070
+#: ../src/msec/msecgui.py:1167
 msgid "Check: "
 msgstr "Denetleme:"
 
-#: ../src/msec/msecgui.py:1085
+#: ../src/msec/msecgui.py:1182
 msgid "Exception: "
 msgstr "İstisna:"
 
-#: ../src/msec/msecgui.py:1120
+#: ../src/msec/msecgui.py:1217
 msgid "Changing permissions for %s"
 msgstr "%s için yetkiler değiştiriliyor"
 
-#: ../src/msec/msecgui.py:1127
+#: ../src/msec/msecgui.py:1224
 msgid "Adding new permission check"
 msgstr "Yeni yetki denetimi ekleniyor"
 
-#: ../src/msec/msecgui.py:1139
+#: ../src/msec/msecgui.py:1236
 msgid ""
 "Changing permissions on <b>%s</b>\n"
-"Please specify new permissions, or use 'current' to keep current permissions.\n"
+"Please specify new permissions, or use 'current' to keep current "
+"permissions.\n"
 msgstr ""
 "<b>%s</b> için yetkiler değişiyor\n"
-"Lütfen yeni bir yetki belirleyin veya mevcut yetkinin kalması için 'current' kullanın.\n"
+"Lütfen yeni bir yetki belirleyin veya mevcut yetkinin kalması için 'current' "
+"kullanın.\n"
 
-#: ../src/msec/msecgui.py:1139
+#: ../src/msec/msecgui.py:1236
 msgid "new file"
 msgstr "yeni dosya"
 
-#: ../src/msec/msecgui.py:1147
+#: ../src/msec/msecgui.py:1244
 msgid "File: "
 msgstr "Dosya: "
 
-#: ../src/msec/msecgui.py:1155
+#: ../src/msec/msecgui.py:1252
 msgid "User: "
 msgstr "Kullanıcı:"
 
-#: ../src/msec/msecgui.py:1163
+#: ../src/msec/msecgui.py:1260
 msgid "Group: "
 msgstr "Grup:"
 
-#: ../src/msec/msecgui.py:1171
+#: ../src/msec/msecgui.py:1268
 msgid "Permissions: "
 msgstr "Yetkiler:"
 
-#: ../src/msec/msecgui.py:1232
+#: ../src/msec/msecgui.py:1325
 msgid "Select new value for %s"
 msgstr "%s için yeni değer seçin"
 
-#: ../src/msec/msecgui.py:1241
+#: ../src/msec/msecgui.py:1334
+#, fuzzy
 msgid ""
 "<i>%s</i>\n"
 "\n"
 "\tCurrent value:\t\t\t<i>%s</i>\n"
-"\t%sStandard level value:\t<i>%s</i>%s\n"
-"\t%sSecure level value:\t\t<i>%s</i>%s\n"
+"\t%sDefault level value:\t<i>%s</i>%s\n"
 msgstr ""
 "<i>%s</i>\n"
 "\n"
@@ -837,29 +1031,9 @@ msgstr ""
 "\t%sStandart seviye değeri:\t<i>%s</i>%s\n"
 "\t%sGüvenli seviye değeri:\t\t<i>%s</i>%s\n"
 
-#: ../src/msec/msecgui.py:1252
+#: ../src/msec/msecgui.py:1344
 msgid "New value:"
 msgstr "Yeni değer:"
-
-#: ../src/msec/msecgui.py:1314
-msgid "Save your changes?"
-msgstr "Değişiklikleriniz kaydedilsin mi?"
-
-#: ../src/msec/msecgui.py:1316
-msgid "_Cancel"
-msgstr "İptal"
-
-#: ../src/msec/msecgui.py:1317
-msgid "_Ignore"
-msgstr "Yoksay"
-
-#: ../src/msec/msecgui.py:1318
-msgid "_Save"
-msgstr "_Kaydet"
-
-#: ../src/msec/msecgui.py:1320
-msgid "Do you want to save changes before closing?"
-msgstr "Kapanmadan önce değişiklikler kaydedilsin mi?"
 
 #: ../src/msec/plugins/msec.py:149
 msgid "Allowing unrestricted chkconfig for packages"
@@ -883,7 +1057,8 @@ msgstr "Kullanıcıların X sunucusuna heryerden bağlanmasına izin veriliyor."
 
 #: ../src/msec/plugins/msec.py:198
 msgid "Allowing users to connect X server from localhost"
-msgstr "Kullanıcıların X sunucusuna 'localhost'tan bağlanmasına izin veriliyor."
+msgstr ""
+"Kullanıcıların X sunucusuna 'localhost'tan bağlanmasına izin veriliyor."
 
 #: ../src/msec/plugins/msec.py:201
 msgid "Restricting X server connection to the console user"
@@ -927,7 +1102,9 @@ msgstr "Geçersiz dosya sistemi umask' ı \"%s\""
 
 #: ../src/msec/plugins/msec.py:328
 msgid "Allowing reboot and shutdown to the console user"
-msgstr "Konsol kullanıcısının sistemi kapatmasına ve yeniden başlatmasına izin veriliyor."
+msgstr ""
+"Konsol kullanıcısının sistemi kapatmasına ve yeniden başlatmasına izin "
+"veriliyor."
 
 #: ../src/msec/plugins/msec.py:335
 msgid "Allowing SysRq key to the console user"
@@ -1118,8 +1295,11 @@ msgid "Disabling password history"
 msgstr "Parola geçmişi tutulmayacak"
 
 #: ../src/msec/plugins/pam.py:123
-msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
-msgstr "Geçersiz parola uzunluğu \"%s\". Parametre olarak \"uzunluk, sayı, büyük harf sayısı\" kullanın."
+msgid ""
+"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgstr ""
+"Geçersiz parola uzunluğu \"%s\". Parametre olarak \"uzunluk, sayı, büyük "
+"harf sayısı\" kullanın."
 
 #: ../src/msec/plugins/pam.py:144
 msgid "Setting minimum password length %d"
@@ -1134,8 +1314,11 @@ msgid "no wheel group"
 msgstr "'wheel' grubu yok"
 
 #: ../src/msec/plugins/pam.py:176
-msgid "wheel group is empty"
-msgstr "'wheel' grubu boş"
+msgid ""
+"Security configuration is defined to allow only members of the wheel group "
+"to su to root, but this group is empty. Please add the allowed users into "
+"the wheel group."
+msgstr ""
 
 #: ../src/msec/plugins/pam.py:184
 msgid "Allowing su for all"
@@ -1149,6 +1332,36 @@ msgstr "'wheel' grubu üyelerine saydam 'root' erişimi sağlanıyor"
 msgid "Disabling transparent root access for wheel group members"
 msgstr "'wheel' grubu üyelerinin saydam 'root' erişimi kaldırılıyor"
 
+#~ msgid "Custom base config level '%s' found. Will default to '%s'"
+#~ msgstr "Özel temel ayar seviyesi '%s' bulundu. '%s' yapılacak"
+
+#~ msgid "Standard"
+#~ msgstr "Standart"
+
+#~ msgid "Secure"
+#~ msgstr "Güvenli"
+
+#~ msgid "System administrator email address:"
+#~ msgstr "Sistem yöneticisinin e-posta adresi:"
+
+#~ msgid "Save your changes?"
+#~ msgstr "Değişiklikleriniz kaydedilsin mi?"
+
+#~ msgid "_Cancel"
+#~ msgstr "İptal"
+
+#~ msgid "_Ignore"
+#~ msgstr "Yoksay"
+
+#~ msgid "_Save"
+#~ msgstr "_Kaydet"
+
+#~ msgid "Do you want to save changes before closing?"
+#~ msgstr "Kapanmadan önce değişiklikler kaydedilsin mi?"
+
+#~ msgid "wheel group is empty"
+#~ msgstr "'wheel' grubu boş"
+
 #~ msgid ""
 #~ "Allow users to authenticate with their passwords for sudo. If this "
 #~ "parameter is set to 'wheel', users must belong to the 'wheel' group to be "
@@ -1157,6 +1370,7 @@ msgstr "'wheel' grubu üyelerinin saydam 'root' erişimi kaldırılıyor"
 #~ "Kullanıcıların parolalarını sudo ile doğrulamasına izin ver. Bu parametre "
 #~ "'wheel' olarak ayarlanmışsa, kullanıcıların sudo kullanabilmeleri için "
 #~ "'wheel' grubu üyesi olmaları gereklidir."
+
 #~ msgid ""
 #~ "Enable periodic permission checking for files specified in msec policy. "
 #~ "If set to yes, the permissions are verified on every run. If set to "
@@ -1167,26 +1381,37 @@ msgstr "'wheel' grubu üyelerinin saydam 'root' erişimi kaldırılıyor"
 #~ "etkinleştir. 'Evet' işaretliyse her çalışmada izinler doğrulanır. 'Zorla' "
 #~ "işaretliyse geçersiz izinler, msec güvenlik kuralında belirlenenler ile "
 #~ "düzeltilir."
+
 #~ msgid "'%s' is not available in this version"
 #~ msgstr "%s bu sürümde desteklenmiyor."
+
 #~ msgid "Activating daily security check"
 #~ msgstr "Günlük güvenlik denetimini açar"
+
 #~ msgid "Disabling daily security check"
 #~ msgstr "Günlük güvenlik denetimini kapatır"
+
 #~ msgid "Activating periodic promiscuity check"
 #~ msgstr "Periyodik karışıklık denetimi etkinleştiriliyor"
+
 #~ msgid "Disabling periodic promiscuity check"
 #~ msgstr "Periyodik karışıklık denetimi kapatılıyor"
+
 #~ msgid "_Import configuration"
 #~ msgstr "Ayarları Dışa Aktar"
+
 #~ msgid "_Export configuration"
 #~ msgstr "Ayarları İçeri Aktar"
+
 #~ msgid "Save and apply current policy"
 #~ msgstr "Yeni kuralı kaydet ve uygula"
+
 #~ msgid "Quit"
 #~ msgstr "Çık"
+
 #~ msgid "Enable AppArmor security framework on boot"
 #~ msgstr "Açılışta AppArmor güvenlik yapısını etkinleştir"
+
 #~ msgid ""
 #~ "Enable PolicyKit security framework for all users. If this option is not "
 #~ "enabled, only users in wheel group may change advanced PolicyKit "
@@ -1195,6 +1420,6 @@ msgstr "'wheel' grubu üyelerinin saydam 'root' erişimi kaldırılıyor"
 #~ "PolicyKit güvenlik altyapısını tüm kullanıcılara aç. Eğer bu seçenek "
 #~ "açılmadıysa yalnızca wheel grubu gelişmiş PolicyKit yetkilerini ve "
 #~ "ayarlarını değiştirebilir."
+
 #~ msgid "Enable verification of installed RPM packages."
 #~ msgstr "Yüklü RPM paketlerinin doğrulanmasını etkinleştir"
-

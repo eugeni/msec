@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-04 11:31+BRST\n"
+"POT-Creation-Date: 2010-02-18 17:14+BRST\n"
 "PO-Revision-Date: 2008-03-29 21:33+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: Mandriva Linux i18n Team <cooker-i18n@mandrivalinux.org>\n"
@@ -16,35 +16,43 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/msec/config.py:45
+#: ../src/msec/config.py:46
 msgid "Modified system files"
 msgstr ""
 
-#: ../src/msec/config.py:46
+#: ../src/msec/config.py:47
 #, fuzzy
 msgid "No changes in system files"
 msgstr "报告无主文件"
 
-#: ../src/msec/config.py:59
+#: ../src/msec/config.py:60
 msgid "Disabled"
 msgstr ""
 
-#: ../src/msec/config.py:195 ../src/msec/config.py:290
-#: ../src/msec/config.py:393
+#: ../src/msec/config.py:211 ../src/msec/config.py:411
 msgid "Unable to load configuration file %s: %s"
 msgstr ""
 
-#: ../src/msec/config.py:209 ../src/msec/config.py:304
-#: ../src/msec/config.py:415
+#: ../src/msec/config.py:225 ../src/msec/config.py:322
+#: ../src/msec/config.py:433
 #, fuzzy
 msgid "Bad config option: %s"
 msgstr "保存配置(_S)"
 
-#: ../src/msec/config.py:244 ../src/msec/config.py:343
-#: ../src/msec/config.py:441
+#: ../src/msec/config.py:260 ../src/msec/config.py:361
+#: ../src/msec/config.py:459
 #, fuzzy
 msgid "Unable to save %s: %s"
 msgstr "无法装入图像文件 %s"
+
+#: ../src/msec/config.py:307
+msgid "loading exceptions file %s: %s"
+msgstr ""
+
+#: ../src/msec/config.py:308
+#, fuzzy
+msgid "No exceptions loaded"
+msgstr "例外"
 
 #: ../src/msec/help.py:14
 #, fuzzy
@@ -296,27 +304,35 @@ msgid "Enable logging of strange network packets."
 msgstr "启用 IPv4 异常包日志。"
 
 #: ../src/msec/help.py:106
-msgid "Ask for root password when going to single user level (man sulogin(8))."
+msgid ""
+"Define the default retention period for logs, in weeks. Some countries "
+"require that the log files should be kept for 12 months, other do not have "
+"such strict requirements. This variable defines the number of past log files "
+"that should be kept by logrotate on the system."
 msgstr ""
 
 #: ../src/msec/help.py:108
+msgid "Ask for root password when going to single user level (man sulogin(8))."
+msgstr ""
+
+#: ../src/msec/help.py:110
 msgid "Enable IP spoofing protection."
 msgstr "启用 IP 欺骗保护。"
 
-#: ../src/msec/help.py:110
+#: ../src/msec/help.py:112
 msgid "Allow root access without password for the members of the wheel group."
 msgstr ""
 
-#: ../src/msec/help.py:112
+#: ../src/msec/help.py:114
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
 msgstr ""
 
-#: ../src/msec/help.py:114
+#: ../src/msec/help.py:116
 #, fuzzy
 msgid "Send security check results by email."
 msgstr "通过邮件报告检测结果"
 
-#: ../src/msec/help.py:116
+#: ../src/msec/help.py:118
 #, fuzzy
 msgid ""
 "Allow to export display when passing from the root account to the other "
@@ -326,7 +342,7 @@ msgstr ""
 "\n"
 "请查看 pam_xauth(8) 中的细节。"
 
-#: ../src/msec/help.py:118
+#: ../src/msec/help.py:120
 msgid ""
 "Defines the sectool level to use during the periodic security check. You may "
 "use the sectool-gui application to select individual tests for each level. "
@@ -334,24 +350,24 @@ msgid ""
 "configuration will be used."
 msgstr ""
 
-#: ../src/msec/help.py:120
+#: ../src/msec/help.py:122
 #, fuzzy
 msgid "Enable daily security checks."
 msgstr "运行每日安全检查"
 
-#: ../src/msec/help.py:122
+#: ../src/msec/help.py:124
 #, fuzzy
 msgid "Accept ICMP echo."
 msgstr "接受 icmp 回应。"
 
-#: ../src/msec/help.py:124
+#: ../src/msec/help.py:126
 #, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr "设置密码最短长度, 数字的最少个数, 大写字母的最少个数。"
 
-#: ../src/msec/help.py:126
+#: ../src/msec/help.py:128
 #, fuzzy
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
@@ -370,40 +386,40 @@ msgstr ""
 "\n"
 "要认证您需要的服务, 请使用 /etc/hosts.allow(参看 hosts.allow(5))。"
 
-#: ../src/msec/help.py:128
+#: ../src/msec/help.py:130
 msgid ""
 "Enable verification of integrity of installed RPM packages. This will notify "
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
 
-#: ../src/msec/help.py:130
+#: ../src/msec/help.py:132
 #, fuzzy
 msgid "Set the root umask."
 msgstr "设置 root 的文件模式创建 mask。"
 
-#: ../src/msec/help.py:132
+#: ../src/msec/help.py:134
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
 
-#: ../src/msec/help.py:134
+#: ../src/msec/help.py:136
 msgid "Enforce MSEC settings on system startup"
 msgstr ""
 
-#: ../src/msec/help.py:136
+#: ../src/msec/help.py:138
 msgid "Enable periodic security check results to terminal."
 msgstr ""
 
-#: ../src/msec/help.py:138
+#: ../src/msec/help.py:140
 msgid "Accept bogus IPv4 error messages."
 msgstr "接受有错的 IPv4 错误消息。"
 
-#: ../src/msec/help.py:140
+#: ../src/msec/help.py:142
 #, fuzzy
 msgid "Enable checking for additions/removals of sgid files."
 msgstr "检查 sgid 文件的添加/删除"
 
-#: ../src/msec/help.py:142
+#: ../src/msec/help.py:144
 msgid "Activate ethernet cards promiscuity check."
 msgstr "激活以太网卡混用检查。"
 
@@ -588,14 +604,20 @@ msgid ""
 "to activate it, choose the appropriate security level: "
 msgstr ""
 
-#: ../src/msec/msecgui.py:55
+#: ../src/msec/msecgui.py:57
 msgid ""
 "This profile configures a reasonably safe set of security features. It "
 "activates several non-intrusive periodic system checks. This is the "
 "suggested level for Desktop."
 msgstr ""
 
-#: ../src/msec/msecgui.py:57
+#: ../src/msec/msecgui.py:58
+msgid ""
+"This profile is focused on netbook or low-end devices, which are only "
+"accessed by local users and run on batteries."
+msgstr ""
+
+#: ../src/msec/msecgui.py:60
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. It also runs a wider set of "
@@ -603,7 +625,25 @@ msgid ""
 "systems . "
 msgstr ""
 
-#: ../src/msec/msecgui.py:60
+#: ../src/msec/msecgui.py:62
+msgid ""
+"This profile is targeted on storage-oriented servers, such as FTP, SAMBA or "
+"NFS servers, or database servers, which do not receive accesses from "
+"unauthorized Internet users."
+msgstr ""
+
+#: ../src/msec/msecgui.py:64
+msgid ""
+"This profile is similar to the 'Fileserver', but it assumes that the server "
+"receives connection from unauthorized Internet users."
+msgstr ""
+
+#: ../src/msec/msecgui.py:71
+#, fuzzy
+msgid "Custom security level."
+msgstr "系统安全"
+
+#: ../src/msec/msecgui.py:74
 msgid ""
 "<big><b>System security options</b></big>\n"
 "These options control the local security configuration, such as the login "
@@ -613,7 +653,7 @@ msgid ""
 "permissions.  "
 msgstr ""
 
-#: ../src/msec/msecgui.py:65
+#: ../src/msec/msecgui.py:79
 msgid ""
 "<big><b>Network security options</b></big>\n"
 "These options define the network security against remote threats, "
@@ -621,14 +661,14 @@ msgid ""
 "and breakin attempts.  "
 msgstr ""
 
-#: ../src/msec/msecgui.py:69
+#: ../src/msec/msecgui.py:83
 msgid ""
 "<big><b>Periodic security checks</b></big>\n"
 "These options configure the security checks that should be executed "
 "periodically.  "
 msgstr ""
 
-#: ../src/msec/msecgui.py:72
+#: ../src/msec/msecgui.py:86
 msgid ""
 "<big><b>Exceptions</b></big>\n"
 "Here you can configure the allowed exceptions for msec periodic security\n"
@@ -636,7 +676,7 @@ msgid ""
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
 
-#: ../src/msec/msecgui.py:77
+#: ../src/msec/msecgui.py:91
 msgid ""
 "<big><b>File permissions</b></big>\n"
 "These options allow to fine-tune system permissions for important files and "
@@ -648,237 +688,238 @@ msgid ""
 "changing them to the specified values when a change is detected.  "
 msgstr ""
 
-#: ../src/msec/msecgui.py:83
+#: ../src/msec/msecgui.py:97
 msgid "Save and apply new configuration?"
 msgstr "保存并应用新配置吗？"
 
-#: ../src/msec/msecgui.py:151
+#: ../src/msec/msecgui.py:130
+msgid "Unable to load configuration for level '%s'"
+msgstr ""
+
+#: ../src/msec/msecgui.py:136
+msgid "Unable to load permissions for level '%s'"
+msgstr ""
+
+#: ../src/msec/msecgui.py:170
 msgid "_File"
 msgstr "文件(_F)"
 
-#: ../src/msec/msecgui.py:153
+#: ../src/msec/msecgui.py:172
 msgid "_Save configuration"
 msgstr "保存配置(_S)"
 
-#: ../src/msec/msecgui.py:158
+#: ../src/msec/msecgui.py:177
 msgid "_Quit"
 msgstr "退出(_Q)"
 
-#: ../src/msec/msecgui.py:160 ../src/msec/msecgui.py:162
+#: ../src/msec/msecgui.py:179 ../src/msec/msecgui.py:181
 msgid "_Help"
 msgstr "帮助(_H)"
 
-#: ../src/msec/msecgui.py:163
+#: ../src/msec/msecgui.py:182
 msgid "_About"
 msgstr "关于(_A)"
 
-#: ../src/msec/msecgui.py:190
+#: ../src/msec/msecgui.py:209
 msgid "MSEC: System Security and Audit"
 msgstr "MSEC: 系统安全审计"
 
-#: ../src/msec/msecgui.py:208
+#: ../src/msec/msecgui.py:227
 msgid "Basic security"
 msgstr "基本安全"
 
-#: ../src/msec/msecgui.py:209
+#: ../src/msec/msecgui.py:228
 msgid "System security"
 msgstr "系统安全"
 
-#: ../src/msec/msecgui.py:210
+#: ../src/msec/msecgui.py:229
 msgid "Network security"
 msgstr "网络安全"
 
-#: ../src/msec/msecgui.py:211
+#: ../src/msec/msecgui.py:230
 msgid "Periodic checks"
 msgstr "定期检查"
 
-#: ../src/msec/msecgui.py:212
+#: ../src/msec/msecgui.py:231
 msgid "Exceptions"
 msgstr "例外"
 
-#: ../src/msec/msecgui.py:213 ../src/msec/msecgui.py:890
+#: ../src/msec/msecgui.py:232 ../src/msec/msecgui.py:987
 msgid "Permissions"
 msgstr "权限"
 
-#: ../src/msec/msecgui.py:246
+#: ../src/msec/msecgui.py:272
 msgid "MSEC option changes"
 msgstr "MSEC 选项更改"
 
-#: ../src/msec/msecgui.py:246
+#: ../src/msec/msecgui.py:272
 msgid "option"
 msgstr "选项"
 
-#: ../src/msec/msecgui.py:247
+#: ../src/msec/msecgui.py:273
 msgid "System permissions changes"
 msgstr "系统权限更改"
 
-#: ../src/msec/msecgui.py:247
+#: ../src/msec/msecgui.py:273
 msgid "permission check"
 msgstr "权限检查"
 
-#: ../src/msec/msecgui.py:257
+#: ../src/msec/msecgui.py:283
 msgid "changed %s <b>%s</b> (%s -> %s)"
 msgstr ""
 
-#: ../src/msec/msecgui.py:262
+#: ../src/msec/msecgui.py:288
 msgid "added %s <b>%s</b> (%s)"
 msgstr ""
 
-#: ../src/msec/msecgui.py:267
+#: ../src/msec/msecgui.py:293
 msgid "removed %s <b>%s</b>"
 msgstr ""
 
-#: ../src/msec/msecgui.py:271
+#: ../src/msec/msecgui.py:297
 msgid "no changes"
 msgstr "无更改"
 
-#: ../src/msec/msecgui.py:283
+#: ../src/msec/msecgui.py:310 ../src/msec/msecgui.py:317
 msgid "Saving changes.."
 msgstr "正在保存更改..."
 
-#: ../src/msec/msecgui.py:317
+#: ../src/msec/msecgui.py:313
+msgid "Ignore and quit"
+msgstr ""
+
+#: ../src/msec/msecgui.py:351
 msgid "<b>%s:</b> <i>%s</i>\n"
 msgstr "<b>%s:</b> <i>%s</i>\n"
 
-#: ../src/msec/msecgui.py:324
+#: ../src/msec/msecgui.py:358
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
 msgstr "<b>MSEC 测试运行结果:</b> <i>%s</i>"
 
-#: ../src/msec/msecgui.py:332
+#: ../src/msec/msecgui.py:366
 msgid "Details"
 msgstr "细节"
 
-#: ../src/msec/msecgui.py:338
+#: ../src/msec/msecgui.py:372
 msgid "MSEC messages (%s): %d"
 msgstr ""
 
-#: ../src/msec/msecgui.py:352
+#: ../src/msec/msecgui.py:386
 msgid "Details (%d changes).."
 msgstr "细节(%d 处更改)..."
 
-#: ../src/msec/msecgui.py:405
+#: ../src/msec/msecgui.py:439
 msgid "No base msec level specified, using '%s'"
 msgstr ""
 
-#: ../src/msec/msecgui.py:408
+#: ../src/msec/msecgui.py:442
 msgid "Detected base msec level '%s'"
 msgstr ""
 
-#: ../src/msec/msecgui.py:413
-msgid "Custom base config level '%s' found. Will default to '%s'"
-msgstr ""
-
-#: ../src/msec/msecgui.py:441
+#: ../src/msec/msecgui.py:470
 msgid "Security Option"
 msgstr "安全选项"
 
-#: ../src/msec/msecgui.py:451
+#: ../src/msec/msecgui.py:480 ../src/msec/msecgui.py:585
 msgid "Description"
 msgstr "描述"
 
-#: ../src/msec/msecgui.py:456
+#: ../src/msec/msecgui.py:485
 msgid "Value"
 msgstr "值"
 
-#: ../src/msec/msecgui.py:466
+#: ../src/msec/msecgui.py:495
 msgid "Invalid option '%s'!"
 msgstr "无效的选项“%s”!"
 
-#: ../src/msec/msecgui.py:516
+#: ../src/msec/msecgui.py:545
 msgid "Enable MSEC tool"
 msgstr "允许 MSEC 工具"
 
-#: ../src/msec/msecgui.py:523
+#: ../src/msec/msecgui.py:552
 msgid "Select the base security level"
 msgstr "选择基础安全级别"
 
-#: ../src/msec/msecgui.py:527
-msgid "Standard"
-msgstr "标准"
+#: ../src/msec/msecgui.py:575
+msgid "Level name"
+msgstr ""
 
-#: ../src/msec/msecgui.py:536
-msgid "Secure"
-msgstr "安全"
-
-#: ../src/msec/msecgui.py:549
-msgid "Send security alerts by email"
+#: ../src/msec/msecgui.py:631
+#, fuzzy
+msgid "Send security alerts by email to:"
 msgstr "通过电子邮件发送安全警告"
 
-#: ../src/msec/msecgui.py:556
-msgid "System administrator email address:"
-msgstr "系统管理员电子邮件地址:"
-
-#: ../src/msec/msecgui.py:575
+#: ../src/msec/msecgui.py:653
 msgid "Display security alerts on desktop"
 msgstr "在桌面上显示安全警告"
 
-#: ../src/msec/msecgui.py:739
+#: ../src/msec/msecgui.py:836
 msgid "Enable periodic security checks"
 msgstr "启用定期安全检查"
 
-#: ../src/msec/msecgui.py:801
+#: ../src/msec/msecgui.py:898
 msgid "Security check"
 msgstr "安全检查"
 
-#: ../src/msec/msecgui.py:807
+#: ../src/msec/msecgui.py:904
 msgid "Exception"
 msgstr "例外"
 
-#: ../src/msec/msecgui.py:828 ../src/msec/msecgui.py:947
+#: ../src/msec/msecgui.py:925 ../src/msec/msecgui.py:1044
 msgid "Add a rule"
 msgstr "添加规则"
 
-#: ../src/msec/msecgui.py:833 ../src/msec/msecgui.py:952
+#: ../src/msec/msecgui.py:930 ../src/msec/msecgui.py:1049
 msgid "Delete"
 msgstr "删除"
 
-#: ../src/msec/msecgui.py:872
+#: ../src/msec/msecgui.py:969
 msgid "Path"
 msgstr "路径"
 
-#: ../src/msec/msecgui.py:878
+#: ../src/msec/msecgui.py:975
 msgid "User"
 msgstr "用户"
 
-#: ../src/msec/msecgui.py:884
+#: ../src/msec/msecgui.py:981
 msgid "Group"
 msgstr "组"
 
-#: ../src/msec/msecgui.py:898
+#: ../src/msec/msecgui.py:995
 msgid "Enforce"
 msgstr "强制"
 
-#: ../src/msec/msecgui.py:1051
+#: ../src/msec/msecgui.py:1148
 msgid "Editing exception"
 msgstr "编辑例外"
 
-#: ../src/msec/msecgui.py:1056
+#: ../src/msec/msecgui.py:1153
 msgid "Adding new exception"
 msgstr "添加新例外"
 
-#: ../src/msec/msecgui.py:1063
+#: ../src/msec/msecgui.py:1160
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr "编辑例外。请选择相应的 msec 检查及例外值\n"
 
-#: ../src/msec/msecgui.py:1070
+#: ../src/msec/msecgui.py:1167
 msgid "Check: "
 msgstr "检查: "
 
-#: ../src/msec/msecgui.py:1085
+#: ../src/msec/msecgui.py:1182
 msgid "Exception: "
 msgstr "例外: "
 
-#: ../src/msec/msecgui.py:1120
+#: ../src/msec/msecgui.py:1217
 msgid "Changing permissions for %s"
 msgstr "更改 %s 的权限"
 
-#: ../src/msec/msecgui.py:1127
+#: ../src/msec/msecgui.py:1224
 msgid "Adding new permission check"
 msgstr "添加新的权限检查"
 
-#: ../src/msec/msecgui.py:1139
+#: ../src/msec/msecgui.py:1236
 msgid ""
 "Changing permissions on <b>%s</b>\n"
 "Please specify new permissions, or use 'current' to keep current "
@@ -887,37 +928,37 @@ msgstr ""
 "更改 <b>%s</b> 的权限\n"
 "请指定新权限，或者使用“current”保持当前权限。\n"
 
-#: ../src/msec/msecgui.py:1139
+#: ../src/msec/msecgui.py:1236
 msgid "new file"
 msgstr "新玩法嘛"
 
-#: ../src/msec/msecgui.py:1147
+#: ../src/msec/msecgui.py:1244
 msgid "File: "
 msgstr "文件: "
 
-#: ../src/msec/msecgui.py:1155
+#: ../src/msec/msecgui.py:1252
 msgid "User: "
 msgstr "用户: "
 
-#: ../src/msec/msecgui.py:1163
+#: ../src/msec/msecgui.py:1260
 msgid "Group: "
 msgstr "组: "
 
-#: ../src/msec/msecgui.py:1171
+#: ../src/msec/msecgui.py:1268
 msgid "Permissions: "
 msgstr "权限: "
 
-#: ../src/msec/msecgui.py:1232
+#: ../src/msec/msecgui.py:1325
 msgid "Select new value for %s"
 msgstr "选择 %s 的新值"
 
-#: ../src/msec/msecgui.py:1241
+#: ../src/msec/msecgui.py:1334
+#, fuzzy
 msgid ""
 "<i>%s</i>\n"
 "\n"
 "\tCurrent value:\t\t\t<i>%s</i>\n"
-"\t%sStandard level value:\t<i>%s</i>%s\n"
-"\t%sSecure level value:\t\t<i>%s</i>%s\n"
+"\t%sDefault level value:\t<i>%s</i>%s\n"
 msgstr ""
 "<i>%s</i>\n"
 "\n"
@@ -925,29 +966,9 @@ msgstr ""
 "\t%s标准级别值:\t<i>%s</i>%s\n"
 "\t%s安全级别值:\t\t<i>%s</i>%s\n"
 
-#: ../src/msec/msecgui.py:1252
+#: ../src/msec/msecgui.py:1344
 msgid "New value:"
 msgstr "新值:"
-
-#: ../src/msec/msecgui.py:1314
-msgid "Save your changes?"
-msgstr "保存更改吗?"
-
-#: ../src/msec/msecgui.py:1316
-msgid "_Cancel"
-msgstr "取消(_C)"
-
-#: ../src/msec/msecgui.py:1317
-msgid "_Ignore"
-msgstr "忽略(_I)"
-
-#: ../src/msec/msecgui.py:1318
-msgid "_Save"
-msgstr "保存(_S)"
-
-#: ../src/msec/msecgui.py:1320
-msgid "Do you want to save changes before closing?"
-msgstr "您在关闭前想要保存更改吗?"
 
 #: ../src/msec/plugins/msec.py:149
 msgid "Allowing unrestricted chkconfig for packages"
@@ -1251,8 +1272,11 @@ msgid "no wheel group"
 msgstr "没有 wheel 组"
 
 #: ../src/msec/plugins/pam.py:176
-msgid "wheel group is empty"
-msgstr "whell 组为空"
+msgid ""
+"Security configuration is defined to allow only members of the wheel group "
+"to su to root, but this group is empty. Please add the allowed users into "
+"the wheel group."
+msgstr ""
 
 #: ../src/msec/plugins/pam.py:184
 msgid "Allowing su for all"
@@ -1265,6 +1289,33 @@ msgstr "允许 wheel 组的成员执行 root 的透明访问"
 #: ../src/msec/plugins/pam.py:210
 msgid "Disabling transparent root access for wheel group members"
 msgstr "禁止 wheel 组的成员执行 root 的透明访问"
+
+#~ msgid "Standard"
+#~ msgstr "标准"
+
+#~ msgid "Secure"
+#~ msgstr "安全"
+
+#~ msgid "System administrator email address:"
+#~ msgstr "系统管理员电子邮件地址:"
+
+#~ msgid "Save your changes?"
+#~ msgstr "保存更改吗?"
+
+#~ msgid "_Cancel"
+#~ msgstr "取消(_C)"
+
+#~ msgid "_Ignore"
+#~ msgstr "忽略(_I)"
+
+#~ msgid "_Save"
+#~ msgstr "保存(_S)"
+
+#~ msgid "Do you want to save changes before closing?"
+#~ msgstr "您在关闭前想要保存更改吗?"
+
+#~ msgid "wheel group is empty"
+#~ msgstr "whell 组为空"
 
 #, fuzzy
 #~ msgid "'%s' is not available in this version"

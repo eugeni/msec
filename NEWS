@@ -1,3 +1,5 @@
+Version 0.80.4 - Feb 18 2010, Eugeni Dodonov
+- simplified UI for msecgui
 - added custom security levels: fileserver, webserver, netbook
 - added support for custom levels in gui
 - ignore 'vmblock' filesystem during periodic checks (#57669)

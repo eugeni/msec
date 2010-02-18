@@ -52,13 +52,19 @@ LEVEL_SECURITY_TEXT=_("""<big><b>Choose security level</b></big>
 This application allows you to configure your system security. If you wish
 to activate it, choose the appropriate security level: """)
 
-STANDARD_LEVEL_DESCRIPTION="\n".join(wrap(_("""This profile configures a reasonably safe set of security features. It activates several non-intrusive periodic system checks. This is the suggested level for Desktop."""), 80))
+# level descriptions
+level_descriptions = {
+        "standard": _("""This profile configures a reasonably safe set of security features. It activates several non-intrusive periodic system checks. This is the suggested level for Desktop."""),
 
-SECURE_LEVEL_DESCRIPTION="\n".join(wrap(_("""This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks. This level is suggested for Servers and security-concerned systems . """), 80))
+        "secure": _("""This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks. This level is suggested for Servers and security-concerned systems . """),
 
-FILESERVER_LEVEL_DESCRIPTION="\n".join(wrap(_("""This profile is targeted on storage-oriented servers, such as FTP, SAMBA or NFS servers, or database servers. They provide longer log file retention period, and enhance security by further restricting security permissions. In order to lower the disk load, file-intensive operations run weekly and some of the desktop facilities are disabled. This level assumes that the server does not receives accesses from unauthorized Internet users, if the server is going to serve files to the Internet, it is recommended to use the 'Webserver' security level instead."""), 80))
+        "fileserver": _("""This profile is targeted on storage-oriented servers, such as FTP, SAMBA or NFS servers, or database servers. They provide longer log file retention period, and enhance security by further restricting security permissions. In order to lower the disk load, file-intensive operations run weekly and some of the desktop facilities are disabled. This level assumes that the server does not receives accesses from unauthorized Internet users, if the server is going to serve files to the Internet, it is recommended to use the 'Webserver' security level instead."""),
 
-WEBSERVER_LEVEL_DESCRIPTION="\n".join(wrap(_("""This profile is similar to the 'Fileserver', but it assumes that the server receives connection from Internet users. Therefore, this profile increases the log retention period and performs file-intensive operations more frequently, in order to detect possible server compromise and unauthorized operations quickly."""), 80))
+        "webserver": _("""This profile is similar to the 'Fileserver', but it assumes that the server receives connection from Internet users. Therefore, this profile increases the log retention period and performs file-intensive operations more frequently, in order to detect possible server compromise and unauthorized operations quickly."""),
+}
+
+# description for level without description
+DEFAULT_LEVEL_DESCRIPTION="\n".join(wrap(_("""Custom security level."""), 80))
 
 
 SYSTEM_SECURITY_TEXT=_("""<big><b>System security options</b></big>
@@ -93,6 +99,7 @@ BANNER="msec.png"
 class MsecGui:
     """Msec GUI"""
     # common columns
+    (COLUMN_LEVEL, COLUMN_LEVEL_DESCR, COLUMN_LEVEL_CURRENT) = range(3)
     (COLUMN_OPTION, COLUMN_DESCR, COLUMN_VALUE, COLUMN_CUSTOM) = range(4)
     (COLUMN_PATH, COLUMN_USER, COLUMN_GROUP, COLUMN_PERM, COLUMN_FORCE) = range(5)
     (COLUMN_EXCEPTION, COLUMN_EXCEPTION_VALUE, COLUMN_POS) = range(3)
@@ -231,6 +238,13 @@ class MsecGui:
         gobject.timeout_add(500, self.check_signals)
 
         self.window.show_all()
+
+    def level_changed(self, treeview, path, col, model):
+        """Switches to a new security level"""
+        iter = model.get_iter(path)
+        level = model.get_value(iter, self.COLUMN_LEVEL)
+        print "Switching to %s" % level
+        self.toggle_level(level, force=True)
 
     def check_signals(self):
         """Checks for received signals"""
@@ -412,13 +426,9 @@ class MsecGui:
         if not level:
             self.log.info(_("No base msec level specified, using '%s'") % config.STANDARD_LEVEL)
             self.base_level = config.STANDARD_LEVEL
-        elif level == config.NONE_LEVEL or level == config.STANDARD_LEVEL or level == config.SECURE_LEVEL:
+        else:
             self.log.info(_("Detected base msec level '%s'") % level)
             self.base_level = level
-        else:
-            # custom level?
-            # TODO: notify user about this
-            self.log.info(_("Custom base config level '%s' found.") % (level))
 
     def create_treeview(self, options):
         """Creates a treeview from given list of options"""
@@ -530,27 +540,87 @@ class MsecGui:
         self.levels_frame = gtk.Frame(_("Select the base security level"))
         levels_vbox = gtk.VBox(homogeneous=False)
         self.levels_frame.add(levels_vbox)
+        # create the security level selection screen
+        sw = gtk.ScrolledWindow()
+        sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
+        sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+
+        # list of levels
+        lstore = gtk.ListStore(
+                gobject.TYPE_STRING,
+                gobject.TYPE_STRING,
+                gobject.TYPE_INT)
+
+        # treeview
+        treeview = gtk.TreeView(lstore)
+        treeview.set_rules_hint(True)
+        treeview.set_search_column(self.COLUMN_LEVEL_DESCR)
+        treeview.connect('row-activated', self.level_changed, lstore)
+
+        # columns
+        # column for level names
+        renderer = gtk.CellRendererText()
+        column = gtk.TreeViewColumn(_('Level name'), renderer, text=self.COLUMN_OPTION, weight=self.COLUMN_LEVEL_CURRENT)
+        column.set_sort_column_id(self.COLUMN_LEVEL)
+        column.set_resizable(True)
+        column.set_expand(False)
+        treeview.append_column(column)
+
+        # column for descriptions
+        renderer = gtk.CellRendererText()
+        renderer.set_property('wrap-width', 600)
+        renderer.set_property('wrap-mode', pango.WRAP_WORD_CHAR)
+        column = treeview.insert_column_with_attributes(-1, _('Description'), renderer, text=self.COLUMN_DESCR, weight=self.COLUMN_LEVEL_CURRENT)
+        column.set_expand(True)
+        #treeview.append_column(column)
+
+        sw.add(treeview)
+
+        for level in self.msec_defaults:
+            # skip NONE level, as it disables msec
+            if level == "none":
+                continue
+            if level in level_descriptions:
+                descr = level_descriptions[level]
+            else:
+                descr = DEFAULT_LEVEL_DESCRIPTION
+            # TODO: mark current level as bold
+            iter = lstore.append()
+            if self.base_level == level:
+                weight = pango.WEIGHT_BOLD
+            else:
+                weight = pango.WEIGHT_NORMAL
+            lstore.set(iter,
+                    self.COLUMN_LEVEL, level,
+                    self.COLUMN_LEVEL_DESCR, descr,
+                    self.COLUMN_LEVEL_CURRENT, weight)
+
+        levels_vbox.pack_start(sw)
+        vbox.pack_start(self.levels_frame)
+
+        # save the list of levels
+        self.level_list = lstore
+
         # default
-        self.button_default = gtk.RadioButton(group=None, label=_("Standard"))
-        self.button_default.connect('clicked', self.force_level, config.STANDARD_LEVEL)
-        if self.base_level == config.STANDARD_LEVEL:
-            self.button_default.set_active(True)
-        levels_vbox.pack_start(self.button_default, False, False)
-        # default level description
-        label = gtk.Label(STANDARD_LEVEL_DESCRIPTION)
-        levels_vbox.pack_start(label, False, False)
-        # secure
-        self.button_secure = gtk.RadioButton(group=self.button_default, label=_("Secure"))
-        self.button_secure.connect('clicked', self.force_level, config.SECURE_LEVEL)
-        if self.base_level == config.SECURE_LEVEL:
-            self.button_secure.set_active(True)
-        levels_vbox.pack_start(self.button_secure, False, False)
-        # secure level description
-        label = gtk.Label(SECURE_LEVEL_DESCRIPTION)
-        levels_vbox.pack_start(label, False, False)
+        #self.button_default = gtk.RadioButton(group=None, label=_("Standard"))
+        #self.button_default.connect('clicked', self.force_level, config.STANDARD_LEVEL)
+        #if self.base_level == config.STANDARD_LEVEL:
+        #    self.button_default.set_active(True)
+        #levels_vbox.pack_start(self.button_default, False, False)
+        ## default level description
+        #label = gtk.Label(STANDARD_LEVEL_DESCRIPTION)
+        #levels_vbox.pack_start(label, False, False)
+        ## secure
+        #self.button_secure = gtk.RadioButton(group=self.button_default, label=_("Secure"))
+        #self.button_secure.connect('clicked', self.force_level, config.SECURE_LEVEL)
+        #if self.base_level == config.SECURE_LEVEL:
+        #    self.button_secure.set_active(True)
+        #levels_vbox.pack_start(self.button_secure, False, False)
+        ## secure level description
+        #label = gtk.Label(SECURE_LEVEL_DESCRIPTION)
+        #levels_vbox.pack_start(label, False, False)
 
         # putting levels to vbox
-        vbox.pack_start(self.levels_frame, False, False)
 
         # notifications by email
         self.notify_mail = gtk.CheckButton(_("Send security alerts by email"))
@@ -617,6 +687,7 @@ class MsecGui:
         if newstatus == False:
             self.toggle_level(config.NONE_LEVEL, force=True)
         else:
+            # TODO: revert back to previous configuration
             # what level are we toggling?
             if self.button_default.get_active():
                 level = config.STANDARD_LEVEL
@@ -645,6 +716,20 @@ class MsecGui:
         if level == self.base_level:
             # Not changing anything
             return
+
+        # updating the markup of new current level
+        iter = self.level_list.get_iter_root()
+        while iter:
+            list_level = self.level_list.get_value(iter, self.COLUMN_LEVEL)
+            if list_level != level:
+                # not current level, changing font weight
+                self.level_list.set(iter,
+                        self.COLUMN_LEVEL_CURRENT, pango.WEIGHT_NORMAL)
+            else:
+                # updating current level
+                self.level_list.set(iter,
+                        self.COLUMN_LEVEL_CURRENT, pango.WEIGHT_BOLD)
+            iter = self.level_list.iter_next(iter)
 
         # what is the current level?
         defconfig = self.msec_defaults[level]

@@ -1,3 +1,4 @@
+- added custom security levels: fileserver, webserver, netbook
 - added support for custom levels in gui
 - ignore 'vmblock' filesystem during periodic checks (#57669)
 - properly separate logs for different type of checks (daily, weekly, monthly and manual)

@@ -109,18 +109,22 @@ class MsecGui:
         self.exceptions = exceptions
 
         # pre-defined standard configurations
-        self.msec_defaults = {
-                config.NONE_LEVEL: config.load_defaults(log, config.NONE_LEVEL),
-                config.STANDARD_LEVEL: config.load_defaults(log, config.STANDARD_LEVEL),
-                config.SECURE_LEVEL: config.load_defaults(log, config.SECURE_LEVEL),
-                }
-
-        # pre-defined permissions
-        self.perm_defaults = {
-                config.NONE_LEVEL: config.load_default_perms(log, config.NONE_LEVEL),
-                config.STANDARD_LEVEL: config.load_default_perms(log, config.STANDARD_LEVEL),
-                config.SECURE_LEVEL: config.load_default_perms(log, config.SECURE_LEVEL),
-                }
+        self.msec_defaults = {}
+        self.perm_defaults = {}
+        levels = config.list_available_levels(log, '')
+        for z in levels:
+            try:
+                self.msec_defaults[z] = config.load_defaults(log, z)
+            except:
+                self.log.error(_("Unable to load configuration for level '%s'") % z)
+                traceback.print_exc()
+                continue
+            try:
+                self.perm_defaults[z] = config.load_default_perms(log, z)
+            except:
+                self.log.error(_("Unable to load permissions for level '%s'") % z)
+                traceback.print_exc()
+                continue
 
         # pre-load documentation for all possible options
         self.descriptions = {}
@@ -414,8 +418,7 @@ class MsecGui:
         else:
             # custom level?
             # TODO: notify user about this
-            self.log.info(_("Custom base config level '%s' found. Will default to '%s'") % (level, config.STANDARD_LEVEL))
-            self.base_level = config.STANDARD_LEVEL
+            self.log.info(_("Custom base config level '%s' found.") % (level))
 
     def create_treeview(self, options):
         """Creates a treeview from given list of options"""
@@ -672,9 +675,6 @@ class MsecGui:
                     #    print "Custom option detected: %s" % option
                     iter = options.iter_next(iter)
             elif curconfig.__class__ == config.PermConfig:
-                # Use should enforce it in the Permission tab
-                print options
-                print self.base_level
                 self.reset_permissions(None, options, level=level)
                 pass
             else:
@@ -1214,14 +1214,11 @@ class MsecGui:
             value = config.OPTION_DISABLED
 
         callback, params = config.SETTINGS[param]
-        conf_def = self.msec_defaults[config.STANDARD_LEVEL]
-        conf_sec = self.msec_defaults[config.SECURE_LEVEL]
+        conf_def = self.msec_defaults[self.base_level]
 
         # Highlighting default options
         def_start=""
         def_end=""
-        sec_start=""
-        sec_end=""
         if self.base_level == config.STANDARD_LEVEL:
             def_start="<b>"
             def_end="</b>"
@@ -1230,7 +1227,6 @@ class MsecGui:
             sec_end="</b>"
 
         val_def = conf_def.get(param)
-        val_sec = conf_sec.get(param)
 
         # asks for new parameter value
         dialog = gtk.Dialog(_("Select new value for %s") % (param),
@@ -1242,10 +1238,9 @@ class MsecGui:
         label.set_use_markup(True)
         # description
         dialog.vbox.pack_start(label)
-        label = gtk.Label(_("<i>%s</i>\n\n\tCurrent value:\t\t\t<i>%s</i>\n\t%sStandard level value:\t<i>%s</i>%s\n\t%sSecure level value:\t\t<i>%s</i>%s\n") %
+        label = gtk.Label(_("<i>%s</i>\n\n\tCurrent value:\t\t\t<i>%s</i>\n\t%sDefault level value:\t<i>%s</i>%s\n") %
                 (descr, value,
-                    def_start, val_def, def_end,
-                    sec_start, val_sec, sec_end))
+                    def_start, val_def, def_end,))
         label.set_line_wrap(True)
         label.set_use_markup(True)
         dialog.vbox.pack_start(label)
@@ -1331,7 +1326,6 @@ class MsecGui:
                 ret = self.ok(widget)
                 if not ret:
                     # haven't saved
-                    print "not saved"
                     return True
             elif response == gtk.RESPONSE_CLOSE:
                 # leaving
@@ -1339,7 +1333,6 @@ class MsecGui:
             else:
                 return True
 
-        print "Leaving.."
         gtk.main_quit()
 
 

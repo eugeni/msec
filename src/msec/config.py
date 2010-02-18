@@ -17,6 +17,7 @@ import sys
 import traceback
 import re
 import os
+import glob
 
 # security levels
 NONE_LEVEL="none"
@@ -129,6 +130,21 @@ def find_valid_params(param):
         return valid_params
 
 # helper functions
+def list_available_levels(log, root=''):
+    """Lists available msec levels"""
+    path = SECURITY_LEVEL % (root, "*")
+    levels = []
+    levels_glob = glob.glob(path)
+    for z in levels_glob:
+        # skip rpm junk
+        if z.find(".rpmsave") >= 0 or z.find(".rpmnew") >= 0:
+            continue
+        levels_re = re.compile(".*/level.(.*)")
+        levelname = levels_re.findall(z)
+        if levelname:
+            levels.append(levelname[0])
+    return levels
+
 def load_defaults(log, level, root=''):
     """Loads default configuration for given security level, returning a
         MsecConfig instance.

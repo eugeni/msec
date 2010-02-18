@@ -24,8 +24,6 @@
 /etc/modules.conf				root.root		644
 /etc/motd					root.root		644
 /etc/printcap					root.root		644
-/etc/profile.d/*				root.root		755
-/etc/rc.d/					root.root		755
 /etc/rc.d/init.d/				root.root		755
 /etc/rc.d/init.d/functions			root.root		644
 /etc/securetty					root.root		644

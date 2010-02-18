@@ -63,6 +63,9 @@ level_descriptions = {
         "webserver": _("""This profile is similar to the 'Fileserver', but it assumes that the server receives connection from Internet users. Therefore, this profile increases the log retention period and performs file-intensive operations more frequently, in order to detect possible server compromise and unauthorized operations quickly."""),
 }
 
+# level order. Levels will appear in this order, the unspecified levels will appear last
+level_order = ["standard", "fileserver", "webserver", "secure"]
+
 # description for level without description
 DEFAULT_LEVEL_DESCRIPTION="\n".join(wrap(_("""Custom security level."""), 80))
 
@@ -576,7 +579,18 @@ class MsecGui:
 
         sw.add(treeview)
 
+        # first, add levels from level_order
+        levels = []
+        for level in level_order:
+            if level in self.msec_defaults:
+                levels.append(level)
+        # then, add all other levels
         for level in self.msec_defaults:
+            if level not in levels:
+                levels.append(level)
+
+        # now build the gui
+        for level in levels:
             # skip NONE level, as it disables msec
             if level == "none":
                 continue

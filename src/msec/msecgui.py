@@ -601,25 +601,6 @@ class MsecGui:
         # save the list of levels
         self.level_list = lstore
 
-        # default
-        #self.button_default = gtk.RadioButton(group=None, label=_("Standard"))
-        #self.button_default.connect('clicked', self.force_level, config.STANDARD_LEVEL)
-        #if self.base_level == config.STANDARD_LEVEL:
-        #    self.button_default.set_active(True)
-        #levels_vbox.pack_start(self.button_default, False, False)
-        ## default level description
-        #label = gtk.Label(STANDARD_LEVEL_DESCRIPTION)
-        #levels_vbox.pack_start(label, False, False)
-        ## secure
-        #self.button_secure = gtk.RadioButton(group=self.button_default, label=_("Secure"))
-        #self.button_secure.connect('clicked', self.force_level, config.SECURE_LEVEL)
-        #if self.base_level == config.SECURE_LEVEL:
-        #    self.button_secure.set_active(True)
-        #levels_vbox.pack_start(self.button_secure, False, False)
-        ## secure level description
-        #label = gtk.Label(SECURE_LEVEL_DESCRIPTION)
-        #levels_vbox.pack_start(label, False, False)
-
         # putting levels to vbox
 
         # notifications by email
@@ -687,12 +668,17 @@ class MsecGui:
         if newstatus == False:
             self.toggle_level(config.NONE_LEVEL, force=True)
         else:
-            # TODO: revert back to previous configuration
-            # what level are we toggling?
-            if self.button_default.get_active():
-                level = config.STANDARD_LEVEL
-            else:
-                level = config.SECURE_LEVEL
+            # revert back to the selected level or switch to 'Standard' if none
+            level = config.STANDARD_LEVEL
+            iter = self.level_list.get_iter_root()
+            while iter:
+                list_level = self.level_list.get_value(iter, self.COLUMN_LEVEL)
+                list_weight = self.level_list.get_value(iter, self.COLUMN_LEVEL_CURRENT)
+                if list_weight == pango.WEIGHT_BOLD:
+                    # found previous level
+                    level = list_level
+                    break
+                iter = self.level_list.iter_next(iter)
             self.toggle_level(level, force=True)
 
 
@@ -717,19 +703,21 @@ class MsecGui:
             # Not changing anything
             return
 
-        # updating the markup of new current level
-        iter = self.level_list.get_iter_root()
-        while iter:
-            list_level = self.level_list.get_value(iter, self.COLUMN_LEVEL)
-            if list_level != level:
-                # not current level, changing font weight
-                self.level_list.set(iter,
-                        self.COLUMN_LEVEL_CURRENT, pango.WEIGHT_NORMAL)
-            else:
-                # updating current level
-                self.level_list.set(iter,
-                        self.COLUMN_LEVEL_CURRENT, pango.WEIGHT_BOLD)
-            iter = self.level_list.iter_next(iter)
+        # updating the markup of new current level unless switching to 'None' level
+        # in this case, we'll still use current level in case user decides to switch back later
+        if level != config.NONE_LEVEL:
+            iter = self.level_list.get_iter_root()
+            while iter:
+                list_level = self.level_list.get_value(iter, self.COLUMN_LEVEL)
+                if list_level != level:
+                    # not current level, changing font weight
+                    self.level_list.set(iter,
+                            self.COLUMN_LEVEL_CURRENT, pango.WEIGHT_NORMAL)
+                else:
+                    # updating current level
+                    self.level_list.set(iter,
+                            self.COLUMN_LEVEL_CURRENT, pango.WEIGHT_BOLD)
+                iter = self.level_list.iter_next(iter)
 
         # what is the current level?
         defconfig = self.msec_defaults[level]

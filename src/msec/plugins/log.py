@@ -42,13 +42,13 @@ class log:
         try:
             retention = int(arg)
         except:
-            self.log.error(_('Invalid maximum password history length: "%s"') % arg)
+            self.log.error(_('Invalid retention period: "%s"') % arg)
             return
 
         logrotate = self.configfiles.get_config_file(self.LOGROTATE)
 
-        val = logrotate.get_match(self.LOGROTATE_ROTATE)
+        val = logrotate.get_match(self.LOGROTATE_ROTATE, '@1')
 
-        if val != retention:
+        if val != arg:
             self.log.info(_("Setting log retention period to %d weeks") % retention)
             logrotate.replace_line_matching(self.LOGROTATE_ROTATE, ("rotate %d" % retention))

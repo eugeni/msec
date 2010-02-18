@@ -55,6 +55,7 @@ to activate it, choose the appropriate security level: """)
 # level descriptions
 level_descriptions = {
         "standard": _("""This profile configures a reasonably safe set of security features. It activates several non-intrusive periodic system checks. This is the suggested level for Desktop."""),
+        "netbook": _("""This profile is focused on netbook or low-end devices, which are only accessed by local users and run on batteries."""),
 
         "secure": _("""This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks. This level is suggested for Servers and security-concerned systems . """),
 
@@ -64,7 +65,7 @@ level_descriptions = {
 }
 
 # level order. Levels will appear in this order, the unspecified levels will appear last
-level_order = ["standard", "fileserver", "webserver", "secure"]
+level_order = ["standard", "netbook", "fileserver", "webserver", "secure"]
 
 # description for level without description
 DEFAULT_LEVEL_DESCRIPTION="\n".join(wrap(_("""Custom security level."""), 80))

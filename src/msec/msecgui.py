@@ -56,7 +56,9 @@ STANDARD_LEVEL_DESCRIPTION="\n".join(wrap(_("""This profile configures a reasona
 
 SECURE_LEVEL_DESCRIPTION="\n".join(wrap(_("""This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks. This level is suggested for Servers and security-concerned systems . """), 80))
 
-FILESERVER_LEVEL_DESCRIPTION="\n".join(wrap(_("""This profile is targeted on storage-oriented servers, such as FTP, SAMBA or NFS servers, or database servers. They provide longer log file retention period, and enhance security by further restricting security permissions. In order to lower the disk load, file-intensive operations run weekly and some of the desktop facilities are disabled."""), 80))
+FILESERVER_LEVEL_DESCRIPTION="\n".join(wrap(_("""This profile is targeted on storage-oriented servers, such as FTP, SAMBA or NFS servers, or database servers. They provide longer log file retention period, and enhance security by further restricting security permissions. In order to lower the disk load, file-intensive operations run weekly and some of the desktop facilities are disabled. This level assumes that the server does not receives accesses from unauthorized Internet users, if the server is going to serve files to the Internet, it is recommended to use the 'Webserver' security level instead."""), 80))
+
+WEBSERVER_LEVEL_DESCRIPTION="\n".join(wrap(_("""This profile is similar to the 'Fileserver', but it assumes that the server receives connection from Internet users. Therefore, this profile increases the log retention period and performs file-intensive operations more frequently, in order to detect possible server compromise and unauthorized operations quickly."""), 80))
 
 
 SYSTEM_SECURITY_TEXT=_("""<big><b>System security options</b></big>

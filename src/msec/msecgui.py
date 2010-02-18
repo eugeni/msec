@@ -619,27 +619,24 @@ class MsecGui:
         # putting levels to vbox
 
         # notifications by email
-        self.notify_mail = gtk.CheckButton(_("Send security alerts by email"))
+        hbox = gtk.HBox()
+        self.notify_mail = gtk.CheckButton(_("Send security alerts by email to:"))
         if self.msecconfig.get("MAIL_WARN") == "yes":
             self.notify_mail.set_active(True)
-        vbox.pack_start(self.notify_mail, False, False)
+        hbox.pack_start(self.notify_mail, False, False)
 
         # email address
-        hbox = gtk.HBox()
-        label = gtk.Label(_("System administrator email address:"))
-        label.set_property("xalign", 0.2)
-        hbox.pack_start(label, False, False)
         self.email_entry = gtk.Entry()
         email = self.msecconfig.get("MAIL_USER")
         if not email:
             email = ""
         self.email_entry.set_text(email)
         self.email_entry.connect('changed', self.change_email)
-        hbox.pack_start(self.email_entry, False, False)
+        hbox.pack_start(self.email_entry, False, False, 5)
         vbox.pack_start(hbox, False, False)
 
         # updating the mail address/checkbox relationship
-        self.notify_mail.connect('clicked', self.notify_mail_changed, hbox)
+        self.notify_mail.connect('clicked', self.notify_mail_changed, self.email_entry)
         self.checkboxes_callbacks["MAIL_WARN"] = (self.notify_mail_changed, self.notify_mail, hbox)
 
         self.notify_mail_changed(self.notify_mail, hbox)

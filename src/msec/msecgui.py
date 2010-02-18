@@ -56,6 +56,8 @@ STANDARD_LEVEL_DESCRIPTION="\n".join(wrap(_("""This profile configures a reasona
 
 SECURE_LEVEL_DESCRIPTION="\n".join(wrap(_("""This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks. This level is suggested for Servers and security-concerned systems . """), 80))
 
+FILESERVER_LEVEL_DESCRIPTION="\n".join(wrap(_("""This profile is targeted on file serving servers, such as FTP, SAMBA or NFS servers. They provide longer log file retention period, and enhance security by further restricting security permissions. In order to lower the disk load, file-intensive operations run weekly and some of the desktop facilities are disabled."""), 80))
+
 
 SYSTEM_SECURITY_TEXT=_("""<big><b>System security options</b></big>
 These options control the local security configuration, such as the login restrictions,

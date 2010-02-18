@@ -58,9 +58,9 @@ level_descriptions = {
 
         "secure": _("""This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. It also runs a wider set of periodic checks. This level is suggested for Servers and security-concerned systems . """),
 
-        "fileserver": _("""This profile is targeted on storage-oriented servers, such as FTP, SAMBA or NFS servers, or database servers. They provide longer log file retention period, and enhance security by further restricting security permissions. In order to lower the disk load, file-intensive operations run weekly and some of the desktop facilities are disabled. This level assumes that the server does not receives accesses from unauthorized Internet users, if the server is going to serve files to the Internet, it is recommended to use the 'Webserver' security level instead."""),
+        "fileserver": _("""This profile is targeted on storage-oriented servers, such as FTP, SAMBA or NFS servers, or database servers, which do not receive accesses from unauthorized Internet users."""),
 
-        "webserver": _("""This profile is similar to the 'Fileserver', but it assumes that the server receives connection from Internet users. Therefore, this profile increases the log retention period and performs file-intensive operations more frequently, in order to detect possible server compromise and unauthorized operations quickly."""),
+        "webserver": _("""This profile is similar to the 'Fileserver', but it assumes that the server receives connection from unauthorized Internet users."""),
 }
 
 # level order. Levels will appear in this order, the unspecified levels will appear last

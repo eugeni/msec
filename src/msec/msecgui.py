@@ -28,6 +28,8 @@ warnings.resetwarnings()
 
 # config
 import config
+# helper tools
+import tools
 
 # version
 try:
@@ -146,7 +148,6 @@ class MsecGui:
         # loading the current config
         self.reload_config()
 
-
         if embed:
             # embedding in MCC
             self.window = gtk.Plug(embed)
@@ -213,9 +214,14 @@ class MsecGui:
         except:
             print "Banner %s Not found" % ("%s/%s" % (config.MSEC_DIR, BANNER))
 
+        # creating main UI
+        self.main_notebook = gtk.Notebook()
+        main_vbox.pack_start(self.main_notebook)
+
         # creating tabs
         self.notebook = gtk.Notebook()
-        main_vbox.pack_start(self.notebook)
+        self.main_notebook.append_page(self.create_summary_ui(), gtk.Label(_("Overview")))
+        self.main_notebook.append_page(self.notebook, gtk.Label(_("Security settings")))
 
         # data to change the values
         self.current_options_view = {}
@@ -532,6 +538,113 @@ class MsecGui:
             return True
         else:
             return False
+
+    def create_summary_ui(self):
+        """Builds the security summary UI"""
+        vbox = gtk.VBox(homogeneous=False, spacing=20)
+
+        entry = gtk.Label(_("<big><b>System security overview</b></big>"))
+        entry.set_use_markup(True)
+        vbox.pack_start(entry, False, False)
+
+        def create_security_item(text, icon=None):
+            """Helper function to create security items"""
+            # show logo
+            banner = gtk.HBox(homogeneous=False, spacing=10)
+            if icon:
+                try:
+                    # logo
+                    image = gtk.Image()
+                    pixbuf = gtk.gdk.pixbuf_new_from_file(icon)
+                    image.set_from_pixbuf(pixbuf)
+                    banner.pack_start(image, False, False)
+                except:
+                    print "Unable to load icon %s: %s" % (icon, sys.exc_value)
+            label = gtk.Label(text)
+            label.modify_font(pango.FontDescription("12"))
+            banner.pack_start(label, False, False)
+            return banner
+
+        # size groups
+        sizegroup1 = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
+        sizegroup2 = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
+
+        # firewall
+        item = create_security_item(_("Firewall"), "/usr/share/mcc/themes/default/firewall-mdk.png")
+        # spacer
+        item.add(gtk.Label())
+        v = gtk.VBox(False, False)
+        firewall_status = tools.find_firewall_info(log)
+        label = gtk.Label(firewall_status)
+        v.pack_start(label, False, False)
+        button = gtk.Button(_("Configure.."))
+        button.connect('clicked', self.run_configure_app, tools.FIREWALL_CMD)
+        v.pack_start(button, False, False)
+        # size groups
+        sizegroup1.add_widget(label)
+        sizegroup2.add_widget(button)
+        item.pack_start(v, False, False, padding=12)
+        vbox.pack_start(item, False, False)
+
+        # security
+        item = create_security_item(_("System security"), "/usr/share/mcc/themes/default/security-mdk.png")
+        # spacer
+        item.add(gtk.Label())
+        v = gtk.VBox(False, False)
+        baselevel = self.msecconfig.get("BASE_LEVEL")
+        if baselevel == config.NONE_LEVEL:
+            msec_status = _("Msec is disabled")
+        else:
+            msec_status = []
+            msec_status.append(_("Msec is enabled"))
+            msec_status.append(_("Base security level: '%s'") % baselevel)
+            # find out custom settings
+            custom_count = 0
+            base_config = self.msec_defaults[baselevel]
+            for o in self.msecconfig.list_options():
+                if self.msecconfig.get(o) != base_config.get(o):
+                    custom_count += 1
+            if custom_count > 0:
+                msec_status.append(_("Custom settings: %d") % custom_count)
+        label = gtk.Label("\n".join(msec_status))
+        v.pack_start(label, False, False)
+        button = gtk.Button(_("Configure.."))
+        button.connect('clicked', lambda x: self.main_notebook.set_current_page(1))
+        # size groups
+        sizegroup1.add_widget(label)
+        sizegroup2.add_widget(button)
+        v.pack_start(button)
+        item.pack_start(v, False, False, padding=12)
+        vbox.pack_start(item, False, False)
+
+        # updates
+        item = create_security_item(_("System updates"), "/usr/share/mcc/themes/default/mdkonline-mdk.png")
+        # spacer
+        item.add(gtk.Label())
+        v = gtk.VBox(False, False)
+        updates = tools.get_updates_status(log)
+        label = gtk.Label(updates)
+        v.pack_start(label, False, False)
+        button = gtk.Button(_("Configure.."))
+        button.connect('clicked', self.run_configure_app, tools.UPDATE_CMD)
+        # size groups
+        sizegroup1.add_widget(label)
+        sizegroup2.add_widget(button)
+        v.pack_start(button)
+        item.pack_start(v, False, False, padding=12)
+
+        vbox.pack_start(item, False, False)
+
+        return vbox
+
+    def run_configure_app(self, widget, cmd):
+        """Runs application-specific configuration"""
+        os.system(cmd)
+        self.reload_summary()
+
+    def reload_summary(self):
+        """Reloads summary tab"""
+        pass
 
     def level_security_page(self, id):
         """Builds the basic security page"""

@@ -1,3 +1,5 @@
+- implemented security summary screen
+
 Version 0.80.4 - Feb 18 2010, Eugeni Dodonov
 - simplified UI for msecgui
 - added custom security levels: fileserver, webserver, netbook

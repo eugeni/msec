@@ -625,7 +625,7 @@ class MsecGui:
         updates = tools.get_updates_status(log)
         label = gtk.Label(updates)
         v.pack_start(label, False, False)
-        button = gtk.Button(_("Configure.."))
+        button = gtk.Button(_("Update now"))
         button.connect('clicked', self.run_configure_app, tools.UPDATE_CMD)
         # size groups
         sizegroup1.add_widget(label)

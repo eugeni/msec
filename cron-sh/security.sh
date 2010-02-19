@@ -41,8 +41,8 @@ CURRENT_CHECK_TYPE=$(current_check_type)
 # variables
 LCK=/var/run/msec-security.pid
 SECURITY_LOG="/var/log/security.log"
-MAIL_LOG_TODAY="/var/log/security/mail.today"
-MAIL_LOG_YESTERDAY="/var/log/security/mail.yesterday"
+MAIL_LOG_TODAY="/var/log/security/mail.${CURRENT_CHECK_TYPE}.today"
+MAIL_LOG_YESTERDAY="/var/log/security/mail.${CURRENT_CHECK_TYPE}.yesterday"
 
 # log formatting
 REPORT_DATE=`date "+%b %d %H:%M:%S"`

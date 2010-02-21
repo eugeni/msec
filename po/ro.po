@@ -44,8 +44,8 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: https://qa.mandriva.com\n"
 "POT-Creation-Date: 2010-02-18 17:14+BRST\n"
-"PO-Revision-Date: 2009-09-11 21:59+0200\n"
-"Last-Translator: Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>\n"
+"PO-Revision-Date: 2010-02-21 14:06+0100\n"
+"Last-Translator: Cătălin Florin RUSSEN <cfrussen@yahoo.co.uk>\n"
 "Language-Team: Romanian <cooker-i18n@mandrivalinux.org  >\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,42 +59,37 @@ msgstr ""
 
 #: ../src/msec/config.py:46
 msgid "Modified system files"
-msgstr ""
+msgstr "Fișiere sistem modificate"
 
 #: ../src/msec/config.py:47
-#, fuzzy
 msgid "No changes in system files"
-msgstr "Activează verificarea pentru modificările în utilizatorii sistemului."
+msgstr "Nici o schimbare în fișierele sistem"
 
 #: ../src/msec/config.py:60
 msgid "Disabled"
-msgstr ""
+msgstr "Dezactivat"
 
 #: ../src/msec/config.py:211 ../src/msec/config.py:411
 msgid "Unable to load configuration file %s: %s"
-msgstr ""
+msgstr "Nu se poate încărca fișierul de configurație %s: %s"
 
 #: ../src/msec/config.py:225 ../src/msec/config.py:322
 #: ../src/msec/config.py:433
-#, fuzzy
 msgid "Bad config option: %s"
-msgstr "_Salvează configurația"
+msgstr "Opțiune eronată de configurație: %s"
 
 #: ../src/msec/config.py:260 ../src/msec/config.py:361
 #: ../src/msec/config.py:459
-#, fuzzy
 msgid "Unable to save %s: %s"
-msgstr "Nu s-a putut salva configurarea!"
+msgstr "Nu s-a putut salva %s: %s"
 
 #: ../src/msec/config.py:307
-#, fuzzy
 msgid "loading exceptions file %s: %s"
-msgstr "Eroare la încărcarea modulului „%s” din %s: %s"
+msgstr "se încarcă fișierul cu excepții %s: %s"
 
 #: ../src/msec/config.py:308
-#, fuzzy
 msgid "No exceptions loaded"
-msgstr "Excepții"
+msgstr "Încărcare fără excepții"
 
 #: ../src/msec/help.py:14
 msgid ""
@@ -136,11 +131,14 @@ msgid ""
 "Enable msec to enforce file permissions to the values specified in the msec "
 "security policy."
 msgstr ""
+"Activați msec pentru a impune fișierelor permisiunile specificate în "
+"politica de securitate msec."
 
 #: ../src/msec/help.py:28
-#, fuzzy
 msgid "Enable periodic permission checking for files specified in msec policy."
-msgstr "Activează verificarea periodică de securitate pentru fișierele sistem."
+msgstr ""
+"Activează verificarea periodică a permisiunilor pentru fișierele specificate "
+"în politica msec."
 
 #: ../src/msec/help.py:30
 msgid "Allow X server to accept connections from network on tcp port 6000."
@@ -166,6 +164,10 @@ msgid ""
 "security level configuration. The security level to be used during this test "
 "is determined by the CHECK_SECTOOL_LEVELS variable."
 msgstr ""
+"Activează verificările sectools. Această verificare va executa toate "
+"verificările sectools pentru o configurație de nivel de securitate. Nivelul "
+"de securitate utilizat în acest test este determinat de variabila "
+"CHECK_SECTOOL_LEVELS."
 
 #: ../src/msec/help.py:38
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -356,6 +358,7 @@ msgstr "Permite autentificarea directă cu root în terminal."
 #: ../src/msec/help.py:98
 msgid "Run security checks when machine is running on battery power."
 msgstr ""
+"Execută verificările de securitate cînd calculatorul funcționează pe baterie."
 
 #: ../src/msec/help.py:100
 msgid "Enable checking for changes in system groups."
@@ -419,6 +422,10 @@ msgid ""
 "If this variable is not defined, the default level defined in sectool "
 "configuration will be used."
 msgstr ""
+"Definiți nivelul sectool ce va fi utilizat în timpul verificării periodice "
+"de securitate. Puteți utiliza aplicația sectool-gui pentru a selecționa "
+"testele individuale pentru fiecare nivel. Dacă această variabilă nu este "
+"definită, se va utiliza nivelul implicit definit în configurația sectool."
 
 #: ../src/msec/help.py:122
 msgid "Enable daily security checks."
@@ -637,23 +644,20 @@ msgid "Switching to '%s' level."
 msgstr "Se comută pe nivelul „%s”."
 
 #: ../src/msec/msec.py:151
-#, fuzzy
 msgid "No custom file permissions for level '%s'."
-msgstr "permisiuni greșite pentru '%s': '%s'"
+msgstr "Nici un fișier cu permisiuni personalizate pentru nivelul '%s'."
 
 #: ../src/msec/msec.py:152
-#, fuzzy
 msgid "Saving file permissions to '%s' level."
-msgstr "Se schimbă permisiunile pentru %s"
+msgstr "Se salvează permisiunile de fișiere în nivelul '%s'."
 
 #: ../src/msec/msec.py:192 ../src/msec/msecperms.py:160
 msgid "Unable to save config!"
 msgstr "Nu s-a putut salva configurarea!"
 
 #: ../src/msec/msec.py:194
-#, fuzzy
 msgid "Unable to save file system permissions!"
-msgstr "Reinițializează la nivelul implicit de permisiuni"
+msgstr "Nu s-au putut salva permisiunile sistemului de fișiere!"
 
 #: ../src/msec/msecgui.py:51
 msgid ""
@@ -708,9 +712,8 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:71
-#, fuzzy
 msgid "Custom security level."
-msgstr "Securitate sistem"
+msgstr "Nivel de securitate personalizat."
 
 #: ../src/msec/msecgui.py:74
 msgid ""
@@ -790,12 +793,11 @@ msgstr "Se salvează și se aplică noua configurație?"
 
 #: ../src/msec/msecgui.py:130
 msgid "Unable to load configuration for level '%s'"
-msgstr ""
+msgstr "Nu se poate încărca fișierul de configurație pentru nivelul '%s'"
 
 #: ../src/msec/msecgui.py:136
-#, fuzzy
 msgid "Unable to load permissions for level '%s'"
-msgstr "permisiuni greșite pentru '%s': '%s'"
+msgstr "Nu se pot încărca permisiunile pentru nivelul '%s'"
 
 #: ../src/msec/msecgui.py:170
 msgid "_File"
@@ -883,7 +885,7 @@ msgstr "Salvare schimbări..."
 
 #: ../src/msec/msecgui.py:313
 msgid "Ignore and quit"
-msgstr ""
+msgstr "ignoră și ieși"
 
 #: ../src/msec/msecgui.py:351
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -939,12 +941,11 @@ msgstr "Selectează nivelul de securitate de bază"
 
 #: ../src/msec/msecgui.py:575
 msgid "Level name"
-msgstr ""
+msgstr "Numele nivelului"
 
 #: ../src/msec/msecgui.py:631
-#, fuzzy
 msgid "Send security alerts by email to:"
-msgstr "Trimite alertele de securitate pe mail"
+msgstr "Trimite alertele de securitate la adresa electronică:"
 
 #: ../src/msec/msecgui.py:653
 msgid "Display security alerts on desktop"
@@ -1053,7 +1054,6 @@ msgid "Select new value for %s"
 msgstr "Selectați o valoare nouă pentru %s"
 
 #: ../src/msec/msecgui.py:1334
-#, fuzzy
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1063,8 +1063,7 @@ msgstr ""
 "<i>%s</i>\n"
 "\n"
 "\tValoare curentă:\t\t\t<i>%s</i>\n"
-"\t%sValoarea nivelului standard:\t<i>%s</i>%s\n"
-"\t%sValoarea nivelului de siguranță:\t\t<i>%s</i>%s\n"
+"\t%sValoarea nivelului implicit:\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1344
 msgid "New value:"

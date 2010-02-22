@@ -543,10 +543,6 @@ class MsecGui:
         """Builds the security summary UI"""
         vbox = gtk.VBox(homogeneous=False, spacing=20)
 
-        entry = gtk.Label(_("<big><b>System security overview</b></big>"))
-        entry.set_use_markup(True)
-        vbox.pack_start(entry, False, False)
-
         def create_security_item(text, icon=None):
             """Helper function to create security items"""
             # show logo

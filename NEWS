@@ -1,3 +1,5 @@
+- do not check inside entries excluded by EXCLUDE_REGEXP
+- allow setting the EXCLUDE_REGEXP value in msecgui
 - correctly check for changes in groups
 - save mail reports for each check period (daily, weekly, monthly and manual)
 - implemented security summary screen

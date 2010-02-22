@@ -275,6 +275,19 @@ class MsecConfig:
             if value == None or value == OPTION_DISABLED:
                 self.log.debug("Skipping %s" % option)
                 value=""
+            else:
+                # escape special characters
+                escape=False
+                for c in [' ', '|', ';', '\\', '\r', '\n']:
+                    if c in value:
+                        escape=True
+                if escape:
+                    if value[0] == '"' and value[-1] == '"':
+                        # string is already escaped
+                        pass
+                    else:
+                        value = '"%s"' % value
+                print >>fd, "%s=%s" % (option, value)
             print >>fd, "%s=%s" % (option, value)
         return True
 # }}}

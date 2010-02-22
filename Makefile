@@ -37,7 +37,7 @@ install: all
 	# install shell scripts
 	$(MAKE) -C cron-sh $@
 	# install main msec files
-	for i in libmsec.py config.py msec.py msecperms.py msecgui.py help.py version.py; do \
+	for i in libmsec.py config.py msec.py msecperms.py msecgui.py help.py version.py tools.py; do \
 	    install -m755 src/msec/$$i $(RPM_BUILD_ROOT)/usr/share/msec ; \
 	    install -m755 src/msec/$${i}o $(RPM_BUILD_ROOT)/usr/share/msec ; \
 	done

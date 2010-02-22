@@ -32,7 +32,7 @@ class audit:
         # defining the checks
         config.SETTINGS['CHECK_PERMS'] = ("audit.check_perms", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_PERMS_ENFORCE'] = ("audit.check_perms_enforce", config.VALUES_YESNO)
-        config.SETTINGS['EXCLUDE_REGEXP'] = ("msec.exclude_regexp", ['*'])
+        config.SETTINGS['EXCLUDE_REGEXP'] = ("audit.exclude_regexp", ['*'])
         config.SETTINGS['CHECK_USER_FILES'] = ("audit.check_user_files", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_SUID_ROOT'] = ("audit.check_suid_root", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_SUID_MD5'] = ("audit.check_suid_md5", config.VALUES_PERIODIC)

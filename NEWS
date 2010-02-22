@@ -1,3 +1,4 @@
+- correctly check for changes in groups
 - save mail reports for each check period (daily, weekly, monthly and manual)
 - implemented security summary screen
 

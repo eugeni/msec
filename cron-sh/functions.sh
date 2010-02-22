@@ -62,6 +62,10 @@ function check_is_enabled() {
         # executed from /etc/cron.daily or any directory containing 'daily'; weekly checks
         # will run if run withing a directory containing 'weekly', and so on
         check=$1
+        # is the check there at all?
+        if [ -z "$check" ]; then
+                return 1
+        fi
         current_check=$(current_check_type)
         if [ "$check" = "$current_check" ]; then
                 return 0

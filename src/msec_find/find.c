@@ -87,7 +87,7 @@ static int traverse(const char *file, const struct stat *sb, int flag, struct FT
             (strncmp("/sys", file, 4) == 0) )
         return 0;
 
-    if (use_regexp && regexec(&exclude_regexp, file, 0, NULL, 0) == 0) {
+    if (use_regexp && (regexec(&exclude_regexp, file, 0, NULL, 0) == 0)) {
         return 0;
     }
 

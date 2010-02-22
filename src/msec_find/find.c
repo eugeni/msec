@@ -37,6 +37,7 @@
 #include <stdio.h>
 
 #define __USE_XOPEN_EXTENDED
+#define __USE_GNU
 #include <ftw.h>
 
 #include <sys/stat.h>
@@ -85,11 +86,10 @@ static int traverse(const char *file, const struct stat *sb, int flag, struct FT
     if ( (strncmp("/proc", file, 5) == 0) ||
             (strncmp("/dev", file, 4) == 0) ||
             (strncmp("/sys", file, 4) == 0) )
-        return 0;
+        return FTW_SKIP_SUBTREE;
 
-    if (use_regexp && (regexec(&exclude_regexp, file, 0, NULL, 0) == 0)) {
-        return 0;
-    }
+    if (use_regexp && (regexec(&exclude_regexp, file, 0, NULL, 0) == 0))
+        return FTW_SKIP_SUBTREE;
 
     switch (flag) {
         /*
@@ -223,7 +223,7 @@ int main(int argc, char **argv)
             directory = argv[i];
         }
 
-        res = nftw(directory, traverse, 200, FTW_PHYS | FTW_MOUNT);
+        res = nftw(directory, traverse, 200, FTW_PHYS | FTW_MOUNT | FTW_ACTIONRETVAL);
 
         if ( ctrl ) {
             free(directory);

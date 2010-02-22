@@ -37,7 +37,7 @@ fi
 
 # check for changes in groups
 if check_is_enabled "${CHECK_GROUPS}" ; then
-    getent passwd | cut -f 1 -d : | sort > ${GROUPS_LIST_TODAY}
+    getent group | cut -f 1 -d : | sort > ${GROUPS_LIST_TODAY}
     Filter ${GROUPS_LIST_TODAY} CHECK_GROUPS
     Diffcheck ${GROUPS_LIST_TODAY} ${GROUPS_LIST_YESTERDAY} ${GROUPS_LIST_DIFF} "local groups"
     Count ${INFOS} ${GROUPS_LIST_TODAY} "Total local group"

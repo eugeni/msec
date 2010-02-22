@@ -32,6 +32,7 @@ class audit:
         # defining the checks
         config.SETTINGS['CHECK_PERMS'] = ("audit.check_perms", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_PERMS_ENFORCE'] = ("audit.check_perms_enforce", config.VALUES_YESNO)
+        config.SETTINGS['EXCLUDE_REGEXP'] = ("msec.exclude_regexp", ['*'])
         config.SETTINGS['CHECK_USER_FILES'] = ("audit.check_user_files", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_SUID_ROOT'] = ("audit.check_suid_root", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_SUID_MD5'] = ("audit.check_suid_md5", config.VALUES_PERIODIC)
@@ -66,7 +67,7 @@ class audit:
 
         # preparing msecgui menu
         for check in ["CHECK_PERMS", "CHECK_PERMS_ENFORCE", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",
-                    "CHECK_WRITABLE", "CHECK_UNOWNED", "FIX_UNOWNED", "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_FIREWALL",
+                    "CHECK_WRITABLE", "CHECK_UNOWNED", "FIX_UNOWNED", "EXCLUDE_REGEXP", "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_FIREWALL",
                     "CHECK_PASSWD", "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM_PACKAGES", "CHECK_RPM_INTEGRITY",
                     "CHECK_SHOSTS", "CHECK_USERS", "CHECK_GROUPS",
                     "TTY_WARN", "SYSLOG_WARN", "MAIL_EMPTY_CONTENT", "CHECK_ON_BATTERY"]:
@@ -184,6 +185,10 @@ class audit:
 
     def check_on_battery(self, param):
         """Run security checks when machine is running on battery power."""
+        pass
+
+    def exclude_regexp(self, param):
+        """Patterns to exclude from disk checks. This parameter is parsed as a regex (7), so you may use complex expressions."""
         pass
 
     def check_promisc(self, param):

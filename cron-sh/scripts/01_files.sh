@@ -55,6 +55,10 @@ fi
 # only running this check when really required
 if check_is_enabled "${CHECK_SUID_MD5}" || check_is_enabled "${CHECK_SUID_ROOT}" || check_is_enabled "${CHECK_SGID}" || check_is_enabled "${CHECK_WRITABLE}" || check_is_enabled "${CHECK_UNOWNED}" ; then
         # Hard disk related file check; the less priority the better...
+        if [[ -n ${EXCLUDE_REGEXP} ]]; then
+                # passing exclude_regexp value to msec_find
+                export EXCLUDE_REGEXP
+        fi
         nice --adjustment=+19 /usr/bin/msec_find ${DIR}
 fi
 

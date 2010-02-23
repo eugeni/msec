@@ -217,12 +217,6 @@ def act(change):
         # if the user has changed it manually
         if not change and not mandatory:
             newperm = newperm & mode
-        if newperm != -1 and mode != newperm:
-            try:
-                os.chmod(f, newperm)
-                log(_('changed mode of %s from %o to %o') % (f, mode, newperm))
-            except:
-                error('chmod %s %o: %s' % (f, newperm, str(sys.exc_value)))
         if user != -1 and user != uid:
             try:
                 os.chown(f, user, -1)
@@ -235,6 +229,12 @@ def act(change):
                 log(_('changed group of %s from %s to %s') % (f, get_group_name(gid), group_str))
             except:
                 error('chgrp %s %s: %s' % (f, group, str(sys.exc_value)))
+        if newperm != -1 and mode != newperm:
+            try:
+                os.chmod(f, newperm)
+                log(_('changed mode of %s from %o to %o') % (f, mode, newperm))
+            except:
+                error('chmod %s %o: %s' % (f, newperm, str(sys.exc_value)))
 
 def chmod(f, newperm):
     try:

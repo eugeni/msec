@@ -287,7 +287,6 @@ class MsecConfig:
                         pass
                     else:
                         value = '"%s"' % value
-                print >>fd, "%s=%s" % (option, value)
             print >>fd, "%s=%s" % (option, value)
         return True
 # }}}

@@ -155,13 +155,12 @@ else:
         authorize_services(ALL)
     enable_pam_wheel_for_su(no)
     password_history(0)
-    
+
 # differences between level 4,5 and others
 if level >= 4:
     set_user_umask('077')
     set_shell_history_size(10)
     allow_root_login(no)
-    enable_sulogin(yes)
     allow_user_list(no)
     enable_promisc_check(yes)
     accept_icmp_echo(no)
@@ -179,7 +178,6 @@ else:
     set_user_umask('022')
     set_shell_history_size(-1)
     allow_root_login(yes)
-    enable_sulogin(no)
     allow_user_list(yes)
     enable_promisc_check(no)
     accept_icmp_echo(yes)
@@ -198,8 +196,11 @@ if level >= 3:
         allow_remote_root_login(without_password)
     else:
         allow_remote_root_login(no)
+    # on MES5, sulogin should be enabled on high mode (#51517)
+    enable_sulogin(yes)
 else:
     allow_remote_root_login(yes)
+    enable_sulogin(no)
 
 # differences between level 3,4,5 and others
 if server:

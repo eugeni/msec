@@ -1,14 +1,14 @@
 # Translation of DrakX.po to Estonian.
 # Copyright (C) 2003 Free Software Foundation, Inc.
 # Riho Kurg <rx@linux.ee>, 1999-2003.
-# Marek Laane <bald@starman.ee>, 2002-2010.
+# Marek Laane <bald@smail.ee>, 2002-2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: DrakX-et\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-18 17:14+BRST\n"
-"PO-Revision-Date: 2010-02-15 13:55+0200\n"
+"PO-Revision-Date: 2010-02-24 15:05+0200\n"
 "Last-Translator: Marek Laane <bald@starman.ee>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -43,14 +43,12 @@ msgid "Unable to save %s: %s"
 msgstr "%s salvestamine nurjus: %s"
 
 #: ../src/msec/config.py:307
-#, fuzzy
 msgid "loading exceptions file %s: %s"
-msgstr "Seadistusfaili %s laadimine nurjus: %s"
+msgstr "eranditefaili %s laadimine: %s"
 
 #: ../src/msec/config.py:308
-#, fuzzy
 msgid "No exceptions loaded"
-msgstr "Erandid"
+msgstr "Erandeid pole laaditud"
 
 #: ../src/msec/help.py:14
 msgid ""
@@ -327,6 +325,10 @@ msgid ""
 "such strict requirements. This variable defines the number of past log files "
 "that should be kept by logrotate on the system."
 msgstr ""
+"Vaikimisi logide säilitamise perioodi määramine nädalates. Mõnel maal on "
+"nõutav säilitada logifaile 12 kuud, mõnel pool nii jäike piiranguid pole. "
+"See muutuja määrab varasemate logifailide arvu, mida logrotate peab "
+"süsteemis alles hoidma."
 
 #: ../src/msec/help.py:108
 msgid "Ask for root password when going to single user level (man sulogin(8))."
@@ -624,6 +626,9 @@ msgid ""
 "This profile is focused on netbook or low-end devices, which are only "
 "accessed by local users and run on batteries."
 msgstr ""
+"See profiil on mõeldud eelkõige pisisülearvutite või muude vähema "
+"võimsusega seadmete tarbeks, mida kasutavad ainult kohalikud kasutajad "
+"ja mis töötavad aku pealt."
 
 #: ../src/msec/msecgui.py:60
 msgid ""
@@ -643,17 +648,21 @@ msgid ""
 "NFS servers, or database servers, which do not receive accesses from "
 "unauthorized Internet users."
 msgstr ""
+"See profiil on mõeldud salvestamise suunitlusega serveritele, näiteks FTP-, "
+"SAMBA- või NFS-serveritele, või ka andmebaasiserveritele, millele "
+"autentimata internetikasutajatel ligipääs puudub."
 
 #: ../src/msec/msecgui.py:64
 msgid ""
 "This profile is similar to the 'Fileserver', but it assumes that the server "
 "receives connection from unauthorized Internet users."
 msgstr ""
+"See profiil on sarnane failiserverile, kuid arvestab sellega, et serveriga "
+"loovad ühendusi ka autentimata internetikasutajad."
 
 #: ../src/msec/msecgui.py:71
-#, fuzzy
 msgid "Custom security level."
-msgstr "Süsteemi turvalisus"
+msgstr "Kohandatud turbetase."
 
 #: ../src/msec/msecgui.py:74
 msgid ""
@@ -730,14 +739,12 @@ msgid "Save and apply new configuration?"
 msgstr "Kas salvestada ja kehtestada uus seadistus?"
 
 #: ../src/msec/msecgui.py:130
-#, fuzzy
 msgid "Unable to load configuration for level '%s'"
-msgstr "Seadistusfaili %s laadimine nurjus: %s"
+msgstr "Taseme '%s' seadistuste laadimine nurjus"
 
 #: ../src/msec/msecgui.py:136
-#, fuzzy
 msgid "Unable to load permissions for level '%s'"
-msgstr "Tasemel '%s' puuduvad kohandatud failiõigused."
+msgstr "Taseme '%s' õiguste laadimine nurjus"
 
 #: ../src/msec/msecgui.py:170
 msgid "_File"
@@ -825,7 +832,7 @@ msgstr "Muutuste salvestamine..."
 
 #: ../src/msec/msecgui.py:313
 msgid "Ignore and quit"
-msgstr ""
+msgstr "Eira ja välju"
 
 #: ../src/msec/msecgui.py:351
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -881,12 +888,11 @@ msgstr "Baasturbetaseme valimine"
 
 #: ../src/msec/msecgui.py:575
 msgid "Level name"
-msgstr ""
+msgstr "Taseme nimi"
 
 #: ../src/msec/msecgui.py:631
-#, fuzzy
 msgid "Send security alerts by email to:"
-msgstr "Turbehoiatuste saatmine e-postiga"
+msgstr "Turbehoiatuste saatmine e-postiga:"
 
 #: ../src/msec/msecgui.py:653
 msgid "Display security alerts on desktop"
@@ -994,7 +1000,6 @@ msgid "Select new value for %s"
 msgstr "%s uue väärtuse valimine"
 
 #: ../src/msec/msecgui.py:1334
-#, fuzzy
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1005,7 +1010,6 @@ msgstr ""
 "\n"
 "\tKehtiv väärtus:\t\t\t<i>%s</i>\n"
 "\t%sStandardtaseme väärtus:\t<i>%s</i>%s\n"
-"\t%sTurvalise taseme väärtus:\t\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1344
 msgid "New value:"
@@ -1292,6 +1296,9 @@ msgid ""
 "to su to root, but this group is empty. Please add the allowed users into "
 "the wheel group."
 msgstr ""
+"Turbeseadistuses on määratud, et ainult grupi wheel liikmed võivad kasutada "
+"käsku su administraatori õiguste võtmiseks, kuid grupp on tühi. Palun lisa "
+"lubatud kasutajad gruppi wheel."
 
 #: ../src/msec/plugins/pam.py:184
 msgid "Allowing su for all"

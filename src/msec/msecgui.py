@@ -64,6 +64,8 @@ level_descriptions = {
         "fileserver": _("""This profile is targeted on storage-oriented servers, such as FTP, SAMBA or NFS servers, or database servers, which do not receive accesses from unauthorized Internet users."""),
 
         "webserver": _("""This profile is similar to the 'Fileserver', but it assumes that the server receives connection from unauthorized Internet users."""),
+        "audit_daily": _("""This profile is intended for the users who do not rely on msec to change system settings, and use it for periodic checks only. It configures all periodic checks to run once a day."""),
+        "audit_weekly": _("""This profile is similar to the 'audit_daily' profile, but it runs all checks weekly."""),
 }
 
 # level order. Levels will appear in this order, the unspecified levels will appear last

@@ -69,7 +69,7 @@ level_descriptions = {
 }
 
 # level order. Levels will appear in this order, the unspecified levels will appear last
-level_order = ["standard", "netbook", "fileserver", "webserver", "secure"]
+level_order = ["standard", "netbook", "fileserver", "webserver", "secure", "audit_daily", "audit_weekly"]
 
 # description for level without description
 DEFAULT_LEVEL_DESCRIPTION="\n".join(wrap(_("""Custom security level."""), 80))

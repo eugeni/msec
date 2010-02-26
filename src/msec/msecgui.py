@@ -575,7 +575,7 @@ class MsecGui:
         firewall_status = tools.find_firewall_info(log)
         label = gtk.Label(firewall_status)
         v.pack_start(label, False, False)
-        button = gtk.Button(_("Configure.."))
+        button = gtk.Button(_("Configure"))
         button.connect('clicked', self.run_configure_app, tools.FIREWALL_CMD)
         v.pack_start(button, False, False)
         # size groups
@@ -606,12 +606,12 @@ class MsecGui:
                 msec_status.append(_("Custom settings: %d") % custom_count)
         label = gtk.Label("\n".join(msec_status))
         v.pack_start(label, False, False)
-        button = gtk.Button(_("Configure.."))
+        button = gtk.Button(_("Configure"))
         button.connect('clicked', lambda x: self.main_notebook.set_current_page(1))
         # size groups
         sizegroup1.add_widget(label)
         sizegroup2.add_widget(button)
-        v.pack_start(button)
+        v.pack_start(button, False, False)
         item.pack_start(v, False, False, padding=12)
         vbox.pack_start(item, False, False)
 
@@ -782,7 +782,8 @@ class MsecGui:
             self.msecconfig.set("MAIL_WARN", "yes")
             param.set_sensitive(True)
         else:
-            self.msecconfig.set("MAIL_WARN", "no")
+            if self.msecconfig.get("MAIL_WARN"):
+                self.msecconfig.set("MAIL_WARN", "no")
             param.set_sensitive(False)
 
     def notify_changed(self, widget, param):

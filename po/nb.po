@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-18 17:14+BRST\n"
-"PO-Revision-Date: 2010-02-17 01:34+0100\n"
+"PO-Revision-Date: 2010-02-26 10:41+0100\n"
 "Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -59,14 +59,12 @@ msgid "Unable to save %s: %s"
 msgstr "Klarte ikke å lagre %s: %s"
 
 #: ../src/msec/config.py:307
-#, fuzzy
 msgid "loading exceptions file %s: %s"
-msgstr "Kunne ikke laste oppsettsfil %s: %s"
+msgstr "Laster unntaksfil %s: %s"
 
 #: ../src/msec/config.py:308
-#, fuzzy
 msgid "No exceptions loaded"
-msgstr "Unntak"
+msgstr "Ingen unntak lastet"
 
 #: ../src/msec/help.py:14
 msgid ""
@@ -111,13 +109,11 @@ msgstr ""
 
 #: ../src/msec/help.py:28
 msgid "Enable periodic permission checking for files specified in msec policy."
-msgstr ""
-"Slå på periodisk sjekk av rettigheter for filer spesifisert i MSEC-praksisen."
+msgstr "Slå på periodisk sjekk av rettigheter for filer spesifisert i MSEC-praksisen."
 
 #: ../src/msec/help.py:30
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
+msgstr "Tillat X-tjeneren å akseptere tilkoblinger fra nettverket på TCP-port 6000."
 
 #: ../src/msec/help.py:32
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -236,8 +232,7 @@ msgstr "Sett skallets tidsavbrudd. Null betyr ingen tidsavbrudd."
 
 #: ../src/msec/help.py:76
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
-"Tillat innloggingsbehandlere (KDM og GDM) å vise en liste med lokale brukere."
+msgstr "Tillat innloggingsbehandlere (KDM og GDM) å vise en liste med lokale brukere."
 
 #: ../src/msec/help.py:78
 msgid "Enable name resolution spoofing protection."
@@ -632,7 +627,7 @@ msgstr ""
 msgid ""
 "This profile is focused on netbook or low-end devices, which are only "
 "accessed by local users and run on batteries."
-msgstr ""
+msgstr "Denne profilen fokuserer på minibærbare eller lavytelsesenheter, som kjører på batterier og kun er tilgjengelige for lokale brukere."
 
 #: ../src/msec/msecgui.py:60
 msgid ""
@@ -650,18 +645,17 @@ msgid ""
 "This profile is targeted on storage-oriented servers, such as FTP, SAMBA or "
 "NFS servers, or database servers, which do not receive accesses from "
 "unauthorized Internet users."
-msgstr ""
+msgstr "Denne er profilen passer for lagringsorienterte tjenere, slik som FTP, SAMBA, NFS, eller databasetjenere, som ikke tillater tilgang for ukjente Internettbrukere."
 
 #: ../src/msec/msecgui.py:64
 msgid ""
 "This profile is similar to the 'Fileserver', but it assumes that the server "
 "receives connection from unauthorized Internet users."
-msgstr ""
+msgstr "Denne profilen er den samme som for «Filtjener», men antar at tjeneren mottar tilkoblinger fra ukjente Internettbrukere."
 
 #: ../src/msec/msecgui.py:71
-#, fuzzy
 msgid "Custom security level."
-msgstr "Systemsikkerhet"
+msgstr "Tilpasset sikkerhetsnivå"
 
 #: ../src/msec/msecgui.py:74
 msgid ""
@@ -736,14 +730,12 @@ msgid "Save and apply new configuration?"
 msgstr "Lagre og legge til nytt oppsett?"
 
 #: ../src/msec/msecgui.py:130
-#, fuzzy
 msgid "Unable to load configuration for level '%s'"
-msgstr "Kunne ikke laste oppsettsfil %s: %s"
+msgstr "Kunne ikke laste oppsettsfil for nivå «%s»"
 
 #: ../src/msec/msecgui.py:136
-#, fuzzy
 msgid "Unable to load permissions for level '%s'"
-msgstr "Ingen tilpassede rettigheter for nivå «%s»"
+msgstr "Kunne ikke laste rettigheter for nivå «%s»"
 
 #: ../src/msec/msecgui.py:170
 msgid "_File"
@@ -831,7 +823,7 @@ msgstr "Lagrer forandringer…"
 
 #: ../src/msec/msecgui.py:313
 msgid "Ignore and quit"
-msgstr ""
+msgstr "Overse og avslutt"
 
 #: ../src/msec/msecgui.py:351
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -887,12 +879,11 @@ msgstr "Velg grunnleggende sikkerhetsnivå"
 
 #: ../src/msec/msecgui.py:575
 msgid "Level name"
-msgstr ""
+msgstr "Nivånavn"
 
 #: ../src/msec/msecgui.py:631
-#, fuzzy
 msgid "Send security alerts by email to:"
-msgstr "Send sikkerhetvarsler som e-post"
+msgstr "Send sikkerhetvarsler som e-post til:"
 
 #: ../src/msec/msecgui.py:653
 msgid "Display security alerts on desktop"
@@ -1001,7 +992,6 @@ msgid "Select new value for %s"
 msgstr "Velg ny verdi for %s"
 
 #: ../src/msec/msecgui.py:1334
-#, fuzzy
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1009,9 +999,9 @@ msgid ""
 "\t%sDefault level value:\t<i>%s</i>%s\n"
 msgstr ""
 "<i>%s</i>\n"
-"\tCurrent verdi:\t\t\t<i>%s</i>\n"
-"\t%sStandard nivåverdi: \t<i>%s</i>%s\n"
-"\t%sSecure nivåverdi:\t\t<i>%s</i>%s\n"
+"\n"
+"\tGjeldende verdi:\t\t\t<i>%s</i>\n"
+"\t%sStandardverdi for nivå:\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1344
 msgid "New value:"
@@ -1274,8 +1264,7 @@ msgid "Disabling password history"
 msgstr "Slå av passordhistorie"
 
 #: ../src/msec/plugins/pam.py:123
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr "Ugyldig passordlengde «%s». Bruk «length,ndigits,nupper» som parametre"
 
 #: ../src/msec/plugins/pam.py:144
@@ -1295,7 +1284,7 @@ msgid ""
 "Security configuration is defined to allow only members of the wheel group "
 "to su to root, but this group is empty. Please add the allowed users into "
 "the wheel group."
-msgstr ""
+msgstr "Sikkerhetsoppsettet er satt opp til å kun tillate medlemmer av «wheel» tilgang til root-kontoen via kommandoen «su», men gruppa er tom. Legg til de tillatte brukerene i gruppa «wheel»."
 
 #: ../src/msec/plugins/pam.py:184
 msgid "Allowing su for all"
@@ -1309,33 +1298,3 @@ msgstr "Tillater gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
 
-#~ msgid "Custom base config level '%s' found. Will default to '%s'"
-#~ msgstr ""
-#~ "Tilpassa grunnleggende oppsettsnivå «%s» funnet. Vil forhåndsvelge «%s»"
-
-#~ msgid "Standard"
-#~ msgstr "Standard"
-
-#~ msgid "Secure"
-#~ msgstr "Sikker"
-
-#~ msgid "System administrator email address:"
-#~ msgstr "Systemadministrators e-postadresse:"
-
-#~ msgid "Save your changes?"
-#~ msgstr "Lagre endringene?"
-
-#~ msgid "_Cancel"
-#~ msgstr "_Avbryt"
-
-#~ msgid "_Ignore"
-#~ msgstr "_Ignorer"
-
-#~ msgid "_Save"
-#~ msgstr "_Lagre"
-
-#~ msgid "Do you want to save changes before closing?"
-#~ msgstr "Ønsker du å lagre forandringene før avslutning?"
-
-#~ msgid "wheel group is empty"
-#~ msgstr "gruppa «wheel» er tom"

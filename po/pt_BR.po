@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "POT-Creation-Date: 2010-02-26 13:17+BRT\n"
-"PO-Revision-Date: 2010-02-17 13:35-0200\n"
+"PO-Revision-Date: 2010-02-26 15:55-0300\n"
 "Last-Translator: Sergio Rafael Lemke <sergio@mandriva.com.br>\n"
 "Language-Team: Brazilian Portuguese <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -55,14 +55,12 @@ msgid "Unable to save %s: %s"
 msgstr "Incapaz de salvar %s: %s"
 
 #: ../src/msec/config.py:319
-#, fuzzy
 msgid "loading exceptions file %s: %s"
-msgstr "Incapaz de carregar o arquivo de configuração %s: %s"
+msgstr "Carregando arquivo de exceções %s: %s"
 
 #: ../src/msec/config.py:320
-#, fuzzy
 msgid "No exceptions loaded"
-msgstr "Excessões"
+msgstr "Nenhuma exceção carregada"
 
 #: ../src/msec/help.py:14
 msgid ""
@@ -153,7 +151,7 @@ msgstr "Permite acesso root sem senha para membros do grupo wheel."
 
 #: ../src/msec/help.py:44
 msgid "Enable checking for changes in firewall settings."
-msgstr "Habilita checagem por alterações nas configurações do firewall."
+msgstr "Habilita verificação de alterações nas configurações do firewall."
 
 #: ../src/msec/help.py:46
 msgid "Enable checking for additions/removals of suid root files."
@@ -351,6 +349,11 @@ msgid ""
 "such strict requirements. This variable defines the number of past log files "
 "that should be kept by logrotate on the system."
 msgstr ""
+"Definir o período padrão de retenção de logs, em semanas. Alguns países"
+"exigem que os arquivos de log devem ser mantidos por 12 meses, outros não "
+"têm tais requisitos rigorosos. Esta variável define o número de arquivos de "
+"log "
+"passados que devem ser mantidos pelo logrotate no sistema."
 
 #: ../src/msec/help.py:110
 msgid "Ask for root password when going to single user level (man sulogin(8))."
@@ -426,6 +429,9 @@ msgid ""
 "Patterns to exclude from disk checks. This parameter is parsed as a regex "
 "(7), so you may use complex expressions."
 msgstr ""
+"Padrões de exclusão nas verificações de disco. Este parâmetro é analisado "
+"como "
+"uma regex (7), assim você pode usar expressões mais complexas."
 
 #: ../src/msec/help.py:134
 msgid ""
@@ -436,6 +442,13 @@ msgid ""
 "sudo without any password makes your system very vulnerable, and you should "
 "only use this setting if you know what you are doing!"
 msgstr ""
+"Permitir que os usuários no grupo wheel usem o sudo. Se esta opção "
+"estiver definida para \"sim\", os usuários no grupo wheel estão autorizados "
+"a utilizar o sudo para executar comandos como root, usando suas senhas. "
+"Se esta opção estiver definida como  'without-password', os usuários poderão "
+"usar o sudo sem inserir senha. AVISO: usar o sudo sem senha torna o sistema "
+"muito vulnerável, e você só deve usar essa configuração se realmente sabe o "
+"que está fazendo!"
 
 #: ../src/msec/help.py:136
 msgid "Set the root umask."
@@ -646,45 +659,48 @@ msgstr ""
 "ativá-la, escolha o nível de segurança apropriado: "
 
 #: ../src/msec/msecgui.py:59
-#, fuzzy
 msgid ""
 "This profile configures a reasonably safe set of security features. It is "
 "the suggested level for Desktop. If unsure which profile to use, use this "
 "one."
 msgstr ""
 "Este perfil configura um conjunto razoavelmente seguro de recursos de "
-"segurança. Ele ativa um número severo de checagens periódicas não intrusivas "
-"no sistema. Este é o nível de segurança recomendado para usuários domésticos."
+"segurança. Este é o nível de segurança recomendado para usuários domésticos. "
+"Se você não sabe qual perfil usar, use este."
 
 #: ../src/msec/msecgui.py:60
 msgid ""
 "This profile is focused on netbooks, laptops or low-end devices, which are "
 "only accessed by local users and run on batteries."
 msgstr ""
+"Este perfil tem foco em netbooks, laptops ou dispositivos low-end, "
+"acessados apenas por usuários locais e funcionam com baterias."
 
 #: ../src/msec/msecgui.py:62
-#, fuzzy
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. This level is suggested for "
 "security-concerned systems and servers. "
 msgstr ""
 "Este perfil é configurado para oferecer segurança máxima, inclusive "
-"limitandoo acesso remoto ao sistema. Também executa um número maior de "
-"checagens periódicas. Este nível é sugerido para Servidores e máquinas que "
-"necessitam de segurança extrema."
+"limitando o acesso remoto ao sistema. Este nível é sugerido para "
+"servidores e máquinas que necessitam de segurança extrema."
 
 #: ../src/msec/msecgui.py:64
 msgid ""
 "This profile is targeted on local network servers, which do not receive "
 "accesses from unauthorized Internet users."
 msgstr ""
+"Este perfil é destinado a servidores de rede local, que não recebem"
+"acessos de usuários da Internet não autorizados."
 
 #: ../src/msec/msecgui.py:66
 msgid ""
 "This profile is provided for servers which are intended to be accessed by "
 "unauthorized Internet users."
 msgstr ""
+"Este perfil é disponibilizado para servidores destinados a ser acessados por "
+"usuários não autorizados da Internet."
 
 #: ../src/msec/msecgui.py:67
 msgid ""
@@ -692,17 +708,21 @@ msgid ""
 "system settings, and use it for periodic checks only. It configures all "
 "periodic checks to run once a day."
 msgstr ""
+"Este perfil é destinado a usuários que não dependem do msec para alterar"
+"configurações no sistema, e usam-no apenas para as verificações periódicas. "
+"Ele configura todas as verificações periódicas para executar uma vez por dia."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
 "This profile is similar to the 'audit_daily' profile, but it runs all checks "
 "weekly."
 msgstr ""
+"Este perfil é semelhante ao perfil \"audit_daily ', mas ele executa todas as "
+"verificações semanalmente."
 
 #: ../src/msec/msecgui.py:75
-#, fuzzy
 msgid "Custom security level."
-msgstr "Segurança do Sistema"
+msgstr "Nível de segurança personalizado."
 
 #: ../src/msec/msecgui.py:78
 msgid ""
@@ -780,14 +800,12 @@ msgid "Save and apply new configuration?"
 msgstr "Salvar e Aplicar nova Configuração"
 
 #: ../src/msec/msecgui.py:134
-#, fuzzy
 msgid "Unable to load configuration for level '%s'"
-msgstr "Incapaz de carregar o arquivo de configuração %s: %s"
+msgstr "Incapaz de carregar configurações para o nível '%s'"
 
 #: ../src/msec/msecgui.py:140
-#, fuzzy
 msgid "Unable to load permissions for level '%s'"
-msgstr "Sem permissões customizadas para o nível  '%s'."
+msgstr "Incapaz de carregar permissões para o nível '%s'"
 
 #: ../src/msec/msecgui.py:173
 msgid "_File"
@@ -815,12 +833,11 @@ msgstr "MSEC: Segurança do Sistema e Auditoria"
 
 #: ../src/msec/msecgui.py:225
 msgid "Overview"
-msgstr ""
+msgstr "Visão Geral"
 
 #: ../src/msec/msecgui.py:226
-#, fuzzy
 msgid "Security settings"
-msgstr "Opção de segurança"
+msgstr "Configurações de segurança"
 
 #: ../src/msec/msecgui.py:235
 msgid "Basic security"
@@ -884,7 +901,7 @@ msgstr "Salvando alterações.."
 
 #: ../src/msec/msecgui.py:321
 msgid "Ignore and quit"
-msgstr ""
+msgstr "Ignorar e sair"
 
 #: ../src/msec/msecgui.py:359
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -932,42 +949,39 @@ msgstr "Opção '%s' inválida!"
 
 #: ../src/msec/msecgui.py:578
 msgid "Firewall"
-msgstr ""
+msgstr "Firewall"
 
 #: ../src/msec/msecgui.py:587 ../src/msec/msecgui.py:622
 msgid "Configure"
-msgstr ""
+msgstr "Configurar"
 
 #: ../src/msec/msecgui.py:599
-#, fuzzy
 msgid "Security"
-msgstr "Checagem de segurança"
+msgstr "Segurança"
 
 #: ../src/msec/msecgui.py:605
 msgid "Msec is disabled"
-msgstr ""
+msgstr "Msec está desabilitado"
 
 #: ../src/msec/msecgui.py:608
-#, fuzzy
 msgid "Msec is enabled"
-msgstr "Desabilitado"
+msgstr "Msec está habilitado"
 
 #: ../src/msec/msecgui.py:609
-#, fuzzy
 msgid "Base security level: '%s'"
-msgstr "Nível de segurança inválido '%s'."
+msgstr "Nível de segurança básico: '%s'"
 
 #: ../src/msec/msecgui.py:617
 msgid "Custom settings: %d"
-msgstr ""
+msgstr "Configurações personalizadas: %d"
 
 #: ../src/msec/msecgui.py:634
 msgid "Updates"
-msgstr ""
+msgstr "Atualizações"
 
 #: ../src/msec/msecgui.py:643
 msgid "Update now"
-msgstr ""
+msgstr "Atualizar"
 
 #: ../src/msec/msecgui.py:675
 msgid "Enable MSEC tool"
@@ -979,12 +993,11 @@ msgstr "Escolha o nível de segurança base"
 
 #: ../src/msec/msecgui.py:705
 msgid "Level name"
-msgstr ""
+msgstr "Nome do nível"
 
 #: ../src/msec/msecgui.py:761
-#, fuzzy
 msgid "Send security alerts by email to:"
-msgstr "Enviar alertas de Segurança por e-mail:"
+msgstr "Enviar alertas de segurança por e-mail para:"
 
 #: ../src/msec/msecgui.py:783
 msgid "Display security alerts on desktop"
@@ -1093,7 +1106,6 @@ msgid "Select new value for %s"
 msgstr "Selecione novo valor para %s"
 
 #: ../src/msec/msecgui.py:1465
-#, fuzzy
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1102,9 +1114,8 @@ msgid ""
 msgstr ""
 "<i>%s</i>\n"
 "\n"
-"\tValor atual:\t\t\t<i>%s</i>\n"
-"\t%sValor do nível padrão:\t<i>%s</i>%s\n"
-"\t%sValor do nível seguro:\t\t<i>%s</i>%s\n"
+"\tValor Atual:\t\t\t<i>%s</i>\n"
+"\t%sValor padrão do Nível:\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1475
 msgid "New value:"
@@ -1391,6 +1402,11 @@ msgid ""
 "to su to root, but this group is empty. Please add the allowed users into "
 "the wheel group."
 msgstr ""
+"A Configuração de segurança está definida para permitir que apenas os "
+"membros "
+"do grupo wheel possam digitar \"su\" para virar root, mas este grupo está "
+"vazio. "
+"Por favor, adicione os usuários autorizados ao grupo wheel."
 
 #: ../src/msec/plugins/pam.py:184
 msgid "Allowing su for all"

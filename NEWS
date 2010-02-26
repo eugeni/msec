@@ -1,3 +1,4 @@
+- added security levels 'audit_daily' and 'audit_weekly'
 - added sudo plugin
 - do not check inside entries excluded by EXCLUDE_REGEXP
 - allow setting the EXCLUDE_REGEXP value in msecgui

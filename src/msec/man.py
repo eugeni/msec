@@ -35,7 +35,7 @@ msec \- Mandriva Linux security tools
 .B msec
 is responsible to maintain system security in Mandriva. It supports different security
 configurations, which can be organized into several security levels, stored in
-/etc/security/msec/level.LEVELNAME. Currently, three preconfigured security levels are
+/etc/security/msec/level.LEVELNAME. Currently, three basic preconfigured security levels are
 provided with Mandriva Linux:
 
 .TP
@@ -56,6 +56,12 @@ the remote access to the system, and local user permissions. It also runs a wide
 periodic checks, enforces the local password settings, and periodically checks if the
 system security settings, configured by msec, were modified directly or by some other
 application.
+
+.TP
+Besides those levels, different task-oriented security are also provided,
+such as the 'fileserver', 'webserver' and 'netbook' levels. Such levels
+attempt to pre-configure system security according to the most common use
+cases.
 
 .TP
 Note that besides those levels you may create as many levels as necessary.

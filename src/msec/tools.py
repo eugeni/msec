@@ -17,8 +17,8 @@ except IOError:
     _ = str
 
 # constants
-FIREWALL_CMD = "drakfirewall"
-UPDATE_CMD = "MandrivaUpdate"
+FIREWALL_CMD = "drakfirewall &"
+UPDATE_CMD = "MandrivaUpdate &"
 
 def find_firewall_info(log):
     """Finds information about firewall"""

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: DrakX-et\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-26 13:17+BRT\n"
-"PO-Revision-Date: 2010-02-24 15:05+0200\n"
+"PO-Revision-Date: 2010-03-01 11:58+0200\n"
 "Last-Translator: Marek Laane <bald@starman.ee>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -408,6 +408,8 @@ msgid ""
 "Patterns to exclude from disk checks. This parameter is parsed as a regex "
 "(7), so you may use complex expressions."
 msgstr ""
+"Mustrid kettakontrollide välistamiseks. Seda parameetrit parsitakse "
+"regulaaravaldisena, nii et siin võib kasutada ka keerulisi avaldisi."
 
 #: ../src/msec/help.py:134
 msgid ""
@@ -418,6 +420,13 @@ msgid ""
 "sudo without any password makes your system very vulnerable, and you should "
 "only use this setting if you know what you are doing!"
 msgstr ""
+"Grupi wheel liikmetel lubatakse kasutada sudo'd. Kui väärtuseks määrata "
+"'jah', lubatakse grupi wheel liikmetel kasutada sudo'd ning käivitada "
+"käske administraatorina enda parooli andes. Kui väärtuseks on määratud "
+"'paroolita', võivad liikmed kasutada sudo'd isegi ilma enda parooli "
+"andmata. HOIATUS: sudo kasutamine ilma paroolita muudab süsteemi väga "
+"haavatavaks ning seda tuleks pruukida ainult siis, kui Te kindlalt "
+"teate, miks ja mida teete!"
 
 #: ../src/msec/help.py:136
 msgid "Set the root umask."
@@ -628,56 +637,49 @@ msgstr ""
 "valige sobiv turbetase: "
 
 #: ../src/msec/msecgui.py:59
-#, fuzzy
 msgid ""
 "This profile configures a reasonably safe set of security features. It is "
 "the suggested level for Desktop. If unsure which profile to use, use this "
 "one."
 msgstr ""
-"See profiil kehtestab üsna mõistlikud turbeseadistused. Aktiveeritakse mõned "
-"vähe tüli tekitavad perioodilised süsteemi kontrollid. Seda on soovitatav "
-"kasutada tavalise tööarvuti puhul."
+"See profiil kehtestab üsna mõistlikud turbeseadistused. Seda on soovitatav "
+"kasutada tavalise tööarvuti puhul. Kui Te ei tea, millist profiili kasutada, "
+"siis kasutage seda."
 
 #: ../src/msec/msecgui.py:60
-#, fuzzy
 msgid ""
 "This profile is focused on netbooks, laptops or low-end devices, which are "
 "only accessed by local users and run on batteries."
 msgstr ""
-"See profiil on mõeldud eelkõige pisisülearvutite või muude vähema võimsusega "
-"seadmete tarbeks, mida kasutavad ainult kohalikud kasutajad ja mis töötavad "
-"aku pealt."
+"See profiil on mõeldud eelkõige pisisülearvutite. sülearvutite või muude "
+"vähema võimsusega seadmete tarbeks, mida kasutavad ainult kohalikud kasutajad "
+"ja mis töötavad aku pealt."
 
 #: ../src/msec/msecgui.py:62
-#, fuzzy
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. This level is suggested for "
 "security-concerned systems and servers. "
 msgstr ""
 "See profiil kehtestab maksimaalse turvalisuse, piirates isegi süsteemile "
-"mujalt ligipääsu. Samuti käivitatakse terve rida perioodilisi kontrolle. "
-"Seda on soovitatav kasutada serverite ja selliste süsteemide puhul, kus on "
-"tähtsal kohal turvalisus. "
+"mujalt ligipääsu. Seda on soovitatav kasutada serverite ja selliste "
+"süsteemide puhul, kus on tähtsal kohal turvalisus. "
 
 #: ../src/msec/msecgui.py:64
-#, fuzzy
 msgid ""
 "This profile is targeted on local network servers, which do not receive "
 "accesses from unauthorized Internet users."
 msgstr ""
-"See profiil on mõeldud salvestamise suunitlusega serveritele, näiteks FTP-, "
-"SAMBA- või NFS-serveritele, või ka andmebaasiserveritele, millele "
+"See profiil on mõeldud kohalikele võrguserveritele, millele "
 "autentimata internetikasutajatel ligipääs puudub."
 
 #: ../src/msec/msecgui.py:66
-#, fuzzy
 msgid ""
 "This profile is provided for servers which are intended to be accessed by "
 "unauthorized Internet users."
 msgstr ""
-"See profiil on sarnane failiserverile, kuid arvestab sellega, et serveriga "
-"loovad ühendusi ka autentimata internetikasutajad."
+"See profiil on mõeldud serveritele, millele on ligipääs ka autentimata "
+"internetikasutajatel."
 
 #: ../src/msec/msecgui.py:67
 msgid ""
@@ -685,12 +687,18 @@ msgid ""
 "system settings, and use it for periodic checks only. It configures all "
 "periodic checks to run once a day."
 msgstr ""
+"See profiil on mõeldud kasutajatele, kes süsteemi seadistuste muutmisel "
+"ei toetu msecile ning kasutavad seda ainult perioodiliste kontrollide "
+"sooritamiseks. Selle korral seadistatakse kõik perioodilised kontrollid "
+"toimuma kord päevas."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
 "This profile is similar to the 'audit_daily' profile, but it runs all checks "
 "weekly."
 msgstr ""
+"See profiil sarnaneb igapäevase auditi profiiliga, kuid kõik kontrollid "
+"võetakse ette kord nädalas."
 
 #: ../src/msec/msecgui.py:75
 msgid "Custom security level."
@@ -804,12 +812,11 @@ msgstr "MSEC: süsteemi turvalisus ja audit"
 
 #: ../src/msec/msecgui.py:225
 msgid "Overview"
-msgstr ""
+msgstr "Ülevaade"
 
 #: ../src/msec/msecgui.py:226
-#, fuzzy
 msgid "Security settings"
-msgstr "Turbevalik"
+msgstr "Turbeseadistused"
 
 #: ../src/msec/msecgui.py:235
 msgid "Basic security"
@@ -921,42 +928,39 @@ msgstr "Vigane valik '%s'!"
 
 #: ../src/msec/msecgui.py:578
 msgid "Firewall"
-msgstr ""
+msgstr "Tulemüür"
 
 #: ../src/msec/msecgui.py:587 ../src/msec/msecgui.py:622
 msgid "Configure"
-msgstr ""
+msgstr "Seadista"
 
 #: ../src/msec/msecgui.py:599
-#, fuzzy
 msgid "Security"
-msgstr "Turbekontroll"
+msgstr "Turve"
 
 #: ../src/msec/msecgui.py:605
 msgid "Msec is disabled"
-msgstr ""
+msgstr "Msec on keelatud"
 
 #: ../src/msec/msecgui.py:608
-#, fuzzy
 msgid "Msec is enabled"
-msgstr "Keelatud"
+msgstr "Msec on lubatud"
 
 #: ../src/msec/msecgui.py:609
-#, fuzzy
 msgid "Base security level: '%s'"
-msgstr "Vigane turbetase '%s'."
+msgstr "Baasturbetase: '%s'"
 
 #: ../src/msec/msecgui.py:617
 msgid "Custom settings: %d"
-msgstr ""
+msgstr "Kohandatud seadistused: %d"
 
 #: ../src/msec/msecgui.py:634
 msgid "Updates"
-msgstr ""
+msgstr "Uuendused"
 
 #: ../src/msec/msecgui.py:643
 msgid "Update now"
-msgstr ""
+msgstr "Uuenda nüüd"
 
 #: ../src/msec/msecgui.py:675
 msgid "Enable MSEC tool"

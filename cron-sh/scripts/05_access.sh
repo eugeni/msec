@@ -6,7 +6,7 @@ if [ -z "$MSEC_TMP" -o -z "$INFOS" -o -z "$SECURITY" -o -z "$DIFF" -o -z "$SECUR
         # variables are set in security.sh and propagated to the subscripts
         echo "Error: this check should be run by the main msec security check!"
         echo "       do not run it directly unless you know what you are doing."
-        return 1
+        exit 1
 fi
 
 # check for changes in users

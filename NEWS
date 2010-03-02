@@ -1,3 +1,5 @@
+- properly checking if we are run within security script
+
 Version 0.80.5 - Feb 26 2010, Eugeni Dodonov
 - added security levels 'audit_daily' and 'audit_weekly'
 - added sudo plugin

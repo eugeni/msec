@@ -1,4 +1,4 @@
-# Copyright (c) 1999-2009 Mandriva
+# Copyright (c) 1999-2010 Mandriva
 #
 # Vă rugăm să nu actualizaţi fișierul, cu excepția cazului în care sînteți
 # sigur de calitatea traducerii dumneavoastră, de gramatică și de ortografie.
@@ -38,15 +38,16 @@
 # Dragos Marian BARBU <dragosb@softhome.net>, 2000.
 # Ovidiu CONSTANTIN <ovidiu.constantin@gmx.net>, 2002, 2003.
 # Harald ERSCH <harald@ersch.ro>, 2003.
-# Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>, 2008, 2009.
+# Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>, 2008, 2009, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: https://qa.mandriva.com\n"
 "POT-Creation-Date: 2010-02-26 13:17+BRT\n"
-"PO-Revision-Date: 2010-02-21 14:06+0100\n"
+"PO-Revision-Date: 2010-03-09 13:17+0100\n"
 "Last-Translator: Cătălin Florin RUSSEN <cfrussen@yahoo.co.uk>\n"
-"Language-Team: Romanian <cooker-i18n@mandrivalinux.org  >\n"
+"Language-Team: Romanian <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -390,6 +391,10 @@ msgid ""
 "such strict requirements. This variable defines the number of past log files "
 "that should be kept by logrotate on the system."
 msgstr ""
+"Definește perioada de retenție implicită a jurnalelor, în săptămîni. Unele "
+"țări reclamă păstrarea fișierelor jurmal timp de 12 luni, altele nu au "
+"cerințe așa de stricte. Această variabliă definește numărul de fișiere "
+"jurnal trecute, ce ar trebui păstrate prin rotație în sistem."
 
 #: ../src/msec/help.py:110
 msgid "Ask for root password when going to single user level (man sulogin(8))."
@@ -465,6 +470,8 @@ msgid ""
 "Patterns to exclude from disk checks. This parameter is parsed as a regex "
 "(7), so you may use complex expressions."
 msgstr ""
+"Modele de excuziune de la verificările de disc. Acest parametru este "
+"analizat ca regex (7), deci puteți utiliza expresii complexe."
 
 #: ../src/msec/help.py:134
 msgid ""
@@ -475,6 +482,13 @@ msgid ""
 "sudo without any password makes your system very vulnerable, and you should "
 "only use this setting if you know what you are doing!"
 msgstr ""
+"Permite utilizatorilor din grupul wheel să utilizeze sudo. Dacă aceasă "
+"opțiune este configurată pe 'da', utilizatorii din grupul wheel pot utiliza "
+"sudo să execute comenzi ca root utilizînd parola lor de utilizator. Dacă "
+"această opțiune este configurată ca 'fără-parolă', utilizatorii pot utiliza "
+"sudo fără să li-se mai ceară parola. AVERTISMENT: utilizarea lui sudo fără "
+"parolă vă face sistemul foarte vulnerabil și ar trebui să utilizați această "
+"opțiune numai în cunoștință de cauză."
 
 #: ../src/msec/help.py:136
 msgid "Set the root umask."
@@ -687,45 +701,49 @@ msgstr ""
 "doriți s-o activați, alegeți nivelul adecvat de securitate: "
 
 #: ../src/msec/msecgui.py:59
-#, fuzzy
 msgid ""
 "This profile configures a reasonably safe set of security features. It is "
 "the suggested level for Desktop. If unsure which profile to use, use this "
 "one."
 msgstr ""
-"Acest profil configurează un set rezonabil de opțiuni de securitate și "
-"activează cîteva verificări periodice de securitate neintrizive. Acesta este "
-"nivelul sugerat pentru o stație de lucru."
+"Acest profil configurează un set rezonabil de opțiuni de securitate. Este "
+"nivelul sugerat pentru o stație de lucru. Dacă nu știți ce profil să "
+"utilizați, alegeți-l pe acesta."
 
 #: ../src/msec/msecgui.py:60
 msgid ""
 "This profile is focused on netbooks, laptops or low-end devices, which are "
 "only accessed by local users and run on batteries."
 msgstr ""
+"Acest profil este focalizat pe mini-portabile, portabile sau dispozitive de "
+"gamă joasă, care sînt accesate numai de utilizatorii locali și funcționează "
+"pe baterii."
 
 #: ../src/msec/msecgui.py:62
-#, fuzzy
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. This level is suggested for "
 "security-concerned systems and servers. "
 msgstr ""
 "Acest profil este configurat să ofere un maximum de securitate, chiar și cu "
-"prețul limitării accesului distant la sistem. Se execută un set mai larg de "
-"verificări periodice. Acest nivel este sugerat pentru servere și sisteme cu "
-"pretenții de securitate."
+"prețul limitării accesului distant la sistem. Acest nivel este sugerat "
+"pentru servere și sisteme cu pretenții de securitate."
 
 #: ../src/msec/msecgui.py:64
 msgid ""
 "This profile is targeted on local network servers, which do not receive "
 "accesses from unauthorized Internet users."
 msgstr ""
+"Acest profil este orientat către serverele locale de rețea, care nu sînt "
+"accesate de utilizatori neautorizați din Internet."
 
 #: ../src/msec/msecgui.py:66
 msgid ""
 "This profile is provided for servers which are intended to be accessed by "
 "unauthorized Internet users."
 msgstr ""
+"Acest profil este furnizat pentru serverele care sînt accesate de "
+"utilizatori neautorizați din Internet."
 
 #: ../src/msec/msecgui.py:67
 msgid ""
@@ -733,12 +751,18 @@ msgid ""
 "system settings, and use it for periodic checks only. It configures all "
 "periodic checks to run once a day."
 msgstr ""
+"Acest profil este intenționat utilizatorilor care nu se bazează pe msec "
+"pentru modificarea configurărilor sistemului și-l folosesc numai pentru "
+"verificări periodice. Configurează executarea tuturor verificărilor "
+"periodice odată pe zi."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
 "This profile is similar to the 'audit_daily' profile, but it runs all checks "
 "weekly."
 msgstr ""
+"Acest profil este similar cu profilul 'audit_daily', dar execută toate "
+"verificările săptămînal."
 
 #: ../src/msec/msecgui.py:75
 msgid "Custom security level."
@@ -854,12 +878,11 @@ msgstr "MSEC: Securitate și audit de sistem"
 
 #: ../src/msec/msecgui.py:225
 msgid "Overview"
-msgstr ""
+msgstr "Prezentare generală"
 
 #: ../src/msec/msecgui.py:226
-#, fuzzy
 msgid "Security settings"
-msgstr "Opțiune de securitate"
+msgstr "Configurări de securitate"
 
 #: ../src/msec/msecgui.py:235
 msgid "Basic security"
@@ -971,42 +994,39 @@ msgstr "'%s' opțiune invalidă!"
 
 #: ../src/msec/msecgui.py:578
 msgid "Firewall"
-msgstr ""
+msgstr "Parafoc"
 
 #: ../src/msec/msecgui.py:587 ../src/msec/msecgui.py:622
 msgid "Configure"
-msgstr ""
+msgstr "Configurează"
 
 #: ../src/msec/msecgui.py:599
-#, fuzzy
 msgid "Security"
-msgstr "Verificare de securitate"
+msgstr "Securitate"
 
 #: ../src/msec/msecgui.py:605
 msgid "Msec is disabled"
-msgstr ""
+msgstr "Msec este dezactivat"
 
 #: ../src/msec/msecgui.py:608
-#, fuzzy
 msgid "Msec is enabled"
-msgstr "Dezactivat"
+msgstr "Msec este activat"
 
 #: ../src/msec/msecgui.py:609
-#, fuzzy
 msgid "Base security level: '%s'"
-msgstr "Nivel de securitate invalid '%s'."
+msgstr "Nivel de securitate de bază: '%s'"
 
 #: ../src/msec/msecgui.py:617
 msgid "Custom settings: %d"
-msgstr ""
+msgstr "Configurări personalizate: %d"
 
 #: ../src/msec/msecgui.py:634
 msgid "Updates"
-msgstr ""
+msgstr "Actualizări"
 
 #: ../src/msec/msecgui.py:643
 msgid "Update now"
-msgstr ""
+msgstr "Actualizați acum"
 
 #: ../src/msec/msecgui.py:675
 msgid "Enable MSEC tool"
@@ -1429,6 +1449,9 @@ msgid ""
 "to su to root, but this group is empty. Please add the allowed users into "
 "the wheel group."
 msgstr ""
+"Configurația de securitate este definită să permită numai membrilor grupului "
+"wheel să facă su la root, dar acest grup este vid. Adăugați vă rog "
+"utilizatorii autorizați în grupul wheel."
 
 #: ../src/msec/plugins/pam.py:184
 msgid "Allowing su for all"

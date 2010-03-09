@@ -132,8 +132,6 @@ if [[ -s ${DIFF} ]]; then
     cat ${DIFF} | sed -e "s/^/$DIFF_PREFIX/g" >> ${SECURITY_LOG}
 
     Notifylog "MSEC has performed Diff Check on ${REPORT_HOSTNAME} on ${REPORT_DATE}. Changes in system security were detected and are available in ${SECURITY_LOG}."
-else
-    Notifylog "MSEC has performed Diff Check on ${REPORT_HOSTNAME} on ${REPORT_DATE}. No changes were detected in system security."
 fi
 
 Maillog "[msec] *** Diff Check on ${REPORT_HOSTNAME}, ${REPORT_DATE} ***" "${DIFF}"

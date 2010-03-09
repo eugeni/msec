@@ -23,6 +23,7 @@ class pam:
     SIMPLE_ROOT_AUTHEN = '/etc/pam.d/simple_root_authen'
     SU = '/etc/pam.d/su'
     SYSTEM_AUTH = '/etc/pam.d/system-auth'
+    OPASSWD = '/etc/security/opasswd'
     # pam
     SUCCEED_MATCH = '^auth\s+sufficient\s+pam_succeed_if.so\s+use_uid\s+user\s+ingroup\s+wheel\s*$'
     SUCCEED_LINE = 'auth       sufficient   pam_succeed_if.so use_uid user ingroup wheel'

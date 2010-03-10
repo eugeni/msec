@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-26 13:17+BRT\n"
-"PO-Revision-Date: 2010-03-04 20:08+0100\n"
+"PO-Revision-Date: 2010-03-10 23:40+0100\n"
 "Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -417,6 +417,9 @@ msgid ""
 "Patterns to exclude from disk checks. This parameter is parsed as a regex "
 "(7), so you may use complex expressions."
 msgstr ""
+"Mønstre som skal utelates fra disksjekker. Denne parameteren blir tolket som "
+"regex "
+"(7), så du kan bruke avanserte uttrykk."
 
 #: ../src/msec/help.py:134
 msgid ""
@@ -633,18 +636,16 @@ msgstr ""
 "sikkerhetsnivå: "
 
 #: ../src/msec/msecgui.py:59
-#, fuzzy
 msgid ""
 "This profile configures a reasonably safe set of security features. It is "
 "the suggested level for Desktop. If unsure which profile to use, use this "
 "one."
 msgstr ""
-"Denne profilen setter opp et forholdsvis sikkert system. Det slår på flere "
-"ikke-påtrengende regelmessige systemsjekker. Dette er det anbefalte nivået "
-"for Skrivebord."
+"Denne profilen setter opp et forholdsvis sikkert system. Dette er det "
+"anbefalte nivået "
+"for skrivebord. Bruk denne hvis du er usikker på hva som passer deg."
 
 #: ../src/msec/msecgui.py:60
-#, fuzzy
 msgid ""
 "This profile is focused on netbooks, laptops or low-end devices, which are "
 "only accessed by local users and run on batteries."
@@ -653,7 +654,6 @@ msgstr ""
 "på batterier og kun er tilgjengelige for lokale brukere."
 
 #: ../src/msec/msecgui.py:62
-#, fuzzy
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. This level is suggested for "
@@ -669,18 +669,16 @@ msgid ""
 "This profile is targeted on local network servers, which do not receive "
 "accesses from unauthorized Internet users."
 msgstr ""
-"Denne er profilen passer for lagringsorienterte tjenere, slik som FTP, "
-"SAMBA, NFS, eller databasetjenere, som ikke tillater tilgang for ukjente "
+"Denne profilen passer for lokale nettverktjenere, som ikke åpner for ukjente "
 "Internettbrukere."
 
 #: ../src/msec/msecgui.py:66
-#, fuzzy
 msgid ""
 "This profile is provided for servers which are intended to be accessed by "
 "unauthorized Internet users."
 msgstr ""
-"Denne profilen er den samme som for «Filtjener», men antar at tjeneren mottar "
-"tilkoblinger fra ukjente Internettbrukere."
+"Denne profilen tilbys for tjenere som skal være tilgjengelig for ukjente "
+"Internettbrukere."
 
 #: ../src/msec/msecgui.py:67
 msgid ""
@@ -688,6 +686,9 @@ msgid ""
 "system settings, and use it for periodic checks only. It configures all "
 "periodic checks to run once a day."
 msgstr ""
+"Denne profilen er beregnet på de som ikke lar MSEC endre "
+"systeminnstillinger, men som kun bruker det til periodiske sjekker. "
+"Alle periodiske sjekker settes opp til å kjøre en gang daglig."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
@@ -940,9 +941,8 @@ msgid "Msec is enabled"
 msgstr "MSEC er slått på"
 
 #: ../src/msec/msecgui.py:609
-#, fuzzy
 msgid "Base security level: '%s'"
-msgstr "ugyldig sikkerhetsnivå «%s»."
+msgstr "Grunnleggende sikkerhetsnivå «%s»"
 
 #: ../src/msec/msecgui.py:617
 msgid "Custom settings: %d"
@@ -1388,4 +1388,5 @@ msgstr "Tillater gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
 #: ../src/msec/plugins/pam.py:210
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
+
 

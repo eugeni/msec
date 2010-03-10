@@ -26,7 +26,7 @@ fi
 
 if check_is_enabled "${CHECK_OPEN_PORT}" ; then
         if [[ ${IGNORE_PID_CHANGES} = yes ]]; then
-                FILTER="sed -e s/\([0-9]*\)\/\(.*\)$/\2/g"
+                FILTER="sed -e s/\(PID\|[0-9]*\)\/\(.*\)$/\2/g"
         else
                 FILTER="cat"
         fi
@@ -43,7 +43,7 @@ fi
 
 ### Changed open port
 if check_is_enabled "${CHECK_OPEN_PORT}" ; then
-    Diffcheck ${OPEN_PORT_TODAY} ${OPEN_PORT_YESTERDAY} ${OPEN_PORT_DIFF} "network listening ports"
+    Diffcheck ${OPEN_PORT_TODAY} ${OPEN_PORT_YESTERDAY} ${OPEN_PORT_DIFF} "processes with open network ports"
 fi
 
 ### Changed firewall

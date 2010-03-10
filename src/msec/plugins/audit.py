@@ -42,6 +42,7 @@ class audit:
         config.SETTINGS['FIX_UNOWNED'] = ("audit.fix_unowned", config.VALUES_YESNO)
         config.SETTINGS['CHECK_PROMISC'] = ("audit.check_promisc", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_OPEN_PORT'] = ("audit.check_open_port", config.VALUES_PERIODIC)
+        config.SETTINGS['IGNORE_PID_CHANGES'] = ("audit.ignore_pid_changes", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_FIREWALL'] = ("audit.check_firewall", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_PASSWD'] = ("audit.check_passwd", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_SHADOW'] = ("audit.check_shadow", config.VALUES_PERIODIC)
@@ -67,7 +68,7 @@ class audit:
 
         # preparing msecgui menu
         for check in ["CHECK_PERMS", "CHECK_PERMS_ENFORCE", "CHECK_USER_FILES", "CHECK_SUID_ROOT", "CHECK_SUID_MD5", "CHECK_SGID",
-                    "CHECK_WRITABLE", "CHECK_UNOWNED", "FIX_UNOWNED", "EXCLUDE_REGEXP", "CHECK_PROMISC", "CHECK_OPEN_PORT", "CHECK_FIREWALL",
+                    "CHECK_WRITABLE", "CHECK_UNOWNED", "FIX_UNOWNED", "EXCLUDE_REGEXP", "CHECK_PROMISC", "CHECK_OPEN_PORT", "IGNORE_PID_CHANGES", "CHECK_FIREWALL",
                     "CHECK_PASSWD", "CHECK_SHADOW", "CHECK_CHKROOTKIT", "CHECK_RPM_PACKAGES", "CHECK_RPM_INTEGRITY",
                     "CHECK_SHOSTS", "CHECK_USERS", "CHECK_GROUPS",
                     "TTY_WARN", "SYSLOG_WARN", "MAIL_EMPTY_CONTENT", "CHECK_ON_BATTERY"]:
@@ -189,6 +190,10 @@ class audit:
 
     def exclude_regexp(self, param):
         """Patterns to exclude from disk checks. This parameter is parsed as a regex (7), so you may use complex expressions."""
+        pass
+
+    def ignore_pid_changes(self, param):
+        """Ignore changes in process IDs when checking for open network ports."""
         pass
 
     def check_promisc(self, param):

@@ -25,7 +25,12 @@ if [[ -f ${FIREWALL_TODAY} ]]; then
 fi
 
 if check_is_enabled "${CHECK_OPEN_PORT}" ; then
-        netstat -pvlA inet,inet6 2> /dev/null > ${OPEN_PORT_TODAY};
+        if [[ ${IGNORE_PID_CHANGES} = yes ]]; then
+                FILTER="sed -e s/\([0-9]*\)\/\(.*\)$/\2/g"
+        else
+                FILTER="cat"
+        fi
+        netstat -pvlA inet,inet6 2> /dev/null | $FILTER > ${OPEN_PORT_TODAY};
         Filter ${OPEN_PORT_TODAY} CHECK_OPEN_PORT
         Count ${INFOS} ${OPEN_PORT_TODAY} "Total of open network ports"
 fi

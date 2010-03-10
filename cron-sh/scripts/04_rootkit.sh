@@ -31,6 +31,7 @@ if check_is_enabled "${CHECK_CHKROOTKIT}" ; then
         else
                 chkrootkit_result="failed"
         fi
+        Filter ${CHKROOTKIT_TODAY} CHECK_CHKROOTKIT
         if [[ -s ${CHKROOTKIT_TODAY} ]]; then
             printf "\nChkrootkit report:\n" >> ${SECURITY}
             cat ${CHKROOTKIT_TODAY} >> ${SECURITY}

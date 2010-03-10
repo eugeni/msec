@@ -1,3 +1,4 @@
+- properly filter chkrootkit checks (#58076).
 - do not notify when no changes were found by a diff run
 - properly checking if we are run within security script
 

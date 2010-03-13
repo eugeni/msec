@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-26 13:17+BRT\n"
+"POT-Creation-Date: 2010-03-13 13:20+CET\n"
 "PO-Revision-Date: 2008-03-29 21:33+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: Mandriva Linux i18n Team <cooker-i18n@mandrivalinux.org>\n"
@@ -74,12 +74,13 @@ msgid "Enable checking for files/directories writable by everybody."
 msgstr "检查每人可写的文件/目录"
 
 #: ../src/msec/help.py:18
-msgid "Log syslog messages on console terminal 12."
-msgstr ""
+msgid "Enable IP spoofing protection."
+msgstr "启用 IP 欺骗保护。"
 
 #: ../src/msec/help.py:20
-msgid "Send mail reports even if no changes were detected."
-msgstr "如果没有检测到更改，也发送邮件报告。"
+#, fuzzy
+msgid "Enable name resolution spoofing protection."
+msgstr "名称解析欺骗保护"
 
 #: ../src/msec/help.py:22
 msgid ""
@@ -93,8 +94,8 @@ msgstr "接受广播 ICMP 回应。"
 
 #: ../src/msec/help.py:26
 msgid ""
-"Enable msec to enforce file permissions to the values specified in the msec "
-"security policy."
+"Enable verification for changes in the installed RPM packages. This will "
+"notify you when new packages are installed or removed."
 msgstr ""
 
 #: ../src/msec/help.py:28
@@ -102,38 +103,38 @@ msgid "Enable periodic permission checking for files specified in msec policy."
 msgstr ""
 
 #: ../src/msec/help.py:30
-msgid "Allow X server to accept connections from network on tcp port 6000."
+msgid "Ignore changes in process IDs when checking for open network ports."
 msgstr ""
 
 #: ../src/msec/help.py:32
-msgid "Enable checking for known rootkits using chkrootkit."
+msgid "Allow X server to accept connections from network on tcp port 6000."
 msgstr ""
 
 #: ../src/msec/help.py:34
-msgid ""
-"Enable verification for changes in the installed RPM packages. This will "
-"notify you when new packages are installed or removed."
+msgid "Enable checking for known rootkits using chkrootkit."
 msgstr ""
 
 #: ../src/msec/help.py:36
+msgid ""
+"Enable msec to enforce file permissions to the values specified in the msec "
+"security policy."
+msgstr ""
+
+#: ../src/msec/help.py:38
 msgid ""
 "Enable sectools checks. This check will run all sectool checks for a "
 "security level configuration. The security level to be used during this test "
 "is determined by the CHECK_SECTOOL_LEVELS variable."
 msgstr ""
 
-#: ../src/msec/help.py:38
+#: ../src/msec/help.py:40
 msgid "Set shell commands history size. A value of -1 means unlimited."
 msgstr "设置 shell 命令历史大小。-1 表示没有限制。"
 
-#: ../src/msec/help.py:40
+#: ../src/msec/help.py:42
 #, fuzzy
 msgid "Allow system reboot and shutdown to local users."
 msgstr "允许控制台用户重新启动。"
-
-#: ../src/msec/help.py:42
-msgid "Allow root access without password for the members of the wheel group."
-msgstr ""
 
 #: ../src/msec/help.py:44
 msgid "Enable checking for changes in firewall settings."
@@ -160,9 +161,8 @@ msgstr ""
 "的 man)。"
 
 #: ../src/msec/help.py:52
-#, fuzzy
-msgid "Enable checking for changes in system groups."
-msgstr "报告无主文件"
+msgid "Accept bogus IPv4 error messages."
+msgstr "接受有错的 IPv4 错误消息。"
 
 #: ../src/msec/help.py:54
 msgid ""
@@ -222,17 +222,16 @@ msgid "Enable checking for unowned files."
 msgstr "报告无主文件"
 
 #: ../src/msec/help.py:76
-msgid "Set the shell timeout. A value of zero means no timeout."
-msgstr "设置 shell 超时。若设为 0, 则为没有超时。"
+msgid "Log syslog messages on console terminal 12."
+msgstr ""
 
 #: ../src/msec/help.py:78
 msgid "Allow display managers (kdm and gdm) to display list of local users."
 msgstr ""
 
 #: ../src/msec/help.py:80
-#, fuzzy
-msgid "Enable name resolution spoofing protection."
-msgstr "名称解析欺骗保护"
+msgid "Send mail reports even if no changes were detected."
+msgstr "如果没有检测到更改，也发送邮件报告。"
 
 #: ../src/msec/help.py:82
 msgid ""
@@ -269,45 +268,50 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:92
-msgid "Show security notifications in system tray using libnotify."
-msgstr ""
+#, fuzzy
+msgid "Enable checking for changes in system groups."
+msgstr "报告无主文件"
 
 #: ../src/msec/help.py:94
-msgid ""
-"Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
-"default system umask is used."
-msgstr ""
-
-#: ../src/msec/help.py:96
-msgid "Enable checking for open network ports."
-msgstr ""
-
-#: ../src/msec/help.py:98
-#, fuzzy
-msgid "Allow direct root login on terminal."
-msgstr "允许直接 root 登录。"
-
-#: ../src/msec/help.py:100
-msgid "Run security checks when machine is running on battery power."
-msgstr ""
-
-#: ../src/msec/help.py:102
-msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr ""
-
-#: ../src/msec/help.py:104
 msgid ""
 "Allow remote root login via sshd. If yes, login is allowed. If without-"
 "password, only public-key authentication logins are allowed. See sshd_config"
 "(5) man page for more information."
 msgstr ""
 
+#: ../src/msec/help.py:96
+msgid "Show security notifications in system tray using libnotify."
+msgstr ""
+
+#: ../src/msec/help.py:98
+msgid "Enable checking for open network ports."
+msgstr ""
+
+#: ../src/msec/help.py:100
+#, fuzzy
+msgid "Allow direct root login on terminal."
+msgstr "允许直接 root 登录。"
+
+#: ../src/msec/help.py:102
+msgid "Run security checks when machine is running on battery power."
+msgstr ""
+
+#: ../src/msec/help.py:104
+msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
+msgstr ""
+
 #: ../src/msec/help.py:106
+msgid ""
+"Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
+"default system umask is used."
+msgstr ""
+
+#: ../src/msec/help.py:108
 #, fuzzy
 msgid "Enable logging of strange network packets."
 msgstr "启用 IPv4 异常包日志。"
 
-#: ../src/msec/help.py:108
+#: ../src/msec/help.py:110
 msgid ""
 "Define the default retention period for logs, in weeks. Some countries "
 "require that the log files should be kept for 12 months, other do not have "
@@ -315,24 +319,24 @@ msgid ""
 "that should be kept by logrotate on the system."
 msgstr ""
 
-#: ../src/msec/help.py:110
+#: ../src/msec/help.py:112
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
 
-#: ../src/msec/help.py:112
-msgid "Enable IP spoofing protection."
-msgstr "启用 IP 欺骗保护。"
-
 #: ../src/msec/help.py:114
-msgid "Fix owner and group of unowned files to use nobody/nogroup."
+msgid "Allow root access without password for the members of the wheel group."
 msgstr ""
 
 #: ../src/msec/help.py:116
+msgid "Fix owner and group of unowned files to use nobody/nogroup."
+msgstr ""
+
+#: ../src/msec/help.py:118
 #, fuzzy
 msgid "Send security check results by email."
 msgstr "通过邮件报告检测结果"
 
-#: ../src/msec/help.py:118
+#: ../src/msec/help.py:120
 #, fuzzy
 msgid ""
 "Allow to export display when passing from the root account to the other "
@@ -342,7 +346,7 @@ msgstr ""
 "\n"
 "请查看 pam_xauth(8) 中的细节。"
 
-#: ../src/msec/help.py:120
+#: ../src/msec/help.py:122
 msgid ""
 "Defines the sectool level to use during the periodic security check. You may "
 "use the sectool-gui application to select individual tests for each level. "
@@ -350,24 +354,28 @@ msgid ""
 "configuration will be used."
 msgstr ""
 
-#: ../src/msec/help.py:122
+#: ../src/msec/help.py:124
+msgid "Set the shell timeout. A value of zero means no timeout."
+msgstr "设置 shell 超时。若设为 0, 则为没有超时。"
+
+#: ../src/msec/help.py:126
 #, fuzzy
 msgid "Enable daily security checks."
 msgstr "运行每日安全检查"
 
-#: ../src/msec/help.py:124
+#: ../src/msec/help.py:128
 #, fuzzy
 msgid "Accept ICMP echo."
 msgstr "接受 icmp 回应。"
 
-#: ../src/msec/help.py:126
+#: ../src/msec/help.py:130
 #, fuzzy
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr "设置密码最短长度, 数字的最少个数, 大写字母的最少个数。"
 
-#: ../src/msec/help.py:128
+#: ../src/msec/help.py:132
 #, fuzzy
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
@@ -386,17 +394,20 @@ msgstr ""
 "\n"
 "要认证您需要的服务, 请使用 /etc/hosts.allow(参看 hosts.allow(5))。"
 
-#: ../src/msec/help.py:130
-msgid "Activate ethernet cards promiscuity check."
-msgstr "激活以太网卡混用检查。"
+#: ../src/msec/help.py:134
+msgid ""
+"Enable verification of integrity of installed RPM packages. This will notify "
+"you if checksums of the installed files were changed, showing separate "
+"results for binary and configuration files."
+msgstr ""
 
-#: ../src/msec/help.py:132
+#: ../src/msec/help.py:136
 msgid ""
 "Patterns to exclude from disk checks. This parameter is parsed as a regex "
 "(7), so you may use complex expressions."
 msgstr ""
 
-#: ../src/msec/help.py:134
+#: ../src/msec/help.py:138
 msgid ""
 "Allow users in wheel group to use sudo. If this option is set to 'yes', the "
 "users in wheel group are allowed to use sudo and run commands as root by "
@@ -406,38 +417,31 @@ msgid ""
 "only use this setting if you know what you are doing!"
 msgstr ""
 
-#: ../src/msec/help.py:136
+#: ../src/msec/help.py:140
 #, fuzzy
 msgid "Set the root umask."
 msgstr "设置 root 的文件模式创建 mask。"
 
-#: ../src/msec/help.py:138
+#: ../src/msec/help.py:142
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
 
-#: ../src/msec/help.py:140
+#: ../src/msec/help.py:144
 msgid "Enforce MSEC settings on system startup"
 msgstr ""
 
-#: ../src/msec/help.py:142
+#: ../src/msec/help.py:146
 msgid "Enable periodic security check results to terminal."
 msgstr ""
 
-#: ../src/msec/help.py:144
-msgid "Accept bogus IPv4 error messages."
-msgstr "接受有错的 IPv4 错误消息。"
-
-#: ../src/msec/help.py:146
+#: ../src/msec/help.py:148
 #, fuzzy
 msgid "Enable checking for additions/removals of sgid files."
 msgstr "检查 sgid 文件的添加/删除"
 
-#: ../src/msec/help.py:148
-msgid ""
-"Enable verification of integrity of installed RPM packages. This will notify "
-"you if checksums of the installed files were changed, showing separate "
-"results for binary and configuration files."
-msgstr ""
+#: ../src/msec/help.py:150
+msgid "Activate ethernet cards promiscuity check."
+msgstr "激活以太网卡混用检查。"
 
 #: ../src/msec/libmsec.py:266
 msgid "%s modified so launched command: %s"
@@ -1304,63 +1308,63 @@ msgstr "名称解析欺骗保护"
 msgid "Disabling name resolution spoofing protection"
 msgstr "名称解析欺骗保护"
 
-#: ../src/msec/plugins/pam.py:67
+#: ../src/msec/plugins/pam.py:68
 msgid "Using password to authenticate users"
 msgstr "使用密码验证用户"
 
-#: ../src/msec/plugins/pam.py:71
+#: ../src/msec/plugins/pam.py:72
 msgid "Don't use password to authenticate users"
 msgstr "不使用密码验证用户"
 
-#: ../src/msec/plugins/pam.py:82
+#: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
 msgstr "pam_tcb 不支持密码历史。"
 
-#: ../src/msec/plugins/pam.py:90
+#: ../src/msec/plugins/pam.py:91
 msgid "Invalid maximum password history length: \"%s\""
 msgstr "无效的最大密码历史长度: “%s”"
 
-#: ../src/msec/plugins/pam.py:105
+#: ../src/msec/plugins/pam.py:106
 msgid "Setting password history to %d."
 msgstr "将密码设置为 %d。"
 
-#: ../src/msec/plugins/pam.py:111
+#: ../src/msec/plugins/pam.py:112
 msgid "Disabling password history"
 msgstr "禁用密码历史"
 
-#: ../src/msec/plugins/pam.py:123
+#: ../src/msec/plugins/pam.py:124
 msgid ""
 "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr "无效的密码长度“%s”。请使用“长度,数字数,大写字母数”作为参数"
 
-#: ../src/msec/plugins/pam.py:144
+#: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
 msgstr "设置最小的密码长度 %d"
 
-#: ../src/msec/plugins/pam.py:168
+#: ../src/msec/plugins/pam.py:169
 msgid "Allowing su only from wheel group members"
 msgstr "只对 wheel 组成员启用 su"
 
-#: ../src/msec/plugins/pam.py:172
+#: ../src/msec/plugins/pam.py:173
 msgid "no wheel group"
 msgstr "没有 wheel 组"
 
-#: ../src/msec/plugins/pam.py:176
+#: ../src/msec/plugins/pam.py:177
 msgid ""
 "Security configuration is defined to allow only members of the wheel group "
 "to su to root, but this group is empty. Please add the allowed users into "
 "the wheel group."
 msgstr ""
 
-#: ../src/msec/plugins/pam.py:184
+#: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"
 msgstr "允许所有人 su"
 
-#: ../src/msec/plugins/pam.py:203
+#: ../src/msec/plugins/pam.py:204
 msgid "Allowing transparent root access for wheel group members"
 msgstr "允许 wheel 组的成员执行 root 的透明访问"
 
-#: ../src/msec/plugins/pam.py:210
+#: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr "禁止 wheel 组的成员执行 root 的透明访问"
 

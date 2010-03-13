@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-26 13:17+BRT\n"
+"POT-Creation-Date: 2010-03-13 13:20+CET\n"
 "PO-Revision-Date: 2009-10-18 14:07+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
 "Language-Team: Basque <kde-i18n-doc@kde.org>\n"
@@ -72,12 +72,12 @@ msgstr ""
 "Gaitu edonork idazteko erabil ditzakeen fitxategi/direktorioen egiaztapena."
 
 #: ../src/msec/help.py:18
-msgid "Log syslog messages on console terminal 12."
-msgstr "Erakutsi sistemaren mezuak (syslog) 12 kontsola terminalean."
+msgid "Enable IP spoofing protection."
+msgstr "Gaitu IP iruzurren aurkako babesa."
 
 #: ../src/msec/help.py:20
-msgid "Send mail reports even if no changes were detected."
-msgstr "Bidali posta txostenak aldaketak detektatu ez arren ere."
+msgid "Enable name resolution spoofing protection."
+msgstr "Izen-ebazpen iruzurren babesa gaitu."
 
 #: ../src/msec/help.py:22
 msgid ""
@@ -93,52 +93,53 @@ msgstr "Onartu broadcast bezala igorritako ICMP echo."
 
 #: ../src/msec/help.py:26
 msgid ""
-"Enable msec to enforce file permissions to the values specified in the msec "
-"security policy."
-msgstr ""
-
-#: ../src/msec/help.py:28
-msgid "Enable periodic permission checking for files specified in msec policy."
-msgstr ""
-
-#: ../src/msec/help.py:30
-msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Baimendu X zerbitzariak saretik tcp 6000 atakan loturak onartu ditzaten."
-
-#: ../src/msec/help.py:32
-msgid "Enable checking for known rootkits using chkrootkit."
-msgstr "Gaitu rootkit ezagunen egiaztapena chkrootkit erabiliz."
-
-#: ../src/msec/help.py:34
-msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
 "Gaitu instalatuta dauden RPM paketeen gaineko egiaztapena. Honek "
 "jakinaraziko dizu pakete berriak instalatu edo ezabatzen direnean."
 
+#: ../src/msec/help.py:28
+msgid "Enable periodic permission checking for files specified in msec policy."
+msgstr ""
+
+#: ../src/msec/help.py:30
+#, fuzzy
+msgid "Ignore changes in process IDs when checking for open network ports."
+msgstr "Gaitu sareko ataka irekien egiaztapena."
+
+#: ../src/msec/help.py:32
+msgid "Allow X server to accept connections from network on tcp port 6000."
+msgstr ""
+"Baimendu X zerbitzariak saretik tcp 6000 atakan loturak onartu ditzaten."
+
+#: ../src/msec/help.py:34
+msgid "Enable checking for known rootkits using chkrootkit."
+msgstr "Gaitu rootkit ezagunen egiaztapena chkrootkit erabiliz."
+
 #: ../src/msec/help.py:36
+msgid ""
+"Enable msec to enforce file permissions to the values specified in the msec "
+"security policy."
+msgstr ""
+
+#: ../src/msec/help.py:38
 msgid ""
 "Enable sectools checks. This check will run all sectool checks for a "
 "security level configuration. The security level to be used during this test "
 "is determined by the CHECK_SECTOOL_LEVELS variable."
 msgstr ""
 
-#: ../src/msec/help.py:38
+#: ../src/msec/help.py:40
 msgid "Set shell commands history size. A value of -1 means unlimited."
 msgstr ""
 "Ezarri shell komandoen historiaren tamaina. -1 balioak mugarik ez dagoela "
 "esan nahi du."
 
-#: ../src/msec/help.py:40
+#: ../src/msec/help.py:42
 msgid "Allow system reboot and shutdown to local users."
 msgstr ""
 "Baimendu bertako erabiltzaileek sistema berrabiarazi edo itzaldu dezaten."
-
-#: ../src/msec/help.py:42
-msgid "Allow root access without password for the members of the wheel group."
-msgstr "Gaitu pasahitz gabeko root sarbidea 'wheel' taldeko partaideentzat."
 
 #: ../src/msec/help.py:44
 msgid "Enable checking for changes in firewall settings."
@@ -163,8 +164,8 @@ msgstr ""
 "(1) man orriak)."
 
 #: ../src/msec/help.py:52
-msgid "Enable checking for changes in system groups."
-msgstr "Sistemaren taldeetan aldaketak egiaztatzea gaitzen du."
+msgid "Accept bogus IPv4 error messages."
+msgstr "Onartu IPv4 akats mezu faltsuak."
 
 #: ../src/msec/help.py:54
 msgid ""
@@ -227,10 +228,8 @@ msgid "Enable checking for unowned files."
 msgstr "Gaitu jaberik ez duten fitxategien egiaztapena."
 
 #: ../src/msec/help.py:76
-msgid "Set the shell timeout. A value of zero means no timeout."
-msgstr ""
-"Ezarri shell-aren denbora-muga. Zero balioak esan nahi du ez dagoela denbora-"
-"mugarik."
+msgid "Log syslog messages on console terminal 12."
+msgstr "Erakutsi sistemaren mezuak (syslog) 12 kontsola terminalean."
 
 #: ../src/msec/help.py:78
 msgid "Allow display managers (kdm and gdm) to display list of local users."
@@ -239,8 +238,8 @@ msgstr ""
 "erakutsi dezaten."
 
 #: ../src/msec/help.py:80
-msgid "Enable name resolution spoofing protection."
-msgstr "Izen-ebazpen iruzurren babesa gaitu."
+msgid "Send mail reports even if no changes were detected."
+msgstr "Bidali posta txostenak aldaketak detektatu ez arren ere."
 
 #: ../src/msec/help.py:82
 msgid ""
@@ -281,37 +280,10 @@ msgstr ""
 "pasahitzak ezgaitzerakoan, makina erasotzen erraz utziko duelako."
 
 #: ../src/msec/help.py:92
-msgid "Show security notifications in system tray using libnotify."
-msgstr ""
-"Erakutsi segurtasun jakinarazpenak sistemaren erretiluan libnotify erabiliz."
+msgid "Enable checking for changes in system groups."
+msgstr "Sistemaren taldeetan aldaketak egiaztatzea gaitzen du."
 
 #: ../src/msec/help.py:94
-msgid ""
-"Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
-"default system umask is used."
-msgstr ""
-"Ezarri 'umask' aukera vfat eta ntfs partitizioak muntatzeko. Baldin 'umask' "
-"'-1' bada, sistemaren 'umask' lehenetsia erabiliko da."
-
-#: ../src/msec/help.py:96
-msgid "Enable checking for open network ports."
-msgstr "Gaitu sareko ataka irekien egiaztapena."
-
-#: ../src/msec/help.py:98
-msgid "Allow direct root login on terminal."
-msgstr "Baimendu terminalean root gisa zuzenean saioa hastea."
-
-#: ../src/msec/help.py:100
-msgid "Run security checks when machine is running on battery power."
-msgstr ""
-
-#: ../src/msec/help.py:102
-msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr ""
-"Gaitu aukera arriskutsuen egiaztapena erabiltaileen .rhosts/.shosts "
-"fitxategietan."
-
-#: ../src/msec/help.py:104
 msgid ""
 "Allow remote root login via sshd. If yes, login is allowed. If without-"
 "password, only public-key authentication logins are allowed. See sshd_config"
@@ -322,11 +294,42 @@ msgstr ""
 "autentikazioa onartukoda. Begiratu sshd_config (5) man orria informazio "
 "gehiago jasotzeko."
 
+#: ../src/msec/help.py:96
+msgid "Show security notifications in system tray using libnotify."
+msgstr ""
+"Erakutsi segurtasun jakinarazpenak sistemaren erretiluan libnotify erabiliz."
+
+#: ../src/msec/help.py:98
+msgid "Enable checking for open network ports."
+msgstr "Gaitu sareko ataka irekien egiaztapena."
+
+#: ../src/msec/help.py:100
+msgid "Allow direct root login on terminal."
+msgstr "Baimendu terminalean root gisa zuzenean saioa hastea."
+
+#: ../src/msec/help.py:102
+msgid "Run security checks when machine is running on battery power."
+msgstr ""
+
+#: ../src/msec/help.py:104
+msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
+msgstr ""
+"Gaitu aukera arriskutsuen egiaztapena erabiltaileen .rhosts/.shosts "
+"fitxategietan."
+
 #: ../src/msec/help.py:106
+msgid ""
+"Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
+"default system umask is used."
+msgstr ""
+"Ezarri 'umask' aukera vfat eta ntfs partitizioak muntatzeko. Baldin 'umask' "
+"'-1' bada, sistemaren 'umask' lehenetsia erabiliko da."
+
+#: ../src/msec/help.py:108
 msgid "Enable logging of strange network packets."
 msgstr "Gaitu sareko pakete susmagarrien erregistroa."
 
-#: ../src/msec/help.py:108
+#: ../src/msec/help.py:110
 msgid ""
 "Define the default retention period for logs, in weeks. Some countries "
 "require that the log files should be kept for 12 months, other do not have "
@@ -334,27 +337,27 @@ msgid ""
 "that should be kept by logrotate on the system."
 msgstr ""
 
-#: ../src/msec/help.py:110
+#: ../src/msec/help.py:112
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
 "Eskatu root-aren pasahitza \"erabiltzaile bakarreko\" mailara igarotzeko "
 "(man sulogin(8))."
 
-#: ../src/msec/help.py:112
-msgid "Enable IP spoofing protection."
-msgstr "Gaitu IP iruzurren aurkako babesa."
-
 #: ../src/msec/help.py:114
+msgid "Allow root access without password for the members of the wheel group."
+msgstr "Gaitu pasahitz gabeko root sarbidea 'wheel' taldeko partaideentzat."
+
+#: ../src/msec/help.py:116
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
 msgstr ""
 "Konpondu jaberik gabeko fitxategien jabea eta taldea nobody/nogroup erabili "
 "dezaten."
 
-#: ../src/msec/help.py:116
+#: ../src/msec/help.py:118
 msgid "Send security check results by email."
 msgstr "Bidali segurtasun egiaztapenaren emaitza post@z."
 
-#: ../src/msec/help.py:118
+#: ../src/msec/help.py:120
 msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
@@ -362,7 +365,7 @@ msgstr ""
 "Baimendu bistaratzea esportatzea root kontutik beste erabiltzaileetara "
 "aldatzerakoan. Begiratu pam_xauth(8) xehetasun gehiago izateko. "
 
-#: ../src/msec/help.py:120
+#: ../src/msec/help.py:122
 msgid ""
 "Defines the sectool level to use during the periodic security check. You may "
 "use the sectool-gui application to select individual tests for each level. "
@@ -370,15 +373,21 @@ msgid ""
 "configuration will be used."
 msgstr ""
 
-#: ../src/msec/help.py:122
+#: ../src/msec/help.py:124
+msgid "Set the shell timeout. A value of zero means no timeout."
+msgstr ""
+"Ezarri shell-aren denbora-muga. Zero balioak esan nahi du ez dagoela denbora-"
+"mugarik."
+
+#: ../src/msec/help.py:126
 msgid "Enable daily security checks."
 msgstr "Gaitu eguneroko segurtasun egiaztapenak."
 
-#: ../src/msec/help.py:124
+#: ../src/msec/help.py:128
 msgid "Accept ICMP echo."
 msgstr "Onartu ICMP echo."
 
-#: ../src/msec/help.py:126
+#: ../src/msec/help.py:130
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
@@ -386,7 +395,7 @@ msgstr ""
 "Ezarri pasahitzaren gutxieneko luzera, gutxieneko digitu kopurua eta "
 "gutxieneko hizki larri kopurua, luzeera,ndigitu,nlarri formatua erabiliz."
 
-#: ../src/msec/help.py:128
+#: ../src/msec/help.py:132
 #, fuzzy
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
@@ -406,17 +415,23 @@ msgstr ""
 "Behar dituzun zerbitzuak baimentzeko, eraili /etc/hosts.allow (begiratu "
 "hosts.allow(5))."
 
-#: ../src/msec/help.py:130
-msgid "Activate ethernet cards promiscuity check."
-msgstr "Aktibatu ethernet txartelen promiskuotasun egiaztapena."
+#: ../src/msec/help.py:134
+msgid ""
+"Enable verification of integrity of installed RPM packages. This will notify "
+"you if checksums of the installed files were changed, showing separate "
+"results for binary and configuration files."
+msgstr ""
+"Gaitu instalatutako RPM paketeen osotasun egiaztapena. Honek jakinaraziko "
+"dizu instalatutako fitxategien batura egiaztapena aldatu den, fitxategi "
+"bitar eta konfiguratzeko fitxategien emaitzak banatuta erakutsiz."
 
-#: ../src/msec/help.py:132
+#: ../src/msec/help.py:136
 msgid ""
 "Patterns to exclude from disk checks. This parameter is parsed as a regex "
 "(7), so you may use complex expressions."
 msgstr ""
 
-#: ../src/msec/help.py:134
+#: ../src/msec/help.py:138
 msgid ""
 "Allow users in wheel group to use sudo. If this option is set to 'yes', the "
 "users in wheel group are allowed to use sudo and run commands as root by "
@@ -426,41 +441,31 @@ msgid ""
 "only use this setting if you know what you are doing!"
 msgstr ""
 
-#: ../src/msec/help.py:136
+#: ../src/msec/help.py:140
 msgid "Set the root umask."
 msgstr "Ezarri root-aren 'umask'."
 
-#: ../src/msec/help.py:138
+#: ../src/msec/help.py:142
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
 "Egin orduoro segurtasun egiaztapenak sistemaren konfiguraketan aldaketak "
 "atzemateko."
 
-#: ../src/msec/help.py:140
+#: ../src/msec/help.py:144
 msgid "Enforce MSEC settings on system startup"
 msgstr "Betearazi MSEC ezarpenak sistemaren abioan"
 
-#: ../src/msec/help.py:142
+#: ../src/msec/help.py:146
 msgid "Enable periodic security check results to terminal."
 msgstr "Gaitu aldizkako segurtasun egiaztapen emaitzak terminalean erakustea."
 
-#: ../src/msec/help.py:144
-msgid "Accept bogus IPv4 error messages."
-msgstr "Onartu IPv4 akats mezu faltsuak."
-
-#: ../src/msec/help.py:146
+#: ../src/msec/help.py:148
 msgid "Enable checking for additions/removals of sgid files."
 msgstr "Gaitu 'sgid' fitxategien gehitzea/ezabaketa egiaztapena."
 
-#: ../src/msec/help.py:148
-msgid ""
-"Enable verification of integrity of installed RPM packages. This will notify "
-"you if checksums of the installed files were changed, showing separate "
-"results for binary and configuration files."
-msgstr ""
-"Gaitu instalatutako RPM paketeen osotasun egiaztapena. Honek jakinaraziko "
-"dizu instalatutako fitxategien batura egiaztapena aldatu den, fitxategi "
-"bitar eta konfiguratzeko fitxategien emaitzak banatuta erakutsiz."
+#: ../src/msec/help.py:150
+msgid "Activate ethernet cards promiscuity check."
+msgstr "Aktibatu ethernet txartelen promiskuotasun egiaztapena."
 
 #: ../src/msec/libmsec.py:266
 msgid "%s modified so launched command: %s"
@@ -1302,65 +1307,65 @@ msgstr "Izen-ebazpenaren iruzurren babesa"
 msgid "Disabling name resolution spoofing protection"
 msgstr "Izen-ebazpenaren iruzurren babesa"
 
-#: ../src/msec/plugins/pam.py:67
+#: ../src/msec/plugins/pam.py:68
 msgid "Using password to authenticate users"
 msgstr "Erabili pasahitza erabiltzaileak autentifikatzeko"
 
-#: ../src/msec/plugins/pam.py:71
+#: ../src/msec/plugins/pam.py:72
 msgid "Don't use password to authenticate users"
 msgstr "Ez erabili pasahitza erabiltzaileak autentifikatzeko"
 
-#: ../src/msec/plugins/pam.py:82
+#: ../src/msec/plugins/pam.py:83
 msgid "Password history not supported with pam_tcb."
 msgstr "Pasahitzen historia euskarririk ez pam_tcb-rekin."
 
-#: ../src/msec/plugins/pam.py:90
+#: ../src/msec/plugins/pam.py:91
 msgid "Invalid maximum password history length: \"%s\""
 msgstr "Pasahitzen gehienezko historiaren luzera baliogabea: \"%s\""
 
-#: ../src/msec/plugins/pam.py:105
+#: ../src/msec/plugins/pam.py:106
 msgid "Setting password history to %d."
 msgstr "Pasahitzen historiaren %d ezartzen."
 
-#: ../src/msec/plugins/pam.py:111
+#: ../src/msec/plugins/pam.py:112
 msgid "Disabling password history"
 msgstr "Pasahitzen historia ezgaitzen"
 
-#: ../src/msec/plugins/pam.py:123
+#: ../src/msec/plugins/pam.py:124
 msgid ""
 "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
 "Pasahitz luzera baliogabea \"%s\". Erabili \"luzera,ndigito,nmaiuskula\" "
 "parametro gisa"
 
-#: ../src/msec/plugins/pam.py:144
+#: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
 msgstr "Pasahitzaren gutxieneko luzera %d ezartzen"
 
-#: ../src/msec/plugins/pam.py:168
+#: ../src/msec/plugins/pam.py:169
 msgid "Allowing su only from wheel group members"
 msgstr "Onartu su soilik wheel taldeko kideei"
 
-#: ../src/msec/plugins/pam.py:172
+#: ../src/msec/plugins/pam.py:173
 msgid "no wheel group"
 msgstr "ez dago wheel taldea"
 
-#: ../src/msec/plugins/pam.py:176
+#: ../src/msec/plugins/pam.py:177
 msgid ""
 "Security configuration is defined to allow only members of the wheel group "
 "to su to root, but this group is empty. Please add the allowed users into "
 "the wheel group."
 msgstr ""
 
-#: ../src/msec/plugins/pam.py:184
+#: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"
 msgstr "Onartu su guztientzako"
 
-#: ../src/msec/plugins/pam.py:203
+#: ../src/msec/plugins/pam.py:204
 msgid "Allowing transparent root access for wheel group members"
 msgstr "Gaitu root sarbide gardena wheel taldeko kideentzat"
 
-#: ../src/msec/plugins/pam.py:210
+#: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Ezgaitu root sarbide gardena wheel taldeko kideentzat"
 

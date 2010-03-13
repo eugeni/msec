@@ -18,16 +18,15 @@ msgstr ""
 
 #: ../src/msec/config.py:46
 msgid "Modified system files"
-msgstr ""
+msgstr "修改系统文件"
 
 #: ../src/msec/config.py:47
-#, fuzzy
 msgid "No changes in system files"
-msgstr "报告无主文件"
+msgstr "系统文件无更改"
 
 #: ../src/msec/config.py:60
 msgid "Disabled"
-msgstr ""
+msgstr "禁用"
 
 #: ../src/msec/config.py:211 ../src/msec/config.py:423
 msgid "Unable to load configuration file %s: %s"
@@ -757,12 +756,11 @@ msgstr "MSEC: 系统安全审计"
 
 #: ../src/msec/msecgui.py:225
 msgid "Overview"
-msgstr ""
+msgstr "概要"
 
 #: ../src/msec/msecgui.py:226
-#, fuzzy
 msgid "Security settings"
-msgstr "安全选项"
+msgstr "安全设置"
 
 #: ../src/msec/msecgui.py:235
 msgid "Basic security"
@@ -826,7 +824,7 @@ msgstr "正在保存更改..."
 
 #: ../src/msec/msecgui.py:321
 msgid "Ignore and quit"
-msgstr ""
+msgstr "忽略并退出"
 
 #: ../src/msec/msecgui.py:359
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -874,41 +872,39 @@ msgstr "无效的选项“%s”!"
 
 #: ../src/msec/msecgui.py:578
 msgid "Firewall"
-msgstr ""
+msgstr "防火墙"
 
 #: ../src/msec/msecgui.py:587 ../src/msec/msecgui.py:622
 msgid "Configure"
-msgstr ""
+msgstr "配置"
 
 #: ../src/msec/msecgui.py:599
-#, fuzzy
 msgid "Security"
-msgstr "安全检查"
+msgstr "安全"
 
 #: ../src/msec/msecgui.py:605
 msgid "Msec is disabled"
-msgstr ""
+msgstr "Msec 已禁用"
 
 #: ../src/msec/msecgui.py:608
 msgid "Msec is enabled"
-msgstr ""
+msgstr "Msec 已启用"
 
 #: ../src/msec/msecgui.py:609
-#, fuzzy
 msgid "Base security level: '%s'"
-msgstr "安全级别"
+msgstr ""
 
 #: ../src/msec/msecgui.py:617
 msgid "Custom settings: %d"
-msgstr ""
+msgstr "自定义设置：%d"
 
 #: ../src/msec/msecgui.py:634
 msgid "Updates"
-msgstr ""
+msgstr "更新"
 
 #: ../src/msec/msecgui.py:643
 msgid "Update now"
-msgstr ""
+msgstr "立即更新"
 
 #: ../src/msec/msecgui.py:675
 msgid "Enable MSEC tool"
@@ -920,12 +916,11 @@ msgstr "选择基础安全级别"
 
 #: ../src/msec/msecgui.py:705
 msgid "Level name"
-msgstr ""
+msgstr "级别名称"
 
 #: ../src/msec/msecgui.py:761
-#, fuzzy
 msgid "Send security alerts by email to:"
-msgstr "通过电子邮件发送安全警告"
+msgstr "通过电子邮件发送安全警告:"
 
 #: ../src/msec/msecgui.py:783
 msgid "Display security alerts on desktop"
@@ -1008,7 +1003,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1367
 msgid "new file"
-msgstr "新玩法嘛"
+msgstr "新文件"
 
 #: ../src/msec/msecgui.py:1375
 msgid "File: "
@@ -1367,62 +1362,3 @@ msgstr "允许 wheel 组的成员执行 root 的透明访问"
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr "禁止 wheel 组的成员执行 root 的透明访问"
-
-#~ msgid "Standard"
-#~ msgstr "标准"
-
-#~ msgid "Secure"
-#~ msgstr "安全"
-
-#~ msgid "System administrator email address:"
-#~ msgstr "系统管理员电子邮件地址:"
-
-#~ msgid "Save your changes?"
-#~ msgstr "保存更改吗?"
-
-#~ msgid "_Cancel"
-#~ msgstr "取消(_C)"
-
-#~ msgid "_Ignore"
-#~ msgstr "忽略(_I)"
-
-#~ msgid "_Save"
-#~ msgstr "保存(_S)"
-
-#~ msgid "Do you want to save changes before closing?"
-#~ msgstr "您在关闭前想要保存更改吗?"
-
-#~ msgid "wheel group is empty"
-#~ msgstr "whell 组为空"
-
-#, fuzzy
-#~ msgid "'%s' is not available in this version"
-#~ msgstr "%2$s 版本不支持 %1$s。"
-
-#, fuzzy
-#~ msgid "Activating daily security check"
-#~ msgstr "激活每日安全检查。"
-
-#, fuzzy
-#~ msgid "Disabling daily security check"
-#~ msgstr "每日安全检查"
-
-#, fuzzy
-#~ msgid "Activating periodic promiscuity check"
-#~ msgstr "激活以太网卡混用检查。"
-
-#, fuzzy
-#~ msgid "Disabling periodic promiscuity check"
-#~ msgstr "以太网卡混用检查"
-
-#~ msgid "_Import configuration"
-#~ msgstr "导入配置(_I)"
-
-#~ msgid "_Export configuration"
-#~ msgstr "导出配置(_E)"
-
-#~ msgid "Save and apply current policy"
-#~ msgstr "保存和应用当前策略"
-
-#~ msgid "Quit"
-#~ msgstr "退出"

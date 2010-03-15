@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "POT-Creation-Date: 2010-03-13 13:20+CET\n"
-"PO-Revision-Date: 2010-02-26 15:55-0300\n"
+"PO-Revision-Date: 2010-03-15 19:13-0300\n"
 "Last-Translator: Sergio Rafael Lemke <sergio@mandriva.com.br>\n"
 "Language-Team: Brazilian Portuguese <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -110,9 +110,9 @@ msgstr ""
 "política msec."
 
 #: ../src/msec/help.py:30
-#, fuzzy
 msgid "Ignore changes in process IDs when checking for open network ports."
-msgstr "Habilita checagem por portas de rede abertas."
+msgstr ""
+"Ignorar mudanças em IDs de processos ao verificar portas de rede abertas."
 
 #: ../src/msec/help.py:32
 msgid "Allow X server to accept connections from network on tcp port 6000."

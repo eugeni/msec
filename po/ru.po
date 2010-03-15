@@ -25,45 +25,39 @@ msgstr ""
 "\n"
 "\n"
 "X-Generator: KBabel 1.11.4\n"
+"X-Language: ru_RU\n"
 
 #: ../src/msec/config.py:46
 msgid "Modified system files"
-msgstr ""
+msgstr "Модифицированные системные файлы"
 
 #: ../src/msec/config.py:47
-#, fuzzy
 msgid "No changes in system files"
-msgstr "Включить проверку изменений в системных пользователях."
+msgstr "В системных файлах нет изменений"
 
 #: ../src/msec/config.py:60
 msgid "Disabled"
-msgstr ""
+msgstr "Отключено"
 
 #: ../src/msec/config.py:211 ../src/msec/config.py:423
 msgid "Unable to load configuration file %s: %s"
-msgstr ""
+msgstr "Невозможно загрузить файл конфигурации %s: %s"
 
-#: ../src/msec/config.py:225 ../src/msec/config.py:334
-#: ../src/msec/config.py:445
-#, fuzzy
+#: ../src/msec/config.py:225 ../src/msec/config.py:334 ../src/msec/config.py:445
 msgid "Bad config option: %s"
-msgstr "_Сохранить конфигурацию"
+msgstr "Неверный параметр конфигурации: %s"
 
-#: ../src/msec/config.py:260 ../src/msec/config.py:373
-#: ../src/msec/config.py:471
-#, fuzzy
+#: ../src/msec/config.py:260 ../src/msec/config.py:373 ../src/msec/config.py:471
 msgid "Unable to save %s: %s"
-msgstr "Не удалось сохранить конфигурацию!"
+msgstr "Невозможно сохранить %s: %s"
 
 #: ../src/msec/config.py:319
-#, fuzzy
 msgid "loading exceptions file %s: %s"
-msgstr "Не удалось загрузить плагин %s из %s: %s"
+msgstr "загрузка файла исключений %s: %s"
 
 #: ../src/msec/config.py:320
-#, fuzzy
 msgid "No exceptions loaded"
-msgstr "Исключения"
+msgstr "Нет загруженных исключений"
 
 #: ../src/msec/help.py:14
 msgid ""
@@ -109,11 +103,12 @@ msgstr ""
 #: ../src/msec/help.py:28
 msgid "Enable periodic permission checking for files specified in msec policy."
 msgstr ""
+"Включить периодическую проверку прав для файлов, заданных в политике msec."
 
 #: ../src/msec/help.py:30
-#, fuzzy
 msgid "Ignore changes in process IDs when checking for open network ports."
-msgstr "Включить проверку открытых сетевых портов."
+msgstr ""
+"Игнорировать изменения в ID процессов при проверке открытых сетевых портов."
 
 #: ../src/msec/help.py:32
 msgid "Allow X server to accept connections from network on tcp port 6000."
@@ -128,6 +123,8 @@ msgid ""
 "Enable msec to enforce file permissions to the values specified in the msec "
 "security policy."
 msgstr ""
+"Включить принудительное задание msec прав файлов, определенных в политиках "
+"безопасности."
 
 #: ../src/msec/help.py:38
 msgid ""
@@ -135,6 +132,9 @@ msgid ""
 "security level configuration. The security level to be used during this test "
 "is determined by the CHECK_SECTOOL_LEVELS variable."
 msgstr ""
+"Включить проверку sectool. Все проверки sectool конфигурации уровня "
+"безопасности будут запускаться автоматически. Уровень безопасности для этого "
+"теста будет определяться переменной CHECK_SECTOOL_LEVELS."
 
 #: ../src/msec/help.py:40
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -161,12 +161,12 @@ msgstr "Включить протоколирование периодическ
 
 #: ../src/msec/help.py:50
 msgid ""
-"Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
-"etc/at.allow (see man at(1) and crontab(1))."
+"Enable crontab and at for users. Put allowed users in /etc/cron.allow and "
+"/etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
 "Включить для пользователей службы crontab и at. Разрешённые пользователи "
-"помещаются в файлы /etc/cron.allow и /etc/at.allow (см. man at(1) и crontab"
-"(1))."
+"помещаются в файлы /etc/cron.allow и /etc/at.allow (см. man at(1) и "
+"crontab(1))."
 
 #: ../src/msec/help.py:52
 msgid "Accept bogus IPv4 error messages."
@@ -174,8 +174,8 @@ msgstr "Принимать сообщения об ошибках bogus IPv4."
 
 #: ../src/msec/help.py:54
 msgid ""
-"Enable password-related checks, such as empty passwords and strange super-"
-"user accounts."
+"Enable password-related checks, such as empty passwords and strange "
+"super-user accounts."
 msgstr ""
 "Включить связанные с паролями проверки, например наличие пустых паролей и "
 "незнакомых учётных записей суперпользователя."
@@ -273,22 +273,23 @@ msgstr ""
 
 #: ../src/msec/help.py:88
 msgid ""
-"Creates the symlink /etc/security/msec/server to point to /etc/security/msec/"
-"server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --"
-"add to decide to add a service if it is present in the file during the "
-"installation of packages. By default, two presets are provided: local (which "
-"only enables local services) and remote (which also enables some remote "
-"services considered safe). Note that the allowed services must be placed "
-"manually into the server.SERVER_LEVEL files when necessary."
+"Creates the symlink /etc/security/msec/server to point to "
+"/etc/security/msec/server.SERVER_LEVEL. The /etc/security/msec/server is "
+"used by chkconfig --add to decide to add a service if it is present in the "
+"file during the installation of packages. By default, two presets are "
+"provided: local (which only enables local services) and remote (which also "
+"enables some remote services considered safe). Note that the allowed "
+"services must be placed manually into the server.SERVER_LEVEL files when "
+"necessary."
 msgstr ""
-"Создается символическая ссылка  /etc/security/msec/server в /etc/security/"
-"msec/ server.SERVER_LEVEL. Файл /etc/security/msec/server используется "
-"chkconfig --он добавляет решение добавить службу, если она присутствует в "
-"этом файле во время установки пакетов. По умолчанию предоставляются два "
-"набора настроек: местный (который только включает локальные службы) и "
-"дистанционный (который также позволяет некоторым удаленным службам считаться "
-"безопасными). Заметим, что разрешенные службы должны быть помещены вручную в "
-"файлы server.SERVER_LEVEL если необходимо."
+"Создается символическая ссылка  /etc/security/msec/server в "
+"/etc/security/msec/ server.SERVER_LEVEL. Файл /etc/security/msec/server "
+"используется chkconfig --он добавляет решение добавить службу, если она "
+"присутствует в этом файле во время установки пакетов. По умолчанию "
+"предоставляются два набора настроек: местный (который только включает "
+"локальные службы) и дистанционный (который также позволяет некоторым "
+"удаленным службам считаться безопасными). Заметим, что разрешенные службы "
+"должны быть помещены вручную в файлы server.SERVER_LEVEL если необходимо."
 
 #: ../src/msec/help.py:90
 msgid ""
@@ -305,9 +306,9 @@ msgstr "Включить проверку изменений в системны
 
 #: ../src/msec/help.py:94
 msgid ""
-"Allow remote root login via sshd. If yes, login is allowed. If without-"
-"password, only public-key authentication logins are allowed. See sshd_config"
-"(5) man page for more information."
+"Allow remote root login via sshd. If yes, login is allowed. If "
+"without-password, only public-key authentication logins are allowed. See "
+"sshd_config(5) man page for more information."
 msgstr ""
 "Позволить удаленный доступ root через sshd. Если да, вход разрешается, если "
 "без пароля, то разрешается только вход с помощью публичного ключа "
@@ -328,13 +329,13 @@ msgstr "Разрешить вход в систему под root'ом в кон
 
 #: ../src/msec/help.py:102
 msgid "Run security checks when machine is running on battery power."
-msgstr ""
+msgstr "Включить проверку безопасности когда машина работает от батареи."
 
 #: ../src/msec/help.py:104
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
 msgstr ""
-"Включить проверку на опасные параметры в пользовательских файлах .rhosts/."
-"shosts."
+"Включить проверку на опасные параметры в пользовательских файлах "
+".rhosts/.shosts."
 
 #: ../src/msec/help.py:106
 msgid ""
@@ -355,12 +356,16 @@ msgid ""
 "such strict requirements. This variable defines the number of past log files "
 "that should be kept by logrotate on the system."
 msgstr ""
+"Задать период хранения журнала по умолчанию. в неделях. В некоторых странах "
+"требуется хранение в течении 12 месяцев, в других таких требований нет. Эта "
+"переменная задает число последних файлов журналов, которые будут сохранены "
+"logrotate."
 
 #: ../src/msec/help.py:112
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
-"Спрашивать пароль root при переходе в однопользовательский режим (man sulogin"
-"(8))."
+"Спрашивать пароль root при переходе в однопользовательский режим (man "
+"sulogin(8))."
 
 #: ../src/msec/help.py:114
 msgid "Allow root access without password for the members of the wheel group."
@@ -392,6 +397,10 @@ msgid ""
 "If this variable is not defined, the default level defined in sectool "
 "configuration will be used."
 msgstr ""
+"Задать уровень sectool для использования при периодических проверках "
+"безопасности. Вы можете использовать графический интерфейс sectool для "
+"индивидуального тестирования каждого уровня. Если эта переменная не задана, "
+"будет использоваться уровень по умолчанию."
 
 #: ../src/msec/help.py:124
 msgid "Set the shell timeout. A value of zero means no timeout."
@@ -413,21 +422,21 @@ msgid ""
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
 "Установить минимальную длину пароля, минимального количества цифр и "
-"минимального количества символов в верхнем регистре в формате «длина,n-цифр,n-"
-"верх»."
+"минимального количества символов в верхнем регистре в формате "
+"«длина,n-цифр,n-верх»."
 
 #: ../src/msec/help.py:132
 msgid ""
-"Allow full access to network services controlled by tcp_wrapper (see hosts."
-"deny(5)). If yes, all services are allowed. If local, only connections to "
-"local services are authorized. If no, the services must be authorized "
+"Allow full access to network services controlled by tcp_wrapper (see "
+"hosts.deny(5)). If yes, all services are allowed. If local, only connections "
+"to local services are authorized. If no, the services must be authorized "
 "manually in /etc/hosts.allow (see hosts.allow(5))."
 msgstr ""
 "Разрешить полный доступ к сетевым службам, контролируемым tcp_wrapper'ами "
 "(см. hosts.deny(5)). Если установлено «yes», разрешены все службы. Если "
 "установлено «local», разрешены подключения только к локальным службам. Если "
-"установлено «no», службы необходимо разрешить вручную в файлах /etc/hosts."
-"allow (см. hosts.allow (5))."
+"установлено «no», службы необходимо разрешить вручную в файлах "
+"/etc/hosts.allow (см. hosts.allow (5))."
 
 #: ../src/msec/help.py:134
 msgid ""
@@ -444,6 +453,8 @@ msgid ""
 "Patterns to exclude from disk checks. This parameter is parsed as a regex "
 "(7), so you may use complex expressions."
 msgstr ""
+"Шаблон исключения при проверке диска. Этот параметр обрабатывается как regex "
+"(7), поэтому вы можете использовать полное регулярное выражение."
 
 #: ../src/msec/help.py:138
 msgid ""
@@ -454,6 +465,13 @@ msgid ""
 "sudo without any password makes your system very vulnerable, and you should "
 "only use this setting if you know what you are doing!"
 msgstr ""
+"Позволить пользователю из группы wheel использовать sudo. Если этот параметр "
+"установлен в 'yes', пользователи из группы wheel могут использовать sudo и "
+"запускать команды как root без использования пароля root. Если этот параметр "
+"установлен в 'without-password', пользователи могут использовать sudo без "
+"пароля вообще. ВНИМАНИЕ: использование sudo без пароля вообще может сделать "
+"вашу систему небезопасной и вы должны использовать эти настройки если точно "
+"знаете, что делаете!"
 
 #: ../src/msec/help.py:140
 msgid "Set the root umask."
@@ -624,26 +642,23 @@ msgstr "Уровень '%s' не найден, прекращаем."
 
 #: ../src/msec/msec.py:144
 msgid "Switching to '%s' level."
-msgstr "Переключение с %s на %s."
+msgstr "Переключение на уровень '%s'."
 
 #: ../src/msec/msec.py:151
-#, fuzzy
 msgid "No custom file permissions for level '%s'."
-msgstr "плохие права для '%s': '%s'"
+msgstr "Нет вручную заданных прав файлов для уровня '%s'."
 
 #: ../src/msec/msec.py:152
-#, fuzzy
 msgid "Saving file permissions to '%s' level."
-msgstr "Изменяет права для %s"
+msgstr "Записываем права файла для уровня '%s'."
 
 #: ../src/msec/msec.py:192 ../src/msec/msecperms.py:160
 msgid "Unable to save config!"
 msgstr "Не удалось сохранить конфигурацию!"
 
 #: ../src/msec/msec.py:194
-#, fuzzy
 msgid "Unable to save file system permissions!"
-msgstr "Восстановить разрешения уровня по умолчанию "
+msgstr "Невозможно сохранить права файловой системы!"
 
 #: ../src/msec/msecgui.py:53
 msgid ""
@@ -657,45 +672,48 @@ msgstr ""
 "активировать его, выберите соответствующий уровень безопасности:"
 
 #: ../src/msec/msecgui.py:59
-#, fuzzy
 msgid ""
 "This profile configures a reasonably safe set of security features. It is "
 "the suggested level for Desktop. If unsure which profile to use, use this "
 "one."
 msgstr ""
 "Этот профиль устанавливает достаточно безопасной набор функций безопасности. "
-"Он активирует ряд ненавязчивых периодических проверок системы. Это "
-"предпочтительный уровень для обычных пользователей."
+"Это предпочтительный уровень для обычных пользователей. Если вы не уверены, "
+"какой профиль вам нужен, используйте его."
 
 #: ../src/msec/msecgui.py:60
 msgid ""
 "This profile is focused on netbooks, laptops or low-end devices, which are "
 "only accessed by local users and run on batteries."
 msgstr ""
+"Этот профиль предназначен для нетбуков, ноутбуков и других устройств, "
+"которые работают от батарей и к ним нет доступа пользователей из сети."
 
 #: ../src/msec/msecgui.py:62
-#, fuzzy
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. This level is suggested for "
 "security-concerned systems and servers. "
 msgstr ""
 "Этот профиль настроен для обеспечения максимальной безопасности, даже ценой "
-"ограничения удаленного доступа к системе. Он также предполагает широкий круг "
-"периодических проверок. Этот уровень предпочтителен для серверов и "
-"пользователей обеспокоенных безопасностью системы."
+"ограничения удаленного доступа к системе. Этот уровень предпочтителен для "
+"серверов и пользователей, обеспокоенных безопасностью системы."
 
 #: ../src/msec/msecgui.py:64
 msgid ""
 "This profile is targeted on local network servers, which do not receive "
 "accesses from unauthorized Internet users."
 msgstr ""
+"Этот профиль предназначен для локальных сетевых серверов. которые не "
+"принимают запросы от неавторизованных Интернет пользователей."
 
 #: ../src/msec/msecgui.py:66
 msgid ""
 "This profile is provided for servers which are intended to be accessed by "
 "unauthorized Internet users."
 msgstr ""
+"Этот профиль предназначен для серверов, к которым имеется доступ "
+"неавторизованных Интернет пользователей."
 
 #: ../src/msec/msecgui.py:67
 msgid ""
@@ -703,17 +721,21 @@ msgid ""
 "system settings, and use it for periodic checks only. It configures all "
 "periodic checks to run once a day."
 msgstr ""
+"Этот профиль предназначен для пользователей, которые не нуждаются в "
+"отслеживании изменений настроек системы и в нем выполняется только "
+"ежедневная периодическая проверка."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
 "This profile is similar to the 'audit_daily' profile, but it runs all checks "
 "weekly."
 msgstr ""
+"Этот профиль похож на \"ежедневный аудит\", но проверка запускается раз в "
+"неделю."
 
 #: ../src/msec/msecgui.py:75
-#, fuzzy
 msgid "Custom security level."
-msgstr "Безопасность системы"
+msgstr "Пользовательский уровень безопасности."
 
 #: ../src/msec/msecgui.py:78
 msgid ""
@@ -793,12 +815,11 @@ msgstr "Сохранить и применить новую конфигурац
 
 #: ../src/msec/msecgui.py:134
 msgid "Unable to load configuration for level '%s'"
-msgstr ""
+msgstr "Невозможно загрузить конфигурацию для уровня  '%s'"
 
 #: ../src/msec/msecgui.py:140
-#, fuzzy
 msgid "Unable to load permissions for level '%s'"
-msgstr "плохие права для '%s': '%s'"
+msgstr "Невозможно загрузить права для уровня '%s'"
 
 #: ../src/msec/msecgui.py:173
 msgid "_File"
@@ -826,12 +847,11 @@ msgstr "MSEC: безопасность и аудит системы"
 
 #: ../src/msec/msecgui.py:225
 msgid "Overview"
-msgstr ""
+msgstr "Обзор"
 
 #: ../src/msec/msecgui.py:226
-#, fuzzy
 msgid "Security settings"
-msgstr "Параметр безопасности"
+msgstr "Настройки безопасности"
 
 #: ../src/msec/msecgui.py:235
 msgid "Basic security"
@@ -895,7 +915,7 @@ msgstr "Сохранение изменений..."
 
 #: ../src/msec/msecgui.py:321
 msgid "Ignore and quit"
-msgstr ""
+msgstr "Игнорировать все и выйти"
 
 #: ../src/msec/msecgui.py:359
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -943,41 +963,39 @@ msgstr "Недопустимый параметр «%s»!"
 
 #: ../src/msec/msecgui.py:578
 msgid "Firewall"
-msgstr ""
+msgstr "Брэндмауэр"
 
 #: ../src/msec/msecgui.py:587 ../src/msec/msecgui.py:622
 msgid "Configure"
-msgstr ""
+msgstr "Настройка"
 
 #: ../src/msec/msecgui.py:599
-#, fuzzy
 msgid "Security"
-msgstr "Проверка безопасности"
+msgstr "Безопасность"
 
 #: ../src/msec/msecgui.py:605
 msgid "Msec is disabled"
-msgstr ""
+msgstr "Msec выключен"
 
 #: ../src/msec/msecgui.py:608
 msgid "Msec is enabled"
-msgstr ""
+msgstr "Msec включен"
 
 #: ../src/msec/msecgui.py:609
-#, fuzzy
 msgid "Base security level: '%s'"
-msgstr "Неверный уровень безопасности '%s'."
+msgstr "Базовый уровень безопасности '%s'."
 
 #: ../src/msec/msecgui.py:617
 msgid "Custom settings: %d"
-msgstr ""
+msgstr "Настройки пользователя: %d"
 
 #: ../src/msec/msecgui.py:634
 msgid "Updates"
-msgstr ""
+msgstr "Обновления"
 
 #: ../src/msec/msecgui.py:643
 msgid "Update now"
-msgstr ""
+msgstr "Обновить сейчас"
 
 #: ../src/msec/msecgui.py:675
 msgid "Enable MSEC tool"
@@ -989,10 +1007,9 @@ msgstr "Выберите базовый уровень безопасности"
 
 #: ../src/msec/msecgui.py:705
 msgid "Level name"
-msgstr ""
+msgstr "Имя уровня"
 
 #: ../src/msec/msecgui.py:761
-#, fuzzy
 msgid "Send security alerts by email to:"
 msgstr "Отправлять предупреждения о безопасности по электронной почте:"
 
@@ -1102,7 +1119,6 @@ msgid "Select new value for %s"
 msgstr "Выберите новое значение для %s"
 
 #: ../src/msec/msecgui.py:1465
-#, fuzzy
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1112,8 +1128,7 @@ msgstr ""
 "<i>%s</i>\n"
 "\n"
 "\tТекущий уровень:\t\t\t<i>%s</i>\n"
-"\t%sЗначение стандартного уровня:\t<i>%s</i>%s\n"
-"\t%sЗначение безопасного уровня:\t\t<i>%s</i>%s\n"
+"\t%sЗначение уровня по умолчанию:<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1475
 msgid "New value:"
@@ -1400,6 +1415,9 @@ msgid ""
 "to su to root, but this group is empty. Please add the allowed users into "
 "the wheel group."
 msgstr ""
+"Настройки безопасности заданы доступными только членам группы wheel для "
+"работы от root, но эта группа пуста. Добавьте разрешенных пользователей в "
+"группу wheel."
 
 #: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"

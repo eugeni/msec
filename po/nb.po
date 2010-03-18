@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-13 13:20+CET\n"
-"PO-Revision-Date: 2010-03-10 23:40+0100\n"
+"PO-Revision-Date: 2010-03-18 08:40+0100\n"
 "Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -113,9 +113,8 @@ msgstr ""
 "Slå på periodisk sjekk av rettigheter for filer spesifisert i MSEC-praksisen."
 
 #: ../src/msec/help.py:30
-#, fuzzy
 msgid "Ignore changes in process IDs when checking for open network ports."
-msgstr "Slå på sjekk for åpne nettverksporter."
+msgstr "Overse endringer i prosess-ID-er ved sjekking av åpne nettverksporter."
 
 #: ../src/msec/help.py:32
 msgid "Allow X server to accept connections from network on tcp port 6000."
@@ -348,6 +347,10 @@ msgid ""
 "such strict requirements. This variable defines the number of past log files "
 "that should be kept by logrotate on the system."
 msgstr ""
+"Still inn standardperioden for tilbakeholdelse av logger (i uker). Noen "
+"land krever at loggene blir lagret et år, andre har ikke så strenge krav. "
+"Denne variabelen bestemmer antallet eldre loggfiler som skal bevares "
+"av logrotate på systemet."
 
 #: ../src/msec/help.py:112
 msgid "Ask for root password when going to single user level (man sulogin(8))."
@@ -444,6 +447,13 @@ msgid ""
 "sudo without any password makes your system very vulnerable, and you should "
 "only use this setting if you know what you are doing!"
 msgstr ""
+"Tillater brukere i gruppen «wheel» å bruke sudo. Hvis dette valget er satt "
+"til «ja», kan medlemmer av gruppen bruke sudo ved å bruke egne passord og "
+"deretter kjøre kommandoer som brukeren «root». Hvis dette valget er satt til "
+"«uten passord», kan medlemmer av gruppen kjører kommandoer uten å bli spurt "
+"om eget passord. ADVARSEL: bruk av sudo uten passord gjør systemet sårbart, "
+"og denne innstillingen bør kun brukes hvis du er fullstendig klar over "
+"konsekvensene."
 
 #: ../src/msec/help.py:140
 msgid "Set the root umask."
@@ -668,12 +678,12 @@ msgstr ""
 "eller sikkerhetsbevisste systemer. "
 
 #: ../src/msec/msecgui.py:64
-#, fuzzy
 msgid ""
 "This profile is targeted on local network servers, which do not receive "
 "accesses from unauthorized Internet users."
 msgstr ""
-"Denne profilen passer for lokale nettverktjenere, som ikke åpner for ukjente "
+"Denne profilen passer for lokale nettverktjenere, som ikke mottar "
+"forespørsler fra ukjente "
 "Internettbrukere."
 
 #: ../src/msec/msecgui.py:66
@@ -695,10 +705,13 @@ msgstr ""
 "periodiske sjekker settes opp til å kjøre en gang daglig."
 
 #: ../src/msec/msecgui.py:68
+#, fuzzy
 msgid ""
 "This profile is similar to the 'audit_daily' profile, but it runs all checks "
 "weekly."
 msgstr ""
+"Denne profilen tilsvarer «overvåk_daglig», men kjører alle sjekker "
+"ukentlig."
 
 #: ../src/msec/msecgui.py:75
 msgid "Custom security level."
@@ -1392,3 +1405,4 @@ msgstr "Tillater gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
+

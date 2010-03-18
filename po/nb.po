@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-13 13:20+CET\n"
-"PO-Revision-Date: 2010-03-18 08:40+0100\n"
+"PO-Revision-Date: 2010-03-18 08:44+0100\n"
 "Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -51,7 +51,7 @@ msgstr "Kunne ikke laste oppsettsfil %s: %s"
 #: ../src/msec/config.py:225 ../src/msec/config.py:334
 #: ../src/msec/config.py:445
 msgid "Bad config option: %s"
-msgstr "Ugyldig oppsettsvalg: %s"
+msgstr "Ugyldig oppsettvalg: %s"
 
 #: ../src/msec/config.py:260 ../src/msec/config.py:373
 #: ../src/msec/config.py:471
@@ -60,7 +60,7 @@ msgstr "Klarte ikke å lagre %s: %s"
 
 #: ../src/msec/config.py:319
 msgid "loading exceptions file %s: %s"
-msgstr "Laster unntaksfil %s: %s"
+msgstr "Laster unntaksliste %s: %s"
 
 #: ../src/msec/config.py:320
 msgid "No exceptions loaded"
@@ -1245,7 +1245,7 @@ msgstr "Slår på passord i oppstartslaster"
 
 #: ../src/msec/plugins/msec.py:427
 msgid "Removing password in boot loader"
-msgstr "Fjerner passord fra oppstartslaster"
+msgstr "Fjerner passord fra oppstartlaster"
 
 #: ../src/msec/plugins/msec.py:442
 msgid "Enabling log on console"
@@ -1392,7 +1392,7 @@ msgid ""
 msgstr ""
 "Sikkerhetsoppsettet er satt opp til å kun tillate medlemmer av «wheel» "
 "tilgang til root-kontoen via kommandoen «su», men gruppa er tom. Legg til de "
-"tillatte brukerene i gruppa «wheel»."
+"tillatte brukerne i gruppa «wheel»."
 
 #: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"

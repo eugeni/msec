@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-13 13:20+CET\n"
-"PO-Revision-Date: 2010-03-18 08:44+0100\n"
+"PO-Revision-Date: 2010-03-18 08:50+0100\n"
 "Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -883,11 +883,11 @@ msgstr "fjernet %s <b>%s</b>"
 
 #: ../src/msec/msecgui.py:305
 msgid "no changes"
-msgstr "ingen forandringer"
+msgstr "ingen endringer"
 
 #: ../src/msec/msecgui.py:318 ../src/msec/msecgui.py:325
 msgid "Saving changes.."
-msgstr "Lagrer forandringer…"
+msgstr "Lagrer endringer …"
 
 #: ../src/msec/msecgui.py:321
 msgid "Ignore and quit"
@@ -1031,7 +1031,7 @@ msgstr "Håndhev"
 
 #: ../src/msec/msecgui.py:1279
 msgid "Editing exception"
-msgstr "Redigere unntak"
+msgstr "Redigerer unntak"
 
 #: ../src/msec/msecgui.py:1284
 msgid "Adding new exception"
@@ -1055,7 +1055,7 @@ msgstr "Unntak: "
 
 #: ../src/msec/msecgui.py:1348
 msgid "Changing permissions for %s"
-msgstr "Forandrer rettigheter for %s"
+msgstr "Endrer rettigheter for %s"
 
 #: ../src/msec/msecgui.py:1355
 msgid "Adding new permission check"
@@ -1067,9 +1067,9 @@ msgid ""
 "Please specify new permissions, or use 'current' to keep current "
 "permissions.\n"
 msgstr ""
-"Forandrer rettigheter på <b>%s</b>\n"
-"Vær vennlig å oppgi nye rettigheter eller benytt «nåværende» for å beholde "
-"nåværende rettigheter.\n"
+"Endrer rettigheter på <b>%s</b>\n"
+"Vær vennlig å oppgi nye rettigheter, eller benytt «nåværende» for å beholde "
+"de gjeldene.\n"
 
 #: ../src/msec/msecgui.py:1367
 msgid "new file"
@@ -1121,11 +1121,11 @@ msgstr "Begrens chkconfig for pakker i følge profilen «%s»"
 
 #: ../src/msec/plugins/msec.py:164
 msgid "Setting root umask to %s"
-msgstr "Setter rot-umask til %s"
+msgstr "Setter umask for rot til %s"
 
 #: ../src/msec/plugins/msec.py:174
 msgid "Setting users umask to %s"
-msgstr "Setter bruker-umask til %s"
+msgstr "Setter umask for brukere til %s"
 
 #: ../src/msec/plugins/msec.py:195
 msgid "Allowing users to connect X server from everywhere"

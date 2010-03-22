@@ -34,19 +34,20 @@
 # Traducători de-a lungul timpului:
 #
 #
+#
 # Florin GRAD <florin@mandriva.com>, 1999, 2000.
 # Dragos Marian BARBU <dragosb@softhome.net>, 2000.
 # Ovidiu CONSTANTIN <ovidiu.constantin@gmx.net>, 2002, 2003.
 # Harald ERSCH <harald@ersch.ro>, 2003.
 # Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>, 2008, 2009, 2010.
-#
+# Florin Catalin RUSSEN <cfrussen@yahoo.co.uk>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: https://qa.mandriva.com\n"
 "POT-Creation-Date: 2010-03-13 13:20+CET\n"
-"PO-Revision-Date: 2010-03-09 13:17+0100\n"
-"Last-Translator: Cătălin Florin RUSSEN <cfrussen@yahoo.co.uk>\n"
+"PO-Revision-Date: 2010-03-22 23:54+0100\n"
+"Last-Translator: Florin Catalin RUSSEN <cfrussen@yahoo.co.uk>\n"
 "Language-Team: Romanian <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,7 +57,7 @@ msgstr ""
 "X-Poedit-Language: Romanian\n"
 "X-Poedit-Country: ROMANIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Lokalize 0.3\n"
+"X-Generator: Lokalize 1.0\n"
 
 #: ../src/msec/config.py:46
 msgid "Modified system files"
@@ -142,9 +143,10 @@ msgstr ""
 "în politica msec."
 
 #: ../src/msec/help.py:30
-#, fuzzy
 msgid "Ignore changes in process IDs when checking for open network ports."
-msgstr "Activează verificarea de porturi de rețea deschise."
+msgstr ""
+"Ignoră schimbările în ID-urile proceselor cînd se verifică după porturi de "
+"rețea deschise."
 
 #: ../src/msec/help.py:32
 msgid "Allow X server to accept connections from network on tcp port 6000."

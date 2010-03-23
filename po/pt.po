@@ -15,98 +15,87 @@
 # José Melo <mmodem00@gmail.com>, 2005.
 # José Melo <mmodme00@gmail.com>, 2005.
 # Jose JORGE <jjorge@free.fr>, 2005.
-# Zé <mmodem00@gmail.com>, 2006, 2007, 2008.
+# Zé <mmodem00@gmail.com>, 2006, 2007, 2008, 2010.
 # Zé <ze@mandriva.org>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-13 13:20+CET\n"
-"PO-Revision-Date: 2008-10-06 18:09+0100\n"
-"Last-Translator: Zé <ze@mandriva.org>\n"
-"Language-Team: Português <pt@li.org>\n"
+"PO-Revision-Date: 2010-03-23 10:36+0000\n"
+"Last-Translator: Zé <mmodem00@gmail.com>\n"
+"Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.0\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/config.py:46
 msgid "Modified system files"
-msgstr ""
+msgstr "Ficheiros do sistema modificados"
 
 #: ../src/msec/config.py:47
-#, fuzzy
 msgid "No changes in system files"
-msgstr "Comunicar ficheiros sem dono"
+msgstr "Sem alterações nos ficheiros do sistema"
 
 #: ../src/msec/config.py:60
 msgid "Disabled"
-msgstr ""
+msgstr "Desactivado"
 
 #: ../src/msec/config.py:211 ../src/msec/config.py:423
 msgid "Unable to load configuration file %s: %s"
-msgstr ""
+msgstr "Não é possível carregar o ficheiro de configuração %s: %s"
 
 #: ../src/msec/config.py:225 ../src/msec/config.py:334
 #: ../src/msec/config.py:445
-#, fuzzy
 msgid "Bad config option: %s"
-msgstr "Configuração do som"
+msgstr "Opção de configuração inválida: %s"
 
 #: ../src/msec/config.py:260 ../src/msec/config.py:373
 #: ../src/msec/config.py:471
-#, fuzzy
 msgid "Unable to save %s: %s"
-msgstr "Não é possível carregar a imagem %s"
+msgstr "Não é possível gravar %s: %s"
 
 #: ../src/msec/config.py:319
 msgid "loading exceptions file %s: %s"
-msgstr ""
+msgstr "a carregar ficheiro de excepções %s: %s"
 
 #: ../src/msec/config.py:320
-#, fuzzy
 msgid "No exceptions loaded"
-msgstr "Opções"
+msgstr "Nenhuma excepção carregada"
 
 #: ../src/msec/help.py:14
-#, fuzzy
 msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
-"Permitir ligações X:\n"
-"\n"
-"- Todos (todas as ligações são permitidas),\n"
-"\n"
-"- Local (só as ligações a partir da máquina local),\n"
-"\n"
-"- Nenhum (nenhuma ligação)."
+"Permitir aos utilizadores locais conectarem-se ao servidor X. "
+"Argumentos aceitáveis: sim (todas as conexões são permitidas), "
+"local (apenas as conexões locais), não (sem conexões)."
 
 #: ../src/msec/help.py:16
-#, fuzzy
 msgid "Enable checking for files/directories writable by everybody."
-msgstr "Verificar ficheiros/directórios graváveis para todos"
+msgstr "Activar verificação de ficheiros/directórios graváveis por todos."
 
 #: ../src/msec/help.py:18
 msgid "Enable IP spoofing protection."
 msgstr "Activar protecção contra usurpação de endereço IP."
 
 #: ../src/msec/help.py:20
-#, fuzzy
 msgid "Enable name resolution spoofing protection."
-msgstr "Protecção spoofing de resolução de nomes"
+msgstr "Activar protecção spoofing de resolução de nomes."
 
 #: ../src/msec/help.py:22
 msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
 msgstr ""
+"Define o nível de segurança base, onde a configuração actual está baseada."
 
 #: ../src/msec/help.py:24
-#, fuzzy
 msgid "Accept broadcasted ICMP echo."
-msgstr "Aceitar ecos icmp transmitidos"
+msgstr "Aceitar ecos ICMP. transmitidos"
 
 #: ../src/msec/help.py:26
 msgid ""
@@ -150,19 +139,16 @@ msgstr ""
 "significa ilimitado."
 
 #: ../src/msec/help.py:42
-#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
-msgstr "Permitir reiniciar pelo utilizador da consola."
+msgstr "Permitir reiniciar e desligar aos utilizadores locais."
 
 #: ../src/msec/help.py:44
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Comunicar ficheiros sem dono"
+msgstr "Activar verificação e alterações nas definições da 'firewall'."
 
 #: ../src/msec/help.py:46
-#, fuzzy
 msgid "Enable checking for additions/removals of suid root files."
-msgstr "Verificar adições/remoções dos ficheiros suid root"
+msgstr "Activar verificação de adições/remoções de ficheiros suid root."
 
 #: ../src/msec/help.py:48
 msgid "Enables logging of periodic checks to system log."
@@ -214,32 +200,28 @@ msgid "User email to receive security notifications."
 msgstr "Por favor aguarde, a definir as opções de segurança..."
 
 #: ../src/msec/help.py:64
-#, fuzzy
 msgid "Set the user umask."
-msgstr "Define o modo de criação de máscara dos ficheiros de utilizador."
+msgstr "Define a umask do utilizador."
 
 #: ../src/msec/help.py:66
 msgid "Allow only users in wheel group to su to root."
 msgstr ""
 
 #: ../src/msec/help.py:68
-#, fuzzy
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr "Verificar senha vazia em /etc/shadow."
+msgstr "Activar verificação para senhas vazias em /etc/shadow (man shadow(5))."
 
 #: ../src/msec/help.py:70
 msgid "Allow autologin."
 msgstr "Permitir auto-autenticação."
 
 #: ../src/msec/help.py:72
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Comunicar ficheiros sem dono"
+msgstr "Activar verificação de alterações nos utilizadores do sistema."
 
 #: ../src/msec/help.py:74
-#, fuzzy
 msgid "Enable checking for unowned files."
-msgstr "Comunicar ficheiros sem dono"
+msgstr "Activar verificação de ficheiros sem dono."
 
 #: ../src/msec/help.py:76
 msgid "Log syslog messages on console terminal 12."
@@ -288,9 +270,8 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:92
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Comunicar ficheiros sem dono"
+msgstr "Activar verificação de alterações nos grupos do sistema."
 
 #: ../src/msec/help.py:94
 msgid ""
@@ -308,9 +289,8 @@ msgid "Enable checking for open network ports."
 msgstr ""
 
 #: ../src/msec/help.py:100
-#, fuzzy
 msgid "Allow direct root login on terminal."
-msgstr "Permitir autenticação root directa."
+msgstr "Permitir autenticação root directa no terminal."
 
 #: ../src/msec/help.py:102
 msgid "Run security checks when machine is running on battery power."
@@ -327,9 +307,8 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:108
-#, fuzzy
 msgid "Enable logging of strange network packets."
-msgstr "Activar registo de pacotes IPv4 estranhos."
+msgstr "Activar registo de pacotes de rede estranhos."
 
 #: ../src/msec/help.py:110
 msgid ""

@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-13 13:20+CET\n"
-"PO-Revision-Date: 2010-03-18 08:54+0100\n"
+"PO-Revision-Date: 2010-04-06 23:26+0200\n"
 "Last-Translator: Olav Dahlum <odahlum@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -705,13 +705,12 @@ msgstr ""
 "periodiske sjekker settes opp til å kjøre en gang daglig."
 
 #: ../src/msec/msecgui.py:68
-#, fuzzy
 msgid ""
 "This profile is similar to the 'audit_daily' profile, but it runs all checks "
 "weekly."
 msgstr ""
-"Denne profilen tilsvarer «overvåk_daglig», men kjører alle sjekker "
-"ukentlig."
+"Denne profilen ligner på «audit_daily», men kjører alle sjekker "
+"ukentlig istedet for daglig."
 
 #: ../src/msec/msecgui.py:75
 msgid "Custom security level."
@@ -1405,4 +1404,5 @@ msgstr "Tillater gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Slår av gjennomsiktig root-tilgang for medlemmer av gruppa «wheel»"
+
 

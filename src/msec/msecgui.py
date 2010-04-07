@@ -1380,13 +1380,20 @@ class MsecGui:
         label.set_use_markup(True)
         dialog.vbox.pack_start(label, False, False, padding=5)
 
+        # aligning entries
+        sizegroup1 = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
+        sizegroup2 = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
+
         if not path:
             # file
             hbox = gtk.HBox()
-            hbox.pack_start(gtk.Label(_("File: ")))
+            label = gtk.Label(_("File: "))
+            hbox.pack_start(label)
             entry_file = gtk.Entry()
             entry_file.set_text(file)
             hbox.pack_start(entry_file)
+            sizegroup1.add_widget(label)
+            sizegroup2.add_widget(entry_file)
             dialog.vbox.pack_start(hbox, False, False)
 
         label = gtk.Label(_("Please specify new file owner and permissions, or use 'current' to keep current settings."))
@@ -1396,26 +1403,35 @@ class MsecGui:
 
         # user
         hbox = gtk.HBox()
-        hbox.pack_start(gtk.Label(_("User: ")))
+        label = gtk.Label(_("User: "))
+        hbox.pack_start(label)
         entry_user = gtk.Entry()
         entry_user.set_text(user)
         hbox.pack_start(entry_user)
+        sizegroup1.add_widget(label)
+        sizegroup2.add_widget(entry_user)
         dialog.vbox.pack_start(hbox, False, False)
 
         # group
         hbox = gtk.HBox()
-        hbox.pack_start(gtk.Label(_("Group: ")))
+        label = gtk.Label(_("Group: "))
+        hbox.pack_start(label)
         entry_group = gtk.Entry()
         entry_group.set_text(group)
         hbox.pack_start(entry_group)
+        sizegroup1.add_widget(label)
+        sizegroup2.add_widget(entry_group)
         dialog.vbox.pack_start(hbox, False, False)
 
         # perm
         hbox = gtk.HBox()
-        hbox.pack_start(gtk.Label(_("Permissions: ")))
+        label = gtk.Label(_("Permissions: "))
+        hbox.pack_start(label)
         entry_perm = gtk.Entry()
         entry_perm.set_text(perm)
         hbox.pack_start(entry_perm)
+        sizegroup1.add_widget(label)
+        sizegroup2.add_widget(entry_perm)
         dialog.vbox.pack_start(hbox, False, False)
 
         label = gtk.Label(_("To enforce additional ACL on file, specify them in the following format:\nuser1:acl,user2:acl\nRefer to 'man setfacl' for details."))
@@ -1425,10 +1441,13 @@ class MsecGui:
 
         # acl
         hbox = gtk.HBox()
-        hbox.pack_start(gtk.Label(_("ACL: ")))
+        label = gtk.Label(_("ACL: "))
+        hbox.pack_start(label)
         entry_acl = gtk.Entry()
         entry_acl.set_text(acl)
         hbox.pack_start(entry_acl)
+        sizegroup1.add_widget(label)
+        sizegroup2.add_widget(entry_acl)
         dialog.vbox.pack_start(hbox, False, False)
 
         dialog.show_all()

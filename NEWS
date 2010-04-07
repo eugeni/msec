@@ -1,3 +1,4 @@
+- add support for ACL (based on patch from Tiago Marques <tiago.marques@caixamagica.pt>, #58640)
 - add support for IGNORE_PID_CHANGES (#56744)
 - properly filter chkrootkit checks (#58076).
 - do not notify when no changes were found by a diff run

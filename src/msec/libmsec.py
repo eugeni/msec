@@ -861,7 +861,7 @@ class PERMS:
             self.log.info(config.MODIFICATIONS_NOT_FOUND)
 
         for file in self.files:
-            newperm, newuser, newgroup, force = self.files[file]
+            newperm, newuser, newgroup, force, newacl = self.files[file]
             # are we in enforcing mode?
             if enforce:
                 force = True
@@ -896,13 +896,35 @@ class PERMS:
                 else:
                     self.log.warn(_("Wrong permissions of %s: should be %o") % (file, newperm))
 
+            if newacl != None:
+                if force and really_commit:
+                    self.log.warn(_("Enforcing acl on %s") % (file))
+                    try:
+                        # TODO: only change ACL if it differs from actual
+                        # TODO: and use python code instead of os.system
+                        os.system('setfacl -b %s' % (file))
+                        users = newacl.split(",")
+                        for acluser in users :
+                            if acluser.split(":")[0] == "": # clean root from list
+                                print acluser
+                                continue
+                            # make the acl rule stick
+                            ret = os.system('setfacl -m u:%s %s' % (acluser, file))
+                            if ret != 0:
+                                # problem setting setfacl
+                                self.log.error(_("Unable to add filesystem-specific ACL %s to %s") % (acluser, file))
+                    except:
+                        self.log.error(_("Error changing acl on %s: %s") % (file, sys.exc_value))
+                else:
+                    self.log.warn(_("Wrong acl of %s") % (file))
+
 
     def check_perms(self, perms, files_to_check=[]):
         '''Checks permissions for all entries in perms (PermConfig).
         If files_to_check is specified, only the specified files are checked.'''
 
         for file in perms.list_options():
-            user_s, group_s, perm_s, force = perms.get(file)
+            user_s, group_s, perm_s, force, acl = perms.get(file)
 
             # permission
             if perm_s == 'current':
@@ -962,14 +984,17 @@ class PERMS:
                 newperm = None
                 newuser = None
                 newgroup = None
+                newacl = None
                 if perm != -1 and perm != curperm:
                     newperm = perm
                 if user != -1 and user != curuser:
                     newuser = user
                 if group != -1 and group != curgroup:
                     newgroup = group
-                if newperm != None or newuser != None or newgroup != None:
-                    self.files[f] = (newperm, newuser, newgroup, force)
+                if acl != "":
+                    newacl = acl
+                if newperm != None or newuser != None or newgroup != None or newacl != None:
+                    self.files[f] = (newperm, newuser, newgroup, force, newacl)
                     self.log.debug("Updating %s (matched by '%s')" % (f, file))
                 else:
                     # see if any other rule put this file into the list

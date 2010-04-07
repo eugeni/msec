@@ -393,7 +393,7 @@ class PermConfig(MsecConfig):
         self.options_order = []
         self.comments = []
         self.log = log
-        self.regexp = re.compile("^([^\s]*)\s*([a-z]*)\.([a-z]*)\s*([\d]?\d\d\d|current)\s*(force)?$")
+        self.regexp = re.compile("^([^\s]*)\s*([a-z]*)\.([a-z]*)\s*([\d]?\d\d\d|current)\s*(force)?\s?([^\s]*)$")
 
     def merge(self, newconfig, overwrite=False):
         """Merges parameters from newconfig to current config"""
@@ -433,12 +433,9 @@ class PermConfig(MsecConfig):
             try:
                 res = self.regexp.findall(line)
                 if res:
-                    if len(res[0]) == 5:
-                        file, user, group, perm, force = res[0]
-                    else:
-                        force = None
-                        file, user, group, perm = res[0]
-                    self.options[file] = (user, group, perm, force)
+                    if len(res[0]) == 6:
+                        file, user, group, perm, force, acl = res[0]
+                    self.options[file] = (user, group, perm, force, acl)
                     self.options_order.append(file)
             except:
                 traceback.print_exc()
@@ -484,11 +481,11 @@ class PermConfig(MsecConfig):
             if not value:
                 # the option was removed
                 continue
-            user, group, perm, force = value
+            user, group, perm, force, acl = self.options[file]
             if force:
                 force = "\tforce"
             else:
                 force = ""
-            print >>fd, "%s\t%s.%s\t%s%s" % (file, user, group, perm, force)
+            print >>fd, "%s\t%s.%s\t%s%s\t%s" % (file, user, group, perm, force, acl)
         return True
 # }}}

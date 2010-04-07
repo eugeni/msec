@@ -109,7 +109,7 @@ class MsecGui:
     # common columns
     (COLUMN_LEVEL, COLUMN_LEVEL_DESCR, COLUMN_LEVEL_CURRENT) = range(3)
     (COLUMN_OPTION, COLUMN_DESCR, COLUMN_VALUE, COLUMN_CUSTOM) = range(4)
-    (COLUMN_PATH, COLUMN_USER, COLUMN_GROUP, COLUMN_PERM, COLUMN_FORCE) = range(5)
+    (COLUMN_PATH, COLUMN_USER, COLUMN_GROUP, COLUMN_PERM, COLUMN_FORCE, COLUMN_ACL) = range(6)
     (COLUMN_EXCEPTION, COLUMN_EXCEPTION_VALUE, COLUMN_POS) = range(3)
 
     def __init__(self, log, msec, perms, msecconfig, permconfig, exceptions, embed=None):
@@ -1084,7 +1084,8 @@ class MsecGui:
             gobject.TYPE_STRING,
             gobject.TYPE_STRING,
             gobject.TYPE_STRING,
-            gobject.TYPE_BOOLEAN)
+            gobject.TYPE_BOOLEAN,
+            gobject.TYPE_STRING)
 
         # treeview
         treeview = gtk.TreeView(lstore)
@@ -1130,10 +1131,16 @@ class MsecGui:
         column.set_expand(True)
         treeview.append_column(column)
 
+        # column for Acl
+        column = gtk.TreeViewColumn(_('Acl'), gtk.CellRendererText(), text=self.COLUMN_ACL)
+        column.set_sort_column_id(self.COLUMN_ACL)
+        column.set_expand(True)
+        treeview.append_column(column)
+
         sw.add(treeview)
 
         for file in self.permconfig.list_options():
-            user_s, group_s, perm_s, force = self.permconfig.get(file)
+            user_s, group_s, perm_s, force, acl = self.permconfig.get(file)
 
             # convert to boolean
             if force:
@@ -1149,6 +1156,7 @@ class MsecGui:
                     self.COLUMN_GROUP, group_s,
                     self.COLUMN_PERM, perm_s,
                     self.COLUMN_FORCE, force,
+                    self.COLUMN_ACL, acl,
                     )
         vbox.pack_start(sw)
         self.current_options_view[id] = (lstore, self.permconfig)
@@ -1199,7 +1207,7 @@ class MsecGui:
         else:
             defperms = self.perm_defaults[level]
         for file in defperms.list_options():
-            user_s, group_s, perm_s, force_s = defperms.get(file)
+            user_s, group_s, perm_s, force_s, acls = defperms.get(file)
 
             # convert to boolean
             if force_s:
@@ -1215,9 +1223,10 @@ class MsecGui:
                     self.COLUMN_GROUP, group_s,
                     self.COLUMN_PERM, perm_s,
                     self.COLUMN_FORCE, force_val,
+                    self.COLUMN_ACL, acls,
                     )
             # changing back force value
-            self.permconfig.set(file, (user_s, group_s, perm_s, force_s))
+            self.permconfig.set(file, (user_s, group_s, perm_s, force_s, acls))
 
     def remove_exception(self, widget, treeview):
         """Removes an exception from list"""
@@ -1248,7 +1257,7 @@ class MsecGui:
         file = model.get_value(iter, self.COLUMN_PATH)
         fixed = model.get_value(iter, self.COLUMN_FORCE)
 
-        user, group, perm, force = self.permconfig.get(file)
+        user, group, perm, force, acl = self.permconfig.get(file)
 
         # do something with the value
         fixed = not fixed
@@ -1259,7 +1268,7 @@ class MsecGui:
             force = "force"
         else:
             force = ""
-        self.permconfig.set(file, (user, group, perm, force))
+        self.permconfig.set(file, (user, group, perm, force, acl))
 
     def add_permission_check(self, widget, model):
         """Adds a permission check"""
@@ -1345,6 +1354,7 @@ class MsecGui:
             group = model.get_value(iter, self.COLUMN_GROUP)
             perm = model.get_value(iter, self.COLUMN_PERM)
             force = model.get_value(iter, self.COLUMN_FORCE)
+            acl = model.get_value(iter, self.COLUMN_ACL)
             title = _("Changing permissions for %s") % file
         else:
             file = ""
@@ -1352,6 +1362,7 @@ class MsecGui:
             group = ""
             perm = ""
             force = ""
+            acl = ""
             title = _("Adding new permission check")
 
         if not force:
@@ -1364,10 +1375,10 @@ class MsecGui:
                 self.window, 0,
                 (gtk.STOCK_OK, gtk.RESPONSE_OK,
                 gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL))
-        label = gtk.Label(_("Changing permissions on <b>%s</b>\nPlease specify new permissions, or use 'current' to keep current permissions.\n") % (file or _("new file")))
+        label = gtk.Label(_("Changing permissions on <b>%s</b>") % (file or _("new file")))
         label.set_line_wrap(True)
         label.set_use_markup(True)
-        dialog.vbox.pack_start(label, False, False)
+        dialog.vbox.pack_start(label, False, False, padding=5)
 
         if not path:
             # file
@@ -1377,6 +1388,11 @@ class MsecGui:
             entry_file.set_text(file)
             hbox.pack_start(entry_file)
             dialog.vbox.pack_start(hbox, False, False)
+
+        label = gtk.Label(_("Please specify new file owner and permissions, or use 'current' to keep current settings."))
+        label.set_line_wrap(True)
+        label.set_use_markup(True)
+        dialog.vbox.pack_start(label, False, False, padding=5)
 
         # user
         hbox = gtk.HBox()
@@ -1402,6 +1418,19 @@ class MsecGui:
         hbox.pack_start(entry_perm)
         dialog.vbox.pack_start(hbox, False, False)
 
+        label = gtk.Label(_("To enforce additional ACL on file, specify them in the following format:\nuser1:acl,user2:acl\nRefer to 'man setfacl' for details."))
+        label.set_line_wrap(True)
+        label.set_use_markup(True)
+        dialog.vbox.pack_start(label, False, False, padding=5)
+
+        # acl
+        hbox = gtk.HBox()
+        hbox.pack_start(gtk.Label(_("ACL: ")))
+        entry_acl = gtk.Entry()
+        entry_acl.set_text(acl)
+        hbox.pack_start(entry_acl)
+        dialog.vbox.pack_start(hbox, False, False)
+
         dialog.show_all()
         response = dialog.run()
         if response != gtk.RESPONSE_OK:
@@ -1415,9 +1444,14 @@ class MsecGui:
         newuser = entry_user.get_text()
         newgroup = entry_group.get_text()
         newperm = entry_perm.get_text()
+        newacl = entry_acl.get_text()
         dialog.destroy()
 
-        self.permconfig.set(newfile, (newuser, newgroup, newperm, force))
+        # if acl is specified, the permissions will be enforced
+        if newacl != "":
+            force = "force"
+
+        self.permconfig.set(newfile, (newuser, newgroup, newperm, force, newacl))
         if not path:
             # adding new entry
             iter = model.append()
@@ -1425,6 +1459,8 @@ class MsecGui:
         model.set(iter, self.COLUMN_USER, newuser)
         model.set(iter, self.COLUMN_GROUP, newgroup)
         model.set(iter, self.COLUMN_PERM, newperm)
+        model.set(iter, self.COLUMN_FORCE, True if force == "force" else False)
+        model.set(iter, self.COLUMN_ACL, newacl)
 
     def option_changed(self, treeview, path, col, model):
         """Processes an option change"""

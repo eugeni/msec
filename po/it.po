@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-13 13:20+CET\n"
-"PO-Revision-Date: 2010-03-08 13:12+0100\n"
+"PO-Revision-Date: 2010-04-10 15:07+0200\n"
 "Last-Translator: Moreno Manzini <moreno.mg@gmail.com>\n"
 "Language-Team: Italian <timl@frelist.org>\n"
 "MIME-Version: 1.0\n"
@@ -114,9 +114,10 @@ msgstr ""
 "regole di msec."
 
 #: ../src/msec/help.py:30
-#, fuzzy
 msgid "Ignore changes in process IDs when checking for open network ports."
-msgstr "Abilita il controllo delle porte di rete aperte."
+msgstr ""
+"Ignora il cambiamento degli ID dei processi durante il controllo delle porte "
+"di rete aperte."
 
 #: ../src/msec/help.py:32
 msgid "Allow X server to accept connections from network on tcp port 6000."

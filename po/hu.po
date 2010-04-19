@@ -4,13 +4,13 @@
 # Emese Kovacs <emese@gnome.hu>, 2000-2001.
 # Arpad Biro <biro.arpad gmail>, 2000, 2003, 2004, 2005, 2006, 2007.
 # Tamas Szanto <tszanto@mol.hu>, 2001.
-# Gergely Lónyai <aleph@mandriva.org>, 2007, 2008, 2009.
+# Gergely Lónyai <aleph@mandriva.org>, 2007, 2008, 2009, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: msec-2010.0\n"
+"Project-Id-Version: msec-2010.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-13 13:20+CET\n"
-"PO-Revision-Date: 2009-09-29 10:36+0100\n"
+"PO-Revision-Date: 2010-04-19 11:15+0100\n"
 "Last-Translator: Gergely Lónyai <aleph@mandriva.org>\n"
 "Language-Team: Hungarian <aleph@mandriva.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,51 +24,44 @@ msgstr ""
 
 #: ../src/msec/config.py:46
 msgid "Modified system files"
-msgstr ""
+msgstr "Módosult rendszerfájlok"
 
 #: ../src/msec/config.py:47
-#, fuzzy
 msgid "No changes in system files"
-msgstr "A rendszerfelhasználók változásainak ellenőrzése."
+msgstr "Nem változtak a rendszerfájlok"
 
 #: ../src/msec/config.py:60
 msgid "Disabled"
-msgstr ""
+msgstr "Letiltva"
 
-#: ../src/msec/config.py:211 ../src/msec/config.py:423
+#: ../src/msec/config.py:211
+#: ../src/msec/config.py:423
 msgid "Unable to load configuration file %s: %s"
-msgstr ""
+msgstr "Nem sikerült betölteni az %s beállítófájlt: %s"
 
-#: ../src/msec/config.py:225 ../src/msec/config.py:334
+#: ../src/msec/config.py:225
+#: ../src/msec/config.py:334
 #: ../src/msec/config.py:445
-#, fuzzy
 msgid "Bad config option: %s"
-msgstr "Beállítás _mentése"
+msgstr "Rossz beállítási opció: %s"
 
-#: ../src/msec/config.py:260 ../src/msec/config.py:373
+#: ../src/msec/config.py:260
+#: ../src/msec/config.py:373
 #: ../src/msec/config.py:471
-#, fuzzy
 msgid "Unable to save %s: %s"
-msgstr "Nem menthetőek a beállítások!"
+msgstr "Nem menthető a %s: %s"
 
 #: ../src/msec/config.py:319
-#, fuzzy
 msgid "loading exceptions file %s: %s"
-msgstr "Sikertelen a '%s' bővítmény betöltése innen: '%s'. Hibaüzenet:"
+msgstr "kivételfájl betöltése %s: %s"
 
 #: ../src/msec/config.py:320
-#, fuzzy
 msgid "No exceptions loaded"
-msgstr "Kivételek"
+msgstr "Nincsenek kivételek betöltve"
 
 #: ../src/msec/help.py:14
-msgid ""
-"Allow local users to connect to X server. Accepted arguments: yes (all "
-"connections are allowed), local (only local connection), no (no connection)."
-msgstr ""
-"Engedélyezi a helyi felhasználóknak az X kiszolgálóhoz kapcsolódást. "
-"Elfogadott értékek: igen (minden kapcsolat engedélyezett), helyi (csak a "
-"helyi kapcsolat), nem (semmilyen kapcsolat)"
+msgid "Allow local users to connect to X server. Accepted arguments: yes (all connections are allowed), local (only local connection), no (no connection)."
+msgstr "Engedélyezi a helyi felhasználóknak az X kiszolgálóhoz kapcsolódást. Elfogadott értékek: igen (minden kapcsolat engedélyezett), helyi (csak a helyi kapcsolat), nem (semmilyen kapcsolat)"
 
 #: ../src/msec/help.py:16
 msgid "Enable checking for files/directories writable by everybody."
@@ -76,67 +69,46 @@ msgstr "A mindenki által írható fájlok/könyvtárak ellenőrzése."
 
 #: ../src/msec/help.py:18
 msgid "Enable IP spoofing protection."
-msgstr ""
-"Az 'IP spoofing' (más gép IP-címének használata forráscímként) elleni "
-"védelem bekapcsolása"
+msgstr "Az 'IP spoofing' (más gép IP-címének használata forráscímként) elleni védelem bekapcsolása"
 
 #: ../src/msec/help.py:20
 msgid "Enable name resolution spoofing protection."
-msgstr ""
-"A névfeloldásnak az eredetitől eltérő rendszerrel való végeztetése elleni "
-"védelem bekapcsolása"
+msgstr "A névfeloldásnak az eredetitől eltérő rendszerrel való végeztetése elleni védelem bekapcsolása"
 
 #: ../src/msec/help.py:22
-msgid ""
-"Defines the base security level, on top of which the current configuration "
-"is based."
-msgstr ""
-"Az alap bizonsági szint meghatározása. Ez lesz a jelen konfigurációnak a "
-"kiindulási alapja."
+msgid "Defines the base security level, on top of which the current configuration is based."
+msgstr "Az alap bizonsági szint meghatározása. Ez lesz a jelen konfigurációnak a kiindulási alapja."
 
 #: ../src/msec/help.py:24
 msgid "Accept broadcasted ICMP echo."
 msgstr "Broadcast-olt ICMP echo elfogadása"
 
 #: ../src/msec/help.py:26
-msgid ""
-"Enable verification for changes in the installed RPM packages. This will "
-"notify you when new packages are installed or removed."
-msgstr ""
-"Engedélyezi a telepített RPM csomagok sértetlenségének ellenőrzését. "
-"Értesítést küld, amennyiben új csomag került telepítésre, vagy egy régebbi "
-"csomag került eltávolításra."
+msgid "Enable verification for changes in the installed RPM packages. This will notify you when new packages are installed or removed."
+msgstr "Engedélyezi a telepített RPM csomagok sértetlenségének ellenőrzését. Értesítést küld, amennyiben új csomag került telepítésre, vagy egy régebbi csomag került eltávolításra."
 
 #: ../src/msec/help.py:28
-#, fuzzy
 msgid "Enable periodic permission checking for files specified in msec policy."
-msgstr "Engedélyezi az ismétlődő jogosultság-ellenőrzést a fájlrendszeren."
+msgstr "Engedélyezi a fájlok ismétlődő jogosultság-ellenőrzését az msec eljárásban meghatározott módon."
 
 #: ../src/msec/help.py:30
-#, fuzzy
 msgid "Ignore changes in process IDs when checking for open network ports."
-msgstr "Engedélyezi a nyitott hálózati portok ellenőrzését."
+msgstr "Figyelmen kívül hagyja a processz-azonosító megváltozását a nyitott hálózati portok ellenőrzése közben."
 
 #: ../src/msec/help.py:32
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Engedélyezi, hogy az X kiszolgáló kapcsolatot fogadhasson a 6000/tcp porton."
+msgstr "Engedélyezi, hogy az X kiszolgáló kapcsolatot fogadhasson a 6000/tcp porton."
 
 #: ../src/msec/help.py:34
 msgid "Enable checking for known rootkits using chkrootkit."
 msgstr "Enfgedélyezi, hogy a chkrootkit ismert rootkit után keressen."
 
 #: ../src/msec/help.py:36
-msgid ""
-"Enable msec to enforce file permissions to the values specified in the msec "
-"security policy."
+msgid "Enable msec to enforce file permissions to the values specified in the msec security policy."
 msgstr ""
 
 #: ../src/msec/help.py:38
-msgid ""
-"Enable sectools checks. This check will run all sectool checks for a "
-"security level configuration. The security level to be used during this test "
-"is determined by the CHECK_SECTOOL_LEVELS variable."
+msgid "Enable sectools checks. This check will run all sectool checks for a security level configuration. The security level to be used during this test is determined by the CHECK_SECTOOL_LEVELS variable."
 msgstr ""
 
 #: ../src/msec/help.py:40
@@ -162,47 +134,28 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Engedélyezi az ismétlődő ellenőrzések naplózását rendszerüzenetként."
 
 #: ../src/msec/help.py:50
-msgid ""
-"Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
-"etc/at.allow (see man at(1) and crontab(1))."
-msgstr ""
-"A crontab és az at használatának engedélyezése a felhasználók számára. Az "
-"engedélyezett felhasználókat a /etc/cron.allow illetve a /etc/at.allow "
-"fájlokba kell beírni (információ az at(1) illetve a crontab(1) man oldalán)."
+msgid "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /etc/at.allow (see man at(1) and crontab(1))."
+msgstr "A crontab és az at használatának engedélyezése a felhasználók számára. Az engedélyezett felhasználókat a /etc/cron.allow illetve a /etc/at.allow fájlokba kell beírni (információ az at(1) illetve a crontab(1) man oldalán)."
 
 #: ../src/msec/help.py:52
 msgid "Accept bogus IPv4 error messages."
 msgstr "A hamis IPv4 hibaüzenetek elfogadása"
 
 #: ../src/msec/help.py:54
-msgid ""
-"Enable password-related checks, such as empty passwords and strange super-"
-"user accounts."
-msgstr ""
-"Jelszóellenőrzések engedélyezése mind az üres jelszavakra, mind a nagyobb "
-"jogosultságú felhasználókra."
+msgid "Enable password-related checks, such as empty passwords and strange super-user accounts."
+msgstr "Jelszóellenőrzések engedélyezése mind az üres jelszavakra, mind a nagyobb jogosultságú felhasználókra."
 
 #: ../src/msec/help.py:56
-msgid ""
-"Set the password history length to prevent password reuse. This is not "
-"supported by pam_tcb."
-msgstr ""
-"A jelszótörténeti lista hosszának beállítása a jelszavak újrahasználásának "
-"megakadályozására. Ezt nem támogatja a pam_tcb."
+msgid "Set the password history length to prevent password reuse. This is not supported by pam_tcb."
+msgstr "A jelszótörténeti lista hosszának beállítása a jelszavak újrahasználásának megakadályozására. Ezt nem támogatja a pam_tcb."
 
 #: ../src/msec/help.py:58
 msgid "Enable checksum verification for suid files."
 msgstr "Engedélyezi, a suid fájlok ellenőrzőösszeggel való ellenőrzését."
 
 #: ../src/msec/help.py:60
-msgid ""
-"Use secure location for temporary files. If this parameter is set to 'yes', "
-"user home directory will be used for temporary files. Otherwise, /tmp will "
-"be used."
-msgstr ""
-"Használjon biztonságos helyet az ideiglenes fájlok tárolására. Ha ez a "
-"paraméter 'yes', akkor a felhasználó saját könyvtára lesz használva az "
-"ideiglenes fájlok elhelyezésére. Egyéb esetekben a /tmp lesz használva."
+msgid "Use secure location for temporary files. If this parameter is set to 'yes', user home directory will be used for temporary files. Otherwise, /tmp will be used."
+msgstr "Használjon biztonságos helyet az ideiglenes fájlok tárolására. Ha ez a paraméter 'yes', akkor a felhasználó saját könyvtára lesz használva az ideiglenes fájlok elhelyezésére. Egyéb esetekben a /tmp lesz használva."
 
 #: ../src/msec/help.py:62
 msgid "User email to receive security notifications."
@@ -214,14 +167,11 @@ msgstr "Felhasználói umask beállítása."
 
 #: ../src/msec/help.py:66
 msgid "Allow only users in wheel group to su to root."
-msgstr ""
-"Engedélyezi, hogy csak a wheel csoport tagjai szerezhetnek root jogot a su "
-"paranccsal."
+msgstr "Engedélyezi, hogy csak a wheel csoport tagjai szerezhetnek root jogot a su paranccsal."
 
 #: ../src/msec/help.py:68
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr ""
-"Ellenőrzés, hogy létezik-e üres jelszó a /etc/shadow fájlban (man shadow(5))."
+msgstr "Ellenőrzés, hogy létezik-e üres jelszó a /etc/shadow fájlban (man shadow(5))."
 
 #: ../src/msec/help.py:70
 msgid "Allow autologin."
@@ -241,85 +191,43 @@ msgstr "Naplózza a rendszerüzeneteket a 12. terminálra."
 
 #: ../src/msec/help.py:78
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
-"Engedélyezi, hogy a helyi felhasználók listája megjelenjen a "
-"bejelentkezéskezelőkben (KDM és GDM)."
+msgstr "Engedélyezi, hogy a helyi felhasználók listája megjelenjen a bejelentkezéskezelőkben (KDM és GDM)."
 
 #: ../src/msec/help.py:80
 msgid "Send mail reports even if no changes were detected."
 msgstr "Küldjön email értesítést akkor is, ha nincs változás."
 
 #: ../src/msec/help.py:82
-msgid ""
-"Enforce MSEC file directory permissions on system startup. If this parameter "
-"is set to 'enforce', system permissions will be enforced automatically, "
-"according to system security settings."
-msgstr ""
-"Az MSEC fájl- és könyvtárjogosultságok kikényszerítése rendszerindításkor. "
-"Ha a paraméter értéke 'enforce', akkor a rendszerjogosultságok automatikusan "
-"ki lesznek kényszerítve, az adott rendszerbiztonsági beállításoknak "
-"megfelelően."
+msgid "Enforce MSEC file directory permissions on system startup. If this parameter is set to 'enforce', system permissions will be enforced automatically, according to system security settings."
+msgstr "Az MSEC fájl- és könyvtárjogosultságok kikényszerítése rendszerindításkor. Ha a paraméter értéke 'enforce', akkor a rendszerjogosultságok automatikusan ki lesznek kényszerítve, az adott rendszerbiztonsági beállításoknak megfelelően."
 
 #: ../src/msec/help.py:84
 msgid "Include current directory into user PATH by default"
-msgstr ""
-"Az aktuális könyvtár legyen a felhasználó PATH változójához értve "
-"alapértelmezés szerint"
+msgstr "Az aktuális könyvtár legyen a felhasználó PATH változójához értve alapértelmezés szerint"
 
 #: ../src/msec/help.py:86
-msgid ""
-"Enable permission checking on users' files that should not be owned by "
-"someone else, or writable."
-msgstr ""
-"Engedélyezi, hogy keresve legyen a nem felhasználó által nem írható, illetve "
-"idegen tulajdonú fájlok a felhasználók könyvtáraiban."
+msgid "Enable permission checking on users' files that should not be owned by someone else, or writable."
+msgstr "Engedélyezi, hogy keresve legyen a nem felhasználó által nem írható, illetve idegen tulajdonú fájlok a felhasználók könyvtáraiban."
 
 #: ../src/msec/help.py:88
-msgid ""
-"Creates the symlink /etc/security/msec/server to point to /etc/security/msec/"
-"server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --"
-"add to decide to add a service if it is present in the file during the "
-"installation of packages. By default, two presets are provided: local (which "
-"only enables local services) and remote (which also enables some remote "
-"services considered safe). Note that the allowed services must be placed "
-"manually into the server.SERVER_LEVEL files when necessary."
-msgstr ""
-"Elmozgatja a symlinket a /etc/security/msec/server fájlról a /etc/security/"
-"msec/server.SERVER_LEVEL fájlra. A /etc/security/msec/server fájl a "
-"chkconfig --add parancsnál van használva, ha a fájl létezik, amikor a "
-"csomagok települnek. Alapértelmezésben két beállítást tartalmazhat: local "
-"(csak a helyi szolgáltatások vannak engedélyezve) és remote (az előbbieken "
-"kívül engedélyezve van néhány távolról is biztonságosan használható "
-"szolgáltatás). Amennyibe az alapértelmezetteken kívül további távoli "
-"hozzáférésű szolgáltatást kíván használni, akkor azt kézzel be kell írni a "
-"server.SERVER_LEVEL fájlba."
+msgid "Creates the symlink /etc/security/msec/server to point to /etc/security/msec/server.SERVER_LEVEL. The /etc/security/msec/server is used by chkconfig --add to decide to add a service if it is present in the file during the installation of packages. By default, two presets are provided: local (which only enables local services) and remote (which also enables some remote services considered safe). Note that the allowed services must be placed manually into the server.SERVER_LEVEL files when necessary."
+msgstr "Elmozgatja a symlinket a /etc/security/msec/server fájlról a /etc/security/msec/server.SERVER_LEVEL fájlra. A /etc/security/msec/server fájl a chkconfig --add parancsnál van használva, ha a fájl létezik, amikor a csomagok települnek. Alapértelmezésben két beállítást tartalmazhat: local (csak a helyi szolgáltatások vannak engedélyezve) és remote (az előbbieken kívül engedélyezve van néhány távolról is biztonságosan használható szolgáltatás). Amennyibe az alapértelmezetteken kívül további távoli hozzáférésű szolgáltatást kíván használni, akkor azt kézzel be kell írni a server.SERVER_LEVEL fájlba."
 
 #: ../src/msec/help.py:90
-msgid ""
-"Use password to authenticate users. Take EXTREME care when disabling "
-"passwords, as it will leave the machine vulnerable."
-msgstr ""
-"Használjon jelszót a felhasználók azonosításához. EXTRÉM ROSSZ ötlet a "
-"jelszavak letiltása, mert a számítógép sebezhetővé válik."
+msgid "Use password to authenticate users. Take EXTREME care when disabling passwords, as it will leave the machine vulnerable."
+msgstr "Használjon jelszót a felhasználók azonosításához. EXTRÉM ROSSZ ötlet a jelszavak letiltása, mert a számítógép sebezhetővé válik."
 
 #: ../src/msec/help.py:92
 msgid "Enable checking for changes in system groups."
 msgstr "A rendszercsoportok változásainak ellenőrzése."
 
 #: ../src/msec/help.py:94
-msgid ""
-"Allow remote root login via sshd. If yes, login is allowed. If without-"
-"password, only public-key authentication logins are allowed. See sshd_config"
-"(5) man page for more information."
-msgstr ""
-"Engedélyezi a root-nak a bejelentkezést ssh-n keresztül. Ha az érték without-"
-"password. akkor csak publikus kulccsal elfogadott a bejelentkezés. Lásd "
-"további információkért az sshd_config(5) manlapot."
+msgid "Allow remote root login via sshd. If yes, login is allowed. If without-password, only public-key authentication logins are allowed. See sshd_config(5) man page for more information."
+msgstr "Engedélyezi a root-nak a bejelentkezést ssh-n keresztül. Ha az érték without-password. akkor csak publikus kulccsal elfogadott a bejelentkezés. Lásd további információkért az sshd_config(5) manlapot."
 
 #: ../src/msec/help.py:96
 msgid "Show security notifications in system tray using libnotify."
-msgstr ""
-"Mutassa a biztonsági eseményeket a libnotify eszközzel a rendszertálcán."
+msgstr "Mutassa a biztonsági eseményeket a libnotify eszközzel a rendszertálcán."
 
 #: ../src/msec/help.py:98
 msgid "Enable checking for open network ports."
@@ -335,28 +243,18 @@ msgstr ""
 
 #: ../src/msec/help.py:104
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr ""
-"Engedélyezi a felhasználók .rhosts/.shosts fájljai veszélyes opcióinak "
-"ellenőrzését."
+msgstr "Engedélyezi a felhasználók .rhosts/.shosts fájljai veszélyes opcióinak ellenőrzését."
 
 #: ../src/msec/help.py:106
-msgid ""
-"Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
-"default system umask is used."
-msgstr ""
-"Umask opció beállítása a vfat és ntfs partíciók csatolásához. Ha az umask "
-"értéke '-1', akkor a rendszer umask értéke lesz használva."
+msgid "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', default system umask is used."
+msgstr "Umask opció beállítása a vfat és ntfs partíciók csatolásához. Ha az umask értéke '-1', akkor a rendszer umask értéke lesz használva."
 
 #: ../src/msec/help.py:108
 msgid "Enable logging of strange network packets."
 msgstr "Az erőszakos IPv4 csomagok naplózásának bekapcsolása."
 
 #: ../src/msec/help.py:110
-msgid ""
-"Define the default retention period for logs, in weeks. Some countries "
-"require that the log files should be kept for 12 months, other do not have "
-"such strict requirements. This variable defines the number of past log files "
-"that should be kept by logrotate on the system."
+msgid "Define the default retention period for logs, in weeks. Some countries require that the log files should be kept for 12 months, other do not have such strict requirements. This variable defines the number of past log files that should be kept by logrotate on the system."
 msgstr ""
 
 #: ../src/msec/help.py:112
@@ -369,28 +267,18 @@ msgstr "Engedélyezi a jelszó nélküli root-tá válást a wheel csoport tagja
 
 #: ../src/msec/help.py:116
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
-msgstr ""
-"A tulajdonos nélküli fájlok jogosultságának kijavítása nobody/nogroup "
-"tulajdonal."
+msgstr "A tulajdonos nélküli fájlok jogosultságának kijavítása nobody/nogroup tulajdonal."
 
 #: ../src/msec/help.py:118
 msgid "Send security check results by email."
 msgstr "A biztonsági ellenőrzés eredményének elküldése levélben."
 
 #: ../src/msec/help.py:120
-msgid ""
-"Allow to export display when passing from the root account to the other "
-"users. See pam_xauth(8) for more details."
-msgstr ""
-"A képernyő exportálásának engedélyezése a rendszergazdai azonosítóról egy "
-"másikra való átlépéskor. További részletek: pam_xauth(8)."
+msgid "Allow to export display when passing from the root account to the other users. See pam_xauth(8) for more details."
+msgstr "A képernyő exportálásának engedélyezése a rendszergazdai azonosítóról egy másikra való átlépéskor. További részletek: pam_xauth(8)."
 
 #: ../src/msec/help.py:122
-msgid ""
-"Defines the sectool level to use during the periodic security check. You may "
-"use the sectool-gui application to select individual tests for each level. "
-"If this variable is not defined, the default level defined in sectool "
-"configuration will be used."
+msgid "Defines the sectool level to use during the periodic security check. You may use the sectool-gui application to select individual tests for each level. If this variable is not defined, the default level defined in sectool configuration will be used."
 msgstr ""
 
 #: ../src/msec/help.py:124
@@ -408,51 +296,23 @@ msgid "Accept ICMP echo."
 msgstr "ICMP echo elfogadása."
 
 #: ../src/msec/help.py:130
-msgid ""
-"Set the password minimum length and minimum number of digit and minimum "
-"number of capitalized letters, using length,ndigits,nupper format."
-msgstr ""
-"A minimális jelszóhossz és számjegyek illetve nagybetűk minimális számának "
-"beállítása. Használja a hossz,nszám,nnagybetű formát."
+msgid "Set the password minimum length and minimum number of digit and minimum number of capitalized letters, using length,ndigits,nupper format."
+msgstr "A minimális jelszóhossz és számjegyek illetve nagybetűk minimális számának beállítása. Használja a hossz,nszám,nnagybetű formát."
 
 #: ../src/msec/help.py:132
-msgid ""
-"Allow full access to network services controlled by tcp_wrapper (see hosts."
-"deny(5)). If yes, all services are allowed. If local, only connections to "
-"local services are authorized. If no, the services must be authorized "
-"manually in /etc/hosts.allow (see hosts.allow(5))."
-msgstr ""
-"Minden hálózati jogosultságot a tcp_wrapper (lásd. hosts.deny(5)). Ha igen, "
-"akkor minden szolgáltatás engedélyezve lesz. Ha local, akkor csak a helyi "
-"szolgáltatások lesznek engedélyezve. Ha nem, akkor az engedélyezett "
-"szolgáltatásokat a /etc/hosts.allow (lásd. hosts.allow(5)) fájlban kézzel "
-"kell engedélyezni."
+msgid "Allow full access to network services controlled by tcp_wrapper (see hosts.deny(5)). If yes, all services are allowed. If local, only connections to local services are authorized. If no, the services must be authorized manually in /etc/hosts.allow (see hosts.allow(5))."
+msgstr "Minden hálózati jogosultságot a tcp_wrapper (lásd. hosts.deny(5)). Ha igen, akkor minden szolgáltatás engedélyezve lesz. Ha local, akkor csak a helyi szolgáltatások lesznek engedélyezve. Ha nem, akkor az engedélyezett szolgáltatásokat a /etc/hosts.allow (lásd. hosts.allow(5)) fájlban kézzel kell engedélyezni."
 
 #: ../src/msec/help.py:134
-msgid ""
-"Enable verification of integrity of installed RPM packages. This will notify "
-"you if checksums of the installed files were changed, showing separate "
-"results for binary and configuration files."
-msgstr ""
-"Engedélyezi a telepített RPM csomagok sértetlenségének ellenőrzését. "
-"Ellenőrzi a telepített fájlok ellenőrzőösszegét, és értesítést küld, "
-"amennyiben változást tapasztal. Különbséget tesz a bináris és a "
-"konfigurációs állományok között."
+msgid "Enable verification of integrity of installed RPM packages. This will notify you if checksums of the installed files were changed, showing separate results for binary and configuration files."
+msgstr "Engedélyezi a telepített RPM csomagok sértetlenségének ellenőrzését. Ellenőrzi a telepített fájlok ellenőrzőösszegét, és értesítést küld, amennyiben változást tapasztal. Különbséget tesz a bináris és a konfigurációs állományok között."
 
 #: ../src/msec/help.py:136
-msgid ""
-"Patterns to exclude from disk checks. This parameter is parsed as a regex "
-"(7), so you may use complex expressions."
+msgid "Patterns to exclude from disk checks. This parameter is parsed as a regex (7), so you may use complex expressions."
 msgstr ""
 
 #: ../src/msec/help.py:138
-msgid ""
-"Allow users in wheel group to use sudo. If this option is set to 'yes', the "
-"users in wheel group are allowed to use sudo and run commands as root by "
-"using their passwords. If this option to set to 'without-password', the "
-"users can use sudo without being asked for their password. WARNING: using "
-"sudo without any password makes your system very vulnerable, and you should "
-"only use this setting if you know what you are doing!"
+msgid "Allow users in wheel group to use sudo. If this option is set to 'yes', the users in wheel group are allowed to use sudo and run commands as root by using their passwords. If this option to set to 'without-password', the users can use sudo without being asked for their password. WARNING: using sudo without any password makes your system very vulnerable, and you should only use this setting if you know what you are doing!"
 msgstr ""
 
 #: ../src/msec/help.py:140
@@ -469,9 +329,7 @@ msgstr "Az MSEC beállítások kikényszerítése rendszerindításkor"
 
 #: ../src/msec/help.py:146
 msgid "Enable periodic security check results to terminal."
-msgstr ""
-"Engedélyezi az ismétlődő biztonsági ellenőrzés eredményének képernyőre "
-"írását."
+msgstr "Engedélyezi az ismétlődő biztonsági ellenőrzés eredményének képernyőre írását."
 
 #: ../src/msec/help.py:148
 msgid "Enable checking for additions/removals of sgid files."
@@ -479,9 +337,7 @@ msgstr "A sgid fájlok létrehozásának/törlésének ellenőrzése."
 
 #: ../src/msec/help.py:150
 msgid "Activate ethernet cards promiscuity check."
-msgstr ""
-"Az Ethernet kártyák 'promiscuous' (minden csomagot megtartó) üzemmódjának "
-"ellenőrzésének bekapcsolása"
+msgstr "Az Ethernet kártyák 'promiscuous' (minden csomagot megtartó) üzemmódjának ellenőrzésének bekapcsolása"
 
 #: ../src/msec/libmsec.py:266
 msgid "%s modified so launched command: %s"
@@ -491,7 +347,8 @@ msgstr "%s módosítva a %s paranccsal"
 msgid "%s modified so should have run command: %s"
 msgstr "%s módosításához szükséges ezt a parancsot futtatni: %s"
 
-#: ../src/msec/libmsec.py:377 ../src/msec/libmsec.py:409
+#: ../src/msec/libmsec.py:377
+#: ../src/msec/libmsec.py:409
 msgid "deleted %s"
 msgstr "%d törölve"
 
@@ -507,7 +364,8 @@ msgstr "%s szimbolikus link nem módosítható a következőre: %s"
 msgid "moved file %s to %s"
 msgstr "%s fájl mozgatása %s-re"
 
-#: ../src/msec/libmsec.py:468 ../src/msec/libmsec.py:484
+#: ../src/msec/libmsec.py:468
+#: ../src/msec/libmsec.py:484
 msgid "set variable %s to %s in %s"
 msgstr "%s változó megváltoztatása %s-ről %s-re"
 
@@ -527,7 +385,8 @@ msgstr "%s bővítmény nem található"
 msgid "Not supported function '%s' in '%s'"
 msgstr "Nem támogatott funkció (%s) itt: '%s'"
 
-#: ../src/msec/libmsec.py:726 ../src/msec/libmsec.py:856
+#: ../src/msec/libmsec.py:726
+#: ../src/msec/libmsec.py:856
 msgid "In check-only mode, nothing is written back to disk."
 msgstr "Csak ellenőrző mód, a szükséges módosítások nem kerülnek mentésre."
 
@@ -553,9 +412,7 @@ msgstr "Nem található csoportnév a(z) %d csoportazonosítóhoz"
 
 #: ../src/msec/libmsec.py:832
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
-msgstr ""
-"A /proc/mounts nem ellenőrizhető. Minden fájlrendszer helyinek lesz "
-"feltételezve."
+msgstr "A /proc/mounts nem ellenőrizhető. Minden fájlrendszer helyinek lesz feltételezve."
 
 #: ../src/msec/libmsec.py:871
 msgid "Forcing ownership of %s to %s"
@@ -605,19 +462,23 @@ msgstr "A \"%s\" nem helyi fájl. Nem történt változtatás."
 msgid "Checking paths: %s"
 msgstr "Útvonalak ellenőrzése: %s"
 
-#: ../src/msec/msec.py:87 ../src/msec/msecperms.py:96
+#: ../src/msec/msec.py:87
+#: ../src/msec/msecperms.py:96
 msgid "Invalid security level '%s'."
 msgstr "Érvénytelen biztonsági szint: '%s'."
 
-#: ../src/msec/msec.py:114 ../src/msec/msecperms.py:121
+#: ../src/msec/msec.py:114
+#: ../src/msec/msecperms.py:121
 msgid "Msec: Mandriva Security Center (%s)\n"
 msgstr "Msec: Mandriva Biztonsági Központ (%s)\n"
 
-#: ../src/msec/msec.py:115 ../src/msec/msecperms.py:122
+#: ../src/msec/msec.py:115
+#: ../src/msec/msecperms.py:122
 msgid "Error: This application must be executed by root!"
 msgstr "Hiba: Ezt az alkalmazást csak root futtathatja!"
 
-#: ../src/msec/msec.py:116 ../src/msec/msecperms.py:123
+#: ../src/msec/msec.py:116
+#: ../src/msec/msecperms.py:123
 msgid "Run with --help to get help."
 msgstr "Futtassa --help kapcsolóval a segítséghez."
 
@@ -630,23 +491,21 @@ msgid "Switching to '%s' level."
 msgstr "Átváltás '%s' szintre."
 
 #: ../src/msec/msec.py:151
-#, fuzzy
 msgid "No custom file permissions for level '%s'."
-msgstr "%s rossz jogosultsággal rendelkezik: '%s'"
+msgstr "Nincsenek egyedi fájljogosultságok a '%s' szinten."
 
 #: ../src/msec/msec.py:152
-#, fuzzy
 msgid "Saving file permissions to '%s' level."
-msgstr "%s jogosultságainak megváltoztatása"
+msgstr "'%s' szint fájljogosultságainak mentése."
 
-#: ../src/msec/msec.py:192 ../src/msec/msecperms.py:160
+#: ../src/msec/msec.py:192
+#: ../src/msec/msecperms.py:160
 msgid "Unable to save config!"
 msgstr "Nem menthetőek a beállítások!"
 
 #: ../src/msec/msec.py:194
-#, fuzzy
 msgid "Unable to save file system permissions!"
-msgstr "A szint jogosultságainak visszaállítása az alapértelmezett értékekre"
+msgstr "Nem menthető a rendszerjogosultságok fájlja!"
 
 #: ../src/msec/msecgui.py:53
 msgid ""
@@ -655,101 +514,65 @@ msgid ""
 "to activate it, choose the appropriate security level: "
 msgstr ""
 "<big><b>Válasszon biztonsági szintet</b></big>\n"
-"Ezzel az alkalmazással a rendszer biztonsági engedélyeit lehet "
-"finomhangolni.\n"
+"Ezzel az alkalmazással a rendszer biztonsági engedélyeit lehet finomhangolni.\n"
 "Ha aktiválni kívánja, válasszon egy biztonsági szintet:"
 
 #: ../src/msec/msecgui.py:59
-#, fuzzy
-msgid ""
-"This profile configures a reasonably safe set of security features. It is "
-"the suggested level for Desktop. If unsure which profile to use, use this "
-"one."
-msgstr ""
-"Ez a beállításprofil a biztonsági lehetőségek közül egy kényelmesen "
-"használható összeállítást biztosít. Tartalmaz néhány nem erőforrás igényes "
-"időnként lefutó biztonsági ellenőrzést. Ez az ajánlott szint egy otthoni "
-"gépre."
+msgid "This profile configures a reasonably safe set of security features. It is the suggested level for Desktop. If unsure which profile to use, use this one."
+msgstr "Ez a beállításprofil a biztonsági lehetőségek közül egy kényelmesen használható összeállítást biztosít. Ez az ajánlott szint egy otthoni gépre. Ha nem tudod melyik profilt kellene használnod, akkor válaszd ezt."
 
 #: ../src/msec/msecgui.py:60
-msgid ""
-"This profile is focused on netbooks, laptops or low-end devices, which are "
-"only accessed by local users and run on batteries."
+msgid "This profile is focused on netbooks, laptops or low-end devices, which are only accessed by local users and run on batteries."
 msgstr ""
 
 #: ../src/msec/msecgui.py:62
-#, fuzzy
-msgid ""
-"This profile is configured to provide maximum security, even at the cost of "
-"limiting the remote access to the system. This level is suggested for "
-"security-concerned systems and servers. "
-msgstr ""
-"Ez a beállításprofil biztosítja a legbiztonságosabb rendszert, illetve "
-"egyszerű, gyors módon lehet vele korlátozni a távoli használatot. Több "
-"különböző biztonsági ellenőrzést is futtat. Ez a szint kiszolgálókhoz és "
-"kifejezetten biztonságot igénylő számítógépekhez javasolt."
+msgid "This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. This level is suggested for security-concerned systems and servers. "
+msgstr "Ez a beállításprofil biztosítja a legbiztonságosabb rendszert, illetve egyszerű, gyors módon lehet vele korlátozni a távoli használatot. Ez a szint kiszolgálókhoz és kifejezetten biztonságot igénylő rendszerekhez javasolt. "
 
 #: ../src/msec/msecgui.py:64
-msgid ""
-"This profile is targeted on local network servers, which do not receive "
-"accesses from unauthorized Internet users."
+msgid "This profile is targeted on local network servers, which do not receive accesses from unauthorized Internet users."
 msgstr ""
 
 #: ../src/msec/msecgui.py:66
-msgid ""
-"This profile is provided for servers which are intended to be accessed by "
-"unauthorized Internet users."
+msgid "This profile is provided for servers which are intended to be accessed by unauthorized Internet users."
 msgstr ""
 
 #: ../src/msec/msecgui.py:67
-msgid ""
-"This profile is intended for the users who do not rely on msec to change "
-"system settings, and use it for periodic checks only. It configures all "
-"periodic checks to run once a day."
+msgid "This profile is intended for the users who do not rely on msec to change system settings, and use it for periodic checks only. It configures all periodic checks to run once a day."
 msgstr ""
 
 #: ../src/msec/msecgui.py:68
-msgid ""
-"This profile is similar to the 'audit_daily' profile, but it runs all checks "
-"weekly."
+msgid "This profile is similar to the 'audit_daily' profile, but it runs all checks weekly."
 msgstr ""
 
 #: ../src/msec/msecgui.py:75
-#, fuzzy
 msgid "Custom security level."
-msgstr "Rendszerbiztonság"
+msgstr "Egyedi biztonsági szint."
 
 #: ../src/msec/msecgui.py:78
 msgid ""
 "<big><b>System security options</b></big>\n"
-"These options control the local security configuration, such as the login "
-"restrictions,\n"
-"password configurations, integration with other security tools, and default "
-"file creation\n"
+"These options control the local security configuration, such as the login restrictions,\n"
+"password configurations, integration with other security tools, and default file creation\n"
 "permissions.  "
 msgstr ""
 "<big><b>Rendszerbiztonsági opciók</b></big>\n"
-"Itt a helyi biztonsági beállításokat találja, mint például a bejelentkezés, "
-"jelszó, alapértelmezett fájl létrehozási jogok és integráció más biztonsági "
-"eszközökkel."
+"Itt a helyi biztonsági beállításokat találja, mint például a bejelentkezés, jelszó, alapértelmezett fájl létrehozási jogok és integráció más biztonsági eszközökkel."
 
 #: ../src/msec/msecgui.py:83
 msgid ""
 "<big><b>Network security options</b></big>\n"
-"These options define the network security against remote threats, "
-"unauthorized accesses,\n"
+"These options define the network security against remote threats, unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
 "<big><b>Hálózatbiztonsági opciók</b></big>\n"
-"Itt a hálózati biztonsági beállításokat találja, mint például távoli "
-"szálak, \n"
+"Itt a hálózati biztonsági beállításokat találja, mint például távoli szálak, \n"
 "azonosítatlan hozzáférés, feltörési kísérletek."
 
 #: ../src/msec/msecgui.py:87
 msgid ""
 "<big><b>Periodic security checks</b></big>\n"
-"These options configure the security checks that should be executed "
-"periodically.  "
+"These options configure the security checks that should be executed periodically.  "
 msgstr ""
 "<big><b>Periodikus biztonsági ellenőrzések</b></big>\n"
 "Itt az időnként lefutó biztonsági ellenőrzéseket beállításait találja."
@@ -763,31 +586,24 @@ msgid ""
 msgstr ""
 "<big><b>Kivételek</b></big>\n"
 "Itt be tudja állítani azokat a kivételeket, melyeket az msec periodikus \n"
-"ellenőrzései alól szeretne kivonni. A kivételt bármely tesztelési "
-"folyamathoz \n"
-"párosíthatja. felsorolt kivételt mellőz az ellenőrzési folyamat alatt. A "
-"kivételek \n"
+"ellenőrzései alól szeretne kivonni. A kivételt bármely tesztelési folyamathoz \n"
+"párosíthatja. felsorolt kivételt mellőz az ellenőrzési folyamat alatt. A kivételek \n"
 "felsorolásánál használhat reguláris kifejezéseket is."
 
 #: ../src/msec/msecgui.py:95
 msgid ""
 "<big><b>File permissions</b></big>\n"
-"These options allow to fine-tune system permissions for important files and "
-"directories.\n"
-"The following permissions are checked periodically, and any change to the "
-"owner, group,\n"
-"or current permission is reported. The permissions can be enforced, "
-"automatically\n"
+"These options allow to fine-tune system permissions for important files and directories.\n"
+"The following permissions are checked periodically, and any change to the owner, group,\n"
+"or current permission is reported. The permissions can be enforced, automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
 "<big><b>Fájl jogosultságok</b></big>\n"
 "Itt a rendszer számára fontos fájlok és könyvtárak jogosultságainak \n"
 "beállításait találja.\n"
-"Az alábbi jogosultságokat a rendszer periodikusan ellenőrzi, és minden "
-"tulajdonos, \n"
+"Az alábbi jogosultságokat a rendszer periodikusan ellenőrzi, és minden tulajdonos, \n"
 "csoport vagy jogosultságváltozás is ekkor lesz érvényesítve.\n"
-"A beállított jogosultságok erőltetve lesznek, azaz ha az ellenőrzés "
-"másképp \n"
+"A beállított jogosultságok erőltetve lesznek, azaz ha az ellenőrzés másképp \n"
 "találja, akkor a beállított értékeket alkalmazni fogja."
 
 #: ../src/msec/msecgui.py:101
@@ -796,12 +612,11 @@ msgstr "Mentsem és alkalmazzam az új beállításokat?"
 
 #: ../src/msec/msecgui.py:134
 msgid "Unable to load configuration for level '%s'"
-msgstr ""
+msgstr "Nem tölthetőek be a(z) '%s' szint beállításai"
 
 #: ../src/msec/msecgui.py:140
-#, fuzzy
 msgid "Unable to load permissions for level '%s'"
-msgstr "%s rossz jogosultsággal rendelkezik: '%s'"
+msgstr "Nem tölthetőek be a(z) '%s' szint jogosultságai"
 
 #: ../src/msec/msecgui.py:173
 msgid "_File"
@@ -815,7 +630,8 @@ msgstr "Beállítás _mentése"
 msgid "_Quit"
 msgstr "_Kilépés"
 
-#: ../src/msec/msecgui.py:182 ../src/msec/msecgui.py:184
+#: ../src/msec/msecgui.py:182
+#: ../src/msec/msecgui.py:184
 msgid "_Help"
 msgstr "_Súgó"
 
@@ -829,12 +645,11 @@ msgstr "MSEC: rendszerbiztonság és ellenőrzés"
 
 #: ../src/msec/msecgui.py:225
 msgid "Overview"
-msgstr ""
+msgstr "Áttekintés"
 
 #: ../src/msec/msecgui.py:226
-#, fuzzy
 msgid "Security settings"
-msgstr "Biztonsági opció"
+msgstr "Biztonsági beállítások"
 
 #: ../src/msec/msecgui.py:235
 msgid "Basic security"
@@ -856,7 +671,8 @@ msgstr "Periodikus ellenőrzések"
 msgid "Exceptions"
 msgstr "Kivételek"
 
-#: ../src/msec/msecgui.py:240 ../src/msec/msecgui.py:1118
+#: ../src/msec/msecgui.py:240
+#: ../src/msec/msecgui.py:1118
 msgid "Permissions"
 msgstr "Engedélyek"
 
@@ -892,13 +708,14 @@ msgstr "Törölve: %s<b>%s</b>"
 msgid "no changes"
 msgstr "nem történt változás"
 
-#: ../src/msec/msecgui.py:318 ../src/msec/msecgui.py:325
+#: ../src/msec/msecgui.py:318
+#: ../src/msec/msecgui.py:325
 msgid "Saving changes.."
 msgstr "Változtatások mentése.."
 
 #: ../src/msec/msecgui.py:321
 msgid "Ignore and quit"
-msgstr ""
+msgstr "Átugorja és kilépés"
 
 #: ../src/msec/msecgui.py:359
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -932,7 +749,8 @@ msgstr "Felismert alap msec biztonsági szint: '%s'"
 msgid "Security Option"
 msgstr "Biztonsági opció"
 
-#: ../src/msec/msecgui.py:488 ../src/msec/msecgui.py:715
+#: ../src/msec/msecgui.py:488
+#: ../src/msec/msecgui.py:715
 msgid "Description"
 msgstr "Leírás"
 
@@ -946,41 +764,40 @@ msgstr "Érvénytelen opció '%s'!"
 
 #: ../src/msec/msecgui.py:578
 msgid "Firewall"
-msgstr ""
+msgstr "Tűzfal"
 
-#: ../src/msec/msecgui.py:587 ../src/msec/msecgui.py:622
+#: ../src/msec/msecgui.py:587
+#: ../src/msec/msecgui.py:622
 msgid "Configure"
-msgstr ""
+msgstr "Beállítás"
 
 #: ../src/msec/msecgui.py:599
-#, fuzzy
 msgid "Security"
-msgstr "Biztonsági ellenőrzés"
+msgstr "Biztonság"
 
 #: ../src/msec/msecgui.py:605
 msgid "Msec is disabled"
-msgstr ""
+msgstr "Msec letiltva"
 
 #: ../src/msec/msecgui.py:608
 msgid "Msec is enabled"
-msgstr ""
+msgstr "Msec engedélyezve"
 
 #: ../src/msec/msecgui.py:609
-#, fuzzy
 msgid "Base security level: '%s'"
-msgstr "Érvénytelen biztonsági szint: '%s'."
+msgstr "Alap biztonsági szintet: '%s'"
 
 #: ../src/msec/msecgui.py:617
 msgid "Custom settings: %d"
-msgstr ""
+msgstr "Egyéni beállítások: %d"
 
 #: ../src/msec/msecgui.py:634
 msgid "Updates"
-msgstr ""
+msgstr "Frissítések"
 
 #: ../src/msec/msecgui.py:643
 msgid "Update now"
-msgstr ""
+msgstr "Frissítés most"
 
 #: ../src/msec/msecgui.py:675
 msgid "Enable MSEC tool"
@@ -992,12 +809,11 @@ msgstr "Válasszon alap biztonsági szintet"
 
 #: ../src/msec/msecgui.py:705
 msgid "Level name"
-msgstr ""
+msgstr "Szint neve"
 
 #: ../src/msec/msecgui.py:761
-#, fuzzy
 msgid "Send security alerts by email to:"
-msgstr "Biztonsági figyelmeztetések elküldése emailben"
+msgstr "A biztonsági figyelmeztetések elküldése levélben:"
 
 #: ../src/msec/msecgui.py:783
 msgid "Display security alerts on desktop"
@@ -1015,11 +831,13 @@ msgstr "Biztonsági ellenőrzés"
 msgid "Exception"
 msgstr "Kivétel"
 
-#: ../src/msec/msecgui.py:1056 ../src/msec/msecgui.py:1175
+#: ../src/msec/msecgui.py:1056
+#: ../src/msec/msecgui.py:1175
 msgid "Add a rule"
 msgstr "Szabály felvétele"
 
-#: ../src/msec/msecgui.py:1061 ../src/msec/msecgui.py:1180
+#: ../src/msec/msecgui.py:1061
+#: ../src/msec/msecgui.py:1180
 msgid "Delete"
 msgstr "Törlés"
 
@@ -1048,12 +866,8 @@ msgid "Adding new exception"
 msgstr "Új kivétel megadása"
 
 #: ../src/msec/msecgui.py:1291
-msgid ""
-"Editing exception. Please select the correspondent msec check and exception "
-"value\n"
-msgstr ""
-"Kivételek szerkesztése. Kérem jelölje meg az összetartozó msec ellenőrzés- "
-"és kivétel-értékeket\n"
+msgid "Editing exception. Please select the correspondent msec check and exception value\n"
+msgstr "Kivételek szerkesztése. Kérem jelölje meg az összetartozó msec ellenőrzés- és kivétel-értékeket\n"
 
 #: ../src/msec/msecgui.py:1298
 msgid "Check: "
@@ -1074,12 +888,10 @@ msgstr "Új jogosultság-ellenőrzés megadása"
 #: ../src/msec/msecgui.py:1367
 msgid ""
 "Changing permissions on <b>%s</b>\n"
-"Please specify new permissions, or use 'current' to keep current "
-"permissions.\n"
+"Please specify new permissions, or use 'current' to keep current permissions.\n"
 msgstr ""
 "Megváltozott a(z) <b>%s</b> jogosultsága\n"
-"Kérem ellenőrizze az új jogosultságot, és ha az megfelelő, akkor használja a "
-"'current'-et a jelenlegi érték megtartásához.\n"
+"Kérem ellenőrizze az új jogosultságot, és ha az megfelelő, akkor használja a 'current'-et a jelenlegi érték megtartásához.\n"
 
 #: ../src/msec/msecgui.py:1367
 msgid "new file"
@@ -1106,7 +918,6 @@ msgid "Select new value for %s"
 msgstr "Új érték adása %s-nek"
 
 #: ../src/msec/msecgui.py:1465
-#, fuzzy
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1116,8 +927,7 @@ msgstr ""
 "<i>%s</i>\n"
 "\n"
 "\tJelenlegi érték:\t\t\t<i>%s</i>\n"
-"\t%sAlapszinti érték:\t\t<i>%s</i>%s\n"
-"\t%sBiztonságos szinti érték:\t<i>%s</i>%s\n"
+"\t%sAlapértelmezett szint értéke:\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1475
 msgid "New value:"
@@ -1141,15 +951,11 @@ msgstr "A felhasználói umask beállítása %s-re"
 
 #: ../src/msec/plugins/msec.py:195
 msgid "Allowing users to connect X server from everywhere"
-msgstr ""
-"Mindenhonnan engedélyezi a felhasználóknak az X kiszolgálóhoz való "
-"csatlakozást"
+msgstr "Mindenhonnan engedélyezi a felhasználóknak az X kiszolgálóhoz való csatlakozást"
 
 #: ../src/msec/plugins/msec.py:198
 msgid "Allowing users to connect X server from localhost"
-msgstr ""
-"Csak a localhost-ról engedélyezi a felhasználóknak az X kiszolgálóhoz való "
-"csatlakozást"
+msgstr "Csak a localhost-ról engedélyezi a felhasználóknak az X kiszolgálóhoz való csatlakozást"
 
 #: ../src/msec/plugins/msec.py:201
 msgid "Restricting X server connection to the console user"
@@ -1185,8 +991,7 @@ msgstr "A parancsértelmező történeti listájának méretének beállítása:
 
 #: ../src/msec/plugins/msec.py:285
 msgid "Removing limit on shell history size"
-msgstr ""
-"A parancsértelmező történeti listája méretének korlátozásának eltávolítása"
+msgstr "A parancsértelmező történeti listája méretének korlátozásának eltávolítása"
 
 #: ../src/msec/plugins/msec.py:294
 msgid "Invalid file system umask \"%s\""
@@ -1385,11 +1190,8 @@ msgid "Disabling password history"
 msgstr "jelszótörténeti lista letiltása"
 
 #: ../src/msec/plugins/pam.py:124
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
-msgstr ""
-"Érvénytelen jelszóhossz \"%s\". Használja a \"hossz,nszám,nnagybetű\" "
-"kifejezést"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgstr "Érvénytelen jelszóhossz \"%s\". Használja a \"hossz,nszám,nnagybetű\" kifejezést"
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
@@ -1404,10 +1206,7 @@ msgid "no wheel group"
 msgstr "nincs wheel csoport"
 
 #: ../src/msec/plugins/pam.py:177
-msgid ""
-"Security configuration is defined to allow only members of the wheel group "
-"to su to root, but this group is empty. Please add the allowed users into "
-"the wheel group."
+msgid "Security configuration is defined to allow only members of the wheel group to su to root, but this group is empty. Please add the allowed users into the wheel group."
 msgstr ""
 
 #: ../src/msec/plugins/pam.py:185

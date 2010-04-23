@@ -17,13 +17,14 @@
 # Jose JORGE <jjorge@free.fr>, 2005.
 # Zé <mmodem00@gmail.com>, 2006, 2007, 2008, 2010.
 # Zé <ze@mandriva.org>, 2008.
+# Zé <mmodem00@gmal.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-13 13:20+CET\n"
-"PO-Revision-Date: 2010-03-30 03:59+0100\n"
-"Last-Translator: Zé <mmodem00@gmail.com>\n"
+"PO-Revision-Date: 2010-04-23 05:38+0100\n"
+"Last-Translator: Zé <mmodem00@gmal.com>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -167,15 +168,12 @@ msgid "Enables logging of periodic checks to system log."
 msgstr "Activar o registo das verificações periódicas ao registo do sistema."
 
 #: ../src/msec/help.py:50
-#, fuzzy
 msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
-"Activar crontab e at para utilizadores.\n"
-"\n"
-"Coloque os utilizadores autorizados em /etc/cron.allow e\n"
-"/etc/at.allow (veja man em (1) e crontab(1))."
+"Activar crontab e at para utilizadores. Coloque os utilizadores autorizados "
+"em /etc/cron.allow e /etc/at.allow (veja man at(1) e crontab(1))."
 
 #: ../src/msec/help.py:52
 msgid "Accept bogus IPv4 error messages."
@@ -188,12 +186,12 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:56
-#, fuzzy
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
 msgstr ""
-"Define o tamanho do histórico da senha para evitar a reutilização das senhas."
+"Define o tamanho do histórico da senha para evitar a reutilização da senha. "
+"Isto não é suportado pelo pam_tcb."
 
 #: ../src/msec/help.py:58
 msgid "Enable checksum verification for suid files."
@@ -609,23 +607,23 @@ msgstr "A verificar caminhos: %s"
 
 #: ../src/msec/msec.py:87 ../src/msec/msecperms.py:96
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "Nível de segurança inválido '%s'."
 
 #: ../src/msec/msec.py:114 ../src/msec/msecperms.py:121
 msgid "Msec: Mandriva Security Center (%s)\n"
-msgstr ""
+msgstr "Msec: Centro de Segurança Mandriva (%s)\n"
 
 #: ../src/msec/msec.py:115 ../src/msec/msecperms.py:122
 msgid "Error: This application must be executed by root!"
-msgstr ""
+msgstr "Erro: Esta aplicação tem que ser executada como administrador!"
 
 #: ../src/msec/msec.py:116 ../src/msec/msecperms.py:123
 msgid "Run with --help to get help."
-msgstr ""
+msgstr "Execute com --help para obter ajuda."
 
 #: ../src/msec/msec.py:142
 msgid "Level '%s' not found, aborting."
-msgstr ""
+msgstr "Nível '%s' não encontrado. a abortar."
 
 #: ../src/msec/msec.py:144
 msgid "Switching to '%s' level."
@@ -633,7 +631,7 @@ msgstr "A mudar para o nível '%s'."
 
 #: ../src/msec/msec.py:151
 msgid "No custom file permissions for level '%s'."
-msgstr ""
+msgstr "Nenhuma permissão de ficheiros personalizada para o nível '%s'."
 
 #: ../src/msec/msec.py:152
 msgid "Saving file permissions to '%s' level."
@@ -653,6 +651,9 @@ msgid ""
 "This application allows you to configure your system security. If you wish\n"
 "to activate it, choose the appropriate security level: "
 msgstr ""
+"<big><b>Escolha do nível de segurança</b></big>\n"
+"Esta aplicação permite-lhe configurar a segurança do seu sistema.\n"
+"Se a desejar activar, escolha o nível de segurança apropriado: "
 
 #: ../src/msec/msecgui.py:59
 msgid ""
@@ -660,12 +661,18 @@ msgid ""
 "the suggested level for Desktop. If unsure which profile to use, use this "
 "one."
 msgstr ""
+"Este perfil configura um conjunto razoável de opções de segurança. "
+"É o nível sugerido para um computador de secretária (desktop). Se "
+"estiver em dúvida em relação ao nível que deve usar, use este."
 
 #: ../src/msec/msecgui.py:60
 msgid ""
 "This profile is focused on netbooks, laptops or low-end devices, which are "
 "only accessed by local users and run on batteries."
 msgstr ""
+"Este perfil está direccionado para netbooks, portáteis e dispositivos de "
+"baixo custo que são apenas acedidos por utilizadores locais e usam "
+"baterias."
 
 #: ../src/msec/msecgui.py:62
 msgid ""
@@ -673,18 +680,25 @@ msgid ""
 "limiting the remote access to the system. This level is suggested for "
 "security-concerned systems and servers. "
 msgstr ""
+"Este perfil está configurado para fornecer segurança máxima, mesmo "
+"à custa de limitar o acesso remoto ao sistema. Este nível é sugerido "
+"para sistemas e servidores preocupados com a segurança."
 
 #: ../src/msec/msecgui.py:64
 msgid ""
 "This profile is targeted on local network servers, which do not receive "
 "accesses from unauthorized Internet users."
 msgstr ""
+"Este perfil é orientado para servidores de rede local, que não recebem "
+"acessos de utilizadores não autorizados da Internet."
 
 #: ../src/msec/msecgui.py:66
 msgid ""
 "This profile is provided for servers which are intended to be accessed by "
 "unauthorized Internet users."
 msgstr ""
+"Este perfil destina-se para servidores que se destinam a ser acedidos "
+"por utilizadores não autorizados da Internet."
 
 #: ../src/msec/msecgui.py:67
 msgid ""
@@ -692,12 +706,19 @@ msgid ""
 "system settings, and use it for periodic checks only. It configures all "
 "periodic checks to run once a day."
 msgstr ""
+"Este perfil destina-se para os utilizadores que não confiam no msec "
+"para alterar as definições do sistema, e usam-no apenas para verificações "
+"periódicas. Configura todas as verificações periódicas para correrem "
+"uma vez por dia."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
 "This profile is similar to the 'audit_daily' profile, but it runs all checks "
 "weekly."
 msgstr ""
+"Este perfil é similar ao perfil 'audit_daily', mas corre todas as "
+"verificações "
+"semanalmente"
 
 #: ../src/msec/msecgui.py:75
 msgid "Custom security level."
@@ -712,6 +733,12 @@ msgid ""
 "file creation\n"
 "permissions.  "
 msgstr ""
+"<big><b>Opções de segurança do sistema</b></big>\n"
+"Estas opções controlam a configuração de segurança local, tais como "
+"as restrições\n"
+"de autenticação, configuração de senhas, integração com outras "
+"ferramentas de\n"
+"segurança, e criação predefinida de permissões de ficheiros.  "
 
 #: ../src/msec/msecgui.py:83
 msgid ""
@@ -720,6 +747,10 @@ msgid ""
 "unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
+"<big><b>Opções de segurança da rede</b></big>\n"
+"Estas opções definem a segurança da rede contra as ameaças remotas, "
+"acessos não autorizados,\n"
+"e tentativas de entrada.  "
 
 #: ../src/msec/msecgui.py:87
 msgid ""
@@ -727,6 +758,9 @@ msgid ""
 "These options configure the security checks that should be executed "
 "periodically.  "
 msgstr ""
+"<big><b>Verificações periódicas de segurança</b></big>\n"
+"Estas opções configuram as verificações de segurança que devem "
+"ser executadas periodicamente.  "
 
 #: ../src/msec/msecgui.py:90
 msgid ""
@@ -735,6 +769,11 @@ msgid ""
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Excepções</b></big>\n"
+"Aqui pode configurar as excepções permitidas para as verificações\n"
+"periódicas de segurança do msec. Para cada teste suportado, pode\n"
+"adicionar quantas excepções quiser para cada verificação. Note que\n"
+"cada excepção é analisada como uma expressão regular."
 
 #: ../src/msec/msecgui.py:95
 msgid ""
@@ -747,6 +786,16 @@ msgid ""
 "automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
+"<big><b>Permissões de ficheiros</b></big>\n"
+"Estas opções permitem um ajustar bem as permissões do sistema para "
+"ficheiros\n"
+"importantes e directórios. As seguintes permissões são verificadas "
+"periodicamente,\n"
+"e qualquer alteração ao dono, grupo, ou permissão actual é reportado. "
+"A permissão\n"
+"pode ser reforçada, alterá-las automaticamente para os valores "
+"indicados quando\n"
+" uma alteração é detectada."
 
 #: ../src/msec/msecgui.py:101
 msgid "Save and apply new configuration?"
@@ -754,11 +803,11 @@ msgstr "Gravar e aplicar nova configuração?"
 
 #: ../src/msec/msecgui.py:134
 msgid "Unable to load configuration for level '%s'"
-msgstr ""
+msgstr "Incapaz de carregar a configuração para o nível '%s'"
 
 #: ../src/msec/msecgui.py:140
 msgid "Unable to load permissions for level '%s'"
-msgstr ""
+msgstr "Incapaz de carregar permissões para o nível '%s'"
 
 #: ../src/msec/msecgui.py:173
 msgid "_File"
@@ -1155,15 +1204,15 @@ msgstr "Permitir reiniciar pelo utilizador da consola."
 
 #: ../src/msec/plugins/msec.py:338
 msgid "Allowing Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "A permitir Desligar/Reiniciar no GDM"
 
 #: ../src/msec/plugins/msec.py:342
 msgid "Allowing Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "A permitir Desligar/Reiniciar no KDM"
 
 #: ../src/msec/plugins/msec.py:345
 msgid "Allowing Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "A permitir Ctrl-Alt-Del da consola."
 
 #: ../src/msec/plugins/msec.py:349
 #, fuzzy
@@ -1177,31 +1226,31 @@ msgstr "Reiniciar pelo utilizador da consola"
 
 #: ../src/msec/plugins/msec.py:360
 msgid "Forbidding Shutdown/Reboot in GDM"
-msgstr ""
+msgstr "A proibir Desligar/Reiniciar no GDM"
 
 #: ../src/msec/plugins/msec.py:364
 msgid "Forbidding Shutdown/Reboot in KDM"
-msgstr ""
+msgstr "A proibir Desligar/Reiniciar no KDM"
 
 #: ../src/msec/plugins/msec.py:367
 msgid "Forbidding Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "A proibir Ctrl-Alt-Del da consola"
 
 #: ../src/msec/plugins/msec.py:381
 msgid "Allowing list of users in KDM"
-msgstr ""
+msgstr "A permitir a lista de utilizadores do KDM"
 
 #: ../src/msec/plugins/msec.py:385
 msgid "Allowing list of users in GDM"
-msgstr ""
+msgstr "A permitir a lista de utilizadores do GDM"
 
 #: ../src/msec/plugins/msec.py:390
 msgid "Forbidding list of users in KDM"
-msgstr ""
+msgstr "A proibir a lista de utilizadores no KDM"
 
 #: ../src/msec/plugins/msec.py:394
 msgid "Forbidding list of users in GDM"
-msgstr ""
+msgstr "A proibir a lista de utilizadores no GDM"
 
 #: ../src/msec/plugins/msec.py:405
 #, fuzzy
@@ -1215,7 +1264,7 @@ msgstr "Permitir auto-autenticação."
 
 #: ../src/msec/plugins/msec.py:413
 msgid "Activating password in boot loader"
-msgstr ""
+msgstr "A activar a senha no carregador de arranque"
 
 #: ../src/msec/plugins/msec.py:427
 #, fuzzy
@@ -1234,11 +1283,11 @@ msgstr "Mostrar logo na consola"
 
 #: ../src/msec/plugins/msec.py:463
 msgid "Authorizing all services"
-msgstr ""
+msgstr "A autorizar todos os serviços"
 
 #: ../src/msec/plugins/msec.py:467
 msgid "Disabling all services"
-msgstr ""
+msgstr "A desactivar todos os serviços"
 
 #: ../src/msec/plugins/msec.py:471
 #, fuzzy
@@ -1271,11 +1320,11 @@ msgstr "A desactivar crontab e at"
 
 #: ../src/msec/plugins/msec.py:534
 msgid "Allowing export display from root"
-msgstr ""
+msgstr "A permitir exportar o 'display' do root"
 
 #: ../src/msec/plugins/msec.py:538
 msgid "Forbidding export display from root"
-msgstr ""
+msgstr "A proibir exportar o 'display' do root"
 
 #: ../src/msec/plugins/msec.py:564
 msgid "Allowing direct root login"
@@ -1287,19 +1336,19 @@ msgstr "A proibir autenticação root directa"
 
 #: ../src/msec/plugins/msec.py:603
 msgid "Using secure location for temporary files"
-msgstr ""
+msgstr "A usar uma localização segura para os ficheiros temporários"
 
 #: ../src/msec/plugins/msec.py:605
 msgid "Not using secure location for temporary files"
-msgstr ""
+msgstr "A não usar uma localização segura para os ficheiros temporários"
 
 #: ../src/msec/plugins/msec.py:625
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "A permitir incluir o directório actual no caminho (path)"
 
 #: ../src/msec/plugins/msec.py:628
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "A não permitir incluir o directório actual no caminho (path)."
 
 #: ../src/msec/plugins/network.py:134
 msgid "Allowing remote root login"
@@ -1370,6 +1419,9 @@ msgid ""
 "to su to root, but this group is empty. Please add the allowed users into "
 "the wheel group."
 msgstr ""
+"A configuração de segurança está definida para permitir apenas aos "
+"membros do grupo wheel de fazer su para root, mas este grupo está "
+"vazio. Por favor adicione os utilizadores permitidos ao grupo wheel."
 
 #: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"

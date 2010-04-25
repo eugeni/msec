@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: DrakX-el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-13 13:20+CET\n"
-"PO-Revision-Date: 2010-02-20 14:32+0100\n"
-"Last-Translator: Glentadakis Dimitrios\n"
+"PO-Revision-Date: 2010-04-25 10:56+0200\n"
+"Last-Translator: Glentadakis Dimitrios <dglent@gmail.com>\n"
 "Language-Team: Greek <translators_team@mandrivalinux.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -468,6 +468,8 @@ msgid ""
 "Patterns to exclude from disk checks. This parameter is parsed as a regex "
 "(7), so you may use complex expressions."
 msgstr ""
+"Πρότυπα προς αποκλεισμό από τον έλεγχο δίσκων. Αυτή η παράμετρος αναλύεται ως "
+"regex (7), οπότε μπορείτε να χρησιμοποιήσετε σύνθετες εκφράσεις."
 
 #: ../src/msec/help.py:138
 msgid ""
@@ -478,6 +480,14 @@ msgid ""
 "sudo without any password makes your system very vulnerable, and you should "
 "only use this setting if you know what you are doing!"
 msgstr ""
+"Επιτρέπει στους χρήστες της ομάδας wheel να κάνουν χρήση της εντολής sudo. Αν "
+"αυτή η επιλογή έχει οριστεί ως «yes», επιτρέπετε στους χρήστες της ομάδας "
+"wheel να κάνουν χρήση της sudo και να εκτελούν εντολές ως root "
+"χρησιμοποιώντας τον κωδικό τους. Αν η επιλογή ορισθεί σε «without-password», "
+"οι χρήστες θα μπορούν να χρησιμοποιούν την sudo χωρίς να ερωτώνται για τον "
+"κωδικό τους. ΠΡΟΣΟΧΗ: η χρήση της sudo χωρίς κωδικό πρόσβασης κάνει το "
+"σύστημά σας αρκετά ευάλωτο, και θα πρέπει να χρησιμοποιείτε αυτή την επιλογή "
+"μόνο αν γνωρίζεται τι κάνετε!"
 
 #: ../src/msec/help.py:140
 msgid "Set the root umask."
@@ -682,52 +692,51 @@ msgstr ""
 "ασφαλείας :  "
 
 #: ../src/msec/msecgui.py:59
-#, fuzzy
 msgid ""
 "This profile configures a reasonably safe set of security features. It is "
 "the suggested level for Desktop. If unsure which profile to use, use this "
 "one."
 msgstr ""
-"Αυτο το προφίλ ρυθμίζει ένα αρκετά ασφαλές σύνολο χαρακτηριστικών ασφαλείας. "
-"Ενεργοποιεί μερικούς μη παρεμβατικούς ελέγχους του συστήματος. Είναι το "
-"προτεινόμενο επίπεδο για οικιακή χρήση."
+"Αυτό το προφίλ ρυθμίζει ένα αρκετά ασφαλές σύνολο χαρακτηριστικών ασφαλείας. "
+"Είναι το προτεινόμενο επίπεδο για οικιακή χρήση. Αν δεν είστε σίγουρος πιο "
+"προφίλ να χρησιμοποιήσετε, επιλέξτε αυτό."
 
 #: ../src/msec/msecgui.py:60
 msgid ""
 "This profile is focused on netbooks, laptops or low-end devices, which are "
 "only accessed by local users and run on batteries."
 msgstr ""
+"Αυτό το προφίλ είναι προσαρμοσμένο για netbook, φορητούς ή low-end συσκευές, "
+"οι οποίες είναι προσβάσιμες μόνο από τοπικούς χρήστες και λειτουργούν με "
+"μπαταρίες."
 
 #: ../src/msec/msecgui.py:62
-#, fuzzy
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. This level is suggested for "
 "security-concerned systems and servers. "
 msgstr ""
 "Αυτό το προφίλ είναι διαμορφωμένο έτσι ώστε να παρέχει τη μέγιστη δυνατή "
-"ασφάλεια, ακόμα και με το κόστος του περιορισμού της απομακρυσμένης "
-"πρόσβασης στο σύστημα. Επίσης εκτελεί ένα ευρύτερο σύνολο περιοδικών "
-"ελέγχων. Αυτό το επίπεδο προτείνεται για εξυπηρετητές και υπολογιστές που "
+"ασφάλεια, ακόμα και με κόστος τον περιορισμό της απομακρυσμένης "
+"πρόσβασης στο σύστημα. Αυτό το επίπεδο προτείνεται για εξυπηρετητές και "
+"υπολογιστές, που "
 "απαιτούν υψηλή ασφάλεια."
 
 #: ../src/msec/msecgui.py:64
-#, fuzzy
 msgid ""
 "This profile is targeted on local network servers, which do not receive "
 "accesses from unauthorized Internet users."
 msgstr ""
-"Αυτό το προφίλ είναι παρόμοιο με το «Fileserver», αλλά εξασφαλίζει ότι ο "
-"εξυπηρετητής θα δέχεται συνδέσεις μη ταυτοποιημένων χρηστών από το διαδίκτυο."
+"Αυτό το προφίλ είναι κατάλληλο για τοπικούς εξυπηρετητές δικτύων, οι οποίοι "
+"δεν είναι προσβάσιμοι από μη ταυτοποιημένους χρήστες."
 
 #: ../src/msec/msecgui.py:66
-#, fuzzy
 msgid ""
 "This profile is provided for servers which are intended to be accessed by "
 "unauthorized Internet users."
 msgstr ""
-"Αυτό το προφίλ είναι παρόμοιο με το «Fileserver», αλλά εξασφαλίζει ότι ο "
-"εξυπηρετητής θα δέχεται συνδέσεις μη ταυτοποιημένων χρηστών από το διαδίκτυο."
+"Αυτό το προφίλ παρέχεται για εξυπηρετητές, οι οποίοι προορίζονται να είναι "
+"προσβάσιμοι από μη ταυτοποιημένους χρήστες από το διαδίκτυο."
 
 #: ../src/msec/msecgui.py:67
 msgid ""
@@ -735,12 +744,18 @@ msgid ""
 "system settings, and use it for periodic checks only. It configures all "
 "periodic checks to run once a day."
 msgstr ""
+"Αυτό το προφίλ προορίζεται για τους χρήστες που δεν βασίζονται στο msec για "
+"την αλλαγή των ρυθμίσεων του συστήματος, και το χρησιμοποιούν μόνο για τους "
+"περιοδικούς ελέγχους. Ρυθμίζει όλους τους περιοδικούς ελέγχους να εκτελούνται "
+"μια φορά την ημέρα."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
 "This profile is similar to the 'audit_daily' profile, but it runs all checks "
 "weekly."
 msgstr ""
+"Αυτό το προφίλ είναι παρόμοιο με το «audit_daily», αλλά εκτελεί όλους τους "
+"ελέγχους εβδομαδιαία."
 
 #: ../src/msec/msecgui.py:75
 msgid "Custom security level."
@@ -856,12 +871,11 @@ msgstr "MSEC: Ασφάλεια και Έλεγχοι Συστήματος"
 
 #: ../src/msec/msecgui.py:225
 msgid "Overview"
-msgstr ""
+msgstr "Επισκόπηση"
 
 #: ../src/msec/msecgui.py:226
-#, fuzzy
 msgid "Security settings"
-msgstr "Παράμετρος ασφαλείας"
+msgstr "Ρυθμίσεις ασφαλείας"
 
 #: ../src/msec/msecgui.py:235
 msgid "Basic security"
@@ -973,42 +987,39 @@ msgstr "ανούσια επιλογή '%s'!"
 
 #: ../src/msec/msecgui.py:578
 msgid "Firewall"
-msgstr ""
+msgstr "Τοίχος Προστασίας"
 
 #: ../src/msec/msecgui.py:587 ../src/msec/msecgui.py:622
 msgid "Configure"
-msgstr ""
+msgstr "Ρύθμιση"
 
 #: ../src/msec/msecgui.py:599
-#, fuzzy
 msgid "Security"
-msgstr "Έλεγχος ασφαλείας"
+msgstr "Ασφάλεια"
 
 #: ../src/msec/msecgui.py:605
 msgid "Msec is disabled"
-msgstr ""
+msgstr "Το msec είναι απενεργοποιημένο"
 
 #: ../src/msec/msecgui.py:608
-#, fuzzy
 msgid "Msec is enabled"
-msgstr "Απενεργοποιημένο"
+msgstr "Το msec είναι ενεργοποιημένο"
 
 #: ../src/msec/msecgui.py:609
-#, fuzzy
 msgid "Base security level: '%s'"
-msgstr "Άκυρο επίπεδο ασφαλείας « %s »."
+msgstr "Βασικό επίπεδο ασφαλείας: « %s »"
 
 #: ../src/msec/msecgui.py:617
 msgid "Custom settings: %d"
-msgstr ""
+msgstr "Προσαρμοσμένες ρυθμίσεις: %d"
 
 #: ../src/msec/msecgui.py:634
 msgid "Updates"
-msgstr ""
+msgstr "Ενημερώσεις"
 
 #: ../src/msec/msecgui.py:643
 msgid "Update now"
-msgstr ""
+msgstr "Ενημέρωση τώρα"
 
 #: ../src/msec/msecgui.py:675
 msgid "Enable MSEC tool"
@@ -1432,6 +1443,9 @@ msgid ""
 "to su to root, but this group is empty. Please add the allowed users into "
 "the wheel group."
 msgstr ""
+"Η διαμόρφωση ασφαλείας έχει ρυθμιστεί ώστε να επιτρέπει την μόνο στα μέλη της "
+"ομάδας wheel την εκτέλεση της «su» για σύνδεση ως root, αλλά αυτή η ομάδα "
+"είναι κενή. Παρακαλώ προσθέστε τους επιτρεπόμενους χρήστες στην ομάδα wheel."
 
 #: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"

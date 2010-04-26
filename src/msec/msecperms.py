@@ -144,6 +144,11 @@ if __name__ == "__main__":
     # load variables from base level
     config.merge_with_baselevel(log, permconf, base_level, config.load_default_perms, root='')
 
+    # merge with a legacy perm.local
+    permlocal = config.PermConfig(log, config="%s/etc/security/msec/perm.local" % root)
+    permlocal.load()
+    permconf.merge(permlocal, overwrite=True)
+
     # reloading levelconf for base level
     levelconf = config.load_default_perms(log, base_level, root=root)
 

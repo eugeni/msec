@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: msec-2010.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-13 13:20+CET\n"
-"PO-Revision-Date: 2010-04-19 11:15+0100\n"
+"PO-Revision-Date: 2010-04-26 20:42+0100\n"
 "Last-Translator: Gergely Lónyai <aleph@mandriva.org>\n"
 "Language-Team: Hungarian <aleph@mandriva.org>\n"
 "MIME-Version: 1.0\n"
@@ -105,11 +105,11 @@ msgstr "Enfgedélyezi, hogy a chkrootkit ismert rootkit után keressen."
 
 #: ../src/msec/help.py:36
 msgid "Enable msec to enforce file permissions to the values specified in the msec security policy."
-msgstr ""
+msgstr "Engedélyezve, hogy az msec kikényszerítse a biztonsági előírásokban előírt fájljogosultságokat."
 
 #: ../src/msec/help.py:38
 msgid "Enable sectools checks. This check will run all sectool checks for a security level configuration. The security level to be used during this test is determined by the CHECK_SECTOOL_LEVELS variable."
-msgstr ""
+msgstr "A sectools ellenőrzés engedélyezése. Ez az ellenőrzés le fog futtatni minden sectool ellenőrzést, ami a biztonsági szinthez be van állítva. A biztonsági szint beállításához használja a CHECK_SECTOOL_LEVELS változót."
 
 #: ../src/msec/help.py:40
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -239,7 +239,7 @@ msgstr "Közvetlen rendszergazdai bejelentkezés engedélyezése a terminálon."
 
 #: ../src/msec/help.py:102
 msgid "Run security checks when machine is running on battery power."
-msgstr ""
+msgstr "Futtassa az ellenőrzéseket akkor is, ha a számítógép akkumulátorról üzemel."
 
 #: ../src/msec/help.py:104
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
@@ -255,7 +255,7 @@ msgstr "Az erőszakos IPv4 csomagok naplózásának bekapcsolása."
 
 #: ../src/msec/help.py:110
 msgid "Define the default retention period for logs, in weeks. Some countries require that the log files should be kept for 12 months, other do not have such strict requirements. This variable defines the number of past log files that should be kept by logrotate on the system."
-msgstr ""
+msgstr "A rendszernaplók megőrzésének az időtartama hetekben megadva. Néhány országban előírás, hogy a rendszernaplókat meg kell őrizni 12 hónapig, máshol ez nem előírás. Ez a változó beállítja, hogy a logrotate mennyi ideig köteles megtartani a rendszernaplókat."
 
 #: ../src/msec/help.py:112
 msgid "Ask for root password when going to single user level (man sulogin(8))."
@@ -279,7 +279,7 @@ msgstr "A képernyő exportálásának engedélyezése a rendszergazdai azonosí
 
 #: ../src/msec/help.py:122
 msgid "Defines the sectool level to use during the periodic security check. You may use the sectool-gui application to select individual tests for each level. If this variable is not defined, the default level defined in sectool configuration will be used."
-msgstr ""
+msgstr "Meghatározza a sectool szintet az ismétlődő rendszerellenőrzésekhez. Megteheti ezzel a változóval, hogy az alapértelmezett beállításokat megváltoztatja. Amennyiben nincs definiálva, az alapértelmezett értéke lesz használva."
 
 #: ../src/msec/help.py:124
 msgid "Set the shell timeout. A value of zero means no timeout."
@@ -309,11 +309,11 @@ msgstr "Engedélyezi a telepített RPM csomagok sértetlenségének ellenőrzés
 
 #: ../src/msec/help.py:136
 msgid "Patterns to exclude from disk checks. This parameter is parsed as a regex (7), so you may use complex expressions."
-msgstr ""
+msgstr "Minta, amit a lemezellenőrzések során figyelmen kívül kell hagyni. Ez a paraméter egy regex (7) kifejezésként van használva, így tartalmazhat bonyolultabb kifejezést is."
 
 #: ../src/msec/help.py:138
 msgid "Allow users in wheel group to use sudo. If this option is set to 'yes', the users in wheel group are allowed to use sudo and run commands as root by using their passwords. If this option to set to 'without-password', the users can use sudo without being asked for their password. WARNING: using sudo without any password makes your system very vulnerable, and you should only use this setting if you know what you are doing!"
-msgstr ""
+msgstr "Engedi, hogy a wheel csoport tagjai használják a sudo programot. Ha az opció 'yes', akkor a wheel csoport tagjai használhatják a sudo programot, futtathatnak a saját jelszavukkal root jogú programot. Ha az opció 'without-password', akkor a csoport tagjai jelszó megadása nélkül futtathatják a sudo programot. FIGYELEM: a sudo program jelszó nélküli használata a rendszert különösen sérülékennyé teszi. Ne használd így, csak ha tudod mit teszel."
 
 #: ../src/msec/help.py:140
 msgid "Set the root umask."
@@ -523,7 +523,7 @@ msgstr "Ez a beállításprofil a biztonsági lehetőségek közül egy kényelm
 
 #: ../src/msec/msecgui.py:60
 msgid "This profile is focused on netbooks, laptops or low-end devices, which are only accessed by local users and run on batteries."
-msgstr ""
+msgstr "Ez a profil netbookokra, laptopokra és kis képessékű eszközökre lett összeállítva. Feltételezi, hogy csak helyi felhasználók használják a gépet, és tartalmaz akkumulátort."
 
 #: ../src/msec/msecgui.py:62
 msgid "This profile is configured to provide maximum security, even at the cost of limiting the remote access to the system. This level is suggested for security-concerned systems and servers. "
@@ -531,19 +531,19 @@ msgstr "Ez a beállításprofil biztosítja a legbiztonságosabb rendszert, ille
 
 #: ../src/msec/msecgui.py:64
 msgid "This profile is targeted on local network servers, which do not receive accesses from unauthorized Internet users."
-msgstr ""
+msgstr "Ez a profi helyi hálózati kiszolgálóknak lett összeállítva. Elutasítja az azonosítatlan internetes felhasználók kéréseit."
 
 #: ../src/msec/msecgui.py:66
 msgid "This profile is provided for servers which are intended to be accessed by unauthorized Internet users."
-msgstr ""
+msgstr "Ez a profi olyan hálózati kiszolgálóknak lett összeállítva, melyek azonosítatlan internetes felhasználókat is kiszolgálnak."
 
 #: ../src/msec/msecgui.py:67
 msgid "This profile is intended for the users who do not rely on msec to change system settings, and use it for periodic checks only. It configures all periodic checks to run once a day."
-msgstr ""
+msgstr "Ez a profil azoknak a felhasználóknak lett összeállítva, akik nem szeretnék a beállításaikat megváltoztatni, de a napi ellenőrzést szeretnék lefuttatni."
 
 #: ../src/msec/msecgui.py:68
 msgid "This profile is similar to the 'audit_daily' profile, but it runs all checks weekly."
-msgstr ""
+msgstr "Ez a profil hasonló az 'audit_daily' profilhoz, de az ellenőrzések heti egyszer futnak csak le."
 
 #: ../src/msec/msecgui.py:75
 msgid "Custom security level."
@@ -1207,7 +1207,7 @@ msgstr "nincs wheel csoport"
 
 #: ../src/msec/plugins/pam.py:177
 msgid "Security configuration is defined to allow only members of the wheel group to su to root, but this group is empty. Please add the allowed users into the wheel group."
-msgstr ""
+msgstr "A biztonsági beállítások csak a wheel csoport tagjainak engedi a su parancs használatával a rendszergazdai jog megszerzését. Viszont a wheel csoport üres. Adj a wheel csoporthoz felhasználókat."
 
 #: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"

@@ -42,7 +42,7 @@ class audit:
         config.SETTINGS['FIX_UNOWNED'] = ("audit.fix_unowned", config.VALUES_YESNO)
         config.SETTINGS['CHECK_PROMISC'] = ("audit.check_promisc", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_OPEN_PORT'] = ("audit.check_open_port", config.VALUES_PERIODIC)
-        config.SETTINGS['IGNORE_PID_CHANGES'] = ("audit.ignore_pid_changes", config.VALUES_PERIODIC)
+        config.SETTINGS['IGNORE_PID_CHANGES'] = ("audit.ignore_pid_changes", config.VALUES_YESNO)
         config.SETTINGS['CHECK_FIREWALL'] = ("audit.check_firewall", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_PASSWD'] = ("audit.check_passwd", config.VALUES_PERIODIC)
         config.SETTINGS['CHECK_SHADOW'] = ("audit.check_shadow", config.VALUES_PERIODIC)

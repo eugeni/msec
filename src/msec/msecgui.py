@@ -545,8 +545,9 @@ class MsecGui:
         """Builds the security summary UI"""
         vbox = gtk.VBox(homogeneous=False, spacing=20)
 
-        def create_security_item(text, icon=None, s1=None, s2=None):
-            """Helper function to create security items"""
+        table = gtk.Table(4, 4, False)
+
+        def create_security_item(table, row, text, icon=None):
             # show logo
             banner = gtk.HBox(homogeneous=False, spacing=10)
             if icon:
@@ -556,50 +557,48 @@ class MsecGui:
                     pixbuf = gtk.gdk.pixbuf_new_from_file(icon)
                     image.set_from_pixbuf(pixbuf)
                     banner.pack_start(image, False, False)
-                    if s1:
-                        s1.add_widget(image)
+                    table.attach(banner, 0, 1, row, row+1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
                 except:
                     print "Unable to load icon %s: %s" % (icon, sys.exc_value)
             label = gtk.Label(text)
             label.set_property("xalign", 0.0)
             label.modify_font(pango.FontDescription("12"))
-            banner.pack_start(label, False, False)
-            if s2:
-                s1.add_widget(image)
-            return banner
+            label.set_property("xalign", 0.0)
+            label.set_property("yalign", 0.5)
 
-        # size groups
-        sizegroup1 = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
-        sizegroup2 = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
-        sizegroup3 = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
-        sizegroup4 = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
+            table.attach(label, 1, 2, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
 
+        row = 0
         # firewall
-        item = create_security_item(_("Firewall"), "/usr/share/mcc/themes/default/firewall-mdk.png", sizegroup1, sizegroup2)
-        # spacer
-        item.add(gtk.Label())
-        v = gtk.VBox(False, False)
+        create_security_item(table, row, _("Firewall"), "/usr/share/mcc/themes/default/firewall-mdk.png")
         firewall_status = tools.find_firewall_info(log)
         label = gtk.Label(firewall_status)
         label.set_property("xalign", 0.0)
         label.set_property("yalign", 0.5)
-        v.pack_start(label)
+        table.attach(label, 2, 3, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
+
         button = gtk.Button(_("Configure"))
         button.connect('clicked', self.run_configure_app, tools.FIREWALL_CMD)
-        # size groups
-        sizegroup3.add_widget(label)
-        sizegroup4.add_widget(button)
-        button_v = gtk.VBox(False, False)
-        button_v.pack_start(button, True, False)
-        item.pack_start(v, False, False, padding=12)
-        item.pack_start(button_v, False, False, padding=12)
-        vbox.pack_start(item, False, False)
+        table.attach(button, 3, 4, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
+        vbox.pack_start(table, False, False)
+
+        row += 1
+
+        # updates
+        create_security_item(table, row, _("Updates"), "/usr/share/mcc/themes/default/mdkonline-mdk.png")
+        updates = tools.get_updates_status(log)
+        label = gtk.Label(updates)
+        label.set_property("xalign", 0.0)
+        label.set_property("yalign", 0.5)
+        table.attach(label, 2, 3, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
+        button = gtk.Button(_("Update now"))
+        button.connect('clicked', self.run_configure_app, tools.UPDATE_CMD)
+        table.attach(button, 3, 4, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
+
+        row += 1
 
         # security
-        item = create_security_item(_("Security"), "/usr/share/mcc/themes/default/security-mdk.png", sizegroup1, sizegroup2)
-        # spacer
-        item.add(gtk.Label())
-        v = gtk.VBox(False, False)
+        create_security_item(table, row, _("Security"), "/usr/share/mcc/themes/default/security-mdk.png")
         baselevel = self.msecconfig.get("BASE_LEVEL")
         if baselevel == config.NONE_LEVEL:
             msec_status = [_("Msec is disabled")]
@@ -618,41 +617,37 @@ class MsecGui:
         label = gtk.Label("\n".join(msec_status))
         label.set_property("xalign", 0.0)
         label.set_property("yalign", 0.5)
-        v.pack_start(label)
+        table.attach(label, 2, 3, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
+
         button = gtk.Button(_("Configure"))
         button.connect('clicked', lambda x: self.main_notebook.set_current_page(1))
-        # size groups
-        sizegroup3.add_widget(label)
-        sizegroup4.add_widget(button)
-        button_v = gtk.VBox(False, False)
-        button_v.pack_start(button, True, False)
-        item.pack_start(v, False, False, padding=12)
-        item.pack_start(button_v, False, False, padding=12)
-        vbox.pack_start(item, False, False)
+        table.attach(button, 3, 4, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
 
-        # updates
-        item = create_security_item(_("Updates"), "/usr/share/mcc/themes/default/mdkonline-mdk.png", sizegroup1, sizegroup2)
-        # spacer
-        item.add(gtk.Label())
-        v = gtk.VBox(False, False)
-        updates = tools.get_updates_status(log)
-        label = gtk.Label(updates)
+        row += 1
+
+        # msec reports
+        label = gtk.Label(_("Periodic checks"))
         label.set_property("xalign", 0.0)
         label.set_property("yalign", 0.5)
-        v.pack_start(label)
-        button = gtk.Button(_("Update now"))
-        button.connect('clicked', self.run_configure_app, tools.UPDATE_CMD)
-        # size groups
-        sizegroup3.add_widget(label)
-        sizegroup4.add_widget(button)
-        button_v = gtk.VBox(False, False)
-        button_v.pack_start(button, True, False)
-        item.pack_start(v, False, False, padding=12)
-        item.pack_start(button_v, False, False, padding=12)
+        label.modify_font(pango.FontDescription("11"))
+        table.attach(label, 2, 3, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
+        row += 1
+        for check, logfile, updated_n, updated in tools.periodic_check_status(log):
+            if not updated:
+                updated = _("Never")
+            label = gtk.Label(_("Check: %s. Last run: %s") % (check, updated))
+            label.set_property("xalign", 0.0)
+            table.attach(label, 2, 3, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
 
-        vbox.pack_start(item, False, False)
+            button = gtk.Button(_("Run now"))
+            button.connect('clicked', self.show_test_results, logfile)
+            table.attach(button, 3, 4, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
+            row += 1
 
         return vbox
+
+    def show_test_results(self, widget, logfile):
+        """Shows results for the test"""
 
     def run_configure_app(self, widget, cmd):
         """Runs application-specific configuration"""

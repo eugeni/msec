@@ -50,3 +50,17 @@ def get_updates_status(log, updatedir="/var/lib/urpmi"):
         log.error(_("Unable to access %s: %s") % (updatedir, sys.exc_value))
         status = _("Unable to determine update status")
     return status
+
+def periodic_check_status(log):
+    """Determines the state of last periodic checks"""
+    checks = []
+    for check in [ "daily", "weekly", "monthly", "manual" ]:
+        current_log = "/var/log/security/mail.%s.today" % check
+        if os.access(current_log, os.R_OK):
+            ret = os.stat(current_log)
+            last_run = time.localtime(ret[stat.ST_MTIME])
+            updated_s = time.strftime(locale.nl_langinfo(locale.D_T_FMT), last_run)
+            checks.append((check, current_log, last_run, updated_s))
+        else:
+            checks.append((check, current_log, None, None))
+    return checks

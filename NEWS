@@ -1,3 +1,6 @@
+- support merging legacy perm.local into main perms.conf
+- add support for displaying periodic checks results
+- add support for running periodic checks manually
 - add support for merging legacy perm.local file if exists
 - add support for ACL (based on patch from Tiago Marques <tiago.marques@caixamagica.pt>, #58640)
 - add support for IGNORE_PID_CHANGES (#56744)

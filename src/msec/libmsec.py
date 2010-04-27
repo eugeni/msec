@@ -937,13 +937,13 @@ class PERMS:
                     continue
 
             # user
-            if user_s == 'current':
+            if user_s == 'current' or not user_s:
                 user = -1
             else:
                 user = self.get_user_id(user_s)
 
             # group
-            if group_s == 'current':
+            if group_s == 'current' or not group_s:
                 group = -1
             else:
                 group = self.get_group_id(group_s)

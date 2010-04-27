@@ -11,6 +11,8 @@ import signal
 import traceback
 import Queue
 from textwrap import wrap
+from threading import Thread
+import time
 
 # PyGTK
 import warnings
@@ -103,6 +105,24 @@ SAVE_SETTINGS_TEXT=_("""Save and apply new configuration?""")
 # gui-related settings
 DEFAULT_SPACING=5
 BANNER="msec.png"
+
+class BackgroundRunner(Thread):
+    # background task runner
+    def __init__(self, finish, program):
+        Thread.__init__(self)
+        """Runs a program in background."""
+        self.program = program
+        self.finish = finish
+
+    def run(self):
+        """Installs tomoyo policy"""
+        print "Running %s" % self.program
+        try:
+            res = os.system(self.program)
+            self.finish.put(res)
+        except:
+            print "Aborted: %s" % sys.exc_value
+            self.finish.put(-1)
 
 class MsecGui:
     """Msec GUI"""
@@ -639,15 +659,92 @@ class MsecGui:
             label.set_property("xalign", 0.0)
             table.attach(label, 2, 3, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
 
+            #button = gtk.Button(_("Show results"))
+            #button.connect('clicked', self.show_test_results, logfile)
+            #table.attach(button, 3, 4, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
             button = gtk.Button(_("Run now"))
-            button.connect('clicked', self.show_test_results, logfile)
+            button.connect('clicked', self.run_periodic_check, check)
             table.attach(button, 3, 4, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
             row += 1
 
         return vbox
 
-    def show_test_results(self, widget, logfile):
+    def process_events(self):
+        """Process pending gtk events"""
+        while gtk.events_pending():
+            gtk.main_iteration(False)
+
+    def run_periodic_check(self, widget, check):
         """Shows results for the test"""
+        dialog = gtk.MessageDialog(
+                parent=self.window,
+                flags=0,
+                type=gtk.MESSAGE_INFO,
+                message_format = _("Do you want to run periodic check <b>%s</b>? Please note that it could take a considerable time to finish.") % check,
+                buttons=gtk.BUTTONS_YES_NO)
+        dialog.show_all()
+        ret = dialog.run()
+        dialog.destroy()
+        if ret != gtk.RESPONSE_YES:
+            return
+        # progress bar
+        progress = gtk.Window()
+        progress.set_title(_("Please wait, running checks..."))
+        progress.set_transient_for(self.window)
+        progress.set_modal(True)
+        progress.connect('delete-event', lambda *w: None)
+
+        vbox = gtk.VBox(spacing=10)
+        progress.add(vbox)
+        progressbar = gtk.ProgressBar()
+        progressbar.set_text(_("Please wait, running checks..."))
+        vbox.pack_start(progressbar)
+
+        label = gtk.Label(_("Please wait, this might take a few minutes."))
+        vbox.pack_start(label)
+
+        # show window
+        progress.show_all()
+
+        self.process_events()
+        # queue to signal that job is finished
+        q = Queue.Queue()
+
+        if check == "manual":
+            program = "/usr/share/msec/security.sh"
+        else:
+            program = "/etc/cron.%s/msec" % check
+        installer = BackgroundRunner(finish=q, program=program)
+        installer.start()
+
+        while 1:
+            self.process_events()
+            if not q.empty():
+                result = q.get()
+                break
+            else:
+                progressbar.pulse()
+                time.sleep(0.5)
+
+        progress.destroy()
+
+        if result == 0:
+            text = _("Periodic check was executed successfully!")
+            type = gtk.MESSAGE_INFO
+        else:
+            text = _("An error occurred while running periodic check.")
+            type = gtk.MESSAGE_ERROR
+        # policy was initialized
+        dialog = gtk.MessageDialog(
+                parent=self.window,
+                flags=0,
+                type=type,
+                message_format=text,
+                buttons=gtk.BUTTONS_OK
+                )
+        dialog.show_all()
+        dialog.run()
+        dialog.destroy()
 
     def run_configure_app(self, widget, cmd):
         """Runs application-specific configuration"""

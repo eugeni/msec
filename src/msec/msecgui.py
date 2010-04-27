@@ -659,12 +659,17 @@ class MsecGui:
             label.set_property("xalign", 0.0)
             table.attach(label, 2, 3, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
 
-            #button = gtk.Button(_("Show results"))
-            #button.connect('clicked', self.show_test_results, logfile)
-            #table.attach(button, 3, 4, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
+            h = gtk.HBox()
+            button = gtk.Button(_("Show results"))
+            if updated_n:
+                button.connect('clicked', self.show_test_results, logfile)
+            else:
+                button.set_sensitive(False)
+            h.pack_start(button, False, False)
             button = gtk.Button(_("Run now"))
             button.connect('clicked', self.run_periodic_check, check)
-            table.attach(button, 3, 4, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
+            h.pack_start(button, False, False)
+            table.attach(h, 3, 4, row, row + 1, gtk.EXPAND | gtk.FILL, 0, 0, 0)
             row += 1
 
         return vbox
@@ -673,6 +678,40 @@ class MsecGui:
         """Process pending gtk events"""
         while gtk.events_pending():
             gtk.main_iteration(False)
+
+    def show_test_results(self, widget, logfile):
+        """Shows results of last periodic check"""
+        # first, try to read the file
+        data = []
+        try:
+            with open(logfile, "r") as fd:
+                data = fd.readlines()
+        except:
+            data = [_("Unable to read log file: %s") % sys.exc_value]
+        dialog = gtk.Dialog(_("Periodic check results"),
+                self.window,
+                0,
+                (gtk.STOCK_OK, gtk.RESPONSE_OK))
+        dialog.set_size_request(640, 280)
+        view = gtk.TextView()
+        buffer = view.get_buffer()
+        buffer.create_tag("monospace", family="monospace", editable=False)
+        iter = buffer.get_iter_at_offset(0)
+        for l in data:
+            buffer.insert_with_tags_by_name(iter, l, "monospace")
+        sw = gtk.ScrolledWindow()
+        sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
+        sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        sw.add(view)
+
+        dialog.vbox.pack_start(sw)
+
+        dialog.show_all()
+        ret = dialog.run()
+        dialog.destroy()
+        if ret != gtk.RESPONSE_YES:
+            return
+        pass
 
     def run_periodic_check(self, widget, check):
         """Shows results for the test"""

@@ -15,7 +15,7 @@
 # Frank Koester <frank@dueppel13.de>, 2005.Frank Koester <frank@dueppel13.de>, 2006.
 # Nicolas Bauer <rastafarii@mandrivauer.de>, 2006, 2007.
 # Nicolas Bauer <rastafarii@mandrivauser.de>, 2007.
-# Oliver Burger <oliver@mandrivauser.de>, 2008, 2009.
+# Oliver Burger <oliver@mandrivauser.de>, 2008, 2009, 2010.
 # Wolfgang Bornath <wbo@mandriva.com>, 2009.
 # Oliver Burger <oliver.burger@wizard-fire.de>, 2009.
 # Thorsten van Lil <tvl83@gmx.de>, 2009.
@@ -25,8 +25,8 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-13 13:20+CET\n"
-"PO-Revision-Date: 2010-01-17 00:12+0100\n"
-"Last-Translator: Thorsten van Lil <i18n@mandrivauser.de>\n"
+"PO-Revision-Date: 2010-04-28 16:06+0200\n"
+"Last-Translator: Oliver Burger <oliver@mandrivauser.de>\n"
 "Language-Team: German <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,42 +36,39 @@ msgstr ""
 
 #: ../src/msec/config.py:46
 msgid "Modified system files"
-msgstr ""
+msgstr "Veränderte Systemdateien"
 
 #: ../src/msec/config.py:47
-#, fuzzy
 msgid "No changes in system files"
-msgstr "Überprüfungen von Veränderungen der Systembenutzer aktivieren."
+msgstr "Keine Veränderungen an den Systemdateien"
 
 #: ../src/msec/config.py:60
 msgid "Disabled"
-msgstr ""
+msgstr "Deaktiviert"
 
 #: ../src/msec/config.py:211 ../src/msec/config.py:423
 msgid "Unable to load configuration file %s: %s"
-msgstr ""
+msgstr "Laden der Systemdatei %s fehlgeschlagen: %s"
 
 #: ../src/msec/config.py:225 ../src/msec/config.py:334
 #: ../src/msec/config.py:445
-#, fuzzy
 msgid "Bad config option: %s"
-msgstr "_Speichern der Konfiguration"
+msgstr "Schlechte Konfigurationsauswahl: %s"
 
 #: ../src/msec/config.py:260 ../src/msec/config.py:373
 #: ../src/msec/config.py:471
-#, fuzzy
 msgid "Unable to save %s: %s"
-msgstr "Konnte Konfiguration nicht speichern!"
+msgstr "%s kann nicht gespeichert werden: %s"
 
 #: ../src/msec/config.py:319
 #, fuzzy
 msgid "loading exceptions file %s: %s"
-msgstr "Fehler beim Laden des Plugins %s von %s: %s"
+msgstr "Lade die Exceptions-Datei %s: %s"
 
 #: ../src/msec/config.py:320
 #, fuzzy
 msgid "No exceptions loaded"
-msgstr "Ausnahmen"
+msgstr "Keine Exceptions geladen"
 
 #: ../src/msec/help.py:14
 msgid ""
@@ -115,14 +112,16 @@ msgstr ""
 "Pakete installiert oder deinstalliert werden."
 
 #: ../src/msec/help.py:28
-#, fuzzy
 msgid "Enable periodic permission checking for files specified in msec policy."
-msgstr "Aktiviert periodische Checks der Systemdateien."
+msgstr ""
+"Die periodischen Überprüfungen der durch die msec-Richtlinien festgelegten "
+"Dateien aktivieren"
 
 #: ../src/msec/help.py:30
-#, fuzzy
 msgid "Ignore changes in process IDs when checking for open network ports."
-msgstr "Suche nach offenen Netzwerk-Ports aktivieren."
+msgstr ""
+"Veränderungen der Prozess-IDs beim Suchen nach offenen Netzwerk-Ports "
+"ignorieren."
 
 #: ../src/msec/help.py:32
 msgid "Allow X server to accept connections from network on tcp port 6000."
@@ -139,6 +138,8 @@ msgid ""
 "Enable msec to enforce file permissions to the values specified in the msec "
 "security policy."
 msgstr ""
+"Es msec ermöglichen, die Dateirechte gemäß den Werten, die in den "
+"msec-Richtlinien festgelegt sind, zu erzwingen."
 
 #: ../src/msec/help.py:38
 msgid ""
@@ -146,6 +147,10 @@ msgid ""
 "security level configuration. The security level to be used during this test "
 "is determined by the CHECK_SECTOOL_LEVELS variable."
 msgstr ""
+"Die sectools-Überprüfungen aktivieren. Diese Überprüfung wird alle "
+"sectool-Überprüfungen für eine Sicherheits-Ebenen-Einrichtung durchführen. "
+"Die Sicherheits-Ebene, die in diesem Test genutzt wird, wird durch die "
+"Variable CHECK_SECTOOL_LEVELS festgelegt."
 
 #: ../src/msec/help.py:40
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -160,9 +165,9 @@ msgstr ""
 "erlauben."
 
 #: ../src/msec/help.py:44
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "Suche nach offenen Netzwerk-Ports aktivieren."
+msgstr ""
+"Die Überprüfung auf Veränderungen in den Firewall-Einstellungen aktivieren."
 
 #: ../src/msec/help.py:46
 msgid "Enable checking for additions/removals of suid root files."
@@ -238,9 +243,8 @@ msgid "Allow autologin."
 msgstr "Das automatische Anmelden eines Benutzers erlauben."
 
 #: ../src/msec/help.py:72
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "Überprüfungen von Veränderungen der Systembenutzer aktivieren."
+msgstr "Die Überprüfung auf Veränderungen der Systembenutzer aktivieren."
 
 #: ../src/msec/help.py:74
 msgid "Enable checking for unowned files."
@@ -273,10 +277,9 @@ msgstr ""
 "Sicherheitsstufe des Systems erzwungen."
 
 #: ../src/msec/help.py:84
-#, fuzzy
 msgid "Include current directory into user PATH by default"
 msgstr ""
-"Das aktuelle Verzeichnis standardmäßig in PATH des Benutzer einbeziehen."
+"Das aktuelle Verzeichnis standardmäßig in den PFAD des Benutzer einbeziehen."
 
 #: ../src/msec/help.py:86
 msgid ""
@@ -315,9 +318,8 @@ msgstr ""
 "angreifbar macht."
 
 #: ../src/msec/help.py:92
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "Überprüfungen von Veränderungen in den Systemgruppen aktivieren."
+msgstr "Die Überprüfung auf Veränderungen in den Systemgruppen aktivieren."
 
 #: ../src/msec/help.py:94
 msgid ""
@@ -344,6 +346,8 @@ msgstr "Erlaube direkte Root Anmeldung auf dem Terminal."
 #: ../src/msec/help.py:102
 msgid "Run security checks when machine is running on battery power."
 msgstr ""
+"Die Sicherheitsüberprüfungen durchführen, solange der Computer im "
+"Akku-Betrieb läuft."
 
 #: ../src/msec/help.py:104
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
@@ -370,6 +374,10 @@ msgid ""
 "such strict requirements. This variable defines the number of past log files "
 "that should be kept by logrotate on the system."
 msgstr ""
+"Die Aufbewahrungsdauer für Log-Dateien in Wochen festlegen. Manche Länder "
+"schreiben vor, dass Log-Dateien 12 Monate lang aufbewahrt werden, andere "
+"habe keine solchen strikten Vorgaben. Diese Variable legt die Anzahl alter "
+"Log-Dateien fest, die von logrotate auf dem System belassen werden."
 
 #: ../src/msec/help.py:112
 msgid "Ask for root password when going to single user level (man sulogin(8))."
@@ -384,6 +392,7 @@ msgstr "Erlaube Mitgliedern der Gruppe wheel den passwortlosen Root-Zugang."
 #: ../src/msec/help.py:116
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
 msgstr ""
+"Eigentümer und Gruppe eigentümerloser Dateien auf nobody/nogroup korrigieren."
 
 #: ../src/msec/help.py:118
 msgid "Send security check results by email."
@@ -404,6 +413,12 @@ msgid ""
 "If this variable is not defined, the default level defined in sectool "
 "configuration will be used."
 msgstr ""
+"Legt die sectool-Sicherheitsstufe fest, die während der regelmäßigen "
+"Sicherheitsüberprüfungen genutzt wird. Sie können die graphische Oberfläche "
+"von sectool nutzen, um individuelle Tests für die einzelnen "
+"Sicherheitsstufen festzulegen. Wenn diese Variable nicht belegt ist, wird "
+"die Standardsicherheitsstufe gewählt, die in der sectool-Einrichtung "
+"festgelegt wurde."
 
 #: ../src/msec/help.py:124
 msgid "Set the shell timeout. A value of zero means no timeout."
@@ -439,15 +454,14 @@ msgstr ""
 "Dienste manuell in /etc/hosts.allow erlaubt werden (siehe hosts.allow (5))."
 
 #: ../src/msec/help.py:134
-#, fuzzy
 msgid ""
 "Enable verification of integrity of installed RPM packages. This will notify "
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
-"Überprüfen der Integrität installierter RPM Pakete aktivieren. Sie werden "
+"Überprüfung der Integrität installierter RPM Pakete aktivieren. Sie werden "
 "benachrichtigt, falls die Prüfsumme installierter Pakete verändert wurde und "
-"zeigt das Ergebnis der Konfigurationsdatei sowie der Binary."
+"zeigt das Ergebnis der Konfigurationsdatei sowie der Binär-Dateien."
 
 #: ../src/msec/help.py:136
 msgid ""
@@ -464,6 +478,13 @@ msgid ""
 "sudo without any password makes your system very vulnerable, and you should "
 "only use this setting if you know what you are doing!"
 msgstr ""
+"Erlaube den Benutzern in der wheel-Gruppe, sudo zu benutzen. Wenn diese "
+"Einstellung auf 'ja' gesetzt wurde, dürfen die Benutzer in der wheel-Gruppe "
+"mittels sudo Befehle als root ausführen, indem sie ihr Passwort benutzen. "
+"Wenn diese Einstellung auf 'ohne Passwort' gesetzt wurde, können die "
+"Benutzer sudo ohne Passwort benutzen. ACHTUNG: sudo ohne jegliches Passwort "
+"zu benutzen, macht Ihr System sehr stark angreifbar und Sie sollten diese "
+"Einstellung nur nutzen, wenn Sie wissen, was Sie tun!"
 
 #: ../src/msec/help.py:140
 msgid "Set the root umask."
@@ -480,8 +501,11 @@ msgid "Enforce MSEC settings on system startup"
 msgstr "Erzwinge MSEC-Einstellungen beim Systemstart"
 
 #: ../src/msec/help.py:146
+#, fuzzy
 msgid "Enable periodic security check results to terminal."
 msgstr ""
+"Aktiviere die Ausgabe der regelmäßigen Sicherheitsüberprüfungen auf das "
+"Terminal."
 
 #: ../src/msec/help.py:148
 msgid "Enable checking for additions/removals of sgid files."
@@ -538,8 +562,10 @@ msgid "Not supported function '%s' in '%s'"
 msgstr "Nicht unterstützte Funktion %s in %s"
 
 #: ../src/msec/libmsec.py:726 ../src/msec/libmsec.py:856
+#, fuzzy
 msgid "In check-only mode, nothing is written back to disk."
 msgstr ""
+"Im 'Nur Überprüfen'-Modus werden keine Änderung auf der Platte vorgenommen."
 
 #: ../src/msec/libmsec.py:753
 msgid "Invalid parameter for %s: '%s'. Valid parameters: '%s'."
@@ -570,7 +596,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:871
 msgid "Forcing ownership of %s to %s"
-msgstr ""
+msgstr "Erzwinge den Eigentümer von %s auf %s"
 
 #: ../src/msec/libmsec.py:875
 msgid "Error changing user on %s: %s"
@@ -610,7 +636,7 @@ msgstr "Falsche Rechte für '%s': '%s'"
 
 #: ../src/msec/libmsec.py:939
 msgid "Non local file: \"%s\". Nothing changed."
-msgstr ""
+msgstr "Nichtlokale Datei: \"%s\". Keine Änderungen."
 
 #: ../src/msec/libmsec.py:981
 msgid "Checking paths: %s"
@@ -641,23 +667,20 @@ msgid "Switching to '%s' level."
 msgstr "Auf Ebene %s wechseln."
 
 #: ../src/msec/msec.py:151
-#, fuzzy
 msgid "No custom file permissions for level '%s'."
-msgstr "Falsche Rechte für '%s': '%s'"
+msgstr "Keine benutzerdefinierten Rechte für '%s'."
 
 #: ../src/msec/msec.py:152
-#, fuzzy
 msgid "Saving file permissions to '%s' level."
-msgstr "Verändere die Berechtigungen von %s"
+msgstr "Ändere die Dateirechte auf die '%s'-Stufe."
 
 #: ../src/msec/msec.py:192 ../src/msec/msecperms.py:160
 msgid "Unable to save config!"
 msgstr "Konnte Konfiguration nicht speichern!"
 
 #: ../src/msec/msec.py:194
-#, fuzzy
 msgid "Unable to save file system permissions!"
-msgstr "Auf die Standardberechtigungen zurücksetzen"
+msgstr "Sichern der Dateisystemberechtigungen fehlgeschlagen!"
 
 #: ../src/msec/msecgui.py:53
 msgid ""
@@ -670,15 +693,15 @@ msgstr ""
 "Zum Aktivieren wählen Sie eine entsprechende Sicherheitsebene:"
 
 #: ../src/msec/msecgui.py:59
-#, fuzzy
 msgid ""
 "This profile configures a reasonably safe set of security features. It is "
 "the suggested level for Desktop. If unsure which profile to use, use this "
 "one."
 msgstr ""
-"Dieses Profil ist auf eine relativ sicheren Set von Sicherheitsfunktionen "
+"Dieses Profil ist auf eine vernünftige Menge von Sicherheitsfunktionen "
 "ausgerichtet. Es aktiviert einige regelmäßige, unaufdringliche Systemchecks. "
-"Diese Ebene ist für Desktop-Rechner gedacht."
+"Diese Ebene ist für Desktop-Rechner gedacht. "
+"Wenn Sie sich unsicher sind, wählen Sie dieses Profil."
 
 #: ../src/msec/msecgui.py:60
 msgid ""

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-13 13:20+CET\n"
+"POT-Creation-Date: 2010-04-30 09:43+BRT\n"
 "PO-Revision-Date: 2009-10-03 19:27+0200\n"
 "Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -41,13 +41,13 @@ msgid "Unable to load configuration file %s: %s"
 msgstr ""
 
 #: ../src/msec/config.py:225 ../src/msec/config.py:334
-#: ../src/msec/config.py:445
+#: ../src/msec/config.py:442
 #, fuzzy
 msgid "Bad config option: %s"
 msgstr "_Shrani nastavitve"
 
 #: ../src/msec/config.py:260 ../src/msec/config.py:373
-#: ../src/msec/config.py:471
+#: ../src/msec/config.py:468
 #, fuzzy
 msgid "Unable to save %s: %s"
 msgstr "Ni moč shraniti nastavitev."
@@ -76,12 +76,12 @@ msgid "Enable checking for files/directories writable by everybody."
 msgstr "Omogoči preverjanje datotek in map, v katere lahko piše vsakdo."
 
 #: ../src/msec/help.py:18
-msgid "Enable IP spoofing protection."
-msgstr "Omogoči zaščito pred lažnim predstavljanjem naslova IP."
+msgid "Log syslog messages on console terminal 12."
+msgstr "Prikazuj zapise v sistemski dnevnik v konzoli 12."
 
 #: ../src/msec/help.py:20
-msgid "Enable name resolution spoofing protection."
-msgstr "Zaščita pred lažnim predstavljanjem pri razreševanju imen."
+msgid "Send mail reports even if no changes were detected."
+msgstr "Pošlji poročilo po pošti, četudi ni zaznane nobene spremembe."
 
 #: ../src/msec/help.py:22
 msgid ""
@@ -168,8 +168,10 @@ msgstr ""
 "cron.allow in v /etc/at.allow (več o tem v man at(1) in man crontab(1))."
 
 #: ../src/msec/help.py:52
-msgid "Accept bogus IPv4 error messages."
-msgstr "Sprejmi lažna sporočila o napakah IPv4."
+msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
+msgstr ""
+"Omogoči preverjanje za nevarne možnosti v uporabniških datotekah .rhosts in ."
+"shosts."
 
 #: ../src/msec/help.py:54
 msgid ""
@@ -234,8 +236,8 @@ msgid "Enable checking for unowned files."
 msgstr "Omogoči preverjanje za datoteke brez lastnika."
 
 #: ../src/msec/help.py:76
-msgid "Log syslog messages on console terminal 12."
-msgstr "Prikazuj zapise v sistemski dnevnik v konzoli 12."
+msgid "Set the shell timeout. A value of zero means no timeout."
+msgstr "Določi časovno omejitev lupine. Vrednost nič pomeni, da omejitve ni."
 
 #: ../src/msec/help.py:78
 msgid "Allow display managers (kdm and gdm) to display list of local users."
@@ -244,8 +246,8 @@ msgstr ""
 "uporabnikov."
 
 #: ../src/msec/help.py:80
-msgid "Send mail reports even if no changes were detected."
-msgstr "Pošlji poročilo po pošti, četudi ni zaznane nobene spremembe."
+msgid "Enable name resolution spoofing protection."
+msgstr "Zaščita pred lažnim predstavljanjem pri razreševanju imen."
 
 #: ../src/msec/help.py:82
 msgid ""
@@ -297,10 +299,34 @@ msgstr ""
 "onemogočanju gesel, saj bo računalnik s tem zelo ranljiv."
 
 #: ../src/msec/help.py:92
+msgid "Show security notifications in system tray using libnotify."
+msgstr "Prikazuj varnostna obvestila v sistemski vrstici."
+
+#: ../src/msec/help.py:94
+msgid ""
+"Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
+"default system umask is used."
+msgstr ""
+"Nastavi uporabniško masko za priklapljanje razdelkov VFAT in NTFS. Če je "
+"maska »-1«, se uporabi privzeta sistemska uporabniška maska."
+
+#: ../src/msec/help.py:96
+msgid "Enable checking for open network ports."
+msgstr "Omogoči preverjanje za odprta omrežna vrata."
+
+#: ../src/msec/help.py:98
+msgid "Allow direct root login on terminal."
+msgstr "V konzoli dovoli neposredno prijavo uporabnika root."
+
+#: ../src/msec/help.py:100
+msgid "Run security checks when machine is running on battery power."
+msgstr ""
+
+#: ../src/msec/help.py:102
 msgid "Enable checking for changes in system groups."
 msgstr "Omogoči preverjanje za spremembe v sistemskih skupinah."
 
-#: ../src/msec/help.py:94
+#: ../src/msec/help.py:104
 msgid ""
 "Allow remote root login via sshd. If yes, login is allowed. If without-"
 "password, only public-key authentication logins are allowed. See sshd_config"
@@ -311,41 +337,11 @@ msgstr ""
 "overjanjem s pomočjo javnega ključa. Za več podatkov si oglejte man "
 "sshd_config(5)."
 
-#: ../src/msec/help.py:96
-msgid "Show security notifications in system tray using libnotify."
-msgstr "Prikazuj varnostna obvestila v sistemski vrstici."
-
-#: ../src/msec/help.py:98
-msgid "Enable checking for open network ports."
-msgstr "Omogoči preverjanje za odprta omrežna vrata."
-
-#: ../src/msec/help.py:100
-msgid "Allow direct root login on terminal."
-msgstr "V konzoli dovoli neposredno prijavo uporabnika root."
-
-#: ../src/msec/help.py:102
-msgid "Run security checks when machine is running on battery power."
-msgstr ""
-
-#: ../src/msec/help.py:104
-msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr ""
-"Omogoči preverjanje za nevarne možnosti v uporabniških datotekah .rhosts in ."
-"shosts."
-
 #: ../src/msec/help.py:106
-msgid ""
-"Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
-"default system umask is used."
-msgstr ""
-"Nastavi uporabniško masko za priklapljanje razdelkov VFAT in NTFS. Če je "
-"maska »-1«, se uporabi privzeta sistemska uporabniška maska."
-
-#: ../src/msec/help.py:108
 msgid "Enable logging of strange network packets."
 msgstr "Omogoči beleženje čudnih omrežnih paketov."
 
-#: ../src/msec/help.py:110
+#: ../src/msec/help.py:108
 msgid ""
 "Define the default retention period for logs, in weeks. Some countries "
 "require that the log files should be kept for 12 months, other do not have "
@@ -353,11 +349,15 @@ msgid ""
 "that should be kept by logrotate on the system."
 msgstr ""
 
-#: ../src/msec/help.py:112
+#: ../src/msec/help.py:110
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
 "Ob prehodu na stopnjo za enega uporabnika vprašaj za geslo uporabnika root "
 "(man sulogin(8))."
+
+#: ../src/msec/help.py:112
+msgid "Enable IP spoofing protection."
+msgstr "Omogoči zaščito pred lažnim predstavljanjem naslova IP."
 
 #: ../src/msec/help.py:114
 msgid "Allow root access without password for the members of the wheel group."
@@ -388,18 +388,14 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:124
-msgid "Set the shell timeout. A value of zero means no timeout."
-msgstr "Določi časovno omejitev lupine. Vrednost nič pomeni, da omejitve ni."
-
-#: ../src/msec/help.py:126
 msgid "Enable daily security checks."
 msgstr "Omogoči dnevna varnostna preverjanja."
 
-#: ../src/msec/help.py:128
+#: ../src/msec/help.py:126
 msgid "Accept ICMP echo."
 msgstr "Sprejmi odmev ICMP."
 
-#: ../src/msec/help.py:130
+#: ../src/msec/help.py:128
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
@@ -407,7 +403,7 @@ msgstr ""
 "Nastavi najkrajšo dolžino gesla in števila števk ter velikih črk. Pri tem se "
 "uporabi obliko »dolžina,števk,velikih«."
 
-#: ../src/msec/help.py:132
+#: ../src/msec/help.py:130
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
@@ -419,7 +415,7 @@ msgstr ""
 "Če je to »no«, morajo biti storitve dovoljene ročno z vpisom v /etc/hosts."
 "allow (oglejte si man hosts.allow(5))."
 
-#: ../src/msec/help.py:134
+#: ../src/msec/help.py:132
 msgid ""
 "Enable verification of integrity of installed RPM packages. This will notify "
 "you if checksums of the installed files were changed, showing separate "
@@ -429,13 +425,13 @@ msgstr ""
 "nameščenih datotek spremenijo, boste o tem obveščeni. Rezultati za binarne "
 "in nastavitvene datoteke bodo prikazani ločeno."
 
-#: ../src/msec/help.py:136
+#: ../src/msec/help.py:134
 msgid ""
 "Patterns to exclude from disk checks. This parameter is parsed as a regex "
 "(7), so you may use complex expressions."
 msgstr ""
 
-#: ../src/msec/help.py:138
+#: ../src/msec/help.py:136
 msgid ""
 "Allow users in wheel group to use sudo. If this option is set to 'yes', the "
 "users in wheel group are allowed to use sudo and run commands as root by "
@@ -445,22 +441,26 @@ msgid ""
 "only use this setting if you know what you are doing!"
 msgstr ""
 
-#: ../src/msec/help.py:140
+#: ../src/msec/help.py:138
 msgid "Set the root umask."
 msgstr "Nastavi uporabniško masko root-a."
 
-#: ../src/msec/help.py:142
+#: ../src/msec/help.py:140
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
 "Vsako uro izvedi varnostno preverjanje za spremembe v sistemskih nastavitvah."
 
-#: ../src/msec/help.py:144
+#: ../src/msec/help.py:142
 msgid "Enforce MSEC settings on system startup"
 msgstr "Ob zagonu sistema vsili nastavitve MSEC"
 
-#: ../src/msec/help.py:146
+#: ../src/msec/help.py:144
 msgid "Enable periodic security check results to terminal."
 msgstr "Omogoči izpis rezultatov rednih varnostnih preverjanj v terminal."
+
+#: ../src/msec/help.py:146
+msgid "Accept bogus IPv4 error messages."
+msgstr "Sprejmi lažna sporočila o napakah IPv4."
 
 #: ../src/msec/help.py:148
 msgid "Enable checking for additions/removals of sgid files."
@@ -582,15 +582,34 @@ msgstr "Napaka pri spreminjanju dovoljenj za %s: %s"
 msgid "Wrong permissions of %s: should be %o"
 msgstr "Napačna dovoljenja za %s: morala bi biti %o"
 
-#: ../src/msec/libmsec.py:914
+#: ../src/msec/libmsec.py:901
+#, fuzzy
+msgid "Enforcing acl on %s"
+msgstr "Vsiljevanje skupine za %s na %s"
+
+#: ../src/msec/libmsec.py:915
+#, fuzzy
+msgid "Unable to add filesystem-specific ACL %s to %s"
+msgstr "Ponastavi na privzeta dovoljenja stopnje"
+
+#: ../src/msec/libmsec.py:917
+#, fuzzy
+msgid "Error changing acl on %s: %s"
+msgstr "Napaka pri spreminjanju lastnika za %s: %s"
+
+#: ../src/msec/libmsec.py:919
+msgid "Wrong acl of %s"
+msgstr ""
+
+#: ../src/msec/libmsec.py:936
 msgid "bad permissions for '%s': '%s'"
 msgstr "slaba dovoljenja za »%s«: »%s«"
 
-#: ../src/msec/libmsec.py:939
+#: ../src/msec/libmsec.py:961
 msgid "Non local file: \"%s\". Nothing changed."
 msgstr "Ne-krajevna datoteka: »%s«. Nič se ni spremenilo."
 
-#: ../src/msec/libmsec.py:981
+#: ../src/msec/libmsec.py:1006
 msgid "Checking paths: %s"
 msgstr "Preverjanje poti: %s"
 
@@ -628,7 +647,7 @@ msgstr "slaba dovoljenja za »%s«: »%s«"
 msgid "Saving file permissions to '%s' level."
 msgstr "Spreminjanje dovoljenj za %s"
 
-#: ../src/msec/msec.py:192 ../src/msec/msecperms.py:160
+#: ../src/msec/msec.py:192 ../src/msec/msecperms.py:166
 msgid "Unable to save config!"
 msgstr "Ni moč shraniti nastavitev."
 
@@ -637,7 +656,7 @@ msgstr "Ni moč shraniti nastavitev."
 msgid "Unable to save file system permissions!"
 msgstr "Ponastavi na privzeta dovoljenja stopnje"
 
-#: ../src/msec/msecgui.py:53
+#: ../src/msec/msecgui.py:55
 msgid ""
 "<big><b>Choose security level</b></big>\n"
 "This application allows you to configure your system security. If you wish\n"
@@ -647,7 +666,7 @@ msgstr ""
 "Ta program vam omogoča nastaviti varnost sistema. Če želite\n"
 " omogočiti varovanje, izberite ustrezno varnostno stopnjo: "
 
-#: ../src/msec/msecgui.py:59
+#: ../src/msec/msecgui.py:61
 #, fuzzy
 msgid ""
 "This profile configures a reasonably safe set of security features. It is "
@@ -658,13 +677,13 @@ msgstr ""
 "nemotečih rednih preverjanj sistema. To je priporočljiva stopnja za običajno "
 "namizje."
 
-#: ../src/msec/msecgui.py:60
+#: ../src/msec/msecgui.py:62
 msgid ""
 "This profile is focused on netbooks, laptops or low-end devices, which are "
 "only accessed by local users and run on batteries."
 msgstr ""
 
-#: ../src/msec/msecgui.py:62
+#: ../src/msec/msecgui.py:64
 #, fuzzy
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
@@ -675,37 +694,37 @@ msgstr ""
 "do sistema. Prav tako se zažene širši nabor rednih preverjanj. Ta stopnja je "
 "priporočljiva za strežnike in sisteme, kjer je varnost zelo pomembna."
 
-#: ../src/msec/msecgui.py:64
+#: ../src/msec/msecgui.py:66
 msgid ""
 "This profile is targeted on local network servers, which do not receive "
 "accesses from unauthorized Internet users."
 msgstr ""
 
-#: ../src/msec/msecgui.py:66
+#: ../src/msec/msecgui.py:68
 msgid ""
 "This profile is provided for servers which are intended to be accessed by "
 "unauthorized Internet users."
 msgstr ""
 
-#: ../src/msec/msecgui.py:67
+#: ../src/msec/msecgui.py:69
 msgid ""
 "This profile is intended for the users who do not rely on msec to change "
 "system settings, and use it for periodic checks only. It configures all "
 "periodic checks to run once a day."
 msgstr ""
 
-#: ../src/msec/msecgui.py:68
+#: ../src/msec/msecgui.py:70
 msgid ""
 "This profile is similar to the 'audit_daily' profile, but it runs all checks "
 "weekly."
 msgstr ""
 
-#: ../src/msec/msecgui.py:75
+#: ../src/msec/msecgui.py:77
 #, fuzzy
 msgid "Custom security level."
 msgstr "Sistemska varnost"
 
-#: ../src/msec/msecgui.py:78
+#: ../src/msec/msecgui.py:80
 msgid ""
 "<big><b>System security options</b></big>\n"
 "These options control the local security configuration, such as the login "
@@ -720,7 +739,7 @@ msgstr ""
 "možnostmi za gesla, integracijo z drugimi varnostnimi orodji in privzetimi\n"
 "dovoljenji za ustvarjanje datotek.  "
 
-#: ../src/msec/msecgui.py:83
+#: ../src/msec/msecgui.py:85
 msgid ""
 "<big><b>Network security options</b></big>\n"
 "These options define the network security against remote threats, "
@@ -732,7 +751,7 @@ msgstr ""
 "nedovoljenimi dostopi\n"
 "in poskusi vdretja.   "
 
-#: ../src/msec/msecgui.py:87
+#: ../src/msec/msecgui.py:89
 msgid ""
 "<big><b>Periodic security checks</b></big>\n"
 "These options configure the security checks that should be executed "
@@ -741,7 +760,7 @@ msgstr ""
 "<big><b>Varnostna preverjanja</b></big>\n"
 "Te možnosti nastavljajo varnostna preverjanja, ki se redno izvajajo.  "
 
-#: ../src/msec/msecgui.py:90
+#: ../src/msec/msecgui.py:92
 msgid ""
 "<big><b>Exceptions</b></big>\n"
 "Here you can configure the allowed exceptions for msec periodic security\n"
@@ -754,7 +773,7 @@ msgstr ""
 "izjem.\n"
 "Vedite, da je vsaka izjema razčlenjena kot regularni izraz."
 
-#: ../src/msec/msecgui.py:95
+#: ../src/msec/msecgui.py:97
 msgid ""
 "<big><b>File permissions</b></big>\n"
 "These options allow to fine-tune system permissions for important files and "
@@ -773,321 +792,389 @@ msgstr ""
 "bo sporočena. Dovoljenja je moč vsiliti samodejno, tako da se ob spremembi "
 "nastavijo na tu določene nastavitve.  "
 
-#: ../src/msec/msecgui.py:101
+#: ../src/msec/msecgui.py:103
 msgid "Save and apply new configuration?"
 msgstr "Ali shranim in uveljavim nove nastavitve?"
 
-#: ../src/msec/msecgui.py:134
+#: ../src/msec/msecgui.py:154
 msgid "Unable to load configuration for level '%s'"
 msgstr ""
 
-#: ../src/msec/msecgui.py:140
+#: ../src/msec/msecgui.py:160
 #, fuzzy
 msgid "Unable to load permissions for level '%s'"
 msgstr "slaba dovoljenja za »%s«: »%s«"
 
-#: ../src/msec/msecgui.py:173
+#: ../src/msec/msecgui.py:193
 msgid "_File"
 msgstr "_Datoteka"
 
-#: ../src/msec/msecgui.py:175
+#: ../src/msec/msecgui.py:195
 msgid "_Save configuration"
 msgstr "_Shrani nastavitve"
 
-#: ../src/msec/msecgui.py:180
+#: ../src/msec/msecgui.py:200
 msgid "_Quit"
 msgstr "_Končaj"
 
-#: ../src/msec/msecgui.py:182 ../src/msec/msecgui.py:184
+#: ../src/msec/msecgui.py:202 ../src/msec/msecgui.py:204
 msgid "_Help"
 msgstr "_Pomoč"
 
-#: ../src/msec/msecgui.py:185
+#: ../src/msec/msecgui.py:205
 msgid "_About"
 msgstr "_O programu"
 
-#: ../src/msec/msecgui.py:212
+#: ../src/msec/msecgui.py:232
 msgid "MSEC: System Security and Audit"
 msgstr "MSEC: sistemska varnost in nadzor"
 
-#: ../src/msec/msecgui.py:225
+#: ../src/msec/msecgui.py:245
 msgid "Overview"
 msgstr ""
 
-#: ../src/msec/msecgui.py:226
+#: ../src/msec/msecgui.py:246
 #, fuzzy
 msgid "Security settings"
 msgstr "Varnostna možnost"
 
-#: ../src/msec/msecgui.py:235
+#: ../src/msec/msecgui.py:255
 msgid "Basic security"
 msgstr "Osnovna varnost"
 
-#: ../src/msec/msecgui.py:236
+#: ../src/msec/msecgui.py:256
 msgid "System security"
 msgstr "Sistemska varnost"
 
-#: ../src/msec/msecgui.py:237
+#: ../src/msec/msecgui.py:257
 msgid "Network security"
 msgstr "Omrežna varnost"
 
-#: ../src/msec/msecgui.py:238
+#: ../src/msec/msecgui.py:258 ../src/msec/msecgui.py:649
 msgid "Periodic checks"
 msgstr "Redna preverjanja"
 
-#: ../src/msec/msecgui.py:239
+#: ../src/msec/msecgui.py:259
 msgid "Exceptions"
 msgstr "Izjeme"
 
-#: ../src/msec/msecgui.py:240 ../src/msec/msecgui.py:1118
+#: ../src/msec/msecgui.py:260 ../src/msec/msecgui.py:1250
 msgid "Permissions"
 msgstr "Dovoljenja"
 
-#: ../src/msec/msecgui.py:280
+#: ../src/msec/msecgui.py:300
 msgid "MSEC option changes"
 msgstr "Spremembe možnosti MSEC"
 
-#: ../src/msec/msecgui.py:280
+#: ../src/msec/msecgui.py:300
 msgid "option"
 msgstr "možnost"
 
-#: ../src/msec/msecgui.py:281
+#: ../src/msec/msecgui.py:301
 msgid "System permissions changes"
 msgstr "Spremembe sistemskih dovoljenj"
 
-#: ../src/msec/msecgui.py:281
+#: ../src/msec/msecgui.py:301
 msgid "permission check"
 msgstr "preverjanje dovoljenj"
 
-#: ../src/msec/msecgui.py:291
+#: ../src/msec/msecgui.py:311
 msgid "changed %s <b>%s</b> (%s -> %s)"
 msgstr "sprememba %s <b>%s</b> (%s → %s)"
 
-#: ../src/msec/msecgui.py:296
+#: ../src/msec/msecgui.py:316
 msgid "added %s <b>%s</b> (%s)"
 msgstr "dodatek %s <b>%s</b> (%s)"
 
-#: ../src/msec/msecgui.py:301
+#: ../src/msec/msecgui.py:321
 msgid "removed %s <b>%s</b>"
 msgstr "odstranitev %s <b>%s</b>"
 
-#: ../src/msec/msecgui.py:305
+#: ../src/msec/msecgui.py:325
 msgid "no changes"
 msgstr "brez sprememb"
 
-#: ../src/msec/msecgui.py:318 ../src/msec/msecgui.py:325
+#: ../src/msec/msecgui.py:338 ../src/msec/msecgui.py:345
 msgid "Saving changes.."
 msgstr "Shranjevanje sprememb ..."
 
-#: ../src/msec/msecgui.py:321
+#: ../src/msec/msecgui.py:341
 msgid "Ignore and quit"
 msgstr ""
 
-#: ../src/msec/msecgui.py:359
+#: ../src/msec/msecgui.py:379
 msgid "<b>%s:</b> <i>%s</i>\n"
 msgstr "<b>%s:</b> <i>%s</i>\n"
 
-#: ../src/msec/msecgui.py:366
+#: ../src/msec/msecgui.py:386
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
 msgstr "<b>Rezultati poskusnega zagona MSEC:</b> <i>%s</i>"
 
-#: ../src/msec/msecgui.py:374
+#: ../src/msec/msecgui.py:394
 msgid "Details"
 msgstr "Podrobnosti"
 
-#: ../src/msec/msecgui.py:380
+#: ../src/msec/msecgui.py:400
 msgid "MSEC messages (%s): %d"
 msgstr "Sporočila od MSEC (%s): %d"
 
-#: ../src/msec/msecgui.py:394
+#: ../src/msec/msecgui.py:414
 msgid "Details (%d changes).."
 msgstr "Podrobnosti (sprememb: %d) ..."
 
-#: ../src/msec/msecgui.py:447
+#: ../src/msec/msecgui.py:467
 msgid "No base msec level specified, using '%s'"
 msgstr "Osnovna stopnja MSEC ni nastavljena, uporabljanje »%s«"
 
-#: ../src/msec/msecgui.py:450
+#: ../src/msec/msecgui.py:470
 msgid "Detected base msec level '%s'"
 msgstr "Zaznana osnovna stopnja MSEC »%s«"
 
-#: ../src/msec/msecgui.py:478
+#: ../src/msec/msecgui.py:498
 msgid "Security Option"
 msgstr "Varnostna možnost"
 
-#: ../src/msec/msecgui.py:488 ../src/msec/msecgui.py:715
+#: ../src/msec/msecgui.py:508 ../src/msec/msecgui.py:846
 msgid "Description"
 msgstr "Opis"
 
-#: ../src/msec/msecgui.py:493
+#: ../src/msec/msecgui.py:513
 msgid "Value"
 msgstr "Vrednost"
 
-#: ../src/msec/msecgui.py:503
+#: ../src/msec/msecgui.py:523
 msgid "Invalid option '%s'!"
 msgstr "Neveljavna možnost »%s«."
 
-#: ../src/msec/msecgui.py:578
+#: ../src/msec/msecgui.py:593
 msgid "Firewall"
 msgstr ""
 
-#: ../src/msec/msecgui.py:587 ../src/msec/msecgui.py:622
+#: ../src/msec/msecgui.py:600 ../src/msec/msecgui.py:642
 msgid "Configure"
 msgstr ""
 
-#: ../src/msec/msecgui.py:599
+#: ../src/msec/msecgui.py:608
+msgid "Updates"
+msgstr ""
+
+#: ../src/msec/msecgui.py:614
+msgid "Update now"
+msgstr ""
+
+#: ../src/msec/msecgui.py:621
 #, fuzzy
 msgid "Security"
 msgstr "Varnostno preverjanje"
 
-#: ../src/msec/msecgui.py:605
+#: ../src/msec/msecgui.py:624
 msgid "Msec is disabled"
 msgstr ""
 
-#: ../src/msec/msecgui.py:608
+#: ../src/msec/msecgui.py:627
 msgid "Msec is enabled"
 msgstr ""
 
-#: ../src/msec/msecgui.py:609
+#: ../src/msec/msecgui.py:628
 #, fuzzy
 msgid "Base security level: '%s'"
 msgstr "Neveljavna varnostna stopnja »%s«."
 
-#: ../src/msec/msecgui.py:617
+#: ../src/msec/msecgui.py:636
 msgid "Custom settings: %d"
 msgstr ""
 
-#: ../src/msec/msecgui.py:634
-msgid "Updates"
+#: ../src/msec/msecgui.py:657
+msgid "Never"
 msgstr ""
 
-#: ../src/msec/msecgui.py:643
-msgid "Update now"
+#: ../src/msec/msecgui.py:658
+msgid "Check: %s. Last run: %s"
 msgstr ""
 
-#: ../src/msec/msecgui.py:675
+#: ../src/msec/msecgui.py:663
+msgid "Show results"
+msgstr ""
+
+#: ../src/msec/msecgui.py:669
+msgid "Run now"
+msgstr ""
+
+#: ../src/msec/msecgui.py:690
+#, fuzzy
+msgid "Unable to read log file: %s"
+msgstr "Ni moč shraniti nastavitev."
+
+#: ../src/msec/msecgui.py:691
+#, fuzzy
+msgid "Periodic check results"
+msgstr "Redna preverjanja"
+
+#: ../src/msec/msecgui.py:722
+msgid ""
+"Do you want to run periodic check <b>%s</b>? Please note that it could take "
+"a considerable time to finish."
+msgstr ""
+
+#: ../src/msec/msecgui.py:731 ../src/msec/msecgui.py:739
+msgid "Please wait, running checks..."
+msgstr ""
+
+#: ../src/msec/msecgui.py:742
+msgid "Please wait, this might take a few minutes."
+msgstr ""
+
+#: ../src/msec/msecgui.py:771
+msgid "Periodic check was executed successfully!"
+msgstr ""
+
+#: ../src/msec/msecgui.py:774
+msgid "An error occurred while running periodic check."
+msgstr ""
+
+#: ../src/msec/msecgui.py:806
 msgid "Enable MSEC tool"
 msgstr "Omogoči orodje MSEC"
 
-#: ../src/msec/msecgui.py:682
+#: ../src/msec/msecgui.py:813
 msgid "Select the base security level"
 msgstr "Izberite osnovno varnostno stopnjo"
 
-#: ../src/msec/msecgui.py:705
+#: ../src/msec/msecgui.py:836
 msgid "Level name"
 msgstr ""
 
-#: ../src/msec/msecgui.py:761
+#: ../src/msec/msecgui.py:892
 #, fuzzy
 msgid "Send security alerts by email to:"
 msgstr "Pošiljaj varnostna opozorila po pošti"
 
-#: ../src/msec/msecgui.py:783
+#: ../src/msec/msecgui.py:914
 msgid "Display security alerts on desktop"
 msgstr "Prikazuj varnostna opozorila na namizju"
 
-#: ../src/msec/msecgui.py:967
+#: ../src/msec/msecgui.py:1098
 msgid "Enable periodic security checks"
 msgstr "Omogoči redna varnostna preverjanja"
 
-#: ../src/msec/msecgui.py:1029
+#: ../src/msec/msecgui.py:1160
 msgid "Security check"
 msgstr "Varnostno preverjanje"
 
-#: ../src/msec/msecgui.py:1035
+#: ../src/msec/msecgui.py:1166
 msgid "Exception"
 msgstr "Izjema"
 
-#: ../src/msec/msecgui.py:1056 ../src/msec/msecgui.py:1175
+#: ../src/msec/msecgui.py:1187 ../src/msec/msecgui.py:1314
 msgid "Add a rule"
 msgstr "Dodaj pravilo"
 
-#: ../src/msec/msecgui.py:1061 ../src/msec/msecgui.py:1180
+#: ../src/msec/msecgui.py:1192 ../src/msec/msecgui.py:1319
 msgid "Delete"
 msgstr "Zbriši"
 
-#: ../src/msec/msecgui.py:1100
+#: ../src/msec/msecgui.py:1232
 msgid "Path"
 msgstr "Pot"
 
-#: ../src/msec/msecgui.py:1106
+#: ../src/msec/msecgui.py:1238
 msgid "User"
 msgstr "Uporabnik"
 
-#: ../src/msec/msecgui.py:1112
+#: ../src/msec/msecgui.py:1244
 msgid "Group"
 msgstr "Skupina"
 
-#: ../src/msec/msecgui.py:1126
+#: ../src/msec/msecgui.py:1258
 msgid "Enforce"
 msgstr "Vsili"
 
-#: ../src/msec/msecgui.py:1279
+#: ../src/msec/msecgui.py:1266
+msgid "Acl"
+msgstr ""
+
+#: ../src/msec/msecgui.py:1419
 msgid "Editing exception"
 msgstr "Urejanje izjeme"
 
-#: ../src/msec/msecgui.py:1284
+#: ../src/msec/msecgui.py:1424
 msgid "Adding new exception"
 msgstr "Dodajanje nove izjeme"
 
-#: ../src/msec/msecgui.py:1291
+#: ../src/msec/msecgui.py:1431
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr ""
 "Urejanje izjeme. Izberite ustrezno preverjanje msec in vrednost izjeme\n"
 
-#: ../src/msec/msecgui.py:1298
+#: ../src/msec/msecgui.py:1438
 msgid "Check: "
 msgstr "Preverjanje: "
 
-#: ../src/msec/msecgui.py:1313
+#: ../src/msec/msecgui.py:1453
 msgid "Exception: "
 msgstr "Izjema: "
 
-#: ../src/msec/msecgui.py:1348
+#: ../src/msec/msecgui.py:1489
 msgid "Changing permissions for %s"
 msgstr "Spreminjanje dovoljenj za %s"
 
-#: ../src/msec/msecgui.py:1355
+#: ../src/msec/msecgui.py:1497
 msgid "Adding new permission check"
 msgstr "Dodajanje novega preverjanja dovoljenj"
 
-#: ../src/msec/msecgui.py:1367
+#: ../src/msec/msecgui.py:1509
+#, fuzzy
+msgid "Changing permissions on <b>%s</b>"
+msgstr "Spreminjanje dovoljenj za %s"
+
+#: ../src/msec/msecgui.py:1509
+msgid "new file"
+msgstr "nova datoteka"
+
+#: ../src/msec/msecgui.py:1521
+msgid "File: "
+msgstr "Datoteka: "
+
+#: ../src/msec/msecgui.py:1530
+#, fuzzy
 msgid ""
-"Changing permissions on <b>%s</b>\n"
-"Please specify new permissions, or use 'current' to keep current "
-"permissions.\n"
+"Please specify new file owner and permissions, or use 'current' to keep "
+"current settings."
 msgstr ""
 "Spreminjanje dovoljenj na <b>%s</b>\n"
 "Nastavite nova dovoljenja, ali pa uporabite »current«, da obdržite obstoječa "
 "dovoljenja.\n"
 
-#: ../src/msec/msecgui.py:1367
-msgid "new file"
-msgstr "nova datoteka"
-
-#: ../src/msec/msecgui.py:1375
-msgid "File: "
-msgstr "Datoteka: "
-
-#: ../src/msec/msecgui.py:1383
+#: ../src/msec/msecgui.py:1537
 msgid "User: "
 msgstr "Uporabnik: "
 
-#: ../src/msec/msecgui.py:1391
+#: ../src/msec/msecgui.py:1548
 msgid "Group: "
 msgstr "Skupina: "
 
-#: ../src/msec/msecgui.py:1399
+#: ../src/msec/msecgui.py:1559
 msgid "Permissions: "
 msgstr "Dovoljenja: "
 
-#: ../src/msec/msecgui.py:1456
+#: ../src/msec/msecgui.py:1568
+msgid ""
+"To enforce additional ACL on file, specify them in the following format:\n"
+"user1:acl,user2:acl\n"
+"Refer to 'man setfacl' for details."
+msgstr ""
+
+#: ../src/msec/msecgui.py:1575
+msgid "ACL: "
+msgstr ""
+
+#: ../src/msec/msecgui.py:1642
 msgid "Select new value for %s"
 msgstr "Izberite novo vrednost za %s"
 
-#: ../src/msec/msecgui.py:1465
+#: ../src/msec/msecgui.py:1651
 #, fuzzy
 msgid ""
 "<i>%s</i>\n"
@@ -1101,7 +1188,7 @@ msgstr ""
 "\t%sVrednost običajne stopnje:\t<i>%s</i>%s\n"
 "\t%sVrednost varne stopnje:\t\t<i>%s</i>%s\n"
 
-#: ../src/msec/msecgui.py:1475
+#: ../src/msec/msecgui.py:1661
 msgid "New value:"
 msgstr "Nova vrednost:"
 

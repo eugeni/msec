@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX-el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-13 13:20+CET\n"
+"POT-Creation-Date: 2010-04-30 09:43+BRT\n"
 "PO-Revision-Date: 2010-04-25 10:56+0200\n"
 "Last-Translator: Glentadakis Dimitrios <dglent@gmail.com>\n"
 "Language-Team: Greek <translators_team@mandrivalinux.gr>\n"
@@ -41,12 +41,12 @@ msgid "Unable to load configuration file %s: %s"
 msgstr "Αδύνατη η φόρτωση του αρχείου ρυθμίσεων %s: %s"
 
 #: ../src/msec/config.py:225 ../src/msec/config.py:334
-#: ../src/msec/config.py:445
+#: ../src/msec/config.py:442
 msgid "Bad config option: %s"
 msgstr "Εσφαλμένη επιλογή ρύθμισης: %s"
 
 #: ../src/msec/config.py:260 ../src/msec/config.py:373
-#: ../src/msec/config.py:471
+#: ../src/msec/config.py:468
 msgid "Unable to save %s: %s"
 msgstr "Αδύνατη η αποθήκευση του %s: %s"
 
@@ -72,12 +72,12 @@ msgid "Enable checking for files/directories writable by everybody."
 msgstr "Έλεγχος των αρχείων/καταλόγων που είναι εγγράψιμοι από όλους."
 
 #: ../src/msec/help.py:18
-msgid "Enable IP spoofing protection."
-msgstr "Ενεργοποίηση της προστασίας κατά της παραπλάνησης της IP."
+msgid "Log syslog messages on console terminal 12."
+msgstr "Καταγραφή των μηνυμάτων στην κονσόλα τερματικού 12."
 
 #: ../src/msec/help.py:20
-msgid "Enable name resolution spoofing protection."
-msgstr "Ενεργοποίηση της προστασίας κατά της παραπλάνησης του DNS"
+msgid "Send mail reports even if no changes were detected."
+msgstr "Αποστολή μηνυμάτων αναφορών ακόμα και αν δεν έχουν εντοπιστεί αλλαγές."
 
 #: ../src/msec/help.py:22
 msgid ""
@@ -176,8 +176,10 @@ msgstr ""
 "το crontab(1))."
 
 #: ../src/msec/help.py:52
-msgid "Accept bogus IPv4 error messages."
-msgstr "Αποδοχή των δυσλειτουργικών μηνυμάτων λάθους IPv4"
+msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
+msgstr ""
+"Ενεργοποίηση του ελέγχου για επικίνδυνες ρυθμίσεις στα αρχεία .rhosts/."
+"shosts των χρηστών."
 
 #: ../src/msec/help.py:54
 msgid ""
@@ -241,8 +243,8 @@ msgid "Enable checking for unowned files."
 msgstr "Ενεργοποίηση του ελέγχου για αρχεία χωρίς ιδιοκτήτη."
 
 #: ../src/msec/help.py:76
-msgid "Log syslog messages on console terminal 12."
-msgstr "Καταγραφή των μηνυμάτων στην κονσόλα τερματικού 12."
+msgid "Set the shell timeout. A value of zero means no timeout."
+msgstr "Όρισε το χρόνο λήξης του κελύφους. Η τιμή μηδέν σημαίνει χωρίς λήξη."
 
 #: ../src/msec/help.py:78
 msgid "Allow display managers (kdm and gdm) to display list of local users."
@@ -251,8 +253,8 @@ msgstr ""
 "με τους τοπικούς χρήστες."
 
 #: ../src/msec/help.py:80
-msgid "Send mail reports even if no changes were detected."
-msgstr "Αποστολή μηνυμάτων αναφορών ακόμα και αν δεν έχουν εντοπιστεί αλλαγές."
+msgid "Enable name resolution spoofing protection."
+msgstr "Ενεργοποίηση της προστασίας κατά της παραπλάνησης του DNS"
 
 #: ../src/msec/help.py:82
 msgid ""
@@ -309,10 +311,37 @@ msgstr ""
 "υπολογιστή εκτεθειμένο."
 
 #: ../src/msec/help.py:92
+msgid "Show security notifications in system tray using libnotify."
+msgstr ""
+"Εμφάνιση των ειδοποιήσεων ασφαλείας στο πλαίσιο συστήματος χρησιμοποιώντας "
+"libnotify."
+
+#: ../src/msec/help.py:94
+msgid ""
+"Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
+"default system umask is used."
+msgstr ""
+"Όρισε την επιλογή umask για την προσάρτηση κατατμήσεων vfat και ntfs. Αν το "
+"umask είναι '-1', θα χρησιμοποιείται το umask του συστήματος από προεπιλογή."
+
+#: ../src/msec/help.py:96
+msgid "Enable checking for open network ports."
+msgstr "Ενεργοποίηση του ελέγχου ανοιχτών θυρών του δικτύου."
+
+#: ../src/msec/help.py:98
+msgid "Allow direct root login on terminal."
+msgstr "Επέτρεψε την απευθείας σύνδεση root στο τερματικό."
+
+#: ../src/msec/help.py:100
+msgid "Run security checks when machine is running on battery power."
+msgstr ""
+"Εκτέλεση των ελέγχων ασφαλείας όταν ο υπολογιστής λειτουργεί με την μπαταρία."
+
+#: ../src/msec/help.py:102
 msgid "Enable checking for changes in system groups."
 msgstr "Ενεργοποίηση του ελέγχου για αλλαγές στις ομάδες του συστήματος."
 
-#: ../src/msec/help.py:94
+#: ../src/msec/help.py:104
 msgid ""
 "Allow remote root login via sshd. If yes, login is allowed. If without-"
 "password, only public-key authentication logins are allowed. See sshd_config"
@@ -323,44 +352,11 @@ msgstr ""
 "συνδέσεις μόνο με δημόσιο κλειδί. Δείτε την τεκμηρίωση man του sshd_config "
 "(5) για περισσότερες πληροφορίες."
 
-#: ../src/msec/help.py:96
-msgid "Show security notifications in system tray using libnotify."
-msgstr ""
-"Εμφάνιση των ειδοποιήσεων ασφαλείας στο πλαίσιο συστήματος χρησιμοποιώντας "
-"libnotify."
-
-#: ../src/msec/help.py:98
-msgid "Enable checking for open network ports."
-msgstr "Ενεργοποίηση του ελέγχου ανοιχτών θυρών του δικτύου."
-
-#: ../src/msec/help.py:100
-msgid "Allow direct root login on terminal."
-msgstr "Επέτρεψε την απευθείας σύνδεση root στο τερματικό."
-
-#: ../src/msec/help.py:102
-msgid "Run security checks when machine is running on battery power."
-msgstr ""
-"Εκτέλεση των ελέγχων ασφαλείας όταν ο υπολογιστής λειτουργεί με την μπαταρία."
-
-#: ../src/msec/help.py:104
-msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
-msgstr ""
-"Ενεργοποίηση του ελέγχου για επικίνδυνες ρυθμίσεις στα αρχεία .rhosts/."
-"shosts των χρηστών."
-
 #: ../src/msec/help.py:106
-msgid ""
-"Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
-"default system umask is used."
-msgstr ""
-"Όρισε την επιλογή umask για την προσάρτηση κατατμήσεων vfat και ntfs. Αν το "
-"umask είναι '-1', θα χρησιμοποιείται το umask του συστήματος από προεπιλογή."
-
-#: ../src/msec/help.py:108
 msgid "Enable logging of strange network packets."
 msgstr "Ενεργοποίηση της καταγραφής των ύποπτων πακέτων δικτύου."
 
-#: ../src/msec/help.py:110
+#: ../src/msec/help.py:108
 msgid ""
 "Define the default retention period for logs, in weeks. Some countries "
 "require that the log files should be kept for 12 months, other do not have "
@@ -373,11 +369,15 @@ msgstr ""
 "καθορίζει τον αριθμό των προηγούμενων αρχείων καταγραφών που θα διατηρούνται "
 "από το logrotate στο σύστημα."
 
-#: ../src/msec/help.py:112
+#: ../src/msec/help.py:110
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
 "Ερώτηση του κωδικού root κατά την μετάβαση σε επίπεδο απλού χρήστη (man "
 "sulogin(8))."
+
+#: ../src/msec/help.py:112
+msgid "Enable IP spoofing protection."
+msgstr "Ενεργοποίηση της προστασίας κατά της παραπλάνησης της IP."
 
 #: ../src/msec/help.py:114
 msgid "Allow root access without password for the members of the wheel group."
@@ -419,18 +419,14 @@ msgstr ""
 "του sectool."
 
 #: ../src/msec/help.py:124
-msgid "Set the shell timeout. A value of zero means no timeout."
-msgstr "Όρισε το χρόνο λήξης του κελύφους. Η τιμή μηδέν σημαίνει χωρίς λήξη."
-
-#: ../src/msec/help.py:126
 msgid "Enable daily security checks."
 msgstr "Ενεργοποίηση των καθημερινών ελέγχων ασφαλείας."
 
-#: ../src/msec/help.py:128
+#: ../src/msec/help.py:126
 msgid "Accept ICMP echo."
 msgstr "Αποδοχή του icmp echo"
 
-#: ../src/msec/help.py:130
+#: ../src/msec/help.py:128
 msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
@@ -439,7 +435,7 @@ msgstr ""
 "και τον ελάχιστο αριθμό κεφαλαίων γραμμάτων, με τη μορφή « μήκος,nψηφία,"
 "nκεφαλαία »."
 
-#: ../src/msec/help.py:132
+#: ../src/msec/help.py:130
 msgid ""
 "Allow full access to network services controlled by tcp_wrapper (see hosts."
 "deny(5)). If yes, all services are allowed. If local, only connections to "
@@ -452,7 +448,7 @@ msgstr ""
 "υπηρεσίες. Αν « no », οι υπηρεσίες πρέπει να πιστοποιούνται χειροκίνητα στο /"
 "etc/hosts.allow (δες hosts.allow(5)). "
 
-#: ../src/msec/help.py:134
+#: ../src/msec/help.py:132
 msgid ""
 "Enable verification of integrity of installed RPM packages. This will notify "
 "you if checksums of the installed files were changed, showing separate "
@@ -463,15 +459,15 @@ msgstr ""
 "αλλάξει, εμφανίζοντας ξεχωριστά τα αποτελέσματα για δυαδικά αρχεία και "
 "αρχεία ρυθμίσεων. "
 
-#: ../src/msec/help.py:136
+#: ../src/msec/help.py:134
 msgid ""
 "Patterns to exclude from disk checks. This parameter is parsed as a regex "
 "(7), so you may use complex expressions."
 msgstr ""
-"Πρότυπα προς αποκλεισμό από τον έλεγχο δίσκων. Αυτή η παράμετρος αναλύεται ως "
-"regex (7), οπότε μπορείτε να χρησιμοποιήσετε σύνθετες εκφράσεις."
+"Πρότυπα προς αποκλεισμό από τον έλεγχο δίσκων. Αυτή η παράμετρος αναλύεται "
+"ως regex (7), οπότε μπορείτε να χρησιμοποιήσετε σύνθετες εκφράσεις."
 
-#: ../src/msec/help.py:138
+#: ../src/msec/help.py:136
 msgid ""
 "Allow users in wheel group to use sudo. If this option is set to 'yes', the "
 "users in wheel group are allowed to use sudo and run commands as root by "
@@ -480,8 +476,8 @@ msgid ""
 "sudo without any password makes your system very vulnerable, and you should "
 "only use this setting if you know what you are doing!"
 msgstr ""
-"Επιτρέπει στους χρήστες της ομάδας wheel να κάνουν χρήση της εντολής sudo. Αν "
-"αυτή η επιλογή έχει οριστεί ως «yes», επιτρέπετε στους χρήστες της ομάδας "
+"Επιτρέπει στους χρήστες της ομάδας wheel να κάνουν χρήση της εντολής sudo. "
+"Αν αυτή η επιλογή έχει οριστεί ως «yes», επιτρέπετε στους χρήστες της ομάδας "
 "wheel να κάνουν χρήση της sudo και να εκτελούν εντολές ως root "
 "χρησιμοποιώντας τον κωδικό τους. Αν η επιλογή ορισθεί σε «without-password», "
 "οι χρήστες θα μπορούν να χρησιμοποιούν την sudo χωρίς να ερωτώνται για τον "
@@ -489,25 +485,29 @@ msgstr ""
 "σύστημά σας αρκετά ευάλωτο, και θα πρέπει να χρησιμοποιείτε αυτή την επιλογή "
 "μόνο αν γνωρίζεται τι κάνετε!"
 
-#: ../src/msec/help.py:140
+#: ../src/msec/help.py:138
 msgid "Set the root umask."
 msgstr "Όρισε την umask root."
 
-#: ../src/msec/help.py:142
+#: ../src/msec/help.py:140
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
 "Εκτελεί κάθε ώρα έναν έλεγχο ασφαλείας για αλλαγές στην διαμόρφωση του "
 "συστήματος."
 
-#: ../src/msec/help.py:144
+#: ../src/msec/help.py:142
 msgid "Enforce MSEC settings on system startup"
 msgstr "Εφαρμογή των ρυθμίσεων του MSEC στην εκκίνηση"
 
-#: ../src/msec/help.py:146
+#: ../src/msec/help.py:144
 msgid "Enable periodic security check results to terminal."
 msgstr ""
 "Ενεργοποίηση των αποτελεσμάτων του περιοδικού ελέγχου ασφαλείας στο "
 "τερματικό."
+
+#: ../src/msec/help.py:146
+msgid "Accept bogus IPv4 error messages."
+msgstr "Αποδοχή των δυσλειτουργικών μηνυμάτων λάθους IPv4"
 
 #: ../src/msec/help.py:148
 msgid "Enable checking for additions/removals of sgid files."
@@ -627,15 +627,34 @@ msgstr "Σφάλμα στην αλλαγή των αδειών στο %s: %s"
 msgid "Wrong permissions of %s: should be %o"
 msgstr "Εσφαλμένες άδειες του %s: θα πρέπει να είναι %o"
 
-#: ../src/msec/libmsec.py:914
+#: ../src/msec/libmsec.py:901
+#, fuzzy
+msgid "Enforcing acl on %s"
+msgstr "Εξαναγκασμός ομάδας από %s σε %s"
+
+#: ../src/msec/libmsec.py:915
+#, fuzzy
+msgid "Unable to add filesystem-specific ACL %s to %s"
+msgstr "Αδύνατη η αποθήκευση των αδειών του συστήματος αρχείων!"
+
+#: ../src/msec/libmsec.py:917
+#, fuzzy
+msgid "Error changing acl on %s: %s"
+msgstr "Σφάλμα κατά την αλλαγή χρήστη για %s : %s"
+
+#: ../src/msec/libmsec.py:919
+msgid "Wrong acl of %s"
+msgstr ""
+
+#: ../src/msec/libmsec.py:936
 msgid "bad permissions for '%s': '%s'"
 msgstr "Λάθος άδειες για το '%s': '%s'"
 
-#: ../src/msec/libmsec.py:939
+#: ../src/msec/libmsec.py:961
 msgid "Non local file: \"%s\". Nothing changed."
 msgstr "Μη τοπικό αρχείο: \"%s\". Δεν έγινε καμία αλλαγή."
 
-#: ../src/msec/libmsec.py:981
+#: ../src/msec/libmsec.py:1006
 msgid "Checking paths: %s"
 msgstr "Έλεγχος διαδρομών : %s"
 
@@ -671,7 +690,7 @@ msgstr "Δεν υπάρχουν προσαρμοσμένες άδειες αρχ
 msgid "Saving file permissions to '%s' level."
 msgstr "Αποθήκευση των αδειών αρχείου στο επίπεδο «%s»."
 
-#: ../src/msec/msec.py:192 ../src/msec/msecperms.py:160
+#: ../src/msec/msec.py:192 ../src/msec/msecperms.py:166
 msgid "Unable to save config!"
 msgstr "Αδύνατη η αποθήκευση των ρυθμίσεων !"
 
@@ -679,7 +698,7 @@ msgstr "Αδύνατη η αποθήκευση των ρυθμίσεων !"
 msgid "Unable to save file system permissions!"
 msgstr "Αδύνατη η αποθήκευση των αδειών του συστήματος αρχείων!"
 
-#: ../src/msec/msecgui.py:53
+#: ../src/msec/msecgui.py:55
 msgid ""
 "<big><b>Choose security level</b></big>\n"
 "This application allows you to configure your system security. If you wish\n"
@@ -691,7 +710,7 @@ msgstr ""
 "Αν επιθυμείτε να το ενεργοποιήσετε, επιλέξτε το κατάλληλο επίπεδο "
 "ασφαλείας :  "
 
-#: ../src/msec/msecgui.py:59
+#: ../src/msec/msecgui.py:61
 msgid ""
 "This profile configures a reasonably safe set of security features. It is "
 "the suggested level for Desktop. If unsure which profile to use, use this "
@@ -701,7 +720,7 @@ msgstr ""
 "Είναι το προτεινόμενο επίπεδο για οικιακή χρήση. Αν δεν είστε σίγουρος πιο "
 "προφίλ να χρησιμοποιήσετε, επιλέξτε αυτό."
 
-#: ../src/msec/msecgui.py:60
+#: ../src/msec/msecgui.py:62
 msgid ""
 "This profile is focused on netbooks, laptops or low-end devices, which are "
 "only accessed by local users and run on batteries."
@@ -710,19 +729,18 @@ msgstr ""
 "οι οποίες είναι προσβάσιμες μόνο από τοπικούς χρήστες και λειτουργούν με "
 "μπαταρίες."
 
-#: ../src/msec/msecgui.py:62
+#: ../src/msec/msecgui.py:64
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. This level is suggested for "
 "security-concerned systems and servers. "
 msgstr ""
 "Αυτό το προφίλ είναι διαμορφωμένο έτσι ώστε να παρέχει τη μέγιστη δυνατή "
-"ασφάλεια, ακόμα και με κόστος τον περιορισμό της απομακρυσμένης "
-"πρόσβασης στο σύστημα. Αυτό το επίπεδο προτείνεται για εξυπηρετητές και "
-"υπολογιστές, που "
-"απαιτούν υψηλή ασφάλεια."
+"ασφάλεια, ακόμα και με κόστος τον περιορισμό της απομακρυσμένης πρόσβασης "
+"στο σύστημα. Αυτό το επίπεδο προτείνεται για εξυπηρετητές και υπολογιστές, "
+"που απαιτούν υψηλή ασφάλεια."
 
-#: ../src/msec/msecgui.py:64
+#: ../src/msec/msecgui.py:66
 msgid ""
 "This profile is targeted on local network servers, which do not receive "
 "accesses from unauthorized Internet users."
@@ -730,7 +748,7 @@ msgstr ""
 "Αυτό το προφίλ είναι κατάλληλο για τοπικούς εξυπηρετητές δικτύων, οι οποίοι "
 "δεν είναι προσβάσιμοι από μη ταυτοποιημένους χρήστες."
 
-#: ../src/msec/msecgui.py:66
+#: ../src/msec/msecgui.py:68
 msgid ""
 "This profile is provided for servers which are intended to be accessed by "
 "unauthorized Internet users."
@@ -738,7 +756,7 @@ msgstr ""
 "Αυτό το προφίλ παρέχεται για εξυπηρετητές, οι οποίοι προορίζονται να είναι "
 "προσβάσιμοι από μη ταυτοποιημένους χρήστες από το διαδίκτυο."
 
-#: ../src/msec/msecgui.py:67
+#: ../src/msec/msecgui.py:69
 msgid ""
 "This profile is intended for the users who do not rely on msec to change "
 "system settings, and use it for periodic checks only. It configures all "
@@ -746,10 +764,10 @@ msgid ""
 msgstr ""
 "Αυτό το προφίλ προορίζεται για τους χρήστες που δεν βασίζονται στο msec για "
 "την αλλαγή των ρυθμίσεων του συστήματος, και το χρησιμοποιούν μόνο για τους "
-"περιοδικούς ελέγχους. Ρυθμίζει όλους τους περιοδικούς ελέγχους να εκτελούνται "
-"μια φορά την ημέρα."
+"περιοδικούς ελέγχους. Ρυθμίζει όλους τους περιοδικούς ελέγχους να "
+"εκτελούνται μια φορά την ημέρα."
 
-#: ../src/msec/msecgui.py:68
+#: ../src/msec/msecgui.py:70
 msgid ""
 "This profile is similar to the 'audit_daily' profile, but it runs all checks "
 "weekly."
@@ -757,11 +775,11 @@ msgstr ""
 "Αυτό το προφίλ είναι παρόμοιο με το «audit_daily», αλλά εκτελεί όλους τους "
 "ελέγχους εβδομαδιαία."
 
-#: ../src/msec/msecgui.py:75
+#: ../src/msec/msecgui.py:77
 msgid "Custom security level."
 msgstr "Προσαρμοσμένο επίπεδο ασφαλείας."
 
-#: ../src/msec/msecgui.py:78
+#: ../src/msec/msecgui.py:80
 msgid ""
 "<big><b>System security options</b></big>\n"
 "These options control the local security configuration, such as the login "
@@ -777,7 +795,7 @@ msgstr ""
 "η ενσωμάτωση με άλλα εργαλεία ασφαλείας, και οι προεπιλεγμένες άδειες "
 "δημιουργίας αρχείων.  "
 
-#: ../src/msec/msecgui.py:83
+#: ../src/msec/msecgui.py:85
 msgid ""
 "<big><b>Network security options</b></big>\n"
 "These options define the network security against remote threats, "
@@ -789,7 +807,7 @@ msgstr ""
 "εναντίον απομακρυσμένων απειλών, μη εξουσιοδοτημένης πρόσβασης, και απειλών "
 "διάρρηξης.  "
 
-#: ../src/msec/msecgui.py:87
+#: ../src/msec/msecgui.py:89
 msgid ""
 "<big><b>Periodic security checks</b></big>\n"
 "These options configure the security checks that should be executed "
@@ -799,7 +817,7 @@ msgstr ""
 "Αυτές οι επιλογές ρυθμίζουν τους ελέγχους ασφαλείας, που θα πρέπει να "
 "εκτελούνται περιοδικά."
 
-#: ../src/msec/msecgui.py:90
+#: ../src/msec/msecgui.py:92
 msgid ""
 "<big><b>Exceptions</b></big>\n"
 "Here you can configure the allowed exceptions for msec periodic security\n"
@@ -813,7 +831,7 @@ msgstr ""
 "εξαιρέσεις επιθυμείτε\n"
 "για κάθε έλεγχο. Σημειώστε ότι κάθε εξαίρεση υπολογίζεται ως regexp."
 
-#: ../src/msec/msecgui.py:95
+#: ../src/msec/msecgui.py:97
 msgid ""
 "<big><b>File permissions</b></big>\n"
 "These options allow to fine-tune system permissions for important files and "
@@ -833,259 +851,311 @@ msgstr ""
 "μπορούν να εφαρμοστούν εξαναγκαστικά,\n"
 "επαναφέροντάς τες, αυτόματα, στις προσδιορισμένες τιμές."
 
-#: ../src/msec/msecgui.py:101
+#: ../src/msec/msecgui.py:103
 msgid "Save and apply new configuration?"
 msgstr "Αποθήκευση και εφαρμογή των νέων ρυθμίσεων ;"
 
-#: ../src/msec/msecgui.py:134
+#: ../src/msec/msecgui.py:154
 msgid "Unable to load configuration for level '%s'"
 msgstr "Αδύνατη η φόρτωση της διαμόρφωσης για το επίπεδο «%s»"
 
-#: ../src/msec/msecgui.py:140
+#: ../src/msec/msecgui.py:160
 msgid "Unable to load permissions for level '%s'"
 msgstr "Αδύνατη η φόρτωση αδειών για το επίπεδο «%s»"
 
-#: ../src/msec/msecgui.py:173
+#: ../src/msec/msecgui.py:193
 msgid "_File"
 msgstr "_Αρχείο"
 
-#: ../src/msec/msecgui.py:175
+#: ../src/msec/msecgui.py:195
 msgid "_Save configuration"
 msgstr "Αποθήκευση ρυθμίσεων"
 
-#: ../src/msec/msecgui.py:180
+#: ../src/msec/msecgui.py:200
 msgid "_Quit"
 msgstr "_Έξοδος"
 
-#: ../src/msec/msecgui.py:182 ../src/msec/msecgui.py:184
+#: ../src/msec/msecgui.py:202 ../src/msec/msecgui.py:204
 msgid "_Help"
 msgstr "_Βοήθεια"
 
-#: ../src/msec/msecgui.py:185
+#: ../src/msec/msecgui.py:205
 msgid "_About"
 msgstr "_Σχετικά με..."
 
-#: ../src/msec/msecgui.py:212
+#: ../src/msec/msecgui.py:232
 msgid "MSEC: System Security and Audit"
 msgstr "MSEC: Ασφάλεια και Έλεγχοι Συστήματος"
 
-#: ../src/msec/msecgui.py:225
+#: ../src/msec/msecgui.py:245
 msgid "Overview"
 msgstr "Επισκόπηση"
 
-#: ../src/msec/msecgui.py:226
+#: ../src/msec/msecgui.py:246
 msgid "Security settings"
 msgstr "Ρυθμίσεις ασφαλείας"
 
-#: ../src/msec/msecgui.py:235
+#: ../src/msec/msecgui.py:255
 msgid "Basic security"
 msgstr "Βασική ασφάλεια"
 
-#: ../src/msec/msecgui.py:236
+#: ../src/msec/msecgui.py:256
 msgid "System security"
 msgstr "Ασφάλεια συστήματος"
 
-#: ../src/msec/msecgui.py:237
+#: ../src/msec/msecgui.py:257
 msgid "Network security"
 msgstr "Ασφάλεια δικτύου"
 
-#: ../src/msec/msecgui.py:238
+#: ../src/msec/msecgui.py:258 ../src/msec/msecgui.py:649
 msgid "Periodic checks"
 msgstr "Περιοδικοί έλεγχοι"
 
-#: ../src/msec/msecgui.py:239
+#: ../src/msec/msecgui.py:259
 msgid "Exceptions"
 msgstr "Εξαιρέσεις"
 
-#: ../src/msec/msecgui.py:240 ../src/msec/msecgui.py:1118
+#: ../src/msec/msecgui.py:260 ../src/msec/msecgui.py:1250
 msgid "Permissions"
 msgstr "Άδειες"
 
-#: ../src/msec/msecgui.py:280
+#: ../src/msec/msecgui.py:300
 msgid "MSEC option changes"
 msgstr "Αλλαγές στις επιλογές του MSEC"
 
-#: ../src/msec/msecgui.py:280
+#: ../src/msec/msecgui.py:300
 msgid "option"
 msgstr "επιλογή"
 
-#: ../src/msec/msecgui.py:281
+#: ../src/msec/msecgui.py:301
 msgid "System permissions changes"
 msgstr "Αλλαγές των αδειών συστήματος"
 
-#: ../src/msec/msecgui.py:281
+#: ../src/msec/msecgui.py:301
 msgid "permission check"
 msgstr "έλεγχος αδειών"
 
-#: ../src/msec/msecgui.py:291
+#: ../src/msec/msecgui.py:311
 msgid "changed %s <b>%s</b> (%s -> %s)"
 msgstr "αλλάχτηκε, %s <b>%s</b> (%s -> %s)"
 
-#: ../src/msec/msecgui.py:296
+#: ../src/msec/msecgui.py:316
 msgid "added %s <b>%s</b> (%s)"
 msgstr "προστέθηκε, %s <b>%s</b> (%s)"
 
-#: ../src/msec/msecgui.py:301
+#: ../src/msec/msecgui.py:321
 msgid "removed %s <b>%s</b>"
 msgstr "αφαιρέθηκε, %s <b>%s</b>"
 
-#: ../src/msec/msecgui.py:305
+#: ../src/msec/msecgui.py:325
 msgid "no changes"
 msgstr "καμία αλλαγή"
 
-#: ../src/msec/msecgui.py:318 ../src/msec/msecgui.py:325
+#: ../src/msec/msecgui.py:338 ../src/msec/msecgui.py:345
 msgid "Saving changes.."
 msgstr "Αποθήκευση αλλαγών..."
 
-#: ../src/msec/msecgui.py:321
+#: ../src/msec/msecgui.py:341
 msgid "Ignore and quit"
 msgstr "Παράβλεψη και έξοδος"
 
-#: ../src/msec/msecgui.py:359
+#: ../src/msec/msecgui.py:379
 msgid "<b>%s:</b> <i>%s</i>\n"
 msgstr "<b>%s:</b> <i>%s</i>\n"
 
-#: ../src/msec/msecgui.py:366
+#: ../src/msec/msecgui.py:386
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
 msgstr "<b>Αποτελέσματα της εκτέλεσης ελέγχου του MSEC:</b> <i>%s</i>"
 
-#: ../src/msec/msecgui.py:374
+#: ../src/msec/msecgui.py:394
 msgid "Details"
 msgstr "Λεπτομέρειες"
 
-#: ../src/msec/msecgui.py:380
+#: ../src/msec/msecgui.py:400
 msgid "MSEC messages (%s): %d"
 msgstr "Μυνήματα MSEC (%s): %d"
 
-#: ../src/msec/msecgui.py:394
+#: ../src/msec/msecgui.py:414
 msgid "Details (%d changes).."
 msgstr "Λεπτομέρειες (%d αλλαγές).."
 
-#: ../src/msec/msecgui.py:447
+#: ../src/msec/msecgui.py:467
 msgid "No base msec level specified, using '%s'"
 msgstr "Δεν έχει καθοριστεί βασικό επίπεδο msec, χρήση του « %s »"
 
-#: ../src/msec/msecgui.py:450
+#: ../src/msec/msecgui.py:470
 msgid "Detected base msec level '%s'"
 msgstr "Εντοπίστηκε το βασικό επίπεδο msec « %s »"
 
-#: ../src/msec/msecgui.py:478
+#: ../src/msec/msecgui.py:498
 msgid "Security Option"
 msgstr "Παράμετρος ασφαλείας"
 
-#: ../src/msec/msecgui.py:488 ../src/msec/msecgui.py:715
+#: ../src/msec/msecgui.py:508 ../src/msec/msecgui.py:846
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: ../src/msec/msecgui.py:493
+#: ../src/msec/msecgui.py:513
 msgid "Value"
 msgstr "Τιμή"
 
-#: ../src/msec/msecgui.py:503
+#: ../src/msec/msecgui.py:523
 msgid "Invalid option '%s'!"
 msgstr "ανούσια επιλογή '%s'!"
 
-#: ../src/msec/msecgui.py:578
+#: ../src/msec/msecgui.py:593
 msgid "Firewall"
 msgstr "Τοίχος Προστασίας"
 
-#: ../src/msec/msecgui.py:587 ../src/msec/msecgui.py:622
+#: ../src/msec/msecgui.py:600 ../src/msec/msecgui.py:642
 msgid "Configure"
 msgstr "Ρύθμιση"
 
-#: ../src/msec/msecgui.py:599
-msgid "Security"
-msgstr "Ασφάλεια"
-
-#: ../src/msec/msecgui.py:605
-msgid "Msec is disabled"
-msgstr "Το msec είναι απενεργοποιημένο"
-
 #: ../src/msec/msecgui.py:608
-msgid "Msec is enabled"
-msgstr "Το msec είναι ενεργοποιημένο"
-
-#: ../src/msec/msecgui.py:609
-msgid "Base security level: '%s'"
-msgstr "Βασικό επίπεδο ασφαλείας: « %s »"
-
-#: ../src/msec/msecgui.py:617
-msgid "Custom settings: %d"
-msgstr "Προσαρμοσμένες ρυθμίσεις: %d"
-
-#: ../src/msec/msecgui.py:634
 msgid "Updates"
 msgstr "Ενημερώσεις"
 
-#: ../src/msec/msecgui.py:643
+#: ../src/msec/msecgui.py:614
 msgid "Update now"
 msgstr "Ενημέρωση τώρα"
 
-#: ../src/msec/msecgui.py:675
+#: ../src/msec/msecgui.py:621
+msgid "Security"
+msgstr "Ασφάλεια"
+
+#: ../src/msec/msecgui.py:624
+msgid "Msec is disabled"
+msgstr "Το msec είναι απενεργοποιημένο"
+
+#: ../src/msec/msecgui.py:627
+msgid "Msec is enabled"
+msgstr "Το msec είναι ενεργοποιημένο"
+
+#: ../src/msec/msecgui.py:628
+msgid "Base security level: '%s'"
+msgstr "Βασικό επίπεδο ασφαλείας: « %s »"
+
+#: ../src/msec/msecgui.py:636
+msgid "Custom settings: %d"
+msgstr "Προσαρμοσμένες ρυθμίσεις: %d"
+
+#: ../src/msec/msecgui.py:657
+msgid "Never"
+msgstr ""
+
+#: ../src/msec/msecgui.py:658
+msgid "Check: %s. Last run: %s"
+msgstr ""
+
+#: ../src/msec/msecgui.py:663
+msgid "Show results"
+msgstr ""
+
+#: ../src/msec/msecgui.py:669
+msgid "Run now"
+msgstr ""
+
+#: ../src/msec/msecgui.py:690
+#, fuzzy
+msgid "Unable to read log file: %s"
+msgstr "Αδύνατη η φόρτωση του αρχείου ρυθμίσεων %s: %s"
+
+#: ../src/msec/msecgui.py:691
+#, fuzzy
+msgid "Periodic check results"
+msgstr "Περιοδικοί έλεγχοι"
+
+#: ../src/msec/msecgui.py:722
+msgid ""
+"Do you want to run periodic check <b>%s</b>? Please note that it could take "
+"a considerable time to finish."
+msgstr ""
+
+#: ../src/msec/msecgui.py:731 ../src/msec/msecgui.py:739
+msgid "Please wait, running checks..."
+msgstr ""
+
+#: ../src/msec/msecgui.py:742
+msgid "Please wait, this might take a few minutes."
+msgstr ""
+
+#: ../src/msec/msecgui.py:771
+msgid "Periodic check was executed successfully!"
+msgstr ""
+
+#: ../src/msec/msecgui.py:774
+msgid "An error occurred while running periodic check."
+msgstr ""
+
+#: ../src/msec/msecgui.py:806
 msgid "Enable MSEC tool"
 msgstr "Ενεργοποίηση του εργαλείου MSEC"
 
-#: ../src/msec/msecgui.py:682
+#: ../src/msec/msecgui.py:813
 msgid "Select the base security level"
 msgstr "Επιλέξτε το βασικό επίπεδο ασφαλείας"
 
-#: ../src/msec/msecgui.py:705
+#: ../src/msec/msecgui.py:836
 msgid "Level name"
 msgstr "Επίπεδο ασφαλείας"
 
-#: ../src/msec/msecgui.py:761
+#: ../src/msec/msecgui.py:892
 msgid "Send security alerts by email to:"
 msgstr "Αποστολή συναγερμών ασφαλείας μέσω email στον:"
 
-#: ../src/msec/msecgui.py:783
+#: ../src/msec/msecgui.py:914
 msgid "Display security alerts on desktop"
 msgstr "Προβολή των συναγερμών ασφαλείας στην επιφάνεια εργασίας"
 
-#: ../src/msec/msecgui.py:967
+#: ../src/msec/msecgui.py:1098
 msgid "Enable periodic security checks"
 msgstr "Ενεργοποίηση των περιοδικών ελέγχων ασφαλείας"
 
-#: ../src/msec/msecgui.py:1029
+#: ../src/msec/msecgui.py:1160
 msgid "Security check"
 msgstr "Έλεγχος ασφαλείας"
 
-#: ../src/msec/msecgui.py:1035
+#: ../src/msec/msecgui.py:1166
 msgid "Exception"
 msgstr "Εξαίρεση"
 
-#: ../src/msec/msecgui.py:1056 ../src/msec/msecgui.py:1175
+#: ../src/msec/msecgui.py:1187 ../src/msec/msecgui.py:1314
 msgid "Add a rule"
 msgstr "Προσθήκη ενός κανόνα"
 
-#: ../src/msec/msecgui.py:1061 ../src/msec/msecgui.py:1180
+#: ../src/msec/msecgui.py:1192 ../src/msec/msecgui.py:1319
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: ../src/msec/msecgui.py:1100
+#: ../src/msec/msecgui.py:1232
 msgid "Path"
 msgstr "Διαδρομή"
 
-#: ../src/msec/msecgui.py:1106
+#: ../src/msec/msecgui.py:1238
 msgid "User"
 msgstr "Χρήστης"
 
-#: ../src/msec/msecgui.py:1112
+#: ../src/msec/msecgui.py:1244
 msgid "Group"
 msgstr "Ομάδα"
 
-#: ../src/msec/msecgui.py:1126
+#: ../src/msec/msecgui.py:1258
 msgid "Enforce"
 msgstr "Εξαναγκασμός"
 
-#: ../src/msec/msecgui.py:1279
+#: ../src/msec/msecgui.py:1266
+msgid "Acl"
+msgstr ""
+
+#: ../src/msec/msecgui.py:1419
 msgid "Editing exception"
 msgstr "Επεξεργασία εξαίρεσης"
 
-#: ../src/msec/msecgui.py:1284
+#: ../src/msec/msecgui.py:1424
 msgid "Adding new exception"
 msgstr "Προσθήκη νέας εξαίρεσης"
 
-#: ../src/msec/msecgui.py:1291
+#: ../src/msec/msecgui.py:1431
 msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
@@ -1093,57 +1163,73 @@ msgstr ""
 "Επεξεργασία εξαίρεσης. Παρακαλώ επιλέξτε τον αντίστοιχο έλεγχο msec\n"
 "και την τιμή της εξαίρεσης\n"
 
-#: ../src/msec/msecgui.py:1298
+#: ../src/msec/msecgui.py:1438
 msgid "Check: "
 msgstr "Έλεγχος:"
 
-#: ../src/msec/msecgui.py:1313
+#: ../src/msec/msecgui.py:1453
 msgid "Exception: "
 msgstr "Εξαίρεση:"
 
-#: ../src/msec/msecgui.py:1348
+#: ../src/msec/msecgui.py:1489
 msgid "Changing permissions for %s"
 msgstr "Αλλαγή των αδειών για το %s"
 
-#: ../src/msec/msecgui.py:1355
+#: ../src/msec/msecgui.py:1497
 msgid "Adding new permission check"
 msgstr "Προσθήκη νέου ελέγχου αδειών"
 
-#: ../src/msec/msecgui.py:1367
+#: ../src/msec/msecgui.py:1509
+#, fuzzy
+msgid "Changing permissions on <b>%s</b>"
+msgstr "Αλλαγή των αδειών για το %s"
+
+#: ../src/msec/msecgui.py:1509
+msgid "new file"
+msgstr "νέο αρχείο"
+
+#: ../src/msec/msecgui.py:1521
+msgid "File: "
+msgstr "Αρχείο :"
+
+#: ../src/msec/msecgui.py:1530
+#, fuzzy
 msgid ""
-"Changing permissions on <b>%s</b>\n"
-"Please specify new permissions, or use 'current' to keep current "
-"permissions.\n"
+"Please specify new file owner and permissions, or use 'current' to keep "
+"current settings."
 msgstr ""
 "Αλλαγή των αδειών για το <b>%s</b>\n"
 "Παρακαλώ, προσδιόρισε νέες τιμές, ή χρησιμοποίησε το «τωρινό» (current), για "
 "να διατηρήσεις τις τωρινές άδειες.\n"
 
-#: ../src/msec/msecgui.py:1367
-msgid "new file"
-msgstr "νέο αρχείο"
-
-#: ../src/msec/msecgui.py:1375
-msgid "File: "
-msgstr "Αρχείο :"
-
-#: ../src/msec/msecgui.py:1383
+#: ../src/msec/msecgui.py:1537
 msgid "User: "
 msgstr "Χρήστης :"
 
-#: ../src/msec/msecgui.py:1391
+#: ../src/msec/msecgui.py:1548
 msgid "Group: "
 msgstr "Ομάδα :"
 
-#: ../src/msec/msecgui.py:1399
+#: ../src/msec/msecgui.py:1559
 msgid "Permissions: "
 msgstr "Άδειες :"
 
-#: ../src/msec/msecgui.py:1456
+#: ../src/msec/msecgui.py:1568
+msgid ""
+"To enforce additional ACL on file, specify them in the following format:\n"
+"user1:acl,user2:acl\n"
+"Refer to 'man setfacl' for details."
+msgstr ""
+
+#: ../src/msec/msecgui.py:1575
+msgid "ACL: "
+msgstr ""
+
+#: ../src/msec/msecgui.py:1642
 msgid "Select new value for %s"
 msgstr "Επέλεξε νέα τιμή για το %s"
 
-#: ../src/msec/msecgui.py:1465
+#: ../src/msec/msecgui.py:1651
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1155,7 +1241,7 @@ msgstr ""
 "\tΤρέχουσα τιμή:\t\t\t<i>%s</i>\n"
 "\t%sΠροκαθορισμένη τιμή επιπέδου:\t<i>%s</i>%s\n"
 
-#: ../src/msec/msecgui.py:1475
+#: ../src/msec/msecgui.py:1661
 msgid "New value:"
 msgstr "Νέα τιμή :"
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DrakX-sc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-30 09:48+BRT\n"
+"POT-Creation-Date: 2010-04-30 09:51+BRT\n"
 "PO-Revision-Date: 2005-09-14 11:29+0100\n"
 "Last-Translator: Antoni Pistis <antonio.pistis@virgilio.it>\n"
 "Language-Team: Sardu\n"
@@ -916,10 +916,10 @@ msgstr ""
 msgid "Periodic check results"
 msgstr ""
 
-#: ../src/msec/msecgui.py:722
+#: ../src/msec/msecgui.py:723
 msgid ""
-"Do you want to run periodic check <b>%s</b>? Please note that it could take "
-"a considerable time to finish."
+"Do you want to run the <b>%s</b> periodic check? Please note that it could "
+"take a considerable time to finish."
 msgstr ""
 
 #: ../src/msec/msecgui.py:731 ../src/msec/msecgui.py:739

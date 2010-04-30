@@ -1,3 +1,5 @@
+- updated translations
+
 Version 0.80.6 - Apr 27 2010, Eugeni Dodonov
 - support merging legacy perm.local into main perms.conf
 - add support for displaying periodic checks results

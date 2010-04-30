@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-04-30 09:43+BRT\n"
+"POT-Creation-Date: 2010-04-30 09:48+BRT\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -931,7 +931,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1568
 msgid ""
-"To enforce additional ACL on file, specify them in the following format:\n"
+"To enforce additional ACL (Access Control List) on file, specify them in the following format:\n"
 "user1:acl,user2:acl\n"
 "Refer to 'man setfacl' for details."
 msgstr ""

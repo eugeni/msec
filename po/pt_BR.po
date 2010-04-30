@@ -18,7 +18,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
-"POT-Creation-Date: 2010-04-30 09:43+BRT\n"
+"POT-Creation-Date: 2010-04-30 09:48+BRT\n"
 "PO-Revision-Date: 2010-03-15 19:13-0300\n"
 "Last-Translator: Sergio Rafael Lemke <sergio@mandriva.com.br>\n"
 "Language-Team: Brazilian Portuguese <cooker-i18n@mandrivalinux.org>\n"
@@ -1183,7 +1183,8 @@ msgstr "Permissões: "
 
 #: ../src/msec/msecgui.py:1568
 msgid ""
-"To enforce additional ACL on file, specify them in the following format:\n"
+"To enforce additional ACL (Access Control List) on file, specify them in the "
+"following format:\n"
 "user1:acl,user2:acl\n"
 "Refer to 'man setfacl' for details."
 msgstr ""

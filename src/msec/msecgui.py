@@ -1565,7 +1565,7 @@ class MsecGui:
         sizegroup2.add_widget(entry_perm)
         dialog.vbox.pack_start(hbox, False, False)
 
-        label = gtk.Label(_("To enforce additional ACL on file, specify them in the following format:\nuser1:acl,user2:acl\nRefer to 'man setfacl' for details."))
+        label = gtk.Label(_("To enforce additional ACL (Access Control List) on file, specify them in the following format:\nuser1:acl,user2:acl\nRefer to 'man setfacl' for details."))
         label.set_line_wrap(True)
         label.set_use_markup(True)
         dialog.vbox.pack_start(label, False, False, padding=5)

@@ -6,7 +6,7 @@
 # Roberto Rosselli Del Turco <rosselli@ling.unipi.it>, 2001, 2002,2003.
 # Marco De Vitis <mdv@spin.it>, 2003.
 # Giuseppe Levi <giuseppe.levi@email.it>, 2005.
-# Andrea Celli <andrea.celli@libero.it>, 2003, 2004, 2005, 2006, 2007, 2008, 2009.
+# Andrea Celli <andrea.celli@libero.it>, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010.
 # Federica De Luca <my_utopia2002@hotmail.com>, 2008.
 # Moreno Manzini <moreno@mediacom.it>, 2009.
 # Ruggero Tonelli <ruggero@valtellinux.it>, 2009.
@@ -16,13 +16,13 @@ msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2010-04-10 15:07+0200\n"
-"Last-Translator: Moreno Manzini <moreno.mg@gmail.com>\n"
-"Language-Team: Italian <timl@frelist.org>\n"
+"PO-Revision-Date: 2010-04-30 23:31+0200\n"
+"Last-Translator: Andrea Celli <andrea.celli@libero.it>\n"
+"Language-Team: Italian <timl@frelists.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 0.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/msec/config.py:46
@@ -626,27 +626,24 @@ msgid "Wrong permissions of %s: should be %o"
 msgstr "Permessi di %s: errati devono essere %o"
 
 #: ../src/msec/libmsec.py:901
-#, fuzzy
 msgid "Enforcing acl on %s"
-msgstr "Forza il gruppo di %s a essere %s"
+msgstr "Forza acl su %s"
 
 #: ../src/msec/libmsec.py:915
-#, fuzzy
 msgid "Unable to add filesystem-specific ACL %s to %s"
-msgstr "Impossibile salvare i permessi dei file di sistema!"
+msgstr "Impossibile aggiungere le ACL %s specifiche per il filesystem a %s"
 
 #: ../src/msec/libmsec.py:917
-#, fuzzy
 msgid "Error changing acl on %s: %s"
-msgstr "Errore cambiando proprietario di %s: %s"
+msgstr "Errore cambiando acl su %s: %s"
 
 #: ../src/msec/libmsec.py:919
 msgid "Wrong acl of %s"
-msgstr ""
+msgstr "ACL errata su %s"
 
 #: ../src/msec/libmsec.py:936
 msgid "bad permissions for '%s': '%s'"
-msgstr "Permessi errati di '%s': '%s'"
+msgstr "Permessi errati per '%s': '%s'"
 
 #: ../src/msec/libmsec.py:961
 msgid "Non local file: \"%s\". Nothing changed."
@@ -1034,51 +1031,51 @@ msgstr "Impostazioni personalizzate: %d"
 
 #: ../src/msec/msecgui.py:657
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: ../src/msec/msecgui.py:658
 msgid "Check: %s. Last run: %s"
-msgstr ""
+msgstr "Controllo: %s. Ultima esecuzione: %s"
 
 #: ../src/msec/msecgui.py:663
 msgid "Show results"
-msgstr ""
+msgstr "Mostra risultati"
 
 #: ../src/msec/msecgui.py:669
 msgid "Run now"
-msgstr ""
+msgstr "Esegui ora"
 
 #: ../src/msec/msecgui.py:690
-#, fuzzy
 msgid "Unable to read log file: %s"
-msgstr "Impossibile caricare il file di configurazione %s: %s"
+msgstr "Impossibile leggere il file di log: %s"
 
 #: ../src/msec/msecgui.py:691
-#, fuzzy
 msgid "Periodic check results"
-msgstr "Controlli periodici"
+msgstr "Risultati dei controlli periodici"
 
 #: ../src/msec/msecgui.py:723
 msgid ""
 "Do you want to run the <b>%s</b> periodic check? Please note that it could "
 "take a considerable time to finish."
 msgstr ""
+"Vuoi eseguire il controllo periodico <b>%s</b>? Tieni conto che potrebbe "
+"richiedere molto tempo per essere completato."
 
 #: ../src/msec/msecgui.py:731 ../src/msec/msecgui.py:739
 msgid "Please wait, running checks..."
-msgstr ""
+msgstr "Attendi, controlli in corso..."
 
 #: ../src/msec/msecgui.py:742
 msgid "Please wait, this might take a few minutes."
-msgstr ""
+msgstr "Attendi, ci vorrà qualche minuto."
 
 #: ../src/msec/msecgui.py:771
 msgid "Periodic check was executed successfully!"
-msgstr ""
+msgstr "I controlli periodici sono stati completati!"
 
 #: ../src/msec/msecgui.py:774
 msgid "An error occurred while running periodic check."
-msgstr ""
+msgstr "Si è verificato un errore eseguendo i controlli periodici."
 
 #: ../src/msec/msecgui.py:806
 msgid "Enable MSEC tool"
@@ -1138,7 +1135,7 @@ msgstr "Forza"
 
 #: ../src/msec/msecgui.py:1266
 msgid "Acl"
-msgstr ""
+msgstr "Acl"
 
 #: ../src/msec/msecgui.py:1419
 msgid "Editing exception"
@@ -1153,7 +1150,7 @@ msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr ""
-"MOdifica delle eccezioni. Seleziona il controllo msec corrispondente ed il "
+"Modifica delle eccezioni. Seleziona il controllo msec corrispondente ed il "
 "valore dell'eccezione.\n"
 
 #: ../src/msec/msecgui.py:1438
@@ -1173,9 +1170,8 @@ msgid "Adding new permission check"
 msgstr "Aggiunta nuovi controlli sui permessi"
 
 #: ../src/msec/msecgui.py:1509
-#, fuzzy
 msgid "Changing permissions on <b>%s</b>"
-msgstr "Cambiamento dei permessi per %s"
+msgstr "Cambiamento dei permessi per  <b>%s</b>"
 
 #: ../src/msec/msecgui.py:1509
 msgid "new file"
@@ -1186,14 +1182,12 @@ msgid "File: "
 msgstr "File: "
 
 #: ../src/msec/msecgui.py:1530
-#, fuzzy
 msgid ""
 "Please specify new file owner and permissions, or use 'current' to keep "
 "current settings."
 msgstr ""
-"Cambiamento dei permessi di <b>%s</b>\n"
-"Prego specificare i nuovi permessi o usare 'current' per mantenere gli "
-"attuali permessi.\n"
+"Specifica il nuovo proprietario del file e i relativi permessi o usa "
+"'current' per mantenere le attuali impostazioni."
 
 #: ../src/msec/msecgui.py:1537
 msgid "User: "
@@ -1214,10 +1208,14 @@ msgid ""
 "user1:acl,user2:acl\n"
 "Refer to 'man setfacl' for details."
 msgstr ""
+"Per imporre un'ulteriore ACL (Lista Controllo Accessi) ad un file, deve "
+"essere specificata nel formato:\n"
+"user1:acl,user2:acl\n"
+"Consulta «man setfacl» per i particolari."
 
 #: ../src/msec/msecgui.py:1575
 msgid "ACL: "
-msgstr ""
+msgstr "ACL: "
 
 #: ../src/msec/msecgui.py:1642
 msgid "Select new value for %s"

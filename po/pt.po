@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2010-04-23 16:40+0100\n"
+"PO-Revision-Date: 2010-04-30 20:42+0100\n"
 "Last-Translator: Zé <mmodem00@gmal.com>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -611,23 +611,20 @@ msgid "Wrong permissions of %s: should be %o"
 msgstr "Permissões erradas de %s: deve ser %o"
 
 #: ../src/msec/libmsec.py:901
-#, fuzzy
 msgid "Enforcing acl on %s"
-msgstr "A reforçar grupo em %s para %s"
+msgstr "A reforçar acl em %s"
 
 #: ../src/msec/libmsec.py:915
-#, fuzzy
 msgid "Unable to add filesystem-specific ACL %s to %s"
-msgstr "Incapaz de gravar as permissões do ficheiro do sistema|"
+msgstr "Incapaz de adicionar os ficheiros ACL específicos  %s para %s"
 
 #: ../src/msec/libmsec.py:917
-#, fuzzy
 msgid "Error changing acl on %s: %s"
-msgstr "Erro ao mudar o utilizador em %s: %s"
+msgstr "Erro ao alterar acl em %s: %s"
 
 #: ../src/msec/libmsec.py:919
 msgid "Wrong acl of %s"
-msgstr ""
+msgstr "Acl errado em %s"
 
 #: ../src/msec/libmsec.py:936
 msgid "bad permissions for '%s': '%s'"
@@ -1021,51 +1018,51 @@ msgstr "Definições personalizadas: %d"
 
 #: ../src/msec/msecgui.py:657
 msgid "Never"
-msgstr ""
+msgstr "Nunca"
 
 #: ../src/msec/msecgui.py:658
 msgid "Check: %s. Last run: %s"
-msgstr ""
+msgstr "Verificar: %s. Última execução: %s"
 
 #: ../src/msec/msecgui.py:663
 msgid "Show results"
-msgstr ""
+msgstr "Mostrar resultados"
 
 #: ../src/msec/msecgui.py:669
 msgid "Run now"
-msgstr ""
+msgstr "Correr agora"
 
 #: ../src/msec/msecgui.py:690
-#, fuzzy
 msgid "Unable to read log file: %s"
-msgstr "Não é possível carregar o ficheiro de configuração %s: %s"
+msgstr "Incapaz de ler o ficheiro de registos: %s"
 
 #: ../src/msec/msecgui.py:691
-#, fuzzy
 msgid "Periodic check results"
-msgstr "Verificações periódicas"
+msgstr "Resultados das verificações periódicas"
 
 #: ../src/msec/msecgui.py:723
 msgid ""
 "Do you want to run the <b>%s</b> periodic check? Please note that it could "
 "take a considerable time to finish."
 msgstr ""
+"Deseja correr a verificação periódica <b>%s</b>? Por favor note que "
+"pode demorar algum tempo a terminar."
 
 #: ../src/msec/msecgui.py:731 ../src/msec/msecgui.py:739
 msgid "Please wait, running checks..."
-msgstr ""
+msgstr "Por favor aguarde, a correr as verificações..."
 
 #: ../src/msec/msecgui.py:742
 msgid "Please wait, this might take a few minutes."
-msgstr ""
+msgstr "Por favor aguarde, isto pode demorar alguns minutos."
 
 #: ../src/msec/msecgui.py:771
 msgid "Periodic check was executed successfully!"
-msgstr ""
+msgstr "A verificação periódica foi executada com sucesso!"
 
 #: ../src/msec/msecgui.py:774
 msgid "An error occurred while running periodic check."
-msgstr ""
+msgstr "Ocorreu um erro ao correr a verificação periódica."
 
 #: ../src/msec/msecgui.py:806
 msgid "Enable MSEC tool"
@@ -1125,7 +1122,7 @@ msgstr "Reforçar"
 
 #: ../src/msec/msecgui.py:1266
 msgid "Acl"
-msgstr ""
+msgstr "Acl"
 
 #: ../src/msec/msecgui.py:1419
 msgid "Editing exception"
@@ -1160,9 +1157,8 @@ msgid "Adding new permission check"
 msgstr "A adicionar nova verificação de permissão"
 
 #: ../src/msec/msecgui.py:1509
-#, fuzzy
 msgid "Changing permissions on <b>%s</b>"
-msgstr "A alterar permissões para %s"
+msgstr "A alterar permissões em <b>%s</b>"
 
 #: ../src/msec/msecgui.py:1509
 msgid "new file"
@@ -1173,14 +1169,12 @@ msgid "File: "
 msgstr "Ficheiro: "
 
 #: ../src/msec/msecgui.py:1530
-#, fuzzy
 msgid ""
 "Please specify new file owner and permissions, or use 'current' to keep "
 "current settings."
 msgstr ""
-"A alterar permissões em <b>%s</b>\n"
-"Por favor indique as novas permissões, ou use 'current' para manter as "
-"permissões actuais.\n"
+"Por favor especifique o novo proprietário e as permissões do ficheiro, "
+"ou use 'current' para manter as definições actuais."
 
 #: ../src/msec/msecgui.py:1537
 msgid "User: "
@@ -1201,10 +1195,14 @@ msgid ""
 "user1:acl,user2:acl\n"
 "Refer to 'man setfacl' for details."
 msgstr ""
+"Para reforçar a adição ACL (Access Control List) no ficheiro, especifique-as "
+"no seguinte formato:\n"
+"utilizador1:acl,utilizador2:acl\n"
+"Se desejar veja 'man setfacl' para mais detalhes."
 
 #: ../src/msec/msecgui.py:1575
 msgid "ACL: "
-msgstr ""
+msgstr "ACL: "
 
 #: ../src/msec/msecgui.py:1642
 msgid "Select new value for %s"

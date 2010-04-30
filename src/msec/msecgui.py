@@ -719,8 +719,8 @@ class MsecGui:
                 parent=self.window,
                 flags=0,
                 type=gtk.MESSAGE_INFO,
-                message_format = _("Do you want to run periodic check <b>%s</b>? Please note that it could take a considerable time to finish.") % check,
                 buttons=gtk.BUTTONS_YES_NO)
+        dialog.set_markup(_("Do you want to run the <b>%s</b> periodic check? Please note that it could take a considerable time to finish.") % check)
         dialog.show_all()
         ret = dialog.run()
         dialog.destroy()

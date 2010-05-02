@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2010-05-02 14:18+0300\n"
+"PO-Revision-Date: 2010-05-02 16:15+0300\n"
 "Last-Translator: Jani Välimaa <wally@mandriva.org>\n"
 "Language-Team: Finnish <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -873,7 +873,7 @@ msgstr "Yleiskatsaus"
 
 #: ../src/msec/msecgui.py:246
 msgid "Security settings"
-msgstr "Turvallisuusasetus"
+msgstr "Turvallisuusasetukset"
 
 #: ../src/msec/msecgui.py:255
 msgid "Basic security"

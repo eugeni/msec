@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2010-04-30 20:42+0100\n"
+"PO-Revision-Date: 2010-05-03 23:59+0100\n"
 "Last-Translator: Zé <mmodem00@gmal.com>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -77,7 +77,9 @@ msgstr ""
 
 #: ../src/msec/help.py:16
 msgid "Enable checking for files/directories writable by everybody."
-msgstr "Activar verificação de ficheiros/directórios graváveis por todos."
+msgstr ""
+"Activar verificação de ficheiros/directórios graváveis por todos os "
+"utilizadores."
 
 #: ../src/msec/help.py:18
 msgid "Log syslog messages on console terminal 12."
@@ -85,7 +87,7 @@ msgstr "Registar mensagens syslog no terminal da consola 12."
 
 #: ../src/msec/help.py:20
 msgid "Send mail reports even if no changes were detected."
-msgstr "Envia relatórios de correio mesmo se não forem detectadas alterações."
+msgstr "Envia relatórios de correio mesmo que não sejam detectadas alterações."
 
 #: ../src/msec/help.py:22
 msgid ""
@@ -96,7 +98,7 @@ msgstr ""
 
 #: ../src/msec/help.py:24
 msgid "Accept broadcasted ICMP echo."
-msgstr "Aceitar ecos ICMP. transmitidos"
+msgstr "Aceitar ecos ICMP transmitidos."
 
 #: ../src/msec/help.py:26
 msgid ""
@@ -104,7 +106,7 @@ msgid ""
 "notify you when new packages are installed or removed."
 msgstr ""
 "Activar verificação de alterações nos pacotes RPM instalados. Isto irá "
-"notificá-lo quando novos pacotes  forem instalados ou removidos."
+"notificá-lo quando forem instalados ou removidos novos pacotes."
 
 #: ../src/msec/help.py:28
 msgid "Enable periodic permission checking for files specified in msec policy."

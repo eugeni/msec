@@ -1144,7 +1144,7 @@ msgid ""
 "current settings."
 msgstr ""
 "Angi ny eier av fila og rettigheter, eller benytt «nåværende» for å beholde "
-"de gjeldene valgene.\n"
+"de gjeldene valgene."
 
 #: ../src/msec/msecgui.py:1537
 msgid "User: "

@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2010-04-28 16:06+0200\n"
+"PO-Revision-Date: 2010-05-03 11:58+0200\n"
 "Last-Translator: Oliver Burger <oliver@mandrivauser.de>\n"
 "Language-Team: German <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -464,6 +464,10 @@ msgid ""
 "Patterns to exclude from disk checks. This parameter is parsed as a regex "
 "(7), so you may use complex expressions."
 msgstr ""
+"Muster, die von der Festplattenüberprüfung ausgeschlossen werden sollen. "
+"Dieser Parameter wird als "
+"regulärer Ausdruck (7) übergeben, es können also komplexe Ausdrücke "
+"angegeben werden."
 
 #: ../src/msec/help.py:136
 msgid ""
@@ -727,17 +731,18 @@ msgid ""
 "This profile is focused on netbooks, laptops or low-end devices, which are "
 "only accessed by local users and run on batteries."
 msgstr ""
+"Dieses Profil ist auf Netbooks, Laptops und Low-End-Geräte ausgerichtet, die "
+"nur von lokalen Benutzern genutzt werden und im Akku-Betrieb laufen."
 
 #: ../src/msec/msecgui.py:64
-#, fuzzy
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. This level is suggested for "
 "security-concerned systems and servers. "
 msgstr ""
 "Dieses Profil ist auf maximale Sicherheit ausgerichtet, so dass es selbst "
-"den Remote-Zugang zum System limitiert. Zudem wird eine Vielzahl von Checks "
-"regelmäßig ausgeführt. Diese Ebene ist für Server und für auf Sicherheit "
+"den Remote-Zugang zum System limitiert. Diese Ebene ist für Server und für "
+"auf Sicherheit "
 "bedachte Systeme gedacht."
 
 #: ../src/msec/msecgui.py:66
@@ -745,12 +750,18 @@ msgid ""
 "This profile is targeted on local network servers, which do not receive "
 "accesses from unauthorized Internet users."
 msgstr ""
+"Dieses Profil ist auf lokale Netzwerk-Server ausgerichtet, auf die kein "
+"Zugriff "
+"unauthorisierter Benutzer aus dem Internet vorhanden ist."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
 "This profile is provided for servers which are intended to be accessed by "
 "unauthorized Internet users."
 msgstr ""
+"Dieses Profil ist auf Server augerichtet, auf die der Zugriff "
+"unauthorisierter "
+"Nutzer aus dem Internet möglich ist."
 
 #: ../src/msec/msecgui.py:69
 msgid ""
@@ -758,17 +769,26 @@ msgid ""
 "system settings, and use it for periodic checks only. It configures all "
 "periodic checks to run once a day."
 msgstr ""
+"Dieses Profil ist für diejenigen Benutzer gedacht, die msec nicht nutzen "
+"wollen, um die "
+"Systemeinstellungen zu verändern, sondern nur die periodischen Überprüfungen "
+"nutzen. "
+"Es richtet alle Sicherheitsüberprüfungen so ein, dass sie einmal am Tag zu "
+"laufen."
 
 #: ../src/msec/msecgui.py:70
+#, fuzzy
 msgid ""
 "This profile is similar to the 'audit_daily' profile, but it runs all checks "
 "weekly."
 msgstr ""
+"Dieses Profil ähnelt dem 'audit_daily'-Profil, lässt die Überprüfungen aber "
+"wöchentlich "
+"laufen."
 
 #: ../src/msec/msecgui.py:77
-#, fuzzy
 msgid "Custom security level."
-msgstr "System Sicherheit"
+msgstr "Benutzerdefinierte Sicherheitsebene."
 
 #: ../src/msec/msecgui.py:80
 msgid ""
@@ -792,6 +812,11 @@ msgid ""
 "unauthorized accesses,\n"
 "and breakin attempts.  "
 msgstr ""
+"<big><b>Netzwerk-Sicherheitseinstellungen</b></big>\n"
+"Diese Einstellungen legen die Netzwerk-Sicherheit gegen entfernte "
+"Bedrohungen, "
+"unauthorisierten Zugang,\n"
+"und Einbruchsversuche fest.  "
 
 #: ../src/msec/msecgui.py:89
 msgid ""
@@ -804,12 +829,19 @@ msgstr ""
 "werden sollen."
 
 #: ../src/msec/msecgui.py:92
+#, fuzzy
 msgid ""
 "<big><b>Exceptions</b></big>\n"
 "Here you can configure the allowed exceptions for msec periodic security\n"
 "checks. For each supported test, you may add as many exceptions as you want\n"
 "for each check. Note that each exception is parsed as a regexp."
 msgstr ""
+"<big><b>Ausnahmen</b></big>\n"
+"Hier können Sie die erlaubten Ausnahmen für die regelmäßigen "
+"msec-Sicherheitsüberprüfungen\n"
+"einstellen. Für jede unterstützte Überprüfung können Sie beliebig viele "
+"Ausnahmen festlegen\n"
+"Beachten Sie, dass jede Ausnahme als regulärer Ausdruck geparst wird."
 
 #: ../src/msec/msecgui.py:97
 msgid ""
@@ -837,12 +869,12 @@ msgstr "Neue Einstellungen übernehmen und speichern?"
 
 #: ../src/msec/msecgui.py:154
 msgid "Unable to load configuration for level '%s'"
-msgstr ""
+msgstr "Das Laden der Einstellungen für die Ebene '%s' ist fehlgeschlagen"
 
 #: ../src/msec/msecgui.py:160
 #, fuzzy
 msgid "Unable to load permissions for level '%s'"
-msgstr "Falsche Rechte für '%s': '%s'"
+msgstr "Kann die Rechte für die Ebene '%s' nicht laden"
 
 #: ../src/msec/msecgui.py:193
 msgid "_File"
@@ -870,12 +902,11 @@ msgstr "MSEC: System Sicherheit und Prüfung"
 
 #: ../src/msec/msecgui.py:245
 msgid "Overview"
-msgstr ""
+msgstr "Überblick"
 
 #: ../src/msec/msecgui.py:246
-#, fuzzy
 msgid "Security settings"
-msgstr "Sicherheitseinstellung"
+msgstr "Sicherheitseinstellungen"
 
 #: ../src/msec/msecgui.py:255
 msgid "Basic security"
@@ -919,15 +950,15 @@ msgstr "Kontrolle der Berechtigungen"
 
 #: ../src/msec/msecgui.py:311
 msgid "changed %s <b>%s</b> (%s -> %s)"
-msgstr ""
+msgstr "%s geändert <b>%s</b> (%s -> %s)"
 
 #: ../src/msec/msecgui.py:316
 msgid "added %s <b>%s</b> (%s)"
-msgstr ""
+msgstr "%s hinzugefügt <b>%s</b> (%s)"
 
 #: ../src/msec/msecgui.py:321
 msgid "removed %s <b>%s</b>"
-msgstr ""
+msgstr "%s entfernt <b>%s</b>"
 
 #: ../src/msec/msecgui.py:325
 msgid "no changes"
@@ -939,7 +970,7 @@ msgstr "Speichere Änderungen.."
 
 #: ../src/msec/msecgui.py:341
 msgid "Ignore and quit"
-msgstr ""
+msgstr "Ignorieren und verlassen"
 
 #: ../src/msec/msecgui.py:379
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -959,7 +990,7 @@ msgstr "MSEC Meldungen (%s): %d"
 
 #: ../src/msec/msecgui.py:414
 msgid "Details (%d changes).."
-msgstr ""
+msgstr "Details (%d Änderungen)..."
 
 #: ../src/msec/msecgui.py:467
 msgid "No base msec level specified, using '%s'"
@@ -987,11 +1018,11 @@ msgstr "Ungültige Option '%s'!"
 
 #: ../src/msec/msecgui.py:593
 msgid "Firewall"
-msgstr ""
+msgstr "Firewall"
 
 #: ../src/msec/msecgui.py:600 ../src/msec/msecgui.py:642
 msgid "Configure"
-msgstr ""
+msgstr "Einrichten"
 
 #: ../src/msec/msecgui.py:608
 msgid "Updates"
@@ -1002,34 +1033,32 @@ msgid "Update now"
 msgstr ""
 
 #: ../src/msec/msecgui.py:621
-#, fuzzy
 msgid "Security"
-msgstr "Sicherheitskontrolle"
+msgstr "Sicherheit"
 
 #: ../src/msec/msecgui.py:624
 msgid "Msec is disabled"
-msgstr ""
+msgstr "Msec ist abgeschaltet"
 
 #: ../src/msec/msecgui.py:627
 msgid "Msec is enabled"
-msgstr ""
+msgstr "Msec ist angeschaltet"
 
 #: ../src/msec/msecgui.py:628
-#, fuzzy
 msgid "Base security level: '%s'"
-msgstr "Ungültige Sicherheitsebene '%s'."
+msgstr "Basis-Sicherheitsebene: '%s'"
 
 #: ../src/msec/msecgui.py:636
 msgid "Custom settings: %d"
-msgstr ""
+msgstr "Benutzerdefinierte Einstellungen: %d"
 
 #: ../src/msec/msecgui.py:657
 msgid "Never"
-msgstr ""
+msgstr "Aktualisierungen"
 
 #: ../src/msec/msecgui.py:658
 msgid "Check: %s. Last run: %s"
-msgstr ""
+msgstr "Jetzt aktualisieren"
 
 #: ../src/msec/msecgui.py:663
 msgid "Show results"
@@ -1081,12 +1110,11 @@ msgstr "Wählen Sie die gewünschte Sicherheitsebene"
 
 #: ../src/msec/msecgui.py:836
 msgid "Level name"
-msgstr ""
+msgstr "Ebenenname"
 
 #: ../src/msec/msecgui.py:892
-#, fuzzy
 msgid "Send security alerts by email to:"
-msgstr "Sicherheitswarnungen per E-Mail versenden"
+msgstr "Sicherheitswarnungen per E-Mail versenden an:"
 
 #: ../src/msec/msecgui.py:914
 msgid "Display security alerts on desktop"
@@ -1097,9 +1125,8 @@ msgid "Enable periodic security checks"
 msgstr "Aktiviere regelmäßige Sicherheitskontrollen"
 
 #: ../src/msec/msecgui.py:1160
-#, fuzzy
 msgid "Security check"
-msgstr "Sicherheitskontrolle"
+msgstr "Sicherheitsüberprüfungen"
 
 #: ../src/msec/msecgui.py:1166
 msgid "Exception"
@@ -1146,10 +1173,13 @@ msgid ""
 "Editing exception. Please select the correspondent msec check and exception "
 "value\n"
 msgstr ""
+"Ausnahmen editieren. Bitte wählen Sie die entsprechende msec-Überprüfung und "
+"den "
+"Ausnahmewert\n"
 
 #: ../src/msec/msecgui.py:1438
 msgid "Check: "
-msgstr ""
+msgstr "Überprüfe: "
 
 #: ../src/msec/msecgui.py:1453
 msgid "Exception: "
@@ -1169,7 +1199,6 @@ msgid "Changing permissions on <b>%s</b>"
 msgstr "Verändere die Berechtigungen von %s"
 
 #: ../src/msec/msecgui.py:1509
-#, fuzzy
 msgid "new file"
 msgstr "neue Datei"
 
@@ -1216,7 +1245,6 @@ msgid "Select new value for %s"
 msgstr "Wählen Sie einen neuen Wert für %s"
 
 #: ../src/msec/msecgui.py:1651
-#, fuzzy
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1226,8 +1254,7 @@ msgstr ""
 "<i>%s</i>\n"
 "\n"
 "\tAktueller Wert\t\t\t<i>%s</i>\n"
-"\t%sStandard Level Wert:\t<i>%s</i>%s\n"
-"\t%sSicherheitsebenen Wert:\t\t<i>%s</i>%s\n"
+"\t%sStandard-Ebenen-Wert:\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1661
 msgid "New value:"
@@ -1238,8 +1265,9 @@ msgid "Allowing unrestricted chkconfig for packages"
 msgstr "Unbeschränktes chkconfig für Pakete erlauben"
 
 #: ../src/msec/plugins/msec.py:154
+#, fuzzy
 msgid "Restricting chkconfig for packages according to \"%s\" profile"
-msgstr ""
+msgstr "chkconfig auf Pakete entsprechend dem \"%s\"-Profil einschränken"
 
 #: ../src/msec/plugins/msec.py:164
 msgid "Setting root umask to %s"
@@ -1254,12 +1282,13 @@ msgid "Allowing users to connect X server from everywhere"
 msgstr "Benutzern erlauben sich überall mit dem X-Server zuverbinden"
 
 #: ../src/msec/plugins/msec.py:198
+#, fuzzy
 msgid "Allowing users to connect X server from localhost"
-msgstr ""
+msgstr "Erlaube es den Benutzern, von localhost zum S-Server zu verbinden"
 
 #: ../src/msec/plugins/msec.py:201
 msgid "Restricting X server connection to the console user"
-msgstr ""
+msgstr "Die X-Server-Verbindung auf den Konsolen-Benutzer einschränken"
 
 #: ../src/msec/plugins/msec.py:204
 msgid "invalid allow_x_connections arg: %s"
@@ -1267,11 +1296,11 @@ msgstr "Ungültiges Argument für allow_x_connections arg: %s"
 
 #: ../src/msec/plugins/msec.py:227
 msgid "Allowing the X server to listen to tcp connections"
-msgstr ""
+msgstr "Dem X-Server erlauben, auf TXP-Verbindungen zu horchen"
 
 #: ../src/msec/plugins/msec.py:238
 msgid "Forbidding the X server to listen to tcp connection"
-msgstr ""
+msgstr "Dem X-Server verbieten, auf TXP-Verbindungen zu horchen"
 
 #: ../src/msec/plugins/msec.py:254
 msgid "Invalid shell timeout \"%s\""
@@ -1392,7 +1421,7 @@ msgstr "Alle Dienste abschalten"
 
 #: ../src/msec/plugins/msec.py:471
 msgid "Disabling non local services"
-msgstr ""
+msgstr "Nichtlokale Dienste deaktivieren"
 
 #: ../src/msec/plugins/msec.py:483
 msgid "Enabling sulogin in single user runlevel"
@@ -1444,11 +1473,11 @@ msgstr "Keinen sicheren Speicherort für temporäre Dateien verwenden"
 
 #: ../src/msec/plugins/msec.py:625
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Erlaube es, das momentane Verzeichnis in den Pfad einzufügen"
 
 #: ../src/msec/plugins/msec.py:628
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Verbiete es, das momentane Verzeichnis in den Pfad einzufügen"
 
 #: ../src/msec/plugins/network.py:134
 msgid "Allowing remote root login"
@@ -1499,7 +1528,8 @@ msgstr "Passwort Verlauf abschalten"
 msgid ""
 "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+"Nicht erlaubte Passwort-Länge \"%s\". Benutze \"Länge,ndigits,nupper\" als "
+"Parameter"
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
@@ -1519,6 +1549,11 @@ msgid ""
 "to su to root, but this group is empty. Please add the allowed users into "
 "the wheel group."
 msgstr ""
+"In der Sicherheitseinrichtung ist festgelegt, dass nur Benutzer der "
+"Wheel-Gruppe "
+"mittels sudo zu root werden können, diese Gruppe ist aber leer. Bitte fügen "
+"Sie die "
+"Benutzer mit dieser Berechtigung der Wheel-Gruppe hinzu."
 
 #: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"

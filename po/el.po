@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: DrakX-el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2010-04-25 10:56+0200\n"
+"PO-Revision-Date: 2010-05-03 22:17+0200\n"
 "Last-Translator: Glentadakis Dimitrios <dglent@gmail.com>\n"
 "Language-Team: Greek <translators_team@mandrivalinux.gr>\n"
 "MIME-Version: 1.0\n"
@@ -628,9 +628,8 @@ msgid "Wrong permissions of %s: should be %o"
 msgstr "Εσφαλμένες άδειες του %s: θα πρέπει να είναι %o"
 
 #: ../src/msec/libmsec.py:901
-#, fuzzy
 msgid "Enforcing acl on %s"
-msgstr "Εξαναγκασμός ομάδας από %s σε %s"
+msgstr "Εξαναγκασμός acl στο %s"
 
 #: ../src/msec/libmsec.py:915
 #, fuzzy
@@ -638,13 +637,12 @@ msgid "Unable to add filesystem-specific ACL %s to %s"
 msgstr "Αδύνατη η αποθήκευση των αδειών του συστήματος αρχείων!"
 
 #: ../src/msec/libmsec.py:917
-#, fuzzy
 msgid "Error changing acl on %s: %s"
-msgstr "Σφάλμα κατά την αλλαγή χρήστη για %s : %s"
+msgstr "Σφάλμα κατά την αλλαγή acl στο %s: %s"
 
 #: ../src/msec/libmsec.py:919
 msgid "Wrong acl of %s"
-msgstr ""
+msgstr "Λάθος acl για %s"
 
 #: ../src/msec/libmsec.py:936
 msgid "bad permissions for '%s': '%s'"
@@ -1041,51 +1039,51 @@ msgstr "Προσαρμοσμένες ρυθμίσεις: %d"
 
 #: ../src/msec/msecgui.py:657
 msgid "Never"
-msgstr ""
+msgstr "Ποτέ"
 
 #: ../src/msec/msecgui.py:658
 msgid "Check: %s. Last run: %s"
-msgstr ""
+msgstr "Έλεγχος: %s. Τελευταία εκτέλεση: %s"
 
 #: ../src/msec/msecgui.py:663
 msgid "Show results"
-msgstr ""
+msgstr "Εμφάνιση αποτελεσμάτων"
 
 #: ../src/msec/msecgui.py:669
 msgid "Run now"
-msgstr ""
+msgstr "Εκτέλεση τώρα"
 
 #: ../src/msec/msecgui.py:690
-#, fuzzy
 msgid "Unable to read log file: %s"
-msgstr "Αδύνατη η φόρτωση του αρχείου ρυθμίσεων %s: %s"
+msgstr "Αδύνατη η ανάγνωση του αρχείου καταγραφών: %s"
 
 #: ../src/msec/msecgui.py:691
-#, fuzzy
 msgid "Periodic check results"
-msgstr "Περιοδικοί έλεγχοι"
+msgstr "Αποτελέσματα περιοδικών έλεγχων"
 
 #: ../src/msec/msecgui.py:723
 msgid ""
 "Do you want to run the <b>%s</b> periodic check? Please note that it could "
 "take a considerable time to finish."
 msgstr ""
+"Επιθυμείτε την εκτέλεση του <b>%s</b> περιοδικού έλεγχου; Παρακαλώ σημειώστε "
+"ότι μπορεί να χρειαστεί ένα σημαντικό χρονικό διάστημα για να ολοκληρωθεί."
 
 #: ../src/msec/msecgui.py:731 ../src/msec/msecgui.py:739
 msgid "Please wait, running checks..."
-msgstr ""
+msgstr "Παρακαλώ περιμένετε, εκτέλεση ελέγχων..."
 
 #: ../src/msec/msecgui.py:742
 msgid "Please wait, this might take a few minutes."
-msgstr ""
+msgstr "Παρακαλώ περιμένετε, μπορεί να διαρκέσει μερικά λεπτά."
 
 #: ../src/msec/msecgui.py:771
 msgid "Periodic check was executed successfully!"
-msgstr ""
+msgstr "Ο περιοδικός έλεγχος εκτελέστηκε με επιτυχία!"
 
 #: ../src/msec/msecgui.py:774
 msgid "An error occurred while running periodic check."
-msgstr ""
+msgstr "Παρουσιάστηκε σφάλμα κατά την εκτέλεση του περιοδικού έλεγχου."
 
 #: ../src/msec/msecgui.py:806
 msgid "Enable MSEC tool"
@@ -1145,7 +1143,7 @@ msgstr "Εξαναγκασμός"
 
 #: ../src/msec/msecgui.py:1266
 msgid "Acl"
-msgstr ""
+msgstr "Acl"
 
 #: ../src/msec/msecgui.py:1419
 msgid "Editing exception"
@@ -1180,9 +1178,8 @@ msgid "Adding new permission check"
 msgstr "Προσθήκη νέου ελέγχου αδειών"
 
 #: ../src/msec/msecgui.py:1509
-#, fuzzy
 msgid "Changing permissions on <b>%s</b>"
-msgstr "Αλλαγή των αδειών για το %s"
+msgstr "Αλλαγή των αδειών στο <b>%s</b>"
 
 #: ../src/msec/msecgui.py:1509
 msgid "new file"
@@ -1224,7 +1221,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1575
 msgid "ACL: "
-msgstr ""
+msgstr "ACL: "
 
 #: ../src/msec/msecgui.py:1642
 msgid "Select new value for %s"

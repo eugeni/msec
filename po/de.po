@@ -770,7 +770,7 @@ msgstr "Fehler beim Verändern der Rechte von %s: %s"
 
 #: ../src/msec/libmsec.py:1679
 msgid "Wrong permissions of %s: should be %o"
-msgstr "Falsche Rechte von %s: Sollten %s sein"
+msgstr "Falsche Rechte von %s: Sollten %o sein"
 
 #: ../src/msec/libmsec.py:1696
 msgid "bad permissions for '%s': '%s'"

@@ -1,5 +1,5 @@
 PACKAGE = msec
-VERSION = 0.70.12
+VERSION = 0.70.13
 SVNPATH = svn+ssh://svn.mandriva.com/svn/soft/msec
 
 all: version promisc_check msec_find python manpages

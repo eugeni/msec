@@ -1,3 +1,4 @@
+Version 0.70.13 - May 04 2010, Eugeni Dodonov
 - fix incorrect german localization (#51005)
 - add support for merging legacy perm.local file if exists
 - properly handle changes in password history when pam_unix is used (#58018).

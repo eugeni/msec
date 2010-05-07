@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2010-05-06 01:14+0200\n"
+"PO-Revision-Date: 2010-05-08 00:12+0200\n"
 "Last-Translator: Atilla ÖNTAŞ <atilla_ontas@mandriva.org>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -452,19 +452,16 @@ msgid "Wrong permissions of %s: should be %o"
 msgstr "%s için yetkiler yanlış, %s olmalı."
 
 #: ../src/msec/libmsec.py:901
-#, fuzzy
 msgid "Enforcing acl on %s"
-msgstr "%s için grup %s olmaya zorlanıyor"
+msgstr "%s üzerinde acl zorlanıyor"
 
 #: ../src/msec/libmsec.py:915
-#, fuzzy
 msgid "Unable to add filesystem-specific ACL %s to %s"
-msgstr "Dosya sistemi izinleri kaydedilemiyor!"
+msgstr "Dosya sistemine özgü ACL %s, %s üstüne eklenemiyor."
 
 #: ../src/msec/libmsec.py:917
-#, fuzzy
 msgid "Error changing acl on %s: %s"
-msgstr "%s için kullanıcı değişikliği hatası: %s"
+msgstr "%s üzerinde acl değiştirme hatası: %s"
 
 #: ../src/msec/libmsec.py:919
 msgid "Wrong acl of %s"
@@ -836,35 +833,33 @@ msgid "Run now"
 msgstr "Şimdi çalıştır"
 
 #: ../src/msec/msecgui.py:690
-#, fuzzy
 msgid "Unable to read log file: %s"
-msgstr "%s yapılandırma dosyası yüklenemiyor: %s"
+msgstr "Günlük dosyası okunamıyor: %s"
 
 #: ../src/msec/msecgui.py:691
-#, fuzzy
 msgid "Periodic check results"
-msgstr "Periyodik denetimler"
+msgstr "Periyodik denetim sonuçları"
 
 #: ../src/msec/msecgui.py:723
 msgid "Do you want to run the <b>%s</b> periodic check? Please note that it could take a considerable time to finish."
-msgstr ""
+msgstr "<b>%s</b> periyodik denetimini çalıştırmak ister misiniz? Lütfen bunun oldukça uzun  zaman alabileceğini unutmayın."
 
 #: ../src/msec/msecgui.py:731
 #: ../src/msec/msecgui.py:739
 msgid "Please wait, running checks..."
-msgstr ""
+msgstr "Lütfen bekleyin. Denetimler sürüyor..."
 
 #: ../src/msec/msecgui.py:742
 msgid "Please wait, this might take a few minutes."
-msgstr ""
+msgstr "Lütfen bekleyin.  Bu işlem birkaç dakika sürebilir."
 
 #: ../src/msec/msecgui.py:771
 msgid "Periodic check was executed successfully!"
-msgstr ""
+msgstr "Periyodik denetim başarıyla yapıldı!"
 
 #: ../src/msec/msecgui.py:774
 msgid "An error occurred while running periodic check."
-msgstr ""
+msgstr "Periyodik denetim yapılırken bir hata oluştu."
 
 #: ../src/msec/msecgui.py:806
 msgid "Enable MSEC tool"
@@ -926,7 +921,7 @@ msgstr "Zorla"
 
 #: ../src/msec/msecgui.py:1266
 msgid "Acl"
-msgstr ""
+msgstr "Acl"
 
 #: ../src/msec/msecgui.py:1419
 msgid "Editing exception"
@@ -957,9 +952,8 @@ msgid "Adding new permission check"
 msgstr "Yeni yetki denetimi ekleniyor"
 
 #: ../src/msec/msecgui.py:1509
-#, fuzzy
 msgid "Changing permissions on <b>%s</b>"
-msgstr "%s için yetkiler değiştiriliyor"
+msgstr "<b>%s</b>  üzerinde yetkiler değiştiriliyor.."
 
 #: ../src/msec/msecgui.py:1509
 msgid "new file"
@@ -970,11 +964,8 @@ msgid "File: "
 msgstr "Dosya: "
 
 #: ../src/msec/msecgui.py:1530
-#, fuzzy
 msgid "Please specify new file owner and permissions, or use 'current' to keep current settings."
-msgstr ""
-"<b>%s</b> için yetkiler değişiyor\n"
-"Lütfen yeni bir yetki belirleyin veya mevcut yetkinin kalması için 'current' kullanın.\n"
+msgstr "Lütfen yeni bir dosya sahibi ve yetki belirleyin veya mevcut ayarların kalması için 'current' kullanın."
 
 #: ../src/msec/msecgui.py:1537
 msgid "User: "
@@ -994,10 +985,13 @@ msgid ""
 "user1:acl,user2:acl\n"
 "Refer to 'man setfacl' for details."
 msgstr ""
+"Dosya üzerinde ek ACL (Erişim Denetleme Listesi) zorlamak için bunları şu biçimde belirtin:\n"
+"kullanıcı1:acl,kullanıcı2:acl\n"
+"Ayrıntılı bilgi için: 'man setfacl' "
 
 #: ../src/msec/msecgui.py:1575
 msgid "ACL: "
-msgstr ""
+msgstr "ACL: "
 
 #: ../src/msec/msecgui.py:1642
 msgid "Select new value for %s"

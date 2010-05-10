@@ -2,60 +2,55 @@
 # EUSKARA: Mandriva Linux translation.
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008, 2009 Free Software Foundation, Inc.
 #
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2001-2002,2003,2004, 2005, 2007, 2008, 2009.
+# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2001-2002,2003,2004, 2005, 2007, 2008, 2009, 2010.
 # Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2004.
 msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2009-10-18 14:07+0200\n"
+"PO-Revision-Date: 2010-05-11 00:42+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
 "Language-Team: Basque <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.3\n"
+"X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ../src/msec/config.py:46
 msgid "Modified system files"
-msgstr ""
+msgstr "Aldatutako sistemaren fitxategiak"
 
 #: ../src/msec/config.py:47
-#, fuzzy
 msgid "No changes in system files"
-msgstr "Gaitu sistemaren erabiltzaileetan aldaketak egiaztatzea."
+msgstr "Aldaketarik ez sistemaren fitxategietan"
 
 #: ../src/msec/config.py:60
 msgid "Disabled"
-msgstr ""
+msgstr "Ezgaituta"
 
 #: ../src/msec/config.py:211 ../src/msec/config.py:423
 msgid "Unable to load configuration file %s: %s"
-msgstr ""
+msgstr "Ezin %s konfigurazio fitxategia zamatu: %s"
 
 #: ../src/msec/config.py:225 ../src/msec/config.py:334
 #: ../src/msec/config.py:442
-#, fuzzy
 msgid "Bad config option: %s"
-msgstr "_Gorde konfiguraketa"
+msgstr "Konfig aukera txarra: %s"
 
 #: ../src/msec/config.py:260 ../src/msec/config.py:373
 #: ../src/msec/config.py:468
-#, fuzzy
 msgid "Unable to save %s: %s"
-msgstr "Ezin da konfiguraketa gorde!"
+msgstr "Ezin %s gorde: %s"
 
 #: ../src/msec/config.py:319
-#, fuzzy
 msgid "loading exceptions file %s: %s"
-msgstr "Akatsa '%s' plugina %s-tik zamatzerakoan: %s"
+msgstr "%s salbuespen fitxategia zamatzen: %s"
 
 #: ../src/msec/config.py:320
-#, fuzzy
 msgid "No exceptions loaded"
-msgstr "Salbuespenak"
+msgstr "Ez da salbuespenik zamatu"
 
 #: ../src/msec/help.py:14
 msgid ""
@@ -102,6 +97,7 @@ msgstr ""
 #: ../src/msec/help.py:28
 msgid "Enable periodic permission checking for files specified in msec policy."
 msgstr ""
+"Gaitu aldiroko baimen azterketa msec politikan zehaztutako fitxategientzat."
 
 #: ../src/msec/help.py:30
 #, fuzzy

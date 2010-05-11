@@ -574,16 +574,19 @@ msgstr "Feil løyve til %s: skulle vore «%o»"
 
 #: ../src/msec/libmsec.py:901
 #, fuzzy
+#| msgid "Enforcing group on %s to %s"
 msgid "Enforcing acl on %s"
 msgstr "Set gruppa til «%s» til «%s»"
 
 #: ../src/msec/libmsec.py:915
 #, fuzzy
+#| msgid "Unable to save file system permissions!"
 msgid "Unable to add filesystem-specific ACL %s to %s"
 msgstr "Klarte ikkje lagra filsystemløyve."
 
 #: ../src/msec/libmsec.py:917
 #, fuzzy
+#| msgid "Error changing user on %s: %s"
 msgid "Error changing acl on %s: %s"
 msgstr "Klarte ikkje byta brukaren til %s: %s"
 
@@ -989,11 +992,13 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:690
 #, fuzzy
+#| msgid "Unable to load configuration file %s: %s"
 msgid "Unable to read log file: %s"
 msgstr "Klarte ikkje lasta oppsettfila «%s»: %s"
 
 #: ../src/msec/msecgui.py:691
 #, fuzzy
+#| msgid "Periodic checks"
 msgid "Periodic check results"
 msgstr "Regelmessige kontrollar"
 
@@ -1111,6 +1116,7 @@ msgstr "Legg til ny løyvekontroll"
 
 #: ../src/msec/msecgui.py:1509
 #, fuzzy
+#| msgid "Changing permissions for %s"
 msgid "Changing permissions on <b>%s</b>"
 msgstr "Endrar løyve for «%s»"
 
@@ -1124,6 +1130,10 @@ msgstr "Fil: "
 
 #: ../src/msec/msecgui.py:1530
 #, fuzzy
+#| msgid ""
+#| "Changing permissions on <b>%s</b>\n"
+#| "Please specify new permissions, or use 'current' to keep current "
+#| "permissions.\n"
 msgid ""
 "Please specify new file owner and permissions, or use 'current' to keep "
 "current settings."

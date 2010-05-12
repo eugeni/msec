@@ -2,60 +2,55 @@
 # Copyright (C) 1999,2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
 #
 # Radek Vybiral <Radek.Vybiral@vsb.cz>, 2000, 2001-2003.
-# Michal Bukovjan <bukm@centrum.cz>, 2002-2003, 2004, 2005, 2006, 2007, 2008, 2009.
+# Michal Bukovjan <bukm@centrum.cz>, 2002-2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2009-09-10 00:06+0200\n"
+"PO-Revision-Date: 2010-05-12 22:25+0200\n"
 "Last-Translator: Michal Bukovjan <bukm@centrum.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 1.0\n"
 
 #: ../src/msec/config.py:46
 msgid "Modified system files"
-msgstr ""
+msgstr "Upravené systémové soubory"
 
 #: ../src/msec/config.py:47
-#, fuzzy
 msgid "No changes in system files"
-msgstr "Povolit kontrolu změn v systémových uživatelích."
+msgstr "Systémové soubory beze změn"
 
 #: ../src/msec/config.py:60
 msgid "Disabled"
-msgstr ""
+msgstr "Vypnuto"
 
 #: ../src/msec/config.py:211 ../src/msec/config.py:423
 msgid "Unable to load configuration file %s: %s"
-msgstr ""
+msgstr "Nelze načíst soubor s nastavením %s: %s"
 
 #: ../src/msec/config.py:225 ../src/msec/config.py:334
 #: ../src/msec/config.py:442
-#, fuzzy
 msgid "Bad config option: %s"
-msgstr "_Uložit nastavení"
+msgstr "Chybná volba nastavení: %s"
 
 #: ../src/msec/config.py:260 ../src/msec/config.py:373
 #: ../src/msec/config.py:468
-#, fuzzy
 msgid "Unable to save %s: %s"
-msgstr "Nelze uložit nastavení!"
+msgstr "Nelze uložit %s: %s"
 
 #: ../src/msec/config.py:319
-#, fuzzy
 msgid "loading exceptions file %s: %s"
-msgstr "Chyba při načítání zásuvného modulu „%s” z %s: %s"
+msgstr "načítání souboru s výjimkami %s: %s"
 
 #: ../src/msec/config.py:320
-#, fuzzy
 msgid "No exceptions loaded"
-msgstr "Výjimky"
+msgstr "Nenačteny žádné výjimky"
 
 #: ../src/msec/help.py:14
 msgid ""
@@ -99,14 +94,12 @@ msgstr ""
 "pokud byly instalovány nové balíčky nebo byly nějaké odstraněny."
 
 #: ../src/msec/help.py:28
-#, fuzzy
 msgid "Enable periodic permission checking for files specified in msec policy."
-msgstr "Periodicky kontrolovat oprávnění pro systémové soubory."
+msgstr "Periodicky kontrolovat oprávnění pro soubory uvedené v politice msec."
 
 #: ../src/msec/help.py:30
-#, fuzzy
 msgid "Ignore changes in process IDs when checking for open network ports."
-msgstr "Kontrolovat otevřené síťové porty."
+msgstr "Ignorovat změny v ID procesů při kontrole otevřených síťových portů."
 
 #: ../src/msec/help.py:32
 msgid "Allow X server to accept connections from network on tcp port 6000."
@@ -121,6 +114,9 @@ msgid ""
 "Enable msec to enforce file permissions to the values specified in the msec "
 "security policy."
 msgstr ""
+"Dovolit aplikaci msec vynutit nastavení oprávnění k souborům na hodnoty "
+"uvedené "
+"v bezpečnostní politice msec."
 
 #: ../src/msec/help.py:38
 msgid ""
@@ -128,6 +124,9 @@ msgid ""
 "security level configuration. The security level to be used during this test "
 "is determined by the CHECK_SECTOOL_LEVELS variable."
 msgstr ""
+"Povolit kontroly sectools. Tato kontrola spustí všechny kontroly sectools "
+"pro nastavenou úroveň zabezpečení. Úroveň zabezpečení, která se má použít "
+"během těchto testů, je určena podle proměnné CHECK_SECTOOL_LEVELS."
 
 #: ../src/msec/help.py:40
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -306,7 +305,7 @@ msgstr "Umožnit přímé přihlášení uživatele root na terminálu."
 
 #: ../src/msec/help.py:100
 msgid "Run security checks when machine is running on battery power."
-msgstr ""
+msgstr "Spouštět bezpečnostní kontroly, pokud počítač běží na baterie."
 
 #: ../src/msec/help.py:102
 msgid "Enable checking for changes in system groups."
@@ -334,6 +333,12 @@ msgid ""
 "such strict requirements. This variable defines the number of past log files "
 "that should be kept by logrotate on the system."
 msgstr ""
+"Definuje výchozí období pro zachování záznamů, v týdnech. Některé země "
+"vyžadují, aby byly soubory se záznamy zachovány po dobu 12 měsíců, jiné "
+"takové "
+"přísné požadavky nemají. Tato proměnná definuje počet předchozích souborů se "
+"záznamy, "
+"které by měly být aplikací logrotate zachovány v systému."
 
 #: ../src/msec/help.py:110
 msgid "Ask for root password when going to single user level (man sulogin(8))."
@@ -373,6 +378,13 @@ msgid ""
 "If this variable is not defined, the default level defined in sectool "
 "configuration will be used."
 msgstr ""
+"Definuje úroveň sectool pro použití během pravidelných bezpečnostních "
+"kontrol. "
+"Můžete použít aplikaci sectool-gui a vybrat pro každou úroveň jednotlivé "
+"testy. "
+"Pokud není tato proměnná definována, použije se výchozí úroveň definovaná v "
+"nastavení "
+"aplikace sectool."
 
 #: ../src/msec/help.py:124
 msgid "Enable daily security checks."
@@ -418,6 +430,9 @@ msgid ""
 "Patterns to exclude from disk checks. This parameter is parsed as a regex "
 "(7), so you may use complex expressions."
 msgstr ""
+"Vzory, které by měly být vyloučeny z kontroly disků. Tento parametr je "
+"vyhodnocen "
+"jako regulární výraz regex (7), můžete tedy použít komplexní výrazy."
 
 #: ../src/msec/help.py:136
 msgid ""
@@ -428,6 +443,17 @@ msgid ""
 "sudo without any password makes your system very vulnerable, and you should "
 "only use this setting if you know what you are doing!"
 msgstr ""
+"Povolit uživatelům ze skupiny wheel použít sudo. Pokud je tato volba "
+"nastavena na "
+"„yes”, uživatelé ze skupiny wheel mohou použít sudo a spouštět příkazy jako "
+"administrátor "
+"za použití svých hesel. Pokud je tato volba nastavena na „without-password”, "
+"uživatelé mohou "
+"použít sudo bez nutnosti použít své heslo. VAROVÁNÍ: použití sudo bez "
+"jakéhokoli hesla "
+"dělá váš systém velmi zranitelným, a měli byste použít toto nastavení pouze "
+"v případě, kdy víte, "
+"co děláte!"
 
 #: ../src/msec/help.py:138
 msgid "Set the root umask."
@@ -569,23 +595,20 @@ msgid "Wrong permissions of %s: should be %o"
 msgstr "Chybné oprávnění k %s: mělo by být %o"
 
 #: ../src/msec/libmsec.py:901
-#, fuzzy
 msgid "Enforcing acl on %s"
-msgstr "Vynucuji skupinu vlastníka %s na %s"
+msgstr "Vynucuji ACL na %s"
 
 #: ../src/msec/libmsec.py:915
-#, fuzzy
 msgid "Unable to add filesystem-specific ACL %s to %s"
-msgstr "Vrátit zpět na výchozí oprávnění úrovně"
+msgstr "Nelze přidat ACL specifická pro systém souborů %s pro %s"
 
 #: ../src/msec/libmsec.py:917
-#, fuzzy
 msgid "Error changing acl on %s: %s"
-msgstr "Chyba při změně uživatele vlastníka %s: %s"
+msgstr "Chyba při změně ACL na %s: %s"
 
 #: ../src/msec/libmsec.py:919
 msgid "Wrong acl of %s"
-msgstr ""
+msgstr "Chybné ACL %s"
 
 #: ../src/msec/libmsec.py:936
 msgid "bad permissions for '%s': '%s'"
@@ -624,23 +647,20 @@ msgid "Switching to '%s' level."
 msgstr "Přecházím na úroveň „%s”."
 
 #: ../src/msec/msec.py:151
-#, fuzzy
 msgid "No custom file permissions for level '%s'."
-msgstr "chybná oprávnění pro „%s”: „%s”"
+msgstr "Neexistují vlastní oprávnění k souboru pro úroveň „%s”."
 
 #: ../src/msec/msec.py:152
-#, fuzzy
 msgid "Saving file permissions to '%s' level."
-msgstr "Měním oprávnění pro %s"
+msgstr "Ukládám oprávnění k souboru pro úroveň „%s”."
 
 #: ../src/msec/msec.py:192 ../src/msec/msecperms.py:166
 msgid "Unable to save config!"
 msgstr "Nelze uložit nastavení!"
 
 #: ../src/msec/msec.py:194
-#, fuzzy
 msgid "Unable to save file system permissions!"
-msgstr "Vrátit zpět na výchozí oprávnění úrovně"
+msgstr "Nelze uložit oprávnění k systému souborů!"
 
 #: ../src/msec/msecgui.py:55
 msgid ""
@@ -653,45 +673,50 @@ msgstr ""
 "aktivovat, zvolte odpovídající úroveň zabezpečení: "
 
 #: ../src/msec/msecgui.py:61
-#, fuzzy
 msgid ""
 "This profile configures a reasonably safe set of security features. It is "
 "the suggested level for Desktop. If unsure which profile to use, use this "
 "one."
 msgstr ""
 "Tento profil nastavuje přiměřeně bezpečnou sadu bezpečnostních vlastností. "
-"Aktivuje několik nerušivých pravidelných systémových kontrol. Toto je "
-"doporučovaná úroveň pro stolní počítač."
+"Toto je doporučovaná úroveň pro stolní počítač. Pokud si nejste jisti, který "
+"profil použít, "
+"použijte tento."
 
 #: ../src/msec/msecgui.py:62
 msgid ""
 "This profile is focused on netbooks, laptops or low-end devices, which are "
 "only accessed by local users and run on batteries."
 msgstr ""
+"Tento profil je zaměřený na netbooky, laptopy a málo výkonná zařízení, "
+"která jsou používána pouze lokálními uživateli a běží na baterie."
 
 #: ../src/msec/msecgui.py:64
-#, fuzzy
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. This level is suggested for "
 "security-concerned systems and servers. "
 msgstr ""
 "Tento profil je nastaven pro poskytování maximálního zabezpečení, i za cenu "
-"omezení vzdáleného přístupu k systému. Také spouští širší sadu pravidelných "
-"kontrol. Tato úroveň je doporučována pro servery a systémy, kterých se "
-"bezpečnost více dotýká."
+"omezení vzdáleného přístupu k systému. Tato úroveň je doporučována pro "
+"servery "
+"a systémy, kterých se bezpečnost více dotýká. "
 
 #: ../src/msec/msecgui.py:66
 msgid ""
 "This profile is targeted on local network servers, which do not receive "
 "accesses from unauthorized Internet users."
 msgstr ""
+"Tento profil je zaměřen na servery na místní síti, na které nemohou "
+"přistupovat neověření uživatelé ze sítě Internet."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
 "This profile is provided for servers which are intended to be accessed by "
 "unauthorized Internet users."
 msgstr ""
+"Tento profil je poskytován pro servery, které jsou vystaveny přístupům "
+"ze strany neověřených uživatelů sítě Internet."
 
 #: ../src/msec/msecgui.py:69
 msgid ""
@@ -699,17 +724,22 @@ msgid ""
 "system settings, and use it for periodic checks only. It configures all "
 "periodic checks to run once a day."
 msgstr ""
+"Tento profil je zamýšlen pro uživatele, kteří nespoléhají na msec, aby měnil "
+"systémová oprávnění, a kteří jej používají pouze na pravidelné kontroly. "
+"Nastavuje "
+"všechny pravidelné kontroly tak, aby běžely jednou denně."
 
 #: ../src/msec/msecgui.py:70
 msgid ""
 "This profile is similar to the 'audit_daily' profile, but it runs all checks "
 "weekly."
 msgstr ""
+"Tento profil je podobný profilu „audit_daily”, spouští ale kontroly jen "
+"jednou týdně."
 
 #: ../src/msec/msecgui.py:77
-#, fuzzy
 msgid "Custom security level."
-msgstr "Zabezpečení systému"
+msgstr "Vlastní úroveň zabezpečení."
 
 #: ../src/msec/msecgui.py:80
 msgid ""
@@ -784,12 +814,11 @@ msgstr "Uložit a přijmout nové nastavení?"
 
 #: ../src/msec/msecgui.py:154
 msgid "Unable to load configuration for level '%s'"
-msgstr ""
+msgstr "Nelze načíst nastavení pro úroveň „%s”"
 
 #: ../src/msec/msecgui.py:160
-#, fuzzy
 msgid "Unable to load permissions for level '%s'"
-msgstr "chybná oprávnění pro „%s”: „%s”"
+msgstr "Nelze načíst oprávnění pro úroveň „%s”"
 
 #: ../src/msec/msecgui.py:193
 msgid "_File"
@@ -817,12 +846,11 @@ msgstr "MSEC: Zabezpečení a audit systému"
 
 #: ../src/msec/msecgui.py:245
 msgid "Overview"
-msgstr ""
+msgstr "Přehled"
 
 #: ../src/msec/msecgui.py:246
-#, fuzzy
 msgid "Security settings"
-msgstr "Volba zabezpečení"
+msgstr "Nastavení zabezpečení"
 
 #: ../src/msec/msecgui.py:255
 msgid "Basic security"
@@ -886,7 +914,7 @@ msgstr "Ukládám změny…"
 
 #: ../src/msec/msecgui.py:341
 msgid "Ignore and quit"
-msgstr ""
+msgstr "Ignorovat a ukončit"
 
 #: ../src/msec/msecgui.py:379
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -934,89 +962,87 @@ msgstr "Neplatná volba „%s”!"
 
 #: ../src/msec/msecgui.py:593
 msgid "Firewall"
-msgstr ""
+msgstr "Firewall"
 
 #: ../src/msec/msecgui.py:600 ../src/msec/msecgui.py:642
 msgid "Configure"
-msgstr ""
+msgstr "Nastavit"
 
 #: ../src/msec/msecgui.py:608
 msgid "Updates"
-msgstr ""
+msgstr "Aktualizace"
 
 #: ../src/msec/msecgui.py:614
 msgid "Update now"
-msgstr ""
+msgstr "Aktualizovat teď"
 
 #: ../src/msec/msecgui.py:621
-#, fuzzy
 msgid "Security"
-msgstr "Kontrola zabezpečení"
+msgstr "Zabezpečení"
 
 #: ../src/msec/msecgui.py:624
 msgid "Msec is disabled"
-msgstr ""
+msgstr "Msec je vypnut"
 
 #: ../src/msec/msecgui.py:627
 msgid "Msec is enabled"
-msgstr ""
+msgstr "Msec je zapnut"
 
 #: ../src/msec/msecgui.py:628
-#, fuzzy
 msgid "Base security level: '%s'"
-msgstr "Neplatná úroveň zabezpečení „%s”."
+msgstr "Základní úroveň zabezpečení: „%s”"
 
 #: ../src/msec/msecgui.py:636
 msgid "Custom settings: %d"
-msgstr ""
+msgstr "Vlastní nastavení: %d"
 
 #: ../src/msec/msecgui.py:657
 msgid "Never"
-msgstr ""
+msgstr "Nikdy"
 
 #: ../src/msec/msecgui.py:658
 msgid "Check: %s. Last run: %s"
-msgstr ""
+msgstr "Kontrola: %s. Poslední běh: %s"
 
 #: ../src/msec/msecgui.py:663
 msgid "Show results"
-msgstr ""
+msgstr "Zobrazit výsledky"
 
 #: ../src/msec/msecgui.py:669
 msgid "Run now"
-msgstr ""
+msgstr "Spustit teď"
 
 #: ../src/msec/msecgui.py:690
-#, fuzzy
 msgid "Unable to read log file: %s"
-msgstr "Nelze uložit nastavení!"
+msgstr "Nelze načíst soubor se záznamy: %s"
 
 #: ../src/msec/msecgui.py:691
-#, fuzzy
 msgid "Periodic check results"
-msgstr "Pravidelné kontroly"
+msgstr "Výsledky pravidelných kontrol"
 
 #: ../src/msec/msecgui.py:723
 msgid ""
 "Do you want to run the <b>%s</b> periodic check? Please note that it could "
 "take a considerable time to finish."
 msgstr ""
+"Chcete spustit pravidelnou kontrolu <b>%s</b>? Mějte prosím na paměti, "
+"že může trvat dlouho, než kontrola skončí."
 
 #: ../src/msec/msecgui.py:731 ../src/msec/msecgui.py:739
 msgid "Please wait, running checks..."
-msgstr ""
+msgstr "Prosím počkejte, běží kontroly…"
 
 #: ../src/msec/msecgui.py:742
 msgid "Please wait, this might take a few minutes."
-msgstr ""
+msgstr "Prosím počkejte, může to trvat několik minut."
 
 #: ../src/msec/msecgui.py:771
 msgid "Periodic check was executed successfully!"
-msgstr ""
+msgstr "Pravidelná kontrola byla provedena úspěšně!"
 
 #: ../src/msec/msecgui.py:774
 msgid "An error occurred while running periodic check."
-msgstr ""
+msgstr "Při běhu pravidelné kontroly se vyskytla chyba."
 
 #: ../src/msec/msecgui.py:806
 msgid "Enable MSEC tool"
@@ -1028,12 +1054,11 @@ msgstr "Vyberte základní úroveň zabezpečení"
 
 #: ../src/msec/msecgui.py:836
 msgid "Level name"
-msgstr ""
+msgstr "Název úrovně"
 
 #: ../src/msec/msecgui.py:892
-#, fuzzy
 msgid "Send security alerts by email to:"
-msgstr "Posílat bezpečnostní varování emailem"
+msgstr "Posílat bezpečnostní varování emailem na:"
 
 #: ../src/msec/msecgui.py:914
 msgid "Display security alerts on desktop"
@@ -1077,7 +1102,7 @@ msgstr "Vynutit"
 
 #: ../src/msec/msecgui.py:1266
 msgid "Acl"
-msgstr ""
+msgstr "ACL"
 
 #: ../src/msec/msecgui.py:1419
 msgid "Editing exception"
@@ -1111,9 +1136,8 @@ msgid "Adding new permission check"
 msgstr "Přidávám novou kontrolu oprávnění"
 
 #: ../src/msec/msecgui.py:1509
-#, fuzzy
 msgid "Changing permissions on <b>%s</b>"
-msgstr "Měním oprávnění pro %s"
+msgstr "Měním oprávnění na <b>%s</b>"
 
 #: ../src/msec/msecgui.py:1509
 msgid "new file"
@@ -1124,14 +1148,12 @@ msgid "File: "
 msgstr "Soubor: "
 
 #: ../src/msec/msecgui.py:1530
-#, fuzzy
 msgid ""
 "Please specify new file owner and permissions, or use 'current' to keep "
 "current settings."
 msgstr ""
-"Měním oprávnění na <b>%s</b>\n"
-"Zadejte prosím nová oprávnění nebo použijte „current”pro zachování "
-"současných oprávění.\n"
+"Zadejte prosím nová oprávnění a vlastníka souboru nebo použijte "
+"„current”pro zachování současných oprávnění."
 
 #: ../src/msec/msecgui.py:1537
 msgid "User: "
@@ -1152,17 +1174,21 @@ msgid ""
 "user1:acl,user2:acl\n"
 "Refer to 'man setfacl' for details."
 msgstr ""
+"Chcete-li vynutit další ACL (seznam kontroly přístupu) na soubor, zadejte "
+"jej v následujícím "
+"formátu:\n"
+"uživatel1:acl,uživatel2:acl\n"
+"Podrobnosti najdete v „man setfacl”."
 
 #: ../src/msec/msecgui.py:1575
 msgid "ACL: "
-msgstr ""
+msgstr "ACL: "
 
 #: ../src/msec/msecgui.py:1642
 msgid "Select new value for %s"
 msgstr "Vyberte novou hodnotu pro %s"
 
 #: ../src/msec/msecgui.py:1651
-#, fuzzy
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1172,8 +1198,7 @@ msgstr ""
 "<i>%s</i>\n"
 "\n"
 "\tSoučasná hodnota:\t\t\t<i>%s</i>\n"
-"\t%sHodnota standardní úrovně:\t<i>%s</i>%s\n"
-"\t%sHodnota bezpečné úrovně:\t\t<i>%s</i>%s\n"
+"\t%sVýchozí hodnota úrovně:\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1661
 msgid "New value:"
@@ -1460,6 +1485,9 @@ msgid ""
 "to su to root, but this group is empty. Please add the allowed users into "
 "the wheel group."
 msgstr ""
+"Bezpečnostní nastavení je definováno tak, aby umožňovalo pouze členům "
+"skupiny wheel používat su na administrátora, ale tato skupina je prázdná. "
+"Přidejte prosím do skupiny wheel oprávněné uživatele."
 
 #: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"

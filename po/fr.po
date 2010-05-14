@@ -76,7 +76,7 @@ msgstr ""
 "Project-Id-Version: DrakX-fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2009-09-26 11:19+0200\n"
+"PO-Revision-Date: 2010-05-14 11:53+0100\n"
 "Last-Translator: Christophe Berthelé <berthy@mandriva.org>\n"
 "Language-Team: French <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -84,10 +84,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2;plural=(n>1);\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
 
 #: ../src/msec/config.py:46
 msgid "Modified system files"
-msgstr ""
+msgstr "Fichiers système modifiés"
 
 #: ../src/msec/config.py:47
 #, fuzzy
@@ -96,33 +98,29 @@ msgstr "Activer la vérification des changements dans les utilisateurs système.
 
 #: ../src/msec/config.py:60
 msgid "Disabled"
-msgstr ""
+msgstr "Désactivé"
 
 #: ../src/msec/config.py:211 ../src/msec/config.py:423
 msgid "Unable to load configuration file %s: %s"
-msgstr ""
+msgstr "Impossible de charger le fichier de configuration %s : %s"
 
 #: ../src/msec/config.py:225 ../src/msec/config.py:334
 #: ../src/msec/config.py:442
-#, fuzzy
 msgid "Bad config option: %s"
-msgstr "_Sauvegarder la configuration"
+msgstr "Option de configuration incorrecte : %s"
 
 #: ../src/msec/config.py:260 ../src/msec/config.py:373
 #: ../src/msec/config.py:468
-#, fuzzy
 msgid "Unable to save %s: %s"
-msgstr "Impossible de sauvegarder la configuration !"
+msgstr "Impossible d'enregistrer %s : %s"
 
 #: ../src/msec/config.py:319
-#, fuzzy
 msgid "loading exceptions file %s: %s"
-msgstr "Erreur de chargement du greffon « %s » de %s : %s"
+msgstr "Chargement du fichier d'exceptions %s : %s"
 
 #: ../src/msec/config.py:320
-#, fuzzy
 msgid "No exceptions loaded"
-msgstr "Exceptions"
+msgstr "Pas d'exceptions chargées"
 
 #: ../src/msec/help.py:14
 msgid ""
@@ -169,6 +167,8 @@ msgstr ""
 #: ../src/msec/help.py:28
 msgid "Enable periodic permission checking for files specified in msec policy."
 msgstr ""
+"Activer la vérification périodique des permissions des fichiers spécifiés "
+"dans la politique msec"
 
 #: ../src/msec/help.py:30
 #, fuzzy
@@ -189,6 +189,8 @@ msgid ""
 "Enable msec to enforce file permissions to the values specified in the msec "
 "security policy."
 msgstr ""
+"Autoriser msec à forcer la permission des fichiers conformément aux valeurs "
+"spécifiées dans la politique sécurité msec"
 
 #: ../src/msec/help.py:38
 msgid ""
@@ -196,6 +198,9 @@ msgid ""
 "security level configuration. The security level to be used during this test "
 "is determined by the CHECK_SECTOOL_LEVELS variable."
 msgstr ""
+"Activer la vérification sectools. Toutes les vérifications sectools "
+"associées au niveau de sécurité seront effectuées. Ce niveau de sécurité est "
+"déterminé par la variable CHECK_SECTOOL_LEVELS."
 
 #: ../src/msec/help.py:40
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -385,6 +390,7 @@ msgstr "Permettre la connexion directe sur terminal en tant que root."
 #: ../src/msec/help.py:100
 msgid "Run security checks when machine is running on battery power."
 msgstr ""
+"Exécuter les vérifications de sécurité lorsque la machine est sur batterie."
 
 #: ../src/msec/help.py:102
 msgid "Enable checking for changes in system groups."
@@ -652,9 +658,8 @@ msgid "Wrong permissions of %s: should be %o"
 msgstr "Permissions incorrectes pour %s : devraient être %o"
 
 #: ../src/msec/libmsec.py:901
-#, fuzzy
 msgid "Enforcing acl on %s"
-msgstr "Groupe de %s forcé à %s"
+msgstr "ACL forcé pour %s"
 
 #: ../src/msec/libmsec.py:915
 #, fuzzy
@@ -662,13 +667,12 @@ msgid "Unable to add filesystem-specific ACL %s to %s"
 msgstr "Remettre les valeurs par défaut pour ce niveau"
 
 #: ../src/msec/libmsec.py:917
-#, fuzzy
 msgid "Error changing acl on %s: %s"
-msgstr "Erreur de changement d'utilisateur pour %s : %s"
+msgstr "Erreur de changement d'acl pour %s : %s"
 
 #: ../src/msec/libmsec.py:919
 msgid "Wrong acl of %s"
-msgstr ""
+msgstr "ACL de %s incorrecte"
 
 #: ../src/msec/libmsec.py:936
 msgid "bad permissions for '%s': '%s'"
@@ -721,9 +725,8 @@ msgid "Unable to save config!"
 msgstr "Impossible de sauvegarder la configuration !"
 
 #: ../src/msec/msec.py:194
-#, fuzzy
 msgid "Unable to save file system permissions!"
-msgstr "Remettre les valeurs par défaut pour ce niveau"
+msgstr "Impossible d'enregistrer les permissions du système de fichiers !"
 
 #: ../src/msec/msecgui.py:55
 msgid ""
@@ -791,9 +794,8 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:77
-#, fuzzy
 msgid "Custom security level."
-msgstr "Sécurité du système"
+msgstr "Niveau de sécurité personnalisé"
 
 #: ../src/msec/msecgui.py:80
 msgid ""
@@ -906,12 +908,11 @@ msgstr "MSEC : Sécurité du système et Audit"
 
 #: ../src/msec/msecgui.py:245
 msgid "Overview"
-msgstr ""
+msgstr "Vue générale"
 
 #: ../src/msec/msecgui.py:246
-#, fuzzy
 msgid "Security settings"
-msgstr "Option de sécurité"
+msgstr "Paramètres de sécurité"
 
 #: ../src/msec/msecgui.py:255
 msgid "Basic security"
@@ -975,7 +976,7 @@ msgstr "Sauvegarde des changements.."
 
 #: ../src/msec/msecgui.py:341
 msgid "Ignore and quit"
-msgstr ""
+msgstr "Ignorer et quitter"
 
 #: ../src/msec/msecgui.py:379
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -1023,45 +1024,43 @@ msgstr "Option invalide « %s » !"
 
 #: ../src/msec/msecgui.py:593
 msgid "Firewall"
-msgstr ""
+msgstr "Parefeu"
 
 #: ../src/msec/msecgui.py:600 ../src/msec/msecgui.py:642
 msgid "Configure"
-msgstr ""
+msgstr "Configurer"
 
 #: ../src/msec/msecgui.py:608
 msgid "Updates"
-msgstr ""
+msgstr "Mises à jour"
 
 #: ../src/msec/msecgui.py:614
 msgid "Update now"
-msgstr ""
+msgstr "Mettre à jour maintenant"
 
 #: ../src/msec/msecgui.py:621
-#, fuzzy
 msgid "Security"
-msgstr "Vérifications de sécurité"
+msgstr "Sécurité"
 
 #: ../src/msec/msecgui.py:624
 msgid "Msec is disabled"
-msgstr ""
+msgstr "Msec est désactivé"
 
 #: ../src/msec/msecgui.py:627
 msgid "Msec is enabled"
-msgstr ""
+msgstr "Msec est activé"
 
 #: ../src/msec/msecgui.py:628
-#, fuzzy
 msgid "Base security level: '%s'"
-msgstr "Niveau de sécurité incorrect « %s »."
+msgstr "Niveau de sécurité de base : '%s'"
 
 #: ../src/msec/msecgui.py:636
 msgid "Custom settings: %d"
-msgstr ""
+msgstr "Paramètres personnalisés : %d"
 
 #: ../src/msec/msecgui.py:657
 msgid "Never"
-msgstr ""
+msgstr "Jamais"
 
 #: ../src/msec/msecgui.py:658
 msgid "Check: %s. Last run: %s"
@@ -1069,21 +1068,19 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:663
 msgid "Show results"
-msgstr ""
+msgstr "Afficher les résultats"
 
 #: ../src/msec/msecgui.py:669
 msgid "Run now"
-msgstr ""
+msgstr "Exécuter maintenant"
 
 #: ../src/msec/msecgui.py:690
-#, fuzzy
 msgid "Unable to read log file: %s"
-msgstr "Impossible de sauvegarder la configuration !"
+msgstr "Impossible de lire le fichier journal : %s"
 
 #: ../src/msec/msecgui.py:691
-#, fuzzy
 msgid "Periodic check results"
-msgstr "Vérifications périodiques"
+msgstr "Résultats des vérifications périodiques"
 
 #: ../src/msec/msecgui.py:723
 msgid ""
@@ -1120,9 +1117,8 @@ msgid "Level name"
 msgstr ""
 
 #: ../src/msec/msecgui.py:892
-#, fuzzy
 msgid "Send security alerts by email to:"
-msgstr "Envoi d'alertes de sécurité par courriel"
+msgstr "Envoi d'alertes de sécurité par courriel à :"
 
 #: ../src/msec/msecgui.py:914
 msgid "Display security alerts on desktop"
@@ -1201,9 +1197,8 @@ msgid "Adding new permission check"
 msgstr "Ajout d'une nouvelle vérification périodique"
 
 #: ../src/msec/msecgui.py:1509
-#, fuzzy
 msgid "Changing permissions on <b>%s</b>"
-msgstr "Changement des permissions pour %s"
+msgstr "Changement des permissions pour <b>%s</b>"
 
 #: ../src/msec/msecgui.py:1509
 msgid "new file"
@@ -1245,7 +1240,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1575
 msgid "ACL: "
-msgstr ""
+msgstr "ACL : "
 
 #: ../src/msec/msecgui.py:1642
 msgid "Select new value for %s"

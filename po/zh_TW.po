@@ -35,9 +35,8 @@ msgid "Modified system files"
 msgstr ""
 
 #: ../src/msec/config.py:47
-#, fuzzy
 msgid "No changes in system files"
-msgstr "檢查不屬於任何人的檔案。 "
+msgstr "系統檔案無變更"
 
 #: ../src/msec/config.py:60
 msgid "Disabled"
@@ -49,15 +48,13 @@ msgstr ""
 
 #: ../src/msec/config.py:225 ../src/msec/config.py:334
 #: ../src/msec/config.py:442
-#, fuzzy
 msgid "Bad config option: %s"
-msgstr "儲存設定(_S)"
+msgstr "錯誤的設定選項: %s"
 
 #: ../src/msec/config.py:260 ../src/msec/config.py:373
 #: ../src/msec/config.py:468
-#, fuzzy
 msgid "Unable to save %s: %s"
-msgstr "儲存設定失敗!"
+msgstr "儲存 %s 設定失敗: %s"
 
 #: ../src/msec/config.py:319
 msgid "loading exceptions file %s: %s"
@@ -77,7 +74,6 @@ msgstr ""
 "不允許(不連線)。"
 
 #: ../src/msec/help.py:16
-#, fuzzy
 msgid "Enable checking for files/directories writable by everybody."
 msgstr "檢查可以被任何人寫入的檔案/目錄"
 
@@ -106,9 +102,8 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:28
-#, fuzzy
 msgid "Enable periodic permission checking for files specified in msec policy."
-msgstr "啟用定期檢查系統檔案權限。"
+msgstr "依照 msec 規則啟用定期檢查系統檔案權限。"
 
 #: ../src/msec/help.py:30
 #, fuzzy
@@ -141,17 +136,14 @@ msgid "Set shell commands history size. A value of -1 means unlimited."
 msgstr "設定 shell 命令歷史記錄的大小。-1 代表沒有限制。"
 
 #: ../src/msec/help.py:42
-#, fuzzy
 msgid "Allow system reboot and shutdown to local users."
-msgstr "允許 console 使用者重新開機。"
+msgstr "允許主機端使用者重新開機/關機。"
 
 #: ../src/msec/help.py:44
-#, fuzzy
 msgid "Enable checking for changes in firewall settings."
-msgstr "啟用開放網路埠檢查"
+msgstr "啟用防火牆設定變更檢查"
 
 #: ../src/msec/help.py:46
-#, fuzzy
 msgid "Enable checking for additions/removals of suid root files."
 msgstr "檢查 suid root 檔案的新增/移除"
 
@@ -1433,72 +1425,3 @@ msgstr ""
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
 msgstr "關閉 wheel 群組使用者直接使用 root 權限。"
-
-#~ msgid "Standard"
-#~ msgstr "標準"
-
-#~ msgid "Secure"
-#~ msgstr "安全性"
-
-#, fuzzy
-#~ msgid "System administrator email address:"
-#~ msgstr "設定管理者 (root) 密碼"
-
-#~ msgid "Save your changes?"
-#~ msgstr "是否儲存變更？"
-
-#~ msgid "_Cancel"
-#~ msgstr "取消(_C)"
-
-#, fuzzy
-#~ msgid "_Ignore"
-#~ msgstr "忽略"
-
-#~ msgid "_Save"
-#~ msgstr "儲存(_S)"
-
-#~ msgid "Do you want to save changes before closing?"
-#~ msgstr "在您離開之前想要儲存變更嗎？"
-
-#~ msgid "wheel group is empty"
-#~ msgstr "群組 wheel 是空的"
-
-#, fuzzy
-#~ msgid "'%s' is not available in this version"
-#~ msgstr "%s 不被這個版本的 %s 所支援。"
-
-#~ msgid "Activating daily security check"
-#~ msgstr "啟用每日安全性檢查。"
-
-#~ msgid "Disabling daily security check"
-#~ msgstr "取消每日安全檢查"
-
-#, fuzzy
-#~ msgid "Activating periodic promiscuity check"
-#~ msgstr "啟用網路卡混用檢查。"
-
-#, fuzzy
-#~ msgid "Disabling periodic promiscuity check"
-#~ msgstr "啟用網路卡混用檢查。"
-
-#, fuzzy
-#~ msgid "_Import configuration"
-#~ msgstr "音效設定"
-
-#, fuzzy
-#~ msgid "_Export configuration"
-#~ msgstr "音效設定"
-
-#, fuzzy
-#~ msgid "Save and apply current policy"
-#~ msgstr "儲存並套用新的設定？"
-
-#, fuzzy
-#~ msgid "Quit"
-#~ msgstr "離開"
-
-#~ msgid "Enable AppArmor security framework on boot"
-#~ msgstr "在開機時啟用 AppArmor 安全架構"
-
-#~ msgid "Enable verification of installed RPM packages."
-#~ msgstr "啟用驗證已安裝的RPM"

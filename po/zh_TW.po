@@ -32,7 +32,7 @@ msgstr ""
 
 #: ../src/msec/config.py:46
 msgid "Modified system files"
-msgstr ""
+msgstr "修改系統檔案"
 
 #: ../src/msec/config.py:47
 msgid "No changes in system files"
@@ -40,11 +40,11 @@ msgstr "系統檔案無變更"
 
 #: ../src/msec/config.py:60
 msgid "Disabled"
-msgstr ""
+msgstr "停用"
 
 #: ../src/msec/config.py:211 ../src/msec/config.py:423
 msgid "Unable to load configuration file %s: %s"
-msgstr ""
+msgstr "無法載入設定檔 %s：%s"
 
 #: ../src/msec/config.py:225 ../src/msec/config.py:334
 #: ../src/msec/config.py:442
@@ -58,20 +58,19 @@ msgstr "儲存 %s 設定失敗: %s"
 
 #: ../src/msec/config.py:319
 msgid "loading exceptions file %s: %s"
-msgstr ""
+msgstr "載入例外檔案 %s：%s"
 
 #: ../src/msec/config.py:320
-#, fuzzy
 msgid "No exceptions loaded"
-msgstr "選項"
+msgstr "沒有載入例外"
 
 #: ../src/msec/help.py:14
 msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
-"允許本機使用者連線X伺服器。允許參數：是(全部連線皆允許)，本機(只有本機連線)，"
-"不允許(不連線)。"
+"允許本機使用者連線 X 伺服器。允許參數：是 (全部連線皆允許)，本機 (只有本機連線)，"
+"不允許 (不連線)。"
 
 #: ../src/msec/help.py:16
 msgid "Enable checking for files/directories writable by everybody."
@@ -79,7 +78,7 @@ msgstr "檢查可以被任何人寫入的檔案/目錄"
 
 #: ../src/msec/help.py:18
 msgid "Log syslog messages on console terminal 12."
-msgstr ""
+msgstr "記錄 syslog 訊息於 12 號終端機。"
 
 #: ../src/msec/help.py:20
 msgid "Send mail reports even if no changes were detected."
@@ -168,15 +167,14 @@ msgid ""
 msgstr "啟用密碼相關檢查，如空白密碼和奇怪的超級用戶帳戶。"
 
 #: ../src/msec/help.py:56
-#, fuzzy
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
-msgstr "設定密碼記錄長度來防止重複使用密碼。"
+msgstr "設定密碼記錄的長度以防止重複使用密碼。這不被 pam_tcb 支援。"
 
 #: ../src/msec/help.py:58
 msgid "Enable checksum verification for suid files."
-msgstr ""
+msgstr "啟用 suid 檔案的 checksum 認證。"
 
 #: ../src/msec/help.py:60
 msgid ""
@@ -190,31 +188,28 @@ msgid "User email to receive security notifications."
 msgstr "使用者用來接收安全性訊息的電子郵件信箱位址。"
 
 #: ../src/msec/help.py:64
-#, fuzzy
 msgid "Set the user umask."
-msgstr "設定使用者的檔案模式建立遮罩。"
+msgstr "設定使用者的 umask。"
 
 #: ../src/msec/help.py:66
 msgid "Allow only users in wheel group to su to root."
 msgstr "只允許 wheel 群組的使用者用 su 轉換成管理者。"
 
 #: ../src/msec/help.py:68
-#, fuzzy
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr "檢查 /etc/shadow 內的空白密碼"
+msgstr "啟用檢查 /etc/shadow 內的空白密碼 (man shadow(5))。"
 
 #: ../src/msec/help.py:70
 msgid "Allow autologin."
 msgstr "允許自動登入。"
 
 #: ../src/msec/help.py:72
-#, fuzzy
 msgid "Enable checking for changes in system users."
-msgstr "檢查不屬於任何人的檔案。 "
+msgstr "啟用系統使用者設定變更檢查。"
 
 #: ../src/msec/help.py:74
 msgid "Enable checking for unowned files."
-msgstr "檢查不屬於任何人的檔案。 "
+msgstr "啟用檢查不屬於任何人的檔案。"
 
 #: ../src/msec/help.py:76
 msgid "Set the shell timeout. A value of zero means no timeout."
@@ -237,7 +232,7 @@ msgstr ""
 
 #: ../src/msec/help.py:84
 msgid "Include current directory into user PATH by default"
-msgstr ""
+msgstr "預設將目前的目錄加入到使用者的路徑 (PATH) 中"
 
 #: ../src/msec/help.py:86
 msgid ""
@@ -264,13 +259,14 @@ msgstr ""
 
 #: ../src/msec/help.py:92
 msgid "Show security notifications in system tray using libnotify."
-msgstr ""
+msgstr "使用 libnotify 在系統列顯示安全性提示。"
 
 #: ../src/msec/help.py:94
 msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
+"設定掛載 vfat 或 ntfs 磁區時所用的 umask 選項。如果 umask 是 '-1'，將套用預設的系統 umask。"
 
 #: ../src/msec/help.py:96
 msgid "Enable checking for open network ports."
@@ -282,12 +278,11 @@ msgstr "允許 root 直接於終端機登入。"
 
 #: ../src/msec/help.py:100
 msgid "Run security checks when machine is running on battery power."
-msgstr ""
+msgstr "當電腦使用電池時執行安全性檢查。"
 
 #: ../src/msec/help.py:102
-#, fuzzy
 msgid "Enable checking for changes in system groups."
-msgstr "檢查不屬於任何人的檔案。 "
+msgstr "啟用系統群組設定變更檢查。"
 
 #: ../src/msec/help.py:104
 msgid ""
@@ -322,7 +317,7 @@ msgstr "允許 wheel 群組使用者不需密碼即可取得 root 權限。"
 
 #: ../src/msec/help.py:116
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
-msgstr ""
+msgstr "修正無主檔案的擁有者及群組為 nobody/nogroup。"
 
 #: ../src/msec/help.py:118
 msgid "Send security check results by email."
@@ -389,9 +384,8 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/help.py:138
-#, fuzzy
 msgid "Set the root umask."
-msgstr "設定 root 的檔案模式建立遮罩。"
+msgstr "設定 root 的 umask。"
 
 #: ../src/msec/help.py:140
 msgid "Perform hourly security check for changes in system configuration."
@@ -442,7 +436,7 @@ msgstr "正在由 %s 切換至 %s"
 
 #: ../src/msec/libmsec.py:418
 msgid "moved file %s to %s"
-msgstr ""
+msgstr "移動檔案 %s 至 %s"
 
 #: ../src/msec/libmsec.py:468 ../src/msec/libmsec.py:484
 msgid "set variable %s to %s in %s"
@@ -458,7 +452,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:712
 msgid "Plugin %s not found"
-msgstr ""
+msgstr "Plugin %s 沒有找到"
 
 #: ../src/msec/libmsec.py:719
 msgid "Not supported function '%s' in '%s'"
@@ -466,7 +460,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:726 ../src/msec/libmsec.py:856
 msgid "In check-only mode, nothing is written back to disk."
-msgstr ""
+msgstr "在檢查模式，沒有東西會被寫回磁碟裡。"
 
 #: ../src/msec/libmsec.py:753
 msgid "Invalid parameter for %s: '%s'. Valid parameters: '%s'."
@@ -478,24 +472,23 @@ msgstr "使用者名稱 %s 不存在"
 
 #: ../src/msec/libmsec.py:798
 msgid "user name not found for id %d"
-msgstr ""
+msgstr "ID %d 的使用者名稱不存在"
 
 #: ../src/msec/libmsec.py:810
 msgid "group name %s not found"
-msgstr ""
+msgstr "群組名稱 %s 不存在"
 
 #: ../src/msec/libmsec.py:822
 msgid "group name not found for id %d"
-msgstr ""
+msgstr "ID %d 的群組不存在"
 
 #: ../src/msec/libmsec.py:832
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
-msgstr ""
+msgstr "無法檢查 /proc/mounts。假設所有檔案系統都在本地端。"
 
 #: ../src/msec/libmsec.py:871
-#, fuzzy
 msgid "Forcing ownership of %s to %s"
-msgstr "正在由 %s 切換至 %s"
+msgstr "強制將 %s 的所有權切換給 %s"
 
 #: ../src/msec/libmsec.py:875
 #, fuzzy
@@ -504,7 +497,7 @@ msgstr "卸下 %s 的掛載時發生錯誤：%s"
 
 #: ../src/msec/libmsec.py:877
 msgid "Wrong owner of %s: should be %s"
-msgstr ""
+msgstr "%s 有錯誤的擁有者︰應該是 %s"
 
 #: ../src/msec/libmsec.py:880
 #, fuzzy
@@ -518,7 +511,7 @@ msgstr "卸下 %s 的掛載時發生錯誤：%s"
 
 #: ../src/msec/libmsec.py:886
 msgid "Wrong group of %s: should be %s"
-msgstr ""
+msgstr "%s 有錯誤的群組︰應該是 %s"
 
 #: ../src/msec/libmsec.py:891
 msgid "Enforcing permissions on %s to %o"
@@ -530,7 +523,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:897
 msgid "Wrong permissions of %s: should be %o"
-msgstr ""
+msgstr "%s 有錯誤的權限︰應該是 %s"
 
 #: ../src/msec/libmsec.py:901
 #, fuzzy
@@ -553,7 +546,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:936
 msgid "bad permissions for '%s': '%s'"
-msgstr ""
+msgstr "'%s' 有錯誤的權限︰'%s'"
 
 #: ../src/msec/libmsec.py:961
 msgid "Non local file: \"%s\". Nothing changed."

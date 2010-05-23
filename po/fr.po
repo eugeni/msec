@@ -76,7 +76,7 @@ msgstr ""
 "Project-Id-Version: DrakX-fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2010-05-14 11:53+0100\n"
+"PO-Revision-Date: 2010-05-23 17:20+0100\n"
 "Last-Translator: Christophe Berthelé <berthy@mandriva.org>\n"
 "Language-Team: French <cooker-i18n@mandrivalinux.org>\n"
 "MIME-Version: 1.0\n"
@@ -92,9 +92,8 @@ msgid "Modified system files"
 msgstr "Fichiers système modifiés"
 
 #: ../src/msec/config.py:47
-#, fuzzy
 msgid "No changes in system files"
-msgstr "Activer la vérification des changements dans les utilisateurs système."
+msgstr "Pas de changements dans les fichiers système"
 
 #: ../src/msec/config.py:60
 msgid "Disabled"
@@ -171,9 +170,10 @@ msgstr ""
 "dans la politique msec"
 
 #: ../src/msec/help.py:30
-#, fuzzy
 msgid "Ignore changes in process IDs when checking for open network ports."
-msgstr "Vérifier les ports réseau ouverts."
+msgstr ""
+"Ignorer les changements des IDs processus lors de la vérification des ports "
+"réseau ouverts."
 
 #: ../src/msec/help.py:32
 msgid "Allow X server to accept connections from network on tcp port 6000."
@@ -418,6 +418,10 @@ msgid ""
 "such strict requirements. This variable defines the number of past log files "
 "that should be kept by logrotate on the system."
 msgstr ""
+"Définit la durée par défaut de rétention des journaux, en semaines. Certains "
+"pays imposent une conservation minimum de 12 mois, d'autres n'imposent pas "
+"de restrictions particulières. Cette variable définit le nombre de journaux "
+"passés à conserver sur le système par logrotate."
 
 #: ../src/msec/help.py:110
 msgid "Ask for root password when going to single user level (man sulogin(8))."
@@ -457,6 +461,11 @@ msgid ""
 "If this variable is not defined, the default level defined in sectool "
 "configuration will be used."
 msgstr ""
+"Définit le niveau sectool à utiliser lors des vérifications périodiques de "
+"sécurité. Vous pouvez utiliser l'application sectool-gui pour sélectionner "
+"des tests individuels pour chaque niveau. Si cette variable n'est pas "
+"définie, le niveau par défaut défini dans la configuration sectool sera "
+"utilisé."
 
 #: ../src/msec/help.py:124
 msgid "Enable daily security checks."
@@ -504,6 +513,9 @@ msgid ""
 "Patterns to exclude from disk checks. This parameter is parsed as a regex "
 "(7), so you may use complex expressions."
 msgstr ""
+"Motifs à exclure lors de la vérification disque. Ce paramètre est analysé "
+"comme une expression régulière regex (7), vous pouvez donc utiliser une "
+"expression complexe."
 
 #: ../src/msec/help.py:136
 msgid ""
@@ -662,9 +674,8 @@ msgid "Enforcing acl on %s"
 msgstr "ACL forcé pour %s"
 
 #: ../src/msec/libmsec.py:915
-#, fuzzy
 msgid "Unable to add filesystem-specific ACL %s to %s"
-msgstr "Remettre les valeurs par défaut pour ce niveau"
+msgstr "Impossible d'ajouter des ACL spécifiques systèmes de fichiers %s à %s"
 
 #: ../src/msec/libmsec.py:917
 msgid "Error changing acl on %s: %s"
@@ -711,14 +722,12 @@ msgid "Switching to '%s' level."
 msgstr "Passage au niveau « %s »."
 
 #: ../src/msec/msec.py:151
-#, fuzzy
 msgid "No custom file permissions for level '%s'."
-msgstr "permissions incorrectes pour « %s » : « %s »"
+msgstr "Pas de permissions fichier personnalisées pour le niveau « %s »."
 
 #: ../src/msec/msec.py:152
-#, fuzzy
 msgid "Saving file permissions to '%s' level."
-msgstr "Changement des permissions pour %s"
+msgstr "Enregistrement des permissions fichiers pour le niveau %s."
 
 #: ../src/msec/msec.py:192 ../src/msec/msecperms.py:166
 msgid "Unable to save config!"
@@ -740,45 +749,48 @@ msgstr ""
 "approprié : "
 
 #: ../src/msec/msecgui.py:61
-#, fuzzy
 msgid ""
 "This profile configures a reasonably safe set of security features. It is "
 "the suggested level for Desktop. If unsure which profile to use, use this "
 "one."
 msgstr ""
 "Ce profil configure un ensemble de paramètres pour un niveau de sécurité "
-"raisonnable. Il active différentes vérifications périodiques du système, non "
-"intrusives. Ce niveau est préconisé pour les ordinateurs de bureau."
+"raisonnable. Il est préconisé pour les ordinateurs de bureau. En cas de "
+"doute lors du choix du profil, utilisez celui-ci."
 
 #: ../src/msec/msecgui.py:62
 msgid ""
 "This profile is focused on netbooks, laptops or low-end devices, which are "
 "only accessed by local users and run on batteries."
 msgstr ""
+"Ce profil est dédié aux netbooks, portables ou équipements légers, utilisés "
+"par des utilisateurs locaux et qui fonctionnent sur batteries."
 
 #: ../src/msec/msecgui.py:64
-#, fuzzy
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. This level is suggested for "
 "security-concerned systems and servers. "
 msgstr ""
 "Ce profil est configuré pour fournir une sécurité maximale, y compris au "
-"détriment de l'accès distant au système. Il active aussi une vaste panoplie "
-"de vérifications périodiques. Ce niveau est préconisé pour les serveurs et "
-"les systèmes sensibles."
+"détriment de l'accès distant au système. Il est préconisé pour les serveurs "
+"et les systèmes sensibles."
 
 #: ../src/msec/msecgui.py:66
 msgid ""
 "This profile is targeted on local network servers, which do not receive "
 "accesses from unauthorized Internet users."
 msgstr ""
+"Ce profil est dédié aux serveurs sur réseau local, qui ne sont pas "
+"accessibles aux utilisateurs Internet non autorisés."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
 "This profile is provided for servers which are intended to be accessed by "
 "unauthorized Internet users."
 msgstr ""
+"Ce profil est dédié aux serveurs accessibles par des utilisateurs Internet "
+"anonymes."
 
 #: ../src/msec/msecgui.py:69
 msgid ""
@@ -786,6 +798,10 @@ msgid ""
 "system settings, and use it for periodic checks only. It configures all "
 "periodic checks to run once a day."
 msgstr ""
+"Ce profil est dédié aux utilisateurs qui ne s'appuient pas sur msec pour "
+"modifier la configuration système et qui l'utilisent pour les vérifications "
+"périodiques uniquement. Il configure toutes les vérifications périodiques "
+"pour une exécution quotidienne."
 
 #: ../src/msec/msecgui.py:70
 msgid ""
@@ -875,12 +891,11 @@ msgstr "Sauvegarder et appliquer la nouvelle configuration ?"
 
 #: ../src/msec/msecgui.py:154
 msgid "Unable to load configuration for level '%s'"
-msgstr ""
+msgstr "Impossible de charger la configuration pour le niveau %s."
 
 #: ../src/msec/msecgui.py:160
-#, fuzzy
 msgid "Unable to load permissions for level '%s'"
-msgstr "permissions incorrectes pour « %s » : « %s »"
+msgstr "Impossible de charger les permissions pour le niveau « %s »"
 
 #: ../src/msec/msecgui.py:193
 msgid "_File"
@@ -1064,7 +1079,7 @@ msgstr "Jamais"
 
 #: ../src/msec/msecgui.py:658
 msgid "Check: %s. Last run: %s"
-msgstr ""
+msgstr "Vérification : %s. Dernière exécution : %s"
 
 #: ../src/msec/msecgui.py:663
 msgid "Show results"
@@ -1090,19 +1105,19 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:731 ../src/msec/msecgui.py:739
 msgid "Please wait, running checks..."
-msgstr ""
+msgstr "Veuillez patienter, vérifications en cours..."
 
 #: ../src/msec/msecgui.py:742
 msgid "Please wait, this might take a few minutes."
-msgstr ""
+msgstr "Veuillez patienter, ceci peut prendre quelques minutes."
 
 #: ../src/msec/msecgui.py:771
 msgid "Periodic check was executed successfully!"
-msgstr ""
+msgstr "La vérification périodique s'est déroulée avec succès !"
 
 #: ../src/msec/msecgui.py:774
 msgid "An error occurred while running periodic check."
-msgstr ""
+msgstr "Une erreur s'est produite pendant la vérification périodique."
 
 #: ../src/msec/msecgui.py:806
 msgid "Enable MSEC tool"
@@ -1114,7 +1129,7 @@ msgstr "Selectionner le niveau de sécurité de base"
 
 #: ../src/msec/msecgui.py:836
 msgid "Level name"
-msgstr ""
+msgstr "Nom du niveau"
 
 #: ../src/msec/msecgui.py:892
 msgid "Send security alerts by email to:"
@@ -1162,7 +1177,7 @@ msgstr "Forcer"
 
 #: ../src/msec/msecgui.py:1266
 msgid "Acl"
-msgstr ""
+msgstr "Acl"
 
 #: ../src/msec/msecgui.py:1419
 msgid "Editing exception"
@@ -1209,14 +1224,12 @@ msgid "File: "
 msgstr "Fichier : "
 
 #: ../src/msec/msecgui.py:1530
-#, fuzzy
 msgid ""
 "Please specify new file owner and permissions, or use 'current' to keep "
 "current settings."
 msgstr ""
-"Changement des permissions pour <b>%s</b>\n"
-"Veuillez préciser les nouvelles permissions ou utiliser « current » pour "
-"conserver les permissions actuelles.\n"
+"Veuillez préciser le propriétaire et les permissions d'un nouveau fichier ou "
+"utiliser « current » pour conserver les valeurs actuelles."
 
 #: ../src/msec/msecgui.py:1537
 msgid "User: "
@@ -1247,7 +1260,6 @@ msgid "Select new value for %s"
 msgstr "Sélectionnez une nouvelle valeur pour %s"
 
 #: ../src/msec/msecgui.py:1651
-#, fuzzy
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1257,8 +1269,7 @@ msgstr ""
 "<i>%s</i>\n"
 "\n"
 "\tValeur actuelle :\t\t\t<i>%s</i>\n"
-"\t%sValeur du niveau standard :\t<i>%s</i>%s\n"
-"\t%sValeur du niveau sécurisé :\t<i>%s</i>%s\n"
+"\t%sValeur par défaut du niveau :\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1661
 msgid "New value:"

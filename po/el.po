@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: DrakX-el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2010-05-04 20:44+0200\n"
+"PO-Revision-Date: 2010-05-24 10:12+0200\n"
 "Last-Translator: Glentadakis Dimitrios <dglent@gmail.com>\n"
 "Language-Team: Greek <translators_team@mandrivalinux.gr>\n"
 "MIME-Version: 1.0\n"
@@ -106,9 +106,10 @@ msgstr ""
 "πολιτική msec."
 
 #: ../src/msec/help.py:30
-#, fuzzy
 msgid "Ignore changes in process IDs when checking for open network ports."
-msgstr "Ενεργοποίηση του ελέγχου ανοιχτών θυρών του δικτύου."
+msgstr ""
+"Αγνόηση των αλλαγών στα ID διεργασιών κατά τον έλεγχο για ανοιχτές θύρες "
+"δικτύου."
 
 #: ../src/msec/help.py:32
 msgid "Allow X server to accept connections from network on tcp port 6000."
@@ -633,7 +634,7 @@ msgstr "Εξαναγκασμός acl στο %s"
 
 #: ../src/msec/libmsec.py:915
 msgid "Unable to add filesystem-specific ACL %s to %s"
-msgstr ""
+msgstr "Αδύνατη η προσθήκη ειδικού ACL για συστήματα αρχείων %s στο %s"
 
 #: ../src/msec/libmsec.py:917
 msgid "Error changing acl on %s: %s"

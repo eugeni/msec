@@ -1,3 +1,5 @@
+- filter out trailing whitespace on open port checks (#59457)
+
 Version 0.70.13 - May 04 2010, Eugeni Dodonov
 - fix incorrect german localization (#51005)
 - add support for merging legacy perm.local file if exists

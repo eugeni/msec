@@ -1,3 +1,5 @@
+- filter out trailing whitespace for open port checks (#59457)
+
 Version 0.80.7 - May 25 2010, Eugeni Dodonov
 - updated translations
 

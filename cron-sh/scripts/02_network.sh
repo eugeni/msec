@@ -30,7 +30,7 @@ if check_is_enabled "${CHECK_OPEN_PORT}" ; then
         else
                 FILTER="cat"
         fi
-        netstat -pvlA inet,inet6 2> /dev/null | $FILTER > ${OPEN_PORT_TODAY};
+        netstat -pvlA inet,inet6 2> /dev/null | sed -e 's/\s\s*$//g' | $FILTER > ${OPEN_PORT_TODAY};
         Filter ${OPEN_PORT_TODAY} CHECK_OPEN_PORT
         Count ${INFOS} ${OPEN_PORT_TODAY} "Total of open network ports"
 fi

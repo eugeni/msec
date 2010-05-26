@@ -34,6 +34,7 @@ CRONALLOW = '/etc/cron.allow'
 FSTAB = '/etc/fstab'
 GDM = '/etc/pam.d/gdm'
 GDMCONF = '/etc/X11/gdm/custom.conf'
+GDM230 = '/var/run/gdm'
 HALT = '/usr/bin/halt'
 HOSTCONF = '/etc/host.conf'
 HOSTSDENY = '/etc/hosts.deny'
@@ -313,6 +314,8 @@ class msec:
         reboot = self.configfiles.get_config_file(REBOOT)
         halt = self.configfiles.get_config_file(HALT)
 
+        gdm230 = self.configfiles.get_config_file(GDM230)
+
         val_shutdownallow = shutdownallow.exists()
         val_shutdown = shutdown.exists()
         val_poweroff = poweroff.exists()
@@ -336,7 +339,12 @@ class msec:
                 sysctlconf.set_shell_variable('kernel.sysrq', 1)
             if val_gdmconf == 'false':
                 self.log.info(_('Allowing Shutdown/Reboot in GDM'))
-                gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'true', '\[greeter\]', '^\s*$')
+                if gdmconf.exists():
+                    if gdm230.exists():
+                        # TODO: log a message, as this variable is ignored on new gdm?
+                        pass
+                    else:
+                        gdmconf.set_shell_variable('SystemMenu', 'true', '\[greeter\]', '^\s*$')
             if kdmrc.exists():
                 if oldval_kdmrc != 'All':
                     self.log.info(_('Allowing Shutdown/Reboot in KDM'))
@@ -358,7 +366,12 @@ class msec:
                 sysctlconf.set_shell_variable('kernel.sysrq', 0)
             if val_gdmconf != 'false':
                 self.log.info(_('Forbidding Shutdown/Reboot in GDM'))
-                gdmconf.exists() and gdmconf.set_shell_variable('SystemMenu', 'false', '\[greeter\]', '^\s*$')
+                if gdmconf.exists():
+                    if gdm230.exists():
+                        # TODO: log a message, as this variable is ignored on new gdm?
+                        pass
+                    else:
+                        gdmconf.set_shell_variable('SystemMenu', 'false', '\[greeter\]', '^\s*$')
             if kdmrc.exists():
                 if oldval_kdmrc != 'None':
                     self.log.info(_('Forbidding Shutdown/Reboot in KDM'))
@@ -371,6 +384,7 @@ class msec:
         '''  Allow display managers (kdm and gdm) to display list of local users.'''
         kdmrc = self.configfiles.get_config_file(KDMRC)
         gdmconf = self.configfiles.get_config_file(GDMCONF)
+        gdm230 = self.configfiles.get_config_file(GDM230)
 
         oldval_gdmconf = gdmconf.get_shell_variable('Browser')
         oldval_kdmrc = kdmrc.get_shell_variable('ShowUsers', 'X-\*-Greeter', '^\s*$')
@@ -381,18 +395,24 @@ class msec:
                     self.log.info(_("Allowing list of users in KDM"))
                     kdmrc.set_shell_variable('ShowUsers', 'NotHidden', 'X-\*-Greeter', '^\s*$')
             if gdmconf.exists():
-                if oldval_gdmconf != 'true':
-                    self.log.info(_("Allowing list of users in GDM"))
-                    gdmconf.set_shell_variable('Browser', 'true')
+                if gdm230.exists():
+                    pass
+                else:
+                    if oldval_gdmconf != 'true':
+                        self.log.info(_("Allowing list of users in GDM"))
+                        gdmconf.set_shell_variable('Browser', 'true')
         else:
             if kdmrc.exists():
                 if oldval_kdmrc != 'Selected':
                     self.log.info(_("Forbidding list of users in KDM"))
                     kdmrc.set_shell_variable('ShowUsers', 'Selected', 'X-\*-Greeter', '^\s*$')
             if gdmconf.exists():
-                if oldval_gdmconf != 'false':
-                    self.log.info(_("Forbidding list of users in GDM"))
-                    gdmconf.set_shell_variable('Browser', 'false')
+                if gdm230.exists():
+                    pass
+                else:
+                    if oldval_gdmconf != 'false':
+                        self.log.info(_("Forbidding list of users in GDM"))
+                        gdmconf.set_shell_variable('Browser', 'false')
 
     def allow_autologin(self, arg):
         '''  Allow autologin.'''
@@ -545,6 +565,7 @@ class msec:
         gdm = self.configfiles.get_config_file(GDM)
         gdmconf = self.configfiles.get_config_file(GDMCONF)
         xdm = self.configfiles.get_config_file(XDM)
+        gdm230 = self.configfiles.get_config_file(GDM230)
 
         val = {}
         val_kde = kde.get_match('auth required (?:/lib/security/)?pam_listfile.so onerr=succeed item=user sense=deny file=/etc/bastille-no-login')
@@ -563,7 +584,10 @@ class msec:
             if val_kde or val_gdm or val_xdm or num != 12:
                 self.log.info(_('Allowing direct root login'))
                 if gdmconf.exists():
-                    gdmconf.set_shell_variable('ConfigAvailable', 'true', '\[greeter\]', '^\s*$')
+                    if gdm230.exists():
+                        pass
+                    else:
+                        gdmconf.set_shell_variable('ConfigAvailable', 'true', '\[greeter\]', '^\s*$')
 
                 for cnf in [kde, gdm, xdm]:
                     if cnf.exists():
@@ -576,7 +600,10 @@ class msec:
                     securetty.replace_line_matching(s, s, 1)
         else:
             if gdmconf.exists():
-                gdmconf.set_shell_variable('ConfigAvailable', 'false', '\[greeter\]', '^\s*$')
+                if gdm230.exists():
+                    pass
+                else:
+                    gdmconf.set_shell_variable('ConfigAvailable', 'false', '\[greeter\]', '^\s*$')
             if (kde.exists() and not val_kde) or (gdm.exists() and not val_gdm) or (xdm.exists() and not val_xdm) or num > 0:
                 self.log.info(_('Forbidding direct root login'))
 

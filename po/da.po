@@ -564,9 +564,8 @@ msgid "Enforcing acl on %s"
 msgstr "Gennemtvinger acl på %s"
 
 #: ../src/msec/libmsec.py:915
-#, fuzzy
 msgid "Unable to add filesystem-specific ACL %s to %s"
-msgstr "Nulstil til forhåndsvalgte niveau for rettigheder"
+msgstr ""
 
 #: ../src/msec/libmsec.py:917
 msgid "Error changing acl on %s: %s"
@@ -613,23 +612,20 @@ msgid "Switching to '%s' level."
 msgstr "Skifter til %s-niveau."
 
 #: ../src/msec/msec.py:151
-#, fuzzy
 msgid "No custom file permissions for level '%s'."
-msgstr "dårlige rettigheder for '%s': '%s'"
+msgstr ""
 
 #: ../src/msec/msec.py:152
-#, fuzzy
 msgid "Saving file permissions to '%s' level."
-msgstr "Ændrer rettigheder for %s"
+msgstr ""
 
 #: ../src/msec/msec.py:192 ../src/msec/msecperms.py:166
 msgid "Unable to save config!"
 msgstr "Kunne ikke gemme config!"
 
 #: ../src/msec/msec.py:194
-#, fuzzy
 msgid "Unable to save file system permissions!"
-msgstr "Nulstil til forhåndsvalgte niveau for rettigheder"
+msgstr ""
 
 #: ../src/msec/msecgui.py:55
 msgid ""
@@ -642,15 +638,14 @@ msgstr ""
 "Hvis du vil aktivere det, så vælg et passende sikkerhedsniveau:"
 
 #: ../src/msec/msecgui.py:61
-#, fuzzy
 msgid ""
 "This profile configures a reasonably safe set of security features. It is "
 "the suggested level for Desktop. If unsure which profile to use, use this "
 "one."
 msgstr ""
-"Denne profil konfigurerer et forholdsvis sikkert system. Det aktiverer flere "
-"ikke-begrænsende periodiske systemtjek. Dette er det anbefalede niveau for "
-"Skrivebord."
+"Denne profil konfigurerer et forholdsvis sikkert sæt af sikkerhedsfaciliteter. "
+"Dette er det anbefalede niveau for Skrivebord."
+"Hvis du er usikker på hvilken profil du vil bruge, så brug denne."
 
 #: ../src/msec/msecgui.py:62
 msgid ""
@@ -659,16 +654,14 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:64
-#, fuzzy
 msgid ""
 "This profile is configured to provide maximum security, even at the cost of "
 "limiting the remote access to the system. This level is suggested for "
 "security-concerned systems and servers. "
 msgstr ""
 "Denne profil er lavet for at give maksimal sikkerhed, til og med på "
-"bekostning af at begrænse fjernadgangen til systemet. Det kører også et "
-"bredere sæt med periodiske tjek. Dette niveau anbefales for servere eller "
-"sikkerhedsorienterede systemer."
+"bekostning af at begrænse fjernadgangen til systemet. "
+"Dette niveau anbefales for sikkerhedsorienterede systemer og servere."
 
 #: ../src/msec/msecgui.py:66
 msgid ""
@@ -696,9 +689,8 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:77
-#, fuzzy
 msgid "Custom security level."
-msgstr "Systemsikkerhed"
+msgstr ""
 
 #: ../src/msec/msecgui.py:80
 msgid ""
@@ -777,9 +769,8 @@ msgid "Unable to load configuration for level '%s'"
 msgstr ""
 
 #: ../src/msec/msecgui.py:160
-#, fuzzy
 msgid "Unable to load permissions for level '%s'"
-msgstr "dårlige rettigheder for '%s': '%s'"
+msgstr ""
 
 #: ../src/msec/msecgui.py:193
 msgid "_File"
@@ -810,7 +801,6 @@ msgid "Overview"
 msgstr ""
 
 #: ../src/msec/msecgui.py:246
-#, fuzzy
 msgid "Security settings"
 msgstr "Sikkerhedsvalg"
 
@@ -924,37 +914,35 @@ msgstr "Ugyldigt valg '%s'!"
 
 #: ../src/msec/msecgui.py:593
 msgid "Firewall"
-msgstr ""
+msgstr "Brandmur"
 
 #: ../src/msec/msecgui.py:600 ../src/msec/msecgui.py:642
 msgid "Configure"
-msgstr ""
+msgstr "Konfigurér"
 
 #: ../src/msec/msecgui.py:608
 msgid "Updates"
-msgstr ""
+msgstr "Opdateringer"
 
 #: ../src/msec/msecgui.py:614
 msgid "Update now"
-msgstr ""
+msgstr "Opdatér nu"
 
 #: ../src/msec/msecgui.py:621
-#, fuzzy
 msgid "Security"
-msgstr "Sikkerhedstjek"
+msgstr "Sikkerhed"
 
 #: ../src/msec/msecgui.py:624
 msgid "Msec is disabled"
-msgstr ""
+msgstr "Msec er deaktiveret"
 
 #: ../src/msec/msecgui.py:627
 msgid "Msec is enabled"
-msgstr ""
+msgstr "Msec er aktiveret"
 
 #: ../src/msec/msecgui.py:628
-#, fuzzy
 msgid "Base security level: '%s'"
-msgstr "Ugyldigt sikkerhedsniveau '%s'."
+msgstr "Basalt sikkerhedsniveau '%s'."
 
 #: ../src/msec/msecgui.py:636
 msgid "Custom settings: %d"
@@ -962,7 +950,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:657
 msgid "Never"
-msgstr ""
+msgstr "Aldrig"
 
 #: ../src/msec/msecgui.py:658
 msgid "Check: %s. Last run: %s"
@@ -970,21 +958,19 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:663
 msgid "Show results"
-msgstr ""
+msgstr "Vis resultater"
 
 #: ../src/msec/msecgui.py:669
 msgid "Run now"
-msgstr ""
+msgstr "Kør nu"
 
 #: ../src/msec/msecgui.py:690
-#, fuzzy
 msgid "Unable to read log file: %s"
-msgstr "Kunne ikke gemme config!"
+msgstr ""
 
 #: ../src/msec/msecgui.py:691
-#, fuzzy
 msgid "Periodic check results"
-msgstr "Periodiske kontroller"
+msgstr "Resultater af periodiske kontroller"
 
 #: ../src/msec/msecgui.py:723
 msgid ""
@@ -1018,12 +1004,11 @@ msgstr "Vælg det basale sikkerhedniveau"
 
 #: ../src/msec/msecgui.py:836
 msgid "Level name"
-msgstr ""
+msgstr "Navn på niveau"
 
 #: ../src/msec/msecgui.py:892
-#, fuzzy
 msgid "Send security alerts by email to:"
-msgstr "Send sikkerhedspåmindelser med epost"
+msgstr "Send sikkerhedspåmindelser med epost til:"
 
 #: ../src/msec/msecgui.py:914
 msgid "Display security alerts on desktop"
@@ -1102,9 +1087,8 @@ msgid "Adding new permission check"
 msgstr "Tilføjer nyt rettighedstjek"
 
 #: ../src/msec/msecgui.py:1509
-#, fuzzy
 msgid "Changing permissions on <b>%s</b>"
-msgstr "Ændrer rettigheder for %s"
+msgstr "Ændrer rettigheder for <b>%s</b>"
 
 #: ../src/msec/msecgui.py:1509
 msgid "new file"
@@ -1115,14 +1099,12 @@ msgid "File: "
 msgstr "Fil: "
 
 #: ../src/msec/msecgui.py:1530
-#, fuzzy
 msgid ""
 "Please specify new file owner and permissions, or use 'current' to keep "
 "current settings."
 msgstr ""
-"Ændrer rettigheder på <b>%s</b>\n"
-" Vær venlig at specificere nye rettigheder eller brug 'current' for at "
-"beholde nuværende rettigheder.\n"
+"Vær venlig at angive ny filejer og nye rettigheder eller brug 'current' for at "
+"beholde nuværende opsætning."
 
 #: ../src/msec/msecgui.py:1537
 msgid "User: "
@@ -1153,7 +1135,6 @@ msgid "Select new value for %s"
 msgstr "Vælg ny værdi for %s"
 
 #: ../src/msec/msecgui.py:1651
-#, fuzzy
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1164,9 +1145,6 @@ msgstr ""
 "\n"
 "\tAktuel værdi:\t\t\t<i>%s</i>\n"
 "\t%sStandard-niveauværdi:\t<i>%s</i>%s\n"
-"\t%sSikker niveauværdi:\t\t<i>%s</i>%s\n"
-
-#: ../src/msec/msecgui.py:1661
 msgid "New value:"
 msgstr "Ny værdi:"
 

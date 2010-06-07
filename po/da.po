@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: da1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2010-06-06 12:50+0200\n"
+"PO-Revision-Date: 2010-06-07 04:30+0200\n"
 "Last-Translator: Keld Simonsen <keld@keldix.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -98,8 +98,7 @@ msgstr ""
 
 #: ../src/msec/help.py:28
 msgid "Enable periodic permission checking for files specified in msec policy."
-msgstr ""
-"Aktivér periodisk kontrol af tilladelser for filer angivet i msec-regler."
+msgstr "Aktivér periodisk kontrol af tilladelser for filer angivet i msec-regler."
 
 #: ../src/msec/help.py:30
 msgid "Ignore changes in process IDs when checking for open network ports."
@@ -107,8 +106,7 @@ msgstr "Ignorér ændringer i proces-id'er ved kontrol for åbne netværksporte.
 
 #: ../src/msec/help.py:32
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr ""
-"Tillad X-serveren at acceptere tilkoblinger fra netværket på tcp-port 6000."
+msgstr "Tillad X-serveren at acceptere tilkoblinger fra netværket på tcp-port 6000."
 
 #: ../src/msec/help.py:34
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -119,8 +117,8 @@ msgid ""
 "Enable msec to enforce file permissions to the values specified in the msec "
 "security policy."
 msgstr ""
-"Tillad msec at gennemtvinge filrettigheder til værdierne angivet i "
-"msec-sikkerhedsreglerne."
+"Tillad msec at gennemtvinge filrettigheder til værdierne angivet i msec-"
+"sikkerhedsreglerne."
 
 #: ../src/msec/help.py:38
 msgid ""
@@ -128,11 +126,13 @@ msgid ""
 "security level configuration. The security level to be used during this test "
 "is determined by the CHECK_SECTOOL_LEVELS variable."
 msgstr ""
+"Aktivér kontroller for sectools. Dette vil køre alle sectool-kontroller for en "
+"sikkerhedsniveauopsætning. Niveauet som skal bruges ved denne test "
+"bestemmes af variablen CHECK_SECTOOL_LEVELS."
 
 #: ../src/msec/help.py:40
 msgid "Set shell commands history size. A value of -1 means unlimited."
-msgstr ""
-"Sæt historiklængden for kommandoskallen. En værdi på -1 betyder ubegrænset."
+msgstr "Sæt historiklængden for kommandoskallen. En værdi på -1 betyder ubegrænset."
 
 #: ../src/msec/help.py:42
 msgid "Allow system reboot and shutdown to local users."
@@ -225,8 +225,7 @@ msgstr "Sæt skallens tidsudløb. En værdi på nul betyder intet tidsudløb."
 
 #: ../src/msec/help.py:78
 msgid "Allow display managers (kdm and gdm) to display list of local users."
-msgstr ""
-"Tillad sessions-håndterere (KDM og GDM) at vise en liste med lokale brugere."
+msgstr "Tillad sessions-håndterere (KDM og GDM) at vise en liste med lokale brugere."
 
 #: ../src/msec/help.py:80
 msgid "Enable name resolution spoofing protection."
@@ -330,6 +329,10 @@ msgid ""
 "such strict requirements. This variable defines the number of past log files "
 "that should be kept by logrotate on the system."
 msgstr ""
+"Indstil standardperioden for bevarelse af logger (i uger). Nogen lande "
+"kræver at loggene bliver lagret et år, andre har ikke så strenge krav. Denne "
+"variabel bestemmer antallet af ældre loggfiler som skal bevares af logrotate "
+"på systemet."
 
 #: ../src/msec/help.py:110
 msgid "Ask for root password when going to single user level (man sulogin(8))."
@@ -368,6 +371,10 @@ msgid ""
 "If this variable is not defined, the default level defined in sectool "
 "configuration will be used."
 msgstr ""
+"Bestemmer hvilket sectools-niveau som skal bruges ved den periodiske "
+"sikkerhedskontrol. Programmet sectool-gui kan bruges til at vælge "
+"individuelle kontroller for hvert niveau. Hvis denne variabel ikke er sat, "
+"vil standardniveauet angivet i opsætningen for sectool blive brugt."
 
 #: ../src/msec/help.py:124
 msgid "Enable daily security checks."
@@ -412,6 +419,8 @@ msgid ""
 "Patterns to exclude from disk checks. This parameter is parsed as a regex "
 "(7), so you may use complex expressions."
 msgstr ""
+"Mønstre som skal udelades fra diskkontroller. Denne parameter bliver tolket som "
+"regex (7), så du kan bruge avancerede udtryk."
 
 #: ../src/msec/help.py:136
 msgid ""
@@ -422,6 +431,13 @@ msgid ""
 "sudo without any password makes your system very vulnerable, and you should "
 "only use this setting if you know what you are doing!"
 msgstr ""
+"Tillader brugere i gruppen 'wheel' at bruge sudo. Hvis dette valg er sat "
+"til 'ja', kan medlemmer af gruppen bruge sudo ved at bruge egne adgangskoder og "
+"derefter køre kommandoer som brugeren 'root'. Hvis dette valg er sat til "
+"'uden adgangskode', kan medlemmer af gruppen kører kommandoer uden at blive spurgt "
+"om egen adgangskode. ADVARSEL: brug af sudo uden adgangskode gør systemet sårbart, "
+"og denne indstilling bør kun bruges hvis du er fuldstændig klar over "
+"konsekvenserne."
 
 #: ../src/msec/help.py:138
 msgid "Set the root umask."
@@ -565,7 +581,7 @@ msgstr "Gennemtvinger acl på %s"
 
 #: ../src/msec/libmsec.py:915
 msgid "Unable to add filesystem-specific ACL %s to %s"
-msgstr ""
+msgstr "Kan ikke tilføje specifik filsystem-ACL %s til %s"
 
 #: ../src/msec/libmsec.py:917
 msgid "Error changing acl on %s: %s"
@@ -573,7 +589,7 @@ msgstr "fejl ved ændring af acl på %s: %s"
 
 #: ../src/msec/libmsec.py:919
 msgid "Wrong acl of %s"
-msgstr ""
+msgstr "Forkert ACL på %s"
 
 #: ../src/msec/libmsec.py:936
 msgid "bad permissions for '%s': '%s'"
@@ -613,11 +629,11 @@ msgstr "Skifter til %s-niveau."
 
 #: ../src/msec/msec.py:151
 msgid "No custom file permissions for level '%s'."
-msgstr ""
+msgstr "Ingen tilpassede rettigheder for niveau '%s'"
 
 #: ../src/msec/msec.py:152
 msgid "Saving file permissions to '%s' level."
-msgstr ""
+msgstr "gemmer filrettigheder til %s-niveau"
 
 #: ../src/msec/msec.py:192 ../src/msec/msecperms.py:166
 msgid "Unable to save config!"
@@ -625,7 +641,7 @@ msgstr "Kunne ikke gemme config!"
 
 #: ../src/msec/msec.py:194
 msgid "Unable to save file system permissions!"
-msgstr ""
+msgstr "Kan ikke gemme adgangsrettigheder for filsystem."
 
 #: ../src/msec/msecgui.py:55
 msgid ""
@@ -643,15 +659,17 @@ msgid ""
 "the suggested level for Desktop. If unsure which profile to use, use this "
 "one."
 msgstr ""
-"Denne profil konfigurerer et forholdsvis sikkert sæt af sikkerhedsfaciliteter. "
-"Dette er det anbefalede niveau for Skrivebord."
-"Hvis du er usikker på hvilken profil du vil bruge, så brug denne."
+"Denne profil konfigurerer et forholdsvis sikkert sæt af "
+"sikkerhedsfaciliteter. Dette er det anbefalede niveau for Skrivebord.Hvis du "
+"er usikker på hvilken profil du vil bruge, så brug denne."
 
 #: ../src/msec/msecgui.py:62
 msgid ""
 "This profile is focused on netbooks, laptops or low-end devices, which are "
 "only accessed by local users and run on batteries."
 msgstr ""
+"Denne profil fokuserer på minibærbare eller lavydelsesenheder, som kører "
+"på batterier og kun er tilgængelige for lokale brugere."
 
 #: ../src/msec/msecgui.py:64
 msgid ""
@@ -660,20 +678,24 @@ msgid ""
 "security-concerned systems and servers. "
 msgstr ""
 "Denne profil er lavet for at give maksimal sikkerhed, til og med på "
-"bekostning af at begrænse fjernadgangen til systemet. "
-"Dette niveau anbefales for sikkerhedsorienterede systemer og servere."
+"bekostning af at begrænse fjernadgangen til systemet. Dette niveau anbefales "
+"for sikkerhedsorienterede systemer og servere."
 
 #: ../src/msec/msecgui.py:66
 msgid ""
 "This profile is targeted on local network servers, which do not receive "
 "accesses from unauthorized Internet users."
 msgstr ""
+"Denne profil passer til lokale netværksservere, som ikke modtager "
+"forespørgsler fra ukendte Internetbrugere."
 
 #: ../src/msec/msecgui.py:68
 msgid ""
 "This profile is provided for servers which are intended to be accessed by "
 "unauthorized Internet users."
 msgstr ""
+"Denne profilen er lavet for servere som skal være tilgængelige for ukendte "
+"Internetbrugere."
 
 #: ../src/msec/msecgui.py:69
 msgid ""
@@ -681,16 +703,21 @@ msgid ""
 "system settings, and use it for periodic checks only. It configures all "
 "periodic checks to run once a day."
 msgstr ""
+"Denne profil er beregnet på de brugere som ikke vil lade MSEC ændre "
+"systemindstillinger, men som kun bruger det til periodiske kontroller. Alle "
+"periodiske kontroller sættes op til at køre en gang daglig."
 
 #: ../src/msec/msecgui.py:70
 msgid ""
 "This profile is similar to the 'audit_daily' profile, but it runs all checks "
 "weekly."
 msgstr ""
+"Denne profil ligner 'audit_daily', men kører alle kontroller ugentlig "
+"i stedet for daglig."
 
 #: ../src/msec/msecgui.py:77
 msgid "Custom security level."
-msgstr ""
+msgstr "Tilpasset sikkerhedsniveau"
 
 #: ../src/msec/msecgui.py:80
 msgid ""
@@ -766,11 +793,11 @@ msgstr "Gem og aktivér ny opsætning?"
 
 #: ../src/msec/msecgui.py:154
 msgid "Unable to load configuration for level '%s'"
-msgstr ""
+msgstr "Kunne ikke indlæse opsætningsfil for niveau '%s'"
 
 #: ../src/msec/msecgui.py:160
 msgid "Unable to load permissions for level '%s'"
-msgstr ""
+msgstr "Kunne ikke indlæse rettigheder for niveau '%s'"
 
 #: ../src/msec/msecgui.py:193
 msgid "_File"
@@ -798,7 +825,7 @@ msgstr "MSEC: Systemsikkerhed og overvågning"
 
 #: ../src/msec/msecgui.py:245
 msgid "Overview"
-msgstr ""
+msgstr "Oversigt"
 
 #: ../src/msec/msecgui.py:246
 msgid "Security settings"
@@ -866,7 +893,7 @@ msgstr "Gemmer ændringer.."
 
 #: ../src/msec/msecgui.py:341
 msgid "Ignore and quit"
-msgstr ""
+msgstr "Ignorér og afslut"
 
 #: ../src/msec/msecgui.py:379
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -946,7 +973,7 @@ msgstr "Basalt sikkerhedsniveau '%s'."
 
 #: ../src/msec/msecgui.py:636
 msgid "Custom settings: %d"
-msgstr ""
+msgstr "Tilpassede indstillinger: %d"
 
 #: ../src/msec/msecgui.py:657
 msgid "Never"
@@ -954,7 +981,7 @@ msgstr "Aldrig"
 
 #: ../src/msec/msecgui.py:658
 msgid "Check: %s. Last run: %s"
-msgstr ""
+msgstr "Tjek: %s. Sidst kørt: %s"
 
 #: ../src/msec/msecgui.py:663
 msgid "Show results"
@@ -966,7 +993,7 @@ msgstr "Kør nu"
 
 #: ../src/msec/msecgui.py:690
 msgid "Unable to read log file: %s"
-msgstr ""
+msgstr "Kunne ikke læse logfil: %s"
 
 #: ../src/msec/msecgui.py:691
 msgid "Periodic check results"
@@ -977,22 +1004,23 @@ msgid ""
 "Do you want to run the <b>%s</b> periodic check? Please note that it could "
 "take a considerable time to finish."
 msgstr ""
+"Vil du køre <b>%s</b>? Vær klar over at dette kan tage lang tid at gøre færdig."
 
 #: ../src/msec/msecgui.py:731 ../src/msec/msecgui.py:739
 msgid "Please wait, running checks..."
-msgstr ""
+msgstr "Vent lidt, kører kontroller..."
 
 #: ../src/msec/msecgui.py:742
 msgid "Please wait, this might take a few minutes."
-msgstr ""
+msgstr "Vent lidt, dette kan tage nogen minutter."
 
 #: ../src/msec/msecgui.py:771
 msgid "Periodic check was executed successfully!"
-msgstr ""
+msgstr "Periodisk kontrol blev fuldført."
 
 #: ../src/msec/msecgui.py:774
 msgid "An error occurred while running periodic check."
-msgstr ""
+msgstr "En fejl opstod ved kørsel af periodisk kontrol."
 
 #: ../src/msec/msecgui.py:806
 msgid "Enable MSEC tool"
@@ -1052,7 +1080,7 @@ msgstr "Gennemtving"
 
 #: ../src/msec/msecgui.py:1266
 msgid "Acl"
-msgstr ""
+msgstr "ACL"
 
 #: ../src/msec/msecgui.py:1419
 msgid "Editing exception"
@@ -1103,8 +1131,8 @@ msgid ""
 "Please specify new file owner and permissions, or use 'current' to keep "
 "current settings."
 msgstr ""
-"Vær venlig at angive ny filejer og nye rettigheder eller brug 'current' for at "
-"beholde nuværende opsætning."
+"Vær venlig at angive ny filejer og nye rettigheder eller brug 'current' for "
+"at beholde nuværende opsætning."
 
 #: ../src/msec/msecgui.py:1537
 msgid "User: "
@@ -1125,10 +1153,14 @@ msgid ""
 "user1:acl,user2:acl\n"
 "Refer to 'man setfacl' for details."
 msgstr ""
+"For at håndhæve yderligere ACL (Access Control List) på en fil skal du angive dem i "
+"det følgende format:\n"
+"bruger1:acl,bruger2:acl\n"
+"Se 'man setfacl' for detaljer."
 
 #: ../src/msec/msecgui.py:1575
 msgid "ACL: "
-msgstr ""
+msgstr "ACL: "
 
 #: ../src/msec/msecgui.py:1642
 msgid "Select new value for %s"
@@ -1145,6 +1177,7 @@ msgstr ""
 "\n"
 "\tAktuel værdi:\t\t\t<i>%s</i>\n"
 "\t%sStandard-niveauværdi:\t<i>%s</i>%s\n"
+
 msgid "New value:"
 msgstr "Ny værdi:"
 
@@ -1405,8 +1438,7 @@ msgid "Disabling password history"
 msgstr "Deaktivér adgangskodehistorik"
 
 #: ../src/msec/plugins/pam.py:124
-msgid ""
-"Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
+msgid "Invalid password length \"%s\". Use \"length,ndigits,nupper\" as parameter"
 msgstr ""
 "Ugyldig adgangskodelængde \"%s\". Brug \"length,ndigits,nupper\" som "
 "parameter."
@@ -1429,6 +1461,9 @@ msgid ""
 "to su to root, but this group is empty. Please add the allowed users into "
 "the wheel group."
 msgstr ""
+"Sikkerhedsopsætningen er sat op til at kun tillade medlemmer af gruppen 'wheel' "
+"adgang til root-kontoen via kommandoen 'su', men gruppen er tom. Tilføj de "
+"tilladte brugere i gruppen 'wheel'."
 
 #: ../src/msec/plugins/pam.py:185
 msgid "Allowing su for all"
@@ -1442,80 +1477,3 @@ msgstr "Tillader transparent root-adgang for medlemmer af wheel-gruppen"
 msgid "Disabling transparent root access for wheel group members"
 msgstr "Deaktiverer transparent root-adgang for medlemmer af wheel-gruppen"
 
-#~ msgid "Custom base config level '%s' found. Will default to '%s'"
-#~ msgstr ""
-#~ "Tilpasset grundlæggende opsætningsniveau '%s' fundet. Vil forhåndsvælge '%"
-#~ "s'"
-
-#~ msgid "Standard"
-#~ msgstr "Standard"
-
-#~ msgid "Secure"
-#~ msgstr "Sikkert"
-
-#~ msgid "System administrator email address:"
-#~ msgstr "Systemadministrators epostadresse:"
-
-#~ msgid "Save your changes?"
-#~ msgstr "Skal dine ændringer gemmes?"
-
-#~ msgid "_Cancel"
-#~ msgstr "_Annullér"
-
-#~ msgid "_Ignore"
-#~ msgstr "_Ignorér"
-
-#~ msgid "_Save"
-#~ msgstr "_Gem"
-
-#~ msgid "Do you want to save changes before closing?"
-#~ msgstr "Ønsker du at gemme ændringerne før lukning?"
-
-#~ msgid "wheel group is empty"
-#~ msgstr "wheel-gruppen er tom"
-
-#~ msgid ""
-#~ "Allow users to authenticate with their passwords for sudo. If this "
-#~ "parameter is set to 'wheel', users must belong to the 'wheel' group to be "
-#~ "able to use sudo"
-#~ msgstr ""
-#~ "Tillad brugere at autentificere med deres adgangskoder for sudo. Hvis "
-#~ "denne parameter er sat til 'wheel', skal brugere som skal benytte sudo "
-#~ "være medlemmer af denne gruppe."
-
-#~ msgid ""
-#~ "Enable periodic permission checking for files specified in msec policy. "
-#~ "If set to yes, the permissions are verified on every run. If set to "
-#~ "enforce, incorrect permissions are restored to the ones specified in msec "
-#~ "security policy."
-#~ msgstr ""
-#~ "Kør regelmæssig kontrol af filrettigheder baseret på msec-reglerne. Hvis "
-#~ "sat til 'ja' bliver rettighedene tjekket ved hver kørsel. Hvis sat til "
-#~ "'gennemtving', bliver forkerte rettigheder automatisk rettet."
-
-#~ msgid "'%s' is not available in this version"
-#~ msgstr "'%s' er ikke tilgængelig i denne version"
-
-#~ msgid "Activating daily security check"
-#~ msgstr "Aktiverer daglig sikkerhedskontrol"
-
-#~ msgid "Disabling daily security check"
-#~ msgstr "Deaktiverer daglig sikkerhedskontrol"
-
-#~ msgid "Activating periodic promiscuity check"
-#~ msgstr "Aktiverer periodisk åbenhedstjek"
-
-#~ msgid "Disabling periodic promiscuity check"
-#~ msgstr "Deaktiverer periodisk åbenhedstjek"
-
-#~ msgid "_Import configuration"
-#~ msgstr "_Importér konfiguration"
-
-#~ msgid "_Export configuration"
-#~ msgstr "_Eksportér konfiguration"
-
-#~ msgid "Save and apply current policy"
-#~ msgstr "Gem og aktivér nuværende regler"
-
-#~ msgid "Quit"
-#~ msgstr "Afslut"

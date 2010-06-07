@@ -196,7 +196,7 @@ class MsecConfig:
     def get_base_level(self, base_level=None):
         """Configures base level for current level, so the settings could be pulled from it"""
         if not base_level:
-            base_level = self.get('BASE_LEVEL')
+            base_level = self.get('BASE_LEVEL', NONE_LEVEL)
         self.base_level = base_level
         return self.base_level
 

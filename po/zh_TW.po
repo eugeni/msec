@@ -32,7 +32,7 @@ msgstr ""
 
 #: ../src/msec/config.py:46
 msgid "Modified system files"
-msgstr "修改系統檔案"
+msgstr "變更的系統檔案"
 
 #: ../src/msec/config.py:47
 msgid "No changes in system files"
@@ -40,7 +40,7 @@ msgstr "系統檔案無變更"
 
 #: ../src/msec/config.py:60
 msgid "Disabled"
-msgstr "停用"
+msgstr "已停用"
 
 #: ../src/msec/config.py:211 ../src/msec/config.py:423
 msgid "Unable to load configuration file %s: %s"
@@ -62,7 +62,7 @@ msgstr "載入例外檔案 %s：%s"
 
 #: ../src/msec/config.py:320
 msgid "No exceptions loaded"
-msgstr "沒有載入例外"
+msgstr "未載入例外"
 
 #: ../src/msec/help.py:14
 msgid ""
@@ -205,11 +205,11 @@ msgstr "允許自動登入。"
 
 #: ../src/msec/help.py:72
 msgid "Enable checking for changes in system users."
-msgstr "啟用系統使用者設定變更檢查。"
+msgstr "檢查系統使用者的變動。"
 
 #: ../src/msec/help.py:74
 msgid "Enable checking for unowned files."
-msgstr "啟用檢查不屬於任何人的檔案。"
+msgstr "檢查不屬於任何人的檔案。"
 
 #: ../src/msec/help.py:76
 msgid "Set the shell timeout. A value of zero means no timeout."
@@ -259,7 +259,7 @@ msgstr ""
 
 #: ../src/msec/help.py:92
 msgid "Show security notifications in system tray using libnotify."
-msgstr "使用 libnotify 在系統列顯示安全性提示。"
+msgstr "使用 libnotify 在系統列顯示安全性通知。"
 
 #: ../src/msec/help.py:94
 msgid ""
@@ -278,11 +278,11 @@ msgstr "允許 root 直接於終端機登入。"
 
 #: ../src/msec/help.py:100
 msgid "Run security checks when machine is running on battery power."
-msgstr "當電腦使用電池時執行安全性檢查。"
+msgstr "當電腦使用電池電力時執行安全性檢查。"
 
 #: ../src/msec/help.py:102
 msgid "Enable checking for changes in system groups."
-msgstr "啟用系統群組設定變更檢查。"
+msgstr "檢查系統群組的變動。"
 
 #: ../src/msec/help.py:104
 msgid ""
@@ -389,11 +389,11 @@ msgstr "設定 root 的 umask。"
 
 #: ../src/msec/help.py:140
 msgid "Perform hourly security check for changes in system configuration."
-msgstr ""
+msgstr "每小時進行系統設定變動的安全性檢查。"
 
 #: ../src/msec/help.py:142
 msgid "Enforce MSEC settings on system startup"
-msgstr ""
+msgstr "加強系統啟動時的 MSEC 設定"
 
 #: ../src/msec/help.py:144
 msgid "Enable periodic security check results to terminal."
@@ -414,11 +414,11 @@ msgstr "啟用網路卡混用檢查。"
 
 #: ../src/msec/libmsec.py:266
 msgid "%s modified so launched command: %s"
-msgstr ""
+msgstr "%s 已經變更因此執行命令: %s"
 
 #: ../src/msec/libmsec.py:275
 msgid "%s modified so should have run command: %s"
-msgstr ""
+msgstr "%s 已經變更因此應該執行命令: %s"
 
 #: ../src/msec/libmsec.py:377 ../src/msec/libmsec.py:409
 msgid "deleted %s"
@@ -436,7 +436,7 @@ msgstr "正在由 %s 切換至 %s"
 
 #: ../src/msec/libmsec.py:418
 msgid "moved file %s to %s"
-msgstr "移動檔案 %s 至 %s"
+msgstr "移動檔案 %s 到 %s"
 
 #: ../src/msec/libmsec.py:468 ../src/msec/libmsec.py:484
 msgid "set variable %s to %s in %s"
@@ -452,7 +452,7 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:712
 msgid "Plugin %s not found"
-msgstr "Plugin %s 沒有找到"
+msgstr "沒有找到 Plugin %s"
 
 #: ../src/msec/libmsec.py:719
 msgid "Not supported function '%s' in '%s'"
@@ -497,7 +497,7 @@ msgstr "卸下 %s 的掛載時發生錯誤：%s"
 
 #: ../src/msec/libmsec.py:877
 msgid "Wrong owner of %s: should be %s"
-msgstr "%s 有錯誤的擁有者︰應該是 %s"
+msgstr "%s 的擁有者錯誤：應該是 %s"
 
 #: ../src/msec/libmsec.py:880
 #, fuzzy
@@ -511,19 +511,19 @@ msgstr "卸下 %s 的掛載時發生錯誤：%s"
 
 #: ../src/msec/libmsec.py:886
 msgid "Wrong group of %s: should be %s"
-msgstr "%s 有錯誤的群組︰應該是 %s"
+msgstr "%s 的群組錯誤；應該是 %s"
 
 #: ../src/msec/libmsec.py:891
 msgid "Enforcing permissions on %s to %o"
-msgstr ""
+msgstr "加強 %s 的權限為 %o"
 
 #: ../src/msec/libmsec.py:895
 msgid "Error changing permissions on %s: %s"
-msgstr ""
+msgstr "改變 %s 的權限時發生錯誤：%s"
 
 #: ../src/msec/libmsec.py:897
 msgid "Wrong permissions of %s: should be %o"
-msgstr "%s 有錯誤的權限︰應該是 %s"
+msgstr "%s 的權限錯誤：應該是 %o"
 
 #: ../src/msec/libmsec.py:901
 #, fuzzy
@@ -546,11 +546,11 @@ msgstr ""
 
 #: ../src/msec/libmsec.py:936
 msgid "bad permissions for '%s': '%s'"
-msgstr "'%s' 有錯誤的權限︰'%s'"
+msgstr "'%s' 的權限錯誤︰'%s'"
 
 #: ../src/msec/libmsec.py:961
 msgid "Non local file: \"%s\". Nothing changed."
-msgstr ""
+msgstr "不是本機檔案：\"%s\"。沒有任何變更。"
 
 #: ../src/msec/libmsec.py:1006
 msgid "Checking paths: %s"
@@ -558,11 +558,11 @@ msgstr "檢查路徑:  %s"
 
 #: ../src/msec/msec.py:87 ../src/msec/msecperms.py:96
 msgid "Invalid security level '%s'."
-msgstr ""
+msgstr "無效的安全等級 '%s'。"
 
 #: ../src/msec/msec.py:114 ../src/msec/msecperms.py:121
 msgid "Msec: Mandriva Security Center (%s)\n"
-msgstr ""
+msgstr "Msec: Mandriva 安全中心 (%s)\n"
 
 #: ../src/msec/msec.py:115 ../src/msec/msecperms.py:122
 msgid "Error: This application must be executed by root!"
@@ -570,11 +570,11 @@ msgstr "錯誤：該程式必須由 root 執行！"
 
 #: ../src/msec/msec.py:116 ../src/msec/msecperms.py:123
 msgid "Run with --help to get help."
-msgstr ""
+msgstr "執行時加上 --help 以取得說明。"
 
 #: ../src/msec/msec.py:142
 msgid "Level '%s' not found, aborting."
-msgstr ""
+msgstr "找不到 '%s' 等級，放棄。"
 
 #: ../src/msec/msec.py:144
 #, fuzzy
@@ -583,7 +583,7 @@ msgstr "正在由 %s 切換至 %s"
 
 #: ../src/msec/msec.py:151
 msgid "No custom file permissions for level '%s'."
-msgstr ""
+msgstr "'%s' 等級沒有自訂的檔案權限。"
 
 #: ../src/msec/msec.py:152
 #, fuzzy
@@ -707,11 +707,11 @@ msgstr "儲存並套用新的設定？"
 
 #: ../src/msec/msecgui.py:154
 msgid "Unable to load configuration for level '%s'"
-msgstr ""
+msgstr "無法載入 '%s' 等級的設定"
 
 #: ../src/msec/msecgui.py:160
 msgid "Unable to load permissions for level '%s'"
-msgstr ""
+msgstr "無法載入 '%s' 等級的權限"
 
 #: ../src/msec/msecgui.py:193
 #, fuzzy
@@ -744,7 +744,7 @@ msgstr "系統設定"
 
 #: ../src/msec/msecgui.py:245
 msgid "Overview"
-msgstr ""
+msgstr "總覽"
 
 #: ../src/msec/msecgui.py:246
 #, fuzzy
@@ -778,7 +778,7 @@ msgstr "權限"
 
 #: ../src/msec/msecgui.py:300
 msgid "MSEC option changes"
-msgstr ""
+msgstr "MSEC 選項變更"
 
 #: ../src/msec/msecgui.py:300
 msgid "option"
@@ -816,15 +816,15 @@ msgstr "正在移除套件..."
 
 #: ../src/msec/msecgui.py:341
 msgid "Ignore and quit"
-msgstr ""
+msgstr "忽略並離開"
 
 #: ../src/msec/msecgui.py:379
 msgid "<b>%s:</b> <i>%s</i>\n"
-msgstr ""
+msgstr "<b>%s:</b> <i>%s</i>\n"
 
 #: ../src/msec/msecgui.py:386
 msgid "<b>MSEC test run results:</b> <i>%s</i>"
-msgstr ""
+msgstr "<b>MSEC 測試執行結果：</b> <i>%s</i>"
 
 #: ../src/msec/msecgui.py:394
 msgid "Details"
@@ -832,19 +832,19 @@ msgstr "詳細資訊"
 
 #: ../src/msec/msecgui.py:400
 msgid "MSEC messages (%s): %d"
-msgstr ""
+msgstr "MSEC 訊息 (%s)：%d"
 
 #: ../src/msec/msecgui.py:414
 msgid "Details (%d changes).."
-msgstr ""
+msgstr "細節 (%d 個變動).."
 
 #: ../src/msec/msecgui.py:467
 msgid "No base msec level specified, using '%s'"
-msgstr ""
+msgstr "未指定基礎 msec 等級，使用 '%s'"
 
 #: ../src/msec/msecgui.py:470
 msgid "Detected base msec level '%s'"
-msgstr ""
+msgstr "偵測到基礎 msec 等級 '%s'"
 
 #: ../src/msec/msecgui.py:498
 #, fuzzy
@@ -866,19 +866,19 @@ msgstr "主要選項"
 
 #: ../src/msec/msecgui.py:593
 msgid "Firewall"
-msgstr ""
+msgstr "防火牆"
 
 #: ../src/msec/msecgui.py:600 ../src/msec/msecgui.py:642
 msgid "Configure"
-msgstr ""
+msgstr "設定"
 
 #: ../src/msec/msecgui.py:608
 msgid "Updates"
-msgstr ""
+msgstr "更新"
 
 #: ../src/msec/msecgui.py:614
 msgid "Update now"
-msgstr ""
+msgstr "現在更新"
 
 #: ../src/msec/msecgui.py:621
 #, fuzzy
@@ -887,11 +887,11 @@ msgstr "週期性檢查"
 
 #: ../src/msec/msecgui.py:624
 msgid "Msec is disabled"
-msgstr ""
+msgstr "Msec 是停用的"
 
 #: ../src/msec/msecgui.py:627
 msgid "Msec is enabled"
-msgstr ""
+msgstr "Msec 是啟用的"
 
 #: ../src/msec/msecgui.py:628
 #, fuzzy
@@ -900,23 +900,23 @@ msgstr "系統安全性"
 
 #: ../src/msec/msecgui.py:636
 msgid "Custom settings: %d"
-msgstr ""
+msgstr "自訂設定；%d"
 
 #: ../src/msec/msecgui.py:657
 msgid "Never"
-msgstr ""
+msgstr "絕不"
 
 #: ../src/msec/msecgui.py:658
 msgid "Check: %s. Last run: %s"
-msgstr ""
+msgstr "檢查：%s。上次執行：%s"
 
 #: ../src/msec/msecgui.py:663
 msgid "Show results"
-msgstr ""
+msgstr "顯示結果"
 
 #: ../src/msec/msecgui.py:669
 msgid "Run now"
-msgstr ""
+msgstr "現在執行"
 
 #: ../src/msec/msecgui.py:690
 #, fuzzy
@@ -933,22 +933,23 @@ msgid ""
 "Do you want to run the <b>%s</b> periodic check? Please note that it could "
 "take a considerable time to finish."
 msgstr ""
+"您想要執行 <b>%s<b> 週期性檢查嗎？請注意它可能需要相當長的時間才能完成。"
 
 #: ../src/msec/msecgui.py:731 ../src/msec/msecgui.py:739
 msgid "Please wait, running checks..."
-msgstr ""
+msgstr "請稍候，正在執行檢查..."
 
 #: ../src/msec/msecgui.py:742
 msgid "Please wait, this might take a few minutes."
-msgstr ""
+msgstr "請稍候，這可能需要幾分鐘。"
 
 #: ../src/msec/msecgui.py:771
 msgid "Periodic check was executed successfully!"
-msgstr ""
+msgstr "週期性檢查成功地執行了!"
 
 #: ../src/msec/msecgui.py:774
 msgid "An error occurred while running periodic check."
-msgstr ""
+msgstr "執行週期性檢查時發生錯誤。"
 
 #: ../src/msec/msecgui.py:806
 msgid "Enable MSEC tool"
@@ -961,7 +962,7 @@ msgstr "請選擇您希望的安全層級"
 
 #: ../src/msec/msecgui.py:836
 msgid "Level name"
-msgstr ""
+msgstr "等級名稱"
 
 #: ../src/msec/msecgui.py:892
 #, fuzzy
@@ -970,7 +971,7 @@ msgstr "經由電子郵件發送安全警示"
 
 #: ../src/msec/msecgui.py:914
 msgid "Display security alerts on desktop"
-msgstr ""
+msgstr "在桌面上顯示安全性警告"
 
 #: ../src/msec/msecgui.py:1098
 #, fuzzy
@@ -1014,15 +1015,15 @@ msgstr "忽略"
 
 #: ../src/msec/msecgui.py:1266
 msgid "Acl"
-msgstr ""
+msgstr "Acl"
 
 #: ../src/msec/msecgui.py:1419
 msgid "Editing exception"
-msgstr ""
+msgstr "編輯例外"
 
 #: ../src/msec/msecgui.py:1424
 msgid "Adding new exception"
-msgstr ""
+msgstr "增加新的例外"
 
 #: ../src/msec/msecgui.py:1431
 msgid ""
@@ -1032,27 +1033,27 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1438
 msgid "Check: "
-msgstr ""
+msgstr "檢查："
 
 #: ../src/msec/msecgui.py:1453
 msgid "Exception: "
-msgstr ""
+msgstr "例外："
 
 #: ../src/msec/msecgui.py:1489
 msgid "Changing permissions for %s"
-msgstr ""
+msgstr "改變 %s 的權限"
 
 #: ../src/msec/msecgui.py:1497
 msgid "Adding new permission check"
-msgstr ""
+msgstr "增加新的權限檢查"
 
 #: ../src/msec/msecgui.py:1509
 msgid "Changing permissions on <b>%s</b>"
-msgstr ""
+msgstr "改變 <b>%s</b> 的權限"
 
 #: ../src/msec/msecgui.py:1509
 msgid "new file"
-msgstr ""
+msgstr "新的檔案"
 
 #: ../src/msec/msecgui.py:1521
 #, fuzzy
@@ -1087,7 +1088,7 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1575
 msgid "ACL: "
-msgstr ""
+msgstr "ACL："
 
 #: ../src/msec/msecgui.py:1642
 #, fuzzy
@@ -1126,19 +1127,19 @@ msgstr "正在由 %s 切換至 %s"
 
 #: ../src/msec/plugins/msec.py:195
 msgid "Allowing users to connect X server from everywhere"
-msgstr ""
+msgstr "允許使用者從任何地方連線到 X 伺服器"
 
 #: ../src/msec/plugins/msec.py:198
 msgid "Allowing users to connect X server from localhost"
-msgstr ""
+msgstr "允許使用者從本機連線到 X 伺服器"
 
 #: ../src/msec/plugins/msec.py:201
 msgid "Restricting X server connection to the console user"
-msgstr ""
+msgstr "限制 X 伺服器連線給文字模式使用者"
 
 #: ../src/msec/plugins/msec.py:204
 msgid "invalid allow_x_connections arg: %s"
-msgstr ""
+msgstr "無效的 allow_x_connections 參數：%s"
 
 #: ../src/msec/plugins/msec.py:227
 #, fuzzy
@@ -1196,7 +1197,7 @@ msgstr "允許於KDM 關機/重開機"
 
 #: ../src/msec/plugins/msec.py:345
 msgid "Allowing Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "允許文字模式使用 Ctrl-Alt-Del"
 
 #: ../src/msec/plugins/msec.py:349
 msgid "Forbidding reboot and shutdown to the console user"
@@ -1217,23 +1218,23 @@ msgstr "禁止在 KDM 裏面進行關機/重開機"
 
 #: ../src/msec/plugins/msec.py:367
 msgid "Forbidding Ctrl-Alt-Del from console"
-msgstr ""
+msgstr "禁止文字模式使用 Ctrl-Alt-Del"
 
 #: ../src/msec/plugins/msec.py:381
 msgid "Allowing list of users in KDM"
-msgstr ""
+msgstr "允許 KDM 顯示使用者清單"
 
 #: ../src/msec/plugins/msec.py:385
 msgid "Allowing list of users in GDM"
-msgstr ""
+msgstr "允許 GDM 顯示使用者清單"
 
 #: ../src/msec/plugins/msec.py:390
 msgid "Forbidding list of users in KDM"
-msgstr ""
+msgstr "禁止 KDM 顯示使用者清單"
 
 #: ../src/msec/plugins/msec.py:394
 msgid "Forbidding list of users in GDM"
-msgstr ""
+msgstr "禁止 GDM 顯示使用者清單"
 
 #: ../src/msec/plugins/msec.py:405
 msgid "Allowing autologin"
@@ -1245,7 +1246,7 @@ msgstr "禁止自動登入。"
 
 #: ../src/msec/plugins/msec.py:413
 msgid "Activating password in boot loader"
-msgstr ""
+msgstr "在開機管理程式啟用密碼"
 
 #: ../src/msec/plugins/msec.py:427
 #, fuzzy
@@ -1292,7 +1293,7 @@ msgstr "正在啟用 swap 分割區 %s"
 
 #: ../src/msec/plugins/msec.py:502
 msgid "Disabling msec periodic runs"
-msgstr ""
+msgstr "停用定期執行 msec"
 
 #: ../src/msec/plugins/msec.py:515
 msgid "Enabling crontab and at"
@@ -1328,11 +1329,11 @@ msgstr ""
 
 #: ../src/msec/plugins/msec.py:625
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "允許路徑使用目前的目錄"
 
 #: ../src/msec/plugins/msec.py:628
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "不允許路徑包含目前的目錄"
 
 #: ../src/msec/plugins/network.py:134
 msgid "Allowing remote root login"
@@ -1389,7 +1390,7 @@ msgstr ""
 
 #: ../src/msec/plugins/pam.py:145
 msgid "Setting minimum password length %d"
-msgstr ""
+msgstr "設定最小密碼長度 %d"
 
 #: ../src/msec/plugins/pam.py:169
 #, fuzzy

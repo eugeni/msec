@@ -69,8 +69,8 @@ msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
-"允許本機使用者連線 X 伺服器。允許參數：是 (全部連線皆允許)，本機 (只有本機連線)，"
-"不允許 (不連線)。"
+"允許本機使用者連線 X 伺服器。允許參數：是 (全部連線皆允許)，本機 (只有本機連"
+"線)，不允許 (不連線)。"
 
 #: ../src/msec/help.py:16
 msgid "Enable checking for files/directories writable by everybody."
@@ -266,7 +266,8 @@ msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
-"設定掛載 vfat 或 ntfs 磁區時所用的 umask 選項。如果 umask 是 '-1'，將套用預設的系統 umask。"
+"設定掛載 vfat 或 ntfs 磁區時所用的 umask 選項。如果 umask 是 '-1'，將套用預設"
+"的系統 umask。"
 
 #: ../src/msec/help.py:96
 msgid "Enable checking for open network ports."
@@ -595,9 +596,8 @@ msgid "Unable to save config!"
 msgstr "儲存設定失敗!"
 
 #: ../src/msec/msec.py:194
-#, fuzzy
 msgid "Unable to save file system permissions!"
-msgstr "重設混音器為預設值"
+msgstr "無法儲存檔案系統權限！"
 
 #: ../src/msec/msecgui.py:55
 msgid ""
@@ -652,9 +652,8 @@ msgid ""
 msgstr ""
 
 #: ../src/msec/msecgui.py:77
-#, fuzzy
 msgid "Custom security level."
-msgstr "系統安全性"
+msgstr "自訂安全等級。"
 
 #: ../src/msec/msecgui.py:80
 msgid ""
@@ -714,42 +713,36 @@ msgid "Unable to load permissions for level '%s'"
 msgstr "無法載入 '%s' 等級的權限"
 
 #: ../src/msec/msecgui.py:193
-#, fuzzy
 msgid "_File"
-msgstr "智利"
+msgstr "檔案 (_F)"
 
 #: ../src/msec/msecgui.py:195
 msgid "_Save configuration"
 msgstr "儲存設定(_S)"
 
 #: ../src/msec/msecgui.py:200
-#, fuzzy
 msgid "_Quit"
-msgstr "離開"
+msgstr "離開 (_Q)"
 
 #: ../src/msec/msecgui.py:202 ../src/msec/msecgui.py:204
-#, fuzzy
 msgid "_Help"
-msgstr "輔助說明"
+msgstr "輔助說明 (_H)"
 
 #: ../src/msec/msecgui.py:205
-#, fuzzy
 msgid "_About"
-msgstr "關於"
+msgstr "關於 (_A)"
 
 #: ../src/msec/msecgui.py:232
-#, fuzzy
 msgid "MSEC: System Security and Audit"
-msgstr "系統設定"
+msgstr "MSEC：系統安全與稽核"
 
 #: ../src/msec/msecgui.py:245
 msgid "Overview"
 msgstr "總覽"
 
 #: ../src/msec/msecgui.py:246
-#, fuzzy
 msgid "Security settings"
-msgstr "指定選項"
+msgstr "安全設定"
 
 #: ../src/msec/msecgui.py:255
 msgid "Basic security"
@@ -768,9 +761,8 @@ msgid "Periodic checks"
 msgstr "週期性檢查"
 
 #: ../src/msec/msecgui.py:259
-#, fuzzy
 msgid "Exceptions"
-msgstr "選項"
+msgstr "例外"
 
 #: ../src/msec/msecgui.py:260 ../src/msec/msecgui.py:1250
 msgid "Permissions"
@@ -789,9 +781,8 @@ msgid "System permissions changes"
 msgstr "系統權限變更"
 
 #: ../src/msec/msecgui.py:301
-#, fuzzy
 msgid "permission check"
-msgstr "權限"
+msgstr "權限檢查"
 
 #: ../src/msec/msecgui.py:311
 msgid "changed %s <b>%s</b> (%s -> %s)"
@@ -810,9 +801,8 @@ msgid "no changes"
 msgstr "無變更"
 
 #: ../src/msec/msecgui.py:338 ../src/msec/msecgui.py:345
-#, fuzzy
 msgid "Saving changes.."
-msgstr "正在移除套件..."
+msgstr "儲存變更..."
 
 #: ../src/msec/msecgui.py:341
 msgid "Ignore and quit"
@@ -847,9 +837,8 @@ msgid "Detected base msec level '%s'"
 msgstr "偵測到基礎 msec 等級 '%s'"
 
 #: ../src/msec/msecgui.py:498
-#, fuzzy
 msgid "Security Option"
-msgstr "指定選項"
+msgstr "安全選項"
 
 #: ../src/msec/msecgui.py:508 ../src/msec/msecgui.py:846
 msgid "Description"
@@ -860,9 +849,8 @@ msgid "Value"
 msgstr "值"
 
 #: ../src/msec/msecgui.py:523
-#, fuzzy
 msgid "Invalid option '%s'!"
-msgstr "主要選項"
+msgstr "無效的選項 '%s'！"
 
 #: ../src/msec/msecgui.py:593
 msgid "Firewall"
@@ -881,9 +869,8 @@ msgid "Update now"
 msgstr "現在更新"
 
 #: ../src/msec/msecgui.py:621
-#, fuzzy
 msgid "Security"
-msgstr "週期性檢查"
+msgstr "安全性"
 
 #: ../src/msec/msecgui.py:624
 msgid "Msec is disabled"
@@ -894,9 +881,8 @@ msgid "Msec is enabled"
 msgstr "Msec 是啟用的"
 
 #: ../src/msec/msecgui.py:628
-#, fuzzy
 msgid "Base security level: '%s'"
-msgstr "系統安全性"
+msgstr "基礎安全性等級：'%s'"
 
 #: ../src/msec/msecgui.py:636
 msgid "Custom settings: %d"
@@ -919,14 +905,12 @@ msgid "Run now"
 msgstr "現在執行"
 
 #: ../src/msec/msecgui.py:690
-#, fuzzy
 msgid "Unable to read log file: %s"
-msgstr "儲存設定失敗!"
+msgstr "無法讀取紀錄檔：%s"
 
 #: ../src/msec/msecgui.py:691
-#, fuzzy
 msgid "Periodic check results"
-msgstr "週期性檢查"
+msgstr "週期性檢查結果"
 
 #: ../src/msec/msecgui.py:723
 msgid ""
@@ -956,37 +940,32 @@ msgid "Enable MSEC tool"
 msgstr "啟用 MSEC 工具"
 
 #: ../src/msec/msecgui.py:813
-#, fuzzy
 msgid "Select the base security level"
-msgstr "請選擇您希望的安全層級"
+msgstr "選擇基礎安全等級"
 
 #: ../src/msec/msecgui.py:836
 msgid "Level name"
 msgstr "等級名稱"
 
 #: ../src/msec/msecgui.py:892
-#, fuzzy
 msgid "Send security alerts by email to:"
-msgstr "經由電子郵件發送安全警示"
+msgstr "用電子郵件寄出安全警示給："
 
 #: ../src/msec/msecgui.py:914
 msgid "Display security alerts on desktop"
 msgstr "在桌面上顯示安全性警告"
 
 #: ../src/msec/msecgui.py:1098
-#, fuzzy
 msgid "Enable periodic security checks"
-msgstr "啟用 msec 定時安全性檢查"
+msgstr "啟用週期性安全檢查"
 
 #: ../src/msec/msecgui.py:1160
-#, fuzzy
 msgid "Security check"
-msgstr "週期性檢查"
+msgstr "安全性檢查"
 
 #: ../src/msec/msecgui.py:1166
-#, fuzzy
 msgid "Exception"
-msgstr "選項"
+msgstr "例外"
 
 #: ../src/msec/msecgui.py:1187 ../src/msec/msecgui.py:1314
 msgid "Add a rule"
@@ -1009,9 +988,8 @@ msgid "Group"
 msgstr "群組 ID"
 
 #: ../src/msec/msecgui.py:1258
-#, fuzzy
 msgid "Enforce"
-msgstr "忽略"
+msgstr "加強"
 
 #: ../src/msec/msecgui.py:1266
 msgid "Acl"
@@ -1056,9 +1034,8 @@ msgid "new file"
 msgstr "新的檔案"
 
 #: ../src/msec/msecgui.py:1521
-#, fuzzy
 msgid "File: "
-msgstr "/檔案 (_F)"
+msgstr "檔案："
 
 #: ../src/msec/msecgui.py:1530
 msgid ""
@@ -1091,9 +1068,8 @@ msgid "ACL: "
 msgstr "ACL："
 
 #: ../src/msec/msecgui.py:1642
-#, fuzzy
 msgid "Select new value for %s"
-msgstr "選取 %s 的韌體檔"
+msgstr "選擇 %s 的新數值"
 
 #: ../src/msec/msecgui.py:1651
 msgid ""
@@ -1116,14 +1092,12 @@ msgid "Restricting chkconfig for packages according to \"%s\" profile"
 msgstr ""
 
 #: ../src/msec/plugins/msec.py:164
-#, fuzzy
 msgid "Setting root umask to %s"
-msgstr "正在由 %s 切換至 %s"
+msgstr "設定 root umask 為 %s"
 
 #: ../src/msec/plugins/msec.py:174
-#, fuzzy
 msgid "Setting users umask to %s"
-msgstr "正在由 %s 切換至 %s"
+msgstr "設定使用者 umask 為 %s"
 
 #: ../src/msec/plugins/msec.py:195
 msgid "Allowing users to connect X server from everywhere"
@@ -1174,9 +1148,8 @@ msgid "Removing limit on shell history size"
 msgstr "取消 Shell 歷史記錄長度限制"
 
 #: ../src/msec/plugins/msec.py:294
-#, fuzzy
 msgid "Invalid file system umask \"%s\""
-msgstr "Shell 啟動逾時"
+msgstr "無效的檔案系統 umask \"%s\""
 
 #: ../src/msec/plugins/msec.py:328
 msgid "Allowing reboot and shutdown to the console user"
@@ -1249,9 +1222,8 @@ msgid "Activating password in boot loader"
 msgstr "在開機管理程式啟用密碼"
 
 #: ../src/msec/plugins/msec.py:427
-#, fuzzy
 msgid "Removing password in boot loader"
-msgstr "不設定密碼期限給"
+msgstr "移除開機管理程式密碼"
 
 #: ../src/msec/plugins/msec.py:442
 #, fuzzy
@@ -1272,24 +1244,20 @@ msgid "Disabling all services"
 msgstr "取消所有系統服務"
 
 #: ../src/msec/plugins/msec.py:471
-#, fuzzy
 msgid "Disabling non local services"
-msgstr "本地端掃描器分享"
+msgstr "停用非本機的服務"
 
 #: ../src/msec/plugins/msec.py:483
-#, fuzzy
 msgid "Enabling sulogin in single user runlevel"
-msgstr "在單一使用者模式啟用 sulogin(8)。"
+msgstr "在單一使用者模式啟用 sulogin"
 
 #: ../src/msec/plugins/msec.py:487
-#, fuzzy
 msgid "Disabling sulogin in single user runlevel"
-msgstr "在單一使用者模式啟用 sulogin(8)。"
+msgstr "在單一使用者模式停用 sulogin"
 
 #: ../src/msec/plugins/msec.py:498
-#, fuzzy
 msgid "Enabling msec periodic runs"
-msgstr "正在啟用 swap 分割區 %s"
+msgstr "啟用定期執行 msec"
 
 #: ../src/msec/plugins/msec.py:502
 msgid "Disabling msec periodic runs"
@@ -1340,9 +1308,8 @@ msgid "Allowing remote root login"
 msgstr "允許遠端 root 登入"
 
 #: ../src/msec/plugins/network.py:138
-#, fuzzy
 msgid "Forbidding remote root login"
-msgstr "允許遠端 root 登入"
+msgstr "禁止遠端 root 登入"
 
 #: ../src/msec/plugins/network.py:142
 #, fuzzy
@@ -1370,18 +1337,16 @@ msgid "Password history not supported with pam_tcb."
 msgstr "歷史密碼功能並未在 pam_tcb 支援"
 
 #: ../src/msec/plugins/pam.py:91
-#, fuzzy
 msgid "Invalid maximum password history length: \"%s\""
-msgstr "密碼紀錄長度"
+msgstr "無效的最大密碼紀錄長度：\"%s\""
 
 #: ../src/msec/plugins/pam.py:106
 msgid "Setting password history to %d."
 msgstr "將密碼紀錄長度設定為 %d"
 
 #: ../src/msec/plugins/pam.py:112
-#, fuzzy
 msgid "Disabling password history"
-msgstr "密碼紀錄長度"
+msgstr "停用密碼歷史紀錄"
 
 #: ../src/msec/plugins/pam.py:124
 msgid ""

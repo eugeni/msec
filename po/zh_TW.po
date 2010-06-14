@@ -49,12 +49,12 @@ msgstr "無法載入設定檔 %s：%s"
 #: ../src/msec/config.py:225 ../src/msec/config.py:334
 #: ../src/msec/config.py:442
 msgid "Bad config option: %s"
-msgstr "錯誤的設定選項: %s"
+msgstr "錯誤的設定選項：%s"
 
 #: ../src/msec/config.py:260 ../src/msec/config.py:373
 #: ../src/msec/config.py:468
 msgid "Unable to save %s: %s"
-msgstr "儲存 %s 設定失敗: %s"
+msgstr "儲存 %s 設定失敗：%s"
 
 #: ../src/msec/config.py:319
 msgid "loading exceptions file %s: %s"
@@ -415,11 +415,11 @@ msgstr "啟用網路卡混用檢查。"
 
 #: ../src/msec/libmsec.py:266
 msgid "%s modified so launched command: %s"
-msgstr "%s 已經變更因此執行命令: %s"
+msgstr "%s 已經變更因此執行命令：%s"
 
 #: ../src/msec/libmsec.py:275
 msgid "%s modified so should have run command: %s"
-msgstr "%s 已經變更因此應該執行命令: %s"
+msgstr "%s 已經變更因此應該執行命令：%s"
 
 #: ../src/msec/libmsec.py:377 ../src/msec/libmsec.py:409
 msgid "deleted %s"
@@ -512,7 +512,7 @@ msgstr "卸下 %s 的掛載時發生錯誤：%s"
 
 #: ../src/msec/libmsec.py:886
 msgid "Wrong group of %s: should be %s"
-msgstr "%s 的群組錯誤；應該是 %s"
+msgstr "%s 的群組錯誤：應該是 %s"
 
 #: ../src/msec/libmsec.py:891
 msgid "Enforcing permissions on %s to %o"
@@ -555,7 +555,7 @@ msgstr "不是本機檔案：\"%s\"。沒有任何變更。"
 
 #: ../src/msec/libmsec.py:1006
 msgid "Checking paths: %s"
-msgstr "檢查路徑:  %s"
+msgstr "檢查路徑：%s"
 
 #: ../src/msec/msec.py:87 ../src/msec/msecperms.py:96
 msgid "Invalid security level '%s'."
@@ -563,7 +563,7 @@ msgstr "無效的安全等級 '%s'。"
 
 #: ../src/msec/msec.py:114 ../src/msec/msecperms.py:121
 msgid "Msec: Mandriva Security Center (%s)\n"
-msgstr "Msec: Mandriva 安全中心 (%s)\n"
+msgstr "Msec：Mandriva 安全中心 (%s)\n"
 
 #: ../src/msec/msec.py:115 ../src/msec/msecperms.py:122
 msgid "Error: This application must be executed by root!"
@@ -593,7 +593,7 @@ msgstr "正在由 %s 切換至 %s"
 
 #: ../src/msec/msec.py:192 ../src/msec/msecperms.py:166
 msgid "Unable to save config!"
-msgstr "儲存設定失敗!"
+msgstr "儲存設定失敗！"
 
 #: ../src/msec/msec.py:194
 msgid "Unable to save file system permissions!"
@@ -718,7 +718,7 @@ msgstr "檔案 (_F)"
 
 #: ../src/msec/msecgui.py:195
 msgid "_Save configuration"
-msgstr "儲存設定(_S)"
+msgstr "儲存設定 (_S)"
 
 #: ../src/msec/msecgui.py:200
 msgid "_Quit"
@@ -886,7 +886,7 @@ msgstr "基礎安全性等級：'%s'"
 
 #: ../src/msec/msecgui.py:636
 msgid "Custom settings: %d"
-msgstr "自訂設定；%d"
+msgstr "自訂設定：%d"
 
 #: ../src/msec/msecgui.py:657
 msgid "Never"
@@ -929,7 +929,7 @@ msgstr "請稍候，這可能需要幾分鐘。"
 
 #: ../src/msec/msecgui.py:771
 msgid "Periodic check was executed successfully!"
-msgstr "週期性檢查成功地執行了!"
+msgstr "週期性檢查成功地執行了！"
 
 #: ../src/msec/msecgui.py:774
 msgid "An error occurred while running periodic check."
@@ -1162,11 +1162,11 @@ msgstr "允許 console 使用者重新開機。"
 
 #: ../src/msec/plugins/msec.py:338
 msgid "Allowing Shutdown/Reboot in GDM"
-msgstr "允許於GDM 關機/重開機"
+msgstr "允許於 GDM 關機/重開機"
 
 #: ../src/msec/plugins/msec.py:342
 msgid "Allowing Shutdown/Reboot in KDM"
-msgstr "允許於KDM 關機/重開機"
+msgstr "允許於 KDM 關機/重開機"
 
 #: ../src/msec/plugins/msec.py:345
 msgid "Allowing Ctrl-Alt-Del from console"
@@ -1342,7 +1342,7 @@ msgstr "無效的最大密碼紀錄長度：\"%s\""
 
 #: ../src/msec/plugins/pam.py:106
 msgid "Setting password history to %d."
-msgstr "將密碼紀錄長度設定為 %d"
+msgstr "將密碼紀錄長度設定為 %d。"
 
 #: ../src/msec/plugins/pam.py:112
 msgid "Disabling password history"
@@ -1383,4 +1383,4 @@ msgstr ""
 
 #: ../src/msec/plugins/pam.py:211
 msgid "Disabling transparent root access for wheel group members"
-msgstr "關閉 wheel 群組使用者直接使用 root 權限。"
+msgstr "關閉 wheel 群組使用者直接使用 root 權限"

@@ -16,16 +16,16 @@
 # José Melo <mmodme00@gmail.com>, 2005.
 # Jose JORGE <jjorge@free.fr>, 2005.
 # Zé <mmodem00@gmail.com>, 2006, 2007, 2008, 2010.
-# Zé <ze@mandriva.org>, 2008.
+# Zé <ze@mandriva.org>, 2008, 2010.
 # Zé <mmodem00@gmal.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2010-05-03 23:59+0100\n"
-"Last-Translator: Zé <mmodem00@gmal.com>\n"
-"Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2010-06-19 03:49+0100\n"
+"Last-Translator: Zé <ze@mandriva.org>\n"
+"Language-Team: Portuguese <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -87,14 +87,15 @@ msgstr "Registar mensagens syslog no terminal da consola 12."
 
 #: ../src/msec/help.py:20
 msgid "Send mail reports even if no changes were detected."
-msgstr "Envia relatórios de correio mesmo que não sejam detectadas alterações."
+msgstr ""
+"Enviar relatórios de correio mesmo que não sejam detectadas alterações."
 
 #: ../src/msec/help.py:22
 msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
 msgstr ""
-"Define o nível de segurança base, onde a configuração actual está baseada."
+"Definir o nível de segurança base, onde a configuração actual está baseada."
 
 #: ../src/msec/help.py:24
 msgid "Accept broadcasted ICMP echo."
@@ -195,7 +196,7 @@ msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
 msgstr ""
-"Define o tamanho do histórico da senha para evitar a reutilização da senha. "
+"Definir o tamanho do histórico da senha para evitar a reutilização da senha. "
 "Isto não é suportado pelo pam_tcb."
 
 #: ../src/msec/help.py:58
@@ -218,11 +219,11 @@ msgstr "Endereço electrónico para receber notificações de segurança."
 
 #: ../src/msec/help.py:64
 msgid "Set the user umask."
-msgstr "Define a umask do utilizador."
+msgstr "Definir a umask do utilizador."
 
 #: ../src/msec/help.py:66
 msgid "Allow only users in wheel group to su to root."
-msgstr "Permite apenas utilizadores no grupo wheel a fazer su para root."
+msgstr "Permitir apenas utilizadores no grupo wheel a fazer su para root."
 
 #: ../src/msec/help.py:68
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
@@ -243,13 +244,14 @@ msgstr "Activar verificação de ficheiros sem dono."
 #: ../src/msec/help.py:76
 msgid "Set the shell timeout. A value of zero means no timeout."
 msgstr ""
-"Define o tempo de espera da Linha de Comandos (shell). O valor zero "
+"Definir o tempo de espera da Linha de Comandos (shell). O valor zero "
 "significa sem tempo de espera.."
 
 #: ../src/msec/help.py:78
 msgid "Allow display managers (kdm and gdm) to display list of local users."
 msgstr ""
-"Permite mostrar gestores (kdm e gdm) para mostrar uma lista dos utilizadores "
+"Permitir mostrar gestores (kdm e gdm) para mostrar uma lista dos "
+"utilizadores "
 "locais."
 
 #: ../src/msec/help.py:80
@@ -262,7 +264,8 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
-"Reforça as permissões do directório do ficheiro MSEC no arranque do sistema. "
+"Reforçar as permissões do directório do ficheiro MSEC no arranque do sistema."
+" "
 "Se este parâmetro estiver definido para  'enforce', as permissões do sistema "
 "serão reforçadas automaticamente, de acordo com as definições de segurança "
 "do sistema."
@@ -270,7 +273,7 @@ msgstr ""
 #: ../src/msec/help.py:84
 msgid "Include current directory into user PATH by default"
 msgstr ""
-"Inclui o directório actual para o CAMINHO (PATH) do utilizador por "
+"Incluir o directório actual para o CAMINHO (PATH) do utilizador por "
 "predefinição"
 
 #: ../src/msec/help.py:86
@@ -291,14 +294,19 @@ msgid ""
 "services considered safe). Note that the allowed services must be placed "
 "manually into the server.SERVER_LEVEL files when necessary."
 msgstr ""
-"Cria a ligação simbólica (symlink) de /etc/security/msec/server para apontar "
-"para /etc/security/msec/server.SERVER_LEVEL. O /etc/security/msec/server é "
-"usado pelo chkconfig --add para decidir adicionar um serviço se estiver "
-"presente no ficheiro durante a instalação dos pacotes. Por predefinição, são "
-"fornecidas duas definições: local (que apenas activa os serviços locais) e "
-"remoto (que activa alguns serviços remotos considerados seguros). Note que "
-"os serviços permitidos têm que ser colocados manualmente nos ficheiros "
-"server.SERVER_LEVEL quando necessário."
+"Criar a ligação simbólica (symlink) de /etc/security/msec/server para "
+"apontar "
+"para /etc/security/msec/server.SERVER_LEVEL. O ficheiro "
+"/etc/security/msec/server "
+"é usado pelo chkconfig --add para decidir adicionar um serviço se estiver "
+"presente "
+"no ficheiro durante a instalação dos pacotes. Por predefinição, são "
+"fornecidas duas "
+"definições: local (que activa apenas os serviços locais) e remoto (que "
+"activa alguns "
+"serviços remotos considerados seguros). Note que os serviços permitidos têm "
+"que ser "
+"colocados manualmente nos ficheiros server.SERVER_LEVEL quando necessário."
 
 #: ../src/msec/help.py:90
 msgid ""
@@ -404,7 +412,7 @@ msgid ""
 "If this variable is not defined, the default level defined in sectool "
 "configuration will be used."
 msgstr ""
-"Define o nível sectool a usar durante as verificações de segurança "
+"Definir o nível sectool a usar durante as verificações de segurança "
 "periódicas, Pode usar a aplicação sectool-gui para seleccionar testes "
 "individuais para cada nível. Se esta variável não estiver definida, será "
 "usado o nível predefinido na configuração sectool."
@@ -422,7 +430,7 @@ msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
-"Define o comprimento mínimo da senha, o número mínimo de dígitos e o número "
+"Definir o comprimento mínimo da senha, o número mínimo de dígitos e o número "
 "mínimo de letras maiúsculas, usando o formato comprimento,ndigits,nupper"
 
 #: ../src/msec/help.py:130
@@ -464,7 +472,7 @@ msgid ""
 "sudo without any password makes your system very vulnerable, and you should "
 "only use this setting if you know what you are doing!"
 msgstr ""
-"Permite aos utilizadores do grupo wheel usar sudo. Se esta opção estiver "
+"Permitir aos utilizadores do grupo wheel usar sudo. Se esta opção estiver "
 "definida para 'yes', os utilizadores no grupo wheel têm permissão para usar "
 "sudo e correr comandos como administradores usando as suas senhas. Se esta "
 "opção estiver definida para 'without-password', os utilizadores podem usar "
@@ -474,7 +482,7 @@ msgstr ""
 
 #: ../src/msec/help.py:138
 msgid "Set the root umask."
-msgstr "Define a umask root."
+msgstr "Definir a umask root."
 
 #: ../src/msec/help.py:140
 msgid "Perform hourly security check for changes in system configuration."
@@ -1072,7 +1080,7 @@ msgstr "Activar ferramenta MSEC"
 
 #: ../src/msec/msecgui.py:813
 msgid "Select the base security level"
-msgstr "Seleccione o nível de segurança base"
+msgstr "Seleccionar o nível de segurança base"
 
 #: ../src/msec/msecgui.py:836
 msgid "Level name"
@@ -1108,7 +1116,7 @@ msgstr "Apagar"
 
 #: ../src/msec/msecgui.py:1232
 msgid "Path"
-msgstr "Localização"
+msgstr "Caminho"
 
 #: ../src/msec/msecgui.py:1238
 msgid "User"
@@ -1175,7 +1183,7 @@ msgid ""
 "Please specify new file owner and permissions, or use 'current' to keep "
 "current settings."
 msgstr ""
-"Por favor especifique o novo proprietário e as permissões do ficheiro, "
+"Por favor indique o novo proprietário e as permissões do ficheiro, "
 "ou use 'current' para manter as definições actuais."
 
 #: ../src/msec/msecgui.py:1537
@@ -1197,10 +1205,10 @@ msgid ""
 "user1:acl,user2:acl\n"
 "Refer to 'man setfacl' for details."
 msgstr ""
-"Para reforçar a adição ACL (Access Control List) no ficheiro, especifique-as "
+"Para reforçar a adição ACL (Access Control List) no ficheiro, indique-as "
 "no seguinte formato:\n"
 "utilizador1:acl,utilizador2:acl\n"
-"Se desejar veja 'man setfacl' para mais detalhes."
+"Veja o manual 'man setfacl' para mais detalhes."
 
 #: ../src/msec/msecgui.py:1575
 msgid "ACL: "
@@ -1473,7 +1481,7 @@ msgstr "Histórico da senha não suportado com pam_tcb."
 
 #: ../src/msec/plugins/pam.py:91
 msgid "Invalid maximum password history length: \"%s\""
-msgstr "Comprimento máximo do histórico da senha inválido: \"%s\""
+msgstr "Comprimento máximo inválido do histórico da senha: \"%s\""
 
 #: ../src/msec/plugins/pam.py:106
 msgid "Setting password history to %d."

@@ -70,5 +70,7 @@
 /var/log/btmp					root.utmp		600 force
 /var/log/wtmp					root.utmp		664 force
 /var/log/lp-errs				lp.lp			600
+/var/log/ConsoleKit				root.root		755	force
+/var/log/ConsoleKit/history			root.root		644	force
 /var/spool/mail/				root.mail		2775
 /var/tmp					root.root		1777

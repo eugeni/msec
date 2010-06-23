@@ -96,5 +96,7 @@
 /var/log/intraline/.				current.current		750
 /var/log/mailman/				root.mail		2770
 /var/log/mailman/*				root.mail		660
+/var/log/ConsoleKit				root.root		755	force
+/var/log/ConsoleKit/history			root.root		644	force
 /var/spool/mail/				root.mail		771
 /var/tmp					root.adm		1773

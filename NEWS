@@ -1,3 +1,4 @@
+Version 0.80.9 - June 23 2010, Eugeni Dodonov
 - fix gdm/consolekit interaction (#59100)
 - use 'none' level as base when no BASE_LEVEL is defined (#59683)
 

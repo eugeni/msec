@@ -227,7 +227,7 @@ class msec:
             if val_startx or val_xservers or val_kdmrc or val_gdmconf != 'false':
                 self.log.info(_('Allowing the X server to listen to tcp connections'))
                 if startx.exists():
-                    startx.replace_line_matching(STARTX_REGEXP, '@1@2')
+                    startx.replace_line_matching(STARTX_REGEXP, '@1@2', all=1)
                 if xservers.exists():
                     xservers.replace_line_matching(XSERVERS_REGEXP, '@1@2', 0, 1)
                 if gdmconf.exists():

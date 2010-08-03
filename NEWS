@@ -1,3 +1,5 @@
+- properly handling startx parsing (#60440)
+
 Version 0.80.10 - June 28 2010, Eugeni Dodonov
 - localization fix
 

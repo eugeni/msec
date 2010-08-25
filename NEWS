@@ -1,3 +1,4 @@
+- properly handle cases when /etc/sysconfig/i18n is not there
 - properly handling startx parsing (#60440)
 
 Version 0.80.10 - June 28 2010, Eugeni Dodonov

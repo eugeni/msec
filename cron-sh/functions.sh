@@ -1,12 +1,11 @@
 #!/bin/bash
 # msec: shared function
 
-if [[ -f /etc/sysconfig/i18n ]]; then
-    . /etc/sysconfig/i18n
-fi
-
 if [[ -f /etc/profile.d/10lang.sh ]]; then
     . /etc/profile.d/10lang.sh
+elif [[ -f /etc/sysconfig/i18n ]]; then
+    # for older distros without 10lang.sh
+    . /etc/sysconfig/i18n
 fi
 
 if [[ -f /etc/security/msec/security.conf ]]; then

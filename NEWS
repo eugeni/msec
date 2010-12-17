@@ -1,3 +1,4 @@
+- rotate /var/log/msec.log together with /var/log/security.log
 - properly handle cases when /etc/sysconfig/i18n is not there
 - properly handling startx parsing (#60440)
 

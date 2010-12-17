@@ -3,7 +3,7 @@
 # logrotate could be configured to silently ignore the case of a log
 # file not existing
 
-/var/log/security.log {
+/var/log/security.log /var/log/msec.log {
     create 644 root root
 	monthly
 	compress

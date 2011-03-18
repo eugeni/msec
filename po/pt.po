@@ -17,20 +17,21 @@
 # Jose JORGE <jjorge@free.fr>, 2005.
 # Zé <mmodem00@gmail.com>, 2006, 2007, 2008, 2010.
 # Zé <ze@mandriva.org>, 2008, 2010.
-# Zé <mmodem00@gmal.com>, 2010.
+# Zé <mmodem00@gmal.com>, 2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2010-06-19 03:49+0100\n"
+"PO-Revision-Date: 2011-03-18 05:48+0000\n"
 "Last-Translator: Zé <ze@mandriva.org>\n"
 "Language-Team: Portuguese <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.2\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"Language: pt\n"
 
 #: ../src/msec/config.py:46
 msgid "Modified system files"
@@ -167,7 +168,7 @@ msgstr "Activar verificação de adições/remoções dos ficheiros suid root."
 
 #: ../src/msec/help.py:48
 msgid "Enables logging of periodic checks to system log."
-msgstr "Activar registo das verificações periódicas ao registo do sistema."
+msgstr "Activar registo das verificações periódicas para o registo do sistema."
 
 #: ../src/msec/help.py:50
 msgid ""
@@ -412,8 +413,8 @@ msgid ""
 "If this variable is not defined, the default level defined in sectool "
 "configuration will be used."
 msgstr ""
-"Definir o nível sectool a usar durante as verificações de segurança "
-"periódicas, Pode usar a aplicação sectool-gui para seleccionar testes "
+"Define o nível sectool a usar durante as verificações de segurança "
+"periódicas. Pode usar a aplicação sectool-gui para seleccionar testes "
 "individuais para cada nível. Se esta variável não estiver definida, será "
 "usado o nível predefinido na configuração sectool."
 
@@ -749,9 +750,9 @@ msgid ""
 "periodic checks to run once a day."
 msgstr ""
 "Este perfil destina-se para os utilizadores que não confiam no msec para "
-"alterar as definições do sistema, e usam-no apenas para verificações "
-"periódicas. Configura todas as verificações periódicas para correrem uma vez "
-"por dia."
+"alterar "
+"as definições do sistema, e usam-no apenas para verificações periódicas. "
+"Configura todas as verificações periódicas para correrem uma vez por dia."
 
 #: ../src/msec/msecgui.py:70
 msgid ""
@@ -799,7 +800,7 @@ msgid ""
 "These options configure the security checks that should be executed "
 "periodically.  "
 msgstr ""
-"<big><b>Verificações periódicas de segurança</b></big>\n"
+"<big><b>Verificações de segurança periódicas</b></big>\n"
 "Estas opções configuram as verificações de segurança que devem ser "
 "executadas periodicamente.  "
 
@@ -812,7 +813,7 @@ msgid ""
 msgstr ""
 "<big><b>Excepções</b></big>\n"
 "Aqui pode configurar as excepções permitidas para as verificações\n"
-"periódicas de segurança do msec. Para cada teste suportado, pode\n"
+"de segurança periódicas do msec. Para cada teste suportado, pode\n"
 "adicionar quantas excepções quiser para cada verificação. Note que\n"
 "cada excepção é analisada como uma expressão regular."
 
@@ -828,15 +829,14 @@ msgid ""
 "changing them to the specified values when a change is detected.  "
 msgstr ""
 "<big><b>Permissões de ficheiros</b></big>\n"
-"Estas opções permitem um ajustar bem as permissões do sistema para "
-"ficheiros\n"
+"Estas opções permitem ajustar bem as permissões do sistema para ficheiros\n"
 "importantes e directórios. As seguintes permissões são verificadas "
 "periodicamente,\n"
-"e qualquer alteração ao dono, grupo, ou permissão actual é reportado. A "
-"permissão\n"
-"pode ser reforçada, alterá-las automaticamente para os valores indicados "
-"quando\n"
-" uma alteração é detectada."
+"e qualquer alteração do dono, grupo, ou a permissão actual é reportado. As "
+"permissões\n"
+"podem ser reforçadas, quando uma alteração é detectada as permissões são "
+"alteradas\n"
+"automaticamente para os valores indicados."
 
 #: ../src/msec/msecgui.py:103
 msgid "Save and apply new configuration?"

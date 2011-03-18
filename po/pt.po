@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2011-03-18 05:48+0000\n"
+"PO-Revision-Date: 2011-03-18 06:02+0000\n"
 "Last-Translator: Zé <ze@mandriva.org>\n"
 "Language-Team: Portuguese <>\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgstr "Desactivado"
 
 #: ../src/msec/config.py:211 ../src/msec/config.py:423
 msgid "Unable to load configuration file %s: %s"
-msgstr "Não é possível carregar o ficheiro de configuração %s: %s"
+msgstr "Incapaz de carregar o ficheiro de configuração %s: %s"
 
 #: ../src/msec/config.py:225 ../src/msec/config.py:334
 #: ../src/msec/config.py:442
@@ -57,7 +57,7 @@ msgstr "Opção de configuração inválida: %s"
 #: ../src/msec/config.py:260 ../src/msec/config.py:373
 #: ../src/msec/config.py:468
 msgid "Unable to save %s: %s"
-msgstr "Não é possível gravar %s: %s"
+msgstr "Incapaz de gravar %s: %s"
 
 #: ../src/msec/config.py:319
 msgid "loading exceptions file %s: %s"
@@ -96,7 +96,7 @@ msgid ""
 "Defines the base security level, on top of which the current configuration "
 "is based."
 msgstr ""
-"Definir o nível de segurança base, onde a configuração actual está baseada."
+"Define o nível de segurança base, onde a configuração actual está baseada."
 
 #: ../src/msec/help.py:24
 msgid "Accept broadcasted ICMP echo."
@@ -220,11 +220,11 @@ msgstr "Endereço electrónico para receber notificações de segurança."
 
 #: ../src/msec/help.py:64
 msgid "Set the user umask."
-msgstr "Definir a umask do utilizador."
+msgstr "Define a umask do utilizador."
 
 #: ../src/msec/help.py:66
 msgid "Allow only users in wheel group to su to root."
-msgstr "Permitir apenas utilizadores no grupo wheel a fazer su para root."
+msgstr "Permitir apenas aos utilizadores do grupo wheel fazer su para root."
 
 #: ../src/msec/help.py:68
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
@@ -245,7 +245,7 @@ msgstr "Activar verificação de ficheiros sem dono."
 #: ../src/msec/help.py:76
 msgid "Set the shell timeout. A value of zero means no timeout."
 msgstr ""
-"Definir o tempo de espera da Linha de Comandos (shell). O valor zero "
+"Define o tempo de espera da Linha de Comandos (shell). O valor zero "
 "significa sem tempo de espera.."
 
 #: ../src/msec/help.py:78
@@ -403,7 +403,7 @@ msgid ""
 "Allow to export display when passing from the root account to the other "
 "users. See pam_xauth(8) for more details."
 msgstr ""
-"Permitir exportar o ecrã quando passar da conta root para a de outros "
+"Permite exportar o ecrã quando passar da conta root para a de outros "
 "utilizadores. Ver pam_xauth(8) para mais detalhes."
 
 #: ../src/msec/help.py:122
@@ -431,7 +431,7 @@ msgid ""
 "Set the password minimum length and minimum number of digit and minimum "
 "number of capitalized letters, using length,ndigits,nupper format."
 msgstr ""
-"Definir o comprimento mínimo da senha, o número mínimo de dígitos e o número "
+"Define o comprimento mínimo da senha, o número mínimo de dígitos e o número "
 "mínimo de letras maiúsculas, usando o formato comprimento,ndigits,nupper"
 
 #: ../src/msec/help.py:130
@@ -452,7 +452,7 @@ msgid ""
 "you if checksums of the installed files were changed, showing separate "
 "results for binary and configuration files."
 msgstr ""
-"Activar verificação da integridade dos pacotes RPM instalados. Isto irá "
+"Permite a verificação da integridade dos pacotes RPM instalados. Isto irá "
 "notificá-lo se os checksums dos ficheiros instalados foram alterados, "
 "mostrando resultados separados por binário e ficheiros de configuração."
 
@@ -473,7 +473,7 @@ msgid ""
 "sudo without any password makes your system very vulnerable, and you should "
 "only use this setting if you know what you are doing!"
 msgstr ""
-"Permitir aos utilizadores do grupo wheel usar sudo. Se esta opção estiver "
+"Permite aos utilizadores do grupo wheel usar sudo. Se esta opção estiver "
 "definida para 'yes', os utilizadores no grupo wheel têm permissão para usar "
 "sudo e correr comandos como administradores usando as suas senhas. Se esta "
 "opção estiver definida para 'without-password', os utilizadores podem usar "
@@ -505,7 +505,7 @@ msgstr "Aceitar mensagens de erro IPv4 adulteradas."
 
 #: ../src/msec/help.py:148
 msgid "Enable checking for additions/removals of sgid files."
-msgstr "Activar verificação para adições/remoções de ficheiros sgid."
+msgstr "Permitir verificação de adições/remoções nos ficheiros sgid."
 
 #: ../src/msec/help.py:150
 msgid "Activate ethernet cards promiscuity check."
@@ -595,7 +595,7 @@ msgstr "Erro ao mudar o utilizador em %s: %s"
 
 #: ../src/msec/libmsec.py:877
 msgid "Wrong owner of %s: should be %s"
-msgstr "Dono errado de %s: deve ser %s"
+msgstr "Dono errado de %s: devia ser %s"
 
 #: ../src/msec/libmsec.py:880
 msgid "Enforcing group on %s to %s"
@@ -607,7 +607,7 @@ msgstr "Erro ao alterar grupo em %s: %s"
 
 #: ../src/msec/libmsec.py:886
 msgid "Wrong group of %s: should be %s"
-msgstr "Grupo errado de %s: deve ser %s"
+msgstr "Grupo errado de %s: devia ser %s"
 
 #: ../src/msec/libmsec.py:891
 msgid "Enforcing permissions on %s to %o"
@@ -619,7 +619,7 @@ msgstr "Erro ao mudar as permissões em %s: %s"
 
 #: ../src/msec/libmsec.py:897
 msgid "Wrong permissions of %s: should be %o"
-msgstr "Permissões erradas de %s: deve ser %o"
+msgstr "Permissões erradas de %s: devia ser %o"
 
 #: ../src/msec/libmsec.py:901
 msgid "Enforcing acl on %s"
@@ -679,7 +679,7 @@ msgstr "Nenhuma permissão de ficheiros personalizada para o nível '%s'."
 
 #: ../src/msec/msec.py:152
 msgid "Saving file permissions to '%s' level."
-msgstr "A gravar as permissões do ficheiro para o nível '%s'."
+msgstr "A gravar permissões do ficheiro para o nível '%s'."
 
 #: ../src/msec/msec.py:192 ../src/msec/msecperms.py:166
 msgid "Unable to save config!"
@@ -790,8 +790,8 @@ msgid ""
 "and breakin attempts.  "
 msgstr ""
 "<big><b>Opções de segurança da rede</b></big>\n"
-"Estas opções definem a segurança da rede contra as ameaças remotas, acessos "
-"não autorizados,\n"
+"Estas opções definem a segurança da rede contra ameaças remotas,\n"
+"acessos não autorizados,\n"
 "e tentativas de entrada.  "
 
 #: ../src/msec/msecgui.py:89
@@ -924,7 +924,7 @@ msgstr "verificação de permissão"
 
 #: ../src/msec/msecgui.py:311
 msgid "changed %s <b>%s</b> (%s -> %s)"
-msgstr "alterado %s <b>%s</b> (%s -> %s)"
+msgstr "alterada a %s <b>%s</b> (%s -> %s)"
 
 #: ../src/msec/msecgui.py:316
 msgid "added %s <b>%s</b> (%s)"

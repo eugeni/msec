@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2011-03-18 06:02+0000\n"
+"PO-Revision-Date: 2011-03-28 02:42+0100\n"
 "Last-Translator: Zé <ze@mandriva.org>\n"
 "Language-Team: Portuguese <>\n"
 "MIME-Version: 1.0\n"
@@ -72,24 +72,23 @@ msgid ""
 "Allow local users to connect to X server. Accepted arguments: yes (all "
 "connections are allowed), local (only local connection), no (no connection)."
 msgstr ""
-"Permitir aos utilizadores locais conectarem-se ao servidor X. Argumentos "
+"Permite aos utilizadores locais conectarem-se ao servidor X. Argumentos "
 "aceitáveis: sim (todas as conexões são permitidas), local (apenas as "
 "conexões locais), não (sem conexões)."
 
 #: ../src/msec/help.py:16
 msgid "Enable checking for files/directories writable by everybody."
 msgstr ""
-"Activar verificação de ficheiros/directórios graváveis por todos os "
+"Activa verificação de ficheiros/directórios graváveis por todos os "
 "utilizadores."
 
 #: ../src/msec/help.py:18
 msgid "Log syslog messages on console terminal 12."
-msgstr "Registar mensagens syslog no terminal da consola 12."
+msgstr "Regista mensagens syslog no terminal da consola 12."
 
 #: ../src/msec/help.py:20
 msgid "Send mail reports even if no changes were detected."
-msgstr ""
-"Enviar relatórios de correio mesmo que não sejam detectadas alterações."
+msgstr "Envia relatórios de correio mesmo que não sejam detectadas alterações."
 
 #: ../src/msec/help.py:22
 msgid ""
@@ -100,41 +99,43 @@ msgstr ""
 
 #: ../src/msec/help.py:24
 msgid "Accept broadcasted ICMP echo."
-msgstr "Aceitar ecos ICMP transmitidos."
+msgstr "Aceita ecos ICMP transmitidos."
 
 #: ../src/msec/help.py:26
 msgid ""
 "Enable verification for changes in the installed RPM packages. This will "
 "notify you when new packages are installed or removed."
 msgstr ""
-"Activar verificação de alterações nos pacotes RPM instalados. Isto irá "
+"Activa a verificação de alterações nos pacotes RPM instalados. Isto irá "
 "notificá-lo quando forem instalados ou removidos novos pacotes."
 
 #: ../src/msec/help.py:28
 msgid "Enable periodic permission checking for files specified in msec policy."
 msgstr ""
-"Activar verificação periódica de permissões de ficheiros especificados na "
+"Activa a verificação periódica de permissões de ficheiros especificados na "
 "politica msec."
 
 #: ../src/msec/help.py:30
 msgid "Ignore changes in process IDs when checking for open network ports."
 msgstr ""
-"Ignorar alterações nos IDs dos processos ao verificar portos da rede abertos."
+"Ignora as alterações nos IDs dos processos ao verificar os portos da rede "
+"abertos."
 
 #: ../src/msec/help.py:32
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr "Permitir ao servidor X aceitar conexões para a rede no porto tcp 6000."
+msgstr "Permite ao servidor X aceitar conexões para a rede no porto tcp 6000."
 
 #: ../src/msec/help.py:34
 msgid "Enable checking for known rootkits using chkrootkit."
-msgstr "Activar verificação para rootkits conhecidos usando chkrootkit."
+msgstr "Activa a verificação para rootkits conhecidos usando o chkrootkit."
 
 #: ../src/msec/help.py:36
 msgid ""
 "Enable msec to enforce file permissions to the values specified in the msec "
 "security policy."
 msgstr ""
-"Activar msec para reforçar permissões de ficheiros para os valores indicados "
+"Activa o msec para reforçar as permissões de ficheiros para os valores "
+"indicados "
 "na politica de segurança msec."
 
 #: ../src/msec/help.py:38
@@ -143,7 +144,7 @@ msgid ""
 "security level configuration. The security level to be used during this test "
 "is determined by the CHECK_SECTOOL_LEVELS variable."
 msgstr ""
-"Activar verificações sectools. Esta verificação irá fazer com que todas as "
+"Activa as verificações sectools. Esta verificação irá fazer com que todas as "
 "verificações sectool para uma configuração do nível de segurança. O nível de "
 "segurança a ser usado durante este teste é determinado pela variável "
 "CHECK_SECTOOL_LEVELS."
@@ -156,32 +157,35 @@ msgstr ""
 
 #: ../src/msec/help.py:42
 msgid "Allow system reboot and shutdown to local users."
-msgstr "Permitir aos utilizadores locais reiniciar e desligar o sistema."
+msgstr "Permite aos utilizadores locais reiniciar e desligar o sistema."
 
 #: ../src/msec/help.py:44
 msgid "Enable checking for changes in firewall settings."
-msgstr "Activar verificação e alterações nas definições da 'firewall'."
+msgstr "Activa a verificação das alterações nas definições da 'firewall'."
 
 #: ../src/msec/help.py:46
 msgid "Enable checking for additions/removals of suid root files."
-msgstr "Activar verificação de adições/remoções dos ficheiros suid root."
+msgstr ""
+"Activa a verificação de adições/remoções dos ficheiros suid do administrador."
 
 #: ../src/msec/help.py:48
 msgid "Enables logging of periodic checks to system log."
-msgstr "Activar registo das verificações periódicas para o registo do sistema."
+msgstr ""
+"Activa a gravação de registos no registo do sistema sobre as verificações "
+"periódicas."
 
 #: ../src/msec/help.py:50
 msgid ""
 "Enable crontab and at for users. Put allowed users in /etc/cron.allow and /"
 "etc/at.allow (see man at(1) and crontab(1))."
 msgstr ""
-"Activar crontab e at para utilizadores. Coloque os utilizadores autorizados "
+"Activa o crontab e o at para utilizadores. Coloca os utilizadores autorizados "
 "em /etc/cron.allow e /etc/at.allow (veja man at(1) e crontab(1))."
 
 #: ../src/msec/help.py:52
 msgid "Enable checking for dangerous options in users' .rhosts/.shosts files."
 msgstr ""
-"Activar verificação para opções perigosas nos ficheiros de utilizadores ."
+"Activa a verificação para opções perigosas nos ficheiros de utilizadores ."
 "rhosts/.shosts."
 
 #: ../src/msec/help.py:54
@@ -189,20 +193,20 @@ msgid ""
 "Enable password-related checks, such as empty passwords and strange super-"
 "user accounts."
 msgstr ""
-"Activar verificações relacionadas com senhas, tais como senhas vazias e "
-"contas estranhas de super-utilizadores."
+"Activa as verificações relacionadas com senhas, tais como senhas vazias e "
+"contas de super-utilizadores estranhas."
 
 #: ../src/msec/help.py:56
 msgid ""
 "Set the password history length to prevent password reuse. This is not "
 "supported by pam_tcb."
 msgstr ""
-"Definir o tamanho do histórico da senha para evitar a reutilização da senha. "
+"Define o tamanho do histórico da senha para evitar a sua reutilização. "
 "Isto não é suportado pelo pam_tcb."
 
 #: ../src/msec/help.py:58
 msgid "Enable checksum verification for suid files."
-msgstr "Activar verificação checksum para ficheiros suid."
+msgstr "Activa a verificação checksum para ficheiros suid."
 
 #: ../src/msec/help.py:60
 msgid ""
@@ -210,7 +214,7 @@ msgid ""
 "user home directory will be used for temporary files. Otherwise, /tmp will "
 "be used."
 msgstr ""
-"Usar localização segura para ficheiros temporários. Se este parâmetro "
+"Usa uma localização segura para ficheiros temporários. Se este parâmetro "
 "estiver definido para 'yes', o directório pessoal do utilizador será usado "
 "para ficheiros temporários. Caso contrário, será usado /tmp."
 
@@ -224,23 +228,25 @@ msgstr "Define a umask do utilizador."
 
 #: ../src/msec/help.py:66
 msgid "Allow only users in wheel group to su to root."
-msgstr "Permitir apenas aos utilizadores do grupo wheel fazer su para root."
+msgstr ""
+"Permite apenas aos utilizadores do grupo wheel fazer su para administrador."
 
 #: ../src/msec/help.py:68
 msgid "Enable checking for empty passwords in /etc/shadow (man shadow(5))."
-msgstr "Activar verificação para senhas vazias em /etc/shadow (man shadow(5))."
+msgstr ""
+"Activa a verificação para senhas vazias em /etc/shadow (man shadow(5))."
 
 #: ../src/msec/help.py:70
 msgid "Allow autologin."
-msgstr "Permitir auto-autenticação."
+msgstr "Permite a auto-autenticação."
 
 #: ../src/msec/help.py:72
 msgid "Enable checking for changes in system users."
-msgstr "Activar verificação de alterações nos utilizadores do sistema."
+msgstr "Activa a verificação de alterações nos utilizadores do sistema."
 
 #: ../src/msec/help.py:74
 msgid "Enable checking for unowned files."
-msgstr "Activar verificação de ficheiros sem dono."
+msgstr "Activa a verificação de ficheiros sem dono."
 
 #: ../src/msec/help.py:76
 msgid "Set the shell timeout. A value of zero means no timeout."
@@ -251,13 +257,12 @@ msgstr ""
 #: ../src/msec/help.py:78
 msgid "Allow display managers (kdm and gdm) to display list of local users."
 msgstr ""
-"Permitir mostrar gestores (kdm e gdm) para mostrar uma lista dos "
-"utilizadores "
-"locais."
+"Permite mostrar os gestores (kdm e gdm) para mostrar uma lista dos "
+"utilizadores locais."
 
 #: ../src/msec/help.py:80
 msgid "Enable name resolution spoofing protection."
-msgstr "Activar protecção 'spoofing' de resolução de nomes."
+msgstr "Activa a protecção 'spoofing' de resolução de nomes."
 
 #: ../src/msec/help.py:82
 msgid ""
@@ -265,8 +270,7 @@ msgid ""
 "is set to 'enforce', system permissions will be enforced automatically, "
 "according to system security settings."
 msgstr ""
-"Reforçar as permissões do directório do ficheiro MSEC no arranque do sistema."
-" "
+"Reforça as permissões do directório do ficheiro MSEC no arranque do sistema. "
 "Se este parâmetro estiver definido para  'enforce', as permissões do sistema "
 "serão reforçadas automaticamente, de acordo com as definições de segurança "
 "do sistema."
@@ -274,7 +278,7 @@ msgstr ""
 #: ../src/msec/help.py:84
 msgid "Include current directory into user PATH by default"
 msgstr ""
-"Incluir o directório actual para o CAMINHO (PATH) do utilizador por "
+"Inclui o directório actual para o CAMINHO (PATH) do utilizador por "
 "predefinição"
 
 #: ../src/msec/help.py:86
@@ -282,7 +286,7 @@ msgid ""
 "Enable permission checking on users' files that should not be owned by "
 "someone else, or writable."
 msgstr ""
-"Activar verificação de permissões nos ficheiros dos utilizadores que não "
+"Activa a verificação de permissões nos ficheiros dos utilizadores que não "
 "devem ser propriedade de mais ninguém, ou ser graváveis."
 
 #: ../src/msec/help.py:88
@@ -295,7 +299,7 @@ msgid ""
 "services considered safe). Note that the allowed services must be placed "
 "manually into the server.SERVER_LEVEL files when necessary."
 msgstr ""
-"Criar a ligação simbólica (symlink) de /etc/security/msec/server para "
+"Cria a ligação simbólica (symlink) de /etc/security/msec/server para "
 "apontar "
 "para /etc/security/msec/server.SERVER_LEVEL. O ficheiro "
 "/etc/security/msec/server "
@@ -314,7 +318,7 @@ msgid ""
 "Use password to authenticate users. Take EXTREME care when disabling "
 "passwords, as it will leave the machine vulnerable."
 msgstr ""
-"Usar senha para autenticar os utilizadores. Tenha EXTREMO cuidado ao "
+"Usa a senha para autenticar utilizadores. Tenha EXTREMO cuidado ao "
 "desactivar as senhas, já que irá deixar a máquina vulnerável."
 
 #: ../src/msec/help.py:92
@@ -328,16 +332,17 @@ msgid ""
 "Set umask option for mounting vfat and ntfs partitions. If umask is '-1', "
 "default system umask is used."
 msgstr ""
-"Definir opção umask para montar partições vfat e ntfs. Se a umask estiver '-"
+"Define a opção umask para montar as partições vfat e ntfs. Se a umask estiver "
+"'-"
 "1', será usada a umask predefinida do sistema."
 
 #: ../src/msec/help.py:96
 msgid "Enable checking for open network ports."
-msgstr "Activar pesquisa de portos de rede abertos."
+msgstr "Activa a pesquisa de portas de rede abertas."
 
 #: ../src/msec/help.py:98
 msgid "Allow direct root login on terminal."
-msgstr "Permitir autenticação root directa no terminal."
+msgstr "Permite a autenticação directa do administrador no terminal."
 
 #: ../src/msec/help.py:100
 msgid "Run security checks when machine is running on battery power."
@@ -347,7 +352,7 @@ msgstr ""
 
 #: ../src/msec/help.py:102
 msgid "Enable checking for changes in system groups."
-msgstr "Activar verificação de alterações nos grupos do sistema."
+msgstr "Activa a verificação de alterações nos grupos do sistema."
 
 #: ../src/msec/help.py:104
 msgid ""
@@ -361,7 +366,7 @@ msgstr ""
 
 #: ../src/msec/help.py:106
 msgid "Enable logging of strange network packets."
-msgstr "Activar registo de pacotes de rede estranhos."
+msgstr "Activa o registo de pacotes de rede estranhos."
 
 #: ../src/msec/help.py:108
 msgid ""
@@ -379,24 +384,26 @@ msgstr ""
 #: ../src/msec/help.py:110
 msgid "Ask for root password when going to single user level (man sulogin(8))."
 msgstr ""
-"Perguntar pela senha root ao entrar no nível de utilizador único (man sulogin"
+"Pergunta pela senha de administrador ao entrar no nível de utilizador único "
+"(man sulogin"
 "(8))."
 
 #: ../src/msec/help.py:112
 msgid "Enable IP spoofing protection."
-msgstr "Activar protecção contra 'spoofing' do IP."
+msgstr "Activa a protecção contra 'spoofing' do IP."
 
 #: ../src/msec/help.py:114
 msgid "Allow root access without password for the members of the wheel group."
-msgstr "Permitir acesso root sem senha para os membros do grupo wheel."
+msgstr ""
+"Permite o acesso de administrador sem senha para os membros do grupo wheel."
 
 #: ../src/msec/help.py:116
 msgid "Fix owner and group of unowned files to use nobody/nogroup."
-msgstr "Corrigir o dono e grupo de ficheiros sem dono a usar nobody/nogroup."
+msgstr "Corrige o dono e grupo de ficheiros sem dono a usar nobody/nogroup."
 
 #: ../src/msec/help.py:118
 msgid "Send security check results by email."
-msgstr "Enviar resultados das verificações de segurança por correio."
+msgstr "Envia os resultados das verificações de segurança por correio."
 
 #: ../src/msec/help.py:120
 msgid ""
@@ -424,7 +431,7 @@ msgstr "Activar verificações de segurança diárias."
 
 #: ../src/msec/help.py:126
 msgid "Accept ICMP echo."
-msgstr "Aceitar eco ICMP."
+msgstr "Aceita o eco ICMP."
 
 #: ../src/msec/help.py:128
 msgid ""
@@ -483,33 +490,33 @@ msgstr ""
 
 #: ../src/msec/help.py:138
 msgid "Set the root umask."
-msgstr "Definir a umask root."
+msgstr "Define a umask de administrador."
 
 #: ../src/msec/help.py:140
 msgid "Perform hourly security check for changes in system configuration."
 msgstr ""
-"Executar verificações de segurança horárias para alterações na configuração "
+"Executa as verificações de segurança horárias para alterações na configuração "
 "do sistema."
 
 #: ../src/msec/help.py:142
 msgid "Enforce MSEC settings on system startup"
-msgstr "Reforçar definições MSEC no arranque do sistema"
+msgstr "Reforça as definições MSEC no arranque do sistema"
 
 #: ../src/msec/help.py:144
 msgid "Enable periodic security check results to terminal."
-msgstr "Permitir resultados de verificação periódica de segurança no terminal."
+msgstr "Activa a verificação periódica de resultados de segurança no terminal."
 
 #: ../src/msec/help.py:146
 msgid "Accept bogus IPv4 error messages."
-msgstr "Aceitar mensagens de erro IPv4 adulteradas."
+msgstr "Aceita mensagens de erro IPv4 adulteradas."
 
 #: ../src/msec/help.py:148
 msgid "Enable checking for additions/removals of sgid files."
-msgstr "Permitir verificação de adições/remoções nos ficheiros sgid."
+msgstr "Permite a verificação de adições/remoções nos ficheiros sgid."
 
 #: ../src/msec/help.py:150
 msgid "Activate ethernet cards promiscuity check."
-msgstr "Activar teste de promiscuidade das placas ethernet."
+msgstr "Activa o teste de promiscuidade das placas ethernet."
 
 #: ../src/msec/libmsec.py:266
 msgid "%s modified so launched command: %s"
@@ -537,7 +544,7 @@ msgstr "ficheiro movido de %s para %s"
 
 #: ../src/msec/libmsec.py:468 ../src/msec/libmsec.py:484
 msgid "set variable %s to %s in %s"
-msgstr "definir variável %s para %s em %s"
+msgstr "define a variável %s para %s em %s"
 
 #: ../src/msec/libmsec.py:686
 msgid "Error loading plugin '%s' from %s: %s"

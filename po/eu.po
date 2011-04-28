@@ -2,16 +2,16 @@
 # EUSKARA: Mandriva Linux translation.
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008, 2009 Free Software Foundation, Inc.
 #
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2001-2002,2003,2004, 2005, 2007, 2008, 2009, 2010.
+# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2001-2002,2003,2004, 2005, 2007, 2008, 2009, 2010, 2011.
 # Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2004.
 msgid ""
 msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2010-05-11 00:42+0200\n"
-"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
-"Language-Team: Basque <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2011-04-28 19:21+0200\n"
+"Last-Translator: Ignigo Salvador Azurmendi <xalba@euskalnet.net>\n"
+"Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -100,9 +100,8 @@ msgstr ""
 "Gaitu aldiroko baimen azterketa msec politikan zehaztutako fitxategientzat."
 
 #: ../src/msec/help.py:30
-#, fuzzy
 msgid "Ignore changes in process IDs when checking for open network ports."
-msgstr "Gaitu sareko ataka irekien egiaztapena."
+msgstr "Ezikusi prozesuen ID-en aldaketak sareko ataka irekiak aztertzerakoan."
 
 #: ../src/msec/help.py:32
 msgid "Allow X server to accept connections from network on tcp port 6000."
@@ -118,6 +117,8 @@ msgid ""
 "Enable msec to enforce file permissions to the values specified in the msec "
 "security policy."
 msgstr ""
+"Gaitu msec-ek fitxategien baimenak msec-ren segurtasun politikak zehaztutako "
+"balioetara betearazi ditzan."
 
 #: ../src/msec/help.py:38
 msgid ""
@@ -125,6 +126,10 @@ msgid ""
 "security level configuration. The security level to be used during this test "
 "is determined by the CHECK_SECTOOL_LEVELS variable."
 msgstr ""
+"Gaitu sectools egiaztapenak. Egiaztapen honek segurtasun maila "
+"konfiguraketa batentzako sectool egiaztapen guztiak exekutatuko ditu. "
+"Azterketa honetan erabili beharreko segurtasun maila CHECK_SECTOOL_LEVELS "
+"aldagaiaren bitartez zehazten da."
 
 #: ../src/msec/help.py:40
 msgid "Set shell commands history size. A value of -1 means unlimited."
@@ -303,6 +308,7 @@ msgstr "Baimendu terminalean root gisa zuzenean saioa hastea."
 #: ../src/msec/help.py:100
 msgid "Run security checks when machine is running on battery power."
 msgstr ""
+"Exekutatu segurtasun egiaztapenak makina bateria indarrarekin dabilenean."
 
 #: ../src/msec/help.py:102
 msgid "Enable checking for changes in system groups."
@@ -465,11 +471,11 @@ msgstr "Aktibatu ethernet txartelen promiskuotasun egiaztapena."
 
 #: ../src/msec/libmsec.py:266
 msgid "%s modified so launched command: %s"
-msgstr ""
+msgstr "%s aldatuta beraz komandoa jaurti da: %s"
 
 #: ../src/msec/libmsec.py:275
 msgid "%s modified so should have run command: %s"
-msgstr ""
+msgstr "%s aldatuta beraz komandoa exekutatu beharko zen: %s"
 
 #: ../src/msec/libmsec.py:377 ../src/msec/libmsec.py:409
 msgid "deleted %s"

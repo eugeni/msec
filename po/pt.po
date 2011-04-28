@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2011-03-28 02:42+0100\n"
+"PO-Revision-Date: 2011-04-28 20:47+0100\n"
 "Last-Translator: Zé <ze@mandriva.org>\n"
 "Language-Team: Portuguese <>\n"
 "MIME-Version: 1.0\n"
@@ -118,12 +118,12 @@ msgstr ""
 #: ../src/msec/help.py:30
 msgid "Ignore changes in process IDs when checking for open network ports."
 msgstr ""
-"Ignora as alterações nos IDs dos processos ao verificar os portos da rede "
-"abertos."
+"Ignora as alterações nos IDs dos processos quando verifica as portas abertas "
+"na rede ."
 
 #: ../src/msec/help.py:32
 msgid "Allow X server to accept connections from network on tcp port 6000."
-msgstr "Permite ao servidor X aceitar conexões para a rede no porto tcp 6000."
+msgstr "Permite ao servidor X aceitar conexões da rede na porta tcp 6000."
 
 #: ../src/msec/help.py:34
 msgid "Enable checking for known rootkits using chkrootkit."
@@ -135,8 +135,7 @@ msgid ""
 "security policy."
 msgstr ""
 "Activa o msec para reforçar as permissões de ficheiros para os valores "
-"indicados "
-"na politica de segurança msec."
+"indicados na politica de segurança msec."
 
 #: ../src/msec/help.py:38
 msgid ""

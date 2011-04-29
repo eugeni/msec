@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: msec\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2011-04-28 19:21+0200\n"
+"PO-Revision-Date: 2011-04-29 10:14+0200\n"
 "Last-Translator: Ignigo Salvador Azurmendi <xalba@euskalnet.net>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -755,6 +755,14 @@ msgid ""
 "automatically\n"
 "changing them to the specified values when a change is detected.  "
 msgstr ""
+"<big><b>Fitxategien baimenak</b></big>\n"
+"Aukera hauek sistemaren baimenen doiketa fina egitea ahalbidetzen dute "
+"fitxategi eta direktorio garrantzitsuentzako.\n"
+"Ondorengo baimenak aldizka egiaztatzen dira, eta jabe, talde, edo uneko "
+"baimenekiko\n"
+"edozein aldaketa txosteneratu egiten da. Baimenak betearazi egin daitezke"
+"aldaketa\n"
+"bat aurkitzen denean automatikoki zehaztutako balioetara aldatuz."
 
 #: ../src/msec/msecgui.py:103
 msgid "Save and apply new configuration?"
@@ -762,12 +770,11 @@ msgstr "Konfiguraketa berria gorde eta aplikatu?"
 
 #: ../src/msec/msecgui.py:154
 msgid "Unable to load configuration for level '%s'"
-msgstr ""
+msgstr "Ezin konfiguraketa zamatu '%s' mailarentzako"
 
 #: ../src/msec/msecgui.py:160
-#, fuzzy
 msgid "Unable to load permissions for level '%s'"
-msgstr "'%s'-rentzako baimen okerrak: '%s'"
+msgstr "Ezin baimenak zamatu '%s' mailarentzako"
 
 #: ../src/msec/msecgui.py:193
 msgid "_File"
@@ -795,12 +802,11 @@ msgstr "MSEC: Sistemaren segurtasuna eta auditoritzak"
 
 #: ../src/msec/msecgui.py:245
 msgid "Overview"
-msgstr ""
+msgstr "Ikuspegi orokorra"
 
 #: ../src/msec/msecgui.py:246
-#, fuzzy
 msgid "Security settings"
-msgstr "Segurtasun aukera"
+msgstr "Segurtasun ezarpenak"
 
 #: ../src/msec/msecgui.py:255
 msgid "Basic security"
@@ -864,7 +870,7 @@ msgstr "Aldaketak gordetzen..."
 
 #: ../src/msec/msecgui.py:341
 msgid "Ignore and quit"
-msgstr ""
+msgstr "Ezikusi eta irten"
 
 #: ../src/msec/msecgui.py:379
 msgid "<b>%s:</b> <i>%s</i>\n"
@@ -912,89 +918,86 @@ msgstr "Aukera baliogabea '%s'!"
 
 #: ../src/msec/msecgui.py:593
 msgid "Firewall"
-msgstr ""
+msgstr "Suhesia"
 
 #: ../src/msec/msecgui.py:600 ../src/msec/msecgui.py:642
 msgid "Configure"
-msgstr ""
+msgstr "Konfiguratu"
 
 #: ../src/msec/msecgui.py:608
 msgid "Updates"
-msgstr ""
+msgstr "Eguneraketak"
 
 #: ../src/msec/msecgui.py:614
 msgid "Update now"
-msgstr ""
+msgstr "Eguneratu orain"
 
 #: ../src/msec/msecgui.py:621
-#, fuzzy
 msgid "Security"
-msgstr "Segurtasun egiaztapena"
+msgstr "Segurtasuna"
 
 #: ../src/msec/msecgui.py:624
 msgid "Msec is disabled"
-msgstr ""
+msgstr "Msec ezgaituta dago"
 
 #: ../src/msec/msecgui.py:627
 msgid "Msec is enabled"
-msgstr ""
+msgstr "Msec gaituta dago"
 
 #: ../src/msec/msecgui.py:628
-#, fuzzy
 msgid "Base security level: '%s'"
-msgstr "Segurtasun maila baliogabea '%s'."
+msgstr "Oinarrizko segurtasun maila: '%s'"
 
 #: ../src/msec/msecgui.py:636
 msgid "Custom settings: %d"
-msgstr ""
+msgstr "Ezarpen pertsonalizatuak: %d"
 
 #: ../src/msec/msecgui.py:657
 msgid "Never"
-msgstr ""
+msgstr "Inoiz ez"
 
 #: ../src/msec/msecgui.py:658
 msgid "Check: %s. Last run: %s"
-msgstr ""
+msgstr "Egiaztapena: %s. Azken exec: %s"
 
 #: ../src/msec/msecgui.py:663
 msgid "Show results"
-msgstr ""
+msgstr "Erakutsi emaitzak"
 
 #: ../src/msec/msecgui.py:669
 msgid "Run now"
-msgstr ""
+msgstr "Exekutatu orain"
 
 #: ../src/msec/msecgui.py:690
-#, fuzzy
 msgid "Unable to read log file: %s"
-msgstr "Ezin da konfiguraketa gorde!"
+msgstr "Ezin egunkari fitxategia irakurri: %s"
 
 #: ../src/msec/msecgui.py:691
-#, fuzzy
 msgid "Periodic check results"
-msgstr "Aldizkako egiaztapenak"
+msgstr "Aldizkako egiaztapenen emaitzak"
 
 #: ../src/msec/msecgui.py:723
 msgid ""
 "Do you want to run the <b>%s</b> periodic check? Please note that it could "
 "take a considerable time to finish."
 msgstr ""
+"<b>%s</b> aldizkako egiaztapena exekutatu nahi duzu? Jakizu luze jo dezakela."
 
 #: ../src/msec/msecgui.py:731 ../src/msec/msecgui.py:739
 msgid "Please wait, running checks..."
-msgstr ""
+msgstr "Itxoin mesedez, egiaztapena exekutatzen..."
 
 #: ../src/msec/msecgui.py:742
 msgid "Please wait, this might take a few minutes."
-msgstr ""
+msgstr "Itxoin mesedez, minutu batzuk behar ditzake."
 
 #: ../src/msec/msecgui.py:771
 msgid "Periodic check was executed successfully!"
-msgstr ""
+msgstr "Aldizkako egiaztapena ondo burutu da!"
 
 #: ../src/msec/msecgui.py:774
 msgid "An error occurred while running periodic check."
-msgstr ""
+msgstr "Akats bat gertatu da aldizkako egiaztapena exekutatzerakoan."
 
 #: ../src/msec/msecgui.py:806
 msgid "Enable MSEC tool"
@@ -1006,12 +1009,11 @@ msgstr "Aukeratu oinarrizko segurtasun maila"
 
 #: ../src/msec/msecgui.py:836
 msgid "Level name"
-msgstr ""
+msgstr "Mailaren izena"
 
 #: ../src/msec/msecgui.py:892
-#, fuzzy
 msgid "Send security alerts by email to:"
-msgstr "Bidali segurtasun abisuak post@z"
+msgstr "Bidali segurtasun abisuak post@z honi:"
 
 #: ../src/msec/msecgui.py:914
 msgid "Display security alerts on desktop"
@@ -1055,7 +1057,7 @@ msgstr "Betearazi"
 
 #: ../src/msec/msecgui.py:1266
 msgid "Acl"
-msgstr ""
+msgstr "Acl"
 
 #: ../src/msec/msecgui.py:1419
 msgid "Editing exception"
@@ -1090,9 +1092,8 @@ msgid "Adding new permission check"
 msgstr "Baimen egiaztapen berria eransten"
 
 #: ../src/msec/msecgui.py:1509
-#, fuzzy
 msgid "Changing permissions on <b>%s</b>"
-msgstr "%s-rentzako baimenak aldatzen"
+msgstr "<b>%s</b>-ren baimenak aldatzen"
 
 #: ../src/msec/msecgui.py:1509
 msgid "new file"
@@ -1103,26 +1104,24 @@ msgid "File: "
 msgstr "Fitxategia:"
 
 #: ../src/msec/msecgui.py:1530
-#, fuzzy
 msgid ""
 "Please specify new file owner and permissions, or use 'current' to keep "
 "current settings."
 msgstr ""
-"<b>%s</b>-(e)n baimenak aldatzen\n"
-"Mesedez hautatu baimen berriak, edo erabili 'unekoa' uneko baimenak "
-"mantentzeko.\n"
+"Mesedez zehaztu fitxategiaren jabe berria eta baimenak, edo erabili "
+"'unekoa' uneko baimenak mantentzeko."
 
 #: ../src/msec/msecgui.py:1537
 msgid "User: "
-msgstr "Erabiltzailea:"
+msgstr "Erabiltzailea: "
 
 #: ../src/msec/msecgui.py:1548
 msgid "Group: "
-msgstr "Taldea:"
+msgstr "Taldea: "
 
 #: ../src/msec/msecgui.py:1559
 msgid "Permissions: "
-msgstr "Baimenak:"
+msgstr "Baimenak: "
 
 #: ../src/msec/msecgui.py:1568
 msgid ""
@@ -1134,14 +1133,13 @@ msgstr ""
 
 #: ../src/msec/msecgui.py:1575
 msgid "ACL: "
-msgstr ""
+msgstr "ACL: "
 
 #: ../src/msec/msecgui.py:1642
 msgid "Select new value for %s"
 msgstr "Hautatu %s-rentzako balio berria"
 
 #: ../src/msec/msecgui.py:1651
-#, fuzzy
 msgid ""
 "<i>%s</i>\n"
 "\n"
@@ -1151,8 +1149,7 @@ msgstr ""
 "<i>%s</i>\n"
 "\n"
 "\tUneko balioa:\t\t\t<i>%s</i>\n"
-"\t%sMaila arrunteko balioa:\t<i>%s</i>%s\n"
-"\t%sMaila seguruaren balioa:\t\t<i>%s</i>%s\n"
+"\t%sMailaren balio lehenetsia:\t<i>%s</i>%s\n"
 
 #: ../src/msec/msecgui.py:1661
 msgid "New value:"
@@ -1313,19 +1310,16 @@ msgid "Disabling all services"
 msgstr "Zerbitzu guztiak ezgaitu"
 
 #: ../src/msec/plugins/msec.py:471
-#, fuzzy
 msgid "Disabling non local services"
-msgstr "Eskaner lokalak partekatzea"
+msgstr "Bertakoak ez diren zerbitzuak ezgaitzen"
 
 #: ../src/msec/plugins/msec.py:483
-#, fuzzy
 msgid "Enabling sulogin in single user runlevel"
-msgstr "Gaitu sulogin(8) erabiltzaile bakarreko mailan."
+msgstr "Gaitu sulogin erabiltzaile bakarreko runlevel-ean"
 
 #: ../src/msec/plugins/msec.py:487
-#, fuzzy
 msgid "Disabling sulogin in single user runlevel"
-msgstr "Gaitu sulogin(8) erabiltzaile bakarreko mailan."
+msgstr "Ezgaitu sulogin erabiltzaile bakarreko runlevel-ean"
 
 #: ../src/msec/plugins/msec.py:498
 msgid "Enabling msec periodic runs"
@@ -1345,15 +1339,15 @@ msgstr "Ezgaitu crontab eta at"
 
 #: ../src/msec/plugins/msec.py:534
 msgid "Allowing export display from root"
-msgstr ""
+msgstr "Baimendu root-aen bistaratzea esportatzea"
 
 #: ../src/msec/plugins/msec.py:538
 msgid "Forbidding export display from root"
-msgstr ""
+msgstr "Debekatu root-aen bistaratzea esportatzea"
 
 #: ../src/msec/plugins/msec.py:564
 msgid "Allowing direct root login"
-msgstr "Onartu root gisa zuzenean saio hastea"
+msgstr "Baimendu root gisa zuzenean saio hastea"
 
 #: ../src/msec/plugins/msec.py:581
 msgid "Forbidding direct root login"
@@ -1369,11 +1363,11 @@ msgstr "Aldiuneko fitxategientzako kokapen segurua ez erabiltzen"
 
 #: ../src/msec/plugins/msec.py:625
 msgid "Allowing including current directory in path"
-msgstr ""
+msgstr "Baimendu uneko direktorioa PATHean eranstea"
 
 #: ../src/msec/plugins/msec.py:628
 msgid "Not allowing including current directory in path"
-msgstr ""
+msgstr "Ez baimendu uneko direktorioa PATHean eranstea"
 
 #: ../src/msec/plugins/network.py:134
 msgid "Allowing remote root login"
@@ -1388,14 +1382,12 @@ msgid "Allowing remote root login only by passphrase"
 msgstr "Baimendu urrunetik root gisa saioa hastea soilik pasaesaldiarekin"
 
 #: ../src/msec/plugins/network.py:175
-#, fuzzy
 msgid "Enabling name resolution spoofing protection"
-msgstr "Izen-ebazpenaren iruzurren babesa"
+msgstr "Gaitu izen ebazpenaren iruzurren babesa"
 
 #: ../src/msec/plugins/network.py:180
-#, fuzzy
 msgid "Disabling name resolution spoofing protection"
-msgstr "Izen-ebazpenaren iruzurren babesa"
+msgstr "Ezgaitu izen ebazpenaren iruzurren babesa"
 
 #: ../src/msec/plugins/pam.py:68
 msgid "Using password to authenticate users"

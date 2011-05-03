@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-30 09:51+BRT\n"
-"PO-Revision-Date: 2011-04-28 20:47+0100\n"
+"PO-Revision-Date: 2011-05-03 06:13+0100\n"
 "Last-Translator: Zé <ze@mandriva.org>\n"
 "Language-Team: Portuguese <>\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgstr "Desactivado"
 
 #: ../src/msec/config.py:211 ../src/msec/config.py:423
 msgid "Unable to load configuration file %s: %s"
-msgstr "Incapaz de carregar o ficheiro de configuração %s: %s"
+msgstr "Não é possível carregar o ficheiro de configuração %s: %s"
 
 #: ../src/msec/config.py:225 ../src/msec/config.py:334
 #: ../src/msec/config.py:442
@@ -57,7 +57,7 @@ msgstr "Opção de configuração inválida: %s"
 #: ../src/msec/config.py:260 ../src/msec/config.py:373
 #: ../src/msec/config.py:468
 msgid "Unable to save %s: %s"
-msgstr "Incapaz de gravar %s: %s"
+msgstr "Não é possível gravar %s: %s"
 
 #: ../src/msec/config.py:319
 msgid "loading exceptions file %s: %s"
@@ -588,7 +588,7 @@ msgstr "nome do grupo não encontrado para o id %d"
 #: ../src/msec/libmsec.py:832
 msgid "Unable to check /proc/mounts. Assuming all file systems are local."
 msgstr ""
-"Incapaz de verificar /proc/mounts. A assumir que todo os sistemas de "
+"Não é possível verificar /proc/mounts. A assumir que todo os sistemas de "
 "ficheiros são locais."
 
 #: ../src/msec/libmsec.py:871
@@ -633,7 +633,7 @@ msgstr "A reforçar acl em %s"
 
 #: ../src/msec/libmsec.py:915
 msgid "Unable to add filesystem-specific ACL %s to %s"
-msgstr "Incapaz de adicionar os ficheiros ACL específicos  %s para %s"
+msgstr "Não é possível adicionar os ficheiros ACL específicos  %s para %s"
 
 #: ../src/msec/libmsec.py:917
 msgid "Error changing acl on %s: %s"
@@ -689,11 +689,11 @@ msgstr "A gravar permissões do ficheiro para o nível '%s'."
 
 #: ../src/msec/msec.py:192 ../src/msec/msecperms.py:166
 msgid "Unable to save config!"
-msgstr "Incapaz de gravar a configuração!"
+msgstr "Não é possível gravar a configuração!"
 
 #: ../src/msec/msec.py:194
 msgid "Unable to save file system permissions!"
-msgstr "Incapaz de gravar as permissões do ficheiro do sistema|"
+msgstr "Não é possível gravar as permissões do ficheiro do sistema!"
 
 #: ../src/msec/msecgui.py:55
 msgid ""
@@ -835,14 +835,13 @@ msgid ""
 "changing them to the specified values when a change is detected.  "
 msgstr ""
 "<big><b>Permissões de ficheiros</b></big>\n"
-"Estas opções permitem ajustar bem as permissões do sistema para ficheiros\n"
-"importantes e directórios. As seguintes permissões são verificadas "
-"periodicamente,\n"
-"e qualquer alteração do dono, grupo, ou a permissão actual é reportado. As "
-"permissões\n"
-"podem ser reforçadas, quando uma alteração é detectada as permissões são "
-"alteradas\n"
-"automaticamente para os valores indicados."
+"Estas opções permitem ajustar bem as permissões do sistema para ficheiros"
+"importantes e directórios.\n"
+"As seguintes permissões são verificadas periodicamente, e qualquer alteração "
+"do dono, grupo, ou das\n"
+"permissão actuais, é reportado. As permissões podem ser reforçadas, são "
+"automaticamente modificadas\n"
+"para os valores especificados quando se detecta uma alteração."
 
 #: ../src/msec/msecgui.py:103
 msgid "Save and apply new configuration?"
@@ -850,11 +849,11 @@ msgstr "Gravar e aplicar nova configuração?"
 
 #: ../src/msec/msecgui.py:154
 msgid "Unable to load configuration for level '%s'"
-msgstr "Incapaz de carregar a configuração para o nível '%s'"
+msgstr "Não é possível carregar a configuração para o nível '%s'"
 
 #: ../src/msec/msecgui.py:160
 msgid "Unable to load permissions for level '%s'"
-msgstr "Incapaz de carregar permissões para o nível '%s'"
+msgstr "Não é possível carregar permissões para o nível '%s'"
 
 #: ../src/msec/msecgui.py:193
 msgid "_File"
@@ -1050,7 +1049,7 @@ msgstr "Correr agora"
 
 #: ../src/msec/msecgui.py:690
 msgid "Unable to read log file: %s"
-msgstr "Incapaz de ler o ficheiro de registos: %s"
+msgstr "Não é possível ler o ficheiro de registos: %s"
 
 #: ../src/msec/msecgui.py:691
 msgid "Periodic check results"

@@ -48,7 +48,7 @@ fi
 # integrity of installed packages
 if check_is_enabled "${CHECK_RPM_INTEGRITY}" ; then
     rm -f ${RPM_VA_TODAY}.tmp
-    nice --adjustment=+19 rpm -Va --noscripts | grep '^..5' | sort > ${RPM_VA_TODAY}.tmp
+    nice --adjustment=+19 rpm -Va | grep '^..5' | sort > ${RPM_VA_TODAY}.tmp
     Filter ${RPM_VA_TODAY} CHECK_RPM_INTEGRITY
     grep -v '^..........c.'  ${RPM_VA_TODAY}.tmp | sed 's/^............//' | sort > ${RPM_VA_TODAY}
     grep '^..........c.'  ${RPM_VA_TODAY}.tmp | sed 's/^............//' | sort > ${RPM_VA_CONFIG_TODAY}
